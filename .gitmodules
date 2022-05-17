@@ -1,0 +1,4 @@
+[submodule "2022-nih-compcore"]
+	path = 2022-nih-compcore
+	url = ./2022-nih-compcore
+	datalad-id = 046e58e7-fe8e-4a8d-bd01-29b1ae01d682
