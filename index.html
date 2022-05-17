@@ -146,7 +146,7 @@
   <section>
 	<div class="r-stack">
 	  <img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
-	  <!-- TODO update this compliation! prepend with proper Ack-->
+	  <!-- TODO update this compilation! prepend with proper Ack-->
 	  <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/>
 	  <img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/>
 	  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
@@ -157,6 +157,132 @@
 
 </section>
 
+<section>
+	<section data-markdown>
+	  <textarea data-template>
+## Integration
+- Levels (or domains) of integration
+  - Methods/Analytics
+  - Data modalities
+  - Software Systems
+  - Services
+  - Social
+- Role of standardization
+- Facilitation vs competition
+- Openness and freedom
+	  </textarea>
+	</section>
+
+	<section>
+	  <img style="width:2000px" data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	</section>
+
+	<section data-markdown>
+	  <textarea data-template>
+		## PyMVPA: Integration of Methods/Modalities
+
+		- **1st open source machine learning (ML) toolkit for neuroimaging data**
+		- Unified data structure (Dataset) for analysis of
+			- channel data (EEG/MEG)
+			- volumetric data (nibabel)
+			- surface data (based on AFNI)
+			- sample/feature attributes (conditions/coordinates)
+		- Unified (reversible) Mapper/Learner concepts:
+			- Dimensionality reduction: masking, SVD, etc.
+			- Searchlight-ing & <a href="http://www.franciscopereira.org/searchmight/">Searchmight-ing</a>
+			- <a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignments</a>
+		- Unified interfaces to external libraries
+			- libsvm
+			- shogun
+			- MDP
+			- scikit-learn
+			- R libraries (via RPy2)
+	  </textarea>
+	</section>
+
+	<section>
+	  <div class="r-stack">
+		<img style="width:1000px" data-src="pics/pymvpa-classification.png"/>
+		<img class="fragment" style="width:1000px" data-src="pics/pymvpa-searchlight-step.png"/>
+		<img class="fragment" style="width:1000px" data-src="pics/pymvpa-searchlight.png"/>
+	  </div>
+	</section>
+
+	<section>
+	  <h2>Applicable across different modalities</h2>
+	  <a href="http://dx.doi.org/10.3389/neuro.11.003.2009">
+	  <img style="width:1000px" data-src="pics/pymvpa-many-modalities.png"/></a>
+	</section>
+
+	<section>
+	  <h2>And even for integrating across modalities</h2>
+		  <h3>TRANSFusion: EEG fMRI mapping</h3>
+		  <a href="https://arxiv.org/abs/1307.2150"><img style="width:1000px" data-src="pics/pymvpa-transfusion.png"/></a>
+	</section>
+
+	<section>
+	  <h2>And others could take advantage of it:</h2>
+		  <a href=""><img style="width:1000px" data-src="pics/pymvpa-studies-20160407.png"/></a>
+	</section>
+
+	<section>
+	  <h3>Overall:</h3>
+
+	  <b>Unification of data structures and interfaces in
+		PyMVPA allowed for integration across methodologies, software
+		implementations, and data modalities</b>.
+	</section>
+
+	<section>
+	  <h3>But it brought a challenge:</h3>
+
+	  <p>"... The PyMVPA manual has a picture of a <b>dude performing pattern-classification on fMRI data with
+his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
+		then I'm set". </p>
+
+	  <img data-src="pics/pymvpa_on_phone.jpg"/>
+
+	  <div class="fragment">
+	  <p>I have a computer (MAC). <br> Hours later, I'm wrestling with MAC OS (Leopard) ...</p>
+	  </div>
+	  <div class="fragment">
+	  <p><b>PyMVPA follow up</b>: 12.5 hours to happy time</p>
+	  <p>
+	  <small>
+		<a href="http://kvaden.blogspot.com/2009/03/installing-pymvpa-on-leopard-mac-os.html">http://kvaden.blogspot.com/2009/03/installing-pymvpa-on-leopard-mac-os.html</a></small></p>
+
+	  </div>
+	</section>
+
+</section>
+
+<section>
+  <section>
+	<a href="https://neuro.debian.net">
+	  <img style="width:2000px" data-src="pics/neurodebian_logo_web_banner.png"/></a>
+	</section>
+
+  <section>
+	<h2>Solution to system integration challenge:</h2>
+	<a href="https://neuro.debian.net">
+	  <img style="width:2000px" data-src="pics/neurodebian-overview.png"/></a>
+  </section>
+
+  <section>
+	<h2>More detail on why and how:</h2>
+	<a href="">
+	  <img style="width:2000px" data-src="pics/borrowed/HH12-webshot-20130331.png"/></a>
+	<small>
+	  <br>
+	  <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full">
+		Halchenko, Y. O. and Hanke, M. (2012). Open is not enough. Let’s take the
+	  next step: An integrated, community-driven computing platform for
+	  neuroscience. Frontiers in Neuroinformatics, 6(00022). PMC3458431</a>
+
+	  </small>
+  </section>
+
+</section>
 
 <section>
 
