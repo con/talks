@@ -273,7 +273,7 @@ gulp.task('package', gulp.series(() =>
 
     gulp.src(
         [
-            './html/*.html',
+            './*.html',
             './reveal.js/dist/**',
             './reveal.js/lib/**',
             './reveal.js/images/**',
@@ -298,7 +298,8 @@ gulp.task('serve', () => {
         livereload: true
     })
 
-    gulp.watch(['html/*.html', '*.md'], gulp.series('reload'))
+    gulp.watch(['*.html', '*.md'], gulp.series('reload'))
+    gulp.watch(['pics/*'], gulp.series('reload'))
 
     gulp.watch(['reveal.js/js/**'], gulp.series('js', 'reload', 'eslint'))
 
