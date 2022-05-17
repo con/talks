@@ -9,6 +9,7 @@ sed -n -e '/<img/s,.*data-src="\([^"]*\)".*,\1,gp' index.html \
 					 /home/yoh/proj/experiments/nuisance/presentations/2020-NNL \
 					 /home/yoh/proj/dandi/artwork \
 					 /home/yoh/proj/pymvpa/papers \
+					 /home/yoh/proj/datalad/artwork/talks/2022-abcd \
 				 ; do
             c="$d/$p"
             if [ -e "$c" ]; then

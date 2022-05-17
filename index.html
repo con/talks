@@ -160,21 +160,107 @@
 <section>
 	<section data-markdown>
 	  <textarea data-template>
-## Integration
-- Levels (or domains) of integration
+## Integration & Trust Tiers
+
+  - Psychological/Social
+  - Data
   - Methods/Analytics
   - Data modalities
   - Software Systems
   - Services
-  - Social
-- Role of standardization
-- Facilitation vs competition
-- Openness and freedom
 	  </textarea>
+	</section>
+</section>
+
+<section>
+  <section>
+	<h1>Trust is largely a social aspect</h1>
+	<h2>How do we convince ourselves (and others) that our results are correct?</h2>
+  </section>
+
+  <section>
+	<h2>How do we convince ourselves?</h2>
+	<h3>It is hard since most of the data is DERIVED data</h3>
+	<p  style="font-size:120%">Share accountability among</p>
+	<ul style="font-size:120%">
+	  <li>3rd-party <br> (manufacturers, methods & software developers)</li>
+	  <li>data collection/QA team</li>
+	  <li>analysis team</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>3rd party?</h2>
+	  <img style="width:2000px"
+		   data-src="pics/god-is-at-the-computer.jpg"/>
+	  <br>
+	  <small>Unknown artist/origin, borrowed from <br><a href="http://blogs.quovantis.com/god-programmer/">http://blogs.quovantis.com/god-programmer/</a></small>
+  </section>
+
+  <section>
+	<h2>Nuisance study</h2>
+	<img data-src="pics/f1000-webshot-20200930.png"/>
+
+	<small>
+	  Cheng CP and Halchenko YO. A new virtue of phantom MRI data: explaining variance in human participant data [version 1]. F1000Research 2020, 9:1131 (<a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>
+	  <br><a href="http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/">http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/</a>
+	contains a more detailed presentation</small>
+  </section>
+
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+## Results a nutshell
+
+- *Somewhat surprising*:
+  - Variance in SNR through time in phantom QA data can **very well** (R2=0.53) be
+  explained by intrinsic factors (time of acquisition, SAR, position
+  in the scanner).
+- *Our hypothesis confirmed*:
+  - **A proxy measure of *MRI scanner health*, such as SNR from phantom
+  data, can explain some variance in human data results**
+
+----
+## Take home
+
+- *Conclusions*:
+  - More variance can be explained than what we thought
+- *Work could be done together with data acquisition sites to*:
+  - **increase sensitivity of MRI scanner health *deterioration***
+  - **include phantom QA data in your normative databases**
+  - **provide phantom QA metrics so they could be conveniently included
+in the human studies QA/analyses**
+  - **improve automated screening/QA of human participants data**
+  </textarea></section>
+
+  <section>
+	<h2>How can we minimize variance from teams?</h2>
+
+	<ul>
+	  <li>provide guidelines</li>
+	  <li>minimize human IO: automate data collection/harmonization</li>
+	  <li>encourage simulations: software/data testing</li>
+	  <li>facilitate peer-review: by team not only reviewers</li>
+	  <li>facilitate provenance/accountability tracking</li>
+	  <li>facilitate reuse: user testing</li>
+	</ul>
+  </section>
+
+
+  <section>
+	<h2>Example 5-step guidelines from P41 ReproNim</h2>
+	<a href="http://5steps.repronim.org"><img data-src="pics/repronim-5steps.png"/></a>
+  </section>
+
+</section>
+
+<section>
+	<section>
+	  <img style="width:2000px" data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
 	</section>
 
 	<section>
-	  <img style="width:2000px" data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	  <h1>PyMVPA Features</h1>
+	  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2664559/">
+	  <img style="width:2000px" data-src="pics/pymvpa-features.png"/></a>
 	</section>
 
 	<section data-markdown>
@@ -228,9 +314,15 @@
 	<section>
 	  <h3>Overall:</h3>
 
-	  <b>Unification of data structures and interfaces in
+	  <ul>
+		<li>Unification of data structures and interfaces in
 		PyMVPA allowed for integration across methodologies, software
-		implementations, and data modalities</b>.
+		  implementations, and data modalities.</li>
+		<li>Explicit separation of training/testing data in
+		CrossValidation helped users to avoid double-dipping
+		regardless of the complexity of the model.</li>
+		<li>Extensive unit-, example- and documentation testing
+		improved our and user trust in obtained results.</li>
 	</section>
 
 	<section>
@@ -295,6 +387,68 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	<h2>Under-the-hood for a NeuroDebian developer:</h2>
 	<img data-src="pics/nd_overview.svg"/>
   </section>
+
+  <section>
+	  <h2>Overall:</h2>
+
+	  <h3>Integration of software projects within a distribution</h3>
+	  <ul style="font-size:120%">
+		<li>greatly reduced user&developer burden in software
+		  installations/maintenance</li>
+		<li>improved trust in correct operation</li>
+		<li>helped to ensure adherence to legal
+		  norms</li>
+		<li>facilitated collaboration, experimentation, and
+		  reproducibility.
+	  </li></ul>
+	</section>
+
+	<section>
+	  <h2>But it revealed a shortcoming:</h2>
+	  <h3>Software platforms are not designed for managing data!</h3>
+		  <ul style="font-size:120%">
+			<li>modularity is less well defined <br>
+			  (interest could be in specific group of files, videos-vs-images or humans-vs-objects, etc)</li>
+			<li>data is less volatile (lesser versions, only a few files change)</li>
+			<li>tarballs are inefficient</li>
+			<li>we cannot host copies of all data</li>
+			<li>cacophony of authentication schemes, interfaces, protocols</li>
+			<li>difficulty to share new or derived data</li>
+		  </ul>
+	</section>
+</section>
+
+<section>
+  <section>
+	<a href="https://datalad.org">
+	  <img style="height:400px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:200px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	  </p>
+  </section>
+
+  <section data-transition="slide">
+	<h2>DataLad in one figure</h2>
+	<img style="width:2000px" data-src="pics/datalad_process_tuned_00.png">
+  </section>
+
+  <section>
+  <h2>An example in "files":</h2>
+  <img style="" height="800px" data-src="pics/virtual_dirtree.png">
+
+  <p>For management of computing containers with DataLad, see <a href="https://github.com/datalad/datalad-container/">datalad-container</a> extension, and <a href="https://github.com/ReproNim/containers/">ReproNim/containers</a> DataLad dataset.</p>
+</section>
+
+<section>
+  <h2>Meet one of the "largest" Git "repositories"</h2>
+  <img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+  <p>over 6,000 Git repositories as "subdatasets", <br>
+	with access to almost 500TB of neural data</p>
+</section>
+
 </section>
 
 <section>
