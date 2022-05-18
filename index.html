@@ -175,18 +175,20 @@
 <section>
   <section>
 	<h1>Trust is largely a social aspect</h1>
-	<h2>How do we convince ourselves (and others) that our data/software/results are correct?</h2>
+	<h2>How do we convince ourselves (and others) that our
+	  data/software/results are correct?</h2>
+	<h3>Hint: statistics is just a part of an answer</h3>
   </section>
 
   <section>
 	<h2>How do we convince ourselves?</h2>
-	<h3>It is hard since most of the data is DERIVED data</h3>
-	<p  style="font-size:120%">Share accountability among</p>
+	<h3>It is especially hard since most of the data is DERIVED data</h3>
+	<p  style="font-size:120%">We share accountability with</p>
 	<ul style="font-size:120%">
 	  <li>3rd-party: recursive definition<br> (hardware and software)</li>
 	  <li>data collection/QA team</li>
 	  <li>in-house developers&administrators team</li>
-	  <li>analysis team</li>
+	  <li>analytic/scientists team</li>
 	</ul>
   </section>
 
@@ -203,7 +205,7 @@
 	<img data-src="pics/f1000-webshot-20200930.png"/>
 
 	<small>
-	  Cheng CP and Halchenko YO. A new virtue of phantom MRI data: explaining variance in human participant data [version 1]. F1000Research 2020, 9:1131 (<a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>
+	  Cheng CP and <b>Halchenko YO.</b> A new virtue of phantom MRI data: explaining variance in human participant data [version 1]. F1000Research 2020, 9:1131 (<a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>
 	  <br><a href="http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/">http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/</a>
 	contains a more detailed presentation</small>
   </section>
@@ -233,21 +235,31 @@ in the human studies QA/analyses**
   </textarea></section>
 
   <section>
-	<h2>How can we minimize variance from teams?</h2>
+	<h2>How can we minimize variance from the teams?</h2>
 
-	<ul>
-	  <li>minimize human IO: automate data collection/harmonization</li>
-	  <li>encourage simulations: software/data testing</li>
+	<ul style="font-size: 120%">
+	  <li>minimize human IO:
+		<ul  style="font-size: 80%">
+		  <li>automate data collection/harmonization - minimize human factor</li>
+		  <li>strive to collect more auxiliary (meta)data - might be
+		  "the variance"</li>
+		  <li>standardize processing pipelines - minimize parametrization</li>
+		  <li>provide efficient overviews/summaries - avoid "black box"</li>
+		</ul>
+	  </li>
+	  <li>encourage (and automate) simulations: software/data testing</li>
+	  <li>encourage (and code-in) assertions: assumptions checking</li>
 	  <li>facilitate peer-review: by team not only reviewers</li>
 	  <li>facilitate provenance/accountability tracking</li>
 	  <li>facilitate reuse: user testing</li>
-	  <li>provide guidelines</li>
+	  <li>to wrap it all up: provide high-level guidelines</li>
 	</ul>
   </section>
 
 
   <section>
 	<h2>Example 5-step guidelines from P41 ReproNim</h2>
+	<h3>Reproducible by Design</h3>
 	<a href="http://5steps.repronim.org"><img data-src="pics/repronim-5steps.png"/></a>
   </section>
 
@@ -265,7 +277,7 @@ in the human studies QA/analyses**
 	<br><br><small>
 	  <a href="https://onlinelibrary.wiley.com/doi/10.1002/hbm.25351">
  E. Bannier, G. Barker, V. Borghesani, N. Broeckx, P. Clement, K. E. Emblem, S. Ghosh, E. Glerean, K. J.
-Gorgolewski, M. Havu, Y. O. Halchenko, P. Herholz, A. Hespel, S. Heunis, Y. Hu, C.-P. Hu, D. Huijser,
+Gorgolewski, M. Havu, <b>Y. O. Halchenko</b>, P. Herholz, A. Hespel, S. Heunis, Y. Hu, C.-P. Hu, D. Huijser,
 M. I. Vayá, R. Jancalek, V. K. Katsaros, M.-L. Kieseler, C. Maumet, C. A. Moreau, H.-J. Mutsaerts,
 R. Oostenveld, E. Ozturk-Isik, N. P. L. Espinosa, J. Pellman, C. R. Pernet, F. B. Pizzini, A. Š. Trbalić, P.-J.
 Toussaint, M. V. di Oleggio Castello, F. Wang, C. Wang, and H. Zhu. The Open Brain Consent: Informing
@@ -311,7 +323,7 @@ doi: 10.1002/hbm.25351
 	  <small>
 		<a href="https://www.nature.com/articles/sdata201644">
 		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
-E. P., Flandin, G., Ghosh, S. S., Glatard, T., Halchenko, Y. O., Handwerker,
+E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
 D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
 Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
 Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (2016). The
@@ -342,13 +354,17 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 		<li>... many more benefits ...</li>
 		<li><b>Everyone in neuroimaging should be encouraged to
 			collect/operate on data in BIDS format!</b></li>
+		<li><b>NIH intramural program would benefit from participation
+		and even steering in the development of community-driven
+		standards</b></li>
 	  </ul>
 	</section>
 
 	<section>
 	  <h3>Challenge: conversion of data into BIDS could be painful</h3>
 	</section>
-
+</section>
+<section>
 	<section>
 	  <h2>ReproIn</h2>
 	  <img style="width:500px"
@@ -390,7 +406,54 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 	  automation and early validation increases trust in correctness
 		of raw neuroimaging data!</b></p>
 	</section>
+
+	<section>
+	  <h2>ReproIn and Beyond</h2>
+	  <ul  style="font-size: 110%">
+		<li><a href="https://github.com/ReproNim/reprostim/">ReproStim</a>
+		(prototype deployed
+			  at <a href="https://www.dartmouth.edu/dbic">DBIC</a>):<br>
+		automate recording of <b>ALL</b> audio-video stimuli as
+		presented to participants:
+		  <ul  style="font-size: 80%">
+			<li>transparent to experimenter audio/video grabber</li>
+			<li>will automatically "slice" recordings into BIDS
+		  datasets</li>
+			<li>near exact re-executability of any audio/video stimuli</li>
+			<li>imagine all of your neuroimaging data usable for
+			forward modeling/AI</li>
+			<li>already helped to recover randomization order for a
+			  session</li>
+		  </ul>
+		<li>ReproEvents (WiP): automate collection of events
+		  <ul   style="font-size: 80%">
+			<li>transparent to experimenter USB grabber</li>
+			<li>automatically populate BIDS _events.tsv files</li>
+			<li>enriched with support in stimuli software to provide
+			HED tags</li>
+		  </ul>
+		</li>
+		<li><a href="https://github.com/con/noisseur">con/noisseur</a>
+		(Concept): automate verification of entered/displayed
+		information</li>
+	  </ul>
+
+	  <p><b>Automated (comes for free, trusted) collection of auxiliary data
+	  types to make collected data more useful for others to
+	  re-use.</b></p>
+
+	  <note   style="font-size: 80%">
+	  <p>More on automation of data collection in webinar <br> "Reproducible Execution of Data
+	  Collection/Processing". <br><a href="http://datasets.datalad.org/repronim/artwork/talks/webinar-2020-reprocomp/#/">Slides</a>
+	  and <a href="https://youtu.be/dwBtrpI2iS0">Video</a> accessible from <a href="https://www.repronim.org/webinar-series.html">https://www.repronim.org/webinar-series.html</a>.
+	  </p>
+	  </note>
+	  
+	</section>
+
 </section>
+
+
 
 <section>
   <section>
@@ -405,7 +468,7 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 	  <br>
 	  <small>
 		<a href="http://dx.doi.org/10.1007/s12021-008-9041-y">
-		   M. Hanke, Y. O. Halchenko, P. B. Sederberg, S. J. Hanson, J. V. Haxby, and S. Pollmann. PyMVPA:
+		   M. Hanke, <b>Y. O. Halchenko</b>, P. B. Sederberg, S. J. Hanson, J. V. Haxby, and S. Pollmann. PyMVPA:
 A Python toolbox for multivariate pattern analysis of fMRI data. Neuroinformatics, 7:37–53, 2009a.
 		   doi: 10.1007/s12021-008-9041-y</a></small>
 	</section>
@@ -468,28 +531,35 @@ A Python toolbox for multivariate pattern analysis of fMRI data. Neuroinformatic
 	  <h3>Overall:</h3>
 
 	  <ul>
-		<li>Unification of data structures and interfaces in
-		PyMVPA allowed for integration across methodologies, software
-		  implementations, and data modalities.</li>
-		<li>Explicit separation of training/testing data in
-		CrossValidation helped users to avoid double-dipping
-		regardless of the complexity of the model.</li>
+		<li>Unification of structures and interfaces allowed for
+		  integration across methodologies, software implementations,
+		  and data modalities</li>
+		<li>Explicit constructs (such as CrossValidation) helped users
+		to avoid double-dipping regardless of the model complexity</li>
 		<li><b>Very extensive</b> unit-, example- and documentation testing
 		  improved our and user trust in obtained results</li>
+		<li>Traveling trainer workshops (akin to AFNI schools)
+		  facilitated training, adoption, and thus "user-testing"</li>
 		<li>Integration and re-use (instead of re-implementation) of
 		external functionality
-		  <ul>
+		  <ul   style="font-size: 90%">
 			<li>made PyMVPA project feasible on a "low-budget" of two
 			Ph.D. students</li>
 			<li>benefited those projects through the flow of
 			fixes upstream (nibabel, MDP, scikit-learn, scipy,
 			  etc) and necessity for us to maintain them in good shape
-			in Debian GNU/Linux.</li>
+			  in Debian GNU/Linux</li>
+			<li>adoption of OpenfMRI layout (precursor to BIDS)
+			made it possible to create generalizable analysis pipelines</li>
 			</ul>
 		</li>
-		
-		<li>Traveling trainer workshops (akin to AFNI schools)
-		facilitated training, adoption, and thus "user-testing".</li>
+<!-- TODO: add some message, something about joining analytics +
+		standards + pipelining -->
+		<li><b>It is efficient to offload modality/methodology
+		specifics to existing solutions, and powered by standards
+		establish a reusable automated (minimal user input) and
+		trustworthy analysis pipelines.</b></li>
+	  </ul>
 	</section>
 
 	<section>
@@ -522,7 +592,7 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 		   data-src="pics/neurodebian_logo_web_banner.png"/></a>
 	<br><small>
 	  <a href="http://dx.doi.org/10.3389/fninf.2012.00022">
-		 Y. O. Halchenko† and M. Hanke†. Open is not enough. let’s take the next step: An integrated, community-driven computing platform for neuroscience. Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fn-inf.2012.00022
+		 <b>Y. O. Halchenko</b>† and M. Hanke†. Open is not enough. let’s take the next step: An integrated, community-driven computing platform for neuroscience. Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fn-inf.2012.00022
 
 	</a></small>
 	</section>
@@ -540,7 +610,7 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	<small>
 	  <br>
 	  <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full">
-		Halchenko, Y. O. and Hanke, M. (2012). Open is not enough. Let’s take the
+		<b>Halchenko, Y. O.</b> and Hanke, M. (2012). Open is not enough. Let’s take the
 	  next step: An integrated, community-driven computing platform for
 	  neuroscience. Frontiers in Neuroinformatics, 6(00022). PMC3458431</a>
 	  </small>
@@ -565,7 +635,7 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	  <h2>Overall:</h2>
 
 	  <h3>Integration of software projects within a distribution</h3>
-	  <ul style="font-size:120%">
+	  <ul style="font-size:110%">
 		<li>greatly reduced user&developer burden in software
 		  installations/maintenance</li>
 		<li>improved trust in correct operation</li>
@@ -577,8 +647,12 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 		<li>helped to ensure adherence to legal
 		  norms</li>
 		<li>facilitated collaboration, archival, experimentation, and
-		  reproducibility.
-	  </li></ul>
+		  reproducibility</li>
+		<li><b>Seek inclusion of your developed software into FOSS
+			Distributions to maximize benefits and share burden and
+			accountability</b></li>
+		<li><b>Containerization then "comes for free"</b></li>
+	  </ul>
 	</section>
 
 	<section>
@@ -606,7 +680,7 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	  easy as managing code and software!
 	</p>
 	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
-		Y. Halchenko, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
 S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
 Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
 R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
@@ -621,13 +695,6 @@ doi: 10.21105/joss.03262
   </section>
 
   <section>
-  <h2>An example in "files":</h2>
-  <img style="" height="800px" data-src="pics/virtual_dirtree.png">
-
-  <p>For management of computing containers with DataLad, see <a href="https://github.com/datalad/datalad-container/">datalad-container</a> extension, and <a href="https://github.com/ReproNim/containers/">ReproNim/containers</a> DataLad dataset.</p>
-  </section>
-
-  <section>
 	<h2>Meet one of the "largest" Git "repositories"</h2>
 	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
 
@@ -635,6 +702,14 @@ doi: 10.21105/joss.03262
 	  with access to almost 500TB of neural data</p>
   </section>
 
+  <section>
+  <h2>An example in "files":</h2>
+  <img style="" height="800px" data-src="pics/virtual_dirtree.png">
+
+  <p>For management of computing containers with DataLad, see <a href="https://github.com/datalad/datalad-container/">datalad-container</a> extension, and <a href="https://github.com/ReproNim/containers/">ReproNim/containers</a> DataLad dataset.</p>
+  </section>
+
+  <!-- TODO: YODA slide -->
   <section>
     <h2>Data provenance capture</h2>
     <img style="" data-src="pics/datalad_process_tuned/run_preview.png">
@@ -767,7 +842,7 @@ action summary:
         </li>
     </ul>
 
-    <note>
+    <note style="font-size:80%">
       <a href="http://handbook.datalad.org/en/latest/extension_pkgs.html">http://handbook.datalad.org/en/latest/extension_pkgs.html</a> - canonical list in handbook
       <a href="http://docs.datalad.org/en/latest/customization.html#extension-packages">http://docs.datalad.org/en/latest/customization.html#extension-packages</a> - devel docs<br/>
       <a href="https://github.com/datalad/datalad-extensions/">https://github.com/datalad/datalad-extensions/</a> - health status<br/>
