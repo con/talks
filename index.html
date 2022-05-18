@@ -67,12 +67,11 @@
   <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore/">https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore/#/</a>
 <br>
 <small>
-  <!-- TODO: put them in order of presentation -->
-
   <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
   <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
 
   <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a>
 	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
 
 	 <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
@@ -175,7 +174,7 @@
 <h2> Integration & Trust Tiers</h2>
 
 <ul style="font-size:120%">
-  <li> Social <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/OBC_LogoCheck.svg"/><img style="height:2.5em;margin:0;" data-src="pics/repronim-logo-vertical.svg"/></span></li>
+  <li> Social <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"><img style="height:2.5em;margin:0;" data-src="pics/repronim-logo-vertical.svg"/><img style="height:2.5em;margin:0;" data-src="pics/OBC_LogoCheck.svg"/></span></li>
   <li> Data acquisition <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/borrowed/reproin-logo.jpg"/></span></li>
   <li> Methods/Analytics  <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/pymvpa_icon.png"/></span> </li>
   <li> Software systems <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/neurodebian_logo.svg"/></span> </li>
@@ -1049,14 +1048,20 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 -->
 
   <section>
-	<h2>How do we ensure correct operation</h2>
-	<h3>We automate as much as possible</h3>
-	<ul>
-	  <li>Unit- and integration- testing between components</li>
+	<h2>How do we ensure correct operation?</h2>
+	<h3>Collaborate and automate!</h3>
+	<ul style="font-size:120%">
+	  <li>Delegate data validation to standards</li>
+	  <ul><li>work with standards developers/communities</li></ul>
+	  <li>Impose additional requirements through harmonized schema</li>
+	  <li>Unit- and integration- test software components</li>
 	  <ul>
-		<li>An entire archive can be instantiated on any machine with docker-compose</li>
+		<li>an entire archive can be instantiated on any machine with docker-compose</li>
 	  </ul>
 	  <li>Dandisets are converted/updated into DataLad datasets and pushed to GitHub</li>
+	  <ul>
+		<li>data resides on S3 (and some institutional backups)</li>
+	  </ul>
 	  <li>Releases and deployment of the components are automated on GitHub</li>
 	</ul>
   </section>
@@ -1069,12 +1074,14 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 
   <section>
 	<h2>Overall</h2>
-	<ul>
-	  <li>Input from the users/community drives the standards</li>
+	<ul style="font-size:120%">
+	  <li>Input from the users/community should drive the standards,
+		<br> not the other way around</li>
 	  <li>Standards can and should be improved to accommodate <br>new
 		data types and account for new scales of data</li>
 	  <li>Ability to deploy an entire complex
 		infrastructure <br>enables testing and safe experimentation</li>
+	  <li style="font-size:80%">Seems obvious? Check other archives...</li>
 <!--	  <li>It is important for an archive to provide a wide range of
 	  data access schemes (API, browser, command line client, Python
 	  library, DataLad, ROS3, ...)</li>-->
@@ -1082,6 +1089,34 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 
 </section>
 
+<section>
+  <h2>After
+	<span style="vertical-align:middle;">
+  <a href="http://repronim.org" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/BIDS_Logo.png"/></a> -->
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/neurodebian.png"/></a>
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/dandi-logo-square.svg"/></a></span> math:
+  </h2>
+  <H3>Neuroscience is a better science!</H3>
+  <ul style="font-size:120%">
+	<li>More open</li>
+	<li>More reproducible</li>
+	<li>More efficient</li>
+	<li>More collaborative</li>
+	<li>More trustworthy</li>
+  </ul>
+</section>
+
+<section>
+  <H1>Thank you!</H1>
+</section>
 
 <!-- End of slides -->
 
@@ -1118,7 +1153,7 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 				pdfSeparateFragments: false,
 				pdfMaxPagesPerSlide: 1,
 				pdfPageHeightOffset: -1,
-				transition: 'fade', // none/fade/slide/convex/concave/zoom
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
