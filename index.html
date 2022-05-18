@@ -625,14 +625,154 @@ doi: 10.21105/joss.03262
   <img style="" height="800px" data-src="pics/virtual_dirtree.png">
 
   <p>For management of computing containers with DataLad, see <a href="https://github.com/datalad/datalad-container/">datalad-container</a> extension, and <a href="https://github.com/ReproNim/containers/">ReproNim/containers</a> DataLad dataset.</p>
+  </section>
+
+  <section>
+	<h2>Meet one of the "largest" Git "repositories"</h2>
+	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+	<p>over 6,000 Git repositories as "subdatasets", <br>
+	  with access to almost 500TB of neural data</p>
+  </section>
+
+  <section>
+    <h2>Data provenance capture</h2>
+    <img style="" data-src="pics/datalad_process_tuned/run_preview.png">
+  </section>
+
+  <section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li>Datasets can capture dataset <b>transformations</b> and their <b>cause</b> in order
+            to track the entire evolution and lineage of files in datasets</li>
+            </ul>
+        <img src="pics/w3cprov.png" width="700">
+        <ul>
+        <li>"How did this file came to be?",
+            "What steps were undertaken to transform the raw data into the published result?",
+            "Can you recompute this for me?"
+        </li>
+            </ul>
+  </section>
+
+  <section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li><b>Basic provenance</b>: DataLad can capture arbitrary dataset
+            transformations (e.g., from computing analysis results) and record
+            the cause of such a change
+        </li>
+            <pre><code class="bash" style="max-height:none">$ datalad run -m "Perform eye movement event detection"\
+  --input 'raw_data/*.tsv.gz' --output 'sub-*' \
+  bash code/compute_all.sh
+
+-- Git commit -- Michael Hanke < ... @gmail.com>; Fri Sep 21 22:00:47 2019
+    [DATALAD RUNCMD] Perform eye movement event detection
+    === Do not change lines below ===
+    {
+     "cmd": "bash code/compute_all.sh",
+     "dsid": "d2b4b72a-7c13-11e7-9f1f-a0369f7c647e",
+     "exit": 0,
+     "inputs": ["raw_data/*.tsv.gz"],
+     "outputs": ["sub-*"],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/sub-01_task-movie_run-1_events.png | 2 +-
+ sub-01/sub-01_task-movie_run-1_events.tsv | 2 +-
+...</code></pre>
+    </ul>
+</section>
+
+<section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li><b>Computational provenance</b>: Datasets can track <b>software containers</b> (see <a href="https://github.com/datalad/datalad-container/">datalad-container</a>),
+            and perform and record computations inside it:
+        </li>
+            <pre><code class="bash" style="max-height:none">$ datalad containers-run -n neuroimaging-container \
+  --input 'mri/*_bold.nii --output 'sub-*/LC_timeseries_run-*.csv' \
+  "bash -c 'for sub in sub-*; do for run in run-1 ... run-8;
+     do python3 code/extract_lc_timeseries.py \$sub \$run; done; done'"
+
+-- Git commit -- Michael Hanke < ... @gmail.com>; Fri Jul 6 11:02:28 2019
+    [DATALAD RUNCMD] singularity exec --bind {pwd} .datalad/e...
+    === Do not change lines below ===
+    {
+     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
+     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
+     "inputs": [
+      "mri/*.bold.nii.gz",
+      ".datalad/environments/nilearn.simg"
+     ],
+     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
+     ...
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/LC_timeseries_run-1.csv | 1 +
+...</code></pre>
+    </ul>
+</section>
+
+<section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+         <li>All recorded transformations can be re-computed automatically</li>
+            <pre><code class="bash" style="max-height:none">$ datalad rerun eee1356bb7e8f921174e404c6df6aadcc1f158f0
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+add(ok): sub-01/LC_timeseries_run-1.csv (file)
+...
+save(ok): . (dataset)
+action summary:
+  add (ok: 45)
+  save (notneeded: 45, ok: 1)
+  unlock (notneeded: 45)
+...</code></pre>
+
+    <ul>
+        <li>Aid with the reproducibility of a result and verify it (via content hash)</li>
+        <li>Use complete capture and automatic re-computation as alternative to storage and transport</li>
+</li></li>
+    </ul>
+
+    </ul>
 </section>
 
 <section>
-  <h2>Meet one of the "largest" Git "repositories"</h2>
-  <img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+  <section>
+    <h2>Extend DataLad</h2>
 
-  <p>over 6,000 Git repositories as "subdatasets", <br>
-	with access to almost 500TB of neural data</p>
+    <p style="margin-top:1em;text-align:left">Besides DataLad "core", there are extensions:
+    <ul>
+        <li>Separate Python packages, anybody can develop their own</li>
+        <li>Support for tailored solutions</li>
+        <li>Can provide additional commands, procedures, metadata extractors,
+            ...</li>
+        <li>Available extensions
+            <ul>
+                <!-- <li><strong><a href="https://github.com/psychoinformatics-de/datalad-hirni">hirni</a></strong>: imaging raw data management/entry</li> -->
+                <li><strong><a href="https://github.com/datalad/datalad-container">containers</a></strong>: support for containerized computational environments</li>
+                <li><strong><a href="https://github.com/datalad/datalad-crawler">crawler</a></strong>: track web resources in automated data distributions</li>
+                <li><strong><a href="https://github.com/datalad/datalad-neuroimaging">neuroimaging</a></strong>: neuroimaging research data and workflow</li>
+                <!-- <li><strong><a href="https://github.com/datalad/datalad-webapp">webapp</a></strong>: REST API for querying/manipulating datasets</li> -->
+                <li><strong><a href="https://github.com/datalad/datalad-fuse">fuse</a></strong>: use FSSPEC to provide sparse on-demand access to data and FUSE filesystem (on GNU/Linux)</li>
+                <li><strong><a href="https://github.com/datalad/datalad-osf">osf</a></strong>: interface with the Open Science Framework</li>
+                <li><strong><a href="https://github.com/datalad/datalad-ukbiobank">ukbiobank</a></strong>: work with the UKbiobank data</li>
+                <li><strong><a href="https://github.com/datalad/datalad-xnat">xnat</a></strong>: alternative to crawler to track XNAT projects</li>
+
+            </ul>
+        </li>
+    </ul>
+
+    <note>
+      <a href="http://handbook.datalad.org/en/latest/extension_pkgs.html">http://handbook.datalad.org/en/latest/extension_pkgs.html</a> - canonical list in handbook
+      <a href="http://docs.datalad.org/en/latest/customization.html#extension-packages">http://docs.datalad.org/en/latest/customization.html#extension-packages</a> - devel docs<br/>
+      <a href="https://github.com/datalad/datalad-extensions/">https://github.com/datalad/datalad-extensions/</a> - health status<br/>
+    </note>
+  </section>
 </section>
 
 </section>
