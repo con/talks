@@ -994,12 +994,38 @@ decentralized research data management. Neuroforum, 0(0), jan 2021. doi: 10.1515
 	<img style="height:900px" data-src="pics/dandi-slide-modalities.svg"/></a>
   </section>
 
+  <section>
+	<h2>DANDI Services and integrations</h2>
+	<img style="height:900px" data-src="pics/dandi-slide-services.svg"/></a>
+  </section>
 
   <section>
+	<h2>DANDI Standards</h2>
+	<img style="height:800px" data-src="pics/dandi-slide-standards.svg"/></a>
+	<small>
+	  <a href="https://www.frontiersin.org/articles/10.3389/fnins.2022.871228/full">
+M.-H. Bourget, L. Kamentsky, S. S. Ghosh, G. Mazzamuto, A. Lazari, C. J. Markiewicz, R. Oostenveld,
+G. Niso, <b>Y. O. Halchenko</b>, I. Lipp, S. Takerkart, P.-J. Toussaint, A. R. Khan, G. Nilsonne, F. M. Castelli,
+T. B. M. , J. Cohen-Adad, S. Appelhoff, R. Blair, E. Earl, F. Feingold, A. Galassi, R. Gau, C. J. Markiewicz,
+and T. Salo. Microscopy-BIDS: An extension to the brain imaging data structure for microscopy data.
+Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
+	  </small>
+</section>
+
+  <section>
+	<h2>DANDI Metadata schema</h2>
+	<img style="height:800px" data-src="pics/dandi-slide-schema.svg"/></a>
+  </section>
+
+<!--  <section>
 	<h2>Standards & Metadata</h2>
 
 	<ul>
-	  <li>
+	  <li>Standards</li>
+	  <ul>
+	  <li><b><a href="https://www.nwb.org/">NWB (Neurodata Without Borders)</a></b>
+	  <li><b><a href="https://bids-specification.readthedocs.io">BIDS</a></b>
+		<ul>
 	  <li>BEP031 - Microscopy - accepted to BIDS 1.7.0
 	<small>
 	  <a href="https://www.frontiersin.org/articles/10.3389/fnins.2022.871228/full">
@@ -1009,10 +1035,51 @@ T. B. M. , J. Cohen-Adad, S. Appelhoff, R. Blair, E. Earl, F. Feingold, A. Galas
 and T. Salo. Microscopy-BIDS: An extension to the brain imaging data structure for microscopy data.
 Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 	  </small></li>
+	  <li>To be later extended with <a href="https://www.nature.com/articles/s41592-021-01326-w">OME-NGFF</a> support
 	  <li>BEP032 - Animal Electrophysiology - WiP</li>
-
+		</ul>
+	  </ul>
+	  <li>Metadata model</li>
+	  <ul>
+		<li><a href="https://github.com/dandi/dandi-schema">https://github.com/dandi/dandi-schema</a>
+		-- used by all components of the DANDI archive.
+	  </ul>
 	</ul>
-	</section>
+  </section>
+-->
+
+  <section>
+	<h2>How do we ensure correct operation</h2>
+	<h3>We automate as much as possible</h3>
+	<ul>
+	  <li>Unit- and integration- testing between components</li>
+	  <ul>
+		<li>An entire archive can be instantiated on any machine with docker-compose</li>
+	  </ul>
+	  <li>Dandisets are converted/updated into DataLad datasets and pushed to GitHub</li>
+	  <li>Releases and deployment of the components are automated on GitHub</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>Webshots of all dandisets for timing and smoke testing</h2>
+	<h3>Trivia: this setup was used to quickly troubleshoot OHBM 2021 online conference deficiencies</h3>
+	<img style="height:1400px" data-src="pics/dandiarchive-webshots.png"/>
+  </section>
+
+  <section>
+	<h2>Overall</h2>
+	<ul>
+	  <li>Input from the users/community drives the standards</li>
+	  <li>Standards can and should be improved to accommodate <br>new
+		data types and account for new scales of data</li>
+	  <li>Ability to deploy an entire complex
+		infrastructure <br>enables testing and safe experimentation</li>
+<!--	  <li>It is important for an archive to provide a wide range of
+	  data access schemes (API, browser, command line client, Python
+	  library, DataLad, ROS3, ...)</li>-->
+  </section>
+
 </section>
 
 
@@ -1051,7 +1118,7 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 				pdfSeparateFragments: false,
 				pdfMaxPagesPerSlide: 1,
 				pdfPageHeightOffset: -1,
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
