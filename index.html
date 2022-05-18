@@ -175,7 +175,7 @@
 <section>
   <section>
 	<h1>Trust is largely a social aspect</h1>
-	<h2>How do we convince ourselves (and others) that our results are correct?</h2>
+	<h2>How do we convince ourselves (and others) that our data/software/results are correct?</h2>
   </section>
 
   <section>
@@ -183,8 +183,9 @@
 	<h3>It is hard since most of the data is DERIVED data</h3>
 	<p  style="font-size:120%">Share accountability among</p>
 	<ul style="font-size:120%">
-	  <li>3rd-party <br> (manufacturers, methods & software developers)</li>
+	  <li>3rd-party: recursive definition<br> (hardware and software)</li>
 	  <li>data collection/QA team</li>
+	  <li>in-house developers&administrators team</li>
 	  <li>analysis team</li>
 	</ul>
   </section>
@@ -235,12 +236,12 @@ in the human studies QA/analyses**
 	<h2>How can we minimize variance from teams?</h2>
 
 	<ul>
-	  <li>provide guidelines</li>
 	  <li>minimize human IO: automate data collection/harmonization</li>
 	  <li>encourage simulations: software/data testing</li>
 	  <li>facilitate peer-review: by team not only reviewers</li>
 	  <li>facilitate provenance/accountability tracking</li>
 	  <li>facilitate reuse: user testing</li>
+	  <li>provide guidelines</li>
 	</ul>
   </section>
 
@@ -253,8 +254,160 @@ in the human studies QA/analyses**
 </section>
 
 <section>
+  <section>
+	<h2>Challenge: Human data re-use requires permission to share!</h2>
+	<img style="width:2000px" data-src="pics/borrowed/crcns-vim-1-takendown.png"/>
+  </section>
+
+  <section>
+	<img style="width:400px" data-src="pics/OBC_LogoCheck.svg"/>
+	<br><a href="https://open-brain-consent.readthedocs.io/">open-brain-consent.readthedocs.io</a>
+	<br><br><small>
+	  <a href="https://onlinelibrary.wiley.com/doi/10.1002/hbm.25351">
+ E. Bannier, G. Barker, V. Borghesani, N. Broeckx, P. Clement, K. E. Emblem, S. Ghosh, E. Glerean, K. J.
+Gorgolewski, M. Havu, Y. O. Halchenko, P. Herholz, A. Hespel, S. Heunis, Y. Hu, C.-P. Hu, D. Huijser,
+M. I. Vayá, R. Jancalek, V. K. Katsaros, M.-L. Kieseler, C. Maumet, C. A. Moreau, H.-J. Mutsaerts,
+R. Oostenveld, E. Ozturk-Isik, N. P. L. Espinosa, J. Pellman, C. R. Pernet, F. B. Pizzini, A. Š. Trbalić, P.-J.
+Toussaint, M. V. di Oleggio Castello, F. Wang, C. Wang, and H. Zhu. The Open Brain Consent: Informing
+research participants and obtaining consent to share brain imaging data. Human Brain Mapping, feb 2021.
+doi: 10.1002/hbm.25351
+	</a></small>
+  </section>
+  <section>
+	<h3>Federally regulated but locally “managed”</h3>
+	<img style="width:2000px" data-src="pics/obc-main.png"/>
+  </section>
+  <section>
+	<img style="width:2000px" data-src="pics/obc-ultimate.png"/>
+  </section>
+  <section>
+	<img style="width:2000px" data-src="pics/obc-tools.png"/>
+  </section>
+
+  <section>
+	<h2>Outcomes</h2>
+	<ul>
+	  <li>Over 20 contributors</li>
+	  <li>8 translations of the Ultimate Form</li>
+	  <li>12 translations of the GDPR Ultimate Form/DUA</li>
+	  <li>More data can potentially be shared, <br>
+		more data potentially be re-used/fixed/more trusted</li>
+	  <li>IRB Committees can use OBC instead of analyzing ad-hoc wording
+		<br>(benefit similar to Software licenses)</li>
+	</ul>
+  </section>
+</section>
+
+<section>
+  <section>
+	<h2>Challenge: how to minimize human IO necessary to "understand"
+	  data?</h2>
+	<h3 class="fragment">Answer: Standardize!</h3>
+	</section>
+
+  	<section>
+	  <img style="width:2000px" data-src="pics/bids-logo-wide.png"/>
+	  <br>
+	  <small>
+		<a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+E. P., Flandin, G., Ghosh, S. S., Glatard, T., Halchenko, Y. O., Handwerker,
+D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (2016). The
+brain imaging data structure, a format for organizing and describing outputs
+of neuroimaging experiments. Scientific Data, 3:160044</a>
+	</small>
+	</section>
+
+  	<section>
+	  <h2>Benefits from datasets standardization into BIDS</h2>
+
+	  <ul>
+		<li><b>You have seen one BIDS dataset -- you have seen them
+			all!</b></li>
+		<li>BIDS is both human- and machine- friendly</li>
+		<ul>
+		  <li>From 1.7.0 WiP to make BIDS specification itself machine
+			readable!</li>
+		  <li>That would avoid necessity for hard-coding BIDS in
+		  client software</li>
+		</ul>
+ 		<li>BIDS compliance could be automatically verified using
+		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
+		  BIDS-App</li>
+		<li><a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) provide a turnkey solution for BIDS datasets</li>
+		<li>PyBIDS, matlab-bids, etc. can assist scripting use of BIDS
+		  datasets</li>
+		<li>... many more benefits ...</li>
+		<li><b>Everyone in neuroimaging should be encouraged to
+			collect/operate on data in BIDS format!</b></li>
+	  </ul>
+	</section>
+
 	<section>
-	  <img style="width:2000px" data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	  <h3>Challenge: conversion of data into BIDS could be painful</h3>
+	</section>
+
+	<section>
+	  <h2>ReproIn</h2>
+	  <img style="width:500px"
+		   data-src="pics/borrowed/reproin-logo.jpg"/>
+	  <br><a href="https://reproin.repronim.org">reproin.repronim.org</a>
+	</section>
+
+	<section>
+	  <h2>ReproIn: BIDS at the scanner</h2>
+	  <img style="width:2000px" data-src="pics/dbic-conversions-p1.png"/>
+	</section>
+	<section>
+	  <h2>ReproIn: automatically converted into BIDS using HeuDiConv</h2>
+	  <img style="width:2000px" data-src="pics/dbic-conversions-p2.png"/>
+	</section>
+
+	<section>
+	  <h2>ReproIn: Benefits</h2>
+	  <ul>
+		<li> Minimal single time investment of adhering to sequence
+		  naming convention
+		  <ul>
+			<li>convert at will</li>
+			<li>catch/fix problems with acquisition early
+			  (bids-validator!)<br>
+			(not more "Half of my subjects lack X%-of-the-data")</li>
+		  </ul>
+  <li> All datasets within center can be organized into a hierarchy reflecting
+    hierarchy at the scanner console<br>
+    (no more "Where that RA buried original data?")</li>
+  <li> Sidecar .json files in BIDS contain <emph>useful</emph> DICOM fields<br>
+    (no more of "I've lost the post-it with slice order")
+  <li> DICOM files are retained under sourcedata/ <br>
+	(easy to re-convert if needed) </li>
+		<li>Optionally DataLad can be used to provide extra benefits</li>
+	  </ul>
+
+	  <p><b>Such reduction in human entry and data manipulation through
+	  automation and early validation increases trust in correctness
+		of raw neuroimaging data!</b></p>
+	</section>
+</section>
+
+<section>
+  <section>
+	<h2>Challenge in 2007: No standard versatile framework for
+	  analysis of neuroimaging data using Machine Learning methodologies</h2>
+	<h3>Secret Sauce: no code == no reproducibility == little trust</h3>
+	</section>
+
+  <section>
+	  <img style="width:2000px"
+		   data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	  <br>
+	  <small>
+		<a href="http://dx.doi.org/10.1007/s12021-008-9041-y">
+		   M. Hanke, Y. O. Halchenko, P. B. Sederberg, S. J. Hanson, J. V. Haxby, and S. Pollmann. PyMVPA:
+A Python toolbox for multivariate pattern analysis of fMRI data. Neuroinformatics, 7:37–53, 2009a.
+		   doi: 10.1007/s12021-008-9041-y</a></small>
 	</section>
 
 	<section>
@@ -321,8 +474,22 @@ in the human studies QA/analyses**
 		<li>Explicit separation of training/testing data in
 		CrossValidation helped users to avoid double-dipping
 		regardless of the complexity of the model.</li>
-		<li>Extensive unit-, example- and documentation testing
-		improved our and user trust in obtained results.</li>
+		<li><b>Very extensive</b> unit-, example- and documentation testing
+		  improved our and user trust in obtained results</li>
+		<li>Integration and re-use (instead of re-implementation) of
+		external functionality
+		  <ul>
+			<li>made PyMVPA project feasible on a "low-budget" of two
+			Ph.D. students</li>
+			<li>benefited those projects through the flow of
+			fixes upstream (nibabel, MDP, scikit-learn, scipy,
+			  etc) and necessity for us to maintain them in good shape
+			in Debian GNU/Linux.</li>
+			</ul>
+		</li>
+		
+		<li>Traveling trainer workshops (akin to AFNI schools)
+		facilitated training, adoption, and thus "user-testing".</li>
 	</section>
 
 	<section>
@@ -351,7 +518,13 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 <section>
   <section>
 	<a href="https://neuro.debian.net">
-	  <img style="width:2000px" data-src="pics/neurodebian_logo_web_banner.png"/></a>
+	  <img style="width:2000px"
+		   data-src="pics/neurodebian_logo_web_banner.png"/></a>
+	<br><small>
+	  <a href="http://dx.doi.org/10.3389/fninf.2012.00022">
+		 Y. O. Halchenko† and M. Hanke†. Open is not enough. let’s take the next step: An integrated, community-driven computing platform for neuroscience. Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fn-inf.2012.00022
+
+	</a></small>
 	</section>
 
   <section>
@@ -396,9 +569,14 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 		<li>greatly reduced user&developer burden in software
 		  installations/maintenance</li>
 		<li>improved trust in correct operation</li>
+		<li>prepared projects for inclusion in other distributions
+		  (e.g., Conda-Forge, Fedora, Gentoo) and/or offloading
+		  maintenance to other teams (such as Debian-Med)</li>
+		<li>allowed to benefit from a <b>huge</b> community of open
+		  source software enthusiasts and experts</li>
 		<li>helped to ensure adherence to legal
 		  norms</li>
-		<li>facilitated collaboration, experimentation, and
+		<li>facilitated collaboration, archival, experimentation, and
 		  reproducibility.
 	  </li></ul>
 	</section>
@@ -407,7 +585,7 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	  <h2>But it revealed a shortcoming:</h2>
 	  <h3>Software platforms are not designed for managing data!</h3>
 		  <ul style="font-size:120%">
-			<li>modularity is less well defined <br>
+			<li>modularity is not as clearly defined <br>
 			  (interest could be in specific group of files, videos-vs-images or humans-vs-objects, etc)</li>
 			<li>data is less volatile (lesser versions, only a few files change)</li>
 			<li>tarballs are inefficient</li>
@@ -426,7 +604,15 @@ his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
 	<p style="margin-top:200px;font-size:150%">
 	  A data management suite that makes data access and management as
 	  easy as managing code and software!
-	  </p>
+	</p>
+	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
+		Y. Halchenko, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
+management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
+doi: 10.21105/joss.03262
+	</a></small>
   </section>
 
   <section data-transition="slide">
