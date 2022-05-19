@@ -153,6 +153,11 @@
 		</small>
 	  </li>
 	</ul>
+
+	<aside class="notes"><ul>
+		<li>Russian Soviet Federative Socialist Republic</li>
+	</ul></aside>
+
   </section>
 
   <section>
@@ -194,7 +199,6 @@
 
   <section>
 	<h2>How do we convince ourselves?</h2>
-	<h3>It is especially hard since most of the data is DERIVED data</h3>
 	<p  style="font-size:120%">We share accountability with</p>
 	<ul style="font-size:120%">
 	  <li>3rd-party: recursive definition<br> (hardware and software)</li>
@@ -207,9 +211,9 @@
   <section>
 	<h2>How can we minimize unexplained variance?</h2>
 
-	<h3>Unexplained variance == noise</h3>
+	<h3>Noise ⊆ Unexplained variance</h3>
 	<ul style="font-size: 120%">
-	  <li>minimize human repetitive/boring IO: <!-- TODO -->
+	  <li>minimize <b>human</b> repetitive/boring <b>IO</b> == <b>maximize human efficiency</b>: <!-- TODO -->
 		<ul  style="font-size: 80%">
 		  <li>automate data collection/harmonization - minimize human factor</li>
 		  <li>strive to collect more auxiliary (meta)data - might be
@@ -218,25 +222,53 @@
 		  <li>provide efficient overviews/summaries - avoid "black box"</li>
 		</ul>
 	  </li>
-	  <li>encourage (and automate) simulations: software/data testing</li>
-	  <li>encourage (and code-in) assertions: assumptions checking</li>
-	  <li>facilitate peer-review: by team not only reviewers</li>
-	  <li>facilitate provenance/accountability tracking</li>
-	  <li>facilitate reuse: user testing</li>
-	  <li>do not blindly trust the 3rd party</li>
-	  <li>to wrap it all up: provide high-level guidelines</li>
+	  <li>encourage (and automate) <b>simulations</b>: software/data testing</li>
+	  <li>encourage (and code-in) <b>assertions</b>: assumptions checking</li>
+	  <li>facilitate <b>peer-review</b>: by team not only reviewers</li>
+	  <li>facilitate <b>provenance</b>/accountability tracking</li>
+	  <li>facilitate <b>re-use</b>: user testing</li>
+	  <li><b>avoid blind trust</b> the 3rd party</li>
+	  <li>to deliver to humans: provide high-level <b>guidelines</b></li>
 	</ul>
+
+	<aside class="notes">
+
+	  <br>In the dark ages, we called "Magic" anything we could not explain.
+
+	  <br>- Nowadays in neuroimaging we typically call it simply "Noise".
+
+	  <br>- Minimization of human IO is not getting humans out of the loop
+	  == higher efficiency
+</pre>
+	  
+	</aside>
   </section>
 
 
-  <section>
+  <section data-background-color="white">
 	<h2>3rd party?</h2>
+
 	  <img style="width:1500px"
 		   data-src="pics/god-is-at-the-computer.jpg"/>
 	  <br>
 	  <small>Unknown artist/origin, borrowed from <br><a href="http://blogs.quovantis.com/god-programmer/">http://blogs.quovantis.com/god-programmer/</a></small>
+
+	  <br><br>
+	  <h3>Reality: Most of the data is DERIVED data!</h3>
+
+	  	<aside class="notes">
+
+		  <br>After all, Arthur C. Clarke said in 1962  "Any sufficiently advanced technology is indistinguishable from magic".
+
+		  <br> so if not magicians -- must be gods who deliver us all the goods
+		</aside>
   </section>
 
+  <section>
+	<h2>Including the one from ...</h2>
+	<img style="height:80%" data-src="pics/MRI-scanner.png"/>
+  </section>
+  
   <section>
 	<h2>Nuisance study: Conclusion on Phatom data</h2>
 	<!-- <img data-src="pics/f1000-webshot-20200930.png"/>-->
@@ -279,14 +311,22 @@
   - **provide phantom QA metrics so they could be conveniently<br> included
 in the human studies QA/analyses**
   - **improve automated screening/QA of human participants data**
-- *Researchers can benefit from guidelines!*
+- *Researchers can benefit from **guidelines**!*
 
+Notes:
+
+- guidelines related to data acquisition and beyond
+- such guidelines also should strive to be "minimized" or "quantized"
   </textarea></section>
 
-  <section>
+  <section  data-background="pics/repronim-logo-vertical.svg" data-background-opacity="0.5" data-background-size="20%" data-background-position="right top">
 	<h2>Example 5-step guidelines from P41 ReproNim</h2>
 	<h3>Reproducible by Design</h3>
 	<a href="http://5steps.repronim.org"><img   style="height: 900px" data-src="pics/repronim-5steps.png"/></a>
+
+	<aside class="notes"><ul>
+		<li>Let's follow the guidelines, and look at the first step of Study Design - what challenge it is trying to solve</li>
+	</ul></aside>
   </section>
 
 </section>
@@ -954,7 +994,7 @@ action summary:
 </section>
 
 <section>
-  <h2>ANSWER: AUTOMATION</h2>
+  <h2>PART of an ANSWER: AUTOMATION</h2>
 </section>
 
 <section>
@@ -1164,6 +1204,12 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
   <H1>Thank you!</H1>
 </section>
 
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
 <!-- End of slides -->
 
 
@@ -1191,11 +1237,14 @@ Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
 				minScale: 0.2,
 				maxScale: 1.0,
 
-				controls: true,
 				progress: true,
 				history: true,
 				center: true,
+				controls: true,
 				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
 				pdfSeparateFragments: false,
 				pdfMaxPagesPerSlide: 1,
 				pdfPageHeightOffset: -1,
