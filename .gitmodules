@@ -2,3 +2,7 @@
 	path = 2022-nih-compcore
 	url = ./2022-nih-compcore
 	datalad-id = 046e58e7-fe8e-4a8d-bd01-29b1ae01d682
+[submodule "reveal.js"]
+	path = reveal.js
+	url = https://github.com/hakimel/reveal.js.git
+	datalad-url = https://github.com/hakimel/reveal.js.git

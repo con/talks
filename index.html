@@ -1,0 +1,1273 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>An Integrated and Trusted Scientific and Statistical Computing Core</title>
+		<meta name="description" content="Slides describing my experience and ideas for NIH SSCC ">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+  <h2>An Integrated and Trusted Scientific and Statistical Computing Core</h2>
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+          Yaroslav O. Halchenko<br><small><a href="https://twitter.com/yarikoptic" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth
+			College</a></small>
+		  <img style="width:200px; margin: 0px" data-src="pics/slides-qr.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <!-- TODO place them there; Add QR code how in template -->
+  Live slides/Sources (git clone - add /.git):
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore/">https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore/</a>
+<br>
+<small>
+  <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/dandi-logo-square.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition-speed="zoom">
+
+  <section>
+  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+
+  <section>
+	<h1>Who am I?</h1>
+	<img style="height:400px" data-src="pics/borrowed/twitter-unsolicited-advice.png"/>
+  </section>
+
+  <section>
+	<h3>Brief Bio</h3>
+	<p>Born in Siberia (RSFSR, USSR), Grew up in Ukraine, Matured in U.S.A.</p>
+	<ul style="font-size:120%">
+	  <li class="fragment"><b>-1994 Physics Mathematics Gymnasium #17 (Ukraine):</b><br>
+		<small> Regional&State Physics and Programming
+		  competitions. MS-DOS. Borland Pascal</small></li>
+
+	  <li class="fragment"><b>-1999 VSTU (Ukraine):
+		  <span style="float:right;">Masters in Opto-Electronic Engineering</span></b><br>
+		<small> (@yarikoptic). State Physics and International ACM Programming
+		  competitions. Spine diagnostic apparatus. Member of "Small Academy of Science of
+		  Ukraine". SPIE. Soros Fellowship (twice). MS-DOS/Windows.
+		  Borland Pascal, Delphi, VBA
+	  </small></li>
+
+	  <li class="fragment"><b>-2003 University of New Mexico:
+		  <span style="float:right;">Masters in Computer Science</span></b><br>
+		<small><a href="http://www.bcl.hamilton.ie/~barak/">B.Pearlmutter</a>.
+		  SOBI/JADE ICA for single trial MEG. Favorite course: Data structures
+		  and algorithms.
+		  <a href="https://debian.org">Debian GNU/Linux</a>.
+		  C, Matlab, shell. CVS
+	  </small></li>
+
+	  <li class="fragment"><b>-2009 Rutgers-Newark/NJIT:
+		  <span style="float:right;">Ph.D. in Computer Science</span></b><br>
+		<small><a href="http://rubic-web.rutgers.edu/people.html">S.Hanson</a>.
+		  <a href="http://dx.doi.org/10.1162/neco.2007.09-06-340">fMRI decoding (RFE SVM)</a>.
+		  <a href="https://link.springer.com/article/10.1385/NI:2:1:071?noAccess=true">RUMBA</a>.
+		  HPC sysadmin (cfengine, PBS).
+		  <a href="https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/Hanke_m.html">M.Hanke</a>.
+		  Debian pkg-exppsy (for FSL and PyEPL).
+		  <a href="https://nm.debian.org/person/yoh/">Official Debian developer</a>.
+		  <a href="https://arxiv.org/abs/1307.2150">fMRI/EEG (TRANS)fusion</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>.
+		  C++, Python. SVN, GIT. 1 wife, 3 kids
+	  </small></li>
+	  <li class="fragment"><b>- NOW Dartmouth College, PBS Department: <br>
+		  <span style="float:right;">Postdoc, Scientist, Research Assistant/Associate Professor</span></b><br>
+		<small><a href="https://haxbylab.dartmouth.edu/">J.Haxby</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>
+		  (<a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignment</a>,
+		  ...),
+		  <a href="https://neuro.debian.net">NeuroDebian</a>,
+		  <a href="https://datalad.org">DataLad</a>,
+		  <a href="https://repronim.org">ReproNim</a>,
+		  <a href="https://dandiarchive.org">DANDI</a>,
+		  ...
+		  <a href="https://github.com/yarikoptic/coop">Chicken Coop</a>,
+		  ...
+		  <a href="https://centerforopenneuroscience.org/">CON</a>:
+		</small>
+	  </li>
+	</ul>
+
+	<aside class="notes"><ul>
+		<li>Russian Soviet Federative Socialist Republic</li>
+	</ul></aside>
+
+  </section>
+
+  <section>
+	<div class="r-stack">
+	  <img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+	  <!-- TODO update this compilation! prepend with proper Ack-->
+	  <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/>
+	  <img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/>
+	  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+	  <!-- <img class="fragment" style="width:500px"
+				data-src="pics/con-ack-joeybenetc-extended.svg"/> -->
+	</div>
+  </section>
+
+</section>
+
+<section  data-transition="slide">
+	<section>
+<h2> Integration & Trust Tiers</h2>
+
+<ul style="font-size:120%">
+  <li> Social <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"><img style="height:2.5em;margin:0;" data-src="pics/repronim-logo-vertical.svg"/><img style="height:2.5em;margin:0;" data-src="pics/OBC_LogoCheck.svg"/></span></li>
+  <li> Data acquisition <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/borrowed/reproin-logo.jpg"/></span></li>
+  <li> Methods/Analytics  <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/pymvpa_icon.png"/></span> </li>
+  <li> Software systems <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/neurodebian_logo.svg"/></span> </li>
+  <li> Data management <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:2.5em;margin:0;" data-src="pics/datalad_D.svg"/><img style="height:2.5em;margin:0;" data-src="pics/yoda.svg"/></span></li>
+  <li> Services <span style="vertical-align:middle;" class="fragment" data-fragment-index="2"> <img style="height:3em;margin:0;" data-src="pics/dandi-logo-square.svg"/></span></li>
+</ul>
+	</section>
+</section>
+
+<section>
+  <section>
+	<h1>Trust is largely a social aspect</h1>
+	<h2>How do we convince ourselves (and others) that our
+	  data/software/results are correct?</h2>
+	<h3>Hint: statistics is just a part of an answer</h3>
+  </section>
+
+  <section>
+	<h2>How do we convince ourselves?</h2>
+	<p  style="font-size:120%">We share accountability with</p>
+	<ul style="font-size:120%">
+	  <li>3rd-party: recursive definition<br> (hardware and software)</li>
+	  <li>data collection/QA team</li>
+	  <li>in-house developers&administrators team</li>
+	  <li>analytic/scientists team</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>How can we minimize unexplained variance?</h2>
+
+	<h3>Noise ⊆ Unexplained variance</h3>
+	<ul style="font-size: 120%">
+	  <li>minimize <b>human</b> repetitive/boring <b>IO</b> == <b>maximize human efficiency</b>: <!-- TODO -->
+		<ul  style="font-size: 80%">
+		  <li>automate data collection/harmonization - minimize human factor</li>
+		  <li>strive to collect more auxiliary (meta)data - might be
+		  "the variance"</li>
+		  <li>standardize processing pipelines - minimize parametrization</li>
+		  <li>provide efficient overviews/summaries - avoid "black box"</li>
+		</ul>
+	  </li>
+	  <li>encourage (and automate) <b>simulations</b>: software/data testing</li>
+	  <li>encourage (and code-in) <b>assertions</b>: assumptions checking</li>
+	  <li>facilitate <b>peer-review</b>: by team not only reviewers</li>
+	  <li>facilitate <b>provenance</b>/accountability tracking</li>
+	  <li>facilitate <b>re-use</b>: user testing</li>
+	  <li><b>avoid blind trust</b> the 3rd party</li>
+	  <li>to deliver to humans: provide high-level <b>guidelines</b></li>
+	</ul>
+
+	<aside class="notes">
+
+	  <br>In the dark ages, we called "Magic" anything we could not explain.
+
+	  <br>- Nowadays in neuroimaging we typically call it simply "Noise".
+
+	  <br>- Minimization of human IO is not getting humans out of the loop
+	  == higher efficiency
+</pre>
+	  
+	</aside>
+  </section>
+
+
+  <section data-background-color="white">
+	<h2>3rd party?</h2>
+
+	  <img style="width:1500px"
+		   data-src="pics/god-is-at-the-computer.jpg"/>
+	  <br>
+	  <small>Unknown artist/origin, borrowed from <br><a href="http://blogs.quovantis.com/god-programmer/">http://blogs.quovantis.com/god-programmer/</a></small>
+
+	  <br><br>
+	  <h3>Reality: Most of the data is DERIVED data!</h3>
+
+	  	<aside class="notes">
+
+		  <br>After all, Arthur C. Clarke said in 1962  "Any sufficiently advanced technology is indistinguishable from magic".
+
+		  <br> so if not magicians -- must be gods who deliver us all the goods
+		</aside>
+  </section>
+
+  <section>
+	<h2>Including the one from ...</h2>
+	<img style="height:80%" data-src="pics/MRI-scanner.png"/>
+  </section>
+  
+  <section>
+	<h2>Nuisance study: Conclusion on Phatom data</h2>
+	<!-- <img data-src="pics/f1000-webshot-20200930.png"/>-->
+	<span style="vertical-align:middle;">
+	<img style="height:550px" data-src="pics/f1000-webshot-20200930-fig2.png"/>
+	<img style="height:550px" data-src="pics/f1000-webshot-20200930-tab2.png"/>
+	</span>
+
+	<p><b>Variance in SNR through time in phantom QA data can <b>very well</b> (R2=0.53) be
+  explained by intrinsic factors</b></p>
+
+	<small>
+	  Cheng CP and <b>Halchenko YO.</b> A new virtue of phantom MRI data: explaining variance in human participant data [version 1]. F1000Research 2020, 9:1131 <a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>
+	  <br><a href="http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/">http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/</a>
+	contains a more detailed presentation</small>
+  </section>
+
+  <section>
+	<h2>Nuisance study: Hypothesis confirmed</h2>
+	<!-- <img data-src="pics/f1000-webshot-20200930.png"/>-->
+	<img style="height:550px" data-src="pics/f1000-webshot-20200930-fig3.png"/>
+	<img style="height:550px" data-src="pics/f1000-webshot-20200930-tab3.png"/>
+  <p><b>A proxy measure of <b>MRI scanner health</b>, such as SNR from phantom
+	  data, can explain some variance in human data results</b></p>
+
+	<small>
+	  Cheng CP and <b>Halchenko YO.</b> A new virtue of phantom MRI data: explaining variance in human participant data [version 1]. F1000Research 2020, 9:1131 <a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>
+	  <br><a href="http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/">http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/</a>
+	contains a more detailed presentation</small>
+  </section>
+
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+## Take home
+
+- *Conclusions*:
+  - More variance can be explained than what we thought
+- *Work could be done together with data acquisition sites to*:
+  - **increase sensitivity of MRI scanner health *deterioration***
+  - **include phantom QA data in your normative databases**
+  - **provide phantom QA metrics so they could be conveniently<br> included
+in the human studies QA/analyses**
+  - **improve automated screening/QA of human participants data**
+- *Researchers can benefit from **guidelines**!*
+
+Notes:
+
+- guidelines related to data acquisition and beyond
+- such guidelines also should strive to be "minimized" or "quantized"
+  </textarea></section>
+
+  <section  data-background="pics/repronim-logo-vertical.svg" data-background-opacity="0.5" data-background-size="20%" data-background-position="right top">
+	<h2>Example 5-step guidelines from P41 ReproNim</h2>
+	<h3>Reproducible by Design</h3>
+	<a href="http://5steps.repronim.org"><img   style="height: 900px" data-src="pics/repronim-5steps.png"/></a>
+
+	<aside class="notes"><ul>
+		<li>Let's follow the guidelines, and look at the first step of Study Design - what challenge it is trying to solve</li>
+	</ul></aside>
+  </section>
+
+</section>
+
+<section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Challenge: Human data re-use requires permission to share!</h2>
+	<img style="width:1200px" data-src="pics/borrowed/crcns-vim-1-takendown.png"/>
+  </section>
+
+  <section data-transition="slide">
+	<img style="width:400px" data-src="pics/OBC_LogoCheck.svg"/>
+	<br><a href="https://open-brain-consent.readthedocs.io/">open-brain-consent.readthedocs.io</a>
+	<br><br><small>Born in 2014</small>
+	<br><br><small>
+	  <a href="https://onlinelibrary.wiley.com/doi/10.1002/hbm.25351">
+ E. Bannier, G. Barker, V. Borghesani, N. Broeckx, P. Clement, K. E. Emblem, S. Ghosh, E. Glerean, K. J.
+Gorgolewski, M. Havu, <b>Y. O. Halchenko</b>, P. Herholz, A. Hespel, S. Heunis, Y. Hu, C.-P. Hu, D. Huijser,
+M. I. Vayá, R. Jancalek, V. K. Katsaros, M.-L. Kieseler, C. Maumet, C. A. Moreau, H.-J. Mutsaerts,
+R. Oostenveld, E. Ozturk-Isik, N. P. L. Espinosa, J. Pellman, C. R. Pernet, F. B. Pizzini, A. Š. Trbalić, P.-J.
+Toussaint, M. V. di Oleggio Castello, F. Wang, C. Wang, and H. Zhu. The Open Brain Consent: Informing
+research participants and obtaining consent to share brain imaging data. Human Brain Mapping, feb 2021.
+doi: 10.1002/hbm.25351
+	</a></small>
+  </section>
+  <section>
+	<h3>Federally regulated but locally “managed”</h3>
+	<img style="width:1200px" data-src="pics/obc-main.png"/>
+  </section>
+  <section>
+	<img style="width:1200px" data-src="pics/obc-ultimate.png"/>
+  </section>
+  <section>
+	<img style="width:1200px" data-src="pics/obc-tools.png"/>
+  </section>
+
+  <section>
+	<h2>Outcomes</h2>
+	<ul>
+	  <li>Over 20 contributors</li>
+	  <li>8 translations of the Ultimate Form</li>
+	  <li>12 translations of the GDPR Ultimate Form/DUA</li>
+	  <li>More data can potentially be shared, <br>
+		more data potentially be re-used/fixed/more trusted</li>
+	  <li>IRB Committees can use OBC instead of analyzing ad-hoc wording
+		<br>(benefit similar to Software licenses)</li>
+	  <li>New related resource:
+		<br> <a href="https://osp.od.nih.gov/wp-content/uploads/Informed-Consent-Resource-for-Secondary-Research-with-Data-and-Biospecimens.pdf">NIH "Informed Consent for Secondary Research with Data and <br>
+		  Biospecimens: Points to Consider and Sample Language for<br>
+		  Future Use and/or Sharing (May 2022)."</a> </li>
+	</ul>
+  </section>
+</section>
+
+<section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Challenge: how to minimize human IO necessary to "understand"
+	  data?</h2>
+	<h3 class="fragment">Answer: Standardize!</h3>
+	</section>
+
+  	<section  data-transition="slide">
+	  <img style="width:2000px" data-src="pics/bids-logo-wide.png"/>
+	  <br>
+	  <small>
+		<a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
+D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (2016). The
+brain imaging data structure, a format for organizing and describing outputs
+of neuroimaging experiments. Scientific Data, 3:160044</a>
+	</small>
+	</section>
+
+  	<section>
+	  <h2>Benefits from datasets standardization into BIDS</h2>
+
+	  <ul>
+		<li><b>You have seen one BIDS dataset -- you have seen them
+			all!</b></li>
+		<li>BIDS is both human- and machine- friendly</li>
+		<ul>
+		  <li>From 1.7.0 WiP to make BIDS specification itself machine
+			readable!</li>
+		  <li>That would avoid necessity for hard-coding BIDS in
+		  client software</li>
+		</ul>
+ 		<li>BIDS compliance could be automatically verified using
+		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
+		  BIDS-App</li>
+		<li><a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) provide a turnkey solution for BIDS datasets</li>
+		<li>PyBIDS, matlab-bids, etc. can assist scripting use of BIDS
+		  datasets</li>
+		<li>... many more benefits ...</li>
+		<li><b>Everyone in neuroimaging should be encouraged to
+			collect/operate on data in BIDS format!</b></li>
+		<li><b>NIH intramural program would benefit from participation
+		and even steering in the development of community-driven
+		standards</b></li>
+	  </ul>
+	</section>
+
+</section>
+<section>
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	  <h2>Challenge: conversion of data into BIDS could be painful</h2>
+  </section>
+
+	<section  data-transition="slide">
+	  <h2>ReproIn</h2>
+	  <img style="width:500px"
+		   data-src="pics/borrowed/reproin-logo.jpg"/>
+	  <br><a href="https://reproin.repronim.org">reproin.repronim.org</a>
+
+	  <br><br><small>Born in 2016</small>
+
+	</section>
+
+	<section>
+	  <h2>ReproIn: BIDS at the scanner</h2>
+	  <img style="width:2000px" data-src="pics/dbic-conversions-p1.png"/>
+	</section>
+	<section>
+	  <h2>ReproIn: automatically converted into BIDS using HeuDiConv</h2>
+	  <img style="width:2000px" data-src="pics/dbic-conversions-p2.png"/>
+	</section>
+
+	<section>
+	  <h2>ReproIn: Benefits</h2>
+	  <ul>
+		<li> Minimal single time investment of adhering to sequence
+		  naming convention
+		  <ul>
+			<li>convert at will</li>
+			<li>catch/fix problems with acquisition early
+			  (bids-validator!)<br>
+			  (no more <span style="color:red;font-style:italic;">"Half of my subjects lack X%-of-the-data"</span>)</li>
+		  </ul>
+  <li> All datasets within center can be organized into a hierarchy reflecting<br>
+    hierarchy at the scanner console<br>
+    (no more <span style="color:red;font-style:italic;">"Where that long gone RA buried original data?"</span>)</li>
+  <li> Sidecar .json files in BIDS contain <emph>useful</emph> DICOM fields<br>
+    (no more of <span style="color:red;font-style:italic;">"I've lost the post-it with slice order"</span>)
+  <li> DICOM files are retained under <code>sourcedata/</code> <br>
+	(easy to re-convert if needed) </li>
+		<li>Optionally DataLad can be used to provide extra benefits</li>
+	  </ul>
+
+	  <p><b>Such reduction in human entry and data manipulation<br> through
+	  automation and early validation increases trust <br>in correctness
+		of raw neuroimaging data!</b></p>
+	</section>
+
+	<section data-background="pics/magewell.jpg" data-background-opacity="0.3" data-background-size="500px" data-background-position="right">
+	  <h2>Beyond ReproIn</h2>
+	  <ul  style="font-size: 110%">
+		<li><a href="https://github.com/ReproNim/reprostim/">ReproStim</a>
+		(prototype deployed
+			  at <a href="https://www.dartmouth.edu/dbic">DBIC</a>):<br>
+		automate recording of <b>ALL</b> audio-video stimuli as
+		presented to participants:
+		  <ul  style="font-size: 80%">
+			<li>transparent to experimenter audio/video grabber</li>
+			<li>will automatically "slice" recordings into BIDS
+		  datasets</li>
+			<li>near exact re-executability of any audio/video stimuli</li>
+			<li>imagine all of your neuroimaging data usable for
+			forward modeling/AI</li>
+			<li>already helped to recover randomization order for a
+			  session</li>
+		  </ul>
+		<li>ReproEvents (WiP): automate collection of events
+		  <ul   style="font-size: 80%">
+			<li>transparent to experimenter USB grabber</li>
+			<li>automatically populate BIDS _events.tsv files</li>
+			<li>accompany with support in stimuli software
+			(PsychoPy, PTB-3) <br>to provide synchronization cues and HED tags</li>
+		  </ul>
+		</li>
+		<li><a href="https://github.com/con/noisseur">con/noisseur</a>
+		(Concept): automate verification of entered/displayed
+		information</li>
+	  </ul>
+
+	  <p><b>Automated (comes for free, trusted more) collection of auxiliary<br> data
+	  types to make collected data more useful for others to
+	  re-use.</b></p>
+
+	  <note   style="font-size: 80%">
+	  <p>More on automation of data collection in webinar <br> "Reproducible Execution of Data
+	  Collection/Processing". <br><a href="http://datasets.datalad.org/repronim/artwork/talks/webinar-2020-reprocomp/#/">Slides</a>
+	  and <a href="https://youtu.be/dwBtrpI2iS0">Video</a> accessible from <a href="https://www.repronim.org/webinar-series.html">https://www.repronim.org/webinar-series.html</a>
+	  </p>
+	  </note>
+	  
+	  <aside class="notes"><ul>
+		  <li>
+			     [1913 Webster]
+  
+           The connoisseur is "one who knows," as opposed to the
+           dilettant, who only "thinks he knows."   --Fairholt.
+		  </li>
+		  <li>From WordNet (r) 3.0 (2006) [wn]:
+
+  connoisseur
+      n 1: an expert able to appreciate a field; especially in the
+           fine arts [syn: {connoisseur}, {cognoscente}]
+
+From Moby Thesaurus II by Grady Ward, 1.0 [moby-thesaurus]:
+
+		  </li>
+	</ul></aside>
+
+	</section>
+
+</section>
+
+
+
+<section>
+	<section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Challenge 2007: No standard versatile framework for
+	  analysis of neuroimaging data using Machine Learning methodologies</h2>
+	<h3>Secret Sauce: no code == no reproducibility == little trust</h3>
+	</section>
+
+  <section  data-transition="slide">
+	  <img style="width:2000px"
+		   data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	  <br>
+
+	  <br><br><small>Born in 2007</small>
+
+	  <small>
+		<a href="http://dx.doi.org/10.1007/s12021-008-9041-y">
+		   M. Hanke, <b>Y. O. Halchenko</b>, P. B. Sederberg, S. J. Hanson, J. V. Haxby, and S. Pollmann. PyMVPA:
+A Python toolbox for multivariate pattern analysis of fMRI data. Neuroinformatics, 7:37–53, 2009a.
+		   doi: 10.1007/s12021-008-9041-y</a></small>
+	</section>
+
+	<section>
+	  <h1>PyMVPA Features</h1>
+	  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2664559/">
+	  <img style="width:1200px" data-src="pics/pymvpa-features.png"/></a>
+	</section>
+
+	<!-- TODO -- move into notes to talk about on previous slide
+	<section data-markdown>
+	  <textarea data-template>
+		## PyMVPA: Integration of Methods/Modalities
+
+		- **1st open source machine learning (ML) toolkit for neuroimaging data**
+		- Unified data structure (Dataset) for analysis of
+			- channel data (EEG/MEG)
+			- volumetric data (nibabel)
+			- surface data (based on AFNI)
+			- sample/feature attributes (conditions/coordinates)
+		- Unified (reversible) Mapper/Learner concepts:
+			- Dimensionality reduction: masking, SVD, etc.
+			- Searchlight-ing & <a href="http://www.franciscopereira.org/searchmight/">Searchmight-ing</a>
+			- <a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignments</a>
+		- Unified interfaces to external libraries
+			- libsvm
+			- shogun
+			- MDP
+			- scikit-learn
+			- R libraries (via RPy2)
+	  </textarea>
+	</section>
+-->
+
+	<section>
+	  <div class="r-stack">
+		<img style="width:1500px" data-src="pics/pymvpa-classification.png"/>
+		<img class="fragment" style="width:1500px" data-src="pics/pymvpa-searchlight-step.png"/>
+		<img class="fragment" style="width:1500px" data-src="pics/pymvpa-searchlight.png"/>
+	  </div>
+	</section>
+
+	<section>
+	  <h2>Applicable across different modalities</h2>
+	  <!-- <img style="width:1300px" data-src="pics/pymvpa-many-modalities.png"/>-->
+	  <img style="width:1300px" data-src="pics/uniform_analysis.svg"/>
+	  <small>
+		<a href="http://dx.doi.org/10.3389/neuro.11.003.2009">
+		  M. Hanke†, <b>Y. O. Halchenko</b>† , P. B. Sederberg, E. Olivetti, I. Fründ, J. W. Rieger, C. S. Herrmann, J. V. Haxby, S. J. Hanson, and S. Pollmann. PyMVPA: A unifying approach to the analysis of neuroscientific data. Frontiers in Neuroinformatics, 3:3, 2009b. doi: 10.3389/neuro.11.003.2009
+		</a>
+	  </small>
+	</section>
+
+	<section>
+	  <h2>And even for integrating across modalities</h2>
+		  <h3>TRANSFusion: EEG fMRI mapping</h3>
+		  <a href="https://arxiv.org/abs/1307.2150"><img style="width:1300px" data-src="pics/pymvpa-transfusion.png"/></a>
+	</section>
+
+	<section>
+	  <h2>And others could take advantage of it:</h2>
+		  <a href=""><img style="width:1300px" data-src="pics/pymvpa-studies-20160407.png"/></a>
+	</section>
+
+	<section>
+	  <h3>Overall:</h3>
+
+	  <ul>
+		<!-- <li>Unification of structures and interfaces allowed for -->
+		<li>Integration across methodologies, software implementations,
+		  and data modalities</li>
+		<li>Guarded users against double-dipping regardless of the model complexity</li>
+		<li><b>Very extensive</b> unit-, example- and documentation testing
+		  improved our and user trust in obtained results</li>
+		<li>Traveling trainer workshops (akin to AFNI schools)
+		  facilitated training, adoption, and thus "user-testing"</li>
+		<li>Integration and re-use (instead of re-implementation) of
+		external functionality
+		  <ul   style="font-size: 90%">
+			<li>made PyMVPA project feasible on a "low-budget" of two
+			Ph.D. students</li>
+			<li>benefited upstream (nibabel, MDP, scikit-learn, scipy,
+			  etc) projects</li>
+			<li>adoption of OpenfMRI layout (precursor to BIDS)
+			- generalizable analysis pipelines</li>
+			</ul>
+		</li>
+	  </ul>
+
+	  <p><b>It is efficient to offload modality/methodology
+		specifics to existing solutions, and powered by standards
+		establish a reusable automated (minimal user input) and
+		  trustworthy analysis pipelines.</b></p>
+	</section>
+
+</section>
+
+<section>
+
+    <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	  <h3>PyMVPA brought a challenge: Deployment</h3>
+
+	  <p>"... The PyMVPA manual has a picture of a <b>dude performing pattern-classification on fMRI data with
+his freaking cellphone. Awesome</b>.  If you can do it on a cellphone,
+		then I'm set". </p>
+
+	  <img data-src="pics/pymvpa_on_phone.jpg"/>
+
+	  <div class="fragment">
+	  <p>I have a computer (MAC). <br> Hours later, I'm wrestling with MAC OS (Leopard) ...</p>
+	  </div>
+	  <div class="fragment">
+	  <p><b>PyMVPA follow up</b>: 12.5 hours to happy time</p>
+	  <p>
+	  <small>
+		<a href="http://kvaden.blogspot.com/2009/03/installing-pymvpa-on-leopard-mac-os.html">http://kvaden.blogspot.com/2009/03/installing-pymvpa-on-leopard-mac-os.html</a></small></p>
+
+	  </div>
+	</section>
+
+  <section>
+	<a href="https://neuro.debian.net">
+	  <img style="width:1200px"
+		   data-src="pics/neurodebian_logo_web_banner.png"/></a>
+
+	<br><br><small>Born in 2009</small>
+
+	<br><small>
+	  <a href="http://dx.doi.org/10.3389/fninf.2012.00022">
+		 <b>Y. O. Halchenko</b>† and M. Hanke†. Open is not enough. let’s take the next step: An integrated, community-driven computing platform for neuroscience. Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fn-inf.2012.00022
+
+	</a></small>
+	</section>
+
+  <section>
+	<h2>Solution to system integration challenge:</h2>
+	<a href="https://neuro.debian.net">
+	  <img style="width:1200px" data-src="pics/neurodebian-overview.png"/></a>
+  </section>
+
+  <section>
+	<h2>More detail on why and how:</h2>
+	<a href="">
+	  <img style="width:1200px" data-src="pics/borrowed/HH12-webshot-20130331.png"/></a>
+	<small>
+	  <br>
+	  <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00022/full">
+		<b>Halchenko, Y. O.</b> and Hanke, M. (2012). Open is not enough. Let’s take the
+	  next step: An integrated, community-driven computing platform for
+	  neuroscience. Frontiers in Neuroinformatics, 6(00022). PMC3458431</a>
+	  </small>
+  </section>
+
+  <section>
+	<h2>NeuroDebian from user perspective:</h2>
+	<img style="width:1200px" data-src="pics/neurodebian-user.png"/>
+  </section>
+
+  <section>
+	<h2>Under-the-hood for PyMVPA user:</h2>
+	<img style="width:1200px" data-src="pics/neuropy_history.svg"/>
+  </section>
+
+  <section>
+	<h2>Under-the-hood for a NeuroDebian developer:</h2>
+	<img data-src="pics/nd_overview.svg"/>
+  </section>
+
+  <section>
+	  <h2>Overall:</h2>
+
+	  <h3>Integration of software projects within a distribution</h3>
+	  <ul style="font-size:110%">
+		<li>greatly reduced user&developer burden in software
+		  installations/maintenance</li>
+		<li>improved trust in correct operation</li>
+		<li>prepared projects for inclusion in other distributions
+		  (e.g., Conda-Forge, Fedora, Gentoo) and/or offloading
+		  maintenance to other teams (such as Debian-Med)</li>
+		<li>allowed to benefit from a <b>huge</b> community of open
+		  source software enthusiasts and experts</li>
+		<li>helped to ensure adherence to legal
+		  norms</li>
+		<li>facilitated collaboration, archival, experimentation, and
+		  reproducibility</li>
+		<li><b>Seek inclusion of your developed software into FOSS
+			Distributions to maximize benefits and share burden and
+			accountability</b></li>
+		<li><b>Containerization then "comes for free"</b></li>
+	  </ul>
+	</section>
+
+</section>
+
+<section>
+
+    <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	  <h2>But it revealed a shortcoming:</h2>
+	  <h3>Software platforms are not designed for managing data!</h3>
+		  <ul style="font-size:120%">
+			<li>modularity is not as clearly defined <br>
+			  (interest could be in specific group of files, videos-vs-images or humans-vs-objects, etc)</li>
+			<li>data is less volatile (lesser versions, only a few files change)</li>
+			<li>tarballs are inefficient</li>
+			<li>we cannot host copies of all data</li>
+			<li>cacophony of authentication schemes, interfaces, protocols</li>
+			<li>difficulty to share new or derived data</li>
+		  </ul>
+	</section>
+
+	<section  data-transition="slide">
+	<a href="https://datalad.org">
+	  <img style="height:400px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:200px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	</p>
+
+	<br><br><small>Born in 2013</small>
+
+	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
+		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
+management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
+doi: 10.21105/joss.03262
+	</a></small>
+  </section>
+
+  <section data-transition="slide">
+	<h2>DataLad in one figure</h2>
+	<img data-src="pics/datalad_process_tuned/00base_preview.png">
+  </section>
+
+  <section>
+	<h2>Meet one of the "largest" Git "repositories"</h2>
+	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+	<p>over 6,000 Git repositories as "subdatasets", <br>
+	  with access to almost 500TB of neural data</p>
+  </section>
+
+  <!--
+  <section>
+	<h2>An example in "files":</h2>
+  <img style="" height="800px" data-src="pics/virtual_dirtree.png">
+
+  <p>For management of computing containers with DataLad, see <a href="https://github.com/datalad/datalad-container/">datalad-container</a> extension, and <a href="https://github.com/ReproNim/containers/">ReproNim/containers</a> DataLad dataset.</p>
+  </section>
+  -->
+
+    <section>
+	  <h2>
+		<a href="https://github.com/myyoda/myyoda">github.com/myyoda/myyoda</a>
+	  </h2>
+	  <img data-src="pics/repronim-containers-yoda-lower.png">
+	  <br>
+	</section>
+	
+  <!-- TODO: YODA slide -->
+  <section>
+    <h2>Data provenance capture</h2>
+    <img style="" data-src="pics/datalad_process_tuned/run_preview.png">
+  </section>
+
+  <!--
+  <section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li>Datasets can capture dataset <b>transformations</b> and their <b>cause</b> in order
+            to track the entire evolution and lineage of files in datasets</li>
+            </ul>
+        <img src="pics/w3cprov.png" width="700">
+        <ul>
+        <li>"How did this file came to be?",
+            "What steps were undertaken to transform the raw data into the published result?",
+            "Can you recompute this for me?"
+        </li>
+            </ul>
+  </section>
+
+  <section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li><b>Basic provenance</b>: DataLad can capture arbitrary dataset
+            transformations (e.g., from computing analysis results) and record
+            the cause of such a change
+        </li>
+            <pre><code class="bash" style="max-height:none">$ datalad run -m "Perform eye movement event detection"\
+  --input 'raw_data/*.tsv.gz' --output 'sub-*' \
+  bash code/compute_all.sh
+
+-- Git commit -- Michael Hanke < ... @gmail.com>; Fri Sep 21 22:00:47 2019
+    [DATALAD RUNCMD] Perform eye movement event detection
+    === Do not change lines below ===
+    {
+     "cmd": "bash code/compute_all.sh",
+     "dsid": "d2b4b72a-7c13-11e7-9f1f-a0369f7c647e",
+     "exit": 0,
+     "inputs": ["raw_data/*.tsv.gz"],
+     "outputs": ["sub-*"],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/sub-01_task-movie_run-1_events.png | 2 +-
+ sub-01/sub-01_task-movie_run-1_events.tsv | 2 +-
+...</code></pre>
+    </ul>
+</section>
+
+  -->
+  
+<section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+        <li><b>Computational provenance</b>: Datasets can track <b>software containers</b> (see <a href="https://github.com/datalad/datalad-container/">datalad-container</a>),
+            and perform and record computations inside it:
+        </li>
+            <pre><code class="bash" style="max-height:none">$ datalad containers-run -n neuroimaging-container \
+  --input 'mri/*_bold.nii --output 'sub-*/LC_timeseries_run-*.csv' \
+  "bash -c 'for sub in sub-*; do for run in run-1 ... run-8;
+     do python3 code/extract_lc_timeseries.py \$sub \$run; done; done'"
+
+-- Git commit -- Michael Hanke < ... @gmail.com>; Fri Jul 6 11:02:28 2019
+    [DATALAD RUNCMD] singularity exec --bind {pwd} .datalad/e...
+    === Do not change lines below ===
+    {
+     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
+     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
+     "inputs": [
+      "mri/*.bold.nii.gz",
+      ".datalad/environments/nilearn.simg"
+     ],
+     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
+     ...
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/LC_timeseries_run-1.csv | 1 +
+...</code></pre>
+    </ul>
+</section>
+
+<section data-transition="None">
+    <h2>Provenance capture</h2>
+    <ul>
+         <li>All recorded transformations can be re-computed automatically</li>
+            <pre><code class="bash" style="max-height:none">$ datalad rerun eee1356bb7e8f921174e404c6df6aadcc1f158f0
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+add(ok): sub-01/LC_timeseries_run-1.csv (file)
+...
+save(ok): . (dataset)
+action summary:
+  add (ok: 45)
+  save (notneeded: 45, ok: 1)
+  unlock (notneeded: 45)
+...</code></pre>
+
+    <ul>
+        <li>Aid with the reproducibility of a result and verify it (via content hash)</li>
+        <li>Use complete capture and automatic re-computation as alternative to storage and transport</li>
+</li></li>
+    </ul>
+
+    </ul>
+</section>
+
+<section>
+    <h2>Extend DataLad</h2>
+
+    <p>Besides DataLad "core", there are extensions:
+    <ul>
+        <li>Separate Python packages, anybody can develop their own</li>
+        <li>Support for tailored solutions</li>
+        <li>Can provide additional commands, procedures, metadata extractors,
+            ...</li>
+        <li>Available extensions
+            <ul>
+                <!-- <li><strong><a href="https://github.com/psychoinformatics-de/datalad-hirni">hirni</a></strong>: imaging raw data management/entry</li> -->
+                <li><strong><a href="https://github.com/datalad/datalad-container">containers</a></strong>: support for containerized computational environments</li>
+                <li><strong><a href="https://github.com/datalad/datalad-crawler">crawler</a></strong>: track web resources in automated data distributions</li>
+                <li><strong><a href="https://github.com/datalad/datalad-neuroimaging">neuroimaging</a></strong>: neuroimaging research data and workflow</li>
+                <!-- <li><strong><a href="https://github.com/datalad/datalad-webapp">webapp</a></strong>: REST API for querying/manipulating datasets</li> -->
+                <li><strong><a href="https://github.com/datalad/datalad-fuse">fuse</a></strong>: use FSSPEC to provide sparse on-demand access to data and<br> FUSE filesystem (on GNU/Linux)</li>
+                <li><strong><a href="https://github.com/datalad/datalad-osf">osf</a></strong>: interface with the Open Science Framework</li>
+                <li><strong><a href="https://github.com/datalad/datalad-ukbiobank">ukbiobank</a></strong>: work with the UKbiobank data</li>
+                <li><strong><a href="https://github.com/datalad/datalad-xnat">xnat</a></strong>: alternative to crawler to track XNAT projects</li>
+
+            </ul>
+        </li>
+    </ul>
+
+	<p>
+    <note style="font-size:80%">
+      <a href="http://handbook.datalad.org/en/latest/extension_pkgs.html">http://handbook.datalad.org/en/latest/extension_pkgs.html</a> - canonical list in handbook
+      <a href="http://docs.datalad.org/en/latest/customization.html#extension-packages">http://docs.datalad.org/en/latest/customization.html#extension-packages</a> - devel docs<br/>
+      <a href="https://github.com/datalad/datalad-extensions/">https://github.com/datalad/datalad-extensions/</a> - health status<br/>
+    </note>
+	</p>
+</section>
+
+<section data-background="pics/decentral_RDM_overview.png" data-background-opacity="0.8" data-background-size="30%" data-background-position="top 10px right 10px">
+    <h2>DataLad for users</h2>
+
+    <ul>
+		<li>minimized tedious human IO to obtain data</li>
+		<li>harmonized management of all human digital artifacts/data</li>
+		<li>facilitated modularity, integration and re-use</li>
+        <li>provided guarantees of data integrity</li>
+		<li>facilitated verification of data availability</li>
+		<li>enabled collection of annotated and re-executable
+		  provenance</li>
+		<li>gave an awesome good night read: <a href="http://handbook.datalad.org/">handbook.datalad.org</a></li>
+		<li>hours of audio/video enrichment: <a href="https://youtube.com/c/datalad">youtube.com/c/datalad</a></li>
+		<li>... collaboration, etc ...</li>
+	</ul>
+</section>
+
+<section  data-background="pics/tall-burger.png" data-background-opacity="0.2" data-background-size="80%">
+  <h2>DataLad for its developers:</h2>
+
+  <ul>
+	<li><b>Layering of technologies:</b>
+  <ul>
+	<li><b>Base technologies</b>: git, ssh, rsync, rsync, rclone, ...</li>
+	<li><b>Data logistics</b>: git-annex</li>
+	<li><b>Core product</b>: DataLad</li>
+	<li><b>Downstream projects</b>: DataLad extensions, OpenNeuro, CONP, ...</li>
+  </ul>
+  </li>
+
+	<li><b>Cacophony of deployment scenarios:</b>
+  <ul>
+	<li><b>OSes</b>: GNU/Linux, OS X, Windows</li>
+	<li><b>Filesystems</b>: "OS default", network (NFS), HPC (Lustre), ...</li>
+  </ul></li></ul>
+
+  <p><b>How can we trust our work, stay sane, and not get lost?</b></p>
+</section>
+
+<section>
+  <h2>PART of an ANSWER: AUTOMATION</h2>
+</section>
+
+<section>
+  <h2>DataLad: all changes are tested</h2>
+  <img data-src="pics/datalad-ci-PR.png"/>
+</section>
+
+<section>
+  <h2>DataLad extensions are tested against DataLad daily!</h2>
+  <img style="height:1400px" data-src="pics/datalad-extensions.png"/>
+</section>
+
+<section>
+  <h2>git-annex is built and tested (against DataLad) daily!</h2>
+  <img style="height:1000px" data-src="pics/datalad-git-annex.png"/>
+</section>
+
+<section>
+  <h2>con/tinuous archives all the logs and builds</h2>
+  <img style="height:400px" data-src="pics/con-tinuous-github.png"/>
+  <img style="height:400px" data-src="pics/con-tinuous-term.png"/>
+</section>
+
+<section>
+  <h2>In DataLad We Trust!</h2>
+  <h3>And so do they:</h3>
+  <img data-src="pics/datalad-decentralized.jpg"/>
+  <small>
+	<a href="https://www.degruyter.com/document/doi/10.1515/nf-2020-0037/html">
+	   M. Hanke, F. Pestilli, A. S. Wagner, C. J. Markiewicz, J.-B. Poline, and <b>Y. O. Halchenko</b>. In defense of
+decentralized research data management. Neuroforum, 0(0), jan 2021. doi: 10.1515/nf-2020-0037
+	</a>
+  </small>
+</section>
+
+</section>
+
+<section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Challenge: Develop a BRAIN Initiative Archive</h2>
+	<br>
+	<a href="https://www.socialsciencespace.com/wp-content/uploads/625px-To_deposit_or_not_to_deposit_that_is_the_question_-_journal.pbio_.1001779.g001.png">
+	  <img style="height:800px" data-src="pics/data-repository-submissions.png"/>
+	</a>
+	<br>
+	<small>
+	  borrowed from <a href="https://www.socialsciencespace.com/wp-content/uploads/625px-To_deposit_or_not_to_deposit_that_is_the_question_-_journal.pbio_.1001779.g001.png">socialsciencespace.com</a></small>
+  </section>
+
+  <section  data-transition="slide">
+	<a href="https://dandiarchive.org"> <img style="height:700px" data-src="pics/dandi-logo-square.svg"/></a>
+
+	<br><br><small>Born in 2019</small>
+
+  </section>
+
+  <section>
+	<h2>An Archive and Collaboration Space for Neurophysiology Projects</h2>
+	<a href=""><img style="height:900px" data-src="pics/dandi-slide0.svg"/></a>
+  </section>
+
+  <section>
+	<h2>What data is in DANDI</h2>
+	<img style="height:900px" data-src="pics/dandi-slide-modalities.svg"/></a>
+  </section>
+
+  <section>
+	<h2>DANDI Services and integrations</h2>
+	<img style="height:900px" data-src="pics/dandi-slide-services.svg"/></a>
+  </section>
+
+  <section>
+	<h2>DANDI Standards</h2>
+	<img style="height:800px" data-src="pics/dandi-slide-standards.svg"/></a>
+	<small>
+	  <a href="https://www.frontiersin.org/articles/10.3389/fnins.2022.871228/full">
+M.-H. Bourget, L. Kamentsky, S. S. Ghosh, G. Mazzamuto, A. Lazari, C. J. Markiewicz, R. Oostenveld,
+G. Niso, <b>Y. O. Halchenko</b>, I. Lipp, S. Takerkart, P.-J. Toussaint, A. R. Khan, G. Nilsonne, F. M. Castelli,
+T. B. M. , J. Cohen-Adad, S. Appelhoff, R. Blair, E. Earl, F. Feingold, A. Galassi, R. Gau, C. J. Markiewicz,
+and T. Salo. Microscopy-BIDS: An extension to the brain imaging data structure for microscopy data.
+Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
+	  </small>
+</section>
+
+  <section>
+	<h2>DANDI Metadata schema</h2>
+	<img style="height:800px" data-src="pics/dandi-slide-schema.svg"/></a>
+  </section>
+
+<!--  <section>
+	<h2>Standards & Metadata</h2>
+
+	<ul>
+	  <li>Standards</li>
+	  <ul>
+	  <li><b><a href="https://www.nwb.org/">NWB (Neurodata Without Borders)</a></b>
+	  <li><b><a href="https://bids-specification.readthedocs.io">BIDS</a></b>
+		<ul>
+	  <li>BEP031 - Microscopy - accepted to BIDS 1.7.0
+	<small>
+	  <a href="https://www.frontiersin.org/articles/10.3389/fnins.2022.871228/full">
+M.-H. Bourget, L. Kamentsky, S. S. Ghosh, G. Mazzamuto, A. Lazari, C. J. Markiewicz, R. Oostenveld,
+G. Niso, <b>Y. O. Halchenko</b>, I. Lipp, S. Takerkart, P.-J. Toussaint, A. R. Khan, G. Nilsonne, F. M. Castelli,
+T. B. M. , J. Cohen-Adad, S. Appelhoff, R. Blair, E. Earl, F. Feingold, A. Galassi, R. Gau, C. J. Markiewicz,
+and T. Salo. Microscopy-BIDS: An extension to the brain imaging data structure for microscopy data.
+Frontiers in Neuroscience, 16, 2022. doi: 10.3389/fnins.2022.871228</a>
+	  </small></li>
+	  <li>To be later extended with <a href="https://www.nature.com/articles/s41592-021-01326-w">OME-NGFF</a> support
+	  <li>BEP032 - Animal Electrophysiology - WiP</li>
+		</ul>
+	  </ul>
+	  <li>Metadata model</li>
+	  <ul>
+		<li><a href="https://github.com/dandi/dandi-schema">https://github.com/dandi/dandi-schema</a>
+		-- used by all components of the DANDI archive.
+	  </ul>
+	</ul>
+  </section>
+-->
+
+  <section>
+	<h2>How do we ensure correct operation?</h2>
+	<h3>Collaborate and automate!</h3>
+	<ul style="font-size:120%">
+	  <li>Delegate data validation to standards</li>
+	  <ul><li>work with standards developers/communities</li></ul>
+	  <li>Impose additional requirements through harmonized schema</li>
+	  <li>Unit- and integration- test software components</li>
+	  <ul>
+		<li>an entire archive can be instantiated on any machine with docker-compose</li>
+	  </ul>
+	  <li>Dandisets are converted/updated into DataLad datasets and pushed to GitHub</li>
+	  <ul>
+		<li>data resides on S3 (and some institutional backups)</li>
+	  </ul>
+	  <li>Releases and deployment of the components are automated on GitHub</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>Webshots of all dandisets for timing and smoke testing</h2>
+	<h3>Trivia: this setup was used to quickly troubleshoot OHBM 2021 online conference deficiencies</h3>
+	<img style="height:1400px" data-src="pics/dandiarchive-webshots.png"/>
+  </section>
+
+  <section>
+	<h2>Overall</h2>
+	<ul style="font-size:120%">
+	  <li>Input from the users/community should drive the standards,
+		<br> not the other way around</li>
+	  <li>Standards can and should be improved to accommodate <br>new
+		data types and account for new scales of data</li>
+	  <li>Ability to deploy an entire complex
+		infrastructure <br>enables testing and safe experimentation</li>
+	  <li style="font-size:80%">Seems obvious? Check other archives...</li>
+<!--	  <li>It is important for an archive to provide a wide range of
+	  data access schemes (API, browser, command line client, Python
+	  library, DataLad, ROS3, ...)</li>-->
+  </section>
+
+</section>
+
+<section>
+  <h2>
+	<span style="vertical-align:middle;">
+  <a href="http://repronim.org" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/BIDS_Logo.png"/></a> -->
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/neurodebian.png"/></a>
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:75px;margin:2px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:75px;margin:2px"  data-src="pics/dandi-logo-square.svg"/></a></span> see the SSCR
+  </h2>
+    <H3>Integrated and Trusted:</H3>
+	<ul style="font-size:120%">
+	  <li><b>minimizing tedious human labor</b> and leaving more time for <strike>fun</strike> research</li>
+	  <li>striving to <b>automate</b> and enrich data collection for the studies</li>
+	  <li>establishing a mantra of <b>"Better Science by Design"</b></li>
+	  <li>placing the <b>Study design</b> 1st and <b>Standards</b> 2nd in the guidelines to research groups</li>
+	  <li><b>collaborate</b> with other intramural teams and researchers</li>
+	  <li>growing expertise in <b>other data modalities</b> as driven by demand</li>
+	  <li>striving to <b>improve data re-use</b> and reproducibility</li>
+	  <li>promoting and educating researchers in <b>contemporary</b> data management solutions</li>
+	  <li>working with the <b>community</b> to provide <b>turnkey computing pipelines</b></li>
+	  <li>working with data <b>standards</b> to ensure that needs of intramural researchers are met</li>
+	  <li>continuing the excellent history of <b>training</b> established by AFNI group</li>
+	  <li>participating in ReproNim's <b>"train the trainer"</b> concept</li>
+	  <li>facilitating <b>diversity</b> and <b>inclusion</b></li>
+	</ul>
+  <!--
+  <H3>Neuroscience is a better science!</H3>
+  <ul style="font-size:120%">
+	<li>More open</li>
+	<li>More reproducible</li>
+	<li>More efficient</li>
+	<li>More collaborative</li>
+	<li>More trustworthy</li>
+  </ul>
+-->
+</section>
+
+<section>
+  <H1>Thank you!</H1>
+</section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.05,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
