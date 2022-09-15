@@ -1,0 +1,398 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>Towards the Big Data Neuroscience Nirvana</title>
+		<meta name="description" content="Slides for the https://neurosciencenetwork.org/ACNN_Workshop_2022.html">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+  <h2>Towards the Big Data Neuroscience Nirvana</h2>
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+          Yaroslav O. Halchenko<br><small><a href="https://twitter.com/yarikoptic" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth
+			College</a></small>
+		  <img style="width:200px; margin: 0px" data-src="pics/slides-qr.png"/> TODO
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <!-- TODO place them there; Add QR code how in template -->
+  Live slides/Sources (git clone - add /.git):
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-tx-big-neuroscience.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2022-tx-big-neuroscience.html</a>
+<br>
+<small>
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/dandi-logo-square.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition-speed="zoom">
+
+  <section>
+	<img style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+
+  <section>
+	<h1>Nirvana?</h1>
+
+<pre style="font-size:100%">
+ From WordNet (r) 3.0 (2006) [wn]:
+
+  nirvana
+    n 1: (Hinduism and Buddhism) the beatitude that <mark>transcends the</mark>
+         <mark>cycle of reincarnation</mark>; characterized by the extinction of
+         desire and suffering and individual consciousness [syn:
+         {nirvana}, {enlightenment}]
+      2: <mark>any place of complete bliss and delight and peace</mark> [syn:
+         {Eden}, {paradise}, {nirvana}, {heaven}, {promised land},
+         {Shangri-la}]
+</pre>
+  </section>
+
+    <section>
+	  <h2>Q: Where data go to die?</h2>
+	  <h3 class="fragment">Data archive</h3>
+	  <h2 class="fragment">Q: How data are reincarnated?</h2>
+	  <h3 class="fragment">Re-used from archive(s)</h3>
+
+	  <aside class="notes"><ul>
+		  <li>Distributed data has to transcend the cycle of reincarnation upon
+reaching an archive.</li>
+		  <li> Data must not die having been deposited to public archive, it should
+start its next cycle of life, ideally even richer and more fulfilling.</li>
+
+	  </ul></aside>
+	</section>
+
+	<section>
+	  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
+	  <h3>... by helping data to transcend the data archive(s)</h3>
+	</section>
+
+	<section>
+	  <h2>Q: How to get to a state <mark>of complete bliss and delight and
+	  peace</mark> while working with (big) data?</h2>
+	  <h3 class="fragment">Make re-use convenient</h3>
+	</section>
+
+	<section>
+	  <h2>What makes data re-use INconvenient?</h2>
+	  <ul>
+		<li>Data bugs<span class="fragment" data-fragment-index="1">. Possible origins:</span>
+		  <ul class="fragment" data-fragment-index="1">
+			<li>Human entry
+			  <span class="fragment"
+			  data-fragment-index="2"><br><b>Solution</b>: minimize
+			  (automate, listen to ReproNim)</span></li>
+			<li>Software (human code)
+			  <span class="fragment"  data-fragment-index="2"><br><b>Solution</b>: avoid
+				creating new, re-use (needs standardized interfaces),<br/>
+				automate and standardize! testing.</span></li>
+			<li>Hardware (made by humans)
+			  <span class="fragment"  data-fragment-index="2"><br><b>Solution</b>: write
+				software to auto-detect
+				(QA/QC. Join <a href="https://incf.github.io/niQC/">INCF
+				niQC</a>).</span></li>
+		  </ul>
+		</li>
+		<li>Ad-hoc data access<br>
+		  <span class="fragment"  data-fragment-index="3"><b>Solution</b>:
+			standardize (HTTP 401/403, OAuth, etc), <br>think about both
+			humans (UI) and bots (API)</span></li>
+		<li>Crafty data format/organization
+		  <span class="fragment"
+				data-fragment-index="3"><br><b>Solution</b>:
+			standardize, simplify and automate organization
+			(<a href="">ReproNim/ReproIn</a> )</span></li>
+		<li>Opinionated software
+		  <span class="fragment"
+				data-fragment-index="3"><br><b>Solution</b>:
+			avoid creating new; IO and interfaces
+			ideally should <br>use standards (e.g., BIDS/BIDS-Apps)</span>
+		</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>What allows to make data re-use convenient?</h2>
+	  <ul>
+		<li>Standards</li>
+		<ul class="fragment" data-fragment-index="1">
+		  <li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX
+			  Philosophy #1</a>: "Make each program do one thing
+			  well" applies </li>
+		  <img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
+			   style="position:absolute; left:10%; top:10%; width:80%; opacity: 90%"/>
+		  <img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
+			   style="position:absolute; left:0%; top:10%; width:100%;"/>
+		  <li class="fragment" data-fragment-index="3">An application CLI/API is an "internal standard"</li>
+		  <li class="fragment" data-fragment-index="3">Reuse/improve/adapt/convert/... instead of
+			re-implement!</li>
+		  <li class="fragment" data-fragment-index="3">Accompany with tools to validate</li>
+		</ul>
+		<li>Validation
+		  <ul  class="fragment" data-fragment-index="4">
+			<li>Huge part comes "for free" from standardization
+			  <ul>
+				<li>contemporary "standard practices" for
+				software development <br>(CI, containerization, distributions)
+			  </ul>
+			</li>
+			<li>Data "quality" is a separate (niQC!) topic.</li>
+		  </ul>
+		</li>
+
+	  </ul>
+
+	</section>
+
+</section>
+
+
+<section  data-transition="slide">
+
+  <section>
+	<a href="https://datalad.org">
+	  <img style="height:400px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:200px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	</p>
+
+	<br><br><small>Born in 2013</small>
+
+	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
+		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
+management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
+doi: 10.21105/joss.03262
+	</a></small>
+  </section>
+
+  <section>
+	<h2>"Big Data" meeting?</h2>
+	<h3>Meet one of the "largest" Git "repositories"</h3>
+	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+	<p>over 6,000 Git repositories as "subdatasets", <br>
+	  with access to almost 500TB of neural data</p>
+  </section>
+
+
+  <section>
+	<h2>DataLad: Decentralized Research Data Management</h2>
+	<img src="pics/datalad-decentralized.jpg"/>
+
+	<table>
+	  <tr>
+		<td  style="width:70%">
+		<it>In defense of decentralized research data management</it>, Michael
+		Hanke, Franco Pestilli, Adina S. Wagner, Christopher
+		J. Markiewicz, Jean-Baptiste Poline and Yaroslav O. Halchenko,
+		NeuroForum,
+		2021,
+		<a href="https://doi.org/10.1515/nf-2020-0037">DOI:
+	  10.1515/nf-2020-0037</a>
+		</td>
+		<td>
+		  <img style="width:90%;vertical-align:middle" src="pics/decentral_RDM_overview-qrcode.png"/>
+		</td>
+	</tr></table>
+
+	
+  </section>
+
+<section data-background="pics/decentral_RDM_overview.png" data-background-opacity="0.8" data-background-size="30%" data-background-position="top 10px right 10px">
+    <h2>DataLad for users</h2>
+
+    <ul>
+		<li>minimized tedious human IO to obtain data</li>
+		<li>harmonized management of all human digital artifacts/data</li>
+		<li>facilitated modularity, integration and re-use</li>
+        <li>provided guarantees of data integrity</li>
+		<li>facilitated verification of data availability</li>
+		<li>enabled collection of annotated and re-executable
+		  provenance</li>
+		<li>gave an awesome good night read: <a href="http://handbook.datalad.org/">handbook.datalad.org</a></li>
+		<li>hours of audio/video enrichment: <a href="https://youtube.com/c/datalad">youtube.com/c/datalad</a></li>
+		<li>... collaboration, etc ...</li>
+	</ul>
+</section>
+
+<section  data-background="pics/tall-burger.png" data-background-opacity="0.2" data-background-size="80%">
+  <h2>DataLad for its developers:</h2>
+
+  <ul>
+	<li><b>Layering of technologies:</b>
+  <ul>
+	<li><b>Base technologies</b>: git, ssh, rsync, rsync, rclone, ...</li>
+	<li><b>Data logistics</b>: git-annex</li>
+	<li><b>Core product</b>: DataLad</li>
+	<li><b>Downstream projects</b>: DataLad extensions, OpenNeuro, CONP, ...</li>
+  </ul>
+  </li>
+
+	<li><b>Cacophony of deployment scenarios:</b>
+  <ul>
+	<li><b>OSes</b>: GNU/Linux, OS X, Windows</li>
+	<li><b>Filesystems</b>: "OS default", network (NFS), HPC (Lustre), ...</li>
+  </ul></li></ul>
+
+  <p><b>Where are the "standards" and "validation" in this sandwich?</b></p>
+</section>
+
+  <section> <!--  data-background="pics/digits.svg"> -->
+	  <h2>DataLad et al.</h2>
+	  <img class="r-stretch" data-src="pics/DataLad-minder.svg"/>
+	</section>
+
+<section>
+  <h2>But what about Validation of DataLad itself?</h2>
+</section>
+
+<section>
+  <h2>DataLad: all changes are tested</h2>
+  <img data-src="pics/datalad-ci-PR.png"/>
+</section>
+
+<section>
+  <h2>DataLad extensions are tested against DataLad daily!</h2>
+  <img style="height:1400px" data-src="pics/datalad-extensions.png"/>
+</section>
+
+<section>
+  <h2>git-annex is built and tested (against DataLad) daily!</h2>
+  <img style="height:1000px" data-src="pics/datalad-git-annex.png"/>
+</section>
+
+<section>
+  <h2>con/tinuous archives all the logs and builds</h2>
+  <img style="height:400px" data-src="pics/con-tinuous-github.png"/>
+  <img style="height:400px" data-src="pics/con-tinuous-term.png"/>
+</section>
+
+<section>
+  <h2>In Nirvana we are in a complete bliss and delight and
+	  peace of getting and managing data using DataLad!</h2>
+</section>
+
+</section>
+
+
+<section data-transition-speed="zoom">
+  <H1>Thank you and Enjoy!</H1>
+</section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,6 +1,6 @@
 .idea/
-\#index.html#
-.\#index.html
+\#*
+.\#*
 *~
 *.iml
 *.iws
@@ -12,3 +12,4 @@ log/*.log
 tmp/**
 node_modules/
 .sass-cache
+
