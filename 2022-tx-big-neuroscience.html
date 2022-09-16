@@ -27,7 +27,12 @@
 <section>
   <section>
 	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
-  <h2>Towards the Big Data Neuroscience Nirvana</h2>
+	  <h2>Towards the Big Data Neuroscience Nirvana</h2>
+	  
+	  <!-- <a href="https://standforukraine.com/">-->
+		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
+		   style="position:absolute; right:0%; top:30%; width:10%; opacity:70%"/>
+
     <div style="margin-top:1em;text-align:center">
     <table style="border: none;">
     <tr>
@@ -87,14 +92,18 @@
 
 <section data-transition-speed="zoom">
 
-  <section>
-	<img style="height:800px" data-src="pics/yarik-goal.svg"/>
+  <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
+  <section 
+   data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
+	<img class="fragment" style="height:800px" data-src="pics/yarik-goal.svg"/>
   </section>
+</section>
 
+<section data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
   <section>
-	<h1>Nirvana?</h1>
+  <!--	<h1>Nirvana?</h1> -->
 
-<pre style="font-size:100%">
+<pre style="font-size:100%" class="fragment">
  From WordNet (r) 3.0 (2006) [wn]:
 
   nirvana
@@ -123,7 +132,8 @@ start its next cycle of life, ideally even richer and more fulfilling.</li>
 	  </ul></aside>
 	</section>
 
-	<section>
+	  <section>
+
 	  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
 	  <h3>... by helping data to transcend the data archive(s)</h3>
 	</section>
@@ -133,16 +143,24 @@ start its next cycle of life, ideally even richer and more fulfilling.</li>
 	  peace</mark> while working with (big) data?</h2>
 	  <h3 class="fragment">Make re-use convenient</h3>
 	</section>
+</section>
 
-	<section>
-	  <h2>What makes data re-use INconvenient?</h2>
+<section>
+
+  	<section>
+	  <h2>What makes data
+		re-use <span style="color:red">IN</span>convenient?</h2>
+
+	  <img src="pics/digits-bug.svg"
+		   style="position:absolute; left:20%; top:10%; width:100%; opacity:70%"/>
+
 	  <ul>
 		<li>Data bugs<span class="fragment" data-fragment-index="1">. Possible origins:</span>
 		  <ul class="fragment" data-fragment-index="1">
 			<li>Human entry
 			  <span class="fragment"
 			  data-fragment-index="2"><br><b>Solution</b>: minimize
-			  (automate, listen to ReproNim)</span></li>
+			  (automate, ReproNim is coming!)</span></li>
 			<li>Software (human code)
 			  <span class="fragment"  data-fragment-index="2"><br><b>Solution</b>: avoid
 				creating new, re-use (needs standardized interfaces),<br/>
@@ -154,6 +172,18 @@ start its next cycle of life, ideally even richer and more fulfilling.</li>
 				niQC</a>).</span></li>
 		  </ul>
 		</li>
+	  </ul>
+	</section>
+
+
+	<section>
+	  <h2>What makes data
+		re-use <span style="color:red">IN</span>convenient?</h2>
+
+	  <img src="pics/digits-feedme.svg"
+		   style="position:absolute; left:20%; top:10%; width:100%; opacity:80%"/>
+
+	  <ul>
 		<li>Ad-hoc data access<br>
 		  <span class="fragment"  data-fragment-index="3"><b>Solution</b>:
 			standardize (HTTP 401/403, OAuth, etc), <br>think about both
@@ -167,23 +197,31 @@ start its next cycle of life, ideally even richer and more fulfilling.</li>
 		  <span class="fragment"
 				data-fragment-index="3"><br><b>Solution</b>:
 			avoid creating new; IO and interfaces
-			ideally should <br>use standards (e.g., BIDS/BIDS-Apps)</span>
+			ideally should <br>use standards (e.g., BIDS/BIDS-Apps,
+				BrainLife ABCD, Boutiques)</span>
 		</li>
 	  </ul>
 	</section>
 
+
 	<section>
 	  <h2>What allows to make data re-use convenient?</h2>
+
+	  <img src="pics/digits-budda.svg"
+		   style="position:absolute; left:30%; top:10%; width:100%; opacity:80%"/>
+
+	  <h3 class="fragment current-visible" data-fragment-index="2">Bits of BIDS</h3>
 	  <ul>
 		<li>Standards</li>
 		<ul class="fragment" data-fragment-index="1">
+		  <li>The language(s) for humans and/or computers</li>
 		  <li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX
 			  Philosophy #1</a>: "Make each program do one thing
 			  well" applies </li>
 		  <img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
-			   style="position:absolute; left:10%; top:10%; width:80%; opacity: 90%"/>
+			   style="position:absolute; left:10%; top:22%; width:80%; opacity: 90%"/>
 		  <img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
-			   style="position:absolute; left:0%; top:10%; width:100%;"/>
+			   style="position:absolute; left:0%; top:22%; width:100%;"/>
 		  <li class="fragment" data-fragment-index="3">An application CLI/API is an "internal standard"</li>
 		  <li class="fragment" data-fragment-index="3">Reuse/improve/adapt/convert/... instead of
 			re-implement!</li>
@@ -221,14 +259,20 @@ start its next cycle of life, ideally even richer and more fulfilling.</li>
 
 	<br><br><small>Born in 2013</small>
 
-	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
-		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+	<table>
+	  <tr>
+		<td style="width:80%;vertical-align:middle">
+		  <em>DataLad: distributed system for joint management of code, data, and their relationship.</em><br/>
+		  Y. Halchenko, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
 S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
 Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
-R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
-management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
-doi: 10.21105/joss.03262
-	</a></small>
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.  Journal of Open
+		Source Software, 6(63):3262, jul 2021.
+		<a href="https://joss.theoj.org/papers/10.21105/joss.03262"> DOI: 10.21105/joss.03262 </a>
+		</td>
+		<td>
+		  <img style="width:90%;vertical-align:middle" src="pics/2021-datalad-joss-qrcode.png"/>
+	</td></tr></table>
   </section>
 
   <section>
@@ -247,8 +291,8 @@ doi: 10.21105/joss.03262
 
 	<table>
 	  <tr>
-		<td  style="width:70%">
-		<it>In defense of decentralized research data management</it>, Michael
+		<td  style="width:80%;vertical-align:middle">
+		<em>In defense of decentralized research data management</em>, Michael
 		Hanke, Franco Pestilli, Adina S. Wagner, Christopher
 		J. Markiewicz, Jean-Baptiste Poline and Yaroslav O. Halchenko,
 		NeuroForum,
@@ -257,7 +301,7 @@ doi: 10.21105/joss.03262
 	  10.1515/nf-2020-0037</a>
 		</td>
 		<td>
-		  <img style="width:90%;vertical-align:middle" src="pics/decentral_RDM_overview-qrcode.png"/>
+		  <img style="width:100%;vertical-align:middle" src="pics/decentral_RDM_overview-qrcode.png"/>
 		</td>
 	</tr></table>
 
@@ -333,16 +377,22 @@ doi: 10.21105/joss.03262
   <img style="height:400px" data-src="pics/con-tinuous-term.png"/>
 </section>
 
-<section>
+<section data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
+
   <h2>In Nirvana we are in a complete bliss and delight and
-	  peace of getting and managing data using DataLad!</h2>
+	peace of getting and managing data using DataLad!</h2>
+
+  <h3 class="fragment">We are hiring! <a href="https://searchjobs.dartmouth.edu/postings/65019">searchjobs.dartmouth.edu/postings/65019</a></h3>
 </section>
 
 </section>
 
 
 <section data-transition-speed="zoom">
-  <H1>Thank you and Enjoy!</H1>
+  <H1>Thank you!</H1>
+  <h2>Questions?</h2>
+  <h3 >Remember: We are hiring! <a href="https://searchjobs.dartmouth.edu/postings/65019">searchjobs.dartmouth.edu/postings/65019</a></h3>
+
 </section>
 
 <!-- background slide , Needs tune up of config below
