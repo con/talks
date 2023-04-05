@@ -1,10 +1,10 @@
-# DataLad course material 
+# Slides for the talks from CON people
 
-This repository contains the raw sources for talks and workshops on DataLad.
-Its content is based on the [DataLad handbook](http://handbook.datalad.org), and its technical backbone is [reveal.js](https://github.com/hakimel/reveal.js/).
+This repository contains the raw sources for talks and workshops done by CON people.
+Its content is based on the [DataLad handbook](http://handbook.datalad.org) and others, and its technical backbone is [reveal.js](https://github.com/hakimel/reveal.js/).
 
 
-**Slides** are written in HTML. Their raw sources can be found in ``html/``.
+**Slides** are written in HTML and are within this root folder.
 
 **Casts** are remotely executed code casts, mostly written with [autorunrecord](https://pypi.org/project/autorunrecord/) in the [book](https://github.com/datalad-handbook/book) itself.
 
@@ -32,7 +32,7 @@ npm start
 ``` 
 - A reliable method to export PDFs from a running npm server is ``decktape``. To generate PDFs from HTML run
 ```
-docker run --rm -t --net=host -v `pwd`:/slides astefanutti/decktape http://localhost:8000/html/<presentation-of-your-choice.html> slides.pdf -s  1024x768
+docker run --rm -t --net=host -v `pwd`:/slides astefanutti/decktape http://localhost:8000/<presentation-of-your-choice.html> slides.pdf -s  1024x768
 ```
 - More options, e.g., exports of individual slide screenshots, are in decktape's [documentation](https://github.com/astefanutti/decktape)
 - The tool [directpoll](https://directpoll.com/) works fantastic for virtual talks. See [#34](https://github.com/datalad-handbook/course/issues/34) or the template talk for info on how to use it
