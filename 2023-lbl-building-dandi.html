@@ -187,11 +187,34 @@
 </section>
 
 <section  data-transition="slide">
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Challenge: Develop a BRAIN Initiative Archive</h2>
+	<br>
+	<a href="https://www.socialsciencespace.com/wp-content/uploads/625px-To_deposit_or_not_to_deposit_that_is_the_question_-_journal.pbio_.1001779.g001.png">
+	  <img style="height:800px" data-src="pics/data-repository-submissions.png"/>
+	</a>
+	<br>
+	<small>
+	  borrowed from <a href="https://www.socialsciencespace.com/wp-content/uploads/625px-To_deposit_or_not_to_deposit_that_is_the_question_-_journal.pbio_.1001779.g001.png">socialsciencespace.com</a></small>
+  </section>
+
+  <section  data-transition="slide">
+	<a href="https://dandiarchive.org"> <img style="height:700px" data-src="pics/dandi-logo-square.svg"/></a>
+
+	<br/><br/>Born in 2019
+
+  </section>
+
+  <section>
+	<h2>What data is in DANDI</h2>
+	<img style="height:900px" data-src="pics/dandi-slide-modalities.svg"/></a>
+  </section>
+
   <section>
 	<h2> Ingredients needed to build an archive</h2>
 
 	<ul style="font-size:150%">
-	  <li> People </li>
+	  <li> People <span class="fragment"><b>(users are people too!)</b></span> </li>
 	  <li> Standards </li>
 	  <li> FOSS </li>
 	  <li> Automations </li>
@@ -206,7 +229,22 @@
 
 <section  data-transition="slide">
   <section>
-	<h2>Standards make DANDI FAIR</h2>
+	<img style="width:2000px" src="pics/DANDI-users-PI.svg" />
+  </section>
+  <section>
+	<img style="width:2000px" src="pics/DANDI-users-submitter.svg" />
+  </section>
+  <section>
+	<img style="width:2000px" src="pics/DANDI-users-researcher.svg" />
+  </section>
+  <section>
+	<img style="width:2000px" src="pics/DANDI-users-developer.svg" />
+  </section>
+  
+</section>
+<section  data-transition="slide">
+  <section>
+	<h2>Standards make DANDI FAIR for People</h2>
 	<img style="width:2000px" src="pics/DANDI-FAIR.svg" />
   </section>
 
@@ -218,8 +256,8 @@
 	</section>
 </section>
 
-<section>
-  <section  data-transition="slide">
+<section   data-transition="slide">
+  <section>
 	<h2>Standard for neural datasets: BIDS</h2>
 	<img style="width:2000px"  data-src="pics/bids-logo-wide.png"/>
 	<br>
@@ -266,7 +304,7 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
   </section>
 
   <section>
-	<h2>BIDS is "meta"standard</h2>
+<!--	<h2>BIDS is "meta"standard</h2> -->
 <!--	  	<img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
 		 style="position:absolute; left:10%; top:0%; width:80%; opacity: 90%"/> 
 	<img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
@@ -296,18 +334,81 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 </section>
 
 <section  data-transition="slide">
-<section>
-  <h2>DANDI is a FOSS platform</h2>
-  <img src="pics/DANDI-shot-and-interactions.svg"/>
-</section>
-<section>
-  <h2>DANDI integrates with external resources</h2>
-  <img  style="width:2000px" data-src="pics/DANDI-ecosystem.svg"/>
-</section>
+  <section>
+	<h2>DANDI is a FOSS platform</h2>
+	<img src="pics/DANDI-shot-and-interactions.svg"/>
+  </section>
+
+  <section>
+	<h2>DANDI integrates with external resources</h2>
+	<img  style="width:2000px" data-src="pics/DANDI-ecosystem.svg"/>
+  </section>
+
+<!--  <section>
+	<h2>DANDI for a developer:</h2>
+	<img  style="width:2000px" data-src="pics/20220630-BRAIN-IWG-Developer.svg"/>
+  </section>
+  -->
+
 </section>
 
-<!-- move to later/end -->
-<section>  <img src="pics/2022-INCF-help.svg" /> </section>
+<section  data-transition="slide">
+  <section>
+	<h2>How do we ensure correct operation?</h2>
+	<h3>Collaborate and automate!</h3>
+	<ul style="font-size:120%">
+	  <li>Delegate data validation to standards</li>
+	  <ul><li>work with standards developers/communities</li></ul>
+	  <li>Impose additional requirements through harmonized schema</li>
+	  <!-- <ul><li></li></ul> -->
+	</ul>
+  </section>
+
+
+  <section>
+	<h2>Unit- and integration- test software components</h2>
+	  <ul>
+		<li>an entire archive can be instantiated on any machine with docker-compose</li>
+		<li>Releases and deployment of the components are automated on GitHub</li>
+	  </ul>
+	<img data-src="pics/dandi-cli-pr-ci-tests.png"/>
+  </section>
+
+  <section>
+	<h2>con/tinuous archives all the logs and builds</h2>
+	<img style="height:400px" data-src="pics/con-tinuous-github.png"/>
+	<img style="height:400px" data-src="pics/con-tinuous-term-dandi-cli.png"/>
+  </section>
+
+  <section>
+	<h2>Dandisets are converted into DataLad datasets and pushed to GitHub</h2>
+	<ul>
+	  <li>data resides on S3 (and some institutional backups)</li>
+	  <li>provides aggressive testing of API and data access</li>
+	</ul>
+	<img data-src="pics/github-dandisets.png"/>
+  </section>
+
+
+  <section>
+	<h2>Webshots of all dandisets for timing and smoke testing</h2>
+	<h3>Trivia: this setup was used to quickly troubleshoot OHBM 2021 online conference deficiencies</h3>
+	<img style="height:1400px" data-src="pics/dandiarchive-webshots.png"/>
+  </section>
+
+    <section>
+	<h2>Testing trivial IO across all dandisets</h2>
+	<img style="height:1400px" data-src="pics/dandisets-healthstatus.png"/>
+  </section>
+
+</section>
+
+<section  data-transition="slide">
+</section>
+
+<section  data-transition="slide">
+  <section>  <img src="pics/2022-INCF-help.svg" /> </section>
+</section>
 
 <section data-transition-speed="zoom">
   <H1>Thank you!</H1>
