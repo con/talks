@@ -1,0 +1,367 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>Building an Archive for Large-scale Neuroscience Data</title>
+		<meta name="description" content="Slides for a talk at LBL">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+	  <h2>Building an Archive for Large-scale Neuroscience Data</h2>
+
+	  <!-- <a href="https://standforukraine.com/">
+		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
+		   style="position:absolute; right:0%; top:70%; width:10%;
+		opacity:70%"/> -->
+
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+          Yaroslav O. Halchenko<br><small><a href="https://twitter.com/yarikoptic" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth
+			College</a></small>
+		  <img style="width:200px; margin: 0px" data-src="pics/2023-lbl-building-dandi-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <!-- TODO place them there; Add QR code how in template -->
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-lbl-building-dandi.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2023-lbl-building-dandi.html</a>
+<br>
+<small>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition-speed="zoom">
+
+  <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
+  <section 
+   data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
+	<img class="fragment" style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+</section>
+
+  <section>
+	<h1>Who am I?</h1>
+	<img style="height:400px" data-src="pics/borrowed/twitter-unsolicited-advice.png"/>
+  </section>
+
+  <section>
+	<h3>Brief Bio</h3>
+	<p>Born in Siberia (RSFSR, USSR), Grew up in Ukraine, Matured in U.S.A.</p>
+	<ul style="font-size:120%">
+	  <li class="fragment"><b>-1994 Physics Mathematics Gymnasium #17 (Ukraine):</b><br>
+		<small> Regional&State Physics and Programming
+		  competitions. MS-DOS. Borland Pascal</small></li>
+
+	  <li class="fragment"><b>-1999 VSTU (Ukraine):
+		  <span style="float:right;">Masters in Opto-Electronic Engineering</span></b><br>
+		<small> (@yarikoptic). State Physics and International ACM Programming
+		  competitions. Spine diagnostic apparatus. Member of "Small Academy of Science of
+		  Ukraine". SPIE. Soros Fellowship (twice). MS-DOS/Windows.
+		  Borland Pascal, Delphi, VBA
+	  </small></li>
+
+	  <li class="fragment"><b>-2003 University of New Mexico:
+		  <span style="float:right;">Masters in Computer Science</span></b><br>
+		<small><a href="http://www.bcl.hamilton.ie/~barak/">B.Pearlmutter</a>.
+		  SOBI/JADE ICA for single trial MEG. Favorite course: Data structures
+		  and algorithms.
+		  <a href="https://debian.org">Debian GNU/Linux</a>.
+		  C, Matlab, shell. CVS
+	  </small></li>
+
+	  <li class="fragment"><b>-2009 Rutgers-Newark/NJIT:
+		  <span style="float:right;">Ph.D. in Computer Science</span></b><br>
+		<small><a href="http://rubic-web.rutgers.edu/people.html">S.Hanson</a>.
+		  <a href="http://dx.doi.org/10.1162/neco.2007.09-06-340">fMRI decoding (RFE SVM)</a>.
+		  <a href="https://link.springer.com/article/10.1385/NI:2:1:071?noAccess=true">RUMBA</a>.
+		  HPC sysadmin (cfengine, PBS).
+		  <a href="https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/Hanke_m.html">M.Hanke</a>.
+		  Debian pkg-exppsy (for FSL and PyEPL).
+		  <a href="https://nm.debian.org/person/yoh/">Official Debian developer</a>.
+		  <a href="https://arxiv.org/abs/1307.2150">fMRI/EEG (TRANS)fusion</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>.
+		  C++, Python. SVN, GIT. 1 wife, 3 kids
+	  </small></li>
+	  <li class="fragment"><b>- NOW Dartmouth College, PBS Department: <br>
+		  <span style="float:right;">Postdoc, Scientist, Research Assistant/Associate Professor</span></b><br>
+		<small><a href="https://haxbylab.dartmouth.edu/">J.Haxby</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>
+		  (<a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignment</a>,
+		  ...),
+		  <a href="https://neuro.debian.net">NeuroDebian</a>,
+		  <a href="https://datalad.org">DataLad</a>,
+		  <a href="https://repronim.org">ReproNim</a>,
+		  <a href="https://dandiarchive.org">DANDI</a>,
+		  ...
+		  <a href="https://github.com/yarikoptic/coop">Chicken Coop</a>,
+		  ...
+		  <a href="https://centerforopenneuroscience.org/">CON</a>:
+		</small>
+	  </li>
+	</ul>
+
+	<aside class="notes"><ul>
+		<li>Russian Soviet Federative Socialist Republic</li>
+	</ul></aside>
+
+  </section>
+
+  <section>
+	<div class="r-stack">
+	  <img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+	  <!-- TODO update this compilation! prepend with proper Ack-->
+<!--	  <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/>
+	  <img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/> -->
+	  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+	  <!-- TODO: Extend this one and with DANDI accent etc
+	  <img class="fragment" style="width:2000px"
+		   data-src="pics/con-ack-joeybenetc-extended.svg"/>
+	  -->
+	</div>
+  </section>
+
+  <section	data-background-iframe="https://www.dandiarchive.org/team" data-background-interactive>
+  </section>
+</section>
+
+<section  data-transition="slide">
+  <section>
+	<h2> Ingredients needed to build an archive</h2>
+
+	<ul style="font-size:150%">
+	  <li> People </li>
+	  <li> Standards </li>
+	  <li> FOSS </li>
+	  <li> Automations </li>
+	</ul>
+
+	<aside class="notes"><ul>
+		<li>Software needs to speak the languages</li>
+		<li>Automations to verify that everything speaks the same language</li>
+	</ul></aside>
+  </section>
+</section>
+
+<section  data-transition="slide">
+  <section>
+	<h2>Standards make DANDI FAIR</h2>
+	<img style="width:2000px" src="pics/DANDI-FAIR.svg" />
+  </section>
+
+    <section>
+	<h2>Standard for neurophysiology data (sessions): NWB</h2>
+	<img style="width:2000px" src="pics/NWB-datatypes.svg" />
+	<br/>
+		Just ask Oliver & Ryan around the corner: <a href="https://www.nwb.org/nwb-neurophysiology/">https://www.nwb.org/nwb-neurophysiology/ </a>
+	</section>
+</section>
+
+<section>
+  <section  data-transition="slide">
+	<h2>Standard for neural datasets: BIDS</h2>
+	<img style="width:2000px"  data-src="pics/bids-logo-wide.png"/>
+	<br>
+	<small>
+	  <a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
+D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (2016). The
+brain imaging data structure, a format for organizing and describing outputs
+of neuroimaging experiments. Scientific Data, 3:160044</a>
+	</small>
+  </section>
+
+  <section>
+	<h2>BIDS ...</h2>
+	  <ul>
+		<li>standardizes at the level of the dataset</li>
+		<li><b>is intended to be boring: you have seen one BIDS dataset -- you have seen them
+			all!</b></li><ul>
+		  <li>e.g., skim through <a href="https://github.com/OpenNeuroDatasets">https://github.com/OpenNeuroDatasets</a></li>
+			</ul>
+
+		<li>is both human- and machine- friendly</li>
+		<ul>
+		  <li>From 1.7.0 WiP to make BIDS specification itself machine
+			readable!</li>
+		  <li><b>In part inspired by the NWB schema</b>. Cross-standard work is ongoing</li>
+		  <li>Schema avoids necessity for hard-coding BIDS in client software</li>
+		  <li><b>Questions about schema/standards versioning and upgrades remain a taboo</b></li>
+		</ul>
+ 		<li>compliance could be automatically verified using
+		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
+		  BIDS-App</li>
+		<li>is enhanced through BIDS Enhancement Proposals (BEPs), <br>we participate in them to improve BIDS for DANDI archive
+		  <ul>
+			<li>BEP028: Provenance (WiP)</li>
+			<li>BEP031: Microscopy (done)</li>
+			<li>BEP032: Animal electrophysiology (WiP)</li>
+		  </ul>
+		</li>
+	  </ul>
+  </section>
+
+  <section>
+	<h2>BIDS is "meta"standard</h2>
+<!--	  	<img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
+		 style="position:absolute; left:10%; top:0%; width:80%; opacity: 90%"/> 
+	<img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
+		 style="position:absolute; left:0%; top:0%; width:100%;"/> -->
+	<img src="pics/BIDS-minder.svg"/>
+  </section>
+</section>
+
+</section>
+
+<section  data-transition="slide">
+  <section >
+	<h2>One more "Standard": DANDI schema</h2>
+	<img data-src="pics/20210421-INCF-dandischema.svg"/>
+  </section>
+
+  <section>
+	<h2>Overall: Standards ...</h2>
+	<ul style="font-size:150%">
+	  <li>are needed for FAIR archives</li>
+	  <li>are a common language for users and computers</li>
+	  <li>can compose of other standards</li>
+	  <li>are evolving</li>
+	</ul>
+  </section>
+
+</section>
+
+<section  data-transition="slide">
+<section>
+  <h2>DANDI is a FOSS platform</h2>
+  <img src="pics/DANDI-shot-and-interactions.svg"/>
+</section>
+<section>
+  <h2>DANDI integrates with external resources</h2>
+  <img  style="width:2000px" data-src="pics/DANDI-ecosystem.svg"/>
+</section>
+</section>
+
+<!-- move to later/end -->
+<section>  <img src="pics/2022-INCF-help.svg" /> </section>
+
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Questions?</h2>
+</section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.4,
+				maxScale: 1,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
