@@ -1,0 +1,78 @@
+* Google doc with abstract etc  https://docs.google.com/document/d/1mIf-WUeg4QLei8PwiUlgy0Pmm9Mp7wtTBmLrXtPUcCg/edit
+* To be presented at WG-16 (Magnetic Resonance)
+** archive of notes since 1998: https://dicom.nema.org/dicom/minutes/wg-16/
+** has fMRI subgroup
+** had(?) DTI subgroup - 2014-2015
+** other related/interesting WGs
+*** WG-03 -  Nuclear Medicine - https://www.dicomstandard.org/activity/wgs/wg-03
+
+Chris R. said that he was involved with the WG while working on PET BEP
+https://github.com/bids-standard/bids-specification/issues/1350#issuecomment-1311633046
+
+*** WG-32 - Neurophysiology Data - https://www.dicomstandard.org/activity/wgs/wg-32
+*** WG-30 - Small Animal Imaging - https://www.dicomstandard.org/activity/wgs/wg-30
+* Chris Rorden/BIDS+DICOM
+** meeting 48 agenda: https://docs.google.com/document/d/1saj8O6YZvtiS4AZJqX9hb62CvHkcdWQjQwd09ZG4_FU/edit?pli=1
+
+* Rough ideas and notes of what to mention etc
+** History
+*** Neuroimaging community started with dumbified “basic” file format Analyze (separate data + header) and then NIfTI (one file) since
+- DICOM initiation traces back to 1982 - 1st PACS Conference
+- 1998 was the initiation of WG-16?
+- PACS/DICOM - transmission and archival oriented
+  - managing the multitude of DICOM files (mozaics etc) on drive (not in PACS) is not trivial
+- not all scanners produced them (Philips only in 201?)
+- Bob Cox (AFNI/lead of NIfTI effort):
+  - DICOM doesn't store floats except as ASCII strings
+  - The whole thing is so clumsy as to make battle hardened programmers recoil in fear
+- 2004 NIfTI poster: https://nifti.nimh.nih.gov/nifti-1/documentation/hbm_nifti_2004.pdf/view
+- BIDS born October 17, 2014
+*** Where we (BIDS and DICOM) left of: David Clunie (PixelMed Publishing) https://www.dclunie.com/papers/MICCAI_2017_Clunie_DICOM.pdf
+** prior related efforts
+***  BEP019 (by Satra): DICOM Metadata to include "complete" record, e.g. under "dicom" field
+** current state in BIDS - sidecar .json files:
+*** some fields have 1-to-1 mapping to DICOM, some "translated", and otherwise "any other" is allowed
+
+- In https://github.com/bids-standard/bids-specification/pull/1450 I
+  shows that we have over 70 json side-car fields which "correspond" or "based on" DICOM Tags.
+
+  Some are renamed, e.g. `DecayFactor` -> `DecayCorrectionFactor` for
+  PET, etc
+*** BIDS ATM allows for arbitrary other not-standardized fields, so tools like heudiconv might add more from DICOMs
+*** We do advocate to re-use existing fields whenever possible
+
+https://bids-extensions.readthedocs.io/en/latest/guide/#not-considering-dicom-fields
+
+** DICOM WGs as a "gateway" to fulfill research MRI needs at Manufacturers level (if they listen to DICOM folks more), e.g.
+*** slice order/timing in Philips
+** alignment of DICOM and BIDS developments
+*** library of concrete DICOM + BIDS conversions per manufacturer/data type/modality etc (https://github.com/bids-standard/bids-specification/issues/1350)
+
+help to
+- identify manufacturer specific terminology/fields
+- missing details
+
+Concrete example in
+https://github.com/bids-standard/bids-specification/issues/1350
+
+
+**** may be there is already some collection of DICOMs like https://github.com/neurolabusc/dcm_qa collecting data across manufactures for prototypical sequences?
+**** are licenses Open and allow for "Phoenix" sequences across scanners?
+*** channel for reporting insufficiencies (in design) and deficiencies (across implementations)
+
+Chris Rorden (our DICOM Guru, author of the dcm2niix converting DICOMs
+to NIfTI):
+"@agahkarakuzu you have supplied a desired BIDS conversion, but it does not contain a source DICOM. The current specification seems underspecified. It is unclear how to determine stimulated echo (STE) for various manufacturers (GE, Philips) as well as different systems (Siemens VE11 Classic DICOM vs Siemens XA30 enhanced DICOM)."
+
+@agahkarakuzu:
+
+"Each qMRI-focused WIP sequence has shortcomings in adding important tags to metadata, e.g., RepetitionTimeExcitation for MP2RAGE can be found only in the protocol pdf, not in the file header."
+
+Chris:
+
+For Siemens, you can work with your center's Siemens Research Collaboration Manager to understand these details and make sure they have some equivalent in a future XA release. Likewise, Philips users can work with the Philips Clinical Scientist associated with their center to understand these details (albeit Philips DICOM scans do not store many sequence specific parameters). For GE, @mr-jaemin has done a terrific job of helping us understand how GE nodes various details. I do think it really helps if the BIDS BEPS are developed in consultation with the manufacturers. Scanner software releases have a long lag time, and DICOM working groups have an even longer lag. Including those engineers early in the cycle allows them to provide their insight and allows them to provide the rich sequence details we want for reproducible science.
+**** So what would be our workflow, first points of contact -- DICOM WG or manufacturers?
+
+- pros for WG -- likely to already have good representation of manufacturers?
+
+*** align WIPs (where aware/possible) such as e.g. Siemens Phisio data in DICOMs with BIDS + tools for conversion

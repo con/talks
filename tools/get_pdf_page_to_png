@@ -1,0 +1,12 @@
+#!/bin/bash
+in="$1"
+p="$2"
+out="$3"
+
+pdftk "$in" cat $p output "$out-$p.pdf"
+pdftoppm -singlefile "$out-$p.pdf" "$out-$p"
+
+set -x
+convert "$out-$p.ppm" -trim -transparent white "$out-$p.png"
+rm -f "$out-$p".{ppm,pdf}
+xdg-open "$out-$p.png"
