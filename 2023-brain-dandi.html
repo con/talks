@@ -107,37 +107,80 @@
 	  borrowed from <a href="https://www.socialsciencespace.com/wp-content/uploads/625px-To_deposit_or_not_to_deposit_that_is_the_question_-_journal.pbio_.1001779.g001.png">socialsciencespace.com</a></small>
   </section>
 
+  <section  data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
+	  <h2>Q: Where data go to die?</h2>
+	  <h3 class="fragment">Data archive</h3>
+	  <h2 class="fragment">Q: How data are reincarnated?</h2>
+	  <h3 class="fragment">Re-used from archive(s)</h3>
+
+	  <p>From <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-tx-big-neuroscience.html">
+		  "Towards the Big Data Neuroscience Nirvana, TX, September
+		  2022"
+	  </a></p>
+
+	  <aside class="notes"><ul>
+		  <li>Distributed data has to transcend the cycle of reincarnation upon
+reaching an archive.</li>
+		  <li> Data must not die having been deposited to public archive, it should
+start its next cycle of life, ideally even richer and more fulfilling.</li>
+
+	  </ul></aside>
+	</section>
+
   <section  data-transition="slide">
 	<a href="https://dandiarchive.org"> <img style="height:700px" data-src="pics/dandi-logo-square.svg"/></a>
 
 	<br/><br/>Born in 2019
+	<br> ... to help data transcend the data archive(s)
   </section>
+
   <section>
 	<h2>What data is in DANDI</h2>
-	<img style="height:900px" data-src="pics/dandi-slide-modalities.svg"/></a>
+	<img style="height:900px" data-src="pics/dandi-slide-modalities.svg"/>
   </section>
+
+  <section>
+	<h2>Data chronology and demographics</h2>
+	<img style="height:900px"
+		 data-src="pics/20230622-NWB-and-DANDI-tutorial-updates.svg"/>
+  </section>
+
+
+  
 
   <section   data-transition="slide">
 	<h2> Ingredients needed to build an archive</h2>
 
 	<ul style="font-size:150%">
 	  <li> People <span class="fragment"><b>(users are people too!)</b></span> </li>
-	  <li> Standards </li>
-	  <li> FOSS </li>
-	  <li> Automations </li>
+	  <li> Standards <span class="fragment"><b>(define the language)</b></span> </li>
+	  <li> Technologies <span class="fragment"><b>(they come and distrupt)</b></span> </li>
+	  <li> FOSS  <span class="fragment"><b>(to reuse and share)</b></span></li>
+	  <li> Automations <span class="fragment"><b>(people need to sleep)</b></span> </li>
 	</ul>
 
 	<aside class="notes"><ul>
 		<li>Software needs to speak the languages</li>
-		<li>Automations to verify that everything speaks the same language</li>
+		<li>Technologies they come to bring more data (new data
+		acquisition tech) but also come to store more data, to allow
+		for distributed storage and faster transfer ... so we should
+		always be on lookout</li>
+
+		<li>Automations are great for all stages in data cycle: more
+		efficient data collection, fewer bugs with data entry,
+		automated verification that all data speaks the same language
+		(standards), that the technologies we deployed performed as
+		  they should, that reused components and tested for operating correctly,
+		  we to verify that everything speaks the same language</li>
 	</ul></aside>
   </section>
 </section>
 
 <section  data-transition="slide">
-  <section>
+<!--  <section>
 	<img style="width:2000px" src="pics/DANDI-users-PI.svg" />
-  </section>
+</section>
+-->
   <section>
 	<img style="width:2000px" src="pics/DANDI-users-submitter.svg" />
   </section>
@@ -145,86 +188,14 @@
 	<img style="width:2000px" src="pics/DANDI-users-researcher.svg" />
   </section>
   <section>
-	<img style="width:2000px" src="pics/DANDI-users-developer.svg" />
+	<img style="width:2000px" src="pics/20230622-NWB-and-DANDI-tutorial-developer.svg" />
   </section>
   
-</section>
-<section  data-transition="slide">
-  <section>
-	<h2>Standards make DANDI FAIR for People</h2>
-	<img style="width:2000px" src="pics/DANDI-FAIR.svg" />
-  </section>
-
-    <section>
-	<h2>Standard for neurophysiology data (sessions): NWB</h2>
-	<img style="width:2000px" src="pics/NWB-datatypes.svg" />
-	<br/>
-		Just ask Oliver & Ryan around the corner: <a href="https://www.nwb.org/nwb-neurophysiology/">https://www.nwb.org/nwb-neurophysiology/ </a>
-	</section>
-</section>
-
-<section   data-transition="slide">
-  <section>
-	<h2>Standard for neural datasets: BIDS</h2>
-	<img style="width:2000px"  data-src="pics/bids-logo-wide.png"/>
-	<br>
-	<small>
-	  <a href="https://www.nature.com/articles/sdata201644">
-		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
-E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
-D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
-Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
-Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (2016). The
-brain imaging data structure, a format for organizing and describing outputs
-of neuroimaging experiments. Scientific Data, 3:160044</a>
-	</small>
-  </section>
-
-  <section>
-	<h2>BIDS ...</h2>
-	  <ul>
-		<li>standardizes at the level of the dataset</li>
-		<li><b>is intended to be boring: you have seen one BIDS dataset -- you have seen them
-			all!</b></li><ul>
-		  <li>e.g., skim through <a href="https://github.com/OpenNeuroDatasets">https://github.com/OpenNeuroDatasets</a></li>
-			</ul>
-
-		<li>is both human- and machine- friendly</li>
-		<ul>
-		  <li>From 1.7.0 WiP to make BIDS specification itself machine
-			readable!</li>
-		  <li><b>In part inspired by the NWB schema</b>. Cross-standard work is ongoing</li>
-		  <li>Schema avoids necessity for hard-coding BIDS in client software</li>
-		  <li><b>Questions about schema/standards versioning and upgrades remain a taboo</b></li>
-		</ul>
- 		<li>compliance could be automatically verified using
-		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
-		  BIDS-App</li>
-		<li>is enhanced through BIDS Enhancement Proposals (BEPs), <br>we participate in them to improve BIDS for DANDI archive
-		  <ul>
-			<li>BEP028: Provenance (WiP)</li>
-			<li>BEP031: Microscopy (done)</li>
-			<li>BEP032: Animal electrophysiology (WiP)</li>
-		  </ul>
-		</li>
-	  </ul>
-  </section>
-
-  <section>
-<!--	<h2>BIDS is "meta"standard</h2> -->
-<!--	  	<img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
-		 style="position:absolute; left:10%; top:0%; width:80%; opacity: 90%"/> 
-	<img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
-		 style="position:absolute; left:0%; top:0%; width:100%;"/> -->
-	<img src="pics/BIDS-minder.svg"/>
-  </section>
-</section>
-
 </section>
 
 <section  data-transition="slide">
   <section >
-	<h2>One more "Standard": DANDI schema</h2>
+	<h2>DANDI "Integrates" Standards: DANDI schema</h2>
 	<img data-src="pics/20210421-INCF-dandischema.svg"/>
   </section>
 
@@ -235,6 +206,7 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 	  <li>are a common language for users and computers</li>
 	  <li>can compose of other standards</li>
 	  <li>are evolving</li>
+	  <li>could be used/reused/extended/collaborated on</li>
 	</ul>
   </section>
 
@@ -242,7 +214,7 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 
 <section  data-transition="slide">
   <section>
-	<h2>DANDI is a FOSS platform</h2>
+	<h2>DANDI is FOSS and open for integrations</h2>
 	<img src="pics/DANDI-shot-and-interactions.svg"/>
   </section>
 
@@ -275,7 +247,7 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
   <section>
 	<h2>Unit- and integration- test software components</h2>
 	  <ul>
-		<li>an entire archive can be instantiated on any machine with docker-compose</li>
+		<li>DANDI archive can be instantiated on any machine with docker-compose</li>
 		<li>Releases and deployment of the components are automated on GitHub</li>
 	  </ul>
 	<img data-src="pics/dandi-cli-pr-ci-tests.png"/>
@@ -290,22 +262,24 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
   <section>
 	<h2>Dandisets are converted into DataLad datasets and pushed to GitHub</h2>
 	<ul>
-	  <li>data resides on S3 (and some institutional backups)</li>
+	  <li>fully automated</li>
+	  <li>data resides on S3 (and some institutional DropBox backups)</li>
 	  <li>provides aggressive testing of API and data access</li>
 	</ul>
-	<img data-src="pics/github-dandisets.png"/>
+	<img style="-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent)"
+		 data-src="pics/github-dandisets.png"/>
   </section>
 
 
   <section>
 	<h2>Webshots of all dandisets for timing and smoke testing</h2>
 	<h3>Trivia: this setup was used to quickly troubleshoot OHBM 2021 online conference deficiencies</h3>
-	<img style="height:1400px" data-src="pics/dandiarchive-webshots.png"/>
+	<img style="height:1400px;-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent)" data-src="pics/dandiarchive-webshots.png"/>
   </section>
 
     <section>
 	<h2>Testing trivial IO across all dandisets</h2>
-	<img style="height:1400px" data-src="pics/dandisets-healthstatus.png"/>
+	<img style="height:1400px;-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent)" data-src="pics/dandisets-healthstatus.png"/>
   </section>
 
 </section>
@@ -313,20 +287,28 @@ of neuroimaging experiments. Scientific Data, 3:160044</a>
 <section  data-transition="slide">
   <h2>DANDI ...</h2>
   <b>to accommodate growing width (different data types) and size of neural data</b>
-  <ul  style="font-size:120%">
+  <ul style="font-size:120%">
 	<li><b>provides range of interfaces for data contribution and access:</b>
-	  <br>API, Python CLI client/library, direct S3, FSSPEC, DataLad /
+	  <br>API, Python CLI client/library, direct AWS S3, FSSPEC, DataLad /
 	  git-annex
+	  <br><span style="color:red">WiP: IPFS/FileCoin</span>
 	</li>
-	<li><b>heavily relies on, and contributes to the development of various standards:</b>
-	  <br>NWB, BIDS, OME-Zarr, etc</li>
-	<li><b>has modular architecture to reuse and contribute to various FOSS projects:</b>
-		  <br>(used to: girder,) h5py, git-annex, DataLad, con/tinuous, pyout, etc.</li>
-	<li><b>integrates with external services:</b> <br>MetaCell NWB
+	<li class="fragment"><b>heavily relies on, and contributes to the development of various standards:</b>
+	  <br>NWB, BIDS, OME-Zarr, <span style="color:red">any new one we missed?</span>
+	</li>
+	<li class="fragment"><b>has modular architecture to reuse and contribute to various FOSS projects:</b>
+	  <br>(used to: girder,) h5py, git-annex, DataLad, con/tinuous, pyout, <span style="color:red">yours?</span>
+	</li>
+	<li class="fragment"><b>integrates with external services:</b> <br>MetaCell NWB
 	Exporer, bioimagesuiteweb, <span style="color:red;">Let's
 	integrate with your services!</span> </li>
-	<li><b>is adopting novel technologies to account for data growth:</b><br> IPFS/Filecoin </li>
-	<li><b>pays special attention to automated software testing and data QC</b></li>
+	<li class="fragment"><b>is adopting novel technologies to account for data growth:</b>
+	  <br> IPFS/Filecoin,
+	  <span style="color:red">Any other we have not heard about?</span>
+	</li>
+<li class="fragment"><b>pays special attention to automated software testing and data QC</b>
+  <br><span style="color:red">What is there beyond pre-commit?</span>
+	</li>
   </ul>
 </section>
 
