@@ -1,0 +1,306 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>"What's in the DataLad sandwich" AKA DataLad "ecosystem"</title>
+		<meta name="description" content="Slides for the https://distribits.live/ 2004">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+	  <h2>"What's in the DataLad sandwich" AKA DataLad "ecosystem"</h2>
+ 
+	  <!-- <a href="https://standforukraine.com/">
+		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
+		   style="position:absolute; right:0%; top:70%; width:10%;
+		opacity:70%"/> -->
+
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+
+		  <img style="width:200px; margin: 0px" data-src="pics/2024-distribits-datalad-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <!-- TODO place them there; Add QR code how in template -->
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html</a>
+<br>
+<small>
+ <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a> -->
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+  <!-- <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a> -->
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition-speed="zoom">
+
+  <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
+  <section 
+   data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
+	<img class="fragment" style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+</section>
+
+
+<section  data-transition="slide">
+
+  <section>
+	<a href="https://datalad.org">
+	  <img style="height:300px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:100px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	</p>
+
+	<br>
+<!--	<br><br><small>Born in 2013</small>-->
+
+	<table>
+	  <tr>
+		<td style="width:80%;vertical-align:middle">
+		  <em>DataLad: distributed system for joint management of code, data, and their relationship.</em><br/>
+		  Y. Halchenko, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
+		  <mark title="Highly recommended! 'Standardized'!">Journal of Open
+		Source Software</mark>, 6(63):3262, jul 2021.
+		<br/><a href="https://joss.theoj.org/papers/10.21105/joss.03262"> DOI: 10.21105/joss.03262 </a>
+		</td>
+		<td>
+		  <img style="width:90%;vertical-align:middle" src="pics/2021-datalad-joss-qrcode.png"/>
+	</td></tr></table>
+  </section>
+
+  <section>
+	<h2>Like "Big Data"?</h2>
+	<h3>Meet one of the "largest" Git "repositories"</h3>
+	<p>Over 6,000 Git repositories as subdatasets, with access to over 500TB of (mostly) neural data</p>
+	<img title="datasets.datalad.org" style="width:70%"  data-src="pics/datasets.datalad.org-20240329.png"/>
+  </section>
+
+  <section>
+	<h2>It even swallowed the glorious https://singularity-hub.org</h2>
+	<img title="datasets.datalad.org" style="width:70%"  data-src="pics/datasets.datalad.org-shub-20240329.png"/>
+  </section>
+
+
+  <section>
+	<h2>DataLad: Decentralized Research Data Management</h2>
+	<img style="height:80%" src="pics/datalad-decentralized.jpg"/>
+
+	<table>
+	  <tr>
+		<td  style="width:80%;vertical-align:middle">
+		<em>In defense of decentralized research data management</em>, Michael
+		Hanke, Franco Pestilli, Adina S. Wagner, Christopher
+		J. Markiewicz, Jean-Baptiste Poline and Yaroslav O. Halchenko,
+		NeuroForum,
+		2021,
+		<a href="https://doi.org/10.1515/nf-2020-0037">DOI:
+	  10.1515/nf-2020-0037</a>
+		</td>
+		<td>
+		  <img style="width:80%;vertical-align:middle" src="pics/decentral_RDM_overview-qrcode.png"/>
+		</td>
+	</tr></table>
+
+  </section>
+
+<section data-background="pics/decentral_RDM_overview.png" data-background-opacity="0.8" data-background-size="30%" data-background-position="top 10px right 10px">
+    <h2>DataLad for users</h2>
+
+    <ul>
+		<li>minimized tedious human IO to obtain data</li>
+		<li>harmonized management of all human digital artifacts/data</li>
+		<li>facilitated modularity, integration and re-use</li>
+        <li>provided guarantees of data integrity</li>
+		<li>facilitated verification of data availability</li>
+		<li>enabled collection of annotated and re-executable
+		  provenance</li>
+		<li>gave an awesome good night read: <a href="http://handbook.datalad.org/">handbook.datalad.org</a></li>
+		<li>hours of audio/video enrichment: <a href="https://youtube.com/c/datalad">youtube.com/c/datalad</a></li>
+		<li>... collaboration, etc ...</li>
+	</ul>
+</section>
+
+<section  data-background="pics/tall-burger.png" data-background-opacity="0.2" data-background-size="80%">
+  <h2>DataLad for its developers:</h2>
+
+  <ul>
+	<li><b>Layering of technologies:</b>
+  <ul>
+	<li><b>Base technologies</b>: git, ssh, rsync, rsync, rclone, ...</li>
+	<li><b>Data logistics</b>: git-annex</li>
+	<li><b>Core product</b>: DataLad</li>
+	<li><b>Downstream projects</b>: DataLad extensions, OpenNeuro, CONP, ...</li>
+  </ul>
+  </li>
+
+	<li><b>Cacophony of deployment scenarios:</b>
+  <ul>
+	<li><b>OSes</b>: GNU/Linux, OS X, Windows</li>
+	<li><b>Filesystems</b>: "OS default", network (NFS), HPC (Lustre), ...</li>
+  </ul></li></ul>
+
+  <p><b>Where are the "standards" and "validation" in this sandwich?</b></p>
+</section>
+
+  <section> <!--  data-background="pics/digits.svg"> -->
+	  <h2>DataLad et al.</h2>
+	  <img class="r-stretch" data-src="pics/DataLad-minder.svg"/>
+	</section>
+
+<section>
+  <h2>But what about Validation of DataLad itself?</h2>
+</section>
+
+<section>
+  <h2>DataLad: all changes are tested</h2>
+  <img data-src="pics/datalad-ci-PR.png"/>
+</section>
+
+<section>
+  <h2>DataLad extensions are tested against DataLad daily!</h2>
+  <img style="height:1400px" data-src="pics/datalad-extensions.png"/>
+</section>
+
+<section>
+  <h2>git-annex is built and tested (against DataLad) daily!</h2>
+  <img style="height:1000px" data-src="pics/datalad-git-annex.png"/>
+</section>
+
+<section>
+  <h2>con/tinuous archives all the logs and builds</h2>
+  <img style="height:400px" data-src="pics/con-tinuous-github.png"/>
+  <img style="height:400px" data-src="pics/con-tinuous-term.png"/>
+</section>
+
+<section data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
+
+  <h2>TODO: Mindfulness, Data, DataLad ...</h2>
+</section>
+
+</section>
+
+
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Questions?</h2>
+
+</section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
