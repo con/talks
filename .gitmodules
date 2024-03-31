@@ -6,3 +6,7 @@
 	path = reveal.js
 	url = https://github.com/hakimel/reveal.js.git
 	datalad-url = https://github.com/hakimel/reveal.js.git
+[submodule "reveal.js-mermaid-plugin"]
+	path = reveal.js-mermaid-plugin
+	url = https://github.com/zjffun/reveal.js-mermaid-plugin
+	datalad-url = https://github.com/zjffun/reveal.js-mermaid-plugin
