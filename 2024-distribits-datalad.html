@@ -94,6 +94,25 @@
   </section>
 </section>
 
+<section  data-transition="slide">
+
+  <section>
+	<h1>How it all began</h1>
+	<ul>
+	  <li>2005 Apr 07 - First commit in git repo</li>
+	  <li>2010 Oct 09 - First commit in git-annex repo</li>
+	  <li>2013 May 21 - First commit in DataLad (gitweb then) repo</li>
+	  <li>2013 Dec 30 - Email to Joey</li>
+		<img title="email-to-joey" style="width:100%"  data-src="pics/joey-email.png"/>
+	  <li>2014 Jan 09 - Started to work on proposal to CRCNS NSF</li>
+	  <li>2014 Jan 27 - Submitted to CRCNS NSF/BMBF</li>
+	  <li>2014 Jun 27 - Requested to clarify some aspects</li>
+	  <li>2014 Sep 01 - Started to work on DataLad (then DataGit)</li> 
+	  <li>... the work has never finished... </li>
+	</ul>
+  </section>
+</section>
+
 <section data-transition-speed="zoom">
 
   <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
@@ -135,6 +154,40 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
 	</td></tr></table>
   </section>
 
+  <section>
+    <h3>"Processing" workflow in Git branches</h3>
+      <div class="mermaid">
+        <pre>
+%% comment: show the flow from incoming to master
+
+%% %%{init: {'gitGraph': { 'mainBranchName': 'incoming', 'mainBranchOrder': 3}} }%%
+gitGraph TB:
+    branch master order: 1
+    checkout master
+    commit id: ".datalad/ etc"
+    checkout incoming
+    commit id: "original content (tarballs)" tag: "incoming/1.0"
+    branch processed order: 2
+    commit id: "processed incoming (extracted)" type: HIGHLIGHT
+    checkout master
+    merge processed tag: "1.0.0" id: "just a merge"
+    commit id: "manually fixed content" tag: "1.0.1"
+    checkout incoming
+    commit id: "update #1"  tag: "incoming/1.1"
+    checkout processed
+    merge incoming id: "processed update #1" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #1" tag: "1.1.0"
+    checkout incoming
+    commit id: "update #2"  tag: "incoming/1.2"
+    checkout processed
+    merge incoming id: "processed update #2" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #2" tag: "1.2.0"
+        </pre>
+      </div>
+    </section>
+ 
   <section>
 	<h2>Like "Big Data"?</h2>
 	<h3>Meet one of the "largest" Git "repositories"</h3>
@@ -269,6 +322,7 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
 		<script src="reveal.js/plugin/notes/notes.js"></script>
 		<script src="reveal.js/plugin/markdown/markdown.js"></script>
 		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -299,7 +353,7 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
 				pdfPageHeightOffset: -1,
 				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
 			});
 		</script>
 	</body>
