@@ -94,41 +94,321 @@
   </section>
 </section>
 
-<section  data-transition="slide">
+<section data-transition="slide">
+
+ <section>
+  <h2>Why version control?</h2>
+  <table style="width:70%;">
+    <tr>
+      <td style="width:40%; vertical-align:top;">
+        <ul>
+		  <li class="fade-in">collaborate</li>
+          <li class="fade-in">keep things organized</li>
+		  <li class="fade-in">keep things synchronized</li>
+          <li class="fade-in">keep track of changes</li>
+		  <li class="fade-in">experiment</li>
+		  <li class="fade-in">use as a backup</li>
+		  <li class="fade-in">search (grep)</li>
+		  <li class="fade-in">...</li>
+          <!-- Add more list items here -->
+        </ul>
+      </td>
+      <td style="width:60%; text-align:center;">
+        <img src="pics/borrowed/phdcomics-notfinal.png" style="box-shadow: 10px 10px 8px #888888; height:700px;" height="700">
+		<small>Borrowed from <a href="https://phdcomics.com/comics/archive.php?comicid=1531">PhD Comics 1531</a>.</small>
+      </td>
+    </tr>
+  </table>
+  <aside class="notes">
+    <li>Not only manuscripts, but also data!</li>
+  </aside>
+</section>
+
+  <section data-background-color="black">
+	<h1>From prehistoric times...</h1>
+	<img style="width:70%" data-src="pics/borrowed/scm-history-2016.svg"/>
+  </section>
 
   <section>
-	<h1>How it all began</h1>
+	<h2>When it began for us</h2>
 	<ul>
-	  <li>2005 Apr 07 - First commit in git repo</li>
-	  <li>2010 Oct 09 - First commit in git-annex repo</li>
-	  <li>2013 May 21 - First commit in DataLad (gitweb then) repo</li>
-	  <li>2013 Dec 30 - Email to Joey</li>
-		<img title="email-to-joey" style="width:100%"  data-src="pics/joey-email.png"/>
-	  <li>2014 Jan 09 - Started to work on proposal to CRCNS NSF</li>
-	  <li>2014 Jan 27 - Submitted to CRCNS NSF/BMBF</li>
-	  <li>2014 Jun 27 - Requested to clarify some aspects</li>
-	  <li>2014 Sep 01 - Started to work on DataLad (then DataGit)</li> 
-	  <li>... the work has never finished... </li>
+	  <li>2005 Apr 07 - First commit in git</li>
+	  <li>2007 May 24 - First commit in PyMVPA</li>
+	  <li>2008 Feb 08 - GitHub founded</li>
+	  <li>2010 Oct 09 - First commit in git-annex</li>
+	  <li>2013 May 21 - First commit in DataLad (gitweb)</li>
 	</ul>
   </section>
+
+  <section>
+	<h2>First use-case: Childhood times cartoons</h2>
+	  <img data-src="pics/borrowed/arjlover-webshot.png"/>
+  </section>
+
+  <section>
+	<h2>The idea of a website crawler was born</h2>
+    <div class="mermaid"><pre>
+		graph TB
+		%% datalad --> git-annex --> git
+		website
+		datalad -->|scrapes|website(website)
+
+		datalad[gitweb] -->|populates annex|git-annex[git-annex addurl]
+
+		datalad --> git1[git commit]
+		git-annex --> git2[git]
+
+		user --> git-annex2[git annex get]
+
+		classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
+		classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
+		classDef red fill:#f44d27,stroke:#333,stroke-width:1px;
+		class datalad orange
+		class git-annex green
+		class git-annex2 green
+		class git1 red
+		class git2 red
+	</pre></div>
+  </section>
+
+  <section>
+	<h2>And that "crawled" git-annex repository still "works"!</h2>
+	<img data-src="pics/arjlover-get.png"/>
+  </section>
+
+  <section>
+	<h2>A problem in our other project...</h2>
+		<img data-src="pics/neurodebian-data-webshot.png"/>
+  </section>
+
+  <section>
+	<h2>The state of "tech" back then</h2>
+	<ul>
+	  <li><strong>inefficient</strong> distribution via tar/zip/...-balls</li>
+	  <li><strong>absent versioning</strong> of data<br>
+		<span style="color: red; float: right;">derived and/or curated data does change!</span>
+		<br>
+	  </li>
+	  <li>code version control systems are <strong>inadequate</strong> for data<br>
+		<span style="color: red; float: right;">duplication, monolithic storage, etc.</span>
+		<br>
+	  </li>
+	  <li><strong>TBs of data already shared!</strong><br>
+		<span style="color: red; float: right;">infeasible to duplicate them for re-distribution</span>
+		<br>
+	  <li><strong>absent generic data distributions</strong><br>
+		<span style="color: red; float: right;">no efficient ways to <em>install</em> and <em>upgrade</em></span>
+		<br>
+	  </li>
+	  <li><strong>cacophony</strong> of authorization schemes, interfaces,
+		protocols
+	  </li>
+	  <li><strong>absent data testing</strong>
+		<span style="color: red; float: right;">data can and <strong>does</strong> have 
+		  bugs <!--<span style="text-decoration: underline;">[see e.g. Ha12:hoxbug, Roh13]</span>-->
+		</span>
+		<br>
+	  </li>
+	  <li><strong>difficulty to share</strong> new or derivative data<br>
+		<span style="color: red; float: right;">shareable? some is not! where to host? how to "link" back?</span>
+		<br>
+	  </li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>From an email to a proposal</h2>
+	<ul>
+	  <li>2013 Dec 30 - Email to Joey</li>
+	  <img 
+		   title="email-to-joey"
+		   style="width:90%"  data-src="pics/joey-email.png"/>
+	</ul>
+  </section>
+
+  <section  data-transition="slide-up">
+	<h2>From an email to a proposal</h2>
+	<ul>
+	  <li>2013 Dec 30 - Email to Joey</li>
+	  <li>2014 Jan 09 - M&Y started to work on proposal to CRCNS NSF/BMBF</li>
+	  <li>2014 Jan 27 - ... submitted proposal</li>
+	  <li>2014 Jun 27 - ... were requested to clarify</li> <!--  -->
+	  <li>2014 Sep 01 - ... started to work on DataLad</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>and Joey continued enhancing git-annex</h2>
+	<ul>
+	  <li>with <code>--batch</code> and <code>--json</code> to streamline
+		use of git-annex by DataLad</li>
+	  <li>with support for <code>git-annex-remote-*</code> external special remotes,<br/>
+		and DataLad came up with
+		<ul>
+		  <li><code>git-annex-remote-datalad</code> <br>to facilitate access to resources requiring authentication</li>
+		  <li><code>git-annex-remote-datalad-archives</code> <br> to facilitate access content from within archives.</li>
+		</ul>
+	  </li>
+	</ul>
+  </section>
+
 </section>
+<section>
+  <section>
+	<h2>More layers to the sandwich</h2>
+    <h4>Invocations to get a file from a ///crcns dataset</h4>
+	<div class="mermaid"><pre>
+graph TB
+    %% datalad --> git-annex --> git
+    user --> datalad[datalad get file] --> git-annex[git-annex get file] -.-> git-annex-remote-datalad-archive --> git-annex2[git-annex get --key XXX.tar.gz] -.-> git-annex-remote-datalad
 
-<section data-transition-speed="zoom">
+    datalad --> git1[git]
+    git-annex --> git2[git]
+    git-annex2 --> git3[git]
 
-  <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
-  <section 
-   data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
-	<img class="fragment" style="height:800px" data-src="pics/yarik-goal.svg"/>
+    classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
+    classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
+    classDef red fill:#f44d27,stroke:#333,stroke-width:1px;
+    class datalad orange
+    class git-annex-remote-datalad-archive orange
+    class git-annex-remote-datalad orange
+
+    class git-annex green
+    class git-annex2 green
+    class git-annex3 green
+    class git-annex4 green
+
+    class git red
+    class git1 red
+    class git2 red
+    class git3 red
+    class git4 red
+    class git5 red
+	</pre></div>
+  </section>
+
+  <section>
+  <h2>2017: DataLad crawler pipeline</h2>
+  <div style="position: relative; width: 100%; height: 80vh;">
+    <img src="pics/webshot-datalad-crawler-crcns1.png" class=""         style="position: absolute; top: 0; left: 10%;">
+    <img src="pics/webshot-datalad-crawler-crcns2.png" class="fragment" style="position: absolute; top: 10%; left: 20%">
+    <img src="pics/webshot-datalad-crawler-crcns3.png" class="fragment" style="position: absolute; top: 20%; left: 30%">
+	<img src="pics/webshot-datalad-crawler-crcns4.png" class="fragment" style="position: absolute; top: 40%; left: 40%">
+  </div>
+  </section>
+
+  <section>
+    <h3>Crawler's workflow in Git branches</h3>
+      <div class="mermaid">
+        <pre>
+%% comment: show the flow from incoming to master
+
+%% %%{init: {'gitGraph': { 'mainBranchName': 'incoming', 'mainBranchOrder': 3}} }%%
+gitGraph:
+    branch master order: 1
+    branch git-annex order: 4
+    commit id: "git annex init"
+    checkout master
+    commit id: ".datalad/ etc"
+    checkout git-annex
+    commit id: "content from URLs"
+    checkout incoming
+    commit id: "original content (tarballs)" tag: "incoming/1.0"
+    branch processed order: 2
+    checkout git-annex
+    commit id: "processed content here"
+    checkout processed
+    commit id: "processed incoming (extracted)" type: HIGHLIGHT
+    checkout master
+    merge processed tag: "1.0.0" id: "just a merge"
+    commit id: "manually fixed content" tag: "1.0.1"
+    checkout git-annex
+    commit id: "update #1 from URLs"
+    checkout incoming
+    commit id: "update #1"  tag: "incoming/1.1"
+    checkout git-annex
+    commit id: "update #1 here"
+    checkout processed
+    merge incoming id: "processed update #1" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #1" tag: "1.1.0"
+    checkout git-annex
+    commit id: "update #2 from URLs"
+    checkout incoming
+    commit id: "update #2"  tag: "incoming/1.2"
+    checkout git-annex
+    commit id: "update #2 here"
+    checkout processed
+    merge incoming id: "processed update #2" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #2" tag: "1.2.0"
+        </pre>
+      </div>
+
+	  <p><small>To the date such organization is used in various datasets to formalize flow of the data through the branches.</small>
+  </section>
+
+  <section>
+	<h2>2017-ish: OpenfMRI collection</h2>
+	<img data-src="pics/datasets.datalad.org-openfmri-2016.png"/>
+  </section>
+
+  <section>
+  <h2>CYO: Crawl Your Own</h2>
+  <iframe src="https://docs.datalad.org/projects/crawler/en/stable/demos/track_data_from_webpage.html?highlight=crawl-init#track-data-from-a-webpage" style="width:100%; height:600px;"></iframe>
+	<span style="float: center"><small><a href="https://docs.datalad.org/projects/crawler/en/stable/demos/track_data_from_webpage.html?highlight=crawl-init#track-data-from-a-webpage">https://docs.datalad.org/projects/crawler/</a></small></span>
+
+  </section>
+
+  <!--
+  <section>
+	<h2>2017-ish: DataLad on OpenfMRI dataset</h2>
+	<img style="width:60%" data-src="pics/2016-openfmri-dataset-datalad-howto.png"/>
+  </section> -->
+
+  <section>
+	<h2>DataLad of 2017-ish</h2>
+	<img data-src="pics/datalad-related-webshot.png"/>
+	<span style="float: center"><small>See also <a href="https://www.youtube.com/watch?v=Yrg6DgOcbPE">FOSDEM2020 talk by M.Hanke:
+		  <i>DataLad vs Git/Git-annex for modular data management</i></a></small></span>
   </section>
 </section>
 
+<section>
+  <section>
+	<h2>DataLad Realizations & "Shortcomings"</h2>
+	<ul>
+	  <li><strong>Git and git-annex are great</strong>: have or could have features added</li>
+	  		<span style="color: red; float: right;">we have done the right choice!</span>
+			<br>
+	  <li><strong>DataLad is not just a crawler</strong> - it is a data management platform</li>
+	  		<span style="color: red; float: right;">we have done the right choice!</span>
+			<br>
 
-<section  data-transition="slide">
+	  <li><strong>Domain Born</strong>: neuroscience flavoring</li>
+	  		<span style="color: red; float: right;">repels audience from other domains</span>
+			<br>
+
+	  <li><strong>Feature Creep</strong>: Crawler + Data management + Metadata management + Neuroscience + ...</li>
+	  		<span style="color: red; float: right;">heavy set of dependencies, longer CI runs, harder to work, ...</span>
+			<br>
+
+	  <li><strong>No easy way to extend</strong> withing DataLad CLI/Python namespace</li>
+	  		<span style="color: red; float: right;">harder to "build on top", extend, experiment, ...</span>
+			<br>
+	</ul>
+  </section>
+
+  <section>
+	<h1>DataLad extensions mechanism was born!</h1>
+  </section>
+
+  <section  data-transition="slide">
 
   <section>
 	<a href="https://datalad.org">
 	  <img style="height:300px"
-		   data-src="pics/datalad_logo_wide.gif"/></a>
+		   data-src="pics/datalad-animated.gif"/></a>
 	<p style="margin-top:100px;font-size:150%">
 	  A data management suite that makes data access and management as
 	  easy as managing code and software!
@@ -155,39 +435,33 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
   </section>
 
   <section>
-    <h3>"Processing" workflow in Git branches</h3>
-      <div class="mermaid">
-        <pre>
-%% comment: show the flow from incoming to master
+    <h2> <img src="pics/datalad_logo_wide.svg"> in brief</h2>
+    <ul>
+        <li>A command-line tool with Python API</li>
+        <li>Build on top of <a href="https://git-scm.com/" target="_blank">Git</a>
+            and <a href="https://git-annex.branchable.com/" target="_blank">Git-annex</a></li>
+        <dt><li>Allows...</li></dt>
+        <dd>... version-control arbitrarily large content,</dd>
+		<dd>... easily operate nested datasets (git/git-annex repositories with a UUID),</dd>
+        <dd>... easily share and obtain data (note: no data hosting!),</dd>
+        <dd>... carry out (computationally) reproducible data analysis,
+        <dd>... and <i>much</i> more </dd>
+        <li>Completely domain-agnostic</li>
+		<li>Can be extended with domain-specific functionality</li>
+            <br>
 
-%% %%{init: {'gitGraph': { 'mainBranchName': 'incoming', 'mainBranchOrder': 3}} }%%
-gitGraph TB:
-    branch master order: 1
-    checkout master
-    commit id: ".datalad/ etc"
-    checkout incoming
-    commit id: "original content (tarballs)" tag: "incoming/1.0"
-    branch processed order: 2
-    commit id: "processed incoming (extracted)" type: HIGHLIGHT
-    checkout master
-    merge processed tag: "1.0.0" id: "just a merge"
-    commit id: "manually fixed content" tag: "1.0.1"
-    checkout incoming
-    commit id: "update #1"  tag: "incoming/1.1"
-    checkout processed
-    merge incoming id: "processed update #1" type: HIGHLIGHT
-    checkout master
-    merge processed id: "merged processed update #1" tag: "1.1.0"
-    checkout incoming
-    commit id: "update #2"  tag: "incoming/1.2"
-    checkout processed
-    merge incoming id: "processed update #2" type: HIGHLIGHT
-    checkout master
-    merge processed id: "merged processed update #2" tag: "1.2.0"
-        </pre>
-      </div>
-    </section>
- 
+        <table class="fragment fade-in">
+            <tr>
+                 <td><b>For more:</b> Read <a
+                         href="http://handbook.datalad.org/en/latest/index.html" target="_blank">
+                         the DataLad Handbook</a>
+                 </td>
+                  <td><img src="pics/datalad-handbook-logo.svg" height="100"></td>
+            </tr>
+        </table>
+    </ul>
+  </section>
+
   <section>
 	<h2>Like "Big Data"?</h2>
 	<h3>Meet one of the "largest" Git "repositories"</h3>
@@ -239,6 +513,55 @@ gitGraph TB:
 		<li>... collaboration, etc ...</li>
 	</ul>
 </section>
+
+<section>
+    <h2>Handbook is a</h2>
+    <table>
+	  <tr>
+		<td>
+          comprehensive user documentation at<br>
+		  <a href="http://handbook.datalad.org">(handbook.datalad.org)</a>
+		</td>
+		<td>
+		  <img src="pics/datalad-handbook-logo.svg" height="150">
+		</td>
+	  </tr>
+	</table>
+	  <table>
+      <th></th><th></th>
+      <tr>
+          <td><img src="pics/datalad-handbook-enter.svg" height="100"></a></td>
+          <td>
+            <ul>
+              <li>High-level function/command overviews, <br>
+                  Installation, Configuration</li>
+            </ul>
+          </td>
+      </tr>
+
+      <tr>
+          <td><img src="pics/datalad-handbook-basics.svg" height="100"></td>
+          <td>
+            <ul>
+              <li>Narrative-based code-along course</li>
+              <li>Independent on background/skill level, <br>
+                  suitable for data management novices</li>
+            </ul>
+          </td>
+     </tr>
+      <tr>
+          <td><img src="pics/datalad-handbook-usecases.svg" height="100"></td>
+          <td>
+            <ul>
+              <li>Step-by-step solutions to common <br>
+                  data management problems, like<br />how to
+                  make a reproducible paper</li>
+            </ul>
+          </td>
+      </tr>
+  </table>
+</section>
+
 
 <section  data-background="pics/tall-burger.png" data-background-opacity="0.2" data-background-size="80%">
   <h2>DataLad for its developers:</h2>
@@ -334,6 +657,8 @@ gitGraph TB:
 				// specified using percentage units.
 				width: 1920,
 				height: 1080,
+				//width: 1024,
+				//height: 768,
 				// Factor of the display size that should remain empty around the content
 				margin: 0.01,
 				// Bounds for smallest/largest possible scale to apply to content

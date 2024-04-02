@@ -1,0 +1,117 @@
+* Need to cover
+** Extensibility of components
+*** git
+
+- git-COMMAND --> git COMMAND
+- git-remote-PROTOCOL --> git clone PROTOCOL://
+- git config 'diff.<driver>.*'
+
+*** git-annex
+
+- git-annex-remote-NAME
+- git annex diffdriver
+
+  to help interface to git diff drivers
+
+*** DataLad -- extensions
+
+- datalad COMMAND
+  datalad.api.COMMAND
+
+  - DataLad takes advantage from
+	- `importlib.metadata.entrypoints` https://setuptools.pypa.io/en/latest/pkg_resources.html#entry-points
+	- datalad-next also uses "Monkey patching"
+      https://github.com/datalad/datalad-next/tree/HEAD/datalad_next/patches
+	  to augment or replace some functionality in "core DataLad"
+
+  - datalad.support.extensions
+  		 https://github.com/datalad/datalad/blob/maint/datalad/support/extensions.py
+	provides support to register new configuration items
+
+- Extensions are advised to base on template
+  https://github.com/datalad/datalad-extension-template
+  to quickly bootstrap a Python project with setups and configurations for
+
+  - contemporary Python packaging
+  - starting point for sphinx to also generate documentation for CLI
+  - unit-testing across available Python versions
+  - codeclimate for good practices
+  - dependabot to update github workflows
+  - automated releases via versioneer, scriv, and
+    datalad/release-action
+
+* Some history
+** datalad initiation - arjlover?
+** initial target -- access to existing neuro* data resources, hence a crawler and neuro* orientation
+*** ? some "major" or interesting features which were developed in git-annex/datalad
+
+- `--batch` and `--json*` operation/interfaces to ease "sandwiching"
+
+- git-annex-remote-* external special remote protocol (https://git-annex.branchable.com/design/external_special_remote_protocol/)
+
+  - early target was to develop git-annex-remote-datalad-archives
+
+- so instead of datalad --> git-annex -> git
+
+  we immediately got to
+
+  datalad -> git-annex -> git-annex-remote-archives -> git-annex ->  git-annex-remote-datalad
+
+  sandwich, where
+
+  - git-annex-remote-archives
+
+*** Establishing interesting and flexible workflow across branches
+
+- incoming -- content as is from the web
+- incoming-processed -- automatically extracted and "overlayed"
+  archives. No real merge -- just automated processing of tree from
+  "incoming".
+  - A generic useful pattern, used in other scenarios as well now
+- master -- any custom fixes/extensions with regular merges of
+  incoming-processed
+
+TODO: openfmri gitk view as an example
+
+TODO: schematized
+%% comment: show the flow from incoming to master
+
+%% %%{init: {'gitGraph': { 'mainBranchName': 'incoming', 'mainBranchOrder': 3}} }%%
+gitGraph TB:
+    branch master order: 1
+    checkout master
+    commit id: ".datalad/ etc"
+    checkout incoming
+    commit id: "original content (tarballs)" tag: "incoming/1.0"
+    branch processed order: 2
+    commit id: "processed incoming (extracted)" type: HIGHLIGHT
+    checkout master
+    merge processed tag: "1.0.0" id: "just a merge"
+    commit id: "manually fixed content" tag: "1.0.1"
+    checkout incoming
+    commit id: "update #1"  tag: "incoming/1.1"
+    checkout processed
+    merge incoming id: "processed update #1" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #1" tag: "1.1.0"
+    checkout incoming
+    commit id: "update #2"  tag: "incoming/1.2"
+    checkout processed
+    merge incoming id: "processed update #2" type: HIGHLIGHT
+    checkout master
+    merge processed id: "merged processed update #2" tag: "1.2.0"
+
+** Realization that DataLad could be not just a "data distribution" but "data management" tool
+
+** Complaints about "DataLad having no good documentation" -> 2019- https://handbook.datalad.org
+
+- TODO: find who complained (Chris? Oscar?) and then praised DataLad
+  because of the handbook
+* For acknowledgements
+
+borrow http://localhost:8000/html/HCPdata.html#/2/1 if nothing newer
+
+* Examples on what DataLad can be used now for
+
+from there and on
+http://localhost:8000/html/dgpa_2022.html#/1/5
