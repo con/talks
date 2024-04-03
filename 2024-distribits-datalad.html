@@ -369,7 +369,8 @@ gitGraph:
 	<h2>DataLad of 2017-ish</h2>
 	<img data-src="pics/datalad-related-webshot.png"/>
 	<span style="float: center"><small>See also <a href="https://www.youtube.com/watch?v=Yrg6DgOcbPE">FOSDEM2020 talk by M.Hanke:
-		  <i>DataLad vs Git/Git-annex for modular data management</i></a></small></span>
+		  <i>DataLad vs Git/Git-annex for modular data management</i>.</a><br>
+	For some people in the audience it became <b>the</b> testament of what DataLad is about.</small></span>
   </section>
 
   
@@ -490,7 +491,7 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
 		<br/><a href="https://joss.theoj.org/papers/10.21105/joss.03262"> DOI: 10.21105/joss.03262 </a>
 		</td>
 		<td>
-		  <img style="width:80%;vertical-align:bottom" src="pics/2021-datalad-joss-qrcode.png"/>
+		  <img style="width:80%;vertical-align:bottom;margin-top:-50px" src="pics/2021-datalad-joss-qrcode.png"/>
 	</td></tr></table>
 	</small>
   </section>
@@ -646,8 +647,9 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
         <a href="https://brainlife.io/" target="_blank"> brainlife.io </a>,
         the <a href="https://conp.ca/" target="_blank">Canadian Open Neuroscience Platform (CONP)</a><!--,
         <a href="https://mcin.ca/technology/cbrain/" target="_blank"> CBRAIN</a>-->)
-		</li>
-        <img height="800" class="fragment fade-in" src="pics/openneuro2.gif" alt="a screenrecording of browsing open neuro" data-background-position="center">
+	  </li>
+	  <center>
+        <img height="800" class="fragment fade-in" src="pics/openneuro2.gif" alt="a screenrecording of browsing open neuro"></center>
 	</ul>
 	<aside class="notes">
       <li>Interesting to note: that OpenNeuro is the former OpenfMRI which we used to crawl. But with time seeing the power of DataLad and git-annex, it went native git-annex to benefit from functionalities such as export to S3 to provide "git-annex free" access to data, etc..</li>
@@ -690,7 +692,9 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
     </h3>
     <ul>
       <li class="fragment fade-in-then-semi-out"> <b>Creating and sharing reproducible, open science</b>: Sharing data, software, code, and provenance </li>
-      <img height="800" class="fragment fade-in" src="pics/shareresearch2.gif" alt="a screenrecording of cloning REMODNAV paper dataset from github">
+	  <center>
+		<img height="800" class="fragment fade-in" src="pics/shareresearch2.gif" alt="a screenrecording of cloning REMODNAV paper dataset from github">
+	  </center>
 	</ul>
   </section>
 
@@ -700,7 +704,9 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
     </h3>
     <ul>
       <li> <b>Creating and sharing reproducible, open science</b>: Sharing data, software, code, and provenance </li>
-      <img height="800" class="fragment fade-in" src="pics/openscience.gif" alt="a screenrecording of cloning REMODNAV paper dataset from github">
+	  <center>
+		<img height="800" class="fragment fade-in" src="pics/openscience.gif" alt="a screenrecording of cloning REMODNAV paper dataset from github">
+		</center>
 	</ul>
 
   </section>
@@ -784,7 +790,31 @@ R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke.
 
   <!-- TODO: find "German" style of sandwich of some kind for the background?? -->
   <section>
-	<h2>SUMMARY</h2>
+	<h2>SUMMARY:</h2>
+
+	<!-- TODO: may be shot from Idiocracy on "Welcome to Costco, I love you"? -->
+	<p>DataLad ecosystem provides
+	  <ul>
+		<li>Core DataLad package (core interfaces, reproducible execution, ...)</li>
+		<li>Extensions mechanism with a wide range of extensions
+		  <ul>
+			<li>domain specific</li>
+			<li>project specific</li>
+		  </ul>
+		</li>
+		<li>Over a decade long collaboration between git-annex and DataLad developers</li>
+		<li>Extended testing for DataLad and relevant components</li>
+		<li>Additional distribution "care package":
+		  <ul>
+			<li>distribution of git-annex builds</li>
+			<li>taking care about various related packages in Debian, NeuroDebian, and conda-forge</li>
+		  </ul>
+		</li>
+	  </ul>
+
+	  <br>
+	  <h4>Welcome to DataLad and have fun!</h4>
+
   </section>
 
 </section>
