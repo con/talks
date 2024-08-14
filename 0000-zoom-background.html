@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>"What's in the DataLad name" AKA How come DataLad?</title>
+		<meta name="description" content="Slides for the https://distribits.live/ 2004">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+ 
+    <div style="margin-top:4em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+
+		  <!-- <img style="width:200px; margin: 0px" data-src="pics/2024-distribits-datalad-qrcode.png"/> -->
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+<br>
+<small>
+ <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a> -->
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+     <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+
+  <section>
+	<h2>When it began for us</h2>
+	<ul>
+	  <li class="fragment">2013 Apr 25 - Reserved datagit.org (now - someone else's)</li>
+	  <li class="fragment">2013 May 21 - First commit in DataLad
+		- <code>gitweb</code>, tool <code>page2annex</code></li>
+	  <li class="fragment">2013 July 9 - Code refactored to reside
+		under <code>datagit</code> Python package.</li>
+	  <li class="fragment">2014 Jan 09 - M&Y started to work on proposal to CRCNS NSF/BMBF</li>
+	  <li class="fragment">2014 Jan 20 - submitted request to sfconservancy.org on use
+	  of git in datagit</li> 
+	  <li class="fragment">2014 Jan 27 - ... submitted proposal to
+		NSF</li>
+	  <li class="fragment">2014 Aug 28 - received response from sfconservancy.org: "must respectfully decline"</li>
+	  <li class="fragment">2014 Sep 01 - ... started to work on ???</li>
+	  <li class="fragment">2014 Sep 16 - flew to German so we
+		"solve this problem"
+		<ul>
+		  <li class="fragment">Entire weekend of "work" resulted in
+			the best variant:</li>
+		  <li class="fragment"> ftf<span  class="fragment">: Faster
+			  Than Floppy</span></li>
+	  </ul></li>
+	  <li class="fragment">2014 Sep 23 - departed back to USA</li>
+	  <li class="fragment">2014 Sep 24 - Michael messages that he
+	  figured it out</li>
+	  <li class="fragment">2014 Sep 30 - git mv datagit datalad
+	</ul>
+  </section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				//width: 1024,
+				//height: 768,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: false,
+				history: false,
+				center: true,
+				controls: false,
+				slideNumber: false,
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>
