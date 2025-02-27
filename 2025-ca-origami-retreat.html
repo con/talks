@@ -1,0 +1,414 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>A challenge on the way to Neuroscience Nirvana</title>
+		<meta name="description" content="Slides for the https://neurosciencenetwork.org/ACNN_Workshop_2022.html">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+	  <h2>A challenge on the way to Neuroscience Nirvana:</h2>
+	  <h1 class="fragment">WORKAROUNDS!</h1>
+	  
+	  <!-- <a href="https://standforukraine.com/">
+		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
+		   style="position:absolute; right:0%; top:70%; width:10%;
+		opacity:70%"/> -->
+
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+          Yaroslav O. Halchenko<br><small><a href="https://twitter.com/yarikoptic" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth
+			College</a></small>
+		  <!-- TODO <img style="width:200px; margin: 0px"
+			data-src="pics/2022-tx-big-neuroscience-qrcode.png"/> -->
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <!-- TODO place them there; Add QR code how in template -->
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2025-ca-origami-retreat.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2025-ca-origami-retreat.html</a>
+<br>
+<small>
+	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+	 <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a>
+
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition-speed="zoom">
+
+  <!-- <a href="https://www.youtube.com/watch?v=uLx7-jrji9o"></a> -->
+  <section 
+   data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
+	<img class="fragment" style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+</section>
+
+<section data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
+  <section>
+  <!--	<h1>Nirvana?</h1> -->
+
+<pre style="font-size:100%" class="fragment">
+ From WordNet (r) 3.0 (2006) [wn]:
+
+  nirvana
+    n 1: (Hinduism and Buddhism) the beatitude that <mark>transcends the</mark>
+         <mark>cycle of reincarnation</mark>; characterized by the extinction of
+         desire and suffering and individual consciousness [syn:
+         {nirvana}, {enlightenment}]
+      2: <mark>any place of complete bliss and delight and peace</mark> [syn:
+         {Eden}, {paradise}, {nirvana}, {heaven}, {promised land},
+         {Shangri-la}]
+</pre>
+  </section>
+
+    <section>
+	  <h2>Q: Where data go to die?</h2>
+	  <h3 class="fragment">Data archive</h3>
+	  <h2 class="fragment">Q: How data are reincarnated?</h2>
+	  <h3 class="fragment">Re-used from archive(s)</h3>
+
+	  <aside class="notes"><ul>
+		  <li>Distributed data has to transcend the cycle of reincarnation upon
+reaching an archive.</li>
+		  <li> Data must not die having been deposited to public archive, it should
+start its next cycle of life, ideally even richer and more fulfilling.</li>
+
+	  </ul></aside>
+	</section>
+
+	  <section>
+
+	  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
+	  <h3>... by helping data to transcend the data archive(s)</h3>
+	  </section>
+
+	  <section>
+		<h2>Q: How to get to a state <mark>of complete bliss and delight and
+			peace</mark> while working with (big) data?</h2>
+		<div class="r-stack">
+		  <img class="fragment" style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+		  <!-- TODO update this compilation! prepend with proper Ack-->
+		  <!--	  <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/>
+		  <img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/> -->
+		  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+		  <!-- TODO: Extend this one and with DANDI accent etc
+		  <img class="fragment" style="width:2000px"
+			   data-src="pics/con-ack-joeybenetc-extended.svg"/>
+		  -->
+		  <h3 class="fragment">Make re-use convenient</h3>
+
+		</div>
+	  </section>
+</section>
+
+<section>
+
+  	<section>
+	  <h2>What makes data
+		re-use <span style="color:red">IN</span>convenient?</h2>
+
+	  <img src="pics/digits-bug.svg"
+		   style="position:absolute; left:20%; top:10%; width:100%; opacity:70%"/>
+
+	  <ul>
+		<li>Data bugs<span class="fragment" data-fragment-index="1">. Possible origins:</span>
+		  <ul class="fragment" data-fragment-index="1">
+			<li>Human entry
+			  <span class="fragment"
+					data-fragment-index="2"><br><b>Solution</b> -
+					minimize:
+				<ul>
+				  <li>pre-scribe
+				  (standardize): <a href="https://reproin.repronim.org/">ReproIn</a>,
+				  BIDS, Nipoppy, ...</li>
+			  <li>automate: <a href="https://heudiconv.repronim.org/">HeuDiConv</a>,
+			  ReproStim,
+				ReproEvents,...</li>
+			</ul>
+			</span>
+			<li>Software (human code)
+			  <span class="fragment"  data-fragment-index="2"><br><b>Solution</b> avoid
+				creating new, re-use (needs standardized interfaces),<br/>
+				automate and standardize! testing.</span></li>
+			<li>Hardware (made by humans)
+			  <span class="fragment"
+					data-fragment-index="2"><br><b>Solution</b>:
+				<ul>
+				  <li> automate
+				detection - write
+				software to auto-detect
+				(QA/QC. Join <a href="https://incf.github.io/niQC/">INCF
+					  niQC</a>)</li>
+				  <li> engage with manufacturers and their standards
+					(DICOM):<br/> WiP to
+					join <a href="https://www.ihe-europe.net/IHE_SHARAZONE">IHE
+					SHARAZONE</a>.</span></li>
+			</ul>
+		  </ul>
+		</li>
+	  </ul>
+	</section>
+
+
+	<section>
+	  <h2>What makes data
+		re-use <span style="color:red">IN</span>convenient?</h2>
+
+	  <img src="pics/digits-feedme.svg"
+		   style="position:absolute; left:20%; top:10%; width:100%; opacity:80%"/>
+
+	  <ul>
+		<li>Ad-hoc data access<br>
+		  <span class="fragment"
+				data-fragment-index="3"><b>Solution</b>:
+			<ul>
+			  <li>standardize (HTTP 401/403, OAuth, etc),</li>
+			  <li>abstract behind common interface
+				(<a href="https://filesystem-spec.readthedocs.io/">fsspec</a>,
+				DataLad) </li>
+			  <li>think about both
+				humans (UI) and bots (API)</span></li>
+		</ul>
+		<li>Crafty data format/organization
+		  <span class="fragment"
+				data-fragment-index="3"><br><b>Solution</b>:
+			standardize, simplify and automate organization
+			(<a href="">ReproNim/ReproIn</a> )</span></li>
+		<li>Opinionated software
+		  <span class="fragment"
+				data-fragment-index="3"><br><b>Solution</b>:
+			avoid creating new; IO and interfaces
+			ideally should <br>use standards (e.g., Boutiques, BIDS/BIDS-Apps,
+				BrainLife ABCD)</span>
+		</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>What allows to make data re-use convenient?</h2>
+
+	  <img src="pics/digits-budda.svg"
+		   style="position:absolute; left:30%; top:10%; width:100%; opacity:80%"/>
+
+	  <ul>
+		<li>Standards
+		<ul class="fragment" data-fragment-index="1">
+		  <li>The language(s) for humans and/or computers</li>
+		  <li>Multilingual support</li>
+		</ul>
+		</li>
+		<li>Validation
+		  <ul class="fragment" data-fragment-index="2">
+			<li>To make sure that you & others can understand the data</li>
+		  </ul>
+		</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>What allows to make data re-use convenient?</h2>
+
+	  <img src="pics/digits-budda.svg"
+		   style="position:absolute; left:30%; top:10%; width:100%; opacity:80%"/>
+
+	  <h3 class="fragment" data-fragment-index="1">Standards: BIDS</h3>
+	  <ul class="fragment" data-fragment-index="1">
+		<li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX
+			Philosophy #1</a>: "Make each program do one thing
+		  well" applies </li>
+		<img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
+			 style="position:absolute; left:10%; top:11%; width:80%; opacity: 90%"/>
+		<img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
+			 style="position:absolute; left:0%; top:11%; width:100%;"/>
+		<li class="fragment" data-fragment-index="3">Reuse/improve/adapt/convert/... instead of
+		  re-implement!</li>
+		<li class="fragment" data-fragment-index="3">Accompany with
+		  tools to manipulate
+		  <ul><li>desperately still needed for BIDS</li></ul>
+		</li>
+		<li class="fragment" data-fragment-index="3">Accompany with tools to validate</li>
+		<li class="fragment" data-fragment-index="3">Accompany with
+		tools to operate on (BIDS-Apps)</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>What allows to make data re-use convenient?</h2>
+
+	  <img src="pics/digits-budda.svg"
+		   style="position:absolute; left:30%; top:10%; width:100%; opacity:80%"/>
+	  <h3 class="fragment" data-fragment-index="1">Validation: BIDS</h3>
+	  <ul class="fragment" data-fragment-index="1">
+		<li>Huge part comes "for free" from standardization
+		  <ul>
+			<li>contemporary "standard practices" for
+			  software development <br>(CI, containerization, distributions)
+		  </ul>
+		</li>
+		<li>Data "quality" is a separate (niQC!) topic</li>
+		<li>Dialog started to harmonize & potentially standardize
+		  validation results,<br/>
+		  join
+		  at <a href="https://github.com/con/validation/">con/validation</a>
+		  & its
+		  <a href="https://github.com/con/validation/issues/1">issue#1</a>
+		</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h2>What if standard does not (yet) "fill the bill"?</h2>
+
+	  <h3 class="fragment" data-fragment-index="1">Standards: BIDS</h3>
+	  <ul class="fragment" data-fragment-index="1">
+		<li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX
+			Philosophy #1</a>: "Make each program do one thing
+		  well" applies </li>
+		<img class="fragment current-visible" data-fragment-index="2" src="pics/bg.png"
+			 style="position:absolute; left:10%; top:11%; width:80%; opacity: 90%"/>
+		<img class="fragment current-visible" data-fragment-index="2" src="pics/BIDS-minder.svg"
+			 style="position:absolute; left:0%; top:11%; width:100%;"/>
+		<li class="fragment" data-fragment-index="3">Reuse/improve/adapt/convert/... instead of
+		  re-implement!</li>
+		<li class="fragment" data-fragment-index="3">Accompany with
+		  tools to manipulate
+		  <ul><li>desperately still needed for BIDS</li></ul>
+		</li>
+		<li class="fragment" data-fragment-index="3">Accompany with tools to validate</li>
+		<li class="fragment" data-fragment-index="3">Accompany with
+		tools to operate on (BIDS-Apps)</li>
+	  </ul>
+	</section>
+
+
+
+</section>
+
+<section data-background="pics/digits-budda.svg" data-background-opacity="0.9" data-background-size="80%" data-background-position="top 10px center 10px">
+
+  <h2>In Nirvana we are in a complete bliss and delight and
+	peace of being to "talk in BIDS"!</h2>
+
+</section>
+
+</section>
+
+
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Questions?</h2>
+
+
+</section>
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1920,
+				height: 1080,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
