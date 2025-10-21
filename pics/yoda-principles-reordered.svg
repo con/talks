@@ -25,11 +25,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70489977"
-     inkscape:cx="565.3286"
-     inkscape:cy="286.56556"
+     inkscape:zoom="0.9478493"
+     inkscape:cx="441.52588"
+     inkscape:cy="277.47027"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -37,7 +37,8 @@
      fit-margin-bottom="0"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1" />
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true" />
   <metadata
      id="metadata5117">
     <rdf:RDF>
@@ -63,7 +64,7 @@
        style="opacity:1;fill:#62704d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.207613;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <g
        id="g1"
-       transform="translate(-8.9958338,78.977083)">
+       transform="translate(-8.9958338,57.90977)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.09696px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.243879px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
@@ -88,38 +89,75 @@
     </g>
     <g
        id="g3"
-       transform="translate(-8.9958338,-12.657363)">
+       transform="translate(-8.9958338,3.8579873)">
+      <flowRoot
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-190.13552,-6.5102132)"
+         style="fill:none;stroke:black;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;font-family:'Nanum Pen';font-size:24px;line-height:125%;-inkscape-font-specification:'Nanum Pen, Normal';letter-spacing:0px;word-spacing:0px;text-anchor:middle;text-align:center;text-orientation:auto"
+         id="flowRoot1"><flowRegion
+           id="flowRegion1"><rect
+             id="rect1"
+             width="129.76747"
+             height="62.246181"
+             x="49.585941"
+             y="376.64215" /></flowRegion><flowPara
+           id="flowPara1"></flowPara></flowRoot>
+      <flowRoot
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-190.13552,-6.5102132)"
+         style="fill:none;stroke:black;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;font-family:'Nanum Pen';font-size:24px;line-height:125%;-inkscape-font-specification:'Nanum Pen, Normal';letter-spacing:0px;word-spacing:0px;text-anchor:middle;text-align:center;text-orientation:auto"
+         id="flowRoot2"><flowRegion
+           id="flowRegion2"><rect
+             id="rect2"
+             width="841.90601"
+             height="110.7771"
+             x="55.916061"
+             y="473.70398" /></flowRegion><flowPara
+           id="flowPara2"></flowPara></flowRoot>
+      <g
+         id="g5"
+         transform="translate(0,3.7041668)">
+        <g
+           id="g9526"
+           transform="matrix(0.02283489,0,0,0.02283489,-187.72602,88.104628)"
+           style="fill:#62704d;fill-opacity:1;stroke:#fff6d5">
+          <path
+             id="path9524"
+             d="M 7.42,145.986 C 9.185,99.193 32.899,56.035 76.25,27.516 c 0.128,0.048 1.251,-0.361 0.738,0.61 -3.434,3.184 -65.172,76.114 -8.344,133.68 0,0 29.858,28.704 53.011,1.468 0,0 22.847,-29.577 -0.289,-74.413 0,0 -5.856,-14.64 -26.955,-23.721 l 16.992,-18.748 c 0,0 14.359,6.161 25.478,22.871 0,0 0.593,-17.593 -12.884,-36.34 l 26.345,-29.89 26.08,29.609 c 0,0 -11.993,16.991 -12.876,36.902 0,0 8.191,-13.477 25.776,-23.151 l 16.686,18.748 c 0,0 -16.045,5.287 -26.794,23.529 -9.242,16.902 -16.357,53.05 0.416,75.223 0,0 18.772,26.618 51.792,-1.571 0,0 60.712,-54.399 -6.226,-133.048 0,0 -3.658,-3.233 0.449,-1.476 29.586,21.54 65.012,49.946 68.67,120.837 -1.444,85.966 -59.012,147.334 -143.074,147.334 C 68.934,295.968 4.95,227.283 7.42,145.986"
+             inkscape:connector-curvature="0"
+             style="fill:#62704d;fill-opacity:1;stroke:#fff6d5" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:6.83507px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;white-space:pre;inline-size:231.428;fill:none;stroke:#fff6d5;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="-289.43619"
+           y="126.08163"
+           id="text4"
+           transform="translate(228.41247,-32.907699)"><tspan
+             x="-289.43619"
+             y="126.08163"
+             id="tspan2"><tspan
+               style="font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;text-anchor:start;fill:#1a1a1a;stroke:none"
+               id="tspan1">Structure study elements (data, code, environments) in modular  components to</tspan><tspan
+               y="126.08163"
+               id="tspan3"> </tspan></tspan><tspan
+             x="-289.43619"
+             y="134.9544"
+             id="tspan7"><tspan
+               style="font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;text-anchor:start;fill:#1a1a1a;stroke:none"
+               id="tspan6">facilitate reuse within or outside the context of the original study</tspan></tspan></text>
+      </g>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.09696px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.243879px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100000;stroke-opacity:1"
-         x="-176.02251"
-         y="93.169075"
-         id="text9239"><tspan
-           id="tspan9237"
+         style="font-size:6.83506px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="-41.9118"
+         y="127.1982"
+         id="text5"><tspan
            sodipodi:role="line"
-           x="-176.02251"
-           y="93.169075"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.83507px;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';fill:#333333;fill-opacity:1;stroke-width:0.243879px">Structure study elements (data, code, environments) in modular</tspan><tspan
-           sodipodi:role="line"
-           x="-176.02251"
-           y="101.32948"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.83507px;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';fill:#333333;fill-opacity:1;stroke-width:0.243879px"
-           id="tspan9243">components to facilitate reuse within or outside the context of the</tspan><tspan
-           sodipodi:role="line"
-           x="-176.02251"
-           y="109.48988"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.83507px;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';fill:#333333;fill-opacity:1;stroke-width:0.243879px"
-           id="tspan9253">original study</tspan></text>
-      <g
-         id="g9526"
-         transform="matrix(0.02283489,0,0,0.02283489,-187.72602,88.104628)"
-         style="fill:#62704d;fill-opacity:1">
-        <path
-           id="path9524"
-           d="M 7.42,145.986 C 9.185,99.193 32.899,56.035 76.25,27.516 c 0.128,0.048 1.251,-0.361 0.738,0.61 -3.434,3.184 -65.172,76.114 -8.344,133.68 0,0 29.858,28.704 53.011,1.468 0,0 22.847,-29.577 -0.289,-74.413 0,0 -5.856,-14.64 -26.955,-23.721 l 16.992,-18.748 c 0,0 14.359,6.161 25.478,22.871 0,0 0.593,-17.593 -12.884,-36.34 l 26.345,-29.89 26.08,29.609 c 0,0 -11.993,16.991 -12.876,36.902 0,0 8.191,-13.477 25.776,-23.151 l 16.686,18.748 c 0,0 -16.045,5.287 -26.794,23.529 -9.242,16.902 -16.357,53.05 0.416,75.223 0,0 18.772,26.618 51.792,-1.571 0,0 60.712,-54.399 -6.226,-133.048 0,0 -3.658,-3.233 0.449,-1.476 29.586,21.54 65.012,49.946 68.67,120.837 -1.444,85.966 -59.012,147.334 -143.074,147.334 C 68.934,295.968 4.95,227.283 7.42,145.986"
-           inkscape:connector-curvature="0"
-           style="fill:#62704d;fill-opacity:1" />
-      </g>
+           id="tspan5"
+           style="stroke-width:0.264583px"
+           x="-41.023243"
+           y="127.1982"> </tspan></text>
     </g>
     <g
        id="g2"

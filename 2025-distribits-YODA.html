@@ -11,12 +11,15 @@
 		<meta name="author" content=" Yaroslav O. Halchenko ">
 		<!-- Edit me end! -->
 
+		<link rel="stylesheet" href="css/custom.css">
+
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
 		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
 	</head>
 	<body>
 		<div class="reveal">
@@ -163,14 +166,217 @@ by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin 
 
 ### VCS allows to experiment
 
-- Planned
-  - `git branch`, `git checkout` - create alternative timelines
-  - `git worktree` - create alternative trees
+![versioncontrol](pics/borrowed/versioncontrol.svg)
 
-- Unplanned
-  - experiment (e.g. run a `command`)
-  - `git reset --hard && git clean -dfx` -- like no evil was done
+- Planned - do in a branch and discard or merge
+  - `git branch` and `git checkout` -- create alternative timelines
+  - `git worktree` -- create alternative trees
+
+----
+
+### VCS allows to experiment
+
+- Unplanned (well, somewhat)
+  - introduce changes or just run `some-command(s)`
+  - `git reset --hard && git clean -dfx` -- no evil was done
   - `git reset --hard HEAD^` -- forget we did it
+  - `git reset --hard COMMITISH` -- get the hell-out-a-here
+
+----
+
+![yoda-say](pics/yoda-say-track.png)
+
+#### Tracking -- we know how...
+#### If any change is “computed”, it is easy to record more provenance automatically!
+
+----
+
+### YODA skill: [datalad run](https://docs.datalad.org/en/stable/generated/man/datalad-run.html)
+
+#### Handbook example on "Brain Extraction"
+
+
+```shell
+$ datalad run -m "run brain extract workflow" \
+ --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+ --output "sub-*/anat" \
+ bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
+[INFO] Making sure inputs are available (this may take some time) 
+get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
+get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
+[INFO] == Command start (output follows) ===== 
+action summary:
+  get (notneeded: 4)
+Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
+Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro/demo (dataset) [bash -e code/brain_extraction.sh inputs/...]
+add(ok): sub-001/anat.nii.gz (file)
+add(ok): sub-001/anat_mask.nii.gz (file)
+add(ok): sub-002/anat.nii.gz (file)
+add(ok): sub-002/anat_mask.nii.gz (file)
+save(ok): . (dataset)
+```
+
+<small>
+  
+  From [DataLad Handbook: A basic automatically and computationally reproducible neuroimaging analysis](https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html)
+</small>
+
+----
+
+### Result: automated record
+
+```shell
+$ git show --stat
+commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
+Author: Elena Piscopia <elena@example.net>
+Date:   Wed Apr 13 11:37:58 2022 +0200
+
+    [DATALAD RUNCMD] run brain extract workflow
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz",
+     "dsid": "b656ac80-973c-45ef-887e-1b8d6f6a51dd",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz"
+     ],
+     "outputs": [
+      "sub-*/anat"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+ sub-001/anat.nii.gz      | 1 +
+ sub-001/anat_mask.nii.gz | 1 +
+ sub-002/anat.nii.gz      | 1 +
+ sub-002/anat_mask.nii.gz | 1 +
+ 4 files changed, 4 insertions(+)
+```
+
+
+- know *how* you got the change done: **no guessing!**
+- go from clean state to clean state: **no surprises!**
+
+----
+
+### The way you got here know you do!
+
+<img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
+
+<!-- .element: style="font-size:0.6em" -->
+
+
+----
+
+### YODA skill: [datalad rerun](https://docs.datalad.org/en/stable/generated/man/datalad-rerun.html)!
+
+```shell
+$ datalad rerun
+[INFO] run commit 1223bc4; (run brain extract...)
+[INFO] Making sure inputs are available (this may take some time) 
+unlock(ok): sub-001/anat.nii.gz (file)
+unlock(ok): sub-001/anat_mask.nii.gz (file)
+unlock(ok): sub-002/anat.nii.gz (file)
+unlock(ok): sub-002/anat_mask.nii.gz (file)
+[INFO] == Command start (output follows) ===== 
+action summary:
+  get (notneeded: 4)
+Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
+Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro/demo (dataset) [bash -e code/brain_extraction.sh inputs/...]
+add(ok): sub-001/anat.nii.gz (file)
+add(ok): sub-001/anat_mask.nii.gz (file)
+add(ok): sub-002/anat.nii.gz (file)
+add(ok): sub-002/anat_mask.nii.gz (file)
+action summary:
+  add (ok: 4)
+  get (notneeded: 4)
+  run (ok: 1)
+  save (notneeded: 3)
+  unlock (ok: 4)
+```
+
+- and of redo you are able be: **magic!**
+
+<small>
+ 
+  From [DataLad Handbook: A basic automatically and computationally reproducible neuroimaging analysis](https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html)
+</small>
+
+----
+
+### [datalad rerun](https://docs.datalad.org/en/stable/generated/man/datalad-rerun.html) - "Functional cherry-pick"
+
+![rerun](pics/rerun.svg)<!-- .element width="80%" -->
+
+----
+
+### DataLad runs in the wild: [datalad-usage-registry](http://github.com/datalad/datalad-usage-dashboard)
+
+[![Distribits 2024: DataLad-Registry](pics/distribits-2024-datalad-registry.png)](https://www.youtube.com/watch?v=_McJ1BtLsiQ)
+
+<small>
+
+[distribits 2024](https://distribits.live). Isaac To, Yaroslav O. Halchenko. "DataLad-Registry, Bringing Benefits of Centrality to DataLad":
+
+- Video: https://www.youtube.com/watch?v=_McJ1BtLsiQ
+
+----
+
+### Side-topic: update on "git-annex/DataLad stats"
+
+[![DataLad registry stats](pics/datalad-registry-stats-20251021.png)](https://registry.datalad.org/overview/)
+
+----
+
+### DataLad runs in the wild: [datalad-usage-registry](http://github.com/datalad/datalad-usage-dashboard)
+
+```shell
+$ git remote -v
+origin	https://github.com/datalad/datalad-usage-dashboard (fetch)
+
+# Among total number of records for github
+$ jq '[.github[]] | length' datalad-repos.json
+11011
+
+# we found DATALAD RUNCMD in
+$ jq '[.github[] | select(.run == true)] | length' datalad-repos.json
+1578
+
+# which is
+$ python -c 'print("%.2f%%" % (100*1578/11011))'
+14.33%
+```
+
+- and if we know the command on how to `get` the file ...
+
+----
+
+### now we can use [git-annex addcomputed](https://git-annex.branchable.com/git-annex-addcomputed/)
+
+![addcomputed-1](pics/borrowed/git-annex-addcomputed-1.png)
+![addcomputed-2](pics/borrowed/git-annex-addcomputed-2.png)
+
+
+----
+
+### YODA wanted git-annex complete not
+
+[![Distribits 2024: "git annex is complete, right?"](pics/distribits-2024-git-annex-complete-TODO.png)](https://www.youtube.com/watch?v=TODO)
+
+<small>
+
+<!-- TODO: point to git-annex is done talk from distribits -->
+[distribits 2024](https://distribits.live). Joey Hess. "git annex is complete, right?":
+
+- Video: https://www.youtube.com/watch?v=TODO
 
 ----
 
@@ -181,56 +387,25 @@ by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin 
 http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html <br/>by
 YODA masters Adina Wagner, Michael Hanke, et al.
 
-----
-
-### Plan Ahead: More on YODA via DataLad
-
-![DataLad Handbook YODA](pics/datalad-handbook-yoda.png)
-
-http://handbook.datalad.org/en/latest/basics/basics-yoda.html
-
-----
-
-### YODA's Modular Hierarchy for Neuroimaging Study
-
-![YODA Hierarchy](pics/yoda-hierarchy-with-containers.png)
-
-https://github.com/ReproNim/containers/
-
-
-----
-
-### Fact: ~~No~~Neuroimaging field started to care about YODA
-
-![fMRIPrep YODA](pics/fmriprep-yoda-PR.png)
-
-https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
-
-----
-
-### More on DataLad and Its Automations
-
-[![Distribits 2024: What is in the DataLad Sandwich](pics/distribits-datalad-sandwich-whyvc.png)](https://www.youtube.com/watch?v=Mkb7qpYaL7o)
-
-<small>
-
-[distribits 2024](https://distribits.live). Yaroslav O. Halchenko. "What's in the DataLad sandwich" AKA DataLad "ecosystem":
-
-- Video: https://www.youtube.com/watch?v=Mkb7qpYaL7o
-- Slides: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html
+<!-- TODO -- some final summary on VCS enabling not only "typical" VCS operations but ...?? -->
 
 </small>
 </textarea></section></section>
 
-<!-- Principle 2: Modular composition -->
+<!-- Principle 2:  -->
 
 <section>
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
+### YODA Principle 2: Portable compute environment
 
-### YODA Principle 2: Modular composition
+![YODA Principle 2](pics/principle-computeenv.png)
 
-![YODA Principle 2](pics/principle-structure.png)
+----
+
+### TODO: basic containers addition etc... mention OCI
+
+
 </textarea>
 </section>
 </section>
@@ -242,9 +417,179 @@ https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
 
-### YODA Principle 3: Portable compute environment
+### YODA Principle 3: Modular composition
 
-![YODA Principle 3](pics/principle-computeenv.png)
+![YODA Principle 3](pics/principle-structure.png)
+
+----
+
+### We already deal with many "modules"
+
+- files
+- directories
+- VCS control boundaries
+- software (distribution) packages
+- containers
+- virtual machines
+
+----
+
+### We already deal with "global" layouts
+
+<!-- TODO: formatting -->
+
+- Operating Systems layouts, e.g.
+  - [Filesystem Hierarchy Standard (FHS)](TODO)
+- [XDG (Cross-Desktop Group)](TODO)
+
+N.B. YODA skill: Joey's [etckeeper](https://etckeeper.branchable.com) to keep your `/etc` under control
+
+#### define placement "globally" while relying on "packages" to adhere to the specifications.
+
+- Programming language/libraries
+
+#### define local layout per project (at times "vendoring" copies of the components)
+
+----
+### YODA's Layout (circa 2018)
+
+#### suggests layout for research projects
+
+![YODA layout](pics/yoda-layout.png)
+
+----
+## Embrace [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
+- Establish reusable modules at directory boundaries
+- Allow for association of "origin" URL
+- Native git mechanism: just a hexsha (of commit, not a tree)
+
+----
+
+### Proof of scalability: https://datasets.datalad.org/.git
+
+[![d.d.o](pics/datasets.datalad.org-20251021.png)](https://datasets.datalad.org/)
+
+- TODO submodules
+- up to TODO levels deep
+- those are incomplete stats
+
+----
+
+### YODA's Hierarchy
+
+![YODA Hierarchy](pics/yoda-hierarchy-with-containers.png)
+
+----
+
+### Yours can be different
+
+#### in neuro* we have decided to agree on [BIDS](https://bids-specification.readthedocs.io/)
+
+TODO: add examples of "layout conversions"
+
+----
+
+### YODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+
+<!-- .slide: data-transition="fade" -->
+
+![ReproNim/containers workflow](pics/yoda-hierarchy-with-containers.png)
+
+----
+### SciOP: ReproYODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+
+<!-- .slide: data-transition="fade" -->
+
+![ReproNim/containers workflow](pics/repronim-containers-workflow.png)
+
+----
+### ReproYODA Log
+
+![ReproNim/containers workflow show](pics/repronim-containers-show.png)
+
+----
+### Ultimately - many computers
+
+![ReproMan run](pics/containers-reproman-only-mriqc.svg.png)
+
+*Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!* <br/> https://www.repronim.org/webinar-series.html
+
+
+----
+
+### More on ReproMan
+
+[![Distribits 2024: Joe on ReproMan](pics/distribits-reproman.png)](https://www.youtube.com/watch?v=P0SOGt3xWmw)
+
+<small>
+
+[distribits 2024](https://distribits.live). Joe Wexler: fMRI Pipelines on HPC with DataLad and ReproMan
+
+- Video: https://www.youtube.com/watch?v=P0SOGt3xWmw
+
+</small>
+
+</textarea>
+
+
+<!-- forgot that iframes to github do not work!
+----
+
+### Welcome the ultimate YODA style OpenNeuroDerivatives from CP5* OpenNeuro
+
+	<iframe src="https://github.com/OpenNeuroDerivatives/"
+    style="width:100%; height:600px;"></iframe>
+-->
+
+</section>
+
+<section data-transition="None">
+<h3>
+YODA style OpenNeuro Derivatives from OpenNeuro
+</h3>
+	<small>
+<center><p>Explore/obtain yourself from <a href="https://github.com/OpenNeuroDerivatives">https://github.com/OpenNeuroDerivatives</a></p></center>
+</small>
+
+	<div style="position: relative; width: 100%; height: 80vh;">
+
+    <img src="pics/webshot-onderivs-listing.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
+    <img src="pics/webshot-onderivs-gitmodules.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 5%; left: 5%"  />
+    <img src="pics/webshot-onderivs-repromanfolder.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 10%; left: 10%"  />
+    <img src="pics/webshot-onderivs-commandarray.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 15%; left: 15%"  />
+    <img src="pics/webshot-onderivs-stdout.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 20%; left: 20%"  />
+
+	<!-- TODO: add gallery mriqc example -->
+</div>
+  </section>
+
+</section>
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Welcome https://github.com/con/duct
+
+![](pics/webshot-con-duct.png)
+
+----
+
+## duct as a runner within datalad containers-run
+
+<div style="position: relative; width: 100%; height: 90vh;">
+
+<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
+<img src="pics/screenshot-duct-1.png" class="fragment fade-in" width="100%" style="position: absolute; top: 0%; left: 0%" />
+<img src="pics/screenshot-duct-2.png" class="fragment fade-in" width="100%" style="position: absolute; top: 25%; left: 0%" />
+<img src="pics/screenshot-duct-3.png" class="fragment fade-in" width="100%" style="position: absolute; top: 15%; left: 10%" />
+<img src="pics/screenshot-duct-4.png" class="fragment fade-in" width="100%" style="position: absolute; top: 60%; left: 10%" />
+
+
+----
+
+## Try duct for your SciOps!
+
+
 </textarea>
 </section>
 </section>
@@ -254,6 +599,14 @@ https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
 ## Take Home Messages
+
+----
+
+### More on YODA via DataLad
+
+![DataLad Handbook YODA](pics/datalad-handbook-yoda.png)
+
+http://handbook.datalad.org/en/latest/basics/basics-yoda.html
 
 ----
 

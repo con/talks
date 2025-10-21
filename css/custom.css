@@ -1,0 +1,8 @@
+.reveal code {
+   color: #26e22e; /* Green'ish color for inline commands */
+}
+
+/* does not work...? */
+.reveal pre code {
+	max-height: 80%;
+}
