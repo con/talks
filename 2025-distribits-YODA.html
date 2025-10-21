@@ -1,0 +1,351 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>Pragmatic YODA: overview of YODA principles and their wild life encounters</title>
+		<meta name="description" content="Slides for the https://distribits.live/ 2004">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+	  <h2>Pragmatic YODA:<br/>overview of YODA principles and their wild life encounters</h2>
+ 
+	  <!-- <a href="https://standforukraine.com/">
+		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
+		   style="position:absolute; right:0%; top:70%; width:10%;
+		opacity:70%"/> -->
+
+    <div style="margin-top:1em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+
+		  <img style="width:200px; margin: 0px" data-src="pics/2025-distribits-YODA-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html</a>
+<br>
+<small>
+ <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a> -->
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+
+  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
+
+  <!-- <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a> -->
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section data-transition="slide">
+
+<section>
+  <h2>Acknowledgements</h2>
+	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nih.png" />
+	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nsf1.jpg" />
+	 <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+
+</section>
+
+<section>
+  <h2>A YODA principle a day keeps gray hair rate at bay.</h2>
+</section>
+</section>
+
+<!-- Overall YODA -->
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+###
+
+![YODA principles](pics/yoda-principles-reordered.png)
+
+from https://github.com/myyoda/poster/ <br/>
+<small>
+by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin Poldrack & Yaroslav O. Halchenko*. 2018 OHBM
+</small>
+</textarea></section></section>
+
+<!-- Principle 1: VCS -->
+
+<section>
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
+
+### YODA Principle 1: Version control everything!
+
+![YODA Principle 1: Version control everything!](pics/principle-vcs.png)
+</textarea>
+</section>
+
+<section>
+  <h2>Why version control?</h2>
+  <table style="width:70%;">
+    <tr>
+      <td style="width:40%; vertical-align:top;">
+        <ul>
+		  <li class="fade-in">collaborate</li>
+		  <li class="fade-in">keep things synchronized</li>
+          <li class="fade-in">keep track of changes</li>
+		  <li class="fade-in">use as a backup</li>
+		  <li class="fade-in">search (grep)</li>
+		  <li class="fade-in">...</li>
+          <!-- Add more list items here -->
+        </ul>
+      </td>
+      <td style="width:60%; text-align:center;">
+        <img src="pics/borrowed/phdcomics-notfinal.png" style="box-shadow: 10px 10px 8px #888888; height:700px;" height="700">
+		<small>Borrowed from <a href="https://phdcomics.com/comics/archive.php?comicid=1531">PhD Comics 1531</a>.</small>
+      </td>
+    </tr>
+  </table>
+  <aside class="notes">
+    <li>Not only manuscripts, but also data!</li>
+  </aside>
+</section>
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
+
+### VCS allows to experiment
+
+- Planned
+  - `git branch`, `git checkout` - create alternative timelines
+  - `git worktree` - create alternative trees
+
+- Unplanned
+  - experiment (e.g. run a `command`)
+  - `git reset --hard && git clean -dfx` -- like no evil was done
+  - `git reset --hard HEAD^` -- forget we did it
+
+----
+
+### Example: YODA's DataLad Reproducible Paper
+
+![DataLad repropaper](pics/datalad-handbook-repropaper.png)
+
+http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html <br/>by
+YODA masters Adina Wagner, Michael Hanke, et al.
+
+----
+
+### Plan Ahead: More on YODA via DataLad
+
+![DataLad Handbook YODA](pics/datalad-handbook-yoda.png)
+
+http://handbook.datalad.org/en/latest/basics/basics-yoda.html
+
+----
+
+### YODA's Modular Hierarchy for Neuroimaging Study
+
+![YODA Hierarchy](pics/yoda-hierarchy-with-containers.png)
+
+https://github.com/ReproNim/containers/
+
+
+----
+
+### Fact: ~~No~~Neuroimaging field started to care about YODA
+
+![fMRIPrep YODA](pics/fmriprep-yoda-PR.png)
+
+https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
+
+----
+
+### More on DataLad and Its Automations
+
+[![Distribits 2024: What is in the DataLad Sandwich](pics/distribits-datalad-sandwich-whyvc.png)](https://www.youtube.com/watch?v=Mkb7qpYaL7o)
+
+<small>
+
+[distribits 2024](https://distribits.live). Yaroslav O. Halchenko. "What's in the DataLad sandwich" AKA DataLad "ecosystem":
+
+- Video: https://www.youtube.com/watch?v=Mkb7qpYaL7o
+- Slides: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html
+
+</small>
+</textarea></section></section>
+
+<!-- Principle 2: Modular composition -->
+
+<section>
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
+
+### YODA Principle 2: Modular composition
+
+![YODA Principle 2](pics/principle-structure.png)
+</textarea>
+</section>
+</section>
+
+
+<!-- Principle 3:  -->
+
+<section>
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
+
+### YODA Principle 3: Portable compute environment
+
+![YODA Principle 3](pics/principle-computeenv.png)
+</textarea>
+</section>
+</section>
+
+<!-- Summary section -->
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Take Home Messages
+
+----
+
+<!-- .slide: data-transition="fade" -->
+### DataLad or not but ...
+
+become friends with YODA and its principles
+
+- keep **all** materials under VCS
+- adhere to a consistent structure
+- be portable: avoid absolute paths, do **not** look up
+
+----
+<!-- .slide: data-transition="fade" -->
+### DataLad or not but ...
+
+choose a Version Control enabled platform which
+
+- tells you what you have done to obtain result X
+- knows where you have or can get data Y (of exact version Z)
+- allows for modular composition and management
+- **minimizes %effort** to re-run desired steps as-is or modified
+- works well with your *analytics* platforms
+- extra: allows you to search for data, results, etc
+- to find other *nominally similar*
+
+----
+
+# Thank you!
+
+## Follow YODA and
+### Let the reproducibility be with you
+
+<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/></a>
+
+<!-- .element: style="font-size:0.6em" -->
+
+</textarea></section>
+</section>
+
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1280,
+				height: 960,
+				//width: 1024,
+				//height: 768,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>
