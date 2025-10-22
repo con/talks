@@ -30,13 +30,8 @@
 <section>
   <section>
 	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
-	  <h2>Pragmatic YODA:<br/>overview of YODA principles and their wild life encounters</h2>
+	  <h2>Pragmatic YODA: overview of YODA principles<br/> and their wild life encounters</h2>
  
-	  <!-- <a href="https://standforukraine.com/">
-		<img src="pics/Ukrainian_Blue-Yellow_ribbon.svg"
-		   style="position:absolute; right:0%; top:70%; width:10%;
-		opacity:70%"/> -->
-
     <div style="margin-top:1em;text-align:center">
     <table style="border: none;">
     <tr>
@@ -77,18 +72,15 @@
   <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html</a>
 <br>
 <small>
- <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/pymvpa_icon.png"/></a> -->
-	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/neurodebian.png"/></a>
-	 <a href="http://repronim.org" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
-  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
-
-  <!--	 <a href="https://bids.neuroimaging.io" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a> -->
-
-  <!-- <a href="http://datalad.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/datalad_logo_posters_banner.svg"/></a> -->
-	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
-	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
-  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/BIDS_Logo.png"/></a>
-	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:150px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+ <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/pymvpa_icon.png"/></a> -->
+     <a href="http://datalad.org" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:120px;margin:20px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:120px;margin:20px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+<!--	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/yoda.svg"/></a> -->
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:120px;margin:20px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:120px;margin:20px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
 
 </small>
 
@@ -102,8 +94,11 @@
   <h2>Acknowledgements</h2>
 	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nih.png" />
 	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nsf1.jpg" />
-	 <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
+	<img style="height:120px;margin-right:50px;margin-bottom:30px" data-src="pics/datalad_D.svg" />
+	<img style="height:150px;margin-right:50px" data-src="pics/con_logo_square.png" />
 
+	 <!-- TODO: extend to all DataLad folks and Austin -->
+	 
 </section>
 
 <section>
@@ -177,7 +172,7 @@ by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin 
 ### VCS allows to experiment
 
 - Unplanned (well, somewhat)
-  - introduce changes or just run `some-command(s)`
+  - you introduce changes or just run `some-command(s)`
   - `git reset --hard && git clean -dfx` -- no evil was done
   - `git reset --hard HEAD^` -- forget we did it
   - `git reset --hard COMMITISH` -- get the hell-out-a-here
@@ -372,6 +367,34 @@ $ python -c 'print("%.2f%%" % (100*1578/11011))'
 ![addcomputed-1](pics/borrowed/git-annex-addcomputed-1.png)
 ![addcomputed-2](pics/borrowed/git-annex-addcomputed-2.png)
 
+
+## A missing piece: https://github.com/con/duct
+
+![](pics/webshot-con-duct.png)
+
+----
+
+## duct as a runner within datalad containers-run
+
+<div style="position: relative; width: 100%; height: 90vh;">
+
+<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 3%; left: 0%" />
+<!-- <img src="pics/screenshot-duct-1.png" class="fragment fade-in" --
+  -- width="100%" style="position: absolute; top: 0%; left: 0%" /> -->
+<img src="pics/screenshot-duct-2.png" class="fragment fade-in" width="100%" style="position: absolute; top: 25%; left: 0%" />
+<img src="pics/screenshot-duct-3.png" class="fragment fade-in" width="100%" style="position: absolute; top: 15%; left: 10%" />
+<img src="pics/screenshot-duct-4.png" class="fragment fade-in" width="100%" style="position: absolute; top: 60%; left: 10%" />
+
+- or now just set env var REPRONIM_USE_DUCT=1 <!-- .element: class="fragment" data-fragment-index="1" -->
+
+</div>
+
+----
+
+[![](pics/duct-mriqc-cerebra.png)<!-- .element width="60%" -->](https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession)
+
+- Use and contribute!
+
 ----
 
 ### Principle 1: Version Control Everything
@@ -386,11 +409,16 @@ allows also
 
 ----
 
+### So, to avoid
+
+![](pics/depends-on-untracked-file.png)
+
+----
+
 ### Learn control you must!
 
-<img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
+<img style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
 
-</small>
 </textarea></section></section>
 
 <!-- Principle 2:  -->
@@ -406,6 +434,18 @@ allows also
 
 ### TODO: basic containers addition etc... mention OCI
 
+
+----
+
+### Principle 2: Portable compute environment
+
+TODO
+
+----
+
+### Rely on where you are you should not!
+
+<img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
 
 </textarea>
 </section>
@@ -428,11 +468,13 @@ allows also
 
 - files
 - directories
-- VCS control boundaries
 - software (distribution) packages
 - containers
 - virtual machines
 - ...
+
+
+#### They all establish grouping of other modules through a transformation towards their target usage mechanism.<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ----
 
@@ -456,7 +498,8 @@ allows also
 
 #### defined locally per project
 
-- Programming language/libraries specific
+- Programming language/platform specific
+  - e.g. think of a typical Python project
 - Typically not nested (unless "vendoring")
 
 
@@ -496,7 +539,7 @@ allows also
 
 [![d.d.o](pics/datasets.datalad.org-20251021.png)](https://datasets.datalad.org/)
 
-- > 8,000 submodules
+- over 8,000 submodules
 - up to 6 levels deep
 - **those are incomplete stats**
 
@@ -528,7 +571,6 @@ allows also
 ![ReproNim/containers workflow](pics/repronim-containers-workflow.png)
 
 ----
-### YODA Log
 
 ![ReproNim/containers workflow show](pics/repronim-containers-show.png)
 
@@ -575,52 +617,45 @@ allows also
     <img src="pics/webshot-onderivs-commandarray.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 15%; left: 15%"  />
     <img src="pics/webshot-onderivs-stdout.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 20%; left: 20%"  />
 
-	<!-- TODO: add gallery mriqc example -->
 	</div>
   </section>
 
-</section>
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
 
-
-
-<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
-
-## Welcome https://github.com/con/duct
-
-![](pics/webshot-con-duct.png)
+## What is a common principle followed in all of those setups?
 
 ----
 
-## duct as a runner within datalad containers-run
-
-<div style="position: relative; width: 100%; height: 90vh;">
-
-<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 3%; left: 0%" />
-<!-- <img src="pics/screenshot-duct-1.png" class="fragment fade-in" --
-  -- width="100%" style="position: absolute; top: 0%; left: 0%" /> -->
-<img src="pics/screenshot-duct-2.png" class="fragment fade-in" width="100%" style="position: absolute; top: 25%; left: 0%" />
-<img src="pics/screenshot-duct-3.png" class="fragment fade-in" width="100%" style="position: absolute; top: 15%; left: 10%" />
-<img src="pics/screenshot-duct-4.png" class="fragment fade-in" width="100%" style="position: absolute; top: 60%; left: 10%" />
-
-- or now just set env var REPRONIM_USE_DUCT=1 <!-- .element: class="fragment" data-fragment-index="1" -->
-
-</div>
-
+![](pics/yoda-do-not-look-up.png)<!-- .element width="60%" -->
 
 ----
 
-[![](pics/duct-mriqc-cerebra.png)<!-- .element width="60%" -->](https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession)
-
-- Use and contribute!
-
+## Must rely only on what is reachable down the hierarchy **within** current module!
 
 ----
 
-## Try duct for your SciOps!
+# But why?
 
+----
 
-</textarea>
-</section>
+## to avoid
+
+![](pics/depends-on-untracked-file.png)
+
+----
+
+# Corollaries
+
+- All related content could be version controlled
+- Containers:
+  - need to bind mount only (elements of) current folder
+  - can map entire $PWD as $PWD inside
+- No full paths specification in CLI or hard-coding in scripts
+- The entire "module" becomes portable
+
+</textarea></section>
+
 </section>
 
 <!-- Summary section -->
@@ -645,22 +680,9 @@ http://handbook.datalad.org/en/latest/basics/basics-yoda.html
 become friends with YODA and its principles
 
 - keep **all** materials under VCS
-- adhere to a consistent structure
+  - keep your containers and their construction recipes under VCS
+- adhere to a consistent and modular structure
 - be portable: avoid absolute paths, do **not** look up
-
-----
-<!-- .slide: data-transition="fade" -->
-### DataLad or not but ...
-
-choose a Version Control enabled platform which
-
-- tells you what you have done to obtain result X
-- knows where you have or can get data Y (of exact version Z)
-- allows for modular composition and management
-- **minimizes %effort** to re-run desired steps as-is or modified
-- works well with your *analytics* platforms
-- extra: allows you to search for data, results, etc
-- to find other *nominally similar*
 
 ----
 
@@ -703,8 +725,10 @@ choose a Version Control enabled platform which
 				// The "normal" size of the presentation, aspect ratio will be preserved
 				// when the presentation is scaled to fit different resolutions. Can be
 				// specified using percentage units.
-				width: 1280,
-				height: 960,
+				width: 1400,
+				height: 1050,
+				//width: 1280,
+				//height: 960,
 				//width: 1024,
 				//height: 768,
 				// Factor of the display size that should remain empty around the content
