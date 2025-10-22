@@ -219,7 +219,7 @@ save(ok): . (dataset)
 ```
 
 <small>
-  
+
   From [DataLad Handbook: A basic automatically and computationally reproducible neuroimaging analysis](https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html)
 </small>
 
@@ -259,7 +259,6 @@ Date:   Wed Apr 13 11:37:58 2022 +0200
  4 files changed, 4 insertions(+)
 ```
 
-
 - know *how* you got the change done: **no guessing!**
 - go from clean state to clean state: **no surprises!**
 
@@ -268,9 +267,6 @@ Date:   Wed Apr 13 11:37:58 2022 +0200
 ### The way you got here know you do!
 
 <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
-
-<!-- .element: style="font-size:0.6em" -->
-
 
 ----
 
@@ -359,35 +355,40 @@ $ python -c 'print("%.2f%%" % (100*1578/11011))'
 
 ----
 
+### YODA wanted git-annex complete not
+
+[![Distribits 2024: "git annex is complete, right?"](pics/distribits-2024-git-annex-complete.png)](https://www.youtube.com/watch?v=pp8IeGXpRRI)
+
+<small>
+
+[distribits 2024](https://distribits.live). Joey Hess. "git annex is complete, right?":
+
+- Video: https://www.youtube.com/watch?v=pp8IeGXpRRI
+
+----
+
 ### now we can use [git-annex addcomputed](https://git-annex.branchable.com/git-annex-addcomputed/)
 
 ![addcomputed-1](pics/borrowed/git-annex-addcomputed-1.png)
 ![addcomputed-2](pics/borrowed/git-annex-addcomputed-2.png)
 
+----
+
+### Principle 1: Version Control Everything
+
+Version control of all digital components (data, code, etc)
+allows also
+
+- to experiment
+- to embed actionable HOWTO into commit messages
+- establish reproducible execution
+- allow for "functional patching"
 
 ----
 
-### YODA wanted git-annex complete not
+### Learn control you must!
 
-[![Distribits 2024: "git annex is complete, right?"](pics/distribits-2024-git-annex-complete-TODO.png)](https://www.youtube.com/watch?v=TODO)
-
-<small>
-
-<!-- TODO: point to git-annex is done talk from distribits -->
-[distribits 2024](https://distribits.live). Joey Hess. "git annex is complete, right?":
-
-- Video: https://www.youtube.com/watch?v=TODO
-
-----
-
-### Example: YODA's DataLad Reproducible Paper
-
-![DataLad repropaper](pics/datalad-handbook-repropaper.png)
-
-http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html <br/>by
-YODA masters Adina Wagner, Michael Hanke, et al.
-
-<!-- TODO -- some final summary on VCS enabling not only "typical" VCS operations but ...?? -->
+<img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
 
 </small>
 </textarea></section></section>
@@ -431,54 +432,40 @@ YODA masters Adina Wagner, Michael Hanke, et al.
 - software (distribution) packages
 - containers
 - virtual machines
+- ...
 
 ----
 
 ### We already deal with "global" layouts
 
-<!-- TODO: formatting -->
+#### defined "globally" while relying on "packages" to adhere to the specifications.
 
 - Operating Systems layouts, e.g.
-  - [Filesystem Hierarchy Standard (FHS)](TODO)
-- [XDG (Cross-Desktop Group)](TODO)
+  - [Filesystem Hierarchy Standard (FHS)](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
+- [XDG (Cross-Desktop Group)](https://specifications.freedesktop.org/basedir-spec/latest/)
 
-N.B. YODA skill: Joey's [etckeeper](https://etckeeper.branchable.com) to keep your `/etc` under control
+<small>
 
-#### define placement "globally" while relying on "packages" to adhere to the specifications.
+  N.B. YODA skill: Use Joey's [etckeeper](https://etckeeper.branchable.com) to keep your `/etc` under git
 
-- Programming language/libraries
+</small>
 
-#### define local layout per project (at times "vendoring" copies of the components)
+----
+
+### We already have "project" layouts
+
+#### defined locally per project
+
+- Programming language/libraries specific
+- Typically not nested (unless "vendoring")
+
 
 ----
 ### YODA's Layout (circa 2018)
 
-#### suggests layout for research projects
+#### Suggested layout for research projects
 
 ![YODA layout](pics/yoda-layout.png)
-
-----
-## Embrace [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
-
-- Establish reusable modules at directory boundaries
-- Allow for association of "origin" URL
-- Native git mechanism: just a hexsha (of commit, not a tree)
-
-----
-
-### Proof of scalability: https://datasets.datalad.org/.git
-
-[![d.d.o](pics/datasets.datalad.org-20251021.png)](https://datasets.datalad.org/)
-
-- TODO submodules
-- up to TODO levels deep
-- those are incomplete stats
-
-----
-
-### YODA's Hierarchy
-
-![YODA Hierarchy](pics/yoda-hierarchy-with-containers.png)
 
 ----
 
@@ -486,39 +473,68 @@ N.B. YODA skill: Joey's [etckeeper](https://etckeeper.branchable.com) to keep yo
 
 #### in neuro* we have decided to agree on [BIDS](https://bids-specification.readthedocs.io/)
 
-TODO: add examples of "layout conversions"
+<div style="position: relative; width: 100%; height: 90vh;">
+
+<img src="pics/bids-nipoppy.png" class="" width="80%" style="position: absolute; top: 3%; left: 0%" />
+<img src="pics/bids-princeton.png" class="fragment fade-in" width="80%" style="position: absolute; top: 8%; left: 5%" />
+<img src="pics/bids-yoda.png" class="fragment fade-in" width="80%" style="position: absolute; top: 13%; left: 10%" />
+
+</div>
+
+----
+## Embrace [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
+- Establish reusable modules at directory boundaries
+- Native git mechanism: just a hexsha of a commit (not just a tree)
+- Allow for association with "origin" URL
+- Allow for association of arbitrary other extra metadata
+- **Can be _installed_/_uninstalled_ as needed**
 
 ----
 
-### YODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+### Proof of scalability: https://datasets.datalad.org/.git
+
+[![d.d.o](pics/datasets.datalad.org-20251021.png)](https://datasets.datalad.org/)
+
+- > 8,000 submodules
+- up to 6 levels deep
+- **those are incomplete stats**
+
+----
+
+### YODA: all the way down
+
+![](pics/yoda-all-the-way-down.png) <!-- .element width="40%" -->
+
+<small>
+
+  Courtesy of some AI and [@asmacdo](https://github.com/asmacdo)
+
+</small>
+
+----
+
+### YODA: from raw data to paper
 
 <!-- .slide: data-transition="fade" -->
 
 ![ReproNim/containers workflow](pics/yoda-hierarchy-with-containers.png)
 
 ----
-### SciOP: ReproYODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+<!-- ### YODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow) -->
 
 <!-- .slide: data-transition="fade" -->
 
 ![ReproNim/containers workflow](pics/repronim-containers-workflow.png)
 
 ----
-### ReproYODA Log
+### YODA Log
 
 ![ReproNim/containers workflow show](pics/repronim-containers-show.png)
 
 ----
-### Ultimately - many computers
 
-![ReproMan run](pics/containers-reproman-only-mriqc.svg.png)
-
-*Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!* <br/> https://www.repronim.org/webinar-series.html
-
-
-----
-
-### More on ReproMan
+### Alternative to [datalad run](https://docs.datalad.org/en/stable/generated/man/datalad-run.html): [ReproMan](https://github.com/ReproNim/reproman)
 
 [![Distribits 2024: Joe on ReproMan](pics/distribits-reproman.png)](https://www.youtube.com/watch?v=P0SOGt3xWmw)
 
@@ -545,15 +561,14 @@ TODO: add examples of "layout conversions"
 </section>
 
 <section data-transition="None">
-<h3>
-YODA style OpenNeuro Derivatives from OpenNeuro
-</h3>
-	<small>
+  <h3>
+	YODA style OpenNeuro Derivatives from OpenNeuro
+  </h3>
+  <small>
 <center><p>Explore/obtain yourself from <a href="https://github.com/OpenNeuroDerivatives">https://github.com/OpenNeuroDerivatives</a></p></center>
-</small>
+  </small>
 
 	<div style="position: relative; width: 100%; height: 80vh;">
-
     <img src="pics/webshot-onderivs-listing.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
     <img src="pics/webshot-onderivs-gitmodules.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 5%; left: 5%"  />
     <img src="pics/webshot-onderivs-repromanfolder.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 10%; left: 10%"  />
@@ -561,10 +576,12 @@ YODA style OpenNeuro Derivatives from OpenNeuro
     <img src="pics/webshot-onderivs-stdout.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 20%; left: 20%"  />
 
 	<!-- TODO: add gallery mriqc example -->
-</div>
+	</div>
   </section>
 
 </section>
+
+
 
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
@@ -578,11 +595,23 @@ YODA style OpenNeuro Derivatives from OpenNeuro
 
 <div style="position: relative; width: 100%; height: 90vh;">
 
-<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
-<img src="pics/screenshot-duct-1.png" class="fragment fade-in" width="100%" style="position: absolute; top: 0%; left: 0%" />
+<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 3%; left: 0%" />
+<!-- <img src="pics/screenshot-duct-1.png" class="fragment fade-in" --
+  -- width="100%" style="position: absolute; top: 0%; left: 0%" /> -->
 <img src="pics/screenshot-duct-2.png" class="fragment fade-in" width="100%" style="position: absolute; top: 25%; left: 0%" />
 <img src="pics/screenshot-duct-3.png" class="fragment fade-in" width="100%" style="position: absolute; top: 15%; left: 10%" />
 <img src="pics/screenshot-duct-4.png" class="fragment fade-in" width="100%" style="position: absolute; top: 60%; left: 10%" />
+
+- or now just set env var REPRONIM_USE_DUCT=1 <!-- .element: class="fragment" data-fragment-index="1" -->
+
+</div>
+
+
+----
+
+[![](pics/duct-mriqc-cerebra.png)<!-- .element width="60%" -->](https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession)
+
+- Use and contribute!
 
 
 ----
