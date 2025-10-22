@@ -97,8 +97,6 @@
 	<img style="height:120px;margin-right:50px;margin-bottom:30px" data-src="pics/datalad_D.svg" />
 	<img style="height:150px;margin-right:50px" data-src="pics/con_logo_square.png" />
 
-	 <!-- TODO: extend to all DataLad folks and Austin -->
-	 
 </section>
 
 <section>
@@ -367,6 +365,7 @@ $ python -c 'print("%.2f%%" % (100*1578/11011))'
 ![addcomputed-1](pics/borrowed/git-annex-addcomputed-1.png)
 ![addcomputed-2](pics/borrowed/git-annex-addcomputed-2.png)
 
+----
 
 ## A missing piece: https://github.com/con/duct
 
@@ -391,6 +390,8 @@ $ python -c 'print("%.2f%%" % (100*1578/11011))'
 
 ----
 
+### [con-duct plot]() your traces
+
 [![](pics/duct-mriqc-cerebra.png)<!-- .element width="60%" -->](https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession)
 
 - Use and contribute!
@@ -403,15 +404,25 @@ Version control of all digital components (data, code, etc)
 allows also
 
 - to experiment
-- to embed actionable HOWTO into commit messages
-- establish reproducible execution
+- to embed re-actionable execution HOWTO into commit messages
+- to record execution extra artifacts and profiling results
 - allow for "functional patching"
 
 ----
 
-### So, to avoid
+## and **why** are we doing that?
+
+----
+
+### for a life-pain balance and for that to avoid
 
 ![](pics/depends-on-untracked-file.png)
+
+<small>
+
+  Courtesy of [@asmacdo](https://github.com/asmacdo)
+
+</small>
 
 ----
 
@@ -426,24 +437,99 @@ allows also
 <section>
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
-### YODA Principle 2: Portable compute environment
+### YODA Principle 2: Portable compute environments
 
 ![YODA Principle 2](pics/principle-computeenv.png)
 
 ----
 
-### TODO: basic containers addition etc... mention OCI
+### Sharing software environments, obstacles
 
+- Software can be difficult or impossible to install
+- Especially harder on shared systems (e.g. HPC)
+- External software origin resources can change or vanish
+  - e.g. only latest versions could be provided **now**
+- Older builds might not be installable on new base environments
+- Different software versions/operating systems can produce different results:
+  [Glatard et al., doi.org/10.3389/fninf.2015.00012](https://doi.org/10.3389/fninf.2015.00012)
 
 ----
 
-### Principle 2: Portable compute environment
+### A solution: Software containers
 
-TODO
+- Software containers encapsulate a software environment.
+- Containers can isolate it from a surrounding operating system and expose only requested resources
+  - bound path names
+  - network
+  - GPU
 
 ----
 
-### Rely on where you are you should not!
+### Container families
+
+- [Docker](http://docker.io) and [Podman](https://podman.io)
+  - Industry/end-user oriented
+  - [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec) specification. Layers
+  - Hubs: https://hub.docker.com, http://quay.io, https://ghcr.io, ...
+- [Singularity](https://github.com/sylabs/singularity) and [Apptainer](https://apptainer.org/)
+  - HPC and academic user oriented
+  - [Singularity Image File (SIF)](https://github.com/sylabs/sif) single file specification.
+  - Can import from OCI hubs, folders.
+  - https://singularity-hub.org (aka `shub://`) archive is maintained as [datasets.datalad.org/shub](https://datasets.datalad.org/?dir=/shub) to assist reproducibility
+
+----
+
+### [datalad-container](https://docs.datalad.org/projects/container/en/latest/) extension
+
+![](pics/webshot-datalad-container.png)
+
+- `pip/conda/apt-get install datalad-container`
+- For DataLad software containers are
+  - "just another file(s)"
+  - `.datalad/config` entry for how to execute
+
+----
+
+### [///repronim/containers](https://github.com/repronim/containers) collection
+
+![](pics/webshot-repronim-containers.png)
+
+- ready to use Singularity containers of popular neuroimaging containers
+- (local) "backup" of containers (in case removed from a Hub)
+- WiP to accompany with OCI images
+
+----
+
+### [datalad containers-run](https://docs.datalad.org/projects/container/en/stable/generated/man/datalad-containers-run.html#datalad-containers-run) it now!
+
+![](pics/containers-run.svg)
+
+<small>
+
+  More of hands-on explanation at e.g. ["Concepts & principles for reproducible science" course](https://datasets.datalad.org/datalad/datalad-course/html/uke_reproducibility.html)
+
+</small>
+
+----
+
+### Principle 2: Portable compute environments
+
+(re)use software containers contained under<br/>
+your VCS to guarantee their
+
+- exact version
+- availability
+- accessibility
+
+<small>
+
+N.B. Talk to Alex Waite about their work on guaranteeing reproducibility and network encapsulation of containers.
+
+</small>
+
+----
+
+### Depend on where you run you should not!
 
 <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
 
@@ -474,7 +560,7 @@ TODO
 - ...
 
 
-#### They all establish grouping of other modules through a transformation towards their target usage mechanism.<!-- .element: class="fragment" data-fragment-index="1" -->
+#### <br/>They all establish grouping of other modules <br/> through a transformation towards their target usage mechanism.<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ----
 
@@ -525,13 +611,33 @@ TODO
 </div>
 
 ----
-## Embrace [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+## Why [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 - Establish reusable modules at directory boundaries
 - Native git mechanism: just a hexsha of a commit (not just a tree)
-- Allow for association with "origin" URL
+- Allow for association with "origin" URL (changeable/flexible)
 - Allow for association of arbitrary other extra metadata
 - **Can be _installed_/_uninstalled_ as needed**
+
+----
+## When submodule/subdataset
+
+- Can have its "best" use/life of its own
+  - most likely to be used without other components
+  - target audience is different
+  - public vs. private (partially also via git-annex)
+  - domain specific vs. domain general
+
+- 1-to-many relationship
+  - single "factual" raw data vs. possibly multiple choices of (pre-)processing
+  - multiple source data sources vs single composite dataset
+
+- Size impacts I/O and logistics
+  - Git can struggle with 1M+ files
+  - filesystems (licensing) can struggle with large numbers of inodes
+     - see old but potentially still relevant <br/>
+       [_A git-annex-centric benchmark of file systems_, Halchenko, 2015](https://www.datalad.org/test_fs_analysis.html)
+  - More infos: [Go Big or Go Home chapter](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html)
 
 ----
 
@@ -633,26 +739,36 @@ TODO
 
 ## Must rely only on what is reachable down the hierarchy **within** current module!
 
+### Must produce (mostly) its own content
+
 ----
 
 # But why?
 
 ----
 
-## to avoid
+## ... to avoid
 
 ![](pics/depends-on-untracked-file.png)
 
 ----
 
+### ... do not look up ...
+
+<!-- .slide: data-transition="fade" -->
+
+![ReproNim/containers workflow](pics/yoda-hierarchy-with-containers.png)
+
+----
+
 # Corollaries
 
-- All related content could be version controlled
-- Containers:
+- all related content could be version controlled
+- containers:
   - need to bind mount only (elements of) current folder
   - can map entire $PWD as $PWD inside
-- No full paths specification in CLI or hard-coding in scripts
-- The entire "module" becomes portable
+- no full paths specification in CLI or hard-coding in scripts
+- the entire "module" becomes portable
 
 </textarea></section>
 
@@ -672,6 +788,8 @@ TODO
 
 http://handbook.datalad.org/en/latest/basics/basics-yoda.html
 
+https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html#example-structure-yoda-principles
+
 ----
 
 <!-- .slide: data-transition="fade" -->
@@ -689,7 +807,7 @@ become friends with YODA and its principles
 # Thank you!
 
 ## Follow YODA and
-### Let the reproducibility be with you
+### Let the efficiency and reproducibility be with you
 
 <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/></a>
 
