@@ -1,0 +1,5 @@
+* TODO: add notion of separating responsibilities
+
+as now we do not record prov information about execution platform such as version of the datalad_container extension or singularity or ...
+
+Good opportunity for reproman 2.0 as the tracker of all things
