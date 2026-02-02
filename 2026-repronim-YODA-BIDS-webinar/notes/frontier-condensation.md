@@ -65,7 +65,29 @@ Work with spike trains daily, drill down to raw traces when needed.
 - Stripped of debug symbols (often)
 - **Size**: Often smaller, always more appropriate for deployment
 
-**YODA implementation**:
+**Real-world examples**:
+
+**NeuroDebian** (http://neuro.debian.net):
+- Source: Upstream neuroimaging software repositories
+- Frontier: Debian packages (.deb) for easy installation
+- Maintains links to exact source versions
+- Distribution across Debian releases (stable, testing, unstable)
+
+**Reproducible Builds** (https://reproducible-builds.org/):
+- Takes source → binary transformation to next level
+- Goal: Bit-for-bit identical binaries from same source
+- Eliminates timestamps, build paths, randomness
+- Enables verification: different builders get identical results
+- **Frontier condensation + verifiability**
+
+**Snapshot Archive** (https://snapshot.debian.org/):
+- Different approach to preservation (not git-based)
+- Archives every version of every Debian package
+- ~20PB of historical builds
+- Can retrieve exact binary from specific timestamp
+- **Shows pattern is universal, not DataLad/git-specific**
+
+**YODA/DataLad implementation**:
 ```
 software-project/
 ├── src/                (subdataset: source code)
@@ -76,7 +98,7 @@ software-project/
             └── config  (links to exact src hexsha)
 ```
 
-Distribute binaries, but can always rebuild from exact source.
+Distribute binaries, but can always rebuild from exact source. Reproducible-builds ensures same source → same binary.
 
 ### 3. Neuroimaging - BIDS Pipeline
 
@@ -196,6 +218,17 @@ When embedding model improves, regenerate from same source.
 - Summary document
 - **Size reduction**: 1000x (2 GB video → 2 KB notes)
 
+**Real-world practice**:
+- Maintain local archive of all Zoom meetings with recordings
+- Becomes **reusable resource** for:
+  - Clarifying decisions made months ago
+  - Training new team members
+  - Extracting quotes for papers/grants
+  - Understanding evolution of ideas
+- Most common use: minutes
+- Occasional use: full video review
+- **Frontier (minutes) + Source (video) both valuable**
+
 **YODA implementation**:
 ```
 lab-meetings/
@@ -209,7 +242,7 @@ lab-meetings/
 │           └── config   (links to recording subdataset)
 ```
 
-Read minutes daily, watch recording when clarification needed.
+Read minutes daily, watch recording when clarification needed. Archive never deleted—storage cheap, context priceless.
 
 ### 7. Genomics - Reference to Variants
 
@@ -233,28 +266,54 @@ genomics-study/
             └── config   (links to alignments + reference)
 ```
 
-### 8. Literature - From Papers to Knowledge Graphs
+### 8. Literature - From Papers to Citations Database
 
-**Source**: Full-text PDFs (millions of papers, TB)
+**Real-world example: DANDI Archive Citations**
 
-**Transformation**: Entity extraction, relationship mining
+**Project**: https://github.com/dandi/dandi-bib + https://github.com/con/citations-collector
 
-**Frontier**:
-- Knowledge graph (entities + relationships)
-- Citation network
-- **Representation**: More queryable, interconnected
+**Source Layer 1**: DANDI Archive metadata
+- 1000s of neuroscience datasets
+- Dataset DOIs, descriptions, contributors
 
-**YODA implementation**:
+**Frontier 1**: Structured bibliography
+- **Transformation**: Daily GitHub Actions workflow (3:22 AM UTC)
+- Fetch metadata from DANDI API → Generate BibTeX/RIS files
+- Sync to public Zotero collection
+- **Output**: `dandi.bib`, `dandi.ris`, Zotero library
+- Use case: Easy citation of DANDI datasets
+
+**Source Layer 2**: Academic citation databases
+- OpenAlex, DataCite, CrossRef, OpenCitations
+
+**Frontier 2**: Citation discovery (WiP)
+- **Transformation**: `citations-collector` queries with dataset DOIs
+- Discovers papers citing DANDI datasets
+- Merges preprint/published versions
+- Classifies citation types (8 types defined in schema):
+  - Publication, Preprint, Protocol, Thesis, Book, Software, Dataset, Other
+- Classifies citation relationships (11 types):
+  - Cites, CitesAsDataSource, Uses, IsDocumentedBy, Reviews, etc.
+- Fetches open-access PDFs
+- **Output**: TSV file + Zotero subcollection
+- Use case: Understand dataset impact, discover related work
+
+**Schema**: https://github.com/con/citations-collector/blob/master/schema/citations.yaml
+
+**Workflow visualization**: https://github.com/dandi/dandi-bib#workflow
+
+**YODA-style organization**:
 ```
-literature-corpus/
-├── pdfs/                (subdataset: full papers)
-├── fulltext/            (subdataset: extracted text)
-└── knowledge-graph/     (subdataset: structured knowledge)
-    ├── entities.jsonld
-    ├── relationships.ttl
-    └── .datalad/
-        └── config       (links to pdfs, fulltext)
+dandi-bib/
+├── scripts/           (transformation code)
+├── outputs/
+│   ├── dandi.bib     (frontier: bibliography)
+│   ├── dandi.ris
+│   └── citations.tsv (frontier: citation graph)
+└── .github/workflows/ (automation: daily updates)
 ```
+
+**Key insight**: Automated transformation from archive metadata → structured citations → queryable knowledge. Zotero serves as "dashboard" - regenerable view of version-controlled data.
 
 ### 9. Simulation - From Runs to Figures
 
@@ -332,6 +391,56 @@ meta-analysis/
 ```
 
 Can still drill down to individual subject in study-001.
+
+## The Pattern is Universal, Not Tool-Specific
+
+**Critical insight**: Frontier condensation is a **general pattern**, not limited to DataLad/git:
+
+### Different Approaches to the Same Pattern
+
+**Git/DataLad approach**:
+- Explicit submodule references (hexsha)
+- Distributed, federated
+- Local clone contains full history
+
+**Debian snapshot.debian.org approach**:
+- Centralized archive of all package versions
+- ~20PB of historical builds
+- Timestamp-based retrieval
+- Different mechanism, same goal: exact source retrieval
+
+**Container registries (Docker Hub, etc.)**:
+- Layer-based content addressing
+- Tag → specific image hash
+- Multi-stage builds as frontier cascade
+
+**Data repositories (Zenodo, Figshare)**:
+- DOI → specific version
+- Can't update published versions (new DOI instead)
+- Less granular than git, but same principle
+
+**Academic citations**:
+- DOI/ISBN as "permanent" identifier
+- Reference list links papers together
+- Different granularity than code, same graph structure
+
+### What Matters: The Principles
+
+1. **Explicit linking**: Frontier knows its source (hexsha, DOI, timestamp, hash)
+2. **Retrievability**: Can get exact source when needed
+3. **Versioning**: Changes create new versions, don't overwrite
+4. **Automation**: Transformations are scripted/repeatable
+5. **Modularity**: Components can be used independently
+
+**YODA/DataLad advantages**:
+- Fine-grained (file-level) tracking
+- Distributed (no central chokepoint)
+- Unified interface across domains
+- Computational provenance (`datalad run`)
+
+**But**: The conceptual pattern predates and transcends any specific tool.
+
+**Message for slides**: "Pattern is ancient, tools evolve—choose what fits your domain, but embrace the principles."
 
 ## Dashboard Pattern Revisited
 
