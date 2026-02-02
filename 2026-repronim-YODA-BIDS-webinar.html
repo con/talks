@@ -196,6 +196,7 @@ by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin 
 #### Handbook example on "Brain Extraction"
 
 
+`datalad run` can execute any command, and automatically commit when successfully finished, recording the exact command and what changes it made!
 ```shell
 $ datalad run -m "run brain extract workflow" \
  --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
@@ -264,7 +265,7 @@ Date:   Wed Apr 13 11:37:58 2022 +0200
 
 ----
 
-### How you got here know you do!
+### How the state came to be, know you will!
 
 <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/>
 
@@ -355,7 +356,7 @@ $ python -c 'print("%.2f%%" % (100*1578/11011))'
 
 ----
 
-### YODA wanted git-annex complete not
+### YODA wanted git-annex, complete not
 
 [![Distribits 2024: "git annex is complete, right?"](pics/distribits-2024-git-annex-complete.png)](https://www.youtube.com/watch?v=pp8IeGXpRRI)
 
@@ -503,7 +504,7 @@ allows also
 
 - ready to use Singularity containers of popular neuroimaging containers
 - (local) "backup" of containers (in case removed from a Hub)
-- WiP to accompany with OCI images
+- WiP to include OCI images
 
 ----
 
@@ -780,7 +781,7 @@ N.B. Talk to Alex Waite about their work on guaranteeing reproducibility and net
 - containers:
   - need to bind mount only (elements of) current folder
   - can map entire $PWD as $PWD inside
-- no full paths specification in CLI or hard-coding in scripts
+- no hardcoding full paths (CLI or scripts!)
 - the entire "module" becomes portable
 
 </textarea></section>
