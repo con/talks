@@ -18,6 +18,16 @@ tools/cast_live casts/<cast-of-your-choice>
 A number of casts from previous workshops can be found in ``casts/``. To find out how to create casts on your own machine, check out the [contributing instructions for the book for casts](http://handbook.datalad.org/en/latest/contributing.html#directives), or write them by hand - everything that starts within a ``run '<code here>'`` statement is executed on ``Enter``, everything within a ``say '<note>'`` is written to your private terminal as a note.
 Note that ``cast_live`` may configure your keyboard layout to ``en-us``. If you are usually using a different keyboard layout, e.g., German, reset it using ``setxkbmap de``.
 
+## DataLad/git-annex
+
+If cloning from anywhere else than https://datasets.datalad.org copy of this dataset, you might need to add its content-containing git-annex via
+
+```sh
+git remote add --fetch datasets.datalad.org https://datasets.datalad.org/centerforopenneuroscience/talks/.git
+```
+
+to get access to the files stored on this remote (I didn't bother adding it as auto-enabling git-annex type=git remote yet).
+
 ## Advice for creating presentations
 
 - ``clone`` the repository to your local computer and ``datalad get`` all subdatasets (``datalad get -n -r .``).
