@@ -108,6 +108,12 @@
 
 <section>
   <h2>A YODA principle a day keeps gray hair rate at bay</h2>
+  <p style="font-size:0.7em; margin-top:2em;">
+  <strong>Background:</strong> For ReproFlow/SciOps principles see
+  <a href="https://datasets.datalad.org/repronim/artwork/talks/webinar-2024-reproflow/#/" target="_blank">
+  ReproNim Webinar June 2024</a><br/>
+  <em>Be thorough, efficient, formal • 80/20: Plan upfront, automate execution</em>
+  </p>
 </section>
 </section>
 
@@ -121,7 +127,27 @@ from https://github.com/myyoda/poster/ <br/>
 <small>
 by *Michael Hanke, Kyle A. Meyer, Matteo Visconti di Oleggio Castello, Benjamin Poldrack & Yaroslav O. Halchenko*. 2018 OHBM
 </small>
-</textarea></section></section>
+</textarea></section>
+
+<!-- NEW: Frozen Frontiers Concept -->
+<section>
+  <h2>YODA Enables Frozen Frontiers</h2>
+  <img src="pics/surface-depth-v2.jpg" style="width:70%; box-shadow: 10px 10px 8px #888888;"/>
+  <h3 style="margin-top:0.5em;">"Surface you create, depth you preserve"</h3>
+  <ul style="font-size:0.9em;">
+    <li>Freeze frontier at level useful for <strong>current task</strong></li>
+    <li>Preserve connection to <strong>origin</strong> (redo, verify, drill down)</li>
+    <li>Work daily at frontier, access depth on demand</li>
+  </ul>
+  <p style="font-size:0.8em; margin-top:1em;">
+    <strong>Examples:</strong>
+    Ephys: spike trains (MB) ↔ traces (TB) •
+    BIDS: derivatives (GB) ↔ DICOM (raw) •
+    Papers: DOI ↔ exact version •
+    Software: binary ↔ source
+  </p>
+</section>
+</section>
 
 <!-- Principle 1: VCS -->
 
@@ -262,6 +288,23 @@ Date:   Wed Apr 13 11:37:58 2022 +0200
 
 - know *how* you got the change done: **no guessing!**
 - from a clean git state to a clean git state: **no surprises!**
+
+----
+
+### Frozen Provenance: BEP028
+
+**[BEP028](https://github.com/bids-standard/BEP028_BIDSprov)**: BIDS Extension Proposal for Provenance
+
+- W3C PROV-based standard for neuroimaging workflows
+- Captures: **Activities** (what ran), **Entities** (inputs/outputs), **Agents** (tools)
+- JSON-LD format (machine-readable, queryable)
+- `datalad run` provenance can map to BEP028 records
+
+**Frozen provenance**: Know exactly how each frontier was created
+
+<small>
+Details: [github.com/bids-standard/BEP028_BIDSprov](https://github.com/bids-standard/BEP028_BIDSprov/blob/master/bep028spec.md)
+</small>
 
 ----
 
@@ -535,6 +578,12 @@ your VCS to guarantee their
 - availability
 - accessibility
 
+**Pattern beyond containers:**
+- **NeuroDebian**: source → .deb packages (frozen, installable)
+- **reproducible-builds.org**: same source → bit-identical binaries
+- **snapshot.debian.org**: 20PB archive, timestamp-based retrieval
+- Pattern transcends specific tools
+
 <small>
 
 N.B. Talk to Alex Waite about their work on guaranteeing reproducibility and network encapsulation of containers.
@@ -677,6 +726,59 @@ N.B. Talk to Alex Waite about their work on guaranteeing reproducibility and net
 
 ----
 
+### YODA-Compliant Workflow Tools in Practice
+
+Real-world tools creating frozen frontiers:
+
+**[BABS](https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00074/119046)** (Hoffstaedter+ 2024): BIDS → Derivatives at HPC scale
+- Uses FAIRly big framework + DataLad
+- Demonstrated on n=2,565 (Healthy Brain Network)
+
+**[Nipoppy](https://github.com/nipoppy/nipoppy)**: Multi-modal → BIDS + phenotypic
+- Clinical-imaging integration, Dashboard via Neurobagel
+
+**[BIDS-flux](https://bids-flux-docs.readthedocs.io/)**: Multi-site → Harmonized
+- GitLab orchestration + MinIO storage, Federated platform
+
+All freeze useful frontiers while preserving source links
+
+----
+
+### Dashboards Visualize Frontiers, Don't Own Data
+
+<table style="width:100%; font-size:0.8em;">
+<tr>
+<td style="width:48%; vertical-align:top; padding-right:2%;">
+<h4>Data Layer (YODA)</h4>
+<small>Version controlled, source of truth</small>
+<pre style="font-size:0.7em;">
+study/
+├── tabular/
+│   ├── demographics.tsv
+│   ├── processing-status.tsv
+│   └── qc-metrics.tsv
+└── README.md
+</pre>
+</td>
+<td style="width:48%; vertical-align:top; padding-left:2%;">
+<h4>Visualization Layer</h4>
+<small>Regenerable, ephemeral</small>
+<ul style="font-size:0.9em;">
+  <li>Neurobagel digest dashboard</li>
+  <li>Upload .tsv files</li>
+  <li>Interactive exploration</li>
+  <li>Can rebuild anytime</li>
+</ul>
+</td>
+</tr>
+</table>
+
+**Example**: [Nipoppy](https://github.com/nipoppy/nipoppy) → [Neurobagel](https://digest.neurobagel.org/)
+
+**Principle**: Dashboards consume frontiers, don't own them
+
+----
+
 ### YODA: from raw data to paper
 
 <!-- .slide: data-transition="fade" -->
@@ -742,6 +844,29 @@ N.B. Talk to Alex Waite about their work on guaranteeing reproducibility and net
 
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
+
+----
+
+### Example: DANDI Citations as Frozen Frontier
+
+**Project**: [github.com/dandi/dandi-bib](https://github.com/dandi/dandi-bib)
+
+**Workflow** (automated daily at 3:22 AM UTC):
+1. DANDI Archive metadata (source)
+2. → BibTeX/RIS generation (transformation)
+3. → Zotero public collection (frozen frontier)
+
+**Work in Progress** ([citations-collector](https://github.com/con/citations-collector)):
+- DOI → Citation discovery (OpenAlex, CrossRef, DataCite)
+- Classify citation types (8: Publication, Preprint, Protocol, Thesis...)
+- Classify relationships (11: Cites, Uses, IsDocumentedBy...)
+- Archive metadata (source) → Structured citations (frozen frontier)
+
+<small>
+Workflow diagram: [github.com/dandi/dandi-bib#workflow](https://github.com/dandi/dandi-bib?tab=readme-ov-file#workflow)
+</small>
+
+----
 
 ## What is a common principle followed in all of those setups?
 
@@ -811,10 +936,14 @@ https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html
 
 become friends with YODA and its principles
 
+- **Freeze frontiers** at useful levels, preserve links to origins
 - keep **all** materials under VCS
   - keep your containers and their construction recipes under VCS
 - adhere to a consistent and modular structure
 - be portable: avoid absolute paths, do **not** look up
+- **Pattern is universal**: git, DOIs, snapshots, timestamps (not just DataLad)
+- **Dashboards visualize**, don't own - keep data in YODA
+- Observability (provenance, BEP028) + reproducibility = trustworthy science
 
 ----
 
