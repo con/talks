@@ -1,0 +1,273 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>ReproFlow & YODA: Structure your studies, observable and reproducible they become</title>
+		<meta name="description" content="ReproNim Webinar, February 6th, 2026. Version control everything. Look up you must not. Compose modularly you shall. Discover how YODA principles, BIDS composition, and ReproFlow/reprostim tooling bring observable and reproducible workflows to neuroimaging—from acquisition to publication.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
+	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;"><s>ReproFlow &</s> YODA: Structure your studies,<br/> observable and reproducible they become</h2>
+	  <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.75em;font-style:italic;">
+	  <strong>Version control everything. Look up you must not. Compose modularly you shall.</strong><br/>
+	  <!-- Discover how YODA principles, BIDS composition, and ReproFlow/reprostim tooling<br/>
+	  bring observable and reproducible workflows to neuroimaging—from acquisition to publication.-->
+	  </p>
+
+    <div style="margin-top:0.3em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+
+		  <img style="width:160px; margin: 0px" data-src="pics/2026-repronim-YODA-BIDS-webinar-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<!--
+  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode_hhu.png" height="200">
+    </p>
+<br><br><small>
+    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
+    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
+    <br>
+</small>
+-->
+<small>
+  <strong>ReproNim Webinar &mdash; Friday, February 6th, 2026</strong><br/>
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html</a><br/>
+  More info: <a href="https://repronim.org/about/webinars/">https://repronim.org/about/webinars/</a>
+<br>
+<small>
+ <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/pymvpa_icon.png"/></a> -->
+     <a href="http://datalad.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+<!--	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a> -->
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+<section>
+  <h2 style="margin-top:0.5em;margin-bottom:0.5em;">Reality Check</h2>
+
+  <div style="text-align:center; margin-top:0.5em;">
+    <img src="pics/borrowed/idiocracy-fixed.gif" style="width:50%; box-shadow: 10px 10px 8px #888888;"/>
+  </div>
+
+  <div style="margin-top:0.8em; padding:0.8em; background-color:rgba(255,255,255,0.9); border-radius:10px;">
+    <p style="font-size:0.85em; margin-bottom:0.3em;">
+      <strong>Disclaimer:</strong> This talk will <em>not</em> make you at once into AI coder.
+    </p>
+    <p style="font-size:0.8em; font-style:italic; color:#555; margin-top:0.3em;">
+      But it <em>will</em> point to a few approaches you can start using TODAY!<br/>
+      And you MUST NOT forget about social aspect of the retreat!
+    </p>
+  </div>
+
+</section>
+
+<!-- TODO: Add a slide pointing to ReproNim webinar https://www.youtube.com/watch?v=1XbTbJ_P2x0 mirrored into
+  AI-assist-coded https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0?tab=youtube&wide=1&t=3053&q=AI&cs=1&filter=1
+-->
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
+
+# WARNING!
+
+[![](pics/borrowed/2026-ai-intensifies.png)](https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it)
+
+----
+
+### YODA Beyond Code & Data:<br/>Organizing ALL Digital Research Artifacts
+
+<div style="padding: 1.5em; border-radius: 10px; margin-top: 0.5em;">
+
+<table style="width:100%; font-size:0.75em; color:#333;">
+  <tr style="vertical-align:top;">
+    <td style="width:50%; padding-right:1em;">
+      <strong style="color:#2a5;">Traditional YODA scope:</strong>
+      <ul style="margin-top:0.3em;">
+        <li>Code (scripts, notebooks)</li>
+        <li>Data (raw, derivatives)</li>
+        <li>Containers (environments)</li>
+        <li>Papers (manuscripts)</li>
+      </ul>
+    </td>
+    <td style="width:50%; padding-left:1em; border-left:2px solid #666;">
+      <strong style="color:#e53;">Expanded YODA vision:</strong>
+      <ul style="margin-top:0.3em;">
+        <li><strong>Communication:</strong> Slack, Discord, Matrix channels</li>
+        <li><strong>Meetings:</strong> Zoom recordings, transcripts</li>
+        <li><strong>Media:</strong> YouTube videos, captions, comments</li>
+        <li><strong>Development:</strong> GitHub issues, PR discussions, CI logs</li>
+        <li><strong>Computation:</strong> Shell histories, terminal sessions</li>
+        <li><strong>Research:</strong> PACS imaging, instrument logs</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<div style="margin-top:1em; padding:1em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.8em; text-align:left; color:#333;">
+  <strong style="color:#f60;">Why preserve ALL this?</strong> 🤔
+  <ul style="margin-top:0.5em; margin-bottom:0.3em;">
+    <li><strong>Then:</strong> Archived for troubleshooting ("what was discussed?", "why didn't it work?")</li>
+    <li><strong>Now:</strong> <span style="background-color:#ffeb3b; padding:0.2em 0.4em;">AI-accessible knowledge base</span> 🤖</li>
+    <li>With AI assistance: Raw materials (depth) → Synthesized insights (surface)</li>
+    <li><strong>YODA enables:</strong> Comprehensive organization, federated composition, version control at scale</li>
+  </ul>
+</div>
+
+<p style="font-size:0.7em; margin-top:0.8em; font-style:italic; color:#555;">
+  <strong>See vision:</strong> <a href="https://github.com/con/ceptualization/issues/2" target="_blank" style="color:#05a;">con/ceptualization#2</a> —
+  Configuration-driven archival with DataLad subdatasets for discovery & agentic access
+</p>
+
+</div>
+
+----
+
+TODO: mermaid diagram from https://con.github.io/serve/ about conservation of everything
+
+----
+
+TODO: show the ladder
+
+----
+
+TODO: intro into claude code (works) 1-2 slides?
+
+----
+
+TODO: show the 5 stages loop(s) diagram (mermaid?)
+
+----
+
+TODO: point to examples of AI-assisted projects like AnnexTube, mykrok, ...
+
+
+----
+
+TODO: point to SKILLs, like we collected on https://github.com/con/skills/
+
+----
+
+# Thank you!
+
+## Don't forget about YODA and
+### Let the AI agents be with you
+
+<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/></a>
+
+<!-- .element: style="font-size:0.6em" -->
+
+</textarea></section>
+</section>
+
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js/plugin/search/search.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1400,
+				height: 1050,
+				//width: 1280,
+				//height: 960,
+				//width: 1024,
+				//height: 768,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				// RevealSearch: Press CTRL+Shift+F to search slide content
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>

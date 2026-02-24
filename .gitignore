@@ -13,3 +13,5 @@ tmp/**
 node_modules/
 .sass-cache
 *.fcked*
+.cache
+.pki
