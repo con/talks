@@ -69,7 +69,11 @@
 <br>
 <small>
      <a href="http://datalad.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+	 <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
 	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
 	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
 
 </small>
@@ -112,21 +116,25 @@
 
 ### YODA Webinar: preserving ALL digital artifacts
 
-<div style="font-size:0.8em; margin-top:0.5em;">
+<table style="width:100%;"><tr>
+<td style="width:55%; vertical-align:top; font-size:0.75em;">
 
 Where I left off &mdash; why we should preserve **all** digital research artifacts as an **AI-accessible knowledge base**
 
-</div>
-
-<div style="margin-top:0.5em;">
+<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html#/" target="_blank">Slides</a> |
 <a href="https://www.youtube.com/watch?v=1XbTbJ_P2x0" target="_blank">YouTube</a> |
 <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0?tab=wide=1&t=3053&q=AI&cs=1&filter=1" target="_blank">AnnexTube (at AI section)</a>
-</div>
 
-<div style="margin-top:1em; font-size:0.75em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2;">
+<div style="margin-top:0.8em; padding:0.6em; background-color:#e3f2fd; border-left:4px solid #1976d2;">
 <strong>Key idea:</strong> With AI assistance, raw materials (depth) become synthesized insights (surface).<br/>
 But first you need to <strong>capture and organize</strong> those materials &mdash; that's where YODA comes in.
 </div>
+
+</td>
+<td style="width:45%; text-align:center;">
+<img src="pics/surface-depth-v2.jpg" style="max-height:400px; box-shadow: 5px 5px 8px #888;"/>
+</td>
+</tr></table>
 
 ----
 
@@ -178,38 +186,30 @@ But first you need to <strong>capture and organize</strong> those materials &mda
 
 ----
 
-### [con/serve](https://con.github.io/serve/): Archiving Everything
+### [con/serve](https://github.com/con/serve): Archiving Everything
+
+<small>https://github.com/con/serve</small>
 
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#2d3748', 'primaryTextColor': '#fff', 'lineColor': '#718096', 'fontSize': '14px'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#2d3748', 'primaryTextColor': '#fff', 'lineColor': '#718096', 'fontSize': '18px'}}}%%
 flowchart LR
 subgraph IN["INBOUND"]
 direction TB
-comm["Communications
-(Slack, Matrix, Email)"]
-media["Media
-(YouTube, Zoom)"]
-code["Code Artifacts
-(Issues, Wikis)"]
-ai["AI Sessions
-(Claude, Cursor)"]
-pubs["Publications
-(Citations, PDFs)"]
-cloud_in["Cloud Storage
-(rclone, 70+ providers)"]
+comm["Slack, Matrix, Email"]
+media["YouTube, Zoom"]
+code["Issues, Wikis, PRs"]
+ai["AI Sessions"]
+pubs["Citations, PDFs"]
+cloud_in["Cloud Storage"]
 comm ~~~ media ~~~ code ~~~ ai ~~~ pubs ~~~ cloud_in
 end
 
 subgraph HUB["THE VAULT"]
 direction TB
-ga["git-annex
-content-addressed storage"]
-dl["DataLad
-dataset management"]
-org["YODA / STAMPED
-organization & principles"]
-surfaces["Working Surfaces
-(Hugo, HedgeDoc, LLM agents)"]
+ga["git-annex"]
+dl["DataLad"]
+org["YODA / STAMPED"]
+surfaces["Hugo, HedgeDoc, LLM agents"]
 ga --- dl
 dl --- org
 dl --- surfaces
@@ -217,19 +217,14 @@ end
 
 subgraph OUT["OUTBOUND"]
 direction TB
-archives["Domain Archives
-(OpenNeuro, DANDI, OSF)"]
-backup["Cloud Backup
-(S3, Glacier, Dropbox)"]
-webpub["Web Publishing
-(GitHub Pages)"]
+archives["OpenNeuro, DANDI, OSF"]
+backup["S3, Glacier, Dropbox"]
+webpub["GitHub Pages"]
 archives ~~~ backup ~~~ webpub
 end
 
-IN ==>|archive &
-import| HUB
-HUB ==>|publish &
-distribute| OUT
+IN ==>|"archive"| HUB
+HUB ==>|"publish"| OUT
 
 classDef inbound fill:#2b6cb0,stroke:#2c5282,color:#fff,stroke-width:2px
 classDef hub fill:#d69e2e,stroke:#b7791f,color:#1a202c,stroke-width:3px
@@ -244,8 +239,11 @@ style HUB fill:#fefcbf,stroke:#d69e2e,stroke-width:3px,color:#744210
 style OUT fill:#f0fff4,stroke:#2f855a,stroke-width:2px,color:#2f855a
 </div>
 
-----
+</textarea></section>
 
+<!-- AI Coding Maturity Ladder — grouped as vertical slides -->
+<section>
+<section data-markdown><textarea data-template>
 ## AI Coding Maturity Ladder
 
 [![AI coding maturity ladder](pics/borrowed/ai-ladder-skills.png)<!-- .element: style="height:550px" -->](https://www.youtube.com/watch?v=6W_-YWHKwZ4)
@@ -256,9 +254,9 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 &mdash; **Where are YOU on this ladder?**
 
 </small>
+</textarea></section>
 
-----
-
+<section data-markdown><textarea data-template>
 ### Level 1: Chat
 
 <div style="font-size:0.85em;">
@@ -274,9 +272,9 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <div style="margin-top:1em; padding:0.8em; background-color:#fff3cd; border-left:4px solid #ffc107; font-size:0.8em;">
 <em>"Not rocket science, can pick up basics in hours but take weeks to become efficient"</em>
 </div>
+</textarea></section>
 
-----
-
+<section data-markdown><textarea data-template>
 ### Level 2: Mid-Loop Generation
 
 <div style="font-size:0.85em;">
@@ -291,9 +289,9 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <div style="margin-top:1em; padding:0.8em; background-color:#d1ecf1; border-left:4px solid #17a2b8; font-size:0.8em;">
 <em>Key: learn to <strong>critically evaluate</strong> suggestions, not just accept them</em>
 </div>
+</textarea></section>
 
-----
-
+<section data-markdown><textarea data-template>
 ### Level 3: In-the-Loop Agentic Coding
 
 <div style="font-size:0.85em;">
@@ -309,9 +307,9 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <div style="margin-top:1em; padding:0.8em; background-color:#f8d7da; border-left:4px solid #dc3545; font-size:0.8em;">
 <em>"You need to see them struggle and you need to get frustrated with these struggles"</em>
 </div>
+</textarea></section>
 
-----
-
+<section data-markdown><textarea data-template>
 ### Level 4: On-the-Loop Agentic Coding
 
 <div style="font-size:0.85em;">
@@ -326,9 +324,9 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <div style="margin-top:1em; padding:0.8em; background-color:#d4edda; border-left:4px solid #28a745; font-size:0.8em;">
 <em>"Not a lot of people are here today"</em>
 </div>
+</textarea></section>
 
-----
-
+<section data-markdown><textarea data-template>
 ### Level 5: Multi-Agent Coding
 
 <div style="font-size:0.85em;">
@@ -344,14 +342,18 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <br/><br/>
 <strong>Do your reps. Climb deliberately.</strong>
 </div>
+</textarea></section>
+</section>
 
-----
+<!-- Continue with remaining slides -->
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+<textarea data-template>
 
 ## Claude Code &mdash; What Is It?
 
 <div style="font-size:0.85em;">
 
-- **CLI-based agentic coding tool** by Anthropic ([open source!](https://github.com/anthropics/claude-code))
+- **CLI-based agentic coding tool** by Anthropic ([source-available](https://github.com/anthropics/claude-code), not yet truly open source)
 - Works in your terminal: reads/edits files, runs commands, plans, iterates
 - Key: it's an **agent**, not a chatbot &mdash; it has a loop with tools
 
@@ -492,8 +494,9 @@ These are **real research tools**, not toy demos:
 
 | Project | What it is |
 |---------|-----------|
-| [AnnexTube](https://github.com/con/annextube) | YouTube archival into git-annex/DataLad datasets |
-| [con/serve](https://con.github.io/serve/) | The digital artifact archival system itself |
+| [mykrok](https://github.com/mykrok/mykrok) | Personal knowledge base ([example](https://mykrok.oneukrainian.com/), requires auth) |
+| [AnnexTube](https://github.com/con/annextube) | YouTube archival into git-annex/DataLad ([ReproTube](https://datasets.datalad.org/repronim/ReproTube/web)) |
+| [con/serve](https://github.com/con/serve) | The digital artifact archival system itself |
 | [citations-collector](https://github.com/con/citations-collector) | DOI &rarr; citation discovery &amp; classification |
 | [dandi-cli](https://github.com/dandi/dandi-cli) | DANDI Archive client with LAD specs &amp; AI-generated tests |
 
@@ -513,13 +516,13 @@ Claude Code skills &mdash; **write once, use across all projects:**
 
 | Skill | What it automates |
 |-------|------------------|
-| `github-project-status` | Repository health reports |
-| `introduce-codespell` | Spell-checking setup |
-| `issue-triage` | Intelligent issue analysis |
-| `pr-review-update` | PR review management |
-| `tinuous-analyzer` | CI failure investigation |
-| `repo-hygiene` | Executable permissions, junk cleanup |
-| `consolidate-dependabot-prs` | Batch dependency updates |
+| [github-project-status](https://github.com/con/skills/tree/master/github-project-status) | Repository health reports |
+| [introduce-codespell](https://github.com/con/skills/tree/master/introduce-codespell) | Spell-checking setup |
+| [introduce-git-bug](https://github.com/con/skills/tree/master/introduce-git-bug) | Distributed bug tracking setup |
+| [issue-triage](https://github.com/con/skills/tree/master/issue-triage) | Intelligent issue analysis |
+| [pr-review-update](https://github.com/con/skills/tree/master/pr-review-update) | PR review management |
+| [scan-projects](https://github.com/con/skills/tree/master/scan-projects) | Multi-project scanning &amp; reporting |
+| [tinuous-analyzer](https://github.com/con/skills/tree/master/tinuous-analyzer) | CI failure investigation |
 
 </div>
 
