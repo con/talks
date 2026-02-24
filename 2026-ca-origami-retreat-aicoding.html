@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<!-- Edit me start! -->
-		<title>ReproFlow & YODA: Structure your studies, observable and reproducible they become</title>
-		<meta name="description" content="ReproNim Webinar, February 6th, 2026. Version control everything. Look up you must not. Compose modularly you shall. Discover how YODA principles, BIDS composition, and ReproFlow/reprostim tooling bring observable and reproducible workflows to neuroimaging—from acquisition to publication.">
+		<title>A few words of intro into AI assisted coding</title>
+		<meta name="description" content="CA Origami Retreat. A brief introduction to agentic coding with Claude Code, spec-driven development workflows, and the AI coding maturity ladder.">
 		<meta name="author" content=" Yaroslav O. Halchenko ">
 		<!-- Edit me end! -->
 
@@ -27,14 +27,14 @@
 
 
 <!-- Start of slides -->
+
+<!-- S1. Title Slide -->
 <section>
   <section>
 	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
-	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;"><s>ReproFlow &</s> YODA: Structure your studies,<br/> observable and reproducible they become</h2>
+	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;">A few words of intro into<br/>AI assisted coding</h2>
 	  <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.75em;font-style:italic;">
-	  <strong>Version control everything. Look up you must not. Compose modularly you shall.</strong><br/>
-	  <!-- Discover how YODA principles, BIDS composition, and ReproFlow/reprostim tooling<br/>
-	  bring observable and reproducible workflows to neuroimaging—from acquisition to publication.-->
+	  <strong>From vibe coding to spec-driven compound engineering</strong><br/>
 	  </p>
 
     <div style="margin-top:0.3em;text-align:center">
@@ -55,38 +55,21 @@
 		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
 		  New Hampshire, USA</a></small>
 
-		  <img style="width:160px; margin: 0px" data-src="pics/2026-repronim-YODA-BIDS-webinar-qrcode.png"/>
+		  <img style="width:160px; margin: 0px" data-src="pics/2026-ca-origami-retreat-aicoding-qrcode.png"/>
       </td>
 	  <td>
 	  </td>
     </tr>
     </table>
     </div>
-<!--
-  <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
-        <img src="pics/QRcode_hhu.png" height="200">
-    </p>
-<br><br><small>
-    Slides: <a href="https://doi.org/10.5281/zenodo.6346849" target="_blank">
-    DOI 10.5281/zenodo.6346849</a> (Scan the QR code)
-    <br>
-</small>
--->
 <small>
-  <strong>ReproNim Webinar &mdash; Friday, February 6th, 2026</strong><br/>
+  <strong>CA Origami Retreat &mdash; 2026</strong><br/>
   Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
-  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html</a><br/>
-  More info: <a href="https://repronim.org/about/webinars/">https://repronim.org/about/webinars/</a>
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html</a><br/>
 <br>
 <small>
- <!--	 <a href="http://pymvpa.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/pymvpa_icon.png"/></a> -->
      <a href="http://datalad.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
-	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
-	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
-  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
-<!--	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a> -->
 	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
-  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
 	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
 
 </small>
@@ -95,6 +78,7 @@
   </section>
 </section>
 
+<!-- S2. Reality Check / Disclaimer -->
 <section>
   <h2 style="margin-top:0.5em;margin-bottom:0.5em;">Reality Check</h2>
 
@@ -114,16 +98,35 @@
 
 </section>
 
-<!-- TODO: Add a slide pointing to ReproNim webinar https://www.youtube.com/watch?v=1XbTbJ_P2x0 mirrored into
-  AI-assist-coded https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0?tab=youtube&wide=1&t=3053&q=AI&cs=1&filter=1
--->
-
+<!-- S3-S19: Main content in markdown sections -->
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
 
 # WARNING!
 
 [![](pics/borrowed/2026-ai-intensifies.png)](https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it)
+
+----
+
+## Previously on...
+
+### YODA Webinar: preserving ALL digital artifacts
+
+<div style="font-size:0.8em; margin-top:0.5em;">
+
+Where I left off &mdash; why we should preserve **all** digital research artifacts as an **AI-accessible knowledge base**
+
+</div>
+
+<div style="margin-top:0.5em;">
+<a href="https://www.youtube.com/watch?v=1XbTbJ_P2x0" target="_blank">YouTube</a> |
+<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0?tab=wide=1&t=3053&q=AI&cs=1&filter=1" target="_blank">AnnexTube (at AI section)</a>
+</div>
+
+<div style="margin-top:1em; font-size:0.75em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2;">
+<strong>Key idea:</strong> With AI assistance, raw materials (depth) become synthesized insights (surface).<br/>
+But first you need to <strong>capture and organize</strong> those materials &mdash; that's where YODA comes in.
+</div>
 
 ----
 
@@ -157,17 +160,17 @@
 </table>
 
 <div style="margin-top:1em; padding:1em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.8em; text-align:left; color:#333;">
-  <strong style="color:#f60;">Why preserve ALL this?</strong> 🤔
+  <strong style="color:#f60;">Why preserve ALL this?</strong>
   <ul style="margin-top:0.5em; margin-bottom:0.3em;">
     <li><strong>Then:</strong> Archived for troubleshooting ("what was discussed?", "why didn't it work?")</li>
-    <li><strong>Now:</strong> <span style="background-color:#ffeb3b; padding:0.2em 0.4em;">AI-accessible knowledge base</span> 🤖</li>
-    <li>With AI assistance: Raw materials (depth) → Synthesized insights (surface)</li>
+    <li><strong>Now:</strong> <span style="background-color:#ffeb3b; padding:0.2em 0.4em;">AI-accessible knowledge base</span></li>
+    <li>With AI assistance: Raw materials (depth) &rarr; Synthesized insights (surface)</li>
     <li><strong>YODA enables:</strong> Comprehensive organization, federated composition, version control at scale</li>
   </ul>
 </div>
 
 <p style="font-size:0.7em; margin-top:0.8em; font-style:italic; color:#555;">
-  <strong>See vision:</strong> <a href="https://github.com/con/ceptualization/issues/2" target="_blank" style="color:#05a;">con/ceptualization#2</a> —
+  <strong>See vision:</strong> <a href="https://github.com/con/ceptualization/issues/2" target="_blank" style="color:#05a;">con/ceptualization#2</a> &mdash;
   Configuration-driven archival with DataLad subdatasets for discovery & agentic access
 </p>
 
@@ -175,28 +178,354 @@
 
 ----
 
-TODO: mermaid diagram from https://con.github.io/serve/ about conservation of everything
+### [con/serve](https://con.github.io/serve/): Archiving Everything
+
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#2d3748', 'primaryTextColor': '#fff', 'lineColor': '#718096', 'fontSize': '14px'}}}%%
+flowchart LR
+subgraph IN["INBOUND"]
+direction TB
+comm["Communications
+(Slack, Matrix, Email)"]
+media["Media
+(YouTube, Zoom)"]
+code["Code Artifacts
+(Issues, Wikis)"]
+ai["AI Sessions
+(Claude, Cursor)"]
+pubs["Publications
+(Citations, PDFs)"]
+cloud_in["Cloud Storage
+(rclone, 70+ providers)"]
+comm ~~~ media ~~~ code ~~~ ai ~~~ pubs ~~~ cloud_in
+end
+
+subgraph HUB["THE VAULT"]
+direction TB
+ga["git-annex
+content-addressed storage"]
+dl["DataLad
+dataset management"]
+org["YODA / STAMPED
+organization & principles"]
+surfaces["Working Surfaces
+(Hugo, HedgeDoc, LLM agents)"]
+ga --- dl
+dl --- org
+dl --- surfaces
+end
+
+subgraph OUT["OUTBOUND"]
+direction TB
+archives["Domain Archives
+(OpenNeuro, DANDI, OSF)"]
+backup["Cloud Backup
+(S3, Glacier, Dropbox)"]
+webpub["Web Publishing
+(GitHub Pages)"]
+archives ~~~ backup ~~~ webpub
+end
+
+IN ==>|archive &
+import| HUB
+HUB ==>|publish &
+distribute| OUT
+
+classDef inbound fill:#2b6cb0,stroke:#2c5282,color:#fff,stroke-width:2px
+classDef hub fill:#d69e2e,stroke:#b7791f,color:#1a202c,stroke-width:3px
+classDef outbound fill:#2f855a,stroke:#276749,color:#fff,stroke-width:2px
+
+class comm,media,code,ai,pubs,cloud_in inbound
+class ga,dl,org,surfaces hub
+class archives,backup,webpub outbound
+
+style IN fill:#ebf8ff,stroke:#2b6cb0,stroke-width:2px,color:#2b6cb0
+style HUB fill:#fefcbf,stroke:#d69e2e,stroke-width:3px,color:#744210
+style OUT fill:#f0fff4,stroke:#2f855a,stroke-width:2px,color:#2f855a
+</div>
 
 ----
 
-TODO: show the ladder
+## AI Coding Maturity Ladder
+
+[![AI coding maturity ladder](pics/borrowed/ai-ladder-skills.png)<!-- .element: style="height:550px" -->](https://www.youtube.com/watch?v=6W_-YWHKwZ4)
+
+<small>
+
+Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.youtube.com/watch?v=6W_-YWHKwZ4)
+&mdash; **Where are YOU on this ladder?**
+
+</small>
 
 ----
 
-TODO: intro into claude code (works) 1-2 slides?
+### Level 1: Chat
+
+<div style="font-size:0.85em;">
+
+- ChatGPT / Claude open in a browser &mdash; copy-paste code, ask questions
+- **Skills:** prompt engineering + context engineering
+  - What to feed into context window &mdash; and what **not** to
+- **Mastery:** consistent, decent-quality output from your prompts
+- **Time:** hours to weeks
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#fff3cd; border-left:4px solid #ffc107; font-size:0.8em;">
+<em>"Not rocket science, can pick up basics in hours but take weeks to become efficient"</em>
+</div>
 
 ----
 
-TODO: show the 5 stages loop(s) diagram (mermaid?)
+### Level 2: Mid-Loop Generation
+
+<div style="font-size:0.85em;">
+
+- LLM meets you **in your IDE** &mdash; "autocomplete on steroids"
+- Type a code comment &rarr; get 1-3 alternative implementations
+- **Skills:** evaluating alternative designs, critically selecting the best option
+- **Time:** relatively quick to pass through
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#d1ecf1; border-left:4px solid #17a2b8; font-size:0.8em;">
+<em>Key: learn to <strong>critically evaluate</strong> suggestions, not just accept them</em>
+</div>
 
 ----
 
-TODO: point to examples of AI-assisted projects like AnnexTube, mykrok, ...
+### Level 3: In-the-Loop Agentic Coding
 
+<div style="font-size:0.85em;">
+
+- The **"babysitting phase"** &mdash; you actively watch the agent work
+- You see it struggle, doom-loop, and you intervene
+- **Skills:** recognizing doom loops, installing guard rails, building prompt/skill libraries, extracting reusable skills & meta-prompts
+- **Time: 2-3 months minimum** regardless of seniority
+- This is where most people should spend serious time
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#f8d7da; border-left:4px solid #dc3545; font-size:0.8em;">
+<em>"You need to see them struggle and you need to get frustrated with these struggles"</em>
+</div>
 
 ----
 
-TODO: point to SKILLs, like we collected on https://github.com/con/skills/
+### Level 4: On-the-Loop Agentic Coding
+
+<div style="font-size:0.85em;">
+
+- You **spec the work, hand it off, go have coffee**
+- Come back to high-quality artifacts, verify, move on
+- Running **multiple agent sessions in parallel** (each in own worktree)
+- **Prerequisites:** all prior skills + reusable skills, MCP servers, test automation, security scanners
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#d4edda; border-left:4px solid #28a745; font-size:0.8em;">
+<em>"Not a lot of people are here today"</em>
+</div>
+
+----
+
+### Level 5: Multi-Agent Coding
+
+<div style="font-size:0.85em;">
+
+- The frontier &mdash; Claude Code Teams, Devin-style orchestration
+- **Everyone is still figuring this out**
+- *"If you have any tips, share/discuss with colleagues!"*
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#f8d7da; border-left:4px solid #dc3545; font-size:0.8em;">
+<strong>Warning:</strong> <em>"If you start here without the foundations, you will shoot yourself, your organization, and your friends in the foot"</em>
+<br/><br/>
+<strong>Do your reps. Climb deliberately.</strong>
+</div>
+
+----
+
+## Claude Code &mdash; What Is It?
+
+<div style="font-size:0.85em;">
+
+- **CLI-based agentic coding tool** by Anthropic ([open source!](https://github.com/anthropics/claude-code))
+- Works in your terminal: reads/edits files, runs commands, plans, iterates
+- Key: it's an **agent**, not a chatbot &mdash; it has a loop with tools
+
+</div>
+
+<div style="font-size:0.8em; margin-top:0.8em;">
+
+| Concept | What it does |
+|---------|-------------|
+| `CLAUDE.md` | Project-level instructions / persistent memory |
+| Skills / commands | Reusable automation patterns (slash commands) |
+| Hooks | Guard rails that run automatically (pre/post tool use) |
+| Plan mode | Explore &rarr; design &rarr; get approval &rarr; implement |
+| MCP servers | Connect to external tools (GitHub, databases, ...) |
+
+</div>
+
+----
+
+## Claude Code &mdash; In Practice
+
+<div style="font-size:0.85em;">
+
+- **Plan mode** &rarr; Implementation &rarr; Review cycle
+- Works with any language/framework, integrates with git
+- `@pytest.mark.ai_generated` convention for AI-written tests
+
+</div>
+
+<div style="font-size:0.75em; margin-top:0.8em; padding:0.8em; background-color:rgba(255,255,255,0.95); border-radius:8px;">
+
+```bash
+$ claude "implement the retry logic from the spec"
+
+> I'll read the specification first...
+> Reading .specify/specs/retry-logic.md
+> Planning implementation: 3 files to modify
+> [Plan mode] Here's my approach:
+>   1. Add RetryPolicy class to core/retry.py
+>   2. Integrate into api_client.py
+>   3. Add tests with @pytest.mark.ai_generated
+> Shall I proceed?
+```
+
+</div>
+
+----
+
+## [con/yolo](https://github.com/con/yolo) &mdash; Sandboxed Claude Code
+
+<div style="font-size:0.85em;">
+
+- **Containerized (Podman)** setup for running Claude Code in isolation
+- Enables "YOLO mode" (permission bypass) **safely** inside a container
+- Preserves your config and working directory paths
+- Seamless compatibility with native Claude Code sessions
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.8em;">
+<strong>Why?</strong> For <strong>on-the-loop</strong> work (level 4): you need safe autonomy to let agents work unsupervised while limiting blast radius.
+</div>
+
+----
+
+## The 5-Stage Development Loop
+
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '16px'}}}%%
+flowchart TD
+    IDEA["Idea"] --> S1["1. Overall Design / Specification"]
+    S1 --> S2["2. Aspect Design / Prompt"]
+    S2 --> S3["3. AI Work
+    (may still prompt)"]
+    S3 --> S4["4. Review
+    (inspection / tests)"]
+    S4 -->|"iterate"| S2
+    S4 --> S5["5. Compound / Condense
+    into Spec"]
+    S5 -->|"next aspect"| S2
+
+    style IDEA fill:#9c27b0,color:#fff,stroke:#7b1fa2,stroke-width:2px
+    style S1 fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
+    style S2 fill:#2e7d32,color:#fff,stroke:#1b5e20,stroke-width:2px
+    style S3 fill:#e65100,color:#fff,stroke:#bf360c,stroke-width:2px
+    style S4 fill:#c62828,color:#fff,stroke:#b71c1c,stroke-width:2px
+    style S5 fill:#283593,color:#fff,stroke:#1a237e,stroke-width:2px
+</div>
+
+----
+
+### Mapping the Approaches
+
+<div style="font-size:0.85em;">
+
+| Approach | Stages used | What's missing |
+|----------|------------|----------------|
+| **Vibe coding** | 2 &rarr; 3 &rarr; 4 (loop) | No initial spec, no condensing &mdash; knowledge is lost |
+| **Spec-driven** | **1** &rarr; 2 &rarr; 3 &rarr; 4 | Starts with design, but may not compound learnings |
+| **Compound engineering** | 1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; **5** &rarr; 2... | **Optimal:** each cycle makes the next one easier |
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.8em;">
+<strong>Key insight:</strong> Each unit of engineering work should make subsequent units easier &mdash; not harder.
+<br/>Stage 5 (compound) is what turns experience into <strong>reusable specifications</strong>.
+</div>
+
+----
+
+### Spec-Driven Tools Ecosystem
+
+<div style="font-size:0.75em;">
+
+| Tool | What it does | Stage |
+|------|-------------|-------|
+| [spec-kit](https://github.com/github/spec-kit) | GitHub's spec-driven dev toolkit: constitution &rarr; specify &rarr; plan &rarr; tasks &rarr; implement | 1 |
+| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | Lightweight, tool-agnostic spec framework. Proposal / Specs / Design / Tasks | 1 |
+| [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) | Claude Code plugin: plan &rarr; work &rarr; review &rarr; compound cycle | 5&rarr;2 |
+| [LAD](https://github.com/chrisfoulon/LAD) (ad-hoc) | Project-specific dev guidelines adapted per repo | 1+5 |
+
+</div>
+
+<div style="font-size:0.75em; margin-top:0.8em;">
+
+- Video: ["This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers"](https://www.youtube.com/watch?v=IQ1_5jPiQoE)
+- Real example: [dandi-cli PR #1805](https://github.com/dandi/dandi-cli/pull/1805) &mdash; adapted LAD specs to project practices
+
+</div>
+
+----
+
+### AI-Assisted Projects &mdash; Real Examples
+
+<div style="font-size:0.85em;">
+
+These are **real research tools**, not toy demos:
+
+| Project | What it is |
+|---------|-----------|
+| [AnnexTube](https://github.com/con/annextube) | YouTube archival into git-annex/DataLad datasets |
+| [con/serve](https://con.github.io/serve/) | The digital artifact archival system itself |
+| [citations-collector](https://github.com/con/citations-collector) | DOI &rarr; citation discovery &amp; classification |
+| [dandi-cli](https://github.com/dandi/dandi-cli) | DANDI Archive client with LAD specs &amp; AI-generated tests |
+
+</div>
+
+<div style="margin-top:1em; padding:0.8em; background-color:#fff3cd; border-left:4px solid #ffc107; font-size:0.8em;">
+All of these use <strong>spec-driven workflows</strong>, <code>CLAUDE.md</code>, and/or reusable skills to maintain quality.
+</div>
+
+----
+
+### Reusable Skills: [con/skills](https://github.com/con/skills/)
+
+<div style="font-size:0.85em;">
+
+Claude Code skills &mdash; **write once, use across all projects:**
+
+| Skill | What it automates |
+|-------|------------------|
+| `github-project-status` | Repository health reports |
+| `introduce-codespell` | Spell-checking setup |
+| `issue-triage` | Intelligent issue analysis |
+| `pr-review-update` | PR review management |
+| `tinuous-analyzer` | CI failure investigation |
+| `repo-hygiene` | Executable permissions, junk cleanup |
+| `consolidate-dependabot-prs` | Batch dependency updates |
+
+</div>
+
+<div style="margin-top:0.8em; padding:0.8em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.8em;">
+This <strong>IS</strong> stage 5 (compound/condense) in action &mdash; the more you condense your workflow into skills, the more efficient every future project becomes.
+</div>
 
 ----
 

@@ -166,7 +166,7 @@ Real example for LAD: [dandi-cli PR #1805](https://github.com/dandi/dandi-cli/pu
 ### S17. AI-Assisted Project Examples (FILL TODO line 203)
 
 Point to real research software built/maintained with AI assistance:
-- **[mykrok](https://github.com/con/mykrok)** — (verify & describe)
+- **mykrok** — not found on GitHub (404 at con/mykrok); skipped in slides, verify URL
 - **[AnnexTube](https://github.com/con/annextube)** — YouTube archival into git-annex/DataLad
 - **[con/serve](https://con.github.io/serve/)** — the archival system itself
 - **[citations-collector](https://github.com/con/citations-collector)** — spec-driven development example
