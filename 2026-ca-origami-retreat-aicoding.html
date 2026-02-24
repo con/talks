@@ -262,7 +262,7 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <div style="font-size:0.85em;">
 
 - ChatGPT / Claude open in a browser &mdash; copy-paste code, ask questions
-- **Skills:** prompt engineering + context engineering
+- **Skills:** prompt engineering + [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
   - What to feed into context window &mdash; and what **not** to
 - **Mastery:** consistent, decent-quality output from your prompts
 - **Time:** hours to weeks
@@ -316,8 +316,8 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 
 - You **spec the work, hand it off, go have coffee**
 - Come back to high-quality artifacts, verify, move on
-- Running **multiple agent sessions in parallel** (each in own worktree)
-- **Prerequisites:** all prior skills + reusable skills, MCP servers, test automation, security scanners
+- Running **multiple agent sessions in parallel** (each in own [worktree](https://git-scm.com/docs/git-worktree))
+- **Prerequisites:** all prior skills + reusable [skills](https://code.claude.com/docs/en/skills), [MCP servers](https://code.claude.com/docs/en/mcp), test automation, security scanners
 
 </div>
 
@@ -331,7 +331,7 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 
 <div style="font-size:0.85em;">
 
-- The frontier &mdash; Claude Code Teams, Devin-style orchestration
+- The frontier &mdash; [Claude Code Teams](https://code.claude.com/docs/en/agent-teams), [Devin](https://devin.ai/)-style orchestration
 - **Everyone is still figuring this out**
 - *"If you have any tips, share/discuss with colleagues!"*
 
@@ -349,11 +349,11 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 <textarea data-template>
 
-## Claude Code &mdash; What Is It?
+## [Claude Code](https://code.claude.com/docs/en/overview) &mdash; What Is It?
 
 <div style="font-size:0.85em;">
 
-- **CLI-based agentic coding tool** by Anthropic ([source-available](https://github.com/anthropics/claude-code), not yet truly open source)
+- **CLI-based agentic coding tool** by Anthropic ([source-available](https://github.com/anthropics/claude-code), [not yet truly open source](https://github.com/anthropics/claude-code/issues/8517))
 - Works in your terminal: reads/edits files, runs commands, plans, iterates
 - Key: it's an **agent**, not a chatbot &mdash; it has a loop with tools
 
@@ -363,11 +363,11 @@ Credit: [Jo Van Eyck "You are Not Ready: Agentic coding in 2026"](https://www.yo
 
 | Concept | What it does |
 |---------|-------------|
-| `CLAUDE.md` | Project-level instructions / persistent memory |
-| Skills / commands | Reusable automation patterns (slash commands) |
-| Hooks | Guard rails that run automatically (pre/post tool use) |
-| Plan mode | Explore &rarr; design &rarr; get approval &rarr; implement |
-| MCP servers | Connect to external tools (GitHub, databases, ...) |
+| [`CLAUDE.md`](https://code.claude.com/docs/en/memory) | Project-level instructions / persistent memory |
+| [Skills / commands](https://code.claude.com/docs/en/skills) | Reusable automation patterns (slash commands) |
+| [Hooks](https://code.claude.com/docs/en/hooks) | Guard rails that run automatically (pre/post tool use) |
+| [Plan mode](https://code.claude.com/docs/en/common-workflows) | Explore &rarr; design &rarr; get approval &rarr; implement |
+| [MCP servers](https://code.claude.com/docs/en/mcp) | Connect to external tools (GitHub, databases, ...) |
 
 </div>
 
@@ -422,18 +422,16 @@ $ claude "implement the retry logic from the spec"
 ## The 5-Stage Development Loop
 
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '16px'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px'}}}%%
 flowchart TD
-    IDEA["Idea"] --> S1["1. Overall Design / Specification"]
+    IDEA["Idea"] --> S1["1. Overall Design / Spec"]
     S1 --> S2["2. Aspect Design / Prompt"]
-    S2 --> S3["3. AI Work
-    (may still prompt)"]
-    S3 --> S4["4. Review
-    (inspection / tests)"]
+    S2 --> S3["3. AI Work"]
+    S3 --> S4["4. Review / Test"]
     S4 -->|"iterate"| S2
-    S4 --> S5["5. Compound / Condense
-    into Spec"]
+    S4 --> S5["5. Compound into Spec"]
     S5 -->|"next aspect"| S2
+    S5 -->|"adjust / memorize"| S1
 
     style IDEA fill:#9c27b0,color:#fff,stroke:#7b1fa2,stroke-width:2px
     style S1 fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
@@ -452,8 +450,8 @@ flowchart TD
 | Approach | Stages used | What's missing |
 |----------|------------|----------------|
 | **Vibe coding** | 2 &rarr; 3 &rarr; 4 (loop) | No initial spec, no condensing &mdash; knowledge is lost |
-| **Spec-driven** | **1** &rarr; 2 &rarr; 3 &rarr; 4 | Starts with design, but may not compound learnings |
-| **Compound engineering** | 1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; **5** &rarr; 2... | **Optimal:** each cycle makes the next one easier |
+| **Spec-driven** | **1** &rarr; 2 &rarr; 3 &rarr; 4 &rarr; 2... (&rarr;1) | Loops back to prompt, ideally also updates spec |
+| **Compound engineering** | 1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; **5** &rarr; **1**+2... | **Optimal:** each cycle makes the next one easier |
 
 </div>
 
@@ -468,12 +466,12 @@ flowchart TD
 
 <div style="font-size:0.75em;">
 
-| Tool | What it does | Stage |
-|------|-------------|-------|
-| [spec-kit](https://github.com/github/spec-kit) | GitHub's spec-driven dev toolkit: constitution &rarr; specify &rarr; plan &rarr; tasks &rarr; implement | 1 |
-| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | Lightweight, tool-agnostic spec framework. Proposal / Specs / Design / Tasks | 1 |
-| [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) | Claude Code plugin: plan &rarr; work &rarr; review &rarr; compound cycle | 5&rarr;2 |
-| [LAD](https://github.com/chrisfoulon/LAD) (ad-hoc) | Project-specific dev guidelines adapted per repo | 1+5 |
+| Tool | What it does |
+|------|-------------|
+| [spec-kit](https://github.com/github/spec-kit) | GitHub's spec-driven dev toolkit: constitution &rarr; specify &rarr; plan &rarr; tasks &rarr; implement |
+| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | Lightweight, tool-agnostic spec framework. Proposal / Specs / Design / Tasks |
+| [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) | Claude Code plugin: plan &rarr; work &rarr; review &rarr; compound cycle |
+| [LAD](https://github.com/chrisfoulon/LAD) (ad-hoc) | Project-specific dev guidelines adapted per repo |
 
 </div>
 
@@ -496,9 +494,9 @@ These are **real research tools**, not toy demos:
 |---------|-----------|
 | [mykrok](https://github.com/mykrok/mykrok) | Personal knowledge base ([example](https://mykrok.oneukrainian.com/), requires auth) |
 | [AnnexTube](https://github.com/con/annextube) | YouTube archival into git-annex/DataLad ([ReproTube](https://datasets.datalad.org/repronim/ReproTube/web)) |
-| [con/serve](https://github.com/con/serve) | The digital artifact archival system itself |
-| [citations-collector](https://github.com/con/citations-collector) | DOI &rarr; citation discovery &amp; classification |
-| [dandi-cli](https://github.com/dandi/dandi-cli) | DANDI Archive client with LAD specs &amp; AI-generated tests |
+| [con/serve](https://con.github.io/serve/) | The digital artifact archival system itself |
+| [citations-collector](https://github.com/con/citations-collector) | DOI &rarr; citation discovery ([Zotero](https://www.zotero.org/groups/5774211/dandi/library), [TSVs](https://github.com/dandi/dandi-bib/tree/master/citations)) |
+| [dandi-cli](https://github.com/dandi/dandi-cli) | DANDI Archive client with [LAD specs](https://github.com/dandi/dandi-cli/tree/master/.lad) &amp; AI-generated tests |
 
 </div>
 

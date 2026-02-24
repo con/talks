@@ -203,6 +203,23 @@ Already good:
 4. **Mermaid diagrams** — inline in the markdown slides (plugin already loaded)
 5. Possibly a **Claude Code screenshot** for the intro slides (or just describe textually)
 
+## Guideline: Link Everything
+
+The talk should be **informative and link-rich**. Every significant term or concept mentioned in the slides should hyperlink to its original/canonical documentation or resource. This makes the slides useful as a self-contained reference people can revisit.
+
+Key linking targets:
+- `CLAUDE.md` → https://code.claude.com/docs/en/memory
+- Skills / slash commands → https://code.claude.com/docs/en/skills
+- Hooks → https://code.claude.com/docs/en/hooks
+- Plan mode → https://code.claude.com/docs/en/common-workflows
+- MCP servers → https://code.claude.com/docs/en/mcp
+- Claude Code overview → https://code.claude.com/docs/en/overview
+- "not truly open source" → https://github.com/anthropics/claude-code/issues/8517
+- Context engineering → https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+- Git worktrees → https://git-scm.com/docs/git-worktree
+- Devin → https://devin.ai/
+- Claude Code Teams → https://code.claude.com/docs/en/agent-teams
+
 ## Additional References / Materials
 
 - Video: ["You are Not Ready: Agentic coding in 2026"](https://www.youtube.com/watch?v=6W_-YWHKwZ4) — ladder framework source
