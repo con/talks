@@ -48,10 +48,10 @@ We close with a one-slide **Monday checklist** of five concrete actions distille
 12. *DataLad Registry.* <https://registry.datalad.org/>
 13. *BEP028 — BIDS provenance.* <https://github.com/bids-standard/bids-specification>
 14. *LinkML.* <https://linkml.io/>; *DataLad Concepts.* <https://concepts.datalad.org/>
-15. *AnnexTube.* <https://github.com/con/annextube>
+15. *AnnexTube.* <https://github.com/con/annextube> (demo: <https://datasets.datalad.org/repronim/ReproTube/web>); *mykrok.* <https://github.com/mykrok/mykrok> (demo: <https://mykrok.github.io/mykrok/>)
 16. *STAMPED principles.* <https://stamped-principles.org/>
 17. *con/serve — Digital Research Artifact Archive.* <https://con.github.io/serve/>
-18. *Distribits — distributed-data community.* <https://www.distribits.live/>
+18. *Distribits — Technologies for distributed data management (conference & community).* <https://www.distribits.live/>
 19. *Center for Open Neuroscience.* <https://centerforopenneuroscience.org/>
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
