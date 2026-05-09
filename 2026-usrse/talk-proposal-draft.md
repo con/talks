@@ -3,10 +3,10 @@
 ## Authors
 
 - Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0003-3456-2493
-- Cody C. Baker \<TODO@TODO\>, Center for Open Neuroscience, ORCID TODO
-- Austin Macdonald \<TODO@TODO\>, Center for Open Neuroscience, ORCID TODO
-- Isaac To \<TODO@TODO\>, Center for Open Neuroscience, ORCID TODO
-- Vadim Melnik \<TODO@TODO\>, Center for Open Neuroscience, ORCID TODO
+- Cody Baker \<cody.c.baker.phd@gmail.com\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0002-0829-4790
+- Austin Macdonald \<austin@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0002-8124-807X
+- Isaac To \<Isaac.C.To@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0002-4740-0824
+- Vadim Melnik \<vmelnik@docsultant.com\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID TODO (not listed on CON site)
 
 ## Keywords
 
