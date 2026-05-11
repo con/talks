@@ -21,8 +21,8 @@
 
 # Inputs
 MDS := $(wildcard *.md)
-HTMLS := $(MDS:.md=.html)
-PDFS := $(MDS:.md=.pdf)
+HTMLS := talk-proposal-draft.html  # $(MDS:.md=.html)
+PDFS := talk-proposal-draft.pdf  # $(MDS:.md=.pdf)
 
 # Pick a PDF engine that's actually on PATH.  First match wins.
 PDF_ENGINE := $(firstword $(foreach e,xelatex lualatex pdflatex wkhtmltopdf weasyprint, \
