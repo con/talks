@@ -1,0 +1,1099 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>[WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON</title>
+		<meta name="description" content="[WiP] US-RSE 2026 talk by Yaroslav O. Halchenko et al. Two decades of CON's domain-agnostic open research-software stack — Reuse / Compose / Extend / Standardize / Automate — and what to copy on Monday.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+
+<!-- =================================================================
+     S1. Title slide  (template borrowed from 2026-repronim-YODA-BIDS-
+     webinar.html title slide; logo strip and affiliations verbatim
+     per SOUL.md §3)
+     ================================================================= -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
+	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;">
+		<span style="background-color:#ffcdd2;color:#b71c1c;padding:0 0.3em;border-radius:4px;font-size:0.7em;vertical-align:middle;">WiP</span>
+		Reuse, Compose, Extend, Standardize, Automate
+	  </h2>
+	  <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.85em;font-style:italic;">
+	  Two Decades of RSEing Open (Neuro)Science at <a href="http://centerforopenneuroscience.org/">CON</a>
+	  </p>
+
+    <div style="margin-top:0.3em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+      <small>+ Cody Baker, Austin Macdonald, Isaac To, Vadim Melnik &mdash; the CON team</small><br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+		  <!-- The URL is determined by the filename; generate the
+		       QR with the snippet in CLAUDE.md §"QR codes" and save
+		       as pics/2026-usrse-con-talk-qrcode.png. -->
+		  <img style="width:160px; margin: 0px" data-src="pics/2026-usrse-con-talk-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<small>
+  <strong>US-RSE&rsquo;26 &mdash; Research Software Engineers Conference, October 2026</strong><br/>
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html</a>
+<br>
+<small>
+     <a href="http://datalad.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+  <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+
+<!-- =================================================================
+     S2. Hook: yarik-goal cartoon (borrowed from
+     2022-nih-compcore.html § "Yarik-goal" / 2025-ca-origami-retreat.html)
+     ================================================================= -->
+<section data-transition-speed="zoom">
+  <section data-background="pics/survive5+-whatisyour1.png" data-background-opacity="0.9" data-background-size="50%" data-background-position="top 10px left 10px">
+	<img class="fragment" style="height:600px" data-src="pics/yarik-goal.svg"/>
+  </section>
+</section>
+
+
+<!-- =================================================================
+     S3. The four-verb spine (NEW; introduces the talk's structure)
+     ================================================================= -->
+<section>
+  <section>
+    <h2>Two decades, five verbs</h2>
+	<table style="margin-left:auto;margin-right:auto;font-size:1.1em;">
+	  <tr>
+		<td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#a04000;">Reuse</strong></td>
+		<td style="padding:0.5em 1.5em;">join an upstream instead of writing one</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#1565c0;">Compose</strong></td>
+		<td style="padding:0.5em 1.5em;">small modules over silo'd monoliths</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#2e7d32;">Extend</strong></td>
+		<td style="padding:0.5em 1.5em;">stay on as maintainer of what you depend on</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#6a1b9a;">Standardize</strong></td>
+		<td style="padding:0.5em 1.5em;">a common language &mdash; for humans <em>and</em> agents</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#d84315;">Automate</strong></td>
+		<td style="padding:0.5em 1.5em;">if you don&rsquo;t, it doesn&rsquo;t happen at scale</td>
+	  </tr>
+	</table>
+    <p style="margin-top:1em;font-style:italic;font-size:0.85em;">
+	  Same verbs, before and during the &ldquo;Age of AI&rdquo;.<br/>
+	  <span style="font-size:0.95em;">AI just makes the fifth one &mdash; <em>Automate</em> &mdash; cheap enough to apply to the harness itself.</span>
+	</p>
+	<aside class="notes">
+	  Each section of this talk picks one verb, points at one CON
+	  artifact, and ends with a take-home you can act on this week.
+	</aside>
+  </section>
+
+  <!-- A quick "where it began" timeline; borrowed from
+       2024-distribits-datalad.html § "When it began for us" + extended
+       with the four-verb provenance. -->
+  <section>
+	<h2>When it began for us</h2>
+	<ul>
+	  <li>2005 &mdash; <strong style="color:#a04000;">Reuse</strong>: pkg-exppsy in Debian (FSL, PyEPL) &rarr; <a href="https://neuro.debian.net/">NeuroDebian</a></li>
+	  <li>2007 &mdash; <strong style="color:#a04000;">Reuse</strong> + <strong style="color:#d84315;">Automate</strong>: <a href="http://pymvpa.org">PyMVPA</a> with tests + buildbot CI <em>before</em> it was common</li>
+	  <li>2009 &mdash; <strong style="color:#2e7d32;">Extend</strong>: NeuroDebian published in Front. Neuroinform.</li>
+	  <li>2013 &mdash; <strong style="color:#1565c0;">Compose</strong>: first commit of <a href="https://datalad.org">DataLad</a> on top of <code>git</code> + <code>git-annex</code></li>
+	  <li>2014 &mdash; <strong style="color:#6a1b9a;">Standardize</strong>: <a href="https://bids.neuroimaging.io/">BIDS</a> co-authored / Open Brain Consent born</li>
+	  <li>2016 &mdash; <strong style="color:#d84315;">Automate</strong>: <a href="https://reproin.repronim.org/">ReproIn</a> + <a href="https://heudiconv.repronim.org/">HeuDiConv</a> &mdash; DICOM &rarr; BIDS at the scanner, no human in the loop</li>
+	  <li>2018 &mdash; YODA principles posted at OHBM</li>
+	  <li>2019 &mdash; <a href="https://dandiarchive.org/">DANDI</a> opens for neurophysiology archival; <strong style="color:#d84315;">Automated</strong> dandiset &harr; DataLad mirroring + <a href="https://github.com/con/tinuous">con/tinuous</a> CI-log archival</li>
+	  <li>2024+ &mdash; <a href="https://registry.datalad.org/">registry.datalad.org</a>, <a href="https://github.com/con/duct">con/duct</a>, <a href="https://github.com/con/annextube">AnnexTube</a>, <a href="https://con.github.io/serve/">con/serve</a>, AI-aware tooling (<a href="https://github.com/con/skills">con/skills</a>, <a href="https://github.com/con/yolo">con/yolo</a>)</li>
+	</ul>
+  </section>
+</section>
+
+
+<!-- =================================================================
+     SECTION: REUSE
+     borrows: NeuroDebian + PyMVPA blocks from 2022-nih-compcore.html
+     (NeuroDebian born-in-2009, PyMVPA-on-phone, NeuroDebian solution)
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#a04000;">Reuse</span> &mdash; join, don't fork</h2>
+	<h3 class="fragment">The cheapest reproducible thing is the one you didn't have to build.</h3>
+  </section>
+
+  <!-- pkg-exppsy / NeuroDebian (borrowed from 2022-nih-compcore.html) -->
+  <section>
+	<a href="https://neuro.debian.net">
+	  <img style="width:1200px"
+		   data-src="pics/neurodebian_logo_web_banner.png"/></a>
+
+	<br><br><small>Born in 2009 by joining <strong>Debian</strong>, not starting a new distro</small>
+
+	<br><small>
+	  <a href="http://dx.doi.org/10.3389/fninf.2012.00022">
+		 <b>Y. O. Halchenko</b> and M. Hanke. Open is not enough. Let's take the next step:
+		 An integrated, community-driven computing platform for neuroscience.
+		 Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fninf.2012.00022
+	</a></small>
+  </section>
+
+  <section>
+	<h2>NeuroDebian: a textbook bridge</h2>
+	<a href="https://neuro.debian.net">
+	  <img style="width:1100px" data-src="pics/neurodebian-overview.png"/></a>
+	<p><small>Eventually most of it dissolved upstream into <strong>Debian Med</strong>,
+	  <strong>Debian Science</strong>, and <strong>conda-forge</strong>. <em>A successful bridge dissolves into the commons.</em></small></p>
+  </section>
+
+  <!-- PyMVPA: an early example of "ship complete, but ship reusable" -->
+  <section data-transition="slide">
+	  <img style="width:1500px"
+		   data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
+	  <br>
+	  <small>Born in 2007 &mdash; Python ML library for neuroimaging,<br/>
+	    full test suite + buildbot CI <em>before</em> either was common in scientific Python.</small>
+	  <small>
+		<a href="http://dx.doi.org/10.1007/s12021-008-9041-y">
+		   M. Hanke, <b>Y. O. Halchenko</b>, P. B. Sederberg, et al. PyMVPA: A Python toolbox for
+		   multivariate pattern analysis of fMRI data. <em>Neuroinformatics</em>, 7:37&ndash;53, 2009.
+		   doi: 10.1007/s12021-008-9041-y</a></small>
+  </section>
+
+  <section>
+	<h3>Today we'd contribute upstream &mdash; and we do</h3>
+	<ul style="font-size:0.9em">
+	  <li><strong>PyMVPA</strong>'s intent &rarr; <a href="https://scikit-learn.org/">scikit-learn</a> / <a href="https://nilearn.github.io/">nilearn</a></li>
+	  <li><strong><a href="https://github.com/duecredit/duecredit">duecredit</a></strong> (scholarly-credit tracking) builds on <a href="https://github.com/citeproc-py/citeproc-py">citeproc-py</a> &mdash; we stayed on as <em>co-maintainers</em> when it needed care. Continued in <strong><a href="https://github.com/con/citations-collector">con/citations-collector</a></strong> (DOI &rarr; citation discovery, currently feeding e.g. the <a href="https://github.com/dandi/dandi-bib">DANDI bibliography</a>).</li>
+	  <li><strong><a href="https://github.com/con/duct">con/duct</a></strong> (process-execution monitoring) builds on brainlife's <code>smon</code> &mdash; we wrote it after learning <a href="https://github.com/ReproNim/reproman">ReproMan</a> was too heavy for everyday use.<br/>
+		<em>Resist monoliths, even your own.</em></li>
+	</ul>
+	<p style="margin-top:1em;padding:0.6em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Take home:</strong> before your next project, do <em>one</em> upstream-search pass.
+	  Add <code>pytest</code> + a one-file CI workflow to one repo this week.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: COMPOSE
+     borrows: DataLad sandwich mermaid + extensions slide
+     (2024-distribits-datalad.html); registry stats
+     (2025-distribits-YODA.html); con/duct (2025-distribits-YODA.html);
+     ReproNim/containers (2025-distribits-YODA.html).
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#1565c0;">Compose</span> &mdash; small modules, common substrate</h2>
+	<h3 class="fragment">Sandwich, don't silo.</h3>
+  </section>
+
+  <!-- DataLad sandwich mermaid borrowed from 2024-distribits-datalad.html -->
+  <section>
+	<h2>The DataLad sandwich</h2>
+	<h4>Layered tech that everyone <em>already</em> knows</h4>
+	<div class="mermaid"><pre>
+graph TB
+    user --> datalad[datalad get file] --> git-annex[git-annex get file] -.-> git-annex-remote-archives --> git-annex2[git-annex get --key XXX.tar.gz] -.-> git-annex-remote-datalad
+
+    datalad --> git1[git]
+    git-annex --> git2[git]
+    git-annex2 --> git3[git]
+
+    classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
+    classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
+    classDef red fill:#f44d27,stroke:#333,stroke-width:1px;
+    class datalad orange
+    class git-annex-remote-archives orange
+    class git-annex-remote-datalad orange
+
+    class git-annex green
+    class git-annex2 green
+
+    class git red
+    class git1 red
+    class git2 red
+    class git3 red
+	</pre></div>
+	<p><small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">DataLad: distributed system for joint management of code, data, and their relationship.</a> Halchenko et al., JOSS 2021.</small></p>
+  </section>
+
+  <!-- DataLad extensions diagram (borrowed from 2024-distribits-datalad.html) -->
+  <section>
+    <h2>DataLad extensions: domain-agnostic core, à la carte add-ons</h2>
+    <div class="mermaid"><pre>
+graph LR
+ datalad --> datalad-crawler
+ datalad --> datalad-container
+ datalad --> datalad-neuroimaging
+ datalad --> datalad-osf
+ datalad --> datalad-fuse
+ datalad --> datalad-xnat
+ datalad --> datalad-ukbiobank
+ datalad --> datalad-next
+ datalad --> ...
+ classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
+ classDef orangy fill:#ffc200,stroke:#333,stroke-width:1px;
+ class datalad orange
+ class datalad-crawler orangy
+ class datalad-container orangy
+ class datalad-neuroimaging orangy
+ class datalad-osf orangy
+ class datalad-fuse orangy
+ class datalad-xnat orangy
+ class datalad-ukbiobank orangy
+ class datalad-next orangy
+</pre></div>
+	<p><small>Extensions = separate Python packages, ride on
+	  <a href="https://github.com/datalad/datalad-extension-template">datalad-extension-template</a>
+	  &mdash; your domain plugs in, neuroimaging is just one of many.</small></p>
+  </section>
+
+  <!-- registry.datalad.org federation (borrowed from
+       2025-distribits-YODA.html) -->
+  <section>
+	<h2>Federate, don&rsquo;t recentralize</h2>
+	<a href="https://registry.datalad.org/overview/"><img style="height:600px" data-src="pics/datalad-registry-stats-20251021.png"/></a>
+	<p><small><a href="https://registry.datalad.org/">registry.datalad.org</a> indexes
+	  DataLad datasets <em>across</em> institutions and clouds &mdash; discovery over
+	  <strong>petabytes</strong>, no platform required.</small></p>
+  </section>
+
+  <!-- ReproNim/containers + con/duct (borrowed from 2025-distribits-YODA.html) -->
+  <section>
+	<h2>Small acquisition &amp; compute units</h2>
+	<table style="font-size:0.85em;width:100%;">
+	  <tr>
+		<td style="vertical-align:top;width:50%;padding-right:1em;">
+		  <ul>
+			<li><a href="https://reproin.repronim.org/">ReproIn</a> &mdash; sequence naming convention at the scanner</li>
+			<li><a href="https://heudiconv.repronim.org/">HeuDiConv</a> &mdash; DICOM &rarr; BIDS, heuristic-driven</li>
+			<li><a href="https://github.com/ReproNim/reprostim">ReproStim</a> &mdash; record audio/video stimuli, sliced into BIDS</li>
+			<li><a href="https://neuroconv.readthedocs.io/">NeuroConv</a> &mdash; convert physiology data &rarr; NWB</li>
+			<li><a href="https://github.com/con/nwb2bids">con/nwb2bids</a> &mdash; bridge the two flagship standards (NWB &rarr; BIDS layout)</li>
+			<li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; curated singularity containers</li>
+			<li><a href="https://github.com/con/duct">con/duct</a> &mdash; minimal process monitor (built on brainlife's <code>smon</code>)</li>
+		  </ul>
+		</td>
+		<td style="vertical-align:top;width:50%;text-align:center;">
+		  <a href="https://github.com/con/duct"><img style="width:90%" data-src="pics/webshot-con-duct.png"/></a>
+		  <p><small>Each does <em>one</em> thing. Glue is <a href="https://github.com/myyoda/myyoda">YODA</a>.</small></p>
+		</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.8em;">
+	  <strong>Take home:</strong> wrap your next pipeline run in <code>duct</code>,
+	  or pull a recipe from <code>repronim/containers</code>.
+	  Convert one shared-data folder to a DataLad dataset.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: EXTEND
+     borrows: BEP028 reference; BIDS Steering iframe vibe; Debian Med flow.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#2e7d32;">Extend</span> &mdash; stay on as maintainer</h2>
+	<h3 class="fragment">Ship pragmatic now, formalize upstream later.</h3>
+  </section>
+
+  <section>
+	<h2>Where we stayed</h2>
+	<ul style="font-size:0.95em;">
+	  <li><strong>Debian / Debian Med</strong> &mdash; pkg-exppsy &rarr; NeuroDebian &rarr;
+		Debian Med &amp; Debian Science (and on into <strong>conda-forge</strong>).
+		<em>The bridge dissolves into the commons.</em></li>
+	  <li><strong><a href="https://github.com/citeproc-py/citeproc-py">citeproc-py</a></strong>
+		&mdash; we built duecredit on it; when its maintainer stepped back, we stepped in.</li>
+	  <li><strong><a href="https://bids.neuroimaging.io/governance.html">BIDS Steering Group</a></strong>
+		and <strong>BIDS-DICOM WG-16</strong> &mdash; co-evolving the standard, not just consuming it.</li>
+	  <li><strong><a href="https://github.com/bids-standard/bids-specification">BEP028</a></strong>
+		&mdash; DataLad's ad-hoc <code>RUNCMD</code> provenance is being lifted into BIDS provenance + a BIDS prov exporter.</li>
+	  <li><strong><a href="https://www.nwb.org/">NWB</a></strong> + <strong><a href="https://www.kitware.com/">Kitware</a></strong>
+		&mdash; sustained academic-RSE &times; non-academic-engineering collaboration on browse/analyze/visualize tooling.</li>
+	</ul>
+  </section>
+
+  <!-- "Take home" + a single-glance picture of the RUNCMD -> BEP028 lift -->
+  <section>
+	<h3>From ad-hoc to standard, in one slide</h3>
+	<div class="mermaid"><pre>
+flowchart LR
+  RUNCMD["DataLad RUNCMD<br/>(2015, ad-hoc JSON in commit msgs)"] --> BEP["BEP028<br/>BIDS provenance"]
+  RUNCMD --> EXP["bids-prov-exporter<br/>(WiP)"]
+  BEP --> COMMUNITY["BIDS standard<br/>(community-owned)"]
+  EXP --> COMMUNITY
+  classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
+  classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
+  class RUNCMD orange
+  class BEP green
+  class COMMUNITY green
+	</pre></div>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Take home:</strong> the next time you reach for <em>your own</em> JSON-in-a-commit-message format,
+	  ask which upstream standard it should fold back into.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: STANDARDIZE
+     borrows: BIDS slide from 2023-bids-dicom.html / 2025-ca-origami.
+     "Make re-use convenient" Buddha framing from 2025-ca-origami.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#6a1b9a;">Standardize</span> &mdash; a language for HI <em>and</em> AI</h2>
+	<h3 class="fragment">All standards are &ldquo;bad&rdquo;<sup>*</sup>, but some are used.</h3>
+	<p class="fragment">* &mdash; D. Clunie, MICCAI 2017.</p>
+  </section>
+
+  <!-- BIDS slide (cited from 2023-bids-dicom.html) -->
+  <section>
+	<h2>Data: <a href="https://bids.neuroimaging.io/">BIDS</a> &amp; <a href="https://www.nwb.org/">NWB</a></h2>
+	<img style="width:1200px"  data-src="pics/bids-logo-wide.png"/>
+	<br>
+	<small>
+	  <a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., &hellip;, <b>Halchenko, Y. O.</b>, &hellip;, Poldrack, R. A. (2016).
+		The brain imaging data structure, a format for organizing and describing outputs of
+		neuroimaging experiments. <em>Scientific Data</em>, 3:160044.</a>
+	</small>
+	<p><small>You've seen one BIDS dataset, you've seen them all. <em>That's the point.</em></small></p>
+  </section>
+
+  <!-- BIDS-as-meta-standard ecosystem image (borrowed from 2023-bids-dicom.html) -->
+  <section>
+	<h2>BIDS as a meta-standard</h2>
+	<img data-src="pics/BIDS-minder.svg" style="height:600px"/>
+	<p><small>Not a wire format &mdash; a <em>contract</em>. Validators, BIDS-Apps, BEPs all hang off it.</small></p>
+  </section>
+
+  <!-- Metadata standardization -->
+  <section>
+	<h2>Metadata: schemas as first-class citizens</h2>
+	<ul style="font-size:0.9em;">
+	  <li>Data standards (BIDS, NWB) make data exchangeable.</li>
+	  <li>Many schema languages, one idea: <strong>describe the model, then derive everything else</strong>.
+		<ul style="font-size:0.95em;">
+		  <li><a href="https://linkml.io/">LinkML</a> &mdash; one source &rarr; JSON&nbsp;Schema, OWL/SHACL, pydantic, docs &mdash; used by the <a href="https://github.com/dandi/dandi-schema">DANDI</a> &amp; <a href="https://github.com/NeurodataWithoutBorders/nwb-schema">NWB</a> schemas, <a href="https://concepts.datalad.org/">concepts.datalad.org</a>.</li>
+		  <li><a href="https://docs.pydantic.dev/">pydantic</a> &mdash; runtime validation in Python, used widely in DANDI/NWB tooling.</li>
+		  <li><a href="https://json-schema.org/">JSON&nbsp;Schema</a> &mdash; the lingua franca; what BIDS extensions and the DANDI meditor read.</li>
+		  <li><a href="https://www.w3.org/TR/shacl/">SHACL</a> &mdash; RDF-side shape constraints (the substrate <code>shacl-vue</code> consumes).</li>
+		</ul>
+	  </li>
+	  <li>The Model becomes a <em>generator</em>: validators, APIs, editor UIs, and even
+		research-group websites all derive from it (we'll see how on the MVC slide).</li>
+	  <li>Standardize the <em>consent</em> too: <strong><a href="https://open-brain-consent.readthedocs.io/">Open Brain Consent (OBC)</a></strong>
+		(born 2014; HBM 2021) gives labs and IRBs a community-vetted form
+		instead of bespoke wording, with translations into 8+ languages.</li>
+	</ul>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Take home:</strong> validate <em>one</em> of your datasets against a community standard this month;
+	  if you maintain a schema, publish it as a real artifact (LinkML / pydantic / JSON&nbsp;Schema), not as &ldquo;what the code happens to accept&rdquo;.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: STANDARDIZE AT SCALE — FEDERATED ARCHIVES
+     borrows: dandi-slide-modalities + DANDI-ecosystem from
+     2023-brain-dandi.html.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section>
+	<h2>Federated archives, built on the standards</h2>
+	<table style="margin:auto;font-size:0.95em;">
+	  <tr>
+		<td style="text-align:center;padding:1em;">
+		  <a href="https://dandiarchive.org/"><img style="height:160px" data-src="pics/dandi-logo-square.svg"/></a><br>
+		  <strong>DANDI</strong> &mdash; neurophysiology
+		</td>
+		<td style="text-align:center;padding:1em;">
+		  <a href="https://emberarchive.org/"><strong style="font-size:1.5em;">EMBER</strong></a><br>
+		  microscopy / behavior
+		</td>
+		<td style="text-align:center;padding:1em;">
+		  <a href="https://openneuro.org/"><img style="height:80px" data-src="pics/borrowed/openneuro_logo.png"/></a><br>
+		  <strong>OpenNeuro</strong> &mdash; MRI/EEG/MEG
+		</td>
+	  </tr>
+	</table>
+	<p style="font-size:0.9em;margin-bottom:0.4em;">Different domains, the <em>same</em> shared substrate &mdash;
+	  every layer is a <em>community</em> project, not a vendor lock-in:</p>
+	<table style="margin:auto;font-size:0.8em;width:97%;">
+	  <tr style="background-color:#e8f5e9;">
+		<th style="text-align:left;padding:0.35em;width:22%;">Layer</th>
+		<th style="text-align:left;padding:0.35em;">What we work on / contribute to</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Common standards</strong></td>
+		<td style="padding:0.35em;"><a href="https://bids.neuroimaging.io/">BIDS</a>, <a href="https://www.nwb.org/">NWB</a>, <a href="https://ngff.openmicroscopy.org/">OME-NGFF</a>, <a href="https://www.hedtags.org/">HED</a>, DICOM &mdash; co-developed with the BIDS Steering Group, NWB, and DICOM&nbsp;WG-16</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>Infra (object storage)</strong></td>
+		<td style="padding:0.35em;"><strong>AWS S3</strong> + <a href="https://min.io/"><strong>MinIO</strong></a> for self-hosted/test deployments &mdash; same API, swap-in compatible; backed by institutional <strong>Dropbox</strong>/<strong>S3 Glacier</strong> mirrors</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Data logistics</strong></td>
+		<td style="padding:0.35em;"><code>git</code> + <strong><code>git-annex</code></strong> + DataLad &mdash; content-addressed, federated, <em>no service required</em> to read the bytes</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>Processing</strong></td>
+		<td style="padding:0.35em;">Containers (<a href="https://github.com/ReproNim/containers">ReproNim/containers</a>, Apptainer/Singularity, OCI), <a href="https://bids-apps.neuroimaging.io/apps/">BIDS-Apps</a> (mriqc, fmriprep, &hellip;); container-aware <code>datalad containers-run</code></td>
+	  </tr>
+	</table>
+	<p style="font-style:italic;font-size:0.85em;margin-top:0.6em;">Federation is what lets a small RSE center reach population scale &mdash;
+	  because every layer is interchangeable and the Model lives in standards, not services.</p>
+  </section>
+
+  <section>
+	<h2>What's in DANDI</h2>
+	<img style="height:700px" data-src="pics/dandi-slide-modalities.svg"/>
+  </section>
+
+  <section>
+	<h2>DANDI ecosystem &mdash; integrate, don't re-implement</h2>
+	<img  style="width:1300px" data-src="pics/DANDI-ecosystem.svg"/>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: REUSE-IN-REVERSE — pulling content back from platforms
+     borrows: lightweight; AnnexTube + mykrok + con/serve referenced in
+     2026-ca-origami-retreat-aicoding.html and the proposal.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#a04000;">Reuse, in reverse</span></h2>
+	<h3 class="fragment">Your data is yours, even when someone else hosts it.</h3>
+  </section>
+
+  <section>
+	<h2>Pull content back into <code>git</code> + <code>git-annex</code></h2>
+	<table style="font-size:0.9em;">
+	  <tr>
+		<td style="vertical-align:top;width:33%;padding:0.5em;">
+		  <strong><a href="https://github.com/con/annextube">AnnexTube</a></strong><br/>
+		  YouTube videos + transcripts + comments &rarr; DataLad/git-annex.
+		  Demo: <a href="https://datasets.datalad.org/repronim/ReproTube/web">ReproTube</a>.
+		</td>
+		<td style="vertical-align:top;width:33%;padding:0.5em;">
+		  <strong><a href="https://github.com/mykrok/mykrok">mykrok</a></strong><br/>
+		  Personal knowledge bag &mdash; pulls Google &amp; cloud silos back into a versioned local archive.
+		</td>
+		<td style="vertical-align:top;width:33%;padding:0.5em;">
+		  <strong><a href="https://con.github.io/serve/">con/serve</a></strong><br/>
+		  &ldquo;The Vault&rdquo;: a configuration-driven archival of Slack, Zoom, GitHub, AI sessions, &hellip; into DataLad subdatasets.
+		</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.6em;padding:0.5em;background-color:#fde8e8;border-left:4px solid #c00;font-size:0.8em;">
+	  <strong>WiP &mdash; <a href="https://con.github.io/serve/tools/web/wayback-archive/">Wayback&nbsp;archive</a></strong>
+	  (under <code>con/serve</code>): a <em>local archive of the Internet Archive&rsquo;s
+	  archive of your project&rsquo;s archive</em> &mdash; in case the IA itself goes away.
+	  Reuse-in-reverse, with a safety net.
+	</p>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Take home:</strong> pick <em>one</em> commercial silo your group depends on.
+	  Set up a one-shot pull-back into a <code>git</code>+<code>git-annex</code> archive.
+	  You'll thank yourself in two years.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: AUTOMATE  (the 5th verb)
+     The action without which none of the other four scale.  Borrows
+     CI / con/tinuous / daily-tested-git-annex / dandiset-mirroring
+     slides from 2024-distribits-datalad.html and 2022-nih-compcore.html;
+     adds the "cost = harnesses to maintain → AI is the meta-layer"
+     punchline that hands off into HI+AI.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#d84315;">Automate</span> &mdash; or it doesn&rsquo;t happen at scale</h2>
+	<h3 class="fragment">If a human has to remember it, it&rsquo;s already broken.</h3>
+  </section>
+
+  <section>
+	<h2>Where we automate</h2>
+	<table style="font-size:0.85em;width:97%;margin:auto;">
+	  <tr style="background-color:#fff3cd;">
+		<th style="text-align:left;padding:0.4em;width:35%;">What gets automated</th>
+		<th style="text-align:left;padding:0.4em;">How &mdash; concretely</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Building &amp; testing the stack</td>
+		<td style="padding:0.4em;">PR-level CI on every DataLad change; <a href="https://github.com/datalad/datalad-extensions">datalad-extensions</a> tested daily against core; <a href="https://github.com/datalad/git-annex">git-annex</a> built &amp; tested daily &mdash; status emailed to a human only if red</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">CI logs + artifacts &mdash; before they expire</td>
+		<td style="padding:0.4em;"><a href="https://github.com/con/tinuous">con/tinuous</a> archives logs &amp; artifacts from GitHub Actions / Travis / AppVeyor into git-annex/DataLad &mdash; a clean &ldquo;pull&nbsp;commercial&nbsp;ephemera&nbsp;back&rdquo; example, very modular by design</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Container building &amp; distribution</td>
+		<td style="padding:0.4em;"><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> auto-rebuilds + auto-snapshots; <a href="https://datasets.datalad.org/?dir=/shub">shub mirror</a> of singularity-hub.org</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Acquisition &rarr; standardized data</td>
+		<td style="padding:0.4em;"><a href="https://reproin.repronim.org/">ReproIn</a> + <a href="https://heudiconv.repronim.org/">HeuDiConv</a> at the scanner; <a href="https://github.com/ReproNim/reprostim">ReproStim</a> recording all stimuli</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Archive mirroring &amp; smoke-testing</td>
+		<td style="padding:0.4em;">Dandisets auto-mirrored into DataLad on GitHub; webshots of every dandiset for timing &amp; smoke tests; trivial-IO sweep across all dandisets</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Validation harmonization</td>
+		<td style="padding:0.4em;"><a href="https://github.com/con/validation">con/validation</a> + <a href="https://github.com/dandi/dandi-cli">dandi-cli</a> &mdash; every release runs the full multi-validator gauntlet</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Releases &amp; docs</td>
+		<td style="padding:0.4em;">scriv + <a href="https://github.com/datalad/release-action">datalad/release-action</a>; auto-deployed handbook + per-archive docs</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;font-size:0.85em;font-style:italic;">
+	  None of the above scales without automation. <em>None.</em>
+	  &ldquo;If a human has to remember to do it&rdquo; = &ldquo;it won&rsquo;t happen for the next maintainer&rdquo;.
+	</p>
+  </section>
+
+  <section>
+	<h2>Cost: harnesses, harnesses, harnesses</h2>
+	<ul style="font-size:0.95em;">
+	  <li>Each automation is itself <em>code</em> &mdash; CI YAML, hooks,
+		nightly cron, deploy scripts, glue. Someone maintains <em>that</em>.</li>
+	  <li>By 2024 the harness was bigger than several of the projects under it.
+		<br/>This is the <em>real</em> reason a small RSE center was
+		dragged toward AI assistance &mdash; not for the science, but for
+		the <strong>maintenance of the meta-layer</strong>.</li>
+	  <li>The next bullet is what the rest of this talk has been
+		quietly setting up &hellip;</li>
+	</ul>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fde8e8;border-left:4px solid #c00;font-size:0.85em;">
+	  <strong>WiP &mdash; the meta-automation move:</strong>
+	  using <a href="https://www.anthropic.com/claude-code">Claude Code</a> +
+	  <a href="https://github.com/con/skills">con/skills</a> +
+	  <a href="https://github.com/con/yolo">con/yolo</a> to automate the
+	  <em>maintenance</em> of our automations &mdash; CI triage, PR review,
+	  dependency updates, log analysis, doc updates. The cost of writing
+	  a new automation drops &mdash; so does the cost of <em>keeping</em> it
+	  working when its 17 transitive dependencies break next Tuesday.
+	</p>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Take home:</strong> automate <em>one</em> repetitive chore
+	  this week (CI matrix, daily smoke test, release script). Then write
+	  down <em>who</em> will maintain that automation &mdash; if the answer
+	  is &ldquo;me, alone, forever&rdquo;, plan how AI agents take half
+	  the load.
+	</p>
+  </section>
+
+  <!-- Five verbs ↔ SciOps maturity ladder -->
+  <section>
+	<h2>The five verbs climb the <a href="https://arxiv.org/abs/2401.00077">SciOps</a> ladder</h2>
+	<table style="font-size:0.85em;width:97%;margin:auto;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.4em;width:25%;">SciOps level <small>(Johnson <em>et&nbsp;al.</em>, 2024)</small></th>
+		<th style="text-align:left;padding:0.4em;width:25%;">Our verb(s)</th>
+		<th style="text-align:left;padding:0.4em;">Concrete practice</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>L1 Initial</strong></td>
+		<td style="padding:0.4em;">&mdash;</td>
+		<td style="padding:0.4em;"><em>Ad-hoc, custom, manual.</em> Where most labs start.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>L2 Managed</strong></td>
+		<td style="padding:0.4em;"><span style="color:#1565c0;">Compose</span> (lab-local)</td>
+		<td style="padding:0.4em;">Lab-wide standardized processes &mdash; YODA layout, internal pipelines.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>L3 Defined</strong></td>
+		<td style="padding:0.4em;"><span style="color:#a04000;">Reuse</span> &middot; <span style="color:#1565c0;">Compose</span> &middot; <span style="color:#2e7d32;">Extend</span> &middot; <span style="color:#6a1b9a;">Standardize</span></td>
+		<td style="padding:0.4em;">Open-source ecosystems + <strong>FAIR data + FAIR workflows</strong>. The paper&rsquo;s own L3 exemplars: <strong>BIDS, NWB, DataLad/git-annex, DANDI, brainlife.io</strong>.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>L4 Scalable</strong></td>
+		<td style="padding:0.4em;"><span style="color:#d84315;">Automate</span></td>
+		<td style="padding:0.4em;">&ldquo;<strong>SciOps pipelines</strong>&rdquo; &mdash; semi-automated continuous workflows across experimental design, collection, processing, analysis, dissemination. Our CI + con/tinuous + auto-mirrored dandisets + ReproIn/HeuDiConv at the scanner are exactly this.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>L5 Optimizing</strong></td>
+		<td style="padding:0.4em;"><span style="color:#d84315;">Automate</span> &times; AI</td>
+		<td style="padding:0.4em;">Closing the discovery loop &mdash; AI partnered with humans, automating experiments <em>and</em> the harness. Where con/skills + con/yolo + AI-aware tooling are heading.</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#e8eaf6;border-left:4px solid #3f51b5;font-size:0.85em;">
+	  Johnson <em>et&nbsp;al.</em> note that most neuroscience teams sit at L1&ndash;L2;
+	  the 5 verbs are the practical climb to L3&rarr;L4, and AI is what makes L5 plausible
+	  for a small RSE center instead of just a large consortium.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: FOR HI AND AI
+     borrows: AI-coding ladder pointer from
+     2026-ca-origami-retreat-aicoding.html;
+     STAMPED principles framing.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>For HI and AI</h2>
+	<h3 class="fragment">Same self-contained artifacts. Two readers.</h3>
+  </section>
+
+  <section>
+	<h2>Why every layer matters now</h2>
+	<ul style="font-size:0.95em;">
+	  <li>Self-contained, well-described, openly shared &rarr; legible to <strong>HI</strong>
+		(human investigators) <em>and</em> <strong>AI</strong> agents.</li>
+	  <li><a href="https://stamped-principles.org/">STAMPED</a> principles
+		(<strong>S</strong>elf-containment, <strong>T</strong>racking,
+		 <strong>A</strong>ctionability, <strong>M</strong>odularity,
+		 <strong>P</strong>ortability, <strong>E</strong>phemerality,
+		 <strong>D</strong>istributability) &mdash;
+		<em>Tracking</em> extends naturally to AI sessions and AI&harr;human attribution.</li>
+	  <li><strong>Operational-maturity counterpart: <a href="https://arxiv.org/abs/2401.00077">SciOps</a></strong>
+		(Johnson <em>et&nbsp;al.</em>, 2024). The just-shown 5-verb &harr; 5-level mapping
+		is not coincidence: the SciOps paper itself names <strong>BIDS, NWB, DataLad/git-annex,
+		DANDI, brainlife.io</strong> as canonical <em>Level 3 (Defined)</em> exemplars, and reserves
+		<em>Level 5 (Optimizing)</em> for &ldquo;closing the discovery loop with the assistance
+		of artificial intelligence&rdquo;.</li>
+	  <li>The <a href="2026-ca-origami-retreat-aicoding.html">AI-coding maturity ladder</a> (companion talk)
+		works <em>only</em> on top of versioned, modular, standardized artifacts &mdash; i.e.
+		you need at least <strong>SciOps L3</strong> before agents can do anything useful.
+		Without it, agents thrash.</li>
+	</ul>
+	<p style="margin-top:1em;font-style:italic;font-size:0.9em;">
+	  AI doesn&rsquo;t change the verbs &mdash; it raises the cost of skipping them,
+	  drops the cost of the fifth verb (Automate) enough to apply it to the harness itself,
+	  and turns the gap between SciOps L4 and L5 from &ldquo;requires a consortium&rdquo;
+	  into &ldquo;feasible for a small RSE center&rdquo;.
+	</p>
+  </section>
+
+  <!-- HI ⇄ AI policy spectrum -->
+  <section>
+	<h2>HI &harr; AI &mdash; every project picks its own policy</h2>
+	<table style="font-size:0.78em;width:99%;margin:auto;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.35em;width:18%;">Stance</th>
+		<th style="text-align:left;padding:0.35em;width:25%;">OSS exemplars</th>
+		<th style="text-align:left;padding:0.35em;width:25%;">CON / adjacent example</th>
+		<th style="text-align:left;padding:0.35em;">SciOps fit / what it relies on</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>1. Reject</strong> any AI-generated content</td>
+		<td style="padding:0.35em;">Zig, Krita, Clojure, QEMU; in practice <a href="https://git-annex.branchable.com/contribute/">git-annex</a> (Joey Hess&rsquo;s &ldquo;policy&rdquo; is famously a satirical Feb-30 joke)</td>
+		<td style="padding:0.35em;"><strong>git-annex</strong> upstream contributions &mdash; pure-HI commits</td>
+		<td style="padding:0.35em;">L3 floor; AI use, if any, stays ephemeral &mdash; never enters the tracked artifact</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>2. Accept with disclosure</strong> (AI-assisted ok; must be marked)</td>
+		<td style="padding:0.35em;"><a href="https://numpy.org/">NumPy</a>, <a href="https://kubernetes.io/">Kubernetes</a>, Linux kernel, Django</td>
+		<td style="padding:0.35em;"><strong>DataLad</strong>, <strong>DANDI</strong> &mdash; HI commits; AI may have helped; <code>Co-Authored-By:&nbsp;Claude&hellip;</code> trailers, <code>@pytest.mark.ai_generated</code></td>
+		<td style="padding:0.35em;">L3 &rarr; L4; leans hardest on STAMPED <strong>T</strong> (Tracking) &mdash; provenance is non-negotiable</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>3. Spec-driven AI-generated</strong> (HI specs, AI writes, HI reviews)</td>
+		<td style="padding:0.35em;">Increasingly common; rare as <em>declared</em> upstream policy</td>
+		<td style="padding:0.35em;"><strong>AnnexTube</strong>, <strong>mykrok</strong>, <strong>con/citations-collector</strong>, parts of <strong>dandi-cli</strong> (LAD specs + AI-generated tests)</td>
+		<td style="padding:0.35em;">L4; leans on <strong>T</strong> + <strong>A</strong>ctionability + <strong>M</strong>odularity &mdash; the spec <em>is</em> the contract</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>4. Autonomous</strong> agents in the loop</td>
+		<td style="padding:0.35em;">Active research everywhere; rarely a declared production policy</td>
+		<td style="padding:0.35em;"><strong>con/skills</strong> + <strong>con/yolo</strong> workflows for triage, PR review, dep updates</td>
+		<td style="padding:0.35em;">L5 (Optimizing); all of STAMPED + the harness itself becomes the type-checker</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.8em;">
+	  <strong>Common ground (all four stances):</strong>
+	  AI cannot be an author (<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html">ICMJE Jan 2026</a>);
+	  humans retain full responsibility; AI use must be <em>disclosed</em> in the artifact itself
+	  (commit trailer, methods section, acknowledgments). The STAMPED <em>Tracking</em> principle is
+	  what makes that mechanical instead of aspirational.
+	</p>
+	<p style="margin-top:0.4em;font-size:0.75em;font-style:italic;">
+	  Survey of declared OSS stances:
+	  <a href="https://github.com/melissawm/open-source-ai-contribution-policies">melissawm/open-source-ai-contribution-policies</a>
+	  &mdash; community-maintained catalog of project policies, three+one buckets:
+	  <em>Accept</em> / <em>Restrict</em> / <em>Reject</em> / <em>Ongoing</em>.
+	</p>
+	<p style="margin-top:0.4em;font-size:0.8em;">
+	  <strong>Take home:</strong> declare your project&rsquo;s stance, in writing,
+	  before someone files a PR with an undisclosed Claude trailer.
+	  &ldquo;We haven&rsquo;t decided&rdquo; is itself a policy &mdash; just a bad one.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     SECTION: WHY IT COMPOSES — MVC AT THE STACK SCALE
+     A 4-slide mini-section right before the Monday checklist:
+     opener + Models + Controllers + Views.  The integrating
+     punchline that turns the four verbs into an architectural pattern
+     RSEs already recognize.
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Why it composes &mdash; <span style="font-style:italic;">MVC at the stack scale</span></h2>
+	<h3 class="fragment">Models, Controllers, Views &mdash; just bigger than usual.</h3>
+	<p class="fragment" style="font-size:0.85em;font-style:italic;margin-top:1em;">
+	  The five verbs (Reuse / Compose / Extend / Standardize / Automate) are <em>practices</em>.<br/>
+	  This is the <em>architecture</em> they keep producing.
+	</p>
+  </section>
+
+  <!-- Models slide -->
+  <section>
+	<h2>Models &mdash; multiple, layered, standard</h2>
+	<table style="font-size:0.85em;width:95%;margin:auto;">
+	  <tr style="background-color:#fef3e0;">
+		<th style="text-align:left;padding:0.4em;width:35%;">Layer</th>
+		<th style="text-align:left;padding:0.4em;">Examples</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Dataset layout</strong> &mdash; how files live together</td>
+		<td style="padding:0.4em;"><a href="https://bids.neuroimaging.io/">BIDS</a>; <a href="https://github.com/myyoda/myyoda">YODA</a>;<br/>BIDS-like DuckDB hive in <a href="https://github.com/mykrok/mykrok">mykrok</a> &amp; <a href="https://github.com/con/annextube">AnnexTube</a></td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Per-file</strong> &mdash; how one file is encoded</td>
+		<td style="padding:0.4em;"><a href="https://www.nwb.org/">NWB</a>; <a href="https://nifti.nimh.nih.gov/">NIfTI</a>; TSV / Parquet / HDF5 / Zarr; DICOM</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Metadata schema</strong></td>
+		<td style="padding:0.4em;"><a href="https://linkml.io/">LinkML</a>, <a href="https://docs.pydantic.dev/">pydantic</a>, <a href="https://json-schema.org/">JSON&nbsp;Schema</a>, <a href="https://www.w3.org/TR/shacl/">SHACL</a> &mdash;<br/>used in <a href="https://concepts.datalad.org/">concepts.datalad.org</a>, the DANDI / NWB / BIDS schemas, BIDS extensions</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Storage</strong> &mdash; bytes-on-disk, distributed</td>
+		<td style="padding:0.4em;"><code>git</code> + <code>git-annex</code> + <a href="https://datalad.org">DataLad</a> as a content-addressed model<br/>(S3, IPFS, NFS, &hellip; appear as remotes)</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;font-size:0.8em;font-style:italic;">
+	  Multiple models, but each is <em>standardized and inspectable</em>.
+	  Pick the one your problem needs; the others stay out of the way.
+	</p>
+  </section>
+
+  <!-- Views slide -->
+  <section>
+	<h2>Views &mdash; humans, agents, machines</h2>
+	<table style="font-size:0.85em;width:95%;margin:auto;">
+	  <tr style="background-color:#e8f5e9;">
+		<th style="text-align:left;padding:0.4em;width:35%;">Audience</th>
+		<th style="text-align:left;padding:0.4em;">View(s)</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Browse-the-archive humans</td>
+		<td style="padding:0.4em;"><a href="https://datasets.datalad.org/">datasets.datalad.org</a>, <a href="https://dandiarchive.org/">DANDI</a>, <a href="https://openneuro.org/">OpenNeuro</a>, <a href="https://emberarchive.org/">EMBER</a>; mykrok / <a href="https://datasets.datalad.org/repronim/ReproTube/web">ReproTube</a> web UIs</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Tabular / ad-hoc analysis</td>
+		<td style="padding:0.4em;"><a href="https://datasette.io/">Datasette</a> on the web; <a href="https://www.visidata.org/">VisiData</a> locally; pandas / polars / DuckDB</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Programmatic (humans + agents)</td>
+		<td style="padding:0.4em;">PyBIDS, matlab-bids, pynwb; <code>datalad.api</code>; archive REST APIs; <a href="https://filesystem-spec.readthedocs.io/">fsspec</a>; FUSE</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">External services that just plug in</td>
+		<td style="padding:0.4em;">brainlife.io, CONP, CBRAIN, Kitware NWB tooling, MetaCell NWB Explorer</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Schema-driven UIs</strong> &mdash;<br/>the View <em>generated from</em> the Model</td>
+		<td style="padding:0.4em;"><a href="https://vjsf.koumoul.com/">vjsf</a> &rarr; <a href="https://gui.dandiarchive.org/">DANDI meditor</a> (JSON&nbsp;Schema&rarr;form);<br/>
+		  <a href="https://github.com/psychoinformatics-de/shacl-vue">shacl-vue</a> from <a href="https://psychoinformatics.de/">psychoinformatics-de</a> &mdash; SHACL&rarr;forms <em>and entire research-group websites</em></td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Long-form narrative</td>
+		<td style="padding:0.4em;"><a href="http://handbook.datalad.org/">handbook.datalad.org</a>; per-archive docs; the standards&rsquo; specs themselves</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;font-size:0.85em;font-style:italic;">
+	  Same Model materializes many Views &mdash; archive UIs, editor forms, websites, the spec itself.<br/>
+	  See M.&nbsp;Hanke et al.,
+	  <a href="https://datasets.datalad.org/repronim/ReproTube/DataLad/web/#/video/oF98hdaph1k?tab=local&amp;wide=1&amp;t=644&amp;q=model&amp;filter=1"><em>LinkML metadata-driven workflow</em></a>
+	  (ReproTube; <a href="https://www.youtube.com/watch?v=oF98hdaph1k&amp;t=644s">YouTube</a>).
+	</p>
+  </section>
+
+  <!-- Controllers slide -->
+  <section>
+	<h2>Controllers &mdash; small, single-purpose</h2>
+	<table style="font-size:0.85em;width:95%;margin:auto;">
+	  <tr style="background-color:#e3f2fd;">
+		<th style="text-align:left;padding:0.4em;width:35%;">Job</th>
+		<th style="text-align:left;padding:0.4em;">Example controller</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Acquisition &rarr; standardized layout</td>
+		<td style="padding:0.4em;"><a href="https://reproin.repronim.org/">ReproIn</a>, <a href="https://heudiconv.repronim.org/">HeuDiConv</a> (DICOM&rarr;BIDS), <a href="https://neuroconv.readthedocs.io/">NeuroConv</a> (raw&rarr;NWB), <a href="https://github.com/con/nwb2bids">con/nwb2bids</a> (NWB&rarr;BIDS), <a href="https://github.com/ReproNim/reprostim">ReproStim</a></td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Reproducible execution</td>
+		<td style="padding:0.4em;"><code>datalad run</code> / <code>containers-run</code>; <a href="https://github.com/con/duct"><code>con/duct</code></a>; <a href="https://github.com/ReproNim/reproman">ReproMan</a></td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Logistics &mdash; move/get/store data</td>
+		<td style="padding:0.4em;"><code>git-annex</code> special remotes (rclone, S3, datalad-archives, &hellip;)</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;">Data &rarr; derived data</td>
+		<td style="padding:0.4em;"><a href="https://bids-apps.neuroimaging.io/apps/">BIDS-Apps</a> (mriqc, fmriprep, &hellip;); DataLad crawler</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Validation <em>(and harmonization)</em></td>
+		<td style="padding:0.4em;"><a href="https://github.com/bids-standard/bids-validator">bids-validator</a> (+ HED), <code>pynwb</code>, <code>zarr</code>, <a href="https://github.com/NeurodataWithoutBorders/nwbinspector">nwbinspector</a>, OME-Zarr, LinkML validators &mdash; harmonized via <strong><a href="https://github.com/con/validation">con/validation</a></strong> (deployed in <a href="https://github.com/dandi/dandi-cli">dandi-cli</a>) into one validation-result Model</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;font-size:0.8em;font-style:italic;">
+	  Each does <em>one thing</em>. They couple to the Model, not to each other.
+	</p>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>The punchline:</strong> pick any cell &mdash; Model, View, or Controller &mdash;
+	  and swap it out. The rest still works.<br/>
+	  <em>That</em> is why the stack composes, why our code stays small,
+	  and why an HI <em>or</em> an AI agent can pick it up cold.
+	</p>
+	<p style="margin-top:0.4em;font-size:0.8em;font-style:italic;">
+	  Contrast: a typical academic &ldquo;service-tied UI&rdquo;
+	  (LIMS / ELN / bespoke Flask portal) welds View to Controller to a
+	  running backend &mdash; lose the server, lose the data.
+	  Cf. Cockburn&rsquo;s
+	  <a href="https://alistair.cockburn.us/hexagonal-architecture/"><em>Hexagonal Architecture / Ports&nbsp;&amp;&nbsp;Adapters</em></a> (2005)
+	  and Evans&rsquo;s <em>Smart UI</em> anti-pattern.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     S. Monday checklist (NEW; the closing payload)
+     ================================================================= -->
+<section data-transition="slide">
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Your Monday checklist</h2>
+	<h3 class="fragment">Pick one. Today is fine.</h3>
+  </section>
+
+  <section>
+	<h2>6 things to copy on Monday</h2>
+	<ol style="font-size:0.9em;">
+	  <li><strong style="color:#a04000;">Reuse:</strong> do <em>one</em> upstream-search pass before your next project, and add <code>pytest</code> + a one-file CI workflow to one repo this week.</li>
+	  <li><strong style="color:#a04000;">Reuse &rarr; Extend:</strong> file an ITP at <a href="https://www.debian.org/devel/wnpp/">Debian Med</a> or open a <a href="https://conda-forge.org/">conda-forge feedstock</a> for one tool you currently distribute by URL.</li>
+	  <li><strong style="color:#1565c0;">Compose:</strong> convert one shared-data folder into a DataLad dataset; wrap one pipeline run in <a href="https://github.com/con/duct"><code>duct</code></a>.</li>
+	  <li><strong style="color:#6a1b9a;">Standardize:</strong> validate one of your datasets against a community standard.</li>
+	  <li><strong style="color:#d84315;">Automate:</strong> automate <em>one</em> repetitive chore (CI matrix, daily smoke test, release script, or archival pull-back via <a href="https://github.com/con/tinuous">con/tinuous</a>) &mdash; then write down who maintains <em>that</em>.</li>
+	  <li><strong style="color:#a04000;">Reuse-in-reverse:</strong> pull content back from one commercial silo your group depends on into a <code>git</code>+<code>git-annex</code> archive.</li>
+	</ol>
+	<p style="margin-top:1em;font-style:italic;font-size:0.85em;text-align:center;">
+	  None requires neuroscience. All work today.
+	</p>
+  </section>
+</section>
+
+
+<!-- =================================================================
+     S. Acknowledgements (canonical layout from 2024-distribits-datalad.html)
+     ================================================================= -->
+<section>
+  <h2>Acknowledgements</h2>
+  <table>
+  <tr style="vertical-align:top">
+    <td style="vertical-align:top">
+      <dl>
+        <dt>Software &amp; communities</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Joey Hess (<code>git-annex</code>)</li>
+              <li>The <strong>DataLad</strong> team &amp; contributors</li>
+              <li><strong>Debian</strong> / Debian Med / Debian Science / conda-forge</li>
+              <li><strong>BIDS</strong> &amp; <strong>NWB</strong> communities</li>
+              <li><a href="https://www.distribits.live/">distribits</a> community</li>
+          </ul>
+        </dd>
+        <dt style="margin-top:20px">Some slides origin:</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html">2024 distribits DataLad sandwich</a></li>
+              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html">2025 distribits Pragmatic YODA</a></li>
+              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore.html">2022 NIH integrated &amp; trusted SSCC</a></li>
+              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi.html">2023 BRAIN DANDI</a></li>
+              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html">2026 CA Origami AI-assisted coding</a></li>
+              <img src="pics/borrowed/bannerthanks.svg">
+          </ul>
+        </dd>
+      </dl>
+    </td>
+    <td style="vertical-align:top">
+  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
+  <img style="height:120px;margin-right:10px" data-src="pics/borrowed/nih.png" />
+  <img style="height:120px;margin-right:10px" data-src="pics/borrowed/nsf_2020.png" />
+  <img style="height:120px;margin-right:50px;margin-left:10px" data-src="pics/borrowed/binc.png" />
+  <img style="height:120px;margin-left:50px" data-src="pics/borrowed/bmbf_2020.png" />
+  <div style="margin-top:-20px">
+  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/erdf.png" />
+  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/cbbs_logo.png" />
+  <img style="height:60px" data-src="pics/borrowed/LSA-Logo.png" />
+  <img style="height:80px;margin-top:0px;margin-left:auto;margin-right:auto;width:20%" data-src="pics/borrowed/fzj_logo.svg" />
+  </div>
+  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
+  <div style="margin-top:-20px">
+  <img style="height:90px;margin:20px" data-src="pics/borrowed/hbp_logo.png" />
+  <img style="height:90px;margin:20px" data-src="pics/borrowed/conp_logo.png" />
+  <img style="height:90px;margin:20px" data-src="pics/borrowed/vbc_logo.png" />
+  <img style="height:90px;margin:20px" data-src="pics/borrowed/repronim_logo.svg" />
+  </div>
+  <div style="margin-top:-40px">
+  <img style="height:120px;margin:20px" data-src="pics/borrowed/openneuro_logo.png" />
+  <img style="height:120px;margin:20px" data-src="pics/borrowed/cbrain_logo.png" />
+  <img style="height:120px;margin:20px" data-src="pics/borrowed/brainlife_logo.png" />
+  <img style="height:120px;margin:20px" data-src="pics/borrowed/dandi_logo.svg" />
+  </div>
+  </td>
+  </tr>
+  </table>
+</section>
+
+
+<!-- =================================================================
+     S. Thank you / sign-off (Yoda SVG sign-off per SOUL.md §3)
+     ================================================================= -->
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Reuse. Compose. Extend. Standardize. Automate.</h2>
+  <p>
+	<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
+	  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
+	</a>
+  </p>
+  <p><small>Slides: <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">datasets.datalad.org/&hellip;/2026-usrse-con-talk.html</a> &mdash; CC-BY-SA</small></p>
+</section>
+
+
+<!-- background slide , Needs tune up of config below
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+-->
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				width: 1400,
+				height: 1050,
+				margin: 0.1,
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'],
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>
