@@ -1,0 +1,109 @@
+# Render the Markdown drafts in this folder to HTML / PDF for easier reading.
+#
+# Tools needed:
+#   pandoc                                (Debian: apt install pandoc)
+# Optional, for PDF (one of):
+#   xelatex / lualatex / pdflatex         (Debian: apt install texlive-xetex)
+#   wkhtmltopdf                           (Debian: apt install wkhtmltopdf)
+#   weasyprint                            (pip install weasyprint, or uv tool install weasyprint)
+#
+# Usage:
+#   make                  -- builds <name>.html for every *.md in this folder
+#   make pdf              -- builds <name>.pdf for every *.md (needs a PDF engine)
+#   make html             -- explicit alias for the default
+#   make proposal         -- just talk-proposal-draft.html + talk-proposal-draft.pdf
+#   make clean            -- remove generated *.html / *.pdf
+#
+# Per-file targets work too, e.g.:
+#   make talk-proposal-draft.html
+#   make talk-proposal-draft.pdf
+#   make projects-audit.html
+
+# Inputs
+MDS := $(wildcard *.md)
+HTMLS := $(MDS:.md=.html)
+PDFS := $(MDS:.md=.pdf)
+
+# Pick a PDF engine that's actually on PATH.  First match wins.
+PDF_ENGINE := $(firstword $(foreach e,xelatex lualatex pdflatex wkhtmltopdf weasyprint, \
+                $(if $(shell command -v $(e) 2>/dev/null),$(e))))
+
+# Pandoc options.  Title metadata is supplied per-recipe via $* so it
+# expands to the stem of the file being built.
+PANDOC      := pandoc
+PANDOC_OPTS := --standalone \
+               --from gfm+yaml_metadata_block+pipe_tables+raw_html \
+               --shift-heading-level-by=0 \
+               --wrap=preserve
+
+# HTML-specific
+HTML_OPTS := --to html5 \
+             --embed-resources \
+             --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+
+# PDF-specific (LaTeX engines)
+PDF_LATEX_OPTS := --to pdf \
+                  -V geometry:margin=1in \
+                  -V fontsize=11pt \
+                  -V colorlinks=true \
+                  -V linkcolor=darkgreen \
+                  -V urlcolor=darkblue
+
+# PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
+PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+
+.PHONY: all html pdf proposal clean help check
+.DEFAULT_GOAL := html
+
+all: html pdf
+
+html: $(HTMLS)
+
+pdf: $(PDFS)
+
+proposal: talk-proposal-draft.html talk-proposal-draft.pdf
+
+# Generic pattern: any.md -> any.html
+%.html: %.md
+	@echo "==> $@"
+	$(PANDOC) $(PANDOC_OPTS) $(HTML_OPTS) \
+	  --metadata title="$*" \
+	  -o "$@" "$<"
+
+# Generic pattern: any.md -> any.pdf, chosen by PDF_ENGINE
+ifneq ($(filter xelatex lualatex pdflatex,$(PDF_ENGINE)),)
+%.pdf: %.md
+	@echo "==> $@  (engine: $(PDF_ENGINE))"
+	$(PANDOC) $(PANDOC_OPTS) $(PDF_LATEX_OPTS) \
+	  --metadata title="$* (CON / US-RSE'26 draft)" \
+	  --pdf-engine=$(PDF_ENGINE) \
+	  -o "$@" "$<"
+else ifneq ($(filter wkhtmltopdf weasyprint,$(PDF_ENGINE)),)
+%.pdf: %.md
+	@echo "==> $@  (engine: $(PDF_ENGINE), via HTML)"
+	$(PANDOC) $(PANDOC_OPTS) $(PDF_HTML_OPTS) \
+	  --metadata title="$* (CON / US-RSE'26 draft)" \
+	  --pdf-engine=$(PDF_ENGINE) \
+	  -o "$@" "$<"
+else
+%.pdf: %.md
+	@echo "ERROR: no PDF engine found on PATH."; \
+	  echo "  Install one of: xelatex (texlive-xetex), wkhtmltopdf, weasyprint"; \
+	  echo "  or run 'make html' instead."; \
+	  false
+endif
+
+clean:
+	rm -f $(HTMLS) $(PDFS)
+
+check:
+	@command -v $(PANDOC) >/dev/null && echo "pandoc: OK ($$($(PANDOC) --version | head -1))" \
+	  || echo "pandoc: MISSING (apt install pandoc)"
+	@if [ -n "$(PDF_ENGINE)" ]; then \
+	   echo "PDF engine: $(PDF_ENGINE)"; \
+	 else \
+	   echo "PDF engine: none on PATH (xelatex / wkhtmltopdf / weasyprint)"; \
+	 fi
+
+help:
+	@sed -n '1,/^# Per-file targets/p' $(firstword $(MAKEFILE_LIST)) | sed 's/^# \{0,1\}//'
