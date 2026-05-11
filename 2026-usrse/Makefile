@@ -41,13 +41,17 @@ HTML_OPTS := --to html5 \
              --embed-resources \
              --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
-# PDF-specific (LaTeX engines)
+# PDF-specific (LaTeX engines).
+# xcolor's default name set doesn't include "darkblue"/"darkgreen", so we
+# pass HTML hex codes (CSS-standard darkblue=#00008B, darkgreen=#006400) —
+# pandoc turns those into `\definecolor{lcN}{HTML}{...}` for xcolor.
 PDF_LATEX_OPTS := --to pdf \
                   -V geometry:margin=1in \
                   -V fontsize=11pt \
                   -V colorlinks=true \
-                  -V linkcolor=darkgreen \
-                  -V urlcolor=darkblue
+                  -V linkcolor=006400 \
+                  -V urlcolor=00008B \
+                  -V toccolor=006400
 
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
