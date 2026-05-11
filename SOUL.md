@@ -37,6 +37,18 @@ Concretely, almost every talk in the corpus revisits some subset of:
   `git-annex`), common data standards (BIDS, NWB, HED, DICOM), common metadata
   (LinkML, concepts.datalad.org), common organizational layouts (BIDS, YODA,
   STAMPED).  Standards are the language across labs and across HI ↔ AI.
+- **Automate** — none of the above scales without it. Unit/integration CI on
+  every PR; daily-tested `git-annex` against DataLad; `con/tinuous` archiving
+  CI logs and artifacts before they expire; auto-rebuilt `ReproNim/containers`;
+  `ReproIn` + `HeuDiConv` driving DICOM→BIDS at the scanner; `ReproStim`
+  capturing all stimuli; auto-mirrored dandisets; `con/validation` + `dandi-cli`
+  on every release; auto-deployed handbook + per-archive docs.
+  In **SciOps** (Johnson *et al.*, 2024) terms this is *Level 4 (Scalable)* —
+  what the paper calls "SciOps pipelines". **Cost:** the harness is itself
+  code we maintain — and that is exactly where AI assistance becomes the most
+  viable way forward as **meta-automation**: using Claude Code + `con/skills`
+  + `con/yolo` to maintain the *automations* themselves, taking a small RSE
+  center from SciOps L4 toward *L5 (Optimizing)*.
 - **Federate, don't recentralize** — `registry.datalad.org`, DANDI/EMBER/
   OpenNeuro, datasets.datalad.org, neurobagel, ... all distribute
   discovery and/or storage rather than becoming a single platform.
@@ -62,6 +74,62 @@ Recurring framings the speaker leans on:
 - **HI + AI** — the recent (2026) framing: the same self-contained, well-
   described, version-controlled artifacts serve both human investigators
   and AI agents.
+- **HI ⇄ AI policy spectrum** — different projects need different
+  AI-acceptance policies; CON's portfolio spans the full spectrum and we
+  show that in talks rather than picking one. Four canonical stances:
+  - **Reject** any AI-generated content (e.g. `git-annex` upstream
+    contributions in practice — Joey Hess's "policy" page is a famous
+    Feb-30 satire; analogues in OSS: Zig, Krita, Clojure, QEMU).
+  - **Accept with disclosure** (DataLad / DANDI; `Co-Authored-By: Claude…`
+    trailers; `@pytest.mark.ai_generated`; analogues: NumPy, Kubernetes,
+    Linux kernel, Django).
+  - **Spec-driven AI-generated** (HI specifies, AI writes, HI reviews &
+    commits) — AnnexTube, mykrok, con/citations-collector, parts of
+    dandi-cli (LAD specs + AI-generated tests).
+  - **Autonomous** agents in the loop — con/skills + con/yolo for triage,
+    PR review, dependency updates.
+
+  *Common ground (all four):* AI cannot be an author (ICMJE Jan 2026
+  update); humans retain full responsibility; AI use must be disclosed
+  *inside the artifact* (commit trailer, methods section, acknowledgments).
+  STAMPED *Tracking* is what makes that mechanical. SciOps positions
+  these as a climb from L3-floor up to L5 (Optimizing).
+  External catalog of declared OSS stances:
+  [`melissawm/open-source-ai-contribution-policies`](https://github.com/melissawm/open-source-ai-contribution-policies).
+- **Static-first vs. service-tied UI** — a recurring contrast: most
+  academic data infrastructure is built as a "service-tied UI"
+  (LIMS / ELN / bespoke Flask app / Drupal portal) where the View is
+  welded to a running backend, so portability and reuse collapse the
+  moment the server stops. CON's pattern is the inverse: the Model
+  (BIDS / NWB / LinkML / DataLad-tracked file tree) is the artifact;
+  Views are derived; services are *one Adapter among many*. Cite
+  Cockburn's *Hexagonal Architecture / Ports & Adapters* (2005),
+  Evans's *Smart UI* anti-pattern (DDD 2003), Fowler's *Anemic Domain
+  Model* + *Service Layer*, and GoF *Adapter / Strategy / Façade* when
+  the audience is enterprise-software-literate.
+- **Many lenses, one stack** — the same project / artifact can be
+  legitimately described along several *overlapping* dimensions, each
+  picking out a different property:
+  - **Architectural** — Model / View / Controller (the spine of
+    `202x-mvc-stack.html`; mini-section in `2026-usrse-con-talk.html`).
+  - **Procedural** — STAMPED (Self-containment, Tracking,
+    Actionability, Modularity, Portability, Ephemerality,
+    Distributability — see Macdonald, Baker, To & Halchenko, 2026,
+    [`stamped-principles/stamped-paper`](https://github.com/stamped-principles/stamped-paper)).
+  - **Sharing** — FAIR (Findable, Accessible, Interoperable, Reusable).
+  - **Compositional** — YODA (modular, "look up you must not",
+    version-control everything).
+  - **Purpose** — acquisition / curation / archive / analysis /
+    governance / sharing / training.
+  - **Maturity** — operational maturity per SciOps
+    (Johnson *et al.*, 2024; arXiv:2401.00077; five-level Capability
+    Maturity Model for rigorous scientific operations — cited from the
+    STAMPED paper); agentic-readiness axis via the AI-coding ladder L1–L5
+    (`2026-ca-origami-retreat-aicoding.html`).
+
+  Use lenses *together*, not as competitors. When two lenses disagree
+  about whether something is "good", that's usually a real design
+  tension worth surfacing on the slide, not noise to smooth over.
 
 ## 2. Audience and tone
 
@@ -346,6 +414,18 @@ Canonical citations to keep at hand:
   <https://doi.org/10.3389/fninf.2015.00012>
 - **Hyperalignment (Neuron 2011)**:
   <http://dx.doi.org/10.1016/j.neuron.2011.08.026>
+- **STAMPED principles for reproducible research objects (2026)**:
+  Macdonald, Baker, To, Halchenko. Sources:
+  <https://github.com/stamped-principles/stamped-paper>;
+  site: <https://stamped-principles.org/>. STAMPED =
+  Self-containment / Tracking / Actionability / Modularity /
+  Portability / Ephemerality / Distributability.
+- **SciOps (arXiv 2024)**: Johnson *et al.*, *SciOps: Achieving
+  Productivity and Reliability in Data-Intensive Research.*
+  <https://arxiv.org/abs/2401.00077> — five-level Capability Maturity
+  Model for scientific operations; the canonical citation for the
+  "Maturity" lens in the *Many lenses, one stack* framing
+  (Halchenko is a co-author).
 
 When citing **other CON talks** (frequently done — talks build on each
 other), link the live-slides URL on `datasets.datalad.org/centerforopen
@@ -393,10 +473,42 @@ slides from `INDEX.md`.
 5. **AI-coding ladder** (`2026-ca-origami-retreat-aicoding.html`):
    layered "maturity" slides (Levels 1–5), then a 5-stage development
    loop, then real examples.
-6. **Reuse / Compose / Extend / Standardize** (`2026-usrse/talk-proposal-
-   draft.md`, this repo's overarching framing):
-   the four-verb spine that subsumes all of the above and is the
-   recommended skeleton for cross-domain RSE audiences.
+6. **Reuse / Compose / Extend / Standardize / Automate**
+   (`2026-usrse/talk-proposal-draft.md`, this repo's overarching
+   framing): the **five-verb spine** that subsumes all of the above
+   and is the recommended skeleton for cross-domain RSE audiences.
+   *Automate* was the late-named fifth verb (added 2026-05-10) — it
+   covers everything CI/harness-related (con/tinuous, daily-tested
+   git-annex, auto-mirrored dandisets, ReproIn/HeuDiConv at the
+   scanner, etc.) and carries the *meta-automation* (AI ↔ harness
+   maintenance) handoff into the HI+AI section.
+   The five verbs map directly onto the **SciOps** Capability Maturity
+   Model (Johnson *et al.*, 2024; arXiv:2401.00077):
+   - **L1 Initial** — ad-hoc, manual; no verbs in play yet.
+   - **L2 Managed** — lab-local *Compose* (YODA layouts; internal pipelines).
+   - **L3 Defined** — *Reuse / Compose / Extend / Standardize*; FAIR data
+     + FAIR workflows. The SciOps paper itself names BIDS, NWB, DataLad/
+     git-annex, DANDI, and brainlife.io as L3 exemplars.
+   - **L4 Scalable** — *Automate*: "SciOps pipelines", semi-automated
+     continuous workflows. Our CI + con/tinuous + auto-mirrored
+     dandisets are exactly this.
+   - **L5 Optimizing** — AI in the loop; closing the discovery loop.
+     This is where the AI-coding ladder (`2026-ca-origami-retreat-
+     aicoding.html`) plugs in, but it presupposes L3 below it.
+
+   Practical implication for talk authoring: when you cite one verb,
+   also state which SciOps level it corresponds to — RSE audiences
+   recognize CMM language even when they don't know the specific paper.
+7. **MVC at the stack scale** (`202x-mvc-stack.html` *(stub)*; mini-section
+   inside `2026-usrse-con-talk.html`):
+   the *architectural* re-reading of the four verbs — layered standardized
+   **Models** (BIDS / NWB / LinkML / `git`+`git-annex`+DataLad), small
+   single-purpose **Controllers** (HeuDiConv / NeuroConv / ReproStim /
+   `datalad run` / `con/duct` / BIDS-Apps), interchangeable **Views**
+   (datasets.datalad.org / DANDI / OpenNeuro / mykrok / AnnexTube /
+   Datasette / VisiData / handbook). Useful as the integrating
+   *punchline* near the end of any retrospective, or as the spine of a
+   stand-alone talk for an RSE-heavy audience.
 
 ## 8. Author identity / fixed metadata
 

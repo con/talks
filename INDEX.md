@@ -12,20 +12,46 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Per-talk inventory
 
-### `2026-usrse-con-talk.html` — *Reuse, Compose, Extend, Standardize: Two Decades of RSEing Open (Neuro)Science at CON*  *(draft)*
-- **Venue / date**: US-RSE'26 (proposal-stage draft).
-- **Spine**: the four-verb spine (Reuse / Compose / Extend / Standardize) plus a "Reuse, in reverse" coda and an HI+AI close.
+### `202x-mvc-stack.html` — *[WiP] MVC at the stack scale: what makes the open-(neuro)science stack compose*  *(stub)*
+- **Status**: WiP / outline-only stub. Title carries a `[WiP]` marker
+  in the browser tab and on the title slide. Not scheduled for a venue.
+  Rename to `<YYYY>-<venue>-mvc-stack.html` when assigned, drop the
+  `[WiP]` prefix, and regenerate the QR code (the URL changes with the
+  filename).
+- **Spine**: re-reads the four CON verbs as Model–View–Controller at
+  the *stack* scale.
+- **Authoring seed**: the 4-slide MVC mini-section inside
+  `2026-usrse-con-talk.html` is the seed; promote each row into its own
+  slide here, plus borrow visuals from the per-topic lookup below.
+- **Section openers in place**:
+  - "One thesis, two parts" — explicit MVC-at-stack-scale claim.
+  - "Why 'at the stack scale' is the new word" — classical-vs-stack-MVC contrast.
+  - **Models**: Dataset layout / Per-file / Metadata / Storage (4 stub slides).
+  - **Views**: Browse-the-archive humans / Tabular ad-hoc / Programmatic / External services / **Schema-driven UIs** (vjsf → DANDI meditor; shacl-vue → forms + research-group websites) / Long-form narrative.
+  - **Controllers**: Acquisition→layout / Reproducible execution / Logistics / Data→derivative / **Validation — and a recursive Standardize moment** (the latter is now the most fleshed-out slide: con/validation harmonizes bids-validator + HED + pynwb + zarr + nwbinspector + OME-Zarr; deployed in dandi-cli; VisiData for triage).
+  - **Contrast: the "service-tied UI" pattern** section (NEW): four slides walking through the academic anti-pattern (LIMS / ELN / "just a Flask app"), naming the design-pattern literature (Smart UI [Evans], Anemic Domain Model [Fowler], Hexagonal / Ports & Adapters [Cockburn 2005], Adapter / Strategy / Façade [GoF], Service Layer [PoEAA]), and showing CON's static-first contrast (datasets.datalad.org as plain `nginx`, schema-driven UIs, JAMstack-style decks). Includes a "if your project dies when the server is down for a week..." heuristic.
+  - **One stack, many lenses** section: a table of six lenses (Architectural / Procedural / Sharing / Compositional / Purpose / Maturity) mapping to MVC / STAMPED / FAIR / YODA / project-purpose / AI-ladder. Captured as a recurring framing in `SOUL.md` §1.
+  - "Three things to do this week" closer.
+- TODO markers in-file flag what to fill in.
+
+### `2026-usrse-con-talk.html` — *[WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON*  *(draft)*
+- **Venue / date**: US-RSE'26 (proposal-stage draft; title carries a `[WiP]` marker in the tab and on the title slide).
+- **Spine**: the five-verb spine (Reuse / Compose / Extend / Standardize / **Automate**) plus a "Reuse, in reverse" coda, an Automate section (with the *meta-automation* handoff), and an HI+AI close.
 - **Reusable highlights**:
   - Title slide (per `SOUL.md` §3).
-  - "Two decades, four verbs" intro slide (NEW).
-  - "When it began for us" verb-tagged timeline (NEW; extension of `2024-distribits-datalad.html` § timeline).
-  - Reuse: NeuroDebian + PyMVPA blocks borrowed from `2022-nih-compcore.html`.
-  - Compose: DataLad sandwich mermaid + extensions diagram from `2024-distribits-datalad.html`; registry stats from `2025-distribits-YODA.html`; small-units table referencing ReproIn / HeuDiConv / ReproStim / NeuroConv / ReproNim-containers / con/duct.
+  - "Two decades, five verbs" intro slide (NEW).
+  - "When it began for us" verb-tagged timeline (NEW; extension of `2024-distribits-datalad.html` § timeline; Automate milestones include 2007 PyMVPA-with-CI, 2016 ReproIn/HeuDiConv, 2019 dandiset auto-mirroring + con/tinuous).
+  - Reuse: NeuroDebian + PyMVPA blocks borrowed from `2022-nih-compcore.html`; **`con/citations-collector`** added as the modern continuation of duecredit.
+  - Compose: DataLad sandwich mermaid + extensions diagram from `2024-distribits-datalad.html`; registry stats from `2025-distribits-YODA.html`; small-units table referencing ReproIn / HeuDiConv / NeuroConv / **`con/nwb2bids`** / ReproStim / ReproNim-containers / con/duct.
   - Extend: a NEW "From RUNCMD to BEP028" mermaid summarizing the upstream-lift pattern.
   - Standardize: BIDS slide + BIDS-minder image (from `2023-bids-dicom.html`) + LinkML/concepts.datalad.org bullets.
   - Federated archives slide (DANDI + EMBER + OpenNeuro) with DANDI deep-dive borrowed from `2023-brain-dandi.html`.
   - "Reuse, in reverse" 3-up table (AnnexTube / mykrok / con/serve).
-  - HI+AI section pointing to `2026-ca-origami-retreat-aicoding.html`.
+  - **Automate** section (NEW): **4 slides** — opener + "Where we automate" table (CI / con/tinuous / ReproNim-containers / acquisition / archive mirroring / validation / releases) + "Cost: harnesses, harnesses, harnesses → meta-automation via AI" (with `con/skills` / `con/yolo`) + **"The five verbs climb the SciOps ladder"** mapping (5-verbs ↔ SciOps L1–L5; the SciOps paper itself names BIDS / NWB / DataLad / DANDI / brainlife.io as Level-3 exemplars, and reserves Level 5 — Optimizing — for AI-in-the-loop). Hands off into HI+AI.
+  - HI+AI section: opener + "Why every layer matters now" (STAMPED + SciOps) + **"HI ↔ AI — every project picks its own policy"** (NEW): 4-stance spectrum table (Reject / Accept-with-disclosure / Spec-driven AI-generated / Autonomous) with OSS exemplars + CON projects + SciOps level + STAMPED principle, citing ICMJE Jan 2026 and melissawm/open-source-ai-contribution-policies. Pointing to `2026-ca-origami-retreat-aicoding.html` as the deeper-dive companion.
+  - **MVC mini-section** (NEW): 4 slides — opener + Models + Views + Controllers — placed between HI+AI and the Monday checklist. Models row covers BIDS / NWB / DuckDB-hive layouts + LinkML / pydantic / JSON Schema / SHACL metadata schemas + DataLad storage; Views row includes a dedicated *Schema-driven UIs* row (vjsf → DANDI meditor; shacl-vue → forms and research-group websites; Hanke et al. LinkML workflow ReproTube reference); Controllers row carries the punchline (*pick any cell — Model, View, or Controller — and swap it; the rest still works*). This block is the **seed of the standalone `202x-mvc-stack.html` stub**.
+  - Standardize section's "Metadata: schemas as first-class citizens" slide (NEW): expanded from a LinkML+concepts.datalad.org one-liner into a multi-language schema overview (LinkML / pydantic / JSON Schema / SHACL); also names **OBC (Open Brain Consent)** as the *consent* layer of standardization.
+  - Monday checklist: 6 entries (was 5) — added an Automate take-home pointing at `con/tinuous`.
   - Monday checklist (NEW; 5-action wrap-up).
   - Acknowledgements + Yoda SVG sign-off.
 - Notes: drafted in support of `2026-usrse/talk-proposal-draft.md`.
@@ -337,6 +363,114 @@ ReproNim-containers / con/duct / ReproMan)
 - *Asset*: `pics/borrowed/ai-ladder-skills.png`,
   `pics/borrowed/2026-ai-intensifies.png`,
   `pics/surface-depth-v2.jpg`, `pics/borrowed/idiocracy-fixed.gif`.
+
+### MVC framing / "why the stack composes"
+- `2026-usrse-con-talk.html` § "Why it composes — MVC at the stack scale" (4-slide mini-section: opener + Models + Views + Controllers table).
+- `202x-mvc-stack.html` *(stub)* — the standalone deck spun out of that mini-section.
+- *Asset*: re-uses existing tables; no new images required for the seed.
+  When deepening the standalone talk, borrow `pics/DataLad-minder.svg`
+  (storage model), `pics/BIDS-minder.svg` (dataset-layout model), and
+  the controllers screenshots from
+  `2025-distribits-YODA.html` / `2026-repronim-YODA-BIDS-webinar.html`.
+
+### Validation harmonization (con/validation)
+- `2026-usrse-con-talk.html` § MVC mini-section's Controllers row
+  ("Validation *(and harmonization)*") names `con/validation` as the
+  harmonizer for bids-validator (+ HED) / pynwb / zarr / nwbinspector /
+  OME-Zarr / LinkML validators, deployed in dandi-cli.
+- `202x-mvc-stack.html` § Controllers/"Validation — and a recursive
+  Standardize moment" — the long-form treatment: *con/validation is the
+  type-checker for your validators*; once results are one Model, Views
+  are easy (dashboards, VisiData on the validation TSV).
+- *External*: <https://github.com/con/validation>;
+  deployed in <https://github.com/dandi/dandi-cli>.
+
+### Automate / harness / meta-automation
+- `2026-usrse-con-talk.html` § Automate (3 slides: opener, "Where we
+  automate" table, "Cost: harnesses, harnesses, harnesses → meta-
+  automation via AI"). Cites con/tinuous as the canonical CI-archival
+  example (highly modular, fits con/serve's archival mission).
+- *Older talks with reusable CI/automation slides*:
+  - `2024-distribits-datalad.html` § "DataLad: all changes are tested",
+    "extensions tested daily", "git-annex daily", `con/tinuous` archive,
+    `datalad-installer`.
+  - `2022-nih-compcore.html` § "PART of an answer: AUTOMATION" + the
+    same three testing slides.
+  - `2023-brain-dandi.html` § "Dandisets converted into DataLad and
+    pushed to GitHub", "Webshots of all dandisets", "Testing trivial
+    IO across all dandisets".
+- *Asset*: `pics/con-tinuous-{github,term,term-dandi-cli}.png`,
+  `pics/datalad-extensions.png`, `pics/datalad-git-annex.png`,
+  `pics/datalad-daily-status-email-subject.png`,
+  `embed/datalad_git-annex_daily.html`,
+  `pics/dandiarchive-webshots.png`,
+  `pics/dandisets-healthstatus.png`.
+- *Meta-automation framing*: harness maintenance is the place where AI
+  assistance becomes most viable for a small RSE center; pair with
+  `con/skills` and `con/yolo` (per `2026-ca-origami-retreat-aicoding.html`).
+
+### HI ⇄ AI policy spectrum (per-project AI-acceptance)
+- `2026-usrse-con-talk.html` § "HI ↔ AI — every project picks its own policy" (in the HI+AI section): a 4-row spectrum table mapping policy stance ↔ OSS exemplars ↔ CON project ↔ SciOps level ↔ STAMPED property:
+  - **Reject** — Zig, Krita, Clojure, QEMU; `git-annex` (Joey Hess's "Feb 30" satirical policy).
+  - **Accept with disclosure** — NumPy, Kubernetes, Linux, Django; **DataLad / DANDI** with `Co-Authored-By` trailers, `@pytest.mark.ai_generated`.
+  - **Spec-driven AI-generated** — **AnnexTube**, **mykrok**, **con/citations-collector**, parts of **dandi-cli**.
+  - **Autonomous** — **con/skills** + **con/yolo** workflows.
+  Common ground per [ICMJE Jan 2026](https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html): AI cannot be author, humans retain responsibility, disclosure mandatory.
+- *External survey*: [`melissawm/open-source-ai-contribution-policies`](https://github.com/melissawm/open-source-ai-contribution-policies) — community-maintained catalog of declared OSS policies; the three+one bucket framework (Accept / Restrict / Reject / Ongoing) is what the slide's 4-stance spectrum is built on.
+- *SOUL.md §1* names this as a recurring framing — use it for any deck that touches AI contributions.
+
+### Backend-coupled "service-tied UI" anti-pattern / Hexagonal contrast
+- `202x-mvc-stack.html` § "Contrast: the 'service-tied UI' pattern"
+  (4 slides): the anti-pattern in academia, design-pattern names
+  (Smart UI / Anemic Domain Model / Hexagonal-Ports-Adapters / Adapter /
+  Strategy / Façade / Service Layer), CON's static-first counter-pattern.
+- *Citations*: Cockburn, *Hexagonal Architecture*, 2005
+  <https://alistair.cockburn.us/hexagonal-architecture/>; Evans,
+  *Domain-Driven Design*, 2003 (Smart UI anti-pattern); Fowler,
+  *Patterns of Enterprise Application Architecture*
+  (<https://martinfowler.com/eaaCatalog/serviceLayer.html>; Anemic
+  Domain Model: <https://martinfowler.com/bliki/AnemicDomainModel.html>);
+  Gamma, Helm, Johnson, Vlissides (GoF), *Design Patterns*, 1994
+  (Adapter / Strategy / Façade).
+- Use this slide block when an audience is more enterprise-software-
+  literate than data-archive-literate, or when a critic asks
+  "why don't you just build a portal?".
+
+### Five verbs ↔ SciOps maturity levels
+- *Mapping* (Johnson *et al.*, 2024; <https://arxiv.org/abs/2401.00077>):
+  - **L1 Initial** — ad-hoc; no CON verb yet.
+  - **L2 Managed** — Compose (lab-local; YODA layout).
+  - **L3 Defined** — Reuse / Compose / Extend / Standardize; FAIR data + FAIR workflows. *Paper-cited L3 exemplars*: BIDS, NWB, DataLad / git-annex, DANDI, brainlife.io.
+  - **L4 Scalable** — Automate; "SciOps pipelines" (semi-automated continuous workflows).
+  - **L5 Optimizing** — Automate × AI; closing the discovery loop.
+- *Slide anchors*: `2026-usrse-con-talk.html` § Automate's 4th slide ("The five verbs climb the SciOps ladder"); `202x-mvc-stack.html` § Many-lenses Maturity row (now spells out all 5 levels); `2026-usrse-con-talk.html` § HI+AI's updated SciOps bullet (STAMPED = per-artifact, SciOps = team-operations).
+- *SOUL.md §7* explicitly lists the verb→level mapping; cite it from any future deck that wants to talk about maturity.
+- *Practical implication*: when you name one of the 5 verbs in a slide, mention which SciOps level it corresponds to — CMM language travels well to RSE audiences.
+
+### Multi-dimensional framings ("many lenses, one stack")
+- `202x-mvc-stack.html` § "One stack, many lenses" — table of six
+  lenses (Architectural / Procedural / Sharing / Compositional / Purpose
+  / Maturity) with example axes:
+  - Architectural → MVC (this talk's spine)
+  - Procedural → **STAMPED** — Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, Distributability (Macdonald et al. 2026, [stamped-paper](https://github.com/stamped-principles/stamped-paper))
+  - Sharing → FAIR
+  - Compositional → YODA
+  - Purpose → acquisition / curation / archive / analysis / governance / sharing / training
+  - Maturity → **SciOps** five-level CMM (Johnson et al. 2024, [arXiv:2401.00077](https://arxiv.org/abs/2401.00077)) + AI-coding ladder L1–L5 for the agentic-readiness sub-axis.
+  Use this slide when a talk needs to triangulate several patterns at
+  once instead of pitching one.
+- *SOUL.md §1* names this as a recurring framing — read it before
+  writing a talk that compares projects/properties along multiple axes.
+- Both STAMPED and SciOps now have entries in `SOUL.md` §5 (canonical
+  citations), so any future deck can cite them with one-line consistency.
+
+### Schema-driven UIs / "the Model materializes the View"
+- `2026-usrse-con-talk.html` § Standardize → "Metadata: schemas as first-class citizens" (LinkML / pydantic / JSON Schema / SHACL bullets) and § MVC mini-section's Views slide (vjsf → DANDI meditor; shacl-vue → forms + research-group websites).
+- `202x-mvc-stack.html` *(stub)* § Models → "Metadata: many languages, one idea" and § Views → "Schema-driven UIs: the View that the Model generates".
+- *External reference*: M. Hanke et al., **LinkML metadata-driven workflow** —
+  on ReproTube: <https://datasets.datalad.org/repronim/ReproTube/DataLad/web/#/video/oF98hdaph1k?tab=local&wide=1&t=644&q=model&filter=1>
+  (YouTube id `oF98hdaph1k`, timestamp 644s); cite when borrowing or expanding the schema-driven-UI argument.
+- *Suggested screenshots to add later*: DANDI meditor at <https://gui.dandiarchive.org/>; a `shacl-vue`-rendered website (per psychoinformatics-de's deployments).
 
 ### CON identity / acknowledgements / funders
 - `2024-distribits-datalad.html` final acknowledgements slide is the
