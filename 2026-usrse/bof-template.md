@@ -2,26 +2,32 @@
 
 When submitting:
 
-1. Delete this paragraph and the document title.   
-2. Replace “Title” with your submission title.  Please enter the title as it should appear in the conference program.  
-3. Fill out the text of each following instruction, following the directions in the template text, which is italicized and should be removed before submission.  
+
 4. **Export your document to a PDF format, which can be done in Google Drive via File \-\> Download \-\> PDF Document (.pdf)**  
 5. Submit to EasyChair by Friday May 22, 2026 at [https://easychair.org/conferences/?conf=usrse26](https://easychair.org/conferences/?conf=usrse26)   
    1. *NOTE: [Make sure to attach the PDF to your submission.](https://easychair.org/conferences/?conf=usrse25)*
 
-## Title
-
-*Example: How many RSEs does it take to change a light bulb?* 
+## Pragmatic practices for reproducible and open science through case stories and principles 
 
 ## Session Leaders
 
-*Names, email, affiliations, and [ORCID](https://orcid.org/) of session leaders.*  
-*Example:*  
-*Joshua B. Teves \<[jbteves@sandia.gov](mailto:jbteves@sandia.gov)\>, Department of Software Engineering and Research, Sandia National Laboratories, 0000-0002-7767-0067*
+```yaml
+- Name: Cody C. Baker
+  Email: cody.c.baker.phd@gmail.com
+  Affiliation: Center for Open Neuroscience, Dartmouth College
+  ORCID: https://orcid.org/0000-0002-0829-4790
+
+- Name: Dorota Jarecka
+  Email: cody.c.baker.phd@gmail.com
+  Affiliation: Gabrieli Laboratory, Massachusetts Institute of Technology
+  ORCDI: https://orcid.org/0000-0001-8282-2988
+```
 
 ## Keywords
 
-*Minimum of three keywords about the submission. These must also be entered in the EasyChair submission.*
+- 
+- 
+- 
 
 ## Description for Program
 
@@ -29,19 +35,34 @@ When submitting:
 
 ## Session Information Abstract
 
-*Max. 1 page (with reasonable font size, line spacing, and margins), approximately 500 words. Insert text for each subsection; all are required.* 
-
 **Topic Summary**  
 *Summarize the BoF topic, and include a brief motivation for its inclusion in the conference and its relation to Research Software Engineering or the RSE community.* 
 
 **Target Audience**   
 *Outline the target audience for this BoF.* 
 
+
+
 **Format**   
-*Briefly explain the format of the BoF, including how the audience will be engaged and participate during the session. Assume that a projector and microphone will be set up.  Assume that there will **not** be space to rearrange furniture or stick things to walls during the session.*  
+
+- Start with a few (up to 3-4) short (up to 15 minutes) scheduled presentations
+- Open-mic for short (up to 5 minutes) stories / demos about representative projects
+- Finish with open panel discussion regarding challenges & sharing known solutions or proposing new ones
+
+
 
 **Presenters**  
-*Include the names and a short description for anyone who will be presenting during the BoF or serving as a panelist, if applicable.*  
+
+Scheduled presentations (~15 min):
+- Introduction to [STAMPED Principles](htttps://stamped-principles.org) (Cody Baker, @CodyCBakerPhD)
+- Package and container management in R (Malcolm Barrett, @malcolmbarrett)
+- Data management and analysis in Neurophysiology (Sam Bray, @??)
+
+Open-mic projects (~5 min):
+- Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, @rly)
+- Neuroimaging with the BIDS study, BABS, and simple2 (Dorota Jarecka, @djarecka)
+- 
+
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community  
 
