@@ -9,7 +9,7 @@ When submitting:
 
 ## Pragmatic practices for reproducible and open science through case stories and principles 
 
-## Session Leaders
+### Session Leaders
 
 ```yaml
 - Name: Cody C. Baker
@@ -23,13 +23,15 @@ When submitting:
   ORCID: https://orcid.org/0000-0001-8282-2988
 ```
 
-## Keywords
+
+### Keywords
 
 - Reproducible research
 - Open science
 - Provenance
 
-## Description for Program
+
+### Description for Program
 
 Reproducibility and open science are widely championed in principle yet unevenly practiced.
 The gap between aspiration and execution is rarely about willingness.
@@ -44,7 +46,7 @@ We invite RSEs working on or affected by reproducibility infrastructure, whether
 
 
 
-## Session Information Abstract
+### Session Information Abstract
 
 **Topic Summary**  
 
@@ -54,6 +56,7 @@ Yet the practices that make this work are scattered across domains, tools, and i
 This BoF creates that room.
 
 By pairing emerging organizing frameworks with concrete case stories from working RSEs, the session aims to surface what is already working, where the recurring friction lies, and how the community can converge on shared vocabulary and toolkits without prescribing any single stack.
+
 
 **Target Audience**   
 
@@ -89,8 +92,22 @@ Open-mic projects (~5 min):
 - ??
 
 
-## Connection to Mission, Goals, & Interests of US-RSE Community  
 
-*A short description (\<300 words) describing how the submission is connected to the mission, goals, and interests of the US-RSE community. We suggest reviewing content on [https://us-rse.org/](https://us-rse.org/) if you are uncertain what types of issues you might discuss.*
+### Connection to Mission, Goals, & Interests of US-RSE Community  
 
+**Community**:
+- Reproducibility work is often done in isolation, with each lab or RSE solving similar problems with different tools.
+- This session creates a venue for RSEs across domains to recognize shared challenges, compare solutions, and form ongoing connections around a common concern.
+- The open-mic and panel format is designed specifically to draw out attendees rather than broadcast at them.
 
+**Advocacy**:
+- RSEs are the people who turn reproducibility principles into working software, yet this contribution is frequently invisible in research outputs.
+- By framing reproducibility as operational maturity that requires sustained RSE effort, the session reinforces the case for RSE roles, time, and recognition within research projects and institutions.
+
+**Resources**:
+- Attendees will leave with concrete, field-tested practices and pointers to tooling that addresses container management, large-data versioning, workflow portability, provenance capture, and AI-assisted research.
+- The STAMPED principles and accompanying checklist provide a shared vocabulary that RSEs can bring back to their groups for evaluating and incrementally improving existing workflows, without requiring adoption of any particular stack.
+
+**DEI**:
+- The session is structured to welcome contributions from RSEs at any career stage and from any domain, with no assumed tooling background.
+- Short open-mic slots lower the barrier to participation for newer community members who may not yet be ready to give a full talk.
