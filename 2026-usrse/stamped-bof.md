@@ -65,12 +65,13 @@ Attendees at any career stage are welcome, whether to actively contribute or sim
 
 **Presenters**  
 
-1. Introduction to STAMPED Principles (Cody Baker, ~15 mins)
-2. Package and container management in R (Malcolm Barrett, ~15 mins)
-3. Neuroscience data management and analysis through Spyglass (Sam Bray, ~15 mins)
-4. Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, ~5 mins)
-5. Neuroimaging with the BIDS study, BABS, and simple2 (Dorota Jarecka, ~5 mins)
-6. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
+1. Introduction to STAMPED Principles (**Cody Baker**, ~15 mins)
+2. Neuroscience database management and analysis through Spyglass (Sam Bray, ~15 mins)
+3. Package and container management in R (Malcolm Barrett, ~15 mins)
+4. Neuroimaging with the BIDS study, BABS, and simple2 (**Dorota Jarecka**, ~5 mins)
+5. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
+6. Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, ~5 mins)
+7. Pragmatic side of managing contributions to open-source scientific software: AKA "dealing with people" (Helen Kershaw, ~5 mins)
 
 
 
