@@ -24,7 +24,7 @@
 
 ### Description for Program
 
-Reproducibility and open science are widely championed in principle yet unevenly practiced.
+Reproducibility and open science are widely championed in principle, yet unevenly practiced.
 The gap between aspiration and execution is rarely about willingness.
 It is about the day-to-day friction of managing data, code, environments, and provenance across heterogeneous tools, platforms, and collaborators.
 Research Software Engineers sit precisely at this gap, translating community standards into workflows that scientists can actually run, share, and reuse.
