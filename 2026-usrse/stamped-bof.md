@@ -1,13 +1,4 @@
-# USRSE’26 Birds of a Feather Proposal Template
-
-When submitting:
-
-
-4. **Export your document to a PDF format, which can be done in Google Drive via File \-\> Download \-\> PDF Document (.pdf)**  
-5. Submit to EasyChair by Friday May 22, 2026 at [https://easychair.org/conferences/?conf=usrse26](https://easychair.org/conferences/?conf=usrse26)   
-   1. *NOTE: [Make sure to attach the PDF to your submission.](https://easychair.org/conferences/?conf=usrse25)*
-
-## Pragmatic practices for reproducible and open science through case stories and principles 
+# Pragmatic practices for reproducible and open science through case stories and principles 
 
 ### Session Leaders
 
