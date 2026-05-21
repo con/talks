@@ -9,8 +9,8 @@
   ORCID: https://orcid.org/0000-0002-0829-4790
 
 - Name: Dorota Jarecka
-  Email: cody.c.baker.phd@gmail.com
-  Affiliation: Gabrieli Laboratory, Massachusetts Institute of Technology
+  Email: djarecka@mit.edu
+  Affiliation: McGovern Institute for Brain Research, Massachusetts Institute of Technology
   ORCID: https://orcid.org/0000-0001-8282-2988
 ```
 
