@@ -51,16 +51,9 @@ By pairing emerging organizing frameworks with concrete case stories from workin
 
 **Target Audience**   
 
-This BoF is aimed at RSEs and RSE-adjacent practitioners who encounter reproducibility and open science challenges in their daily work.
-
-This includes:
-- RSEs building or maintaining reproducibility infrastructure (workflow engines, container pipelines, data versioning systems, provenance tooling)
-- RSEs embedded in research groups who support scientists in structuring, running, and sharing computational work
-- Tool developers working on packaging, environment management, or data distribution
-- Domain scientists with significant software responsibilities who want to improve the operational maturity of their research objects
-- Group leaders and institutional staff shaping reproducibility policy, training, or shared infrastructure
-
-No specific domain background is required. While several presenters come from neuroscience, the practices and principles discussed apply broadly across computational research. Attendees at any career stage are welcome, from students and early-career RSEs encountering these challenges for the first time, to senior practitioners with hard-won lessons to share. Participation is encouraged but not required; attendees who simply want to listen and learn are equally welcome.
+This BoF is aimed at RSEs and RSE-adjacent practitioners who encounter reproducibility and open science challenges in their daily work, including those building reproducibility infrastructure, RSEs embedded in research groups, tool developers in packaging or data distribution, software-heavy domain scientists, and group leaders shaping reproducibility policy or shared infrastructure.
+No specific domain background is required; while several presenters come from neuroscience, the practices discussed apply broadly.
+Attendees at any career stage are welcome, whether to actively contribute or simply listen and learn. 
 
 
 **Format**   
@@ -72,15 +65,12 @@ No specific domain background is required. While several presenters come from ne
 
 **Presenters**  
 
-Scheduled presentations (~15 min):
-- Introduction to [STAMPED Principles](htttps://stamped-principles.org) (Cody Baker, @CodyCBakerPhD)
-- Package and container management in R (Malcolm Barrett, @malcolmbarrett)
-- Data management and analysis in Neurophysiology (Sam Bray, @??)
-
-Open-mic projects (~5 min):
-- Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, @rly)
-- Neuroimaging with the BIDS study, BABS, and simple2 (Dorota Jarecka, @djarecka)
-- ??
+1. Introduction to STAMPED Principles (Cody Baker, ~15 mins)
+2. Package and container management in R (Malcolm Barrett, ~15 mins)
+3. Neuroscience data management and analysis through Spyglass (Sam Bray, ~15 mins)
+4. Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, ~5 mins)
+5. Neuroimaging with the BIDS study, BABS, and simple2 (Dorota Jarecka, ~5 mins)
+6. Assessing pipelines through the Software Gardening Almanack (Dave Bunten, ~5 mins)
 
 
 
