@@ -70,7 +70,7 @@ Attendees at any career stage are welcome, whether to actively contribute or sim
 3. Neuroscience data management and analysis through Spyglass (Sam Bray, ~15 mins)
 4. Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, ~5 mins)
 5. Neuroimaging with the BIDS study, BABS, and simple2 (Dorota Jarecka, ~5 mins)
-6. Assessing pipelines through the Software Gardening Almanack (Dave Bunten, ~5 mins)
+6. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
 
 
 
