@@ -30,9 +30,15 @@ PDF_ENGINE := $(firstword $(foreach e,xelatex lualatex pdflatex wkhtmltopdf weas
 
 # Pandoc options.  Title metadata is supplied per-recipe via $* so it
 # expands to the stem of the file being built.
+# Reader is `commonmark_x` (CommonMark + pandoc's extensions).  Neither
+# `gfm` nor `commonmark_x` supports the `raw_tex` extension; for
+# LaTeX-specific bits like `\newpage` we use commonmark_x's built-in
+# `raw_attribute` extension instead — fence the LaTeX with
+# ```{=latex} … ``` in the .md, and pandoc emits it only in the LaTeX
+# output (HTML / other writers silently drop it).
 PANDOC      := pandoc
 PANDOC_OPTS := --standalone \
-               --from gfm+yaml_metadata_block+pipe_tables+raw_html \
+               --from commonmark_x \
                --shift-heading-level-by=0 \
                --wrap=preserve
 
@@ -42,12 +48,16 @@ HTML_OPTS := --to html5 \
              --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 # PDF-specific (LaTeX engines).
-# xcolor's default name set doesn't include "darkblue"/"darkgreen", and
-# pandoc passes the linkcolor/urlcolor value directly as an xcolor *name*
-# (it does not auto-recognize a bare hex string).  Define the two names
-# in the preamble via header-includes, then refer to them normally.
+# Margins: 0.85in all-around is tighter than the default 1in but still
+# reads as "reasonable margins" per typical conference rules — gains
+# ~15% page area to help fit a 1-page abstract.  Top/bottom slightly
+# tighter than left/right keeps line-length comfortable.
+# Colors: xcolor's default name set doesn't include "darkblue"/"darkgreen",
+# and pandoc passes the linkcolor/urlcolor value directly as an xcolor
+# *name* (it does not auto-recognize a bare hex string).  Define the two
+# names in the preamble via header-includes, then refer to them normally.
 PDF_LATEX_OPTS := --to pdf \
-                  -V geometry:margin=1in \
+                  -V 'geometry=top=0.75in, bottom=0.85in, left=0.85in, right=0.85in' \
                   -V fontsize=11pt \
                   -V colorlinks=true \
                   -V linkcolor=darkgreen \
