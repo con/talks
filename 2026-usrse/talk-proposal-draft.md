@@ -33,11 +33,13 @@ We saw the same compositional gap in scientific *data* management.
 [DataLad](https://www.datalad.org/) (2013) was created to provide data versioning and distribution on top of `git` and `git-annex`, extendable via the [DataLad extensions](https://github.com/datalad/datalad-extension-template).
 The distributed nature of git unlocked a wide range of data-management workflows for science while reusing the `git-annex` data-logistics layer.
 Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives [DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/) we lead or participate in are built on shared standards and accessible via DataLad.
-[registry.datalad.org](https://registry.datalad.org/) then federates DataLad datasets across institutions, clouds, and projects, providing discovery of **petabytes** of data without central platform. As a result, `git` and `git-annex` have effectively become our **standard** mechanism for working with *all* digital research artifacts — code, data, containers — across these venues.
+[registry.datalad.org](https://registry.datalad.org/) then federates DataLad datasets across institutions, clouds, and projects, providing discovery of **petabytes** of data without any central platform.
+As a result, `git` and `git-annex` have effectively become our **standard** mechanism for working with *all* digital research artifacts — code, data, containers — across these venues.
 Seeing the need for common "data languages" in neuroscience, we co-founded or joined community efforts on [BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), and [NGFF / OME-Zarr](https://ngff.openmicroscopy.org/) to make data exchangeable across labs and vendors, serving on Steering and Technical advisory boards and bridging to industry standards such as DICOM.
 
 The compositional pattern permeates our project portfolio.
-For data acquisition we composed a toolbelt of small utilities — [ReproStim](https://github.com/ReproNim/reprostim), [HeuDiConv](https://github.com/nipy/heudiconv), [NeuroConv](https://neuroconv.readthedocs.io/), [con/nwb2bids](https://github.com/con/nwb2bids), and [ReproNim/containers](https://github.com/ReproNim/containers) — each tackling one slice of acquisition-to-pipeline reproducibility. Based on our experiences, we formulated [STAMPED Principles](https://stamped-principles.org/) to formalize architectural and operational properties of research objects, to be used by both Human & Artificial Intelligence (HI & AI).
+For data acquisition we composed a toolbelt of small utilities — [ReproStim](https://github.com/ReproNim/reprostim), [HeuDiConv](https://github.com/nipy/heudiconv), [NeuroConv](https://neuroconv.readthedocs.io/), [con/nwb2bids](https://github.com/con/nwb2bids), and [ReproNim/containers](https://github.com/ReproNim/containers) — each tackling one slice of acquisition-to-pipeline reproducibility.
+Based on our experiences, we formulated [STAMPED Principles](https://stamped-principles.org/) to formalize architectural and operational properties of research objects, to be used by both Human & Artificial Intelligence (HI & AI).
 
 Given our team size, scaling to this many projects is impossible without **automation**.
 Since the early days we practice software- and data-level unit and integration testing, performance benchmarking, CI/CD with [con/tinuous](https://github.com/con/tinuous) archiving logs and artifacts across PRs and builds, daily testing of `git-annex` and DataLad extensions, auto-rebuilt ReproNim containers, automated MRI/stimuli/aux data acquisition, and auto-mirrored dandisets — among many others.
@@ -95,7 +97,7 @@ The talk's title verbs are also its takeaways for the US-RSE audience across sci
 We embody the bridging role US-RSE foregrounds:
 
 - **RSE -- engineering industry.**
-  Sustained collaboration with **Kitware** on NWB browse/analyze/visualize tooling — a textbook example of an academic RSE center partnering with a non-academic engineering shop.
+  Sustained collaboration with **Kitware** on Neurodata Without Borders (NWB) browsing, analysis, and visualization tooling — a textbook example of an academic RSE center partnering with a non-academic engineering shop.
   Participation in industry-standard working groups (DICOM) further aligns our academic standardization efforts with industrial ones.
 
 - **RSE -- domain scientists.**
