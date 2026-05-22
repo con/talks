@@ -10,7 +10,7 @@
 
 ## Keywords
 
-reuse, modularity, community standards, federation, reproducibility, distributed data management, neuroinformatics, FAIR, open source, research software engineering
+reuse, modularity, community standards, federation, reproducibility, distributed data management, neuroinformatics, FAIR, open source
 
 ## Abstract
 
