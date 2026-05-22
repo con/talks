@@ -96,7 +96,7 @@ The talk's title verbs are also its takeaways for the US-RSE audience across sci
 We embody the bridging role US-RSE foregrounds:
 
 - **RSE -- engineering industry.**
-  Sustained collaboration with **Kitware** on NWB browse/analyze/visualize tooling — a textbook example of an academic RSE center partnering with a non-academic engineering shop.
+  Sustained collaboration with **Kitware** on Neurodata Without Borders (NWB) browsing, analysis, and visualization tooling — a textbook example of an academic RSE center partnering with a non-academic engineering shop.
   Participation in industry-standard working groups (DICOM) further aligns our academic standardization efforts with industrial ones.
 
 - **RSE -- domain scientists.**
