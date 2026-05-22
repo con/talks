@@ -70,7 +70,7 @@ Attendees at any career stage are welcome, whether to actively contribute or sim
 3. Package and container management in R (Malcolm Barrett, ~15 mins)
 4. Neuroimaging with the BIDS study, BABS, and simple2 (**Dorota Jarecka**, ~5 mins)
 5. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
-6. Benchmarking cross-platform I/O with cloud-enabled streaming (Ryan Ly, ~5 mins)
+6. Reproducible, cross-platform benchmarking of cloud I/O (Ryan Ly, ~5 mins)
 7. Pragmatic lessons learned from managing contributions to the open-source DART project (Helen Kershaw, ~5 mins)
 
 
