@@ -69,9 +69,8 @@ PDF_LATEX_OPTS := --to pdf \
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 .PHONY: all html pdf proposal clean help check
-.DEFAULT_GOAL := html
 
-all: html pdf
+all: pdf
 
 html: $(HTMLS)
 
