@@ -68,10 +68,11 @@ Attendees at any career stage are welcome, whether to actively contribute or sim
 1. Introduction to STAMPED Principles (**Cody Baker**, ~15 mins)
 2. Neuroscience database management and analysis through Spyglass (Sam Bray, ~15 mins)
 3. Package and container management in R (Malcolm Barrett, ~15 mins)
-4. The DataLad trifecta and scalable neuroimaging with BABS and simple2 (Austin MacDonald and **Dorota Jarecka**, ~10 mins)
-5. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
-6. Reproducible, cross-platform benchmarking of cloud I/O (Ryan Ly, ~5 mins)
-7. Pragmatic lessons learned from managing contributions to the open-source DART project (Helen Kershaw, ~5 mins)
+4. The DataLad trifecta (Austin MacDonald, ~5 mins)
+5. Scalable neuroimaging with BABS and simple2 (**Dorota Jarecka**, ~5 mins)
+6. Software quality and reproducibility assessment with the Software Gardening Almanack (Dave Bunten, ~5 mins)
+7. Reproducible, cross-platform benchmarking of cloud I/O (Ryan Ly, ~5 mins)
+8. Pragmatic lessons learned from managing contributions to the open-source DART project (Helen Kershaw, ~5 mins)
 
 
 
