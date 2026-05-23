@@ -19,37 +19,45 @@ reuse, modularity, community standards, federation, reproducibility, distributed
 ## Abstract
 
 For two decades the team of the **Center for Open Neuroscience (CON)** has been building an open, largely domain-agnostic research-software stack — first for neuroimaging, then for neuroscience broadly, and now used well beyond.
-The story traces back to 2000, when Yaroslav joined the lab of a Debian developer ([Barak A. Pearlmutter](https://www.bcl.hamilton.ie/~barak/)) as a graduate student.
+Five actions — **Reuse**, **Compose**, **Extend**, **Standardize**, and **Automate** — carried us here, and we expect them to keep us productive as AI agents enter the workflow.
+
+The story traces back to 2000, when Yaroslav joined the lab of a Debian developer as a graduate student.
 That immersion introduced open-source practices for **reuse** of existing tools while developing new neurophysiological analysis methods.
 Debian's compositional pattern instilled the discipline of integrating reused components to **compose** powerful systems, while sharing the maintenance burden with the broader community.
-
-Those practices encouraged **extending** the distribution with our own packages and contributing to upstream projects we depended on daily ([Fail2Ban](https://github.com/fail2ban/fail2ban), [PyEPL](https://pyepl.sourceforge.net/), and others).
+Those practices encouraged **extending** the distribution with our own packages and contributing to upstream projects we depended on daily (e.g., [Fail2Ban](https://github.com/fail2ban/fail2ban)).
 Joining forces with like-minded but geographically distant collaborators — notably Michael Hanke — elevated all three actions to the next level.
 In 2005 we formed a team to package FSL and PyEPL under the **pkg-exppsy** project, which became [NeuroDebian](https://neuro.debian.net/), used by thousands to this day.
-Recognizing the potential of machine learning for neural data — and the absence of good practice in then-existing implementations — we initiated [PyMVPA](http://www.pymvpa.org/) (2007): an early reproducible-analysis library shipped with a test suite, CI, documentation, tutorials, and a "traveling school" before any of that was common in scientific Python.
-We contributed upstream to scikit-learn and ultimately sunsetted PyMVPA in favor of newer libraries.
+Recognizing the potential of machine learning for neural data — and the absence of good practice in then-existing implementations — we initiated [PyMVPA](http://www.pymvpa.org/) (2007): an early reproducible-analysis library with a full test suite, CI, and tutorials before any of that was common in scientific Python.
 
-We saw the same compositional gap in scientific *data* management.
-[DataLad](https://www.datalad.org/) (2013) was created to provide data versioning and distribution on top of `git` and `git-annex`, extendable via the [DataLad extensions](https://github.com/datalad/datalad-extension-template).
-The distributed nature of git unlocked a wide range of data-management workflows for science while reusing the `git-annex` data-logistics layer.
-Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives [DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/) we lead or participate in are built on shared standards and accessible via DataLad.
+To close the same compositional gap in scientific *data* management, [DataLad](https://www.datalad.org/) (2013) was created to provide data versioning and distribution on top of `git` and [`git-annex`](https://git-annex.branchable.com/).
+Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives we lead or participate in — [DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/) — are built on shared standards and accessible via DataLad.
 [registry.datalad.org](https://registry.datalad.org/) then federates DataLad datasets across institutions, clouds, and projects, providing discovery of **petabytes** of data without any central platform.
-As a result, `git` and `git-annex` have effectively become our **standard** mechanism for working with *all* digital research artifacts — code, data, containers — across these venues.
-Seeing the need for common "data languages" in neuroscience, we co-founded or joined community efforts on [BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), and [NGFF / OME-Zarr](https://ngff.openmicroscopy.org/) to make data exchangeable across labs and vendors, serving on Steering and Technical advisory boards and bridging to industry standards such as DICOM.
-
-The compositional pattern permeates our project portfolio.
-For data acquisition we composed a toolbelt of small utilities — [ReproStim](https://github.com/ReproNim/reprostim), [HeuDiConv](https://github.com/nipy/heudiconv), [NeuroConv](https://neuroconv.readthedocs.io/), [con/nwb2bids](https://github.com/con/nwb2bids), and [ReproNim/containers](https://github.com/ReproNim/containers) — each tackling one slice of acquisition-to-pipeline reproducibility.
-Based on our experiences, we formulated [STAMPED Principles](https://stamped-principles.org/) to formalize architectural and operational properties of research objects, to be used by both Human & Artificial Intelligence (HI & AI).
+In effect, `git` and `git-annex` have become our **standard** for managing *all* digital research artifacts — code, data, containers — across these venues.
+Seeing the need to **standardize** common "data languages" in neuroscience, we co-founded or joined community efforts on [BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), and [NGFF / OME-Zarr](https://ngff.openmicroscopy.org/) — serving on their advisory boards and bridging to industry standards such as DICOM.
 
 Given our team size, scaling to this many projects is impossible without **automation**.
 Since the early days we practice software- and data-level unit and integration testing, performance benchmarking, CI/CD with [con/tinuous](https://github.com/con/tinuous) archiving logs and artifacts across PRs and builds, daily testing of `git-annex` and DataLad extensions, auto-rebuilt ReproNim containers, automated MRI/stimuli/aux data acquisition, and auto-mirrored dandisets — among many others.
 
-All of these actions, from reuse to automation, map directly onto the operational-maturity climb of the **SciOps Capability Maturity Model** ([Johnson *et al.*, 2024](https://arxiv.org/abs/2401.00077)), which we actively advocate.
-They lift teams beyond *Level 3* — where we cite BIDS, and DataLad as canonical exemplars — through *Level 4 (Scalable)* SciOps pipelines and toward *Level 5 (Optimizing)*, the AI-in-the-loop pinnacle.
+The "Age of AI" doesn't make this list optional — it *amplifies* every entry.
+AI lets teams move faster than ever while generating an explosion of divergent approaches, drifting styles, and under-reviewed output.
+**Reuse** seemingly becomes unnecessary when an agent confidently writes new code instead of finding a robust upstream;
+**Compose** appears effortless when AI generates ad-hoc adapters between misaligned components.
+Such practices are a recipe for fragile systems.
+**Standardize** remains the main protection against cacophonies of APIs and data formats, and **Automate**d testing and review the only viable defense at agent-rate output.
 
-In this talk we will draw on two decades of CON operation to present our efforts through the lenses of the aforementioned activities, which we do to stand behind our long-standing slogan:
+The five actions only pay off in full when invested in *common* projects, *shared* standards, and *joint* maintainership — and AI raises the stakes: a hundred isolated agentic projects each reinventing the same infrastructure is a far worse outcome than one collaborative ecosystem.
 
-*"Together we can make neuroscience a better science!"*
+This talk walks through ongoing CON projects through those five lenses — alongside our AI adoption — to show how a small RSE team can scale productively, in service of our long-standing call:
+
+```{=latex}
+\begin{flushright}
+\textit{``Together we can make neuroscience a better science!''}
+\end{flushright}
+```
+
+```{=html}
+<p style="text-align: right; font-style: italic;">"Together we can make neuroscience a better science!"</p>
+```
 
 ```{=latex}
 \newpage
