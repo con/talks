@@ -51,6 +51,7 @@ Hoffstaedter's `ds000007-mriqc` dataset ships a `logs/duct/` directory alongside
 ## Acknowledgments
 
 We thank the broader ReproNim and OpenNeuro communities for ongoing feedback on `con-duct`'s design and use.
+`con-duct`'s resource-monitoring approach is based on brainlife's `smon` (<https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>).
 
 *AI-assisted content disclosure (per IEEE policy).* This submission was prepared with assistance from Anthropic's Claude (model: `claude-opus-4-7`, accessed via the Claude Code CLI in May 2026).
 The AI system contributed to drafting prose in the Abstract and Connection-to-Mission sections. The human authors specified the content, edited the prose, and verified all technical claims, command examples, figures, and references.
@@ -58,16 +59,10 @@ The `con-duct` software described in this work was also developed with assistanc
 
 ## References
 
-*(to finalize. candidates below)*
-
 1. `con-duct`. Center for Open Neuroscience. <https://github.com/con/duct>. RRID:SCR_025436.
-2. Macdonald, A. *An intro-duct-tion to con-duct.* DataLad blog, 2024. <https://blog.datalad.org/posts/intro-duct-tion/>
-3. DataLad. Halchenko, Y. O. et al. <https://www.datalad.org/>
-4. brainlife `smon`. <https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>
-5. ReproNim / ReproMan. <https://github.com/ReproNim/reproman>
-6. Esteban, O. et al. *fMRIPrep: a robust preprocessing pipeline for functional MRI.* Nature Methods, 2019.
-7. Hoffstaedter, F. `ds000007-mriqc`. <https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc>
-8. *con/demos sfn-2025: duct + DataLad demo.* <https://github.com/con/demos/tree/main/sfn-2025>
+2. DataLad. <https://www.datalad.org/>. RRID:SCR_003931.
+3. brainlife `smon`. <https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>
+4. Hoffstaedter, F. `ds000007-mriqc`. <https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc>
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
