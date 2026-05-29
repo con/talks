@@ -66,14 +66,11 @@ The `con-duct` software described in this work was also developed with assistanc
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
-Maturing conventions, increasingly capable tooling, and the arrival of AI agents bring rigor, reproducibility, reusability, and efficiency within closer reach than ever.
-US-RSE represents the researchers and engineers who build, maintain, and sustain the software that turns that potential into practice.
-`con-duct` was built by RSEs at the Center for Open Neuroscience for precisely that audience: a small, dependency-light tool that captures what a command actually did, so the next person (or agent) can pick up where the last one left off without rerunning.
-That is the day-to-day texture of research-software work: handing off enough context for someone else to act, and doing it cheaply enough that nobody skips the step.
-
-The conference theme, *Advancing Science in the Age of AI*, sharpens this concern.
+`con-duct` was built by RSEs at the Center for Open Neuroscience to record provenance for neuroimaging pipelines.
+The dev-side payoff (reaching back into outputs that would otherwise be gone) was an unexpected bonus.
 As LLM agents take on more of the executing (writing throwaway pipelines, exploring datasets, calling tools), RSEs are the people who decide whether that work remains auditable.
-`con-duct` is one small piece of an answer: a wrapper that makes the agent's work, like the human's, leave a trace.
+AI only amplifies all of this.
+More context is produced, more streams run in parallel, and everything moves faster.
+RSEs still need to preserve that context, make it discoverable, and keep the capture cheap enough that nobody skips the step.
 
-The project is openly developed at <https://github.com/con/duct>, registered (RRID:SCR_025436), and composes with the broader ecosystem of RSE-built tools we depend on (DataLad, BIDS, fmriprep, ReproNim/containers), rather than reinventing them.
-We hope to find collaborators at US-RSE working on adjacent pieces of this puzzle.
+`con-duct` is one small piece of an answer: a wrapper that makes the agent's work, like the human's, leave a trace.
