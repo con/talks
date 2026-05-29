@@ -16,7 +16,7 @@ chars = [char for char in text if char not in ["\n"," "]]
 
 Neuroscience increasingly depends on computational pipelines combining code, data, and software environments.
 When these components are scattered across repositories, shared drives, wikis, and lab notebooks, the record of how results were produced becomes incomplete, eroding rigor, reproducibility, and reusability.
-FAIR and FAIR4RS guide discovery and reuse of digital objects but do not prescribe how research objects should be structured so others can re-execute and extend them.
+FAIR and FAIR4RS guide the discovery and reuse of digital objects but do not prescribe how research objects should be structured so others can re-execute and extend them.
 
 We address this operational gap with STAMPED, a vocabulary and evaluation framework for day-to-day practices that make a research object durable.
 The principles that embody this acronym are: Self-containment (one complete retrieval unit), Tracking (content-addressed versioning and provenance for all components), Actionability (machine-executable instructions), Modularity (independent, composable units), Portability (no hidden host coupling), Ephemerality (disposable environments per run), and Distributability (persistent retrievability with explicit licenses).
