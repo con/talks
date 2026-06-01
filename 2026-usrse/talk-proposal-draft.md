@@ -21,16 +21,16 @@ reuse, modularity, community standards, federation, reproducibility, distributed
 For two decades the team of the **Center for Open Neuroscience (CON)** has been building an open, largely domain-agnostic research-software stack — first for neuroimaging, then for neuroscience broadly, and now used well beyond.
 Five actions — **Reuse**, **Compose**, **Extend**, **Standardize**, and **Automate** — carried us here, and we expect them to keep us productive as AI agents enter the workflow.
 
-The story traces back to 2000, when Yaroslav joined the lab of a Debian developer ([Barak A. Pearlmutter](https://www.bcl.hamilton.ie/~barak/)) as a graduate student.
+The story traces back to 2000, when [Yaroslav](https://centerforopenneuroscience.org/whoweare#yaroslav_o_halchenko_) joined the lab of a Debian developer ([Barak A. Pearlmutter](https://www.bcl.hamilton.ie/~barak/)) as a graduate student.
 That immersion introduced open-source practices for **reuse** of existing tools while developing new neurophysiological analysis methods.
 Debian's compositional pattern instilled the discipline of integrating reused components to **compose** powerful systems, while sharing the maintenance burden with the broader community.
 Those practices encouraged **extending** the distribution with our own packages and contributing to upstream projects we depended on daily (e.g., [Fail2Ban](https://github.com/fail2ban/fail2ban)).
-Joining forces with like-minded but geographically distant collaborators, notably Michael Hanke, elevated all three actions to the next level.
+Joining forces with like-minded but geographically distant collaborators, notably [Michael Hanke](https://www.psychoinformatics.de/persons/michael-hanke/), elevated all three actions to the next level.
 In 2005 we formed a team to package FSL and PyEPL under the **pkg-exppsy** project, which became [NeuroDebian](https://neuro.debian.net/), used by thousands to this day.
 Recognizing the potential of machine learning for neural data, and the absence of good practice in then-existing implementations, we initiated [PyMVPA](http://www.pymvpa.org/) (2007): an early reproducible-analysis library with a full test suite, CI, and tutorials before any of that was common in scientific Python.
 
 To close the same compositional gap in scientific *data* management, [DataLad](https://www.datalad.org/) (2013) was created to provide data versioning and distribution on top of `git` and [`git-annex`](https://git-annex.branchable.com/).
-Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives we lead or participate in — [DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/) — are built on shared standards and accessible via DataLad.
+Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives we lead or participate in ([DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/)) are built on shared standards and accessible via DataLad.
 [registry.datalad.org](https://registry.datalad.org/) then federates DataLad datasets across institutions, clouds, and projects, providing discovery of **petabytes** of data without any central platform.
 In effect, `git` and `git-annex` have become our **standard** for managing *all* digital research artifacts — code, data, containers — across these venues.
 Seeing the need to **standardize** common "data languages" in neuroscience, we co-founded or joined community efforts on [BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), and [NGFF / OME-Zarr](https://ngff.openmicroscopy.org/) — serving on their advisory boards and bridging to industry standards such as DICOM.
@@ -47,9 +47,9 @@ Such practices are a recipe for fragile systems.
 
 AI makes going it alone tempting, you can move fast, you have all the flexibility to do whatever you want, and you have fewer dependencies and supply-chain risks.
 But even simple code bloats over time to cover all possible cases, security requires many eyes and iterations to harden, collaboration is still more efficient in the long term.
-The five actions pay off only when invested in *common* projects, *shared* standards, and *joint* maintainership — a hundred isolated agentic projects reinventing the same infrastructure is far worse than one collaborative ecosystem.
+The five actions pay off most when invested in *common* projects, *shared* standards, and *joint* maintainership — a hundred isolated agentic projects reinventing the same infrastructure is far worse than one collaborative ecosystem.
 
-This talk walks through ongoing CON projects through those five lenses — alongside our AI adoption — to show how a small RSE team can scale productively, in service of our long-standing call:
+This talk walks through ongoing CON projects through those five lenses — alongside our AI adoption — to show how a small RSE team can scale productively through the "Age of AI" in service of our long-standing call:
 
 ```{=latex}
 \begin{flushright}

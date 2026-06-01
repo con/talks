@@ -57,7 +57,7 @@ HTML_OPTS := --to html5 \
 # *name* (it does not auto-recognize a bare hex string).  Define the two
 # names in the preamble via header-includes, then refer to them normally.
 PDF_LATEX_OPTS := --to pdf \
-                  -V 'geometry=top=0.75in, bottom=0.85in, left=0.85in, right=0.85in' \
+                  -V 'geometry=top=0.5in, bottom=0.5in, left=0.75in, right=0.75in' \
                   -V fontsize=11pt \
                   -V colorlinks=true \
                   -V linkcolor=darkgreen \
