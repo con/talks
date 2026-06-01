@@ -21,13 +21,13 @@ reuse, modularity, community standards, federation, reproducibility, distributed
 For two decades the team of the **Center for Open Neuroscience (CON)** has been building an open, largely domain-agnostic research-software stack — first for neuroimaging, then for neuroscience broadly, and now used well beyond.
 Five actions — **Reuse**, **Compose**, **Extend**, **Standardize**, and **Automate** — carried us here, and we expect them to keep us productive as AI agents enter the workflow.
 
-The story traces back to 2000, when Yaroslav joined the lab of a Debian developer as a graduate student.
+The story traces back to 2000, when Yaroslav joined the lab of a Debian developer ([Barak A. Pearlmutter](https://www.bcl.hamilton.ie/~barak/)) as a graduate student.
 That immersion introduced open-source practices for **reuse** of existing tools while developing new neurophysiological analysis methods.
 Debian's compositional pattern instilled the discipline of integrating reused components to **compose** powerful systems, while sharing the maintenance burden with the broader community.
 Those practices encouraged **extending** the distribution with our own packages and contributing to upstream projects we depended on daily (e.g., [Fail2Ban](https://github.com/fail2ban/fail2ban)).
-Joining forces with like-minded but geographically distant collaborators — notably Michael Hanke — elevated all three actions to the next level.
+Joining forces with like-minded but geographically distant collaborators, notably Michael Hanke, elevated all three actions to the next level.
 In 2005 we formed a team to package FSL and PyEPL under the **pkg-exppsy** project, which became [NeuroDebian](https://neuro.debian.net/), used by thousands to this day.
-Recognizing the potential of machine learning for neural data — and the absence of good practice in then-existing implementations — we initiated [PyMVPA](http://www.pymvpa.org/) (2007): an early reproducible-analysis library with a full test suite, CI, and tutorials before any of that was common in scientific Python.
+Recognizing the potential of machine learning for neural data, and the absence of good practice in then-existing implementations, we initiated [PyMVPA](http://www.pymvpa.org/) (2007): an early reproducible-analysis library with a full test suite, CI, and tutorials before any of that was common in scientific Python.
 
 To close the same compositional gap in scientific *data* management, [DataLad](https://www.datalad.org/) (2013) was created to provide data versioning and distribution on top of `git` and [`git-annex`](https://git-annex.branchable.com/).
 Today, [datasets.datalad.org](https://datasets.datalad.org) aggregates thousands of datasets from many sources. National archives we lead or participate in — [DANDI](https://dandiarchive.org/), [EMBER](https://emberarchive.org/), and [OpenNeuro](https://openneuro.org/) — are built on shared standards and accessible via DataLad.
@@ -36,7 +36,7 @@ In effect, `git` and `git-annex` have become our **standard** for managing *all*
 Seeing the need to **standardize** common "data languages" in neuroscience, we co-founded or joined community efforts on [BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), and [NGFF / OME-Zarr](https://ngff.openmicroscopy.org/) — serving on their advisory boards and bridging to industry standards such as DICOM.
 
 Given our team size, scaling to this many projects is impossible without **automation**.
-Since the early days we practice software- and data-level unit and integration testing, performance benchmarking, CI/CD with [con/tinuous](https://github.com/con/tinuous) archiving logs and artifacts across PRs and builds, daily testing of `git-annex` and DataLad extensions, auto-rebuilt ReproNim containers, automated MRI/stimuli/aux data acquisition, and auto-mirrored dandisets — among many others.
+Since the early days we practice software- and data-level unit and integration testing, performance benchmarking, CI/CD with [con/tinuous](https://github.com/con/tinuous) archiving logs and artifacts across PRs and builds, daily testing of `git-annex` and DataLad extensions, auto-rebuilt ReproNim containers, automated MRI/stimuli/aux data acquisition, and auto-mirrored dandisets, among many others.
 
 The "Age of AI" doesn't make this list optional — it *amplifies* every entry.
 AI lets teams move faster than ever while generating an explosion of divergent approaches, drifting styles, and under-reviewed output.
@@ -92,9 +92,8 @@ This talk walks through ongoing CON projects through those five lenses — along
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
-CON is, by construction, a prototypical US-RSE organization: a small team of full- and part-time research software engineers ("centroids") and contractors whose job is to design, ship, and steward open infrastructure used by domain scientists they do not directly report to.
-Many of the projects we build or co-maintain — DataLad, duecredit, con/duct, ReproMan, registry.datalad.org, the STAMPED principles, and others — were scoped from the outset to be **domain-agnostic**, even when first motivated by neural-science use cases.
-RSEs in genomics, geosciences, HPC, and digital humanities already use them; the talk makes those entry points explicit.
+CON is, by construction, a prototypical US-RSE organization: a small team of full- and part-time research software engineers ("centroids") and contractors who design, ship, and steward open infrastructure for domain scientists they do not directly report to.
+Much of the portfolio named in the abstract was scoped to be **domain-agnostic** from the outset and is already used by RSEs in genomics, geosciences, HPC, and digital humanities; the talk makes those entry points explicit.
 
 The talk's title verbs are also its takeaways for the US-RSE audience across scientific domains.
 
