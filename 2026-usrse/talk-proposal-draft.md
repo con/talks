@@ -45,7 +45,9 @@ AI lets teams move faster than ever while generating an explosion of divergent a
 Such practices are a recipe for fragile systems.
 **Standardize** remains the main protection against cacophonies of APIs and data formats, and **Automate**d testing and review the only viable defense at agent-rate output.
 
-The five actions only pay off in full when invested in *common* projects, *shared* standards, and *joint* maintainership — and AI raises the stakes: a hundred isolated agentic projects each reinventing the same infrastructure is a far worse outcome than one collaborative ecosystem.
+AI makes going it alone tempting, you can move fast, you have all the flexibility to do whatever you want, and you have fewer dependencies and supply-chain risks.
+But even simple code bloats over time to cover all possible cases, security requires many eyes and iterations to harden, collaboration is still more efficient in the long term.
+The five actions pay off only when invested in *common* projects, *shared* standards, and *joint* maintainership — a hundred isolated agentic projects reinventing the same infrastructure is far worse than one collaborative ecosystem.
 
 This talk walks through ongoing CON projects through those five lenses — alongside our AI adoption — to show how a small RSE team can scale productively, in service of our long-standing call:
 
