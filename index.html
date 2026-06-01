@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CON Talks</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+  <style>
+    /* Loose visual rhyme with https://centerforopenneuroscience.org/ */
+    :root {
+      --con-blue: #87AADE;
+      --con-dark: #38434C;
+      --con-text: #333;
+      --con-muted: #777;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      color: var(--con-text);
+      background: #fff;
+      line-height: 1.5;
+    }
+    header {
+      background: var(--con-blue);
+      color: #fff;
+      padding: 2em 1em;
+    }
+    header .inner { max-width: 960px; margin: 0 auto; }
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 2em;
+    }
+    header h1 a { color: #fff; text-decoration: none; }
+    header p {
+      margin: 0.25em 0 0 0;
+      font-weight: 300;
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2em 1em 4em 1em;
+    }
+    main h2 {
+      font-weight: 600;
+      color: var(--con-dark);
+      border-bottom: 2px solid var(--con-blue);
+      padding-bottom: 0.25em;
+      margin-top: 1.75em;
+    }
+    ul.talks {
+      list-style: none;
+      padding: 0;
+      margin: 0.5em 0;
+    }
+    ul.talks li {
+      padding: 0.5em 0;
+      border-bottom: 1px solid #eee;
+    }
+    ul.talks a {
+      color: var(--con-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    ul.talks a:hover { color: var(--con-blue); text-decoration: underline; }
+    ul.talks .file {
+      display: block;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.85em;
+      color: var(--con-muted);
+      font-weight: 400;
+    }
+    footer {
+      background: var(--con-dark);
+      color: #fff;
+      padding: 1.5em 1em;
+      font-size: 0.9em;
+    }
+    footer .inner { max-width: 960px; margin: 0 auto; }
+    footer a { color: var(--con-blue); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1><a href="https://centerforopenneuroscience.org/">Center for Open Neuroscience</a></h1>
+      <p>Talks &amp; slide decks</p>
+    </div>
+  </header>
+  <main>
+    <p>Slides from talks and workshops by CON people. This location is also a DataLad dataset (git/git-annex repository) so you can datalad clone it to get all the sources and materials.</p>
+      <h2>2026</h2>
+      <ul class="talks">
+        <li><a href="2026-repronim-YODA-BIDS-webinar.html">ReproFlow &amp; YODA: Structure your studies, observable and reproducible they become</a> <span class="file">2026-repronim-YODA-BIDS-webinar.html</span></li>
+        <li><a href="2026-ca-origami-retreat-aicoding.html">A few words of intro into AI assisted coding</a> <span class="file">2026-ca-origami-retreat-aicoding.html</span></li>
+      </ul>
+      <h2>2025</h2>
+      <ul class="talks">
+        <li><a href="2025-distribits-YODA.html">Pragmatic YODA: overview of YODA principles and their wild life encounters</a> <span class="file">2025-distribits-YODA.html</span></li>
+        <li><a href="2025-ca-origami-retreat.html">A challenge on the way to Neuroscience Nirvana</a> <span class="file">2025-ca-origami-retreat.html</span></li>
+      </ul>
+      <h2>2024</h2>
+      <ul class="talks">
+        <li><a href="2024-distribits-datalad-name.html">&quot;What&#39;s in the DataLad name&quot; AKA How come DataLad?</a> <span class="file">2024-distribits-datalad-name.html</span></li>
+        <li><a href="2024-distribits-datalad.html">&quot;What&#39;s in the DataLad sandwich&quot; AKA DataLad &quot;ecosystem&quot;</a> <span class="file">2024-distribits-datalad.html</span></li>
+      </ul>
+      <h2>2023</h2>
+      <ul class="talks">
+        <li><a href="2023-lbl-building-dandi.html">Building an Archive for Large-scale Neuroscience Data</a> <span class="file">2023-lbl-building-dandi.html</span></li>
+        <li><a href="2023-brain-dandi-imgdatasrc.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="file">2023-brain-dandi-imgdatasrc.html</span></li>
+        <li><a href="2023-brain-dandi.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="file">2023-brain-dandi.html</span></li>
+        <li><a href="2023-bids-dicom.html">BIDS 4 DICOM WG-16</a> <span class="file">2023-bids-dicom.html</span></li>
+      </ul>
+      <h2>2022</h2>
+      <ul class="talks">
+        <li><a href="2022-tx-big-neuroscience.html">Towards the Big Data Neuroscience Nirvana</a> <span class="file">2022-tx-big-neuroscience.html</span></li>
+        <li><a href="2022-nih-compcore.html">An Integrated and Trusted Scientific and Statistical Computing Core</a> <span class="file">2022-nih-compcore.html</span></li>
+      </ul>
+  </main>
+  <footer>
+    <div class="inner">
+      Auto-generated by <code>tools/create_index.sh</code>.
+    </div>
+  </footer>
+</body>
+</html>
