@@ -39,10 +39,10 @@
 <!-- ============================================================ -->
 <section>
   <section>
-    <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
-    <h1 style="margin-top:0.5em;margin-bottom:0.3em;">BIDS 2.0</h1>
+    <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
+    <h1 style="margin-top:0;margin-bottom:0.1em;">BIDS 2.0</h1>
     <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.75em;font-style:italic;">
-      <strong>The past, present, and (realistic) future of the Brain Imaging Data Structure.</strong>
+      <strong>The past, present, and (realistic) future of the Brain Imaging Data Structure</strong>
     </p>
 
     <div style="margin-top:0.3em;text-align:center">
@@ -215,7 +215,7 @@
   <section  data-transition="slide">
 	<h3>BIDS Features</h3>
 
-	<table style="border:none; width:100%;">
+	<table style="border:none; width:120%;">
 	  <tr style="vertical-align:middle;">
 		<td style="width:30%; text-align:center;vertical-align:middle">
 		  <img style="max-width:100%;" data-src="pics/borrowed/dicom2bids-justbids.png" alt="DICOMs reorganized into a BIDS dataset"/>
@@ -225,10 +225,13 @@
 			<li><strong>Modular composition</strong>
 			  <ul><li>related: YODA &rarr;
 			  now <a href="https://stamped-principles.org/">STAMPED</a>
-			  principles.</li></ul>
+			  principles (more later)</li></ul>
 			</li>
 			<li><strong><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#filesystem-structure">Consistent folder composition</a></strong>
-			  <ul><li><code><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#study-dataset">[study/]</a>dataset/sub-&lt;label&gt;/[ses-&lt;label&gt;/]&lt;datatype&gt;/</code></li></ul>
+			  <ul><li><code><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#study-dataset">[study/]</a>&lt;dataset&gt;/sub-&lt;label&gt;/[ses-&lt;label&gt;/]&lt;datatype&gt;/</code></li>
+				<li><b>You have seen one BIDS dataset -- you have seen them all!</b></li>
+
+			  </ul>
 			</li>
 			<li><strong>Expressive file naming schema</strong>
 			  <ul>
@@ -236,48 +239,35 @@
 				  <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf"><em>Naming Things</em></a> by Jenny Bryan;
 				  <a href="https://djnavarro.net/slides-project-structure/#1"><em>Project structure</em></a> by Danielle Navarro;
 				  DataLad RDM Course &mdash;
-				  <a href="https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html#how-to-name-a-file">How to name a file</a>.</li>
+				  <a href="https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html#how-to-name-a-file">How to name a file</a></li>
 			  </ul>
 			</li>
 			<li><strong>Standard file formats</strong>
-			  <ul><li>NIfTI / TSV / JSON / EDF / BrainVision / &hellip; per modality (see <a href="https://bids-specification.readthedocs.io/en/stable/">spec</a>).</li></ul>
+			  <ul><li>NIfTI / TSV / JSON / EDF / BrainVision / &hellip; per modality (see <a href="https://bids-specification.readthedocs.io/en/stable/">spec</a>)</li></ul>
 			</li>
 			<li><strong>Documented metadata</strong>
-			  <ul><li><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#key-value-files-dictionaries">JSON sidecars</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#tabular-files">TSV "summaries"</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#the-inheritance-principle">inheritance principle</a>.</li></ul>
+			  <ul><li><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#key-value-files-dictionaries">JSON sidecars</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#tabular-files">TSV "summaries"</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#the-inheritance-principle">inheritance principle</a></li></ul>
 			</li>
 			<li><strong>Human- and machine-readable data</strong>
 			  <ul>
-				<li>Human-readable <a href="https://bids-specification.readthedocs.io/">specification</a> (Markdown &rarr; HTML / PDF).</li>
-				<li>Machine-readable <a href="https://github.com/bids-standard/bids-specification/tree/master/src/schema">schema</a> (YAML) &mdash; validator, docs, and tooling generated from it.</li>
+				<li>Human-readable <a href="https://bids-specification.readthedocs.io/">specification</a> (Markdown &rarr; HTML / PDF)</li>
+				<li>Machine-readable <a href="https://github.com/bids-standard/bids-specification/tree/master/src/schema">schema</a> (YAML) &mdash; validator, docs, and tooling generated from it</li>
+				<li><a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) for turnkey pipelines</li>
+				<li><a href="https://github.com/bids-standard/pybids">PyBIDS</a>, <a href="https://github.com/childmindresearch/bids2table/">bids2table</a>, <a href="https://github.com/khanlab/snakebids">snakebids</a> etc. for scripting</li>
+
 			  </ul>
 			</li>
 			<li><strong>Constant evolution</strong>
 			  <ul><li>via <a href="https://bids.neuroimaging.io/extensions/">BIDS Extension Proposals (BEPs)</a> and open
-				<a href="https://github.com/bids-standard/bids-specification/pulls">PR review</a>.</li></ul>
+				<a href="https://github.com/bids-standard/bids-specification/pulls">PR review</a></li></ul>
 			</li>
 		  </ul>
 		</td>
 	  </tr>
 	</table>
 
-	<section>
-	  <h2>Benefits from datasets standardization into BIDS</h2>
-
-	  <ul>
-		<li><b>You have seen one BIDS dataset -- you have seen them all!</b></li>
- 		<li>You can verify compliance and overall (meta)data consistency using
-		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
-		  </li>
-		<li>You can use <a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) for turnkey pipelines</li>
-		<li>You can use <a href="https://github.com/bids-standard/pybids">PyBIDS</a>, <a href="https://github.com/childmindresearch/bids2table/">bids2table</a>, <a href="https://github.com/khanlab/snakebids">snakebids</a> etc. for scripting</li>
-		<li>... many more benefits ...</li>
-		<li><b>Everyone in neuroimaging should be encouraged to
-			collect/operate on data in BIDS format and contribute back!</b></li>
-	  </ul>
-	</section>
-
 	<p style="text-align:right;margin-top:0.3em;"><small>
-	  See deeper overview at <a href="https://docs.google.com/presentation/d/1x-LdlVGItyX6oINm8URIP5cZWBvQG6bM/edit?usp=sharing&ouid=106463979469591360865&rtpof=true&sd=true">"The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience"</a>,<br/> NSF POSE Workshop 2024.
+	  See deeper overview at <a href="https://docs.google.com/presentation/d/1x-LdlVGItyX6oINm8URIP5cZWBvQG6bM/edit?usp=sharing&ouid=106463979469591360865&rtpof=true&sd=true">"The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience"</a>,<br/> NSF POSE Workshop 2024
 	</small></p>
   </section>
 
@@ -293,7 +283,6 @@
 	</small>
 	</p>
   </section>
-
 
 </section>
 
@@ -349,11 +338,11 @@
 
 ----
 
-## BIDS 2.0 Goals
+# BIDS 2.0 Goals
 
-- Deprecate the Deprecated
-- Improve Consistency
-- Facilitate Modularity
+## Deprecate the Deprecated
+## Improve Consistency
+## Facilitate Modularity
 
 	</textarea>
   </section>
@@ -368,13 +357,67 @@
 
 ----
 
-### Deprecations
+### BIDS 1.x has already broken things many times
 
-TODO: summary over different types of deprecations
+Across `1.0 → 1.11` the spec already accumulated:
+
+- **~9 metadata fields** still marked `level: deprecated` in the schema
+- **3 suffix / enum values** carried forward as back-compat shims
+- **1 column value** (`"89+"` in `participants.tsv` now just `89`)
+
+The mechanism: [`bids-specification#634`](https://github.com/bids-standard/bids-specification/pull/634) ([1.4.1](https://github.com/bids-standard/bids-specification/releases/tag/v1.4.1), 2020-10) formalized `DEPRECATED` as a *permanent* schema category — validators SHOULD warn; fields stay in the spec.
+
+(claude'd summary [`2026-nih-bids2.0/notes-1x-deprecations.md`](https://github.com/con/talks/blob/master/2026-nih-bids2.0/notes-1x-deprecations.md))
 
 ----
 
+### Field renames — same value, different key
+
+- `Unit` → `Units` ([`#773`](https://github.com/bids-standard/bids-specification/pull/773), [1.6.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.6.0))
+- `ElektaNeuromag` → `NeuromagElektaMEGIN` ([1.8.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.8.0))
+- `MISCChannelCount` → `MiscChannelCount` (camelCase fix, [1.8.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.8.0))
+- `orientation_component` → `component` in `channels.tsv` ([`#1417`](https://github.com/bids-standard/bids-specification/pull/1417), [1.9.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.9.0))
+- `atlas` entity → `seg` ([`#1579`](https://github.com/bids-standard/bids-specification/pull/1579), [1.9.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.9.0))
+- `ManufacturersCapModelName` → `CapManufacturer` + `CapManufacturersModelName` (1.1.1)
+- Anatomical suffixes `T2star` / `FLASH` / `PD` → `T2starw` + parametric variants ([`#725`](https://github.com/bids-standard/bids-specification/pull/725), [1.5.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.5.0))
+
+→ every consumer keying off the old name silently fails.
+
+----
+
+### Semantic swap under a stable name — the worst kind
+
+- `IntendedFor`, `Sources`, `AssociatedEmptyRoom` paths → **BIDS URIs** ([`#918`](https://github.com/bids-standard/bids-specification/pull/918), [1.8.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.8.0)): consumers expecting POSIX paths now also see `bids::sub-…`.
+- `index` numeric semantics churned **twice** on whether `0` is a valid run ([`#535`](https://github.com/bids-standard/bids-specification/pull/535) → [`#590`](https://github.com/bids-standard/bids-specification/pull/590) → [`#1482`](https://github.com/bids-standard/bids-specification/pull/1482)).
+- Inheritance principle — **value overloading** flagged as discouraged in [1.10.1](https://github.com/bids-standard/bids-specification/releases/tag/v1.10.1), explicit plan to deprecate in 2.0 ([`#1834`](https://github.com/bids-standard/bids-specification/pull/1834)).
+
+----
+
+### MAY → MUST tightenings (previously-valid datasets can fail)
+
+- `events.tsv` MUST be sorted by `onset` ([`#1732`](https://github.com/bids-standard/bids-specification/pull/1732), [1.10.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.10.0))
+- `electrodes.tsv` clarified REQUIRED for iEEG ([`#1896`](https://github.com/bids-standard/bids-specification/pull/1896), [1.10.1](https://github.com/bids-standard/bids-specification/releases/tag/v1.10.1))
+- `recording` entity REQUIRED for PET / blood ([`#1005`](https://github.com/bids-standard/bids-specification/pull/1005), [1.7.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.7.0))
+- `dataset_description.Authors` RECOMMENDED ([`#1092`](https://github.com/bids-standard/bids-specification/pull/1092), [1.7.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.7.0))
+- Bare DOIs deprecated → fully-specified URIs (`common-principles.md`)
+- "No blank/duplicate TSV headers" clarification ([`#1116`](https://github.com/bids-standard/bids-specification/pull/1116)) — a *de facto* validator tightening, not flagged as breaking.
+
+----
+
+### Carried forward as `deprecated` in the schema
+
 [![IMG](pics/borrowed/bids-deprecated-suffixes_20260602.png)](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetic-resonance-imaging-data.html#deprecated-suffixes)
+
+----
+
+## Takeaway
+
+### BIDS 2.0 is the chance to **drop the shims**
+
+- BIDS has effectively been making breaking changes for years
+
+- BIDS 2.0 isn't the first break -- it's the first one we get to
+  get rid of "garbage DNA"
 
 	</textarea>
   </section>
@@ -389,22 +432,26 @@ TODO: summary over different types of deprecations
 
 ----
 
-### Inconsistencies
+### Inconsistencies to tidy in 2.0
 
-TODO: present inconsistencies to be addressed, e.g.
+- `participants.tsv` → `subjects.tsv` — match the `sub-` entity name
+- Singular TSV column names ([`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821)) — `Units` (singular), etc.
+- Inheritance Principle "Summarization": RECOMMENDED → **MUST**
+- Formalize principle(s) reflecting overall consistency:
+  - singular index column (e.g. `session_id`) in `.tsv` files ([`bids-specification#2283`](https://github.com/bids-standard/bids-specification/issues/2283))
+  - outlier: composite index in `samples.tsv` ([`bids-specification#2273`](https://github.com/bids-standard/bids-specification/issues/2273))
+- **Time units across modalities** — fMRI uses seconds, three ASL fields use milliseconds ([`bids-2-devel#96`](https://github.com/bids-standard/bids-2-devel/issues/96))
+- **`.json` sidecars mix two purposes** - file-level metadata *and* TSV column-definition dictionaries — different consumers, same schema namespace
+  - inconsistency between `.tsv` and `.tsv.gz` ([`bids-2-devel#71`](https://github.com/bids-standard/bids-2-devel/issues/71))
+- **Path-vs-URI** for cross-file references — BIDS URIs ([1.8.0](https://github.com/bids-standard/bids-specification/releases/tag/v1.8.0)) coexist with legacy raw-relative paths in the wild
 
-- `participants.tsv` → `subjects.tsv`.
-- Singular TSV column names ([`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821))
-- Inheritance Principle "Summarization" to become a **MUST**
-- Formalize principle(s) reflecting overall consistency
-  - singular index column (e.g. `session_id`) in .tsv files ([`bids-specification#2283`](https://github.com/bids-standard/bids-specification/issues/2283))
-  - outlier: composite index in `samples.tsv`
-
+<!--
 ----
 
-### Potential new formalization, e.g.
+### Composite-index outlier &mdash; `samples.tsv`
 
 [![IMG](pics/borrowed/bids-issues-2273-composite-index_20260602.png)](https://github.com/bids-standard/bids-specification/issues/2273)
+-->
 
 	</textarea>
   </section>
@@ -421,7 +468,7 @@ TODO: present inconsistencies to be addressed, e.g.
 	  
 ### Modularity
 
-BIDS v1.10.1 (2025-09-03) **already** introduced "study" `DatasetType`:
+BIDS [v1.10.1](https://github.com/bids-standard/bids-specification/releases/tag/v1.10.1) (2025-09-03) **already** introduced "study" `DatasetType`:
 
 [![IMG](pics/borrowed/bids-studydataset-1.11.1.png)](https://bids-specification.readthedocs.io/en/v1.11.1/common-principles.html#study-dataset)
 
@@ -478,8 +525,8 @@ Watch **YODA: Structure your studies, observable and reproducible they become** 
 
 ## Now: BIDS 2.0 HOW/WHERE (weigh in!)
 
-- Overall "BIDS-2.0" PR — [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/issues/1775).
-- Inheritance principle deep-dive — [`bids-specification#2155`](https://github.com/bids-standard/bids-specification/issues/2155) (Lestropie).
+- Overall "BIDS-2.0" PR — [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/issues/1775)
+- Inheritance principle deep-dive — [`bids-specification#2155`](https://github.com/bids-standard/bids-specification/issues/2155) (Lestropie)
 
 - **Tooling:**
   - Users: [`bids-utils migrate`](https://github.com/bids-standard/bids-utils/)
@@ -487,6 +534,7 @@ Watch **YODA: Structure your studies, observable and reproducible they become** 
     - functional patches in [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/pull/1775)
     - extensive testing against [bids-examples](https://github.com/bids-standard/bids-examples)
   </textarea>
+</section>
 </section>
 
 
@@ -498,11 +546,16 @@ Watch **YODA: Structure your studies, observable and reproducible they become** 
 
 ## How to get involved
 
-- Project board: [github.com/orgs/bids-standard/projects/10](https://github.com/orgs/bids-standard/projects/10).
-- Repos: `bids-standard/bids-2-devel`, `bids-specification`, `bids-utils`, `bids-examples`:
-  - contribute more valid examples/use-cases!
-- BEP process - the way new modalities & large additions move forward.
-- Zotero group bibliography: [zotero.org/groups/5111637/bids](https://www.zotero.org/groups/5111637/bids/library).
+- BIDS 2.0 Project board: [github.com/orgs/bids-standard/projects/10](https://github.com/orgs/bids-standard/projects/10)
+- Repos:
+  - [`bids-standard/bids-2-devel`](https://github.com/bids-standard/bids-2-devel)
+  - [`bids-specification`](https://github.com/bids-standard/bids-specification)
+  - [`bids-utils`](https://github.com/bids-standard/bids-utils)
+  - [`bids-examples`](https://github.com/bids-standard/bids-examples):
+    - contribute more valid examples/use-cases to secure **your** future!
+- PRs - no change is "too small"
+- BEP process - new modalities & large additions are moving forward: review!
+- Use/contribute to Zotero group bibliography: [zotero.org/groups/5111637/bids](https://www.zotero.org/groups/5111637/bids/library)
 
 <!-- TODO: add QR codes for project board, bids-2-devel, BIDS.bib Zotero, monthly call -->
 
