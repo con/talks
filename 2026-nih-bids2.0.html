@@ -302,14 +302,13 @@
 <!-- ============================================================ -->
 
 <section>
-
   <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
-## 8 The Future of BIDS
+## The Future of BIDS
 
 <small>
-  
+
 > As BIDS nears its tenth anniversary, its success has also led to increasing recognition of the limitations of the existing framework. This has, in turn, driven a growing discussion regarding the need for a new major version of BIDS (“BIDS 2.0”) that would introduce changes that are incompatible with the existing BIDS framework. A dedicated repository (https://github.com/bids-standard/bids-2-devel/issues) is collecting issues, a subset of which will be chosen for BIDS 2.0. It is likely that the discussion of a new version will continue over the next few years, given the significant difficulty that breaking changes would impose on tool developers.
 
 </small>
@@ -356,6 +355,17 @@
 - Improve Consistency
 - Facilitate Modularity
 
+	</textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+
+# Deprecations
+
 ----
 
 ### Deprecations
@@ -366,6 +376,17 @@ TODO: summary over different types of deprecations
 
 [![IMG](pics/borrowed/bids-deprecated-suffixes_20260602.png)](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetic-resonance-imaging-data.html#deprecated-suffixes)
 
+	</textarea>
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+# Inconsistencies
+
 ----
 
 ### Inconsistencies
@@ -373,11 +394,31 @@ TODO: summary over different types of deprecations
 TODO: present inconsistencies to be addressed, e.g.
 
 - `participants.tsv` → `subjects.tsv`.
-- Singular TSV column names ([`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821); `migrate_plural_columns`).
-- Inheritance Principle "Summarisation" (currently RECOMMENDED) → **MUST**.
+- Singular TSV column names ([`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821))
+- Inheritance Principle "Summarization" to become a **MUST**
+- Formalize principle(s) reflecting overall consistency
+  - singular index column (e.g. `session_id`) in .tsv files ([`bids-specification#2283`](https://github.com/bids-standard/bids-specification/issues/2283))
+  - outlier: composite index in `samples.tsv`
 
 ----
 
+### Potential new formalization, e.g.
+
+[![IMG](pics/borrowed/bids-issues-2273-composite-index_20260602.png)](https://github.com/bids-standard/bids-specification/issues/2273)
+
+	</textarea>
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+# Modularity
+
+----
+	  
 ### Modularity
 
 BIDS v1.10.1 (2025-09-03) **already** introduced "study" `DatasetType`:
@@ -426,104 +467,27 @@ Watch **YODA: Structure your studies, observable and reproducible they become** 
 
 [![IMG](pics/stamped-principles-webshot_20260602.png)](https://stamped-principles.org/)
 
-----
-
-- Schema + sidecar overloads — more consistent modality coverage.
-- `DatasetType: study` for dataset composition ([`bids-2-devel#59`](https://github.com/bids-standard/bids-2-devel/issues/59)) — demo on [OpenNeuroStudies](https://github.com/OpenNeuroStudies/OpenNeuroStudies).
-- Inheritance docs PR ([`bids-specification#1834`](https://github.com/bids-standard/bids-specification/issues/1834)).
-- Controlled vocab for age units ([`bids-specification#2400`](https://github.com/bids-standard/bids-specification/issues/2400)).
-- And… BIDS has "always been v1" — but 1.x also accrued ~20 deprecations / renames / behavioural changes. See `notes-1x-deprecations.md`.
-
 	</textarea>
   </section>
 </section>
 
 
+<section>
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
 
-<!-- ============================================================ -->
-<!-- Slide 9: Now: realistic 2.0                                   -->
-<!-- ============================================================ -->
-<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-  <textarea data-template>
+## Now: BIDS 2.0 HOW/WHERE (weigh in!)
 
-## Now: realistic 2.0
-
-- Flex layout / inheritance reform ([`bids-2-devel#54`](https://github.com/bids-standard/bids-2-devel/issues/54) → [`bids-specification#1809`](https://github.com/bids-standard/bids-specification/issues/1809)).
-- Deprecations finally deprecated.
-- Cross-modal divergences to flatten — e.g. `samples.tsv` sticking out ([`bids-specification#2283`](https://github.com/bids-standard/bids-specification/issues/2283)).
-- **Tooling:** `bids-utils migrate` + functional patches per [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/pull/1775).
-
-  </textarea>
-</section>
-
-
-<!-- ============================================================ -->
-<!-- Slide 10: State of play - by the numbers                      -->
-<!-- ============================================================ -->
-<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-  <textarea data-template>
-
-## State of play — by the numbers
-
-*All counts are links — follow along on the slides to open the live GitHub query.*
-
-- [`bids-2-devel`](https://github.com/bids-standard/bids-2-devel):
-  [81 open issues](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen) /
-  [13 closed](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aclosed) (2026-06-01 sync).
-- Top labels:
-  [`metadata` (23)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Ametadata),
-  [`consistency` (13)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Aconsistency),
-  [`impact: high` (11)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3A%22impact%3A+high%22),
-  [`folder-structure` (11)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Afolder-structure),
-  [`entities` (10)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Aentities),
-  [`suffixes` (8)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Asuffixes).
-- [`bids-specification`](https://github.com/bids-standard/bids-specification) with [`bids-2.0`](https://github.com/bids-standard/bids-specification/issues?q=label%3Abids-2.0) label:
-  [3 open PRs](https://github.com/bids-standard/bids-specification/pulls?q=is%3Apr+is%3Aopen+label%3Abids-2.0),
-  [1 merged](https://github.com/bids-standard/bids-specification/pulls?q=is%3Apr+is%3Amerged+label%3Abids-2.0)
-  ([age units](https://github.com/bids-standard/bids-specification/pull/2400)).
-- Project board [#10](https://github.com/orgs/bids-standard/projects/10): TBD by column (needs `read:project`-scoped token).
-
-<!-- TODO: re-render once data/project-10/items.yaml is populated on the host -->
-
-  </textarea>
-</section>
-
-
-<!-- ============================================================ -->
-<!-- Slide 11: Featured open threads                               -->
-<!-- ============================================================ -->
-<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-  <textarea data-template>
-
-## Featured open threads — weigh in!
-
+- Overall "BIDS-2.0" PR — [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/issues/1775).
 - Inheritance principle deep-dive — [`bids-specification#2155`](https://github.com/bids-standard/bids-specification/issues/2155) (Lestropie).
-- Singular TSV columns — [`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821).
-- Flex BIDS layout — [`bids-specification#1809`](https://github.com/bids-standard/bids-specification/issues/1809).
-- Umbrella "BIDS-2.0" PR — [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/issues/1775).
-- +1 or +2 more once we mine the YAML dumps.
 
-<!-- TODO: replace last bullet with actual picks from data/bids-specification/prs-bids-2.0.yaml -->
-
+- **Tooling:**
+  - Users: [`bids-utils migrate`](https://github.com/bids-standard/bids-utils/)
+  - BIDS developers:
+    - functional patches in [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/pull/1775)
+    - extensive testing against [bids-examples](https://github.com/bids-standard/bids-examples)
   </textarea>
 </section>
-
-
-<!-- ============================================================ -->
-<!-- Slide 12: What's in scope for 2.0 vs 3.0                      -->
-<!-- ============================================================ -->
-<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-  <textarea data-template>
-
-## 2.0 vs 3.0 — what's deferred
-
-- 3.0 is on the horizon but explicitly out of scope for this talk.
-- Use the project board *"BIDS 3.0"* column to be concrete about what's deferred.
-- We're thinking about 3.0; we're *working on* slimmer 2.0.
-
-  </textarea>
-</section>
-
 
 
 <!-- ============================================================ -->
@@ -535,10 +499,10 @@ Watch **YODA: Structure your studies, observable and reproducible they become** 
 ## How to get involved
 
 - Project board: [github.com/orgs/bids-standard/projects/10](https://github.com/orgs/bids-standard/projects/10).
-- Repos: `bids-standard/bids-2-devel`, `bids-specification`, `bids-utils`, `bids-examples` — contribute more valid examples!
-- BEP process — the way new modalities & large additions move forward.
+- Repos: `bids-standard/bids-2-devel`, `bids-specification`, `bids-utils`, `bids-examples`:
+  - contribute more valid examples/use-cases!
+- BEP process - the way new modalities & large additions move forward.
 - Zotero group bibliography: [zotero.org/groups/5111637/bids](https://www.zotero.org/groups/5111637/bids/library).
-- Monthly BIDS maintainer call.
 
 <!-- TODO: add QR codes for project board, bids-2-devel, BIDS.bib Zotero, monthly call -->
 
