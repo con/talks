@@ -1,0 +1,48 @@
+- number: 42
+  title: '[INFRA] Remove issue template'
+  state: MERGED
+  url: https://github.com/bids-standard/bids-2-devel/pull/42
+  author: tsalo
+  assignees: []
+  labels: []
+  createdAt: '2020-08-08T19:26:34Z'
+  updatedAt: '2020-08-08T19:44:39Z'
+  closedAt: '2020-08-08T19:44:30Z'
+  body: Now that the BIDS 2.0 Doc has successfully been migrated to this repository, we can remove the 2.0 migration issue template.
+  comments:
+  - author: sappelhoff
+    createdAt: '2020-08-08T19:44:39Z'
+    body: 'Thanks @tsalo '
+  mergedAt: '2020-08-08T19:44:30Z'
+  mergedBy: sappelhoff
+  isDraft: false
+  headRefName: drop-template
+  baseRefName: master
+  reviews: []
+- number: 2
+  title: '[INFRA] Add issue template'
+  state: MERGED
+  url: https://github.com/bids-standard/bids-2-devel/pull/2
+  author: tsalo
+  assignees: []
+  labels: []
+  createdAt: '2020-08-02T17:19:15Z'
+  updatedAt: '2020-08-03T07:06:17Z'
+  closedAt: '2020-08-03T07:05:43Z'
+  body: "This is just a basic template that would point users toward including suggestions' original authors, when available.\r\n\r\nStems from https://github.com/bids-standard/bids-2-devel/issues/1#issuecomment-667675257."
+  comments:
+  - author: sappelhoff
+    createdAt: '2020-08-02T17:35:27Z'
+    body: Would we remove this template again once the migration is done?
+  - author: tsalo
+    createdAt: '2020-08-02T17:39:39Z'
+    body: That's what I was thinking.
+  - author: sappelhoff
+    createdAt: '2020-08-03T07:06:17Z'
+    body: Makes sense to me, thanks :)
+  mergedAt: '2020-08-03T07:05:43Z'
+  mergedBy: sappelhoff
+  isDraft: false
+  headRefName: tsalo-patch-1
+  baseRefName: master
+  reviews: []

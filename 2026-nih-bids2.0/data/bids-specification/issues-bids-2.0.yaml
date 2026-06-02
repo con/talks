@@ -1,0 +1,162 @@
+- number: 2155
+  title: Inheritance Principle deep-dive
+  state: OPEN
+  url: https://github.com/bids-standard/bids-specification/issues/2155
+  author: Lestropie
+  assignees: []
+  labels:
+  - bug
+  - consistency
+  - inheritance
+  - bids-2.0
+  createdAt: '2025-07-08T03:01:36Z'
+  updatedAt: '2025-07-10T13:42:34Z'
+  closedAt: null
+  body: 'Greetings all,
+
+
+    During and subsequent to the recent 2025 OHBM Hackathon, I have invested considerable time in interrogating the BIDS Inheritance Principle. This has been a source of contention and confusion since its inclusion in the inception of BIDS. For the specification to be robust, and for the community to be able to make relevant decisions for BIDS Derivatives and BIDS 2.0, its interpretation and the implementation of relevant tooling need to be correpsondingly robust.
+
+
+    I intend for this Issue listing to serve as a "meta-issue". I will be over time posting Issues / Pull Requests in multiple distinct repositories, progressively replacing the placeholders below with links to such. Any esoteric discussion specific to those individual software tools / databases should occur there once created so as to not twist different discussion threads here; this Issue should be reserved for any higher-level discussion that requires tying all of these topics together.
+
+
+    I''ll create a secondary post here describing my new tool; I''ll reserve this original post to listing the ramifications for other components of the BIDS ecosystem.
+
+
+    -----
+
+
+    ## `bids-examples`
+
+
+    I have generated a large number of new example datasets that are tailored for the exploration of the Inheritance Principle (current count is 28).
+
+    For each of these datasets, I have manually classified, under each individual IP ruleset (see below), whether that dataset satisfies that version of the Inheritance Principle, whether a warning should be issued, or whether the IP is violated, and ensured that my own software implementation matches these outcomes.
+
+    This can then serve as validation for any other BIDS software that needs to be IP-aware.
+
+
+    **Edit**: https://github.com/bids-standard/bids-examples/pull/504
+
+
+    ## BIDS 1.0
+
+
+    There are some discrepancies between the behaviour of the validators and my pre-conceived notions of what they would yield for different example datasets that may hint at things having been overlooked in the specification:
+
+
+    -   Dataset attributes that are resulting in errors despite the fact that there''s not anything explicit in the specification that precludes it.
+
+
+    -   The change to the Inheritance Principle in 1.7.0 as committed in [#946](https://github.com/bids-standard/bids-specification/pull/946) was not a straight transition from lay description to codification, but rather involved a subtle change to the rules. This warrants explicit discussion, both in assessing different software behaviours and also what the specification should vs. should not permit.
+
+
+    **Edit**: https://github.com/bids-standard/bids-specification/issues/2156
+
+
+    ## Legacy `bids-validator`
+
+
+    The Legacy BIDS Validator has a range of scenarios where the outcome of validation does not conform with what I believe the outcome should be based on the Inheritance Principle as written.
+
+    I will post more details on the `legacy-validator` repository on the patterns observable from what fails, and link back here.
+
+    I appreciate that the legacy Validator is considered deprecated and so it is possible that these issues may not be fixed, but I''ll document exhaustively nevertheless.
+
+
+    **Edit**: https://github.com/bids-standard/legacy-validator/issues/2224
+
+
+    ## Schema `bids-validator`
+
+
+    Version 2.0 of the BIDS Validator fixes one errors with the legacy validator with respect to the IP, but fails to address others.
+
+    I will post more details on the `bids-validator` repository on what inadequacies remain outstanding, and link back here.
+
+
+    **Edit**: https://github.com/bids-standard/bids-validator/issues/217
+
+
+    ## `pybids`
+
+
+    I have not yet had the opportunity to familiarise myself with `pybids` to test which of these datasets expose improper implementation.
+
+    I will post over there once I''ve done that experiment, and link back here.
+
+    https://github.com/Lestropie/IP-freely/issues/24
+
+
+    **Edit**: https://github.com/bids-standard/pybids/issues/1148
+
+
+    ## BIDS 2.0
+
+
+    Going through this exercise has hopefully provided some insight on the merits of different choices for how to proceed (or not) with the Inheritance Principle for BIDS 2.0.
+
+    When I get to posting Issues on the BIDS 2.0 repository, I''ll link to them here.
+
+
+    **Edit**: https://github.com/bids-standard/bids-2-devel/issues/90
+
+    **Edit**: https://github.com/bids-standard/bids-2-devel/issues/91'
+  comments:
+  - author: Lestropie
+    createdAt: '2025-07-08T03:01:55Z'
+    body: '## New tool "IP-Freely"
+
+
+      The core work that has been done in the course of the last couple of weeks is an independent, from-scratch implementation of the Inheritance Principle, interpreted as written in different versions of the specification.
+
+
+      https://github.com/Lestropie/IP-freely/pull/15
+
+
+      #### Rule sets
+
+
+      I have defined in code a list of different rulesets that define what is and is not permissible under the Inheritance Principle under retrospective, current, and proposed future specifications.
+
+
+      These include:
+
+
+      -   The [original text](https://bids-specification.readthedocs.io/en/v1.1.2/02-common-principles.html#the-inheritance-principle) in specification 1.1.2 (the earliest version that is rendered online).
+
+
+      -   The [codified version](https://bids-specification.readthedocs.io/en/v1.7.0/02-common-principles.html#the-inheritance-principle) from 1.7.0 onwards as committed in [#946](https://github.com/bids-standard/bids-specification/pull/946).
+
+
+      -   The change committed in [#1834](https://github.com/bids-standard/bids-specification/pull/1834) to be included in 1.11.0 that precludes overrides of individual metadata key-values.
+
+
+      -   Proposed augmentations to make the Inheritance Proposal more powerful: one [rejected Pull Request #1003](https://github.com/bids-standard/bids-specification/pull/1003); another [discussed in Issue #1195](https://github.com/bids-standard/bids-specification/issues/1195).
+
+
+      -   A "ruleset" that prohibits any and all manifestations of the Inheritance Principle. This could be used to, for instance, *audit* for the presence of IP usage in data stores by "validating" them against this alternative rule set.
+
+
+      My software defines what is vs. is not permitted under each of these definitions of the IP.
+
+      A test barrage then ensures that the outcomes of validation of each of the example datasets (see below) under each of these rule sets conforms to my own *a priori* expectation given their respective definitions and the content of each dataset (NB. this is *not* purely regression testing; I''ve defined my expectations independently of software outcomes).
+
+
+      #### Conversion
+
+
+      The ultimate goal of this Tool was to be able to convert datasets to conform to different instantiations of the Inheritance Principle.
+
+      My work has however focused on existing support for the IP rather than enhancing the ecosystem in this regard,
+
+      given the volume of issues to report.
+
+
+      For now, there is one conversion possible: by nominating the output ruleset as "forbidden", the tool will produce an alternative version of the dataset where use of the Inheritance Principle is zero. This might be useful, for instance, in running BIDS Apps that fail to properly consider the Inheritance Principle against BIDS datasets that make use of the Inheritance Principle, by performing the requisite intermediate conversion.
+
+
+      I will hopefully get the chance to come back to this and improve my implementations of dataset modifications.
+
+      For instance I hope to use this tool to highlight how more complex datasets (eg. multi-modality, derivatives) may look depending on whether BIDS 2.0 were to choose to remove vs. augment the Inheritance Principle.'

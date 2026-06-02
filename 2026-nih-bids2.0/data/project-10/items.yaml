@@ -1,0 +1,854 @@
+title: BIDS 2.0
+url: https://github.com/orgs/bids-standard/projects/10
+number: 10
+fields:
+- name: Title
+  dataType: TITLE
+  options: null
+- name: Assignees
+  dataType: ASSIGNEES
+  options: null
+- name: Status
+  dataType: SINGLE_SELECT
+  options:
+  - Todo
+  - In Progress
+  - Done
+  - BIDS 3.0
+  - Punted
+- name: Labels
+  dataType: LABELS
+  options: null
+- name: Linked pull requests
+  dataType: LINKED_PULL_REQUESTS
+  options: null
+- name: Reviewers
+  dataType: REVIEWERS
+  options: null
+- name: Repository
+  dataType: REPOSITORY
+  options: null
+- name: Milestone
+  dataType: MILESTONE
+  options: null
+- name: Parent issue
+  dataType: PARENT_ISSUE
+  options: null
+- name: Sub-issues progress
+  dataType: SUB_ISSUES_PROGRESS
+  options: null
+- name: Created
+  dataType: CREATED
+  options: null
+- name: Updated
+  dataType: UPDATED
+  options: null
+- name: Closed
+  dataType: CLOSED
+  options: null
+items:
+- content:
+    type: PullRequest
+    repo: bids-standard/bids-specification
+    number: 1775
+    title: BIDS-2.0
+    state: OPEN
+    url: https://github.com/bids-standard/bids-specification/pull/1775
+    labels:
+    - bids-2.0
+    isDraft: true
+    merged: false
+  fields:
+  - field: Labels
+    value:
+    - bids-2.0
+  - field: Title
+    value: BIDS-2.0
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 54
+    title: Make it possible to specify folders layout to be other than sub-{label}/[ses-{label}/]
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/54
+    labels:
+    - 'impact: high'
+    - folder-structure
+    - modularity
+  fields:
+  - field: Labels
+    value:
+    - 'impact: high'
+    - folder-structure
+    - modularity
+  - field: Title
+    value: Make it possible to specify folders layout to be other than sub-{label}/[ses-{label}/]
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 5
+    title: 'Remove deprecated suffixes (e.g. FLASH, phase, etc) Was: Change FLASH for non-proprietary name'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/5
+    labels:
+    - deprecation
+    - suffixes
+    - simple
+  fields:
+  - field: Labels
+    value:
+    - deprecation
+    - suffixes
+    - simple
+  - field: Title
+    value: 'Remove deprecated suffixes (e.g. FLASH, phase, etc) Was: Change FLASH for non-proprietary name'
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 65
+    title: Replace "inheritance" with "summarization" principle
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/65
+    labels:
+    - inheritance
+    - modularity
+    - Copenhagen
+    - 1.0-partially-addressed
+  fields:
+  - field: Labels
+    value:
+    - inheritance
+    - modularity
+    - Copenhagen
+    - 1.0-partially-addressed
+  - field: Title
+    value: Replace "inheritance" with "summarization" principle
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 59
+    title: Allow composition of a BIDS dataset (dataset level) from smaller (subj or subj/ses) level
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/59
+    labels:
+    - modularity
+  fields:
+  - field: Labels
+    value:
+    - modularity
+  - field: Title
+    value: Allow composition of a BIDS dataset (dataset level) from smaller (subj or subj/ses) level
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-specification
+    number: 1565
+    title: 'Identify features and activities necessary to declare BIDS schema to be feature complete '
+    state: OPEN
+    url: https://github.com/bids-standard/bids-specification/issues/1565
+    labels:
+    - schema
+  fields:
+  - field: Labels
+    value:
+    - schema
+  - field: Title
+    value: 'Identify features and activities necessary to declare BIDS schema to be feature complete '
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 10
+    title: Exchange "-" with "_" and vice versa
+    state: CLOSED
+    url: https://github.com/bids-standard/bids-2-devel/issues/10
+    labels:
+    - wontfix
+    - characters
+  fields:
+  - field: Labels
+    value:
+    - wontfix
+    - characters
+  - field: Title
+    value: Exchange "-" with "_" and vice versa
+  - field: Status
+    value: Punted
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 11
+    title: Multi-site/center studies
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/11
+    labels:
+    - 'impact: high'
+    - folder-structure
+  fields:
+  - field: Labels
+    value:
+    - 'impact: high'
+    - folder-structure
+  - field: Title
+    value: Multi-site/center studies
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 44
+    title: Move task information from data jsons to events jsons
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/44
+    labels:
+    - 'impact: medium'
+    - metadata
+  fields:
+  - field: Labels
+    value:
+    - 'impact: medium'
+    - metadata
+  - field: Title
+    value: Move task information from data jsons to events jsons
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 57
+    title: Overarching agenda for 2.0
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/57
+    labels: []
+  fields:
+  - field: Title
+    value: Overarching agenda for 2.0
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 14
+    title: Homogenize "Subject" Nomenclature
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/14
+    labels:
+    - common-principles
+    - entities
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - common-principles
+    - entities
+    - consistency
+  - field: Title
+    value: Homogenize "Subject" Nomenclature
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 67
+    title: Develop bids-migration script
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/67
+    labels:
+    - tooling
+  fields:
+  - field: Labels
+    value:
+    - tooling
+  - field: Title
+    value: Develop bids-migration script
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 56
+    title: Formalize procedure of issues triage for BIDS 2.0 project
+    state: CLOSED
+    url: https://github.com/bids-standard/bids-2-devel/issues/56
+    labels: []
+  fields:
+  - field: Title
+    value: Formalize procedure of issues triage for BIDS 2.0 project
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 38
+    title: Extended BIDS for animals
+    state: CLOSED
+    url: https://github.com/bids-standard/bids-2-devel/issues/38
+    labels:
+    - entities
+  fields:
+  - field: Labels
+    value:
+    - entities
+  - field: Title
+    value: Extended BIDS for animals
+  - field: Status
+    value: Punted
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 33
+    title: 'Make key/value pair: _run-XX suffix mandatory'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/33
+    labels:
+    - 'impact: low'
+    - entities
+  fields:
+  - field: Labels
+    value:
+    - 'impact: low'
+    - entities
+  - field: Title
+    value: 'Make key/value pair: _run-XX suffix mandatory'
+  - field: Status
+    value: Punted
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 36
+    title: Remove inheritance rule
+    state: CLOSED
+    url: https://github.com/bids-standard/bids-2-devel/issues/36
+    labels:
+    - 'impact: high'
+    - common-principles
+    - inheritance
+    - modularity
+  fields:
+  - field: Labels
+    value:
+    - 'impact: high'
+    - common-principles
+    - inheritance
+    - modularity
+  - field: Title
+    value: Remove inheritance rule
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 66
+    title: Generalize BIDS common principles as a "data structure standard (DSS)"
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/66
+    labels: []
+  fields:
+  - field: Title
+    value: Generalize BIDS common principles as a "data structure standard (DSS)"
+  - field: Status
+    value: BIDS 3.0
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 68
+    title: Dissolve _beh.tsv datatype in favor of _events.tsv
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/68
+    labels: []
+  fields:
+  - field: Title
+    value: Dissolve _beh.tsv datatype in favor of _events.tsv
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 29
+    title: Replace _scans.tsv with _recordings.tsv
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/29
+    labels:
+    - suffixes
+    - auto-migrate
+  fields:
+  - field: Labels
+    value:
+    - suffixes
+    - auto-migrate
+  - field: Title
+    value: Replace _scans.tsv with _recordings.tsv
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 70
+    title: '_mod entity: should it be kept, dissolved, transformed, or embraced? '
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/70
+    labels:
+    - entities
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - entities
+    - consistency
+  - field: Title
+    value: '_mod entity: should it be kept, dissolved, transformed, or embraced? '
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 72
+    title: 'Make "datatype" identical to "modality": in other words use `_suffix` of the "data modality" as a `datatype/` folder'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/72
+    labels:
+    - folder-structure
+  fields:
+  - field: Labels
+    value:
+    - folder-structure
+  - field: Title
+    value: 'Make "datatype" identical to "modality": in other words use `_suffix` of the "data modality" as a `datatype/` folder'
+  - field: Status
+    value: BIDS 3.0
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 55
+    title: Change modality directories to entity format
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/55
+    labels:
+    - folder-structure
+  fields:
+  - field: Labels
+    value:
+    - folder-structure
+  - field: Title
+    value: Change modality directories to entity format
+  - field: Status
+    value: BIDS 3.0
+- content:
+    type: PullRequest
+    repo: bids-standard/bids-specification
+    number: 1809
+    title: 'BIDS 2̶.̶0̶1.0: flex BIDS layout (bids-2-devel/issues/54)'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-specification/pull/1809
+    labels:
+    - enhancement
+    - bids-2.0
+    isDraft: true
+    merged: false
+  fields:
+  - field: Labels
+    value:
+    - enhancement
+    - bids-2.0
+  - field: Title
+    value: 'BIDS 2̶.̶0̶1.0: flex BIDS layout (bids-2-devel/issues/54)'
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 69
+    title: Uniformize .json files for .tsv's first column to be "<entity>_id"
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/69
+    labels:
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - consistency
+  - field: Title
+    value: Uniformize .json files for .tsv's first column to be "<entity>_id"
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 15
+    title: 'MINOR: Replace "units" with "unit" in channels.tsv'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/15
+    labels:
+    - 'impact: low'
+    - metadata
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - 'impact: low'
+    - metadata
+    - consistency
+  - field: Title
+    value: 'MINOR: Replace "units" with "unit" in channels.tsv'
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 81
+    title: Review present in BIDS 2.0 deprecations and handle them
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/81
+    labels:
+    - deprecation
+  fields:
+  - field: Labels
+    value:
+    - deprecation
+  - field: Title
+    value: Review present in BIDS 2.0 deprecations and handle them
+  - field: Status
+    value: In Progress
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 74
+    title: Formalize concept/specification of the "BIDS Extensions"
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/74
+    labels:
+    - modularity
+  fields:
+  - field: Labels
+    value:
+    - modularity
+  - field: Title
+    value: Formalize concept/specification of the "BIDS Extensions"
+  - field: Status
+    value: BIDS 3.0
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 76
+    title: Separation of metadata describing data vs. intended processing
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/76
+    labels:
+    - metadata
+  fields:
+  - field: Labels
+    value:
+    - metadata
+  - field: Title
+    value: Separation of metadata describing data vs. intended processing
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 17
+    title: Allowed characters in labels/keys
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/17
+    labels:
+    - characters
+  fields:
+  - field: Labels
+    value:
+    - characters
+  - field: Title
+    value: Allowed characters in labels/keys
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 77
+    title: Replace DWI FSL-format bval/bvec files with MRtrix-format tsv file
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/77
+    labels:
+    - extensions
+    - DWI
+  fields:
+  - field: Labels
+    value:
+    - extensions
+    - DWI
+  - field: Title
+    value: Replace DWI FSL-format bval/bvec files with MRtrix-format tsv file
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 78
+    title: Make column names singular
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/78
+    labels:
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - consistency
+  - field: Title
+    value: Make column names singular
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 79
+    title: desc_id -> description_id and have values with desc- prefix
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/79
+    labels:
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - consistency
+  - field: Title
+    value: desc_id -> description_id and have values with desc- prefix
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 71
+    title: 'Uniformize .tsv and .tsv.gz: both to have header + both have "Columns" dictionary (!not list) in sidecar .json  '
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/71
+    labels: []
+  fields:
+  - field: Title
+    value: 'Uniformize .tsv and .tsv.gz: both to have header + both have "Columns" dictionary (!not list) in sidecar .json  '
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 80
+    title: Custom prefix (X-) for arbitrary metadata in .json files
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/80
+    labels:
+    - metadata
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - metadata
+    - consistency
+  - field: Title
+    value: Custom prefix (X-) for arbitrary metadata in .json files
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 64
+    title: Relax extension requirements, maybe rename to formats
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/64
+    labels: []
+  fields:
+  - field: Title
+    value: Relax extension requirements, maybe rename to formats
+  - field: Status
+    value: Punted
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 82
+    title: 'Disambiguate Authors: format is not specified, and not enriched with ORCID'
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/82
+    labels:
+    - consistency
+    - linked-data
+  fields:
+  - field: Labels
+    value:
+    - consistency
+    - linked-data
+  - field: Title
+    value: 'Disambiguate Authors: format is not specified, and not enriched with ORCID'
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 83
+    title: Make BEP044 for stimuli/ (if present) mandatory
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/83
+    labels:
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - consistency
+  - field: Title
+    value: Make BEP044 for stimuli/ (if present) mandatory
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 84
+    title: Remove prefixes from all the *CoordinateSystem metadata fields?
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/84
+    labels: []
+  fields:
+  - field: Title
+    value: Remove prefixes from all the *CoordinateSystem metadata fields?
+- content:
+    type: Issue
+    repo: bids-standard/bids-specification
+    number: 637
+    title: unspecified status of extra content in the JSON files
+    state: OPEN
+    url: https://github.com/bids-standard/bids-specification/issues/637
+    labels:
+    - opinions wanted
+    - discussion
+  fields:
+  - field: Labels
+    value:
+    - opinions wanted
+    - discussion
+  - field: Title
+    value: unspecified status of extra content in the JSON files
+  - field: Status
+    value: Todo
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 35
+    title: Add a compulsory header to every JSON file
+    state: CLOSED
+    url: https://github.com/bids-standard/bids-2-devel/issues/35
+    labels:
+    - metadata
+  fields:
+  - field: Labels
+    value:
+    - metadata
+  - field: Title
+    value: Add a compulsory header to every JSON file
+  - field: Status
+    value: Done
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 85
+    title: Formalize "life-cycle"/movement and placement of metadata
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/85
+    labels:
+    - metadata
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - metadata
+    - consistency
+  - field: Title
+    value: Formalize "life-cycle"/movement and placement of metadata
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 86
+    title: Custom prefix (X-) for arbitrary columns in .tsv files
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/86
+    labels:
+    - metadata
+    - consistency
+  fields:
+  - field: Labels
+    value:
+    - metadata
+    - consistency
+  - field: Title
+    value: Custom prefix (X-) for arbitrary columns in .tsv files
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 87
+    title: Seek dedicated funding for BIDS +1 development
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/87
+    labels: []
+  fields:
+  - field: Title
+    value: Seek dedicated funding for BIDS +1 development
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 88
+    title: Compose with personas and their user stories for BIDS 2.0
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/88
+    labels:
+    - documentation
+  fields:
+  - field: Labels
+    value:
+    - documentation
+  - field: Title
+    value: Compose with personas and their user stories for BIDS 2.0
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 89
+    title: Address "semantic conflict" for GeneratedBy
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/89
+    labels: []
+  fields:
+  - field: Title
+    value: Address "semantic conflict" for GeneratedBy
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 93
+    title: Dissolve (remove) `{datatype}/` level/folder
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/93
+    labels:
+    - 'impact: high'
+    - folder-structure
+    - consistency
+    - auto-migrate
+  fields:
+  - field: Labels
+    value:
+    - 'impact: high'
+    - folder-structure
+    - consistency
+    - auto-migrate
+  - field: Title
+    value: Dissolve (remove) `{datatype}/` level/folder
+- content:
+    type: Issue
+    repo: bids-standard/bids-2-devel
+    number: 92
+    title: Use "=" instead of "-" as in `entity=<label|index>` instead of `entity-<label|index>`
+    state: OPEN
+    url: https://github.com/bids-standard/bids-2-devel/issues/92
+    labels:
+    - folder-structure
+    - consistency
+    - auto-migrate
+  fields:
+  - field: Labels
+    value:
+    - folder-structure
+    - consistency
+    - auto-migrate
+  - field: Title
+    value: Use "=" instead of "-" as in `entity=<label|index>` instead of `entity-<label|index>`
+  - field: Status
+    value: Punted
