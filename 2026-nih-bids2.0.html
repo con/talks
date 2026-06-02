@@ -1,0 +1,618 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>BIDS 2.0</title>
+		<meta name="description" content="NIMH Data Science & Sharing Team Lunch & Learn. BIDS 2.0: the past, present, and (realistic) future of the Brain Imaging Data Structure. What 1.x delivered, what 2.0 will and won't change, and how to weigh in.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<!--
+  Skeleton for the NIMH L&L "BIDS 2.0" talk.
+  Slides numbered to match the table in 2026-nih-bids2.0/talk-plan.md.
+  Fill in each section's body once content is settled.
+-->
+
+
+<!-- ============================================================ -->
+<!-- Slide 1: Title                                                -->
+<!-- ============================================================ -->
+<section>
+  <section>
+    <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
+    <h1 style="margin-top:0.5em;margin-bottom:0.3em;">BIDS 2.0</h1>
+    <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.75em;font-style:italic;">
+      <strong>The past, present, and (realistic) future of the Brain Imaging Data Structure.</strong>
+    </p>
+
+    <div style="margin-top:0.3em;text-align:center">
+      <table style="border:none;">
+        <tr>
+          <td>
+            Yaroslav O. Halchenko<br/>
+            <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px"/>@yarikoptic</a></small>
+            <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em"/>@yarikoptic@fosstodon.org</a></small>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <small><br/>
+              <a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a><br/>
+              <a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a><br/>
+              <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College, NH, USA</a>
+            </small>
+            <img style="width:160px; margin: 0px" data-src="pics/2026-nih-bids2.0-qrcode.png"/>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <small>
+      <strong>NIMH Data Science &amp; Sharing Team &mdash; Lunch &amp; Learn &mdash; TBD 2026</strong><br/>
+      <!-- TODO: insert exact date, room/Zoom link, pre-talk blurb from organisers -->
+      Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+      <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-nih-bids2.0.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-nih-bids2.0.html</a>
+    </small>
+    <br/>
+    <small>
+      <a href="http://datalad.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+      <a href="http://neuro.debian.net" target="_blank"><img style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+      <a href="http://repronim.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/repronim-logo-vertical.svg"/></a>
+      <a href="https://open-brain-consent.readthedocs.io" target="_blank"><img style="height:100px;margin:15px" data-src="pics/OBC_LogoCheck.svg"/></a>
+  	  <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a>
+      <a href="https://dandiarchive.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+      <a href="https://bids.neuroimaging.io/" target="_blank"><img style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
+      <a href="https://standforukraine.com/" target="_blank"><img style="height:100px;margin:15px" data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+    </small>
+
+    <!-- TODO: STAMPED banner in footer once asset wiring is decided.
+         Asset path candidate: assets/stamped/ver-3/name-banner_ver-3.svg -->
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 2: Who I am / what CON does                             -->
+<!-- ============================================================ -->
+<section data-transition-speed="zoom">
+
+  <section>
+  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
+  </section>
+
+<!--  <section>
+	<h1>Who am I?</h1>
+	<img style="height:400px" data-src="pics/borrowed/twitter-unsolicited-advice.png"/>
+  </section> -->
+
+  <section>
+	<h3>Brief Bio</h3>
+	<p>Born in Siberia (RSFSR, USSR), Grew up in Ukraine, Matured in U.S.A.</p>
+	<ul style="font-size:120%">
+	  <li class="fragment"><b>-1994 Physics Mathematics Gymnasium #17 (Ukraine):</b><br>
+		<small> Regional&State Physics and Programming
+		  competitions. MS-DOS. Borland Pascal</small></li>
+
+	  <li class="fragment"><b>-1999 VSTU (Ukraine):
+		  <span style="float:right;">Masters in Opto-Electronic Engineering</span></b><br>
+		<small> (@yarikoptic). State Physics and International ACM Programming
+		  competitions. Spine diagnostic apparatus. Member of "Small Academy of Science of
+		  Ukraine". SPIE. Soros Fellowship (twice). MS-DOS/Windows.
+		  Borland Pascal, Delphi, VBA
+	  </small></li>
+
+	  <li class="fragment"><b>-2003 University of New Mexico:
+		  <span style="float:right;">Masters in Computer Science</span></b><br>
+		<small><a href="http://www.bcl.hamilton.ie/~barak/">B.Pearlmutter</a>.
+		  SOBI/JADE ICA for single trial MEG. Favorite course: Data structures
+		  and algorithms.
+		  <a href="https://debian.org">Debian GNU/Linux</a>.
+		  C, Matlab, shell. CVS
+	  </small></li>
+
+	  <li class="fragment"><b>-2009 Rutgers-Newark/NJIT:
+		  <span style="float:right;">Ph.D. in Computer Science</span></b><br>
+		<small><a href="http://rubic-web.rutgers.edu/people.html">S.Hanson</a>.
+		  <a href="http://dx.doi.org/10.1162/neco.2007.09-06-340">fMRI decoding (RFE SVM)</a>.
+		  <a href="https://link.springer.com/article/10.1385/NI:2:1:071?noAccess=true">RUMBA</a>.
+		  HPC sysadmin (cfengine, PBS).
+		  <a href="https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/Hanke_m.html">M.Hanke</a>.
+		  Debian pkg-exppsy (for FSL and PyEPL).
+		  <a href="https://nm.debian.org/person/yoh/">Official Debian developer</a>.
+		  <a href="https://arxiv.org/abs/1307.2150">fMRI/EEG (TRANS)fusion</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>.
+		  C++, Python. SVN, GIT. 1 wife, 3 kids
+	  </small></li>
+	  <li class="fragment"><b>- NOW Dartmouth College, PBS Department: <br>
+		  <span style="float:right;">Postdoc, Scientist, Research Assistant/Associate/<emph>null</emph> Professor</span></b><br>
+		<small><a href="https://haxbylab.dartmouth.edu/">J.Haxby</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>
+		  (<a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignment</a>,
+		  ...),
+		  <a href="https://neuro.debian.net">NeuroDebian</a>,
+		  <a href="https://datalad.org">DataLad</a>,
+		  <a href="https://repronim.org">ReproNim</a>,
+		  <a href="https://dandiarchive.org">DANDI</a>,
+		  <a href="https://stamped-principles.org">STAMPED</a>,
+		  ...
+		  1 dog, 2 cats, <a href="https://github.com/yarikoptic/coop">Chicken Coop (12 chickens, 1 rooster)</a>,
+		  ...
+		  <a href="https://www.distribits.live/">distribits</a>,
+		  <a href="https://centerforopenneuroscience.org/">CON</a>:
+		</small>
+	  </li>
+	</ul>
+
+	<aside class="notes"><ul>
+		<li>Russian Soviet Federative Socialist Republic</li>
+	</ul></aside>
+
+  </section>
+
+  <section>
+	<div class="r-stack">
+	  <img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+	  <!-- TODO update this compilation! prepend with proper Ack-->
+	  <!-- <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/> -->
+	  <img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/>
+	  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+	  <img class="fragment" style="width:2400px" data-src="pics/con-projects-standards-20260601.png"/>
+	  <!-- <img class="fragment" style="width:500px"
+				data-src="pics/con-ack-joeybenetc-extended.svg"/> -->
+	</div>
+  </section>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 3: Very brief overview of BIDS and its history         -->
+<!-- ============================================================ -->
+<section>
+
+  <section  data-transition="slide">
+	<img style="width:2000px" data-src="pics/bids-logo-wide.png"/>
+	<br>
+	<small>
+	  <a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+		E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
+		D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+		Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+		Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (<b>2016</b>). The
+		brain imaging data structure, a format for organizing and describing outputs
+		of neuroimaging experiments. Scientific Data, 3:160044</a>
+	</small>
+  </section>
+
+  <section
+	data-background-iframe="pics/bids-10th-birthday-card.html"
+	data-background-interactive>
+  </section>
+
+  <section  data-transition="slide">
+	<h3>BIDS Features</h3>
+
+	<table style="border:none; width:100%;">
+	  <tr style="vertical-align:middle;">
+		<td style="width:30%; text-align:center;vertical-align:middle">
+		  <img style="max-width:100%;" data-src="pics/borrowed/dicom2bids-justbids.png" alt="DICOMs reorganized into a BIDS dataset"/>
+		</td>
+		<td style="width:70%; text-align:left;">
+		  <ul style="font-size:0.7em;">
+			<li><strong>Modular composition</strong>
+			  <ul><li>related: YODA &rarr;
+			  now <a href="https://stamped-principles.org/">STAMPED</a>
+			  principles.</li></ul>
+			</li>
+			<li><strong><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#filesystem-structure">Consistent folder composition</a></strong>
+			  <ul><li><code><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#study-dataset">[study/]</a>dataset/sub-&lt;label&gt;/[ses-&lt;label&gt;/]&lt;datatype&gt;/</code></li></ul>
+			</li>
+			<li><strong>Expressive file naming schema</strong>
+			  <ul>
+				<li>related:
+				  <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf"><em>Naming Things</em></a> by Jenny Bryan;
+				  <a href="https://djnavarro.net/slides-project-structure/#1"><em>Project structure</em></a> by Danielle Navarro;
+				  DataLad RDM Course &mdash;
+				  <a href="https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html#how-to-name-a-file">How to name a file</a>.</li>
+			  </ul>
+			</li>
+			<li><strong>Standard file formats</strong>
+			  <ul><li>NIfTI / TSV / JSON / EDF / BrainVision / &hellip; per modality (see <a href="https://bids-specification.readthedocs.io/en/stable/">spec</a>).</li></ul>
+			</li>
+			<li><strong>Documented metadata</strong>
+			  <ul><li><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#key-value-files-dictionaries">JSON sidecars</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#tabular-files">TSV "summaries"</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#the-inheritance-principle">inheritance principle</a>.</li></ul>
+			</li>
+			<li><strong>Human- and machine-readable data</strong>
+			  <ul>
+				<li>Human-readable <a href="https://bids-specification.readthedocs.io/">specification</a> (Markdown &rarr; HTML / PDF).</li>
+				<li>Machine-readable <a href="https://github.com/bids-standard/bids-specification/tree/master/src/schema">schema</a> (YAML) &mdash; validator, docs, and tooling generated from it.</li>
+			  </ul>
+			</li>
+			<li><strong>Constant evolution</strong>
+			  <ul><li>via <a href="https://bids.neuroimaging.io/extensions/">BIDS Extension Proposals (BEPs)</a> and open
+				<a href="https://github.com/bids-standard/bids-specification/pulls">PR review</a>.</li></ul>
+			</li>
+		  </ul>
+		</td>
+	  </tr>
+	</table>
+
+	<section>
+	  <h2>Benefits from datasets standardization into BIDS</h2>
+
+	  <ul>
+		<li><b>You have seen one BIDS dataset -- you have seen them all!</b></li>
+ 		<li>You can verify compliance and overall (meta)data consistency using
+		  <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
+		  </li>
+		<li>You can use <a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) for turnkey pipelines</li>
+		<li>You can use <a href="https://github.com/bids-standard/pybids">PyBIDS</a>, <a href="https://github.com/childmindresearch/bids2table/">bids2table</a>, <a href="https://github.com/khanlab/snakebids">snakebids</a> etc. for scripting</li>
+		<li>... many more benefits ...</li>
+		<li><b>Everyone in neuroimaging should be encouraged to
+			collect/operate on data in BIDS format and contribute back!</b></li>
+	  </ul>
+	</section>
+
+	<p style="text-align:right;margin-top:0.3em;"><small>
+	  See deeper overview at <a href="https://docs.google.com/presentation/d/1x-LdlVGItyX6oINm8URIP5cZWBvQG6bM/edit?usp=sharing&ouid=106463979469591360865&rtpof=true&sd=true">"The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience"</a>,<br/> NSF POSE Workshop 2024.
+	</small></p>
+  </section>
+
+  <section  data-transition="slide">
+	<img style="width:2000px" data-src="pics/borrowed/bids-timeline-2024.svg"/>
+	<br>
+	<p style="text-align:right;margin-top:0.3em;">
+	<small>
+	  From: <b>The past, present, and future of the brain imaging data structure (BIDS)</b><br/>
+	  By Poldrack et al. Imaging Neuroscience (2024) 2: 1–19.
+	  <a href="https://doi.org/10.1162/imag_a_00103">DOI: 10.1162/imag_a_00103</a><br/>
+	  More of historical intro: <a href="https://docs.google.com/presentation/d/1doDm2wo8JyZrzuG8a2Xk-5OlBlzwq9I3/edit?usp=sharing&ouid=106463979469591360865&rtpof=true&sd=true"><b>MRITogether: Roads to BIDS</b></a> talk slides.
+	</small>
+	</p>
+  </section>
+
+
+</section>
+
+<!-- ============================================================ -->
+<!-- Slide 4: Intro BIDS 2.0         -->
+<!-- ============================================================ -->
+
+<section>
+
+  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+## 8 The Future of BIDS
+
+<small>
+  
+> As BIDS nears its tenth anniversary, its success has also led to increasing recognition of the limitations of the existing framework. This has, in turn, driven a growing discussion regarding the need for a new major version of BIDS (“BIDS 2.0”) that would introduce changes that are incompatible with the existing BIDS framework. A dedicated repository (https://github.com/bids-standard/bids-2-devel/issues) is collecting issues, a subset of which will be chosen for BIDS 2.0. It is likely that the discussion of a new version will continue over the next few years, given the significant difficulty that breaking changes would impose on tool developers.
+
+</small>
+
+<p style="text-align:right;margin-top:0.3em;">
+	<small>
+	  From: <b>The past, present, and future of the brain imaging data structure (BIDS)</b><br/>
+	  By Poldrack et al. Imaging Neuroscience (2024) 2: 1–19.
+	  <a href="https://doi.org/10.1162/imag_a_00103">DOI: 10.1162/imag_a_00103</a><br/>
+	</small>
+</p>
+
+----
+
+### Standards vs software - the wrinkle
+
+- In software, adding a feature is a *minor* semver bump. Users opt in or ignore
+- In a standard, even an *optional* addition pulls on **every tool**:
+  - similar to DICOM - takes long for manufacturers to adopt
+  - validators, parsers, and pipelines diverge silently
+  - **example**: refining inheritance for TSVs:
+    - spec moves, tools don't
+    - datasets become "valid by spec, invalid by behavior"
+- Implication for BIDS 2.0:
+  - **bundle breaking changes into one release with migration support**
+
+----
+
+## Originally: more ambitious BIDS 2.0 (INCF 2024 poster)
+
+[![IMG](pics/bids-2.0-incf2024-webshottop.png)](https://docs.google.com/presentation/d/189tCRORhhn1ZzN6DmtK_Wqneui-kaoGiPXh7nzI0WGU/edit?usp=sharing)
+
+----
+
+## Current reduced agenda
+
+[![IMG](pics/borrowed/bids-2-devel_issue57-agenda_20260602.png)](https://github.com/bids-standard/bids-2-devel/issues/57)
+
+----
+
+## BIDS 2.0 Goals
+
+- Deprecate the Deprecated
+- Improve Consistency
+- Facilitate Modularity
+
+----
+
+### Deprecations
+
+TODO: summary over different types of deprecations
+
+----
+
+[![IMG](pics/borrowed/bids-deprecated-suffixes_20260602.png)](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetic-resonance-imaging-data.html#deprecated-suffixes)
+
+----
+
+### Inconsistencies
+
+TODO: present inconsistencies to be addressed, e.g.
+
+- `participants.tsv` → `subjects.tsv`.
+- Singular TSV column names ([`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821); `migrate_plural_columns`).
+- Inheritance Principle "Summarisation" (currently RECOMMENDED) → **MUST**.
+
+----
+
+### Modularity
+
+BIDS v1.10.1 (2025-09-03) **already** introduced "study" `DatasetType`:
+
+[![IMG](pics/borrowed/bids-studydataset-1.11.1.png)](https://bids-specification.readthedocs.io/en/v1.11.1/common-principles.html#study-dataset)
+
+Originally ([`bids-2-devel#59`](https://github.com/bids-standard/bids-2-devel/issues/59))
+
+----
+
+#### many existing layouts generalize well into BIDS "study"
+
+<div style="position: relative; width: 100%; height: 90vh;">
+
+<img src="pics/bids-nipoppy.png" class="" width="80%" style="position: absolute; top: 3%; left: 0%" />
+<img src="pics/bids-princeton.png" class="fragment fade-in" width="80%" style="position: absolute; top: 8%; left: 5%" />
+<img src="pics/bids-yoda.png" class="fragment fade-in" width="80%" style="position: absolute; top: 13%; left: 10%" />
+
+</div>
+
+----
+### OpenNeuroStudies: even higher modularization (in BIDS 3.0)
+
+[![IMG](pics/openneuro-studies-webshot_20260602.png)](https://github.com/OpenNeuroStudies/OpenNeuroStudies)
+
+----
+
+### Higher Modularity postponed (until BIDS 3.0)
+
+[![IMG](pics/borrowed/bids-2-devel_issue54-flex_20260602.png)](https://github.com/bids-standard/bids-2-devel/issues/54)
+
+----
+
+### YODA: from raw data to paper
+
+<!-- .slide: data-transition="fade" -->
+
+![ReproNim/containers workflow](pics/yoda-hierarchy-with-containers.png)
+
+Watch **YODA: Structure your studies, observable and reproducible they become** ReproNim Webinar:
+[slides](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html#/) and [Video on ReproTube](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0?tab=local&wide=1&t=5&q=BIDS&filter=1)
+
+----
+
+## YODA →
+
+[![IMG](pics/stamped-principles-webshot_20260602.png)](https://stamped-principles.org/)
+
+----
+
+- Schema + sidecar overloads — more consistent modality coverage.
+- `DatasetType: study` for dataset composition ([`bids-2-devel#59`](https://github.com/bids-standard/bids-2-devel/issues/59)) — demo on [OpenNeuroStudies](https://github.com/OpenNeuroStudies/OpenNeuroStudies).
+- Inheritance docs PR ([`bids-specification#1834`](https://github.com/bids-standard/bids-specification/issues/1834)).
+- Controlled vocab for age units ([`bids-specification#2400`](https://github.com/bids-standard/bids-specification/issues/2400)).
+- And… BIDS has "always been v1" — but 1.x also accrued ~20 deprecations / renames / behavioural changes. See `notes-1x-deprecations.md`.
+
+	</textarea>
+  </section>
+</section>
+
+
+
+<!-- ============================================================ -->
+<!-- Slide 9: Now: realistic 2.0                                   -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## Now: realistic 2.0
+
+- Flex layout / inheritance reform ([`bids-2-devel#54`](https://github.com/bids-standard/bids-2-devel/issues/54) → [`bids-specification#1809`](https://github.com/bids-standard/bids-specification/issues/1809)).
+- Deprecations finally deprecated.
+- Cross-modal divergences to flatten — e.g. `samples.tsv` sticking out ([`bids-specification#2283`](https://github.com/bids-standard/bids-specification/issues/2283)).
+- **Tooling:** `bids-utils migrate` + functional patches per [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/pull/1775).
+
+  </textarea>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 10: State of play - by the numbers                      -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## State of play — by the numbers
+
+*All counts are links — follow along on the slides to open the live GitHub query.*
+
+- [`bids-2-devel`](https://github.com/bids-standard/bids-2-devel):
+  [81 open issues](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen) /
+  [13 closed](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aclosed) (2026-06-01 sync).
+- Top labels:
+  [`metadata` (23)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Ametadata),
+  [`consistency` (13)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Aconsistency),
+  [`impact: high` (11)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3A%22impact%3A+high%22),
+  [`folder-structure` (11)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Afolder-structure),
+  [`entities` (10)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Aentities),
+  [`suffixes` (8)](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aissue+is%3Aopen+label%3Asuffixes).
+- [`bids-specification`](https://github.com/bids-standard/bids-specification) with [`bids-2.0`](https://github.com/bids-standard/bids-specification/issues?q=label%3Abids-2.0) label:
+  [3 open PRs](https://github.com/bids-standard/bids-specification/pulls?q=is%3Apr+is%3Aopen+label%3Abids-2.0),
+  [1 merged](https://github.com/bids-standard/bids-specification/pulls?q=is%3Apr+is%3Amerged+label%3Abids-2.0)
+  ([age units](https://github.com/bids-standard/bids-specification/pull/2400)).
+- Project board [#10](https://github.com/orgs/bids-standard/projects/10): TBD by column (needs `read:project`-scoped token).
+
+<!-- TODO: re-render once data/project-10/items.yaml is populated on the host -->
+
+  </textarea>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 11: Featured open threads                               -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## Featured open threads — weigh in!
+
+- Inheritance principle deep-dive — [`bids-specification#2155`](https://github.com/bids-standard/bids-specification/issues/2155) (Lestropie).
+- Singular TSV columns — [`bids-specification#1821`](https://github.com/bids-standard/bids-specification/issues/1821).
+- Flex BIDS layout — [`bids-specification#1809`](https://github.com/bids-standard/bids-specification/issues/1809).
+- Umbrella "BIDS-2.0" PR — [`bids-specification#1775`](https://github.com/bids-standard/bids-specification/issues/1775).
+- +1 or +2 more once we mine the YAML dumps.
+
+<!-- TODO: replace last bullet with actual picks from data/bids-specification/prs-bids-2.0.yaml -->
+
+  </textarea>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 12: What's in scope for 2.0 vs 3.0                      -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## 2.0 vs 3.0 — what's deferred
+
+- 3.0 is on the horizon but explicitly out of scope for this talk.
+- Use the project board *"BIDS 3.0"* column to be concrete about what's deferred.
+- We're thinking about 3.0; we're *working on* slimmer 2.0.
+
+  </textarea>
+</section>
+
+
+
+<!-- ============================================================ -->
+<!-- Slide 14: How to get involved                                 -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## How to get involved
+
+- Project board: [github.com/orgs/bids-standard/projects/10](https://github.com/orgs/bids-standard/projects/10).
+- Repos: `bids-standard/bids-2-devel`, `bids-specification`, `bids-utils`, `bids-examples` — contribute more valid examples!
+- BEP process — the way new modalities & large additions move forward.
+- Zotero group bibliography: [zotero.org/groups/5111637/bids](https://www.zotero.org/groups/5111637/bids/library).
+- Monthly BIDS maintainer call.
+
+<!-- TODO: add QR codes for project board, bids-2-devel, BIDS.bib Zotero, monthly call -->
+
+  </textarea>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Slide 15: Acknowledgments + Q&A                               -->
+<!-- ============================================================ -->
+<section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <textarea data-template>
+
+## Acknowledgments & Q&A
+
+- [BIDS maintainers and contributors](https://bids.neuroimaging.io/collaboration/contributors.html)
+- [Funders](https://bids.neuroimaging.io/collaboration/acknowledgments.html)
+
+- Questions?
+
+<!-- TODO: optional discussion-prompt slide before Q&A -->
+
+  </textarea>
+</section>
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js/plugin/search/search.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1400,
+				height: 1050,
+				//width: 1280,
+				//height: 960,
+				//width: 1024,
+				//height: 768,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				// uncomment for the slide with background banner
+				// controls: false, // true
+				// slideNumber: false, // 'c'
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				// RevealSearch: Press CTRL+Shift+F to search slide content
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>

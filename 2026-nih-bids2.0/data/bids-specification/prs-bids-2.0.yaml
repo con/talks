@@ -1,0 +1,169 @@
+- number: 2400
+  title: '[ENH] Recommend controlled vocabulary for age Units, clarify that it can be overloaded'
+  state: MERGED
+  url: https://github.com/bids-standard/bids-specification/pull/2400
+  author: yarikoptic
+  assignees: []
+  labels:
+  - schema
+  - documentation
+  - bids-2.0
+  createdAt: '2026-04-16T01:02:50Z'
+  updatedAt: '2026-05-07T17:45:06Z'
+  closedAt: '2026-05-07T17:45:06Z'
+  body: "Of high relevance to @bids-standard/bep032 effort, but also potentially to @bids-standard/bep036 and others.\r\n\r\n- Most recent relevant discussion is in https://github.com/bids-standard/bids-specification/issues/1633#issuecomment-4253350012 \r\n - Ultimately closes #1633\r\n- Reincarnated  https://github.com/bids-standard/bids-specification/pull/1791 which was partially addressed elsewhere\r\n- and relates to freshly filed https://github.com/bids-standard/bids-validator/issues/386 as we might need to adjust this depending on the solution there. \r\n\r\nTODOs/Notes\r\n- [x] it will make some bids-example datasets invalid since they use \"years\" for \"Units\" instead of \"year\", submitted https://github.com/bids-standard/bids-examples/pull/553\r\n- [x] Review/fix for that test fix.  ~~Unclear why NOW it became applicable/failing~~\r\n   - we ran into this since this is presumably the first rule adding custom checks on the column definition (not sidecar) .json files? (according to claude).  But reworked test selection seems became  too cumbersome\r\n   - no more changes to tests -- validating against .tsv\r\n- [x] For BIDS 2.0 make 'warning' into 'error' there Units not being from allowed values. Added to TODOs of #1775"
+  comments:
+  - author: codecov
+    createdAt: '2026-04-16T15:10:38Z'
+    body: "## [Codecov](https://app.codecov.io/gh/bids-standard/bids-specification/pull/2400?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) Report\n:white_check_mark: All modified and coverable lines are covered by tests.\n:white_check_mark: Project coverage is 83.07%. Comparing base ([`6764039`](https://app.codecov.io/gh/bids-standard/bids-specification/commit/6764039d06a93d2bfa203405477f389323814909?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard)) to head ([`5c6c320`](https://app.codecov.io/gh/bids-standard/bids-specification/commit/5c6c3206921506ca665741b623aea159a7d88522?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard)).\n\n<details><summary>Additional details and impacted files</summary>\n\n\n\n```diff\n@@           Coverage Diff           @@\n##           master    #2400   +/-   ##\n=======================================\n  Coverage   83.07%   83.07%           \n=======================================\n  Files          22       22           \n  Lines        1696     1696           \n=======================================\n  Hits         1409     1409           \n  Misses        287      287           \n```\n</details>\n\n[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/bids-standard/bids-specification/pull/2400?dropdown=coverage&src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard).   \n:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard).\n<details><summary> :rocket: New features to boost your workflow: </summary>\n\n- :snowflake: [Test Analytics](https://docs.codecov.com/docs/test-analytics): Detect flaky tests, report on failures, and find test suite problems.\n- :package: [JS Bundle Analysis](https://docs.codecov.com/docs/javascript-bundle-analysis): Save yourself from yourself by tracking and limiting bundle sizes in JS merges.\n</details>"
+  - author: yarikoptic
+    createdAt: '2026-04-16T15:16:47Z'
+    body: '@effigies I forced pushed rebase on master with tune up the the testing... if you see how to improve it please share (even if an idea). according to claude this is "AgeUnits rule is the first to access json.age in participants.json" and thus we started to hit in this test for sidecar json files.'
+  - author: yarikoptic
+    createdAt: '2026-04-16T16:29:54Z'
+    body: done, rewritten, force pushed, I think we have converged!
+  - author: effigies
+    createdAt: '2026-04-16T17:01:59Z'
+    body: "Just for the sake of considering alternatives, the ISO 8601 standard for durations is `P47Y1M8D` and such-like. We could allow someone to use `\"Format\": \"ISO8601-Duration\"` and define the regex `/P(\\d+Y)?(\\d+M)?.../` to validate those durations.\r\n\r\nThat would be using an existing standard instead of creating our own controlled vocabulary inspired by the standard, so I think it's worth considering, if only to record a reason for rejecting it.\r\n\r\nMy reasons would be:\r\n\r\n1) Existing practice is to use decimal durations, and providing a common set of unit names is more practical than suggesting everybody learn to read and write ISO strings.\r\n2) Including it as an optional unit (e.g., `\"Units\": \"ISO8601\"`) would be a burden on dataset consumers."
+  - author: yarikoptic
+    createdAt: '2026-04-16T17:23:17Z'
+    body: "yeap, search reminded me mentioning it in original\r\n- https://github.com/bids-standard/bids-specification/issues/1633\r\n\r\nFWIW, I think adopting standard for durations makes sense. I will extract your comment into an issue"
+  - author: yarikoptic
+    createdAt: '2026-04-20T14:58:25Z'
+    body: '@ericearl I would like to invite you to review this PR since somewhat relates to @bids-standard/bep036 and thus could be of interest for feedback or just approval ;) @julia-pfarr also might be of interest to you as a liaison to the  world of all the participants.tsv annotations of neurobagels ;)'
+  - author: effigies
+    createdAt: '2026-04-20T16:04:35Z'
+    body: Two approvals. This can be merged on/after Thursday, April 23, to ensure there's enough time for people to review since the last significant edit.
+  - author: julia-pfarr
+    createdAt: '2026-04-21T14:09:59Z'
+    body: 'Looks good! FYI: Neurobagel uses age in years with different formats (float (31.5), range (30-35), euro (31,5), bounded (30+), iso8601 (31Y6M))'
+  - author: yarikoptic
+    createdAt: '2026-05-07T17:45:01Z'
+    body: "> Two approvals. This can be merged on/after Thursday, April 23, to ensure there's enough time for people to review since the last significant edit.\r\n\r\ncoolio, today is May 07 so let's proceed!"
+  mergedAt: '2026-05-07T17:45:06Z'
+  mergedBy: yarikoptic
+  isDraft: false
+  headRefName: clarify-age
+  baseRefName: master
+  reviews:
+  - author: effigies
+    state: COMMENTED
+    submittedAt: '2026-04-16T13:34:10Z'
+    body: Some comments. Overall, I think this is a good push and will help clarity, but needs to be done in a backwards compatible way.
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-16T14:26:24Z'
+    body: ''
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-16T14:31:51Z'
+    body: ''
+  - author: effigies
+    state: COMMENTED
+    submittedAt: '2026-04-16T14:42:00Z'
+    body: ''
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-16T15:17:55Z'
+    body: ''
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-16T15:18:28Z'
+    body: ''
+  - author: effigies
+    state: COMMENTED
+    submittedAt: '2026-04-16T15:26:40Z'
+    body: ''
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-16T16:03:02Z'
+    body: ''
+  - author: effigies
+    state: COMMENTED
+    submittedAt: '2026-04-16T16:17:35Z'
+    body: ''
+  - author: effigies
+    state: APPROVED
+    submittedAt: '2026-04-16T17:02:35Z'
+    body: ''
+  - author: ericearl
+    state: COMMENTED
+    submittedAt: '2026-04-20T15:30:16Z'
+    body: ''
+  - author: ericearl
+    state: APPROVED
+    submittedAt: '2026-04-20T15:32:07Z'
+    body: Find a resolution to my one comment, and it looks good!
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2026-04-20T15:50:49Z'
+    body: ''
+  - author: effigies
+    state: COMMENTED
+    submittedAt: '2026-04-20T16:02:17Z'
+    body: ''
+- number: 1821
+  title: 'BIDS 2.0: harmonize TSV columns to be singular (ATM "units" and "migrate_plural_columns")'
+  state: OPEN
+  url: https://github.com/bids-standard/bids-specification/pull/1821
+  author: yarikoptic
+  assignees: []
+  labels:
+  - bids-2.0
+  createdAt: '2024-05-15T16:17:25Z'
+  updatedAt: '2024-05-22T19:04:40Z'
+  closedAt: null
+  body: "Closes\r\n- https://github.com/bids-standard/bids-2-devel/issues/15\r\n- https://github.com/bids-standard/bids-2-devel/issues/78\r\n\r\nTODOs\r\n- [ ] review if any other renames are due (not necessarily plural -> singular but might be done along here)\r\n- [ ] decide on either renaming \"units\" to \"unit\" is worthwhile given that there is lots of \"*Units\" in sidecar fields: https://github.com/bids-standard/bids-2-devel/issues/15#issuecomment-2112984796\r\n- [x] RECOMMEND for the user added columns to be singular\r\n  - [ ] consider possibility for adding a check to bids-validator -- might be too tricky to be worth it since not trivial to determine plurality AFAIK\r\n- [ ] compliment with changes to \"CONTRIBUTION\" guide of some kind (@effigies please remind where should we place those)\r\n  - [ ] add a test for schema tests to ensure that nobody inadvertently adds another plural column \r\n    - might be worth for BIDS 1.0 with whitelisting of known 2 culprits so we prevent possibly adding more\r\n- [ ] implement migration code"
+  comments: []
+  mergedAt: null
+  mergedBy: null
+  isDraft: true
+  headRefName: bids-2.0-singular-columns
+  baseRefName: bids-2.0
+  reviews: []
+- number: 1809
+  title: 'BIDS 2̶.̶0̶1.0: flex BIDS layout (bids-2-devel/issues/54)'
+  state: OPEN
+  url: https://github.com/bids-standard/bids-specification/pull/1809
+  author: yarikoptic
+  assignees: []
+  labels:
+  - enhancement
+  - bids-2.0
+  createdAt: '2024-04-27T16:02:09Z'
+  updatedAt: '2025-08-27T16:03:48Z'
+  closedAt: null
+  body: "Aims to provide a solution to\r\n\r\n- https://github.com/bids-standard/bids-2-devel/issues/54\r\n\r\n### Name rationale:\r\n\r\nOriginally I thought to name it `BIDSLayout` but that one was/is used as a class in pybids. On one hand it is great because corresponds in \"principles\". But I thought to avoid confusion at least ATM so to make it easier to find issues/code where such a term is used/mentioned.  So for now decided to go with `BIDSEntitiesLayout` but it would be easy to change to anything we want.\r\n\r\n### TODOs\r\n\r\n- [x] rebase against master. Per conversation with @effigies since change is not breaking existing datasets (if we allow for \"optional\" `session` level somehow) we could aim for regular master.\r\n- [ ] seek initial feedback (attn @bids-standard/maintainers @bids-standard/steering et al)\r\n- [ ] formalize \"optional\" notion of `session` (for BIDS 2.0 I thought to mandate it being explicit. @effigies pointed out that fmriprep produced both with and without ses- ATM).\r\n- [ ] elaborate on having multiple paths (e.g. `\".\"` and `\"atlases/\" : attn #1714 folks TODO: add a team)\r\n- [ ] provide migration for datasets with sessions: would need to be added explicitly\r\n- [ ] add examples to bids2.0-examples\r\n   - [ ] add few examples with alternative layouts (e.g. without `session` and `modality` folders, thus getting very close to DANDI BIDS-like setup. Attn @TheChymera who is trying nwb2bids on DANDI dandisets)\r\n   - [ ] may be even just migrate them all into some alternative layouts and see validator to still operate correctly... \r\n- [ ] adjust schema\r\n  - dissolve `entities` in [rules/files/common/tables.yaml](https://github.com/bids-standard/bids-specification/blob/master/src/schema/rules/files/common/tables.yaml) - will be guided by layout\r\n  - ...\r\n- [ ] adjust `bidsschematools` to support\r\n- [ ] extend `bids-validator` to support"
+  comments: []
+  mergedAt: null
+  mergedBy: null
+  isDraft: true
+  headRefName: bids-2.0-flex-layout
+  baseRefName: master
+  reviews: []
+- number: 1775
+  title: BIDS-2.0
+  state: OPEN
+  url: https://github.com/bids-standard/bids-specification/pull/1775
+  author: yarikoptic
+  assignees: []
+  labels:
+  - bids-2.0
+  createdAt: '2024-04-12T19:20:38Z'
+  updatedAt: '2026-04-16T16:34:17Z'
+  closedAt: null
+  body: "References\r\n- https://github.com/bids-standard/bids-2-devel/issues/57\r\n- Full list of issues to consider: https://github.com/bids-standard/bids-2-devel/issues\r\n- BIDS 2.0 Project of selected: https://github.com/orgs/bids-standard/projects/10\r\n\r\nPlan\r\n- [x] Initial \"setup\" of needed support tools/tests/changes\r\n   - [x] Closes https://github.com/bids-standard/bids-2-devel/issues/67\r\n   - [x] migrate all examples\r\n   - [x] validate all examples **after** migration (some are excluded since not passing even in BIDS 1.x using deno validator)\r\n- [x] Establish development procedures\r\n   - **See [CONTRIBUTING-BIDS2.0.md](https://github.com/bids-standard/bids-specification/pull/1775/files#diff-11381827c2d95e8cdab4b87229fed3e742e25a41707e167d98d34ab12da44ef7)**\r\n   - [ ] WiP -- being re-implemented/moved into https://github.com/bids-standard/bids-utils\r\n  - diff between this branch and with all the \"functional patches\" applied: https://github.com/bids-standard/bids-specification/compare/bids-2.0...bids-2.0-patched\r\n- Add patch sets to solve specific issues staged for BIDS 2.0 as outlined in https://github.com/orgs/bids-standard/projects/10\r\n  - **Major** \r\n    - [ ] Closes https://github.com/bids-standard/bids-2-devel/issues/65\r\n  - **Addressing quirks/inconsistencies of 1.x**. [Full list](https://github.com/bids-standard/bids-2-devel/issues?q=is%3Aopen%20is%3Aissue%20label%3Ainconsistency%20project%3Abids-standard%2F10)\r\n    - [x] Closes https://github.com/bids-standard/bids-2-devel/issues/14\r\n       - [ ] ?Introduce deprecation cycle within 2.0 to allow for coexistence of `participants.tsv` and `subjects.tsv` . \r\n    - [ ] Closes https://github.com/bids-standard/bids-2-devel/issues/69\r\n    - [ ] Closes https://github.com/bids-standard/bids-2-devel/issues/78, which also generalization over\r\n         - https://github.com/bids-standard/bids-2-devel/issues/15\r\n         - WIP: https://github.com/bids-standard/bids-specification/pull/1821\r\n   - **Making schema stricter** (incompatible within 1.x)\r\n     - [ ] when https://github.com/bids-standard/bids-specification/pull/2400 merged -- add changing that 'warning' into 'error' \r\n     - [ ] go from warning to error for inheritance principle detected overwrites\r\n- ~~**1.0 Major Feature Enhancements**: changes which are not breaking BIDS datasets compatibility will be suggested independently as PRs against 1.0 (master) while still targeting BIDS 2.0 release.~~\r\n\r\n<details>\r\n<summary>originally major changes planned for bids2.0 but postponed</summary> \r\n\r\n- **1.0 Major Feature Enhancements**: \r\n    - https://github.com/bids-standard/bids-2-devel/issues/54 which would help to address\r\n       - https://github.com/bids-standard/bids-2-devel/issues/11\r\n       - WiP: https://github.com/bids-standard/bids-specification/pull/1809\r\n    - https://github.com/bids-standard/bids-2-devel/issues/59 which would help to address\r\n       - https://github.com/bids-standard/bids-2-devel/issues/60\r\n    -  Populate `bids-2` branch/PR against `bids-examples` with examples depicting new approaches for hierarchy/composition\r\n\r\n</details>\r\n"
+  comments:
+  - author: codecov
+    createdAt: '2024-04-12T19:25:33Z'
+    body: "## [Codecov](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) Report\nAttention: Patch coverage is `80.48780%` with `16 lines` in your changes are missing coverage. Please review.\n> Project coverage is 87.50%. Comparing base [(`f0bc977`)](https://app.codecov.io/gh/bids-standard/bids-specification/commit/f0bc97703017315c43cbb6fb6b8d5e354817436a?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) to head [(`59fa77e`)](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?dropdown=coverage&src=pr&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard).\n\n| [Files](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?dropdown=coverage&src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) | Patch % | Lines |\n|---|---|---|\n| [tools/schemacode/bidsschematools/migrations.py](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?src=pr&el=tree&filepath=tools%2Fschemacode%2Fbidsschematools%2Fmigrations.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard#diff-dG9vbHMvc2NoZW1hY29kZS9iaWRzc2NoZW1hdG9vbHMvbWlncmF0aW9ucy5weQ==) | 86.36% | [9 Missing :warning: ](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) |\n| [tools/schemacode/bidsschematools/\\_\\_main\\_\\_.py](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?src=pr&el=tree&filepath=tools%2Fschemacode%2Fbidsschematools%2F__main__.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard#diff-dG9vbHMvc2NoZW1hY29kZS9iaWRzc2NoZW1hdG9vbHMvX19tYWluX18ucHk=) | 0.00% | [7 Missing :warning: ](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard) |\n\n<details><summary>Additional details and impacted files</summary>\n\n\n```diff\n@@            Coverage Diff             @@\n##           master    #1775      +/-   ##\n==========================================\n- Coverage   87.92%   87.50%   -0.43%     \n==========================================\n  Files          16       17       +1     \n  Lines        1375     1456      +81     \n==========================================\n+ Hits         1209     1274      +65     \n- Misses        166      182      +16     \n```\n\n\n\n</details>\n\n[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/bids-standard/bids-specification/pull/1775?dropdown=coverage&src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard).   \n:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=bids-standard).\n"
+  mergedAt: null
+  mergedBy: null
+  isDraft: true
+  headRefName: bids-2.0
+  baseRefName: master
+  reviews:
+  - author: yarikoptic
+    state: COMMENTED
+    submittedAt: '2024-04-27T16:04:53Z'
+    body: ''
