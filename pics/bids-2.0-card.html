@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Congratulations, BIDS 2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page0:#f7f5f0; --page1:#eef0f2;
+    --card:#fffdf9; --cardline:#e7e2d6; --panel:#f4f1ea;
+    --ink:#2b2620; --muted:#6f685b;
+    --blue:#2a76dd; --teal:#0f8b9e; --green:#1f9d57; --amber:#e8730c;
+    --pink:#d6336c; --purple:#9b5de5; --gold:#c98a00; --orange:#e8590c;
+    --grey:#6f685b; --cyan:#1098ad; --accent:#2a76dd;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:"JetBrains Mono",monospace;
+    background:
+      radial-gradient(1000px 600px at 82% -12%, #ffffff 0%, transparent 60%),
+      linear-gradient(160deg, var(--page0), var(--page1));
+    color:var(--ink); min-height:100%;
+    display:flex; align-items:center; justify-content:center; padding:28px 16px;
+  }
+  .card{
+    width:100%; max-width:980px;
+    background:linear-gradient(170deg,#fffefb,#fbf8f2);
+    border:1px solid var(--cardline); border-radius:26px;
+    box-shadow:0 30px 70px -34px rgba(60,52,38,.45), 0 1px 0 rgba(255,255,255,.7) inset;
+    overflow:hidden; position:relative; isolation:isolate;
+  }
+  .card::after{
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:6;
+    opacity:.035; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  header{ padding:30px 34px 6px; position:relative; z-index:4;}
+  .kicker{ font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--teal);
+    opacity:0; transform:translateY(8px); animation:rise .7s .15s ease forwards;}
+  .kicker b{color:var(--muted); font-weight:500;}
+  h1{ font-family:"Fraunces",serif; font-weight:800; font-size:clamp(32px,6vw,58px); line-height:1.04;
+    margin:.18em 0 .12em; letter-spacing:-.01em; color:var(--ink);
+    opacity:0; transform:translateY(14px); animation:rise .8s .3s cubic-bezier(.2,.7,.2,1) forwards;}
+  h1 .num{ background:linear-gradient(180deg,#f5a623,#e8590c); -webkit-background-clip:text; background-clip:text;
+    color:transparent; font-style:italic; text-shadow:0 2px 18px rgba(232,115,12,.18);}
+  .sub{ max-width:64ch; color:var(--muted); font-size:14.5px; line-height:1.55;
+    opacity:0; transform:translateY(10px); animation:rise .8s .5s ease forwards;}
+  .sub em{color:var(--ink); font-style:normal;}
+
+  .stage{ padding:14px 34px 4px; position:relative; z-index:4;}
+  .panel{
+    position:relative; background:var(--panel); border:1px solid var(--cardline);
+    border-radius:18px; padding:20px; box-shadow:0 0 0 0 rgba(42,118,221,0) , inset 0 1px 0 rgba(255,255,255,.6);
+    transition:box-shadow .5s ease, transform .5s cubic-bezier(.2,1.4,.4,1);
+  }
+  .panel.locked{ box-shadow:0 0 0 2px rgba(42,118,221,.55), 0 18px 40px -22px rgba(42,118,221,.5), inset 0 1px 0 rgba(255,255,255,.6); }
+  .panel.pulse{ animation:pulse .55s ease; }
+  @keyframes pulse{ 0%{transform:scale(1);} 40%{transform:scale(1.012);} 100%{transform:scale(1);} }
+
+  .panelhead{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;}
+  .status{ font-size:11.5px; color:var(--muted); letter-spacing:.02em; transition:color .3s ease;}
+  .panel.locked .status{ color:var(--accent); }
+
+  .ver{ display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--muted);}
+  .verbox{ height:20px; overflow:hidden; line-height:20px;}
+  .verInner{ transition:transform .55s cubic-bezier(.2,1.5,.4,1);}
+  .verInner span{ display:block; height:20px; font-weight:700;}
+  .verInner .v1{ color:var(--muted);}
+  .verInner .v2{ color:var(--accent);}
+  .panel.locked .verInner{ transform:translateY(-20px);}
+
+  .grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:11px; }
+  .tile{
+    display:flex; align-items:center; gap:9px; padding:11px 12px;
+    background:#fffefb; border:1px solid var(--cardline); border-radius:11px;
+    box-shadow:0 6px 16px -12px rgba(60,52,38,.6); opacity:0; will-change:transform,opacity;
+  }
+  .tile .td{ width:13px; height:13px; border-radius:4px; flex:0 0 auto; }
+  .tile .tl{ font-size:12.5px; font-weight:500; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .tile.snap{ box-shadow:0 6px 16px -10px rgba(42,118,221,.7), 0 0 0 1.5px rgba(42,118,221,.18); }
+
+  .confetti{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:5;}
+  .conf{ position:absolute; top:-14px; width:9px; height:14px; border-radius:2px; will-change:transform,opacity; opacity:0;}
+
+  footer{ padding:14px 34px 30px; position:relative; z-index:4;
+    display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+  .note{ color:var(--muted); font-size:12.5px; line-height:1.5; max-width:64ch;}
+  .note a{ color:var(--blue); text-decoration:none; border-bottom:1px dotted rgba(42,118,221,.5);}
+  .commit{ display:inline-block; margin-top:8px; color:#9a9384; font-size:11.5px;}
+  .commit .c{color:var(--green);}
+  .replay{ font-family:"JetBrains Mono",monospace; font-weight:700; font-size:12.5px; letter-spacing:.06em;
+    color:#3a2a12; background:linear-gradient(180deg,#ffce54,#f5a623); border:none; border-radius:999px;
+    padding:11px 20px; cursor:pointer; box-shadow:0 12px 26px -12px rgba(245,166,35,.7); white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease;}
+  .replay:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -12px rgba(245,166,35,.85);}
+  .replay:active{ transform:translateY(0);}
+
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+  @media (max-width:720px){ .grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:460px){ .grid{grid-template-columns:repeat(2,1fr);} header,.stage,footer{padding-left:20px;padding-right:20px;} }
+</style>
+</head>
+<body>
+  <main class="card" id="card">
+    <header>
+      <div class="kicker">// a major version bump &nbsp;·&nbsp; <b>backwards-incompatible, by design</b></div>
+      <h1>BIDS <span class="num">2.0</span> clicks into place</h1>
+      <p class="sub">The big cleanup release: a sprawl of special cases refactored into <em>one consistent, modular, flexible core</em> — schema-first throughout. Shipped, hopefully, well before the 20th birthday.</p>
+    </header>
+
+    <div class="stage">
+      <div class="panel" id="panel">
+        <div class="panelhead">
+          <div class="status" id="status">// 1.x: a sprawl of special cases</div>
+          <div class="ver">
+            release
+            <div class="verbox"><div class="verInner">
+              <span class="v1">v1.11</span><span class="v2">v2.0</span>
+            </div></div>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <div class="confetti" id="confetti"></div>
+    </div>
+
+    <footer>
+      <div class="note">
+        Backwards-incompatible, finally — same data, fewer surprises. More modular, more consistent, more flexible, with the machine-readable schema at the center. Long may it validate. &nbsp;<a href="https://bids.neuroimaging.io/" target="_blank" rel="noopener">bids.neuroimaging.io</a>
+        <span class="commit"><span class="c">$</span> git checkout bids-2.0 &amp;&amp; git tag -a 2.0.0 -m "everything in its place"</span>
+      </div>
+      <button class="replay" id="replay">↺ assemble again</button>
+    </footer>
+  </main>
+
+<script>
+(function(){
+  const grid=document.getElementById('grid');
+  const panel=document.getElementById('panel');
+  const status=document.getElementById('status');
+  const confettiEl=document.getElementById('confetti');
+
+  const COLORS={blue:'#2a76dd',teal:'#0f8b9e',green:'#1f9d57',amber:'#e8730c',pink:'#d6336c',
+                purple:'#9b5de5',gold:'#c98a00',orange:'#e8590c',grey:'#6f685b',cyan:'#1098ad'};
+  const TILES=[
+    ['MRI','blue'],['fMRI','blue'],['dMRI','teal'],['ASL','teal'],['qMRI','cyan'],
+    ['EEG','green'],['MEG','green'],['iEEG','green'],['PET','amber'],['NIRS','pink'],
+    ['micr','purple'],['MRS','gold'],['motion','orange'],['derivatives','grey'],['phenotype','blue'],
+  ];
+
+  const tiles=TILES.map(([label,color])=>{
+    const t=document.createElement('div'); t.className='tile';
+    const d=document.createElement('span'); d.className='td'; d.style.background=COLORS[color];
+    const l=document.createElement('span'); l.className='tl'; l.textContent=label;
+    t.appendChild(d); t.appendChild(l); grid.appendChild(t);
+    return t;
+  });
+
+  let token=0, timers=[];
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  const sign=()=>Math.random()<.5?-1:1;
+
+  function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
+
+  function reset(){
+    token++; clearTimers();
+    panel.classList.remove('locked','pulse');
+    status.textContent='// 1.x: a sprawl of special cases';
+    confettiEl.innerHTML='';
+    tiles.forEach(t=>{ t.getAnimations().forEach(a=>a.cancel()); t.classList.remove('snap'); t.style.opacity='0'; });
+  }
+
+  function play(){
+    reset(); const my=token;
+    const STAGGER=58, DUR=600;
+    tiles.forEach((t,i)=>{
+      const dx=sign()*rnd(70,170), dy=sign()*rnd(60,150), rot=sign()*rnd(8,20);
+      const a=t.animate([
+        {transform:`translate(${dx}px,${dy}px) rotate(${rot}deg) scale(.82)`, opacity:0},
+        {opacity:1, offset:.25},
+        {transform:'translate(0,0) rotate(0deg) scale(1)', opacity:1}
+      ],{duration:DUR, delay:i*STAGGER, easing:'cubic-bezier(.2,1.55,.35,1)', fill:'both'});
+      a.onfinish=()=>{ if(my!==token) return; t.classList.add('snap');
+        timers.push(setTimeout(()=>t.classList.remove('snap'),320)); };
+    });
+    const total=tiles.length*STAGGER+DUR;
+    timers.push(setTimeout(()=>{ if(my!==token) return; lock(my); }, total+120));
+  }
+
+  function lock(my){
+    if(my!==token) return;
+    panel.classList.add('locked','pulse');
+    status.textContent='// 2.0: one consistent · modular · flexible core';
+    confettiBurst();
+  }
+
+  function confettiBurst(){
+    const palette=['#e8730c','#d6336c','#1f9d57','#2a76dd','#c98a00','#0f8b9e','#9b5de5'];
+    for(let i=0;i<140;i++){
+      const d=document.createElement('div'); d.className='conf';
+      d.style.background=palette[(Math.random()*palette.length)|0];
+      d.style.left=(Math.random()*100)+'%';
+      const size=6+Math.random()*7; d.style.width=size+'px'; d.style.height=(size*1.4)+'px';
+      if(Math.random()<.3) d.style.borderRadius='50%';
+      const fall=2400+Math.random()*2400, xdrift=(Math.random()*2-1)*150, spin=(Math.random()*2-1)*900, sy=-20-Math.random()*40;
+      d.style.transform='translateY('+sy+'px)'; confettiEl.appendChild(d);
+      d.animate([
+        {transform:'translate(0,'+sy+'px) rotate(0deg)',opacity:1,offset:0},
+        {opacity:1,offset:.85},
+        {transform:'translate('+xdrift+'px,'+(confettiEl.clientHeight+60)+'px) rotate('+spin+'deg)',opacity:.9,offset:1}
+      ],{duration:fall,delay:Math.random()*450,easing:'cubic-bezier(.3,.6,.5,1)',fill:'forwards'}).onfinish=()=>d.remove();
+    }
+  }
+
+  document.getElementById('replay').addEventListener('click',play);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>setTimeout(play,650));
+  else setTimeout(play,650);
+})();
+</script>
+</body>
+</html>
