@@ -1,0 +1,595 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>[WiP] MVC at the stack scale: what makes the open-(neuro)science stack compose</title>
+		<meta name="description" content="[WiP] STUB / outline-only draft. A future CON talk arguing that the four CON verbs (Reuse / Compose / Extend / Standardize) all converge on Model–View–Controller — at the scale of the whole research-software stack, not one app.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- =================================================================
+     STATUS: STUB / OUTLINE ONLY.
+     Authoring guidance:
+       - SOUL.md §7 names this story arc ("MVC at the stack scale").
+       - Deepen each of the M/C/V section openers with 2-4 slides.
+       - Borrow from 2026-usrse-con-talk.html § "Why it composes — MVC"
+         (the 4-slide mini-section there is the seed of this talk).
+       - When promoting from stub to a real talk, rename the file from
+         202x-... to YYYY-<venue>-mvc-stack.html and regenerate the
+         QR code (the URL changes with the filename).
+     ================================================================= -->
+
+
+<!-- ====================== S1. Title slide =========================== -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
+	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;">
+		<span style="background-color:#ffcdd2;color:#b71c1c;padding:0 0.3em;border-radius:4px;font-size:0.7em;vertical-align:middle;">WiP</span>
+		MVC at the stack scale
+	  </h2>
+	  <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.85em;font-style:italic;">
+	  What makes the open-(neuro)science stack <em>compose</em>
+	  </p>
+
+    <div style="margin-top:0.3em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+		  <img style="width:160px; margin: 0px" data-src="pics/202x-mvc-stack-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<small>
+  <strong>STUB &mdash; not yet scheduled (rename the file when assigned to a venue)</strong><br/>
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/202x-mvc-stack.html">https://datasets.datalad.org/centerforopenneuroscience/talks/202x-mvc-stack.html</a>
+<br>
+<small>
+     <a href="http://datalad.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+	 <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
+	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+  	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+  </section>
+</section>
+
+
+<!-- ====================== S2. The thesis ============================ -->
+<section>
+  <section>
+	<h2>One thesis, two parts</h2>
+	<ol style="font-size:1.0em;">
+	  <li>Most reusable open-science infrastructure ends up shaped like <strong>MVC</strong> &mdash;
+		<em>not</em> at the level of one app, but at the level of the whole stack.</li>
+	  <li>If your project doesn&rsquo;t already separate <strong>Model</strong>, <strong>Controller</strong>, and <strong>View</strong>,
+		that&rsquo;s where you should put scarce engineering time first.</li>
+	</ol>
+	<p style="margin-top:1em;font-style:italic;font-size:0.85em;">
+	  TODO: open with a 30-second &ldquo;you already know MVC&rdquo; refresher cartoon.
+	  Borrow nothing &mdash; assume the audience is RSE / scientific-software.
+	</p>
+  </section>
+
+  <!-- TODO: pull a CON-stack diagram here. Probably reuse
+       pics/DataLad-minder.svg or BIDS-minder.svg as a visual.  -->
+  <section>
+	<h2>Why &ldquo;at the stack scale&rdquo; is the new word</h2>
+	<ul style="font-size:0.95em;">
+	  <li>Classical MVC: one app, one process, one team.</li>
+	  <li>Stack-scale MVC: one <em>community</em>, many tools, many institutions, many languages &mdash;
+		the M, the C, and the V each become whole sub-ecosystems.</li>
+	  <li>The decoupling that MVC buys at app scale (testability, swap-ability, reuse)
+		is the same thing federation buys at archive scale.</li>
+	</ul>
+	<aside class="notes">
+	  <li>Make the connection explicit: MVC =&gt; clean seams =&gt; federation feasible.</li>
+	  <li>Tease the three axes; each gets its own section next.</li>
+	</aside>
+  </section>
+</section>
+
+
+<!-- ====================== SECTION: MODELS =========================== -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#6a1b9a;">Models</span> &mdash; multiple, layered, standard</h2>
+	<h3 class="fragment">If only one team can read it, it&rsquo;s not a FAIR model.</h3>
+  </section>
+
+  <!-- TODO: One slide per model layer.
+       Borrowed from 2026-usrse-con-talk.html § "Models — multiple, layered, standard".
+       Promote each row of that slide into its own slide here.  -->
+
+  <section>
+	<h2>Dataset layout: BIDS &amp; YODA</h2>
+	<p><em>TODO:</em> reuse BIDS-minder + a YODA-hierarchy figure.
+	  Make the case that &ldquo;BIDS&rdquo; is a <strong>data model</strong> in the OO sense, not a folder convention.</p>
+  </section>
+
+  <section>
+	<h2>Per-file: NWB / NIfTI / TSV / Parquet / HDF5 / Zarr / DICOM</h2>
+	<p><em>TODO:</em> point at NWB Inspector, BIDS-validator as runtime witnesses
+	  that the model is real and self-describing.</p>
+  </section>
+
+  <section>
+	<h2>Metadata: many languages, one idea</h2>
+	<ul style="font-size:0.9em;">
+	  <li><a href="https://linkml.io/">LinkML</a> &mdash; one source &rarr; JSON&nbsp;Schema, OWL/SHACL, pydantic classes, docs;
+		used by <a href="https://github.com/dandi/dandi-schema">DANDI</a>, <a href="https://github.com/NeurodataWithoutBorders/nwb-schema">NWB</a>,
+		<a href="https://concepts.datalad.org/">concepts.datalad.org</a>.</li>
+	  <li><a href="https://docs.pydantic.dev/">pydantic</a> &mdash; runtime validation in Python; the workhorse for DANDI/NWB tooling.</li>
+	  <li><a href="https://json-schema.org/">JSON&nbsp;Schema</a> &mdash; the lingua franca; what BIDS extensions
+		and the DANDI <a href="https://gui.dandiarchive.org/">meditor</a> read.</li>
+	  <li><a href="https://www.w3.org/TR/shacl/">SHACL</a> &mdash; RDF-side shape constraints; the substrate for <code>shacl-vue</code>.</li>
+	  <li>Cross-domain analogues: <a href="https://www.hedtags.org/">HED</a> tags;
+		<a href="https://github.com/EBISPOT/DUO">DUO</a> (Data Use Ontology);
+		<a href="https://www.w3.org/TR/prov-overview/">PROV</a>.</li>
+	</ul>
+	<p style="margin-top:0.5em;font-style:italic;font-size:0.85em;">
+	  <em>TODO:</em> show one schema slice in LinkML &mdash; same source rendered as JSON&nbsp;Schema, pydantic, SHACL.
+	</p>
+  </section>
+
+  <section>
+	<h2>Storage: <code>git</code> + <code>git-annex</code> + DataLad</h2>
+	<p><em>TODO:</em> reuse the &ldquo;DataLad sandwich&rdquo; mermaid from
+	  <code>2024-distribits-datalad.html</code>.
+	  Frame it as the <em>storage model</em>; remotes are pluggable.</p>
+  </section>
+
+</section>
+
+
+<!-- ====================== SECTION: VIEWS ============================ -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#2e7d32;">Views</span> &mdash; humans, agents, machines</h2>
+	<h3 class="fragment">A single Model deserves many Views.</h3>
+  </section>
+
+  <!-- TODO: deepen each audience row.  -->
+
+  <section>
+	<h2>Browse-the-archive humans</h2>
+	<p><em>TODO:</em> screenshots of <code>datasets.datalad.org</code>, DANDI, OpenNeuro,
+	  EMBER, mykrok, ReproTube. The same dataset visible through any of them.</p>
+  </section>
+
+  <section>
+	<h2>Tabular / ad-hoc analysis</h2>
+	<p><em>TODO:</em> live or screenshot demo of <a href="https://datasette.io/">Datasette</a>
+	  over a TSV-from-BIDS-or-mykrok; <a href="https://www.visidata.org/">VisiData</a> over the same file.</p>
+  </section>
+
+  <section>
+	<h2>Programmatic (humans + agents)</h2>
+	<p><em>TODO:</em> PyBIDS / pynwb / <code>datalad.api</code> / fsspec / FUSE.
+	  Argue that this is the <em>view that AI agents see</em>.</p>
+  </section>
+
+  <section>
+	<h2>External services that just plug in</h2>
+	<p><em>TODO:</em> brainlife, CONP, CBRAIN, Kitware NWB tooling, MetaCell NWB Explorer,
+	  neurobagel.  Diagram: same archive Model, four service Views.</p>
+  </section>
+
+  <section>
+	<h2>Schema-driven UIs: the View that the Model <em>generates</em></h2>
+	<ul style="font-size:0.9em;">
+	  <li><strong><a href="https://vjsf.koumoul.com/">vjsf</a></strong> &rarr;
+		<a href="https://gui.dandiarchive.org/">DANDI meditor</a>:
+		JSON&nbsp;Schema in &rarr; full metadata-editor form out, no hand-written widgets.</li>
+	  <li><strong><a href="https://github.com/psychoinformatics-de/shacl-vue">shacl-vue</a></strong>
+		(M.&nbsp;Hanke's group at <a href="https://psychoinformatics.de/">psychoinformatics-de</a>):
+		SHACL shapes in &rarr; not just forms, but <em>entire research-group websites</em>.</li>
+	  <li><em>Same Model, many materializations</em>: editor, validator, API,
+		documentation, website &mdash; all derived from one schema.</li>
+	</ul>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#e3f2fd;border-left:4px solid #1976d2;font-size:0.85em;">
+	  <em>Recommended viewing:</em>
+	  M.&nbsp;Hanke et al., <em>LinkML metadata-driven workflow</em>
+	  (<a href="https://datasets.datalad.org/repronim/ReproTube/DataLad/web/#/video/oF98hdaph1k?tab=local&amp;wide=1&amp;t=644&amp;q=model&amp;filter=1">ReproTube</a>;
+	  <a href="https://www.youtube.com/watch?v=oF98hdaph1k&amp;t=644s">YouTube</a>) &mdash;
+	  walks through the model&rarr;UI&rarr;website pipeline in detail.
+	</p>
+	<p style="margin-top:0.5em;font-style:italic;font-size:0.85em;">
+	  <em>TODO:</em> embed a screenshot of DANDI meditor next to one of a shacl-vue site.
+	</p>
+  </section>
+
+  <section>
+	<h2>Long-form narrative is a view too</h2>
+	<p><em>TODO:</em> handbook.datalad.org, per-archive docs, the standards' specs themselves.
+	  &ldquo;A spec is a View on the Model that humans read first.&rdquo;</p>
+  </section>
+
+</section>
+
+
+<!-- ====================== SECTION: CONTROLLERS ====================== -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#1565c0;">Controllers</span> &mdash; small, single-purpose</h2>
+	<h3 class="fragment">If it does two things, it&rsquo;s already two controllers.</h3>
+  </section>
+
+  <!-- TODO: deepen each row of the controllers slide from the US-RSE deck.  -->
+
+  <section>
+	<h2>Acquisition &rarr; standardized layout</h2>
+	<p><em>TODO:</em> ReproIn / HeuDiConv / NeuroConv / ReproStim with concrete
+	  before/after &mdash; reuse slides from <code>2022-nih-compcore.html</code> § ReproIn,
+	  + new slide for NeuroConv.</p>
+  </section>
+
+  <section>
+	<h2>Reproducible execution: <code>datalad run</code>, <code>con/duct</code>, ReproMan</h2>
+	<p><em>TODO:</em> reuse the <code>datalad run</code>/<code>rerun</code> code blocks
+	  from <code>2025-distribits-YODA.html</code>; add a <code>duct</code> trace example.</p>
+  </section>
+
+  <section>
+	<h2>Logistics: <code>git-annex</code> special remotes</h2>
+	<p><em>TODO:</em> visual of the special-remote zoo
+	  (rclone / S3 / web / datalad-archives / external).
+	  Argue that special remotes are how a <em>controller</em> stays small while
+	  the <em>view of the storage</em> stays plural.</p>
+  </section>
+
+  <section>
+	<h2>Data &rarr; derivative: BIDS-Apps, DataLad crawler</h2>
+	<p><em>TODO:</em> walk the OpenNeuroDerivatives example
+	  (already in <code>2025-distribits-YODA.html</code>); call out that
+	  &ldquo;controller composition&rdquo; is what derivative archives <em>are</em>.</p>
+  </section>
+
+  <section>
+	<h2>Validation &mdash; and a recursive Standardize moment</h2>
+	<ul style="font-size:0.9em;">
+	  <li>Each format brings its own validator: <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>
+		(now with <a href="https://www.hedtags.org/">HED</a> validation inside),
+		<a href="https://github.com/NeurodataWithoutBorders/nwbinspector">nwbinspector</a>,
+		<a href="https://github.com/NeurodataWithoutBorders/pynwb">pynwb</a>,
+		<a href="https://github.com/zarr-developers/zarr-python">zarr</a>,
+		<a href="https://github.com/ome/ngff-validator">OME-Zarr</a>, LinkML validators, codespell, REUSE&hellip;</li>
+	  <li>Each emits its <em>own</em> shape of report &mdash; that&rsquo;s a Model collision waiting to bite.</li>
+	  <li><strong><a href="https://github.com/con/validation">con/validation</a></strong>
+		harmonizes them: one schema for &ldquo;a validation result&rdquo;, regardless of source.</li>
+	  <li>Concrete deployment: <a href="https://github.com/dandi/dandi-cli">dandi-cli</a>
+		now collects bids-validator (+ HED) <em>and</em> pynwb <em>and</em> zarr <em>and</em> nwbinspector
+		(<em>and</em> ome-zarr, &hellip;) into the one con/validation schema.</li>
+	  <li>Once the results are <em>one</em> Model, Views are easy:
+		dashboards, dataset-health rollups, and yes &mdash;
+		<a href="https://www.visidata.org/">VisiData</a> on the validation TSV is great for triage.</li>
+	</ul>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  <strong>Pattern:</strong> when Controllers all emit slightly-different result shapes,
+	  the right move is not a bigger Controller &mdash; it&rsquo;s a new <em>Model</em> for results,
+	  with a thin adapter from each upstream. <em>Validation = the type-checker for your data Model;
+	  con/validation = the type-checker for your <em>validators</em>.</em>
+	</p>
+	<p style="margin-top:0.5em;font-style:italic;font-size:0.85em;">
+	  <em>TODO:</em> screenshot of dandi-cli&rsquo;s harmonized output + a VisiData snapshot.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- ====================== SECTION: Anti-pattern contrast =============
+     Two slides contrasting CON's static/standardized-Model-first
+     approach with backend-coupled "service-tied UI" patterns common
+     in academic / research software.  Cites: Cockburn (Hexagonal /
+     Ports & Adapters, 2005); Evans (Smart UI anti-pattern, DDD 2003);
+     Fowler (Service Layer / Anemic Domain Model); GoF Adapter /
+     Strategy / Façade.  ================================================ -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Contrast: the &ldquo;service-tied UI&rdquo; pattern</h2>
+	<h3 class="fragment">When the View only works because the backend is running.</h3>
+  </section>
+
+  <section>
+	<h2>What this looks like in academia</h2>
+	<ul style="font-size:0.9em;">
+	  <li>A bespoke <strong>LIMS</strong> / <strong>ELN</strong> with all data behind a vendor login.</li>
+	  <li>A lab-spun-up <strong>Flask / Django / Rails / FastAPI</strong> app that
+		reads from a private DB, ships server-rendered HTML or a
+		single-purpose REST API, and is the <em>only</em> way in.</li>
+	  <li>A WordPress/Drupal &ldquo;data portal&rdquo; whose pages are the dataset.</li>
+	  <li>A Jupyter app on someone&rsquo;s VM that everyone shares
+		(until they retire / lose funding / change institution).</li>
+	  <li>A &ldquo;dashboard&rdquo; that <em>is</em> the data &mdash; no
+		export, no schema, no machine API.</li>
+	</ul>
+	<p style="margin-top:0.6em;font-size:0.85em;">
+	  These are often picked because they&rsquo;re <em>quick</em>, not because the
+	  problem demands server-side state. The Model is implicit (whatever the
+	  ORM happens to expose); the View is welded to the Controller; the
+	  Controller is welded to a specific running process.
+	</p>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fde8e8;border-left:4px solid #c00;font-size:0.85em;">
+	  <strong>Cost:</strong> low <em>portability</em> and low <em>reusability</em>.
+	  The View depends not just on a Model, but on a <em>service</em>
+	  that has to keep running. Lose the server &mdash; lose the data,
+	  the workflow, and (usually) the provenance.
+	</p>
+  </section>
+
+  <section>
+	<h2>Names from the design-pattern literature</h2>
+	<table style="font-size:0.85em;width:97%;margin:auto;">
+	  <tr style="background-color:#fde8e8;">
+		<th style="text-align:left;padding:0.4em;width:32%;">Pattern (or anti-pattern)</th>
+		<th style="text-align:left;padding:0.4em;">What it names</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Smart UI</strong> (Evans, <em>DDD</em>, 2003)</td>
+		<td style="padding:0.4em;"><em>Anti-pattern.</em> Domain logic lives in the view; one team can ship fast but the system can&rsquo;t be reused, tested, or evolved.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Anemic Domain Model</strong> (<a href="https://martinfowler.com/bliki/AnemicDomainModel.html">Fowler</a>)</td>
+		<td style="padding:0.4em;"><em>Anti-pattern.</em> Inverse cousin: data classes with no behaviour; <em>all</em> logic in a service layer welded to the UI.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Façade</strong> (GoF, 1994)</td>
+		<td style="padding:0.4em;">A unified interface to a subsystem &mdash; <em>useful</em>, but custom backends often <em>become</em> the only Façade, and the Model behind it disappears.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Hexagonal Architecture / Ports &amp; Adapters</strong> (<a href="https://alistair.cockburn.us/hexagonal-architecture/">Cockburn, 2005</a>)</td>
+		<td style="padding:0.4em;">The <em>cure</em>: domain Model in the centre; UI, DB, external services are interchangeable Adapters around it. Same idea as MVC at stack scale.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Adapter</strong> &amp; <strong>Strategy</strong> (GoF)</td>
+		<td style="padding:0.4em;">The micro-mechanisms that make Hexagonal work: thin per-source shims (Adapter) and pluggable behaviours (Strategy) into the same Model.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Service Layer</strong> (<a href="https://martinfowler.com/eaaCatalog/serviceLayer.html">Fowler, PoEAA</a>)</td>
+		<td style="padding:0.4em;">A boundary of operations <em>per Model</em>, not per UI. Avoids re-encoding the same logic once for each interface.</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;font-size:0.85em;font-style:italic;">
+	  Translation to our stack: <strong>BIDS / NWB / LinkML schemas</strong>
+	  are the Model &mdash; the centre of the hexagon. Validators, ETL tools,
+	  and archive UIs are <em>Adapters</em> around it. <code>git</code>+<code>git-annex</code>+DataLad
+	  is what lets the Model travel <em>without</em> a service.
+	</p>
+  </section>
+
+  <section>
+	<h2>What CON does instead</h2>
+	<ul style="font-size:0.9em;">
+	  <li><strong>Static-first archive</strong>: <a href="https://datasets.datalad.org/">datasets.datalad.org</a>
+		is just <code>nginx</code> over a directory tree.
+		No daemon, no DB, no special API &mdash; <em>any</em> HTTP client is enough.</li>
+	  <li><strong>Data is in the standard, not in the service</strong>:
+		BIDS layouts, NWB files, LinkML-described metadata.
+		Every consumer can read it with no help from us.</li>
+	  <li><strong>Multiple access paths to the same bytes</strong>: web,
+		<code>git-annex</code>, S3, FUSE, fsspec, REST &mdash;
+		because the Model is a <em>file tree</em>, not a service.</li>
+	  <li><strong>Schema-driven UIs</strong> (<a href="https://vjsf.koumoul.com/">vjsf</a>,
+		<a href="https://github.com/psychoinformatics-de/shacl-vue">shacl-vue</a>):
+		the View is <em>derived from</em> the Model, so the same Model
+		gets a hundred Views for free instead of one bespoke one.</li>
+	  <li><strong>Static-site generators &amp; JAMstack</strong> for documentation:
+		ship HTML at build-time, serve from any CDN. Every deck in this repo
+		is a single HTML file in this spirit.</li>
+	  <li><strong>Run a service only when you must</strong>:
+		DANDI <em>does</em> have a backend (publication API, auth);
+		but the <em>data</em> sits on S3 + git-annex and is reachable
+		without it.</li>
+	</ul>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#e8f5e9;border-left:4px solid #2e7d32;font-size:0.85em;">
+	  <strong>Heuristic:</strong> if your project would die when the
+	  server goes down for a week, the View is welded to the Controller.
+	  Move the contract into a real Model artifact (a schema, a layout,
+	  a versioned dataset) &mdash; <em>then</em> the service is just one
+	  Adapter among many.
+	</p>
+	<p style="margin-top:0.4em;font-style:italic;font-size:0.8em;">
+	  <em>TODO:</em> diagram &mdash; on the left, a monolithic LIMS-style
+	  blob (View=Controller=DB); on the right, a hexagon with Model in
+	  the centre and Adapters all around it.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- ====================== SECTION: Many lenses ====================== -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>One stack, many lenses</h2>
+	<h3 class="fragment">MVC isn&rsquo;t the <em>only</em> way to talk about this stack &mdash;<br/>
+	  it&rsquo;s one of several overlapping dimensions.</h3>
+  </section>
+
+  <section>
+	<h2>Lenses we keep using</h2>
+	<table style="font-size:0.85em;width:97%;margin:auto;">
+	  <tr style="background-color:#f3e5f5;">
+		<th style="text-align:left;padding:0.4em;width:18%;">Lens</th>
+		<th style="text-align:left;padding:0.4em;width:22%;">What it asks</th>
+		<th style="text-align:left;padding:0.4em;">Axes / examples</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Architectural</strong></td>
+		<td style="padding:0.4em;"><em>Where</em> does this piece live?</td>
+		<td style="padding:0.4em;"><strong>MVC</strong>: Model / View / Controller &mdash; this whole talk</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Procedural</strong></td>
+		<td style="padding:0.4em;"><em>How</em> is it produced &amp; preserved over time?</td>
+		<td style="padding:0.4em;"><a href="https://stamped-principles.org/"><strong>STAMPED</strong></a> &mdash;
+		  <strong>S</strong>elf-containment, <strong>T</strong>racking, <strong>A</strong>ctionability,
+		  <strong>M</strong>odularity, <strong>P</strong>ortability, <strong>E</strong>phemerality,
+		  <strong>D</strong>istributability</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Sharing</strong></td>
+		<td style="padding:0.4em;"><em>Who</em> can use it, and at what cost?</td>
+		<td style="padding:0.4em;"><a href="https://www.go-fair.org/fair-principles/"><strong>FAIR</strong></a> &mdash;
+		  Findable, Accessible, Interoperable, Reusable</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Compositional</strong></td>
+		<td style="padding:0.4em;">Does it compose <em>without looking up</em>?</td>
+		<td style="padding:0.4em;"><strong>YODA</strong> &mdash; modular, look-up-you-must-not, version-control everything</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><strong>Purpose</strong></td>
+		<td style="padding:0.4em;"><em>What</em> is the project <em>for</em>?</td>
+		<td style="padding:0.4em;">acquisition / curation / archive / analysis / governance / sharing / training</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><strong>Maturity</strong></td>
+		<td style="padding:0.4em;">How <em>operationally rigorous</em> &amp; agentic-ready is it?</td>
+		<td style="padding:0.4em;"><a href="https://arxiv.org/abs/2401.00077"><strong>SciOps</strong></a> &mdash;
+		  Johnson <em>et&nbsp;al.</em>, 2024 &mdash; 5-level CMM:
+		  L1&nbsp;Initial &rarr; L2&nbsp;Managed &rarr; <strong>L3&nbsp;Defined</strong> (FAIR data + FAIR workflows; the paper&rsquo;s own L3 exemplars include BIDS, NWB, DataLad, DANDI, brainlife.io) &rarr;
+		  <strong>L4&nbsp;Scalable</strong> (&ldquo;SciOps pipelines&rdquo;: semi-automated, continuous) &rarr;
+		  <strong>L5&nbsp;Optimizing</strong> (closing the loop with AI).<br/>
+		  Agentic-readiness sub-axis: the
+		  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html"><strong>AI-coding ladder L1&ndash;L5</strong></a> &mdash;
+		  but it presupposes at <em>least</em> SciOps L3 below it.</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
+	  Each lens picks out a <em>different</em> property of the same stack.
+	  When two lenses disagree about whether something is &ldquo;good&rdquo;, that&rsquo;s usually a
+	  <em>real</em> tension &mdash; not noise &mdash; worth a design conversation.
+	  <br/><em>e.g.</em> a single big monolith can score great on FAIR
+	  (you can find &amp; download it) but terrible on MVC and YODA. A schema-driven
+	  archive scores well on MVC <em>and</em> FAIR <em>and</em> AI-readiness at once &mdash;
+	  that&rsquo;s why we keep building them.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- ====================== Closing payload =========================== -->
+<section data-transition="slide">
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>So what?</h2>
+	<h3 class="fragment">Three RSE-grade actions.</h3>
+  </section>
+
+  <section>
+	<h2>Three things to do this week</h2>
+	<ol style="font-size:0.95em;">
+	  <li><strong>Name your M / V / C.</strong>
+		For your current project, write down the model(s), view(s), and controller(s).
+		If a column has only one entry &mdash; or worse, zero &mdash; you have a silo.</li>
+	  <li><strong>Pick the swap.</strong> Identify one cell you would replace
+		within five years.  Make the seam explicit <em>now</em>.</li>
+	  <li><strong>Publish the model.</strong> If your model is implicit
+		(only your code knows it), make it a real artifact:
+		LinkML, JSON Schema, BIDS BEP, CSV-with-a-spec.
+		Future-you, future-collaborators, and future-AI will thank you.</li>
+	</ol>
+  </section>
+</section>
+
+
+<!-- TODO: Acknowledgements (borrow canonical layout from
+     2024-distribits-datalad.html / 2026-usrse-con-talk.html).  -->
+
+
+<!-- =========================== Sign-off ============================= -->
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Models, Views, Controllers.</h2>
+  <h3>Compose them, your stack will.</h3>
+  <p>
+	<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
+	  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
+	</a>
+  </p>
+  <p><small>Slides: <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/202x-mvc-stack.html">datasets.datalad.org/&hellip;/202x-mvc-stack.html</a> &mdash; CC-BY-SA</small></p>
+</section>
+
+
+<!-- End of slides -->
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				width: 1400,
+				height: 1050,
+				margin: 0.1,
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'],
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>
