@@ -34,6 +34,8 @@ posters/                  — poster sources (separate flow)
 2026-ohbm-ossig/          — OHBM Open Science Room submission
 2026-repronim-YODA-BIDS-webinar/ — companion notes/planning to that deck
 2026-ca-origami-retreat-aicoding/ — planning + per-slide screenshots for that deck
+_backdrawer_/             — shelved talk prototypes / outline-only stubs
+                            (see _backdrawer_/README.md for the convention)
 <TALK-ID>.html            — top-level reveal.js decks
 ```
 
@@ -191,7 +193,12 @@ The PNG itself is binary; commit it via DataLad
 - Don't introduce a build step in a deck (each `<TALK-ID>.html` must be
   openable as a single file).
 - Don't move or rename existing `<TALK-ID>.html` files — published live
-  links depend on the URL.
+  links depend on the URL. The one exception is shelving an outline-only
+  stub that never went out: `git mv <TALK-ID>.html _backdrawer_/`,
+  update its INDEX.md entry into the *Shelved (backdrawer)* section,
+  and (if previously cited externally) update those refs. Filename does
+  not change — promotion back to active status is just `git mv` in
+  reverse.
 - Don't add a new top-level subdirectory for slides; keep decks at the
   root and notes in a sibling directory named after the deck.
 - Don't `git rm` historical assets from `pics/` — older talks reference

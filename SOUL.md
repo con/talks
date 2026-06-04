@@ -110,8 +110,9 @@ Recurring framings the speaker leans on:
 - **Many lenses, one stack** — the same project / artifact can be
   legitimately described along several *overlapping* dimensions, each
   picking out a different property:
-  - **Architectural** — Model / View / Controller (the spine of
-    `202x-mvc-stack.html`; mini-section in `2026-usrse-con-talk.html`).
+  - **Architectural** — Model / View / Controller (mini-section in
+    `2026-usrse-con-talk.html`; the standalone spine
+    `_backdrawer_/202x-mvc-stack.html` is currently shelved).
   - **Procedural** — STAMPED (Self-containment, Tracking,
     Actionability, Modularity, Portability, Ephemerality,
     Distributability — see Macdonald, Baker, To & Halchenko, 2026,
@@ -499,8 +500,9 @@ slides from `INDEX.md`.
    Practical implication for talk authoring: when you cite one verb,
    also state which SciOps level it corresponds to — RSE audiences
    recognize CMM language even when they don't know the specific paper.
-7. **MVC at the stack scale** (`202x-mvc-stack.html` *(stub)*; mini-section
-   inside `2026-usrse-con-talk.html`):
+7. **MVC at the stack scale** (mini-section inside
+   `2026-usrse-con-talk.html`; the standalone stub
+   `_backdrawer_/202x-mvc-stack.html` is currently shelved):
    the *architectural* re-reading of the four verbs — layered standardized
    **Models** (BIDS / NWB / LinkML / `git`+`git-annex`+DataLad), small
    single-purpose **Controllers** (HeuDiConv / NeuroConv / ReproStim /
