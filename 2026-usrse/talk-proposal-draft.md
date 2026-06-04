@@ -2,11 +2,11 @@
 
 ## Authors
 
-- Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
-- Cody Baker \<cody.c.baker.phd@gmail.com\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0002-0829-4790](https://orcid.org/0000-0002-0829-4790)
-- Austin Macdonald \<austin@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0002-8124-807X](https://orcid.org/0000-0002-8124-807X)
-- Isaac To \<Isaac.C.To@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
-- Vadim Melnik \<vmelnik@docsultant.com\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0009-0007-3981-0798](https://orcid.org/0009-0007-3981-0798)
+- Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
+- Cody Baker \<cody.c.baker.phd@gmail.com\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-0829-4790](https://orcid.org/0000-0002-0829-4790)
+- Austin Macdonald \<austin@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-8124-807X](https://orcid.org/0000-0002-8124-807X)
+- Isaac To \<Isaac.C.To@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
+- Vadim Melnik \<vmelnik@docsultant.com\>, Center for Open Neuroscience, ORCID [0009-0007-3981-0798](https://orcid.org/0009-0007-3981-0798)
 
 ## Keywords
 
@@ -120,3 +120,32 @@ For the US-RSE audience the talk offers
 - (a) a concrete tour of reusable and modular infrastructure,
 - (b) a working example of a multi-institutional RSE center sustained for over a decade through NSF, NIH, and collaborator funding, and
 - (c) a toolbelt of dedicated utilities whose adoption — directly or through AI-agentic interfaces — can boost the audience's efficiency and reproducibility.
+
+```{=latex}
+\newpage
+```
+
+## Acknowledgments
+
+### Provenance
+
+This submission was developed in open on GitHub in the Pull Request
+[github.com/con/talks/pull/3](https://github.com/con/talks/pull/3) "2026 usrse CON talk to propose".
+
+### Use of AI in the Preparation of Materials
+
+Materials for this talk submission have been prepared with the assistance of agentic AI coding tools and large language models (LLMs), alongside direct human authoring and supervision.
+
+Our working practice is:
+
+- 👤 Human review and accountability. We strive to have final versions of all work — prose, code, figures, and specifications — to be reviewed and/or edited by human authors, who remain accountable for the content.
+- 🪪 Transparent annotation. Where AI tools materially contributed to a commit, we strive to annotate that commit adequately and trustworthily (for example, via a Co-Authored-By trailer identifying the tool and model version), so that the provenance of individual changes can be inspected in the git history.
+- 🔍 Inspectable provenance. Because all work is developed in public git repositories with pull-request review, readers can trace portions of the materials which involved AI assistance.
+AI tools are used as assistive instruments; they do not substitute for the scientific judgment, domain expertise, or editorial responsibility of the human authors. Commits produced with AI-assistance annotated via `Co-Authored-By` field, and insofar here are the stats across model/claude code versions:
+
+```shell
+❯ git log master...2026-usrse-con-talk | grep Co-Au | sort | uniq -c
+      7     Co-Authored-By: Claude Code 2.1.138 / Claude Opus 4.7 <noreply@anthropic.com>
+      1     Co-Authored-By: Claude Code 2.1.158 / Claude Opus 4.7 <noreply@anthropic.com>
+      1     Co-Authored-By: Claude Code 2.1.162 / Claude Opus 4.7 <noreply@anthropic.com>
+```
