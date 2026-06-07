@@ -33,7 +33,7 @@ The future of neuroscience will be defined less by any single experimental techn
 BRAIN Initiative investments have produced an extraordinary substrate for this future: OpenNeuro, DANDI, EMBER, ReproNim, and the derivative ecosystems they anchor.
 Yet the rate at which these resources can compound depends on whether each research object they hold can be opened, rerun, extended, and reused without rediscovery.
 Today, too much of that work is repeated.
-STAMPED targets exactly this bottleneck.
+STAMPED seeks to alleviate this bottleneck of scientific productivity.
 
 By naming seven operational properties of a research object, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, we give the community a shared vocabulary that did not previously exist.
 Researchers can now describe what their pipelines do and do not guarantee; reviewers can ask precise questions; collaborators can hand off work without losing context; and infrastructure projects such as DANDI Compute and OpenNeuroDerivatives can declare and verify the properties they enforce.
