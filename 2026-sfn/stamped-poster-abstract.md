@@ -21,7 +21,7 @@ FAIR and FAIR4RS guide discovery and reuse of digital objects but do not prescri
 We address this operational gap with STAMPED, a vocabulary and evaluation framework for day-to-day practices that make a research object durable.
 Building on the YODA and VAMP traditions, the seven principles are: Self-containment (one complete retrieval unit), Tracking (content-addressed versioning and provenance), Actionability (machine-executable instructions), Modularity (independent, composable units), Portability (no hidden host coupling), Ephemerality (disposable environments per run), and Distributability (persistent retrievability with explicit licenses).
 Each uses RFC-2119 keywords (MUST/SHOULD/MAY) and spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental.
-Formal LinkML schemas, an interactive compliance checklist, and a worked-example catalog are publicly available.
+Formal LinkML schemas, an interactive compliance checklist, and a worked-example catalog are enabling tools to this end.
 
 We demonstrate application to two major neuroscience pipelines.
 OpenNeuroDerivatives publishes ~850 fMRIPrep/MRIQC outputs from OpenNeuro as DataLad-tracked BIDS-Derivatives datasets distributed via S3 and GitHub.
