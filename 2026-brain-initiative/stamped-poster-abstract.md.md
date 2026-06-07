@@ -19,7 +19,7 @@ Building on the YODA and VAMP traditions from neuroimaging, and on patterns that
 Each uses RFC-2119 keywords (MUST/SHOULD/MAY) and spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental.
 Formal LinkML schemas, an interactive compliance checklist, and a worked-example catalog are provided as enabling tools to this end.
 
-We demonstrate STAMPED through three BRAIN-funded exemplars.
+We demonstrate STAMPED through two BRAIN-funded exemplars.
 OpenNeuroDerivatives reorganized derivative neuroimaging datasets so they exist as independent units that reference raw inputs as subdatasets rather than nesting under them, removing an upward dependency that previously violated Self-containment, Modularity, and Portability.
 DANDI Compute, utilizing the Allen Institute for Neural Dynamics electrophysiology pipeline, packages spike-sorting outputs into nested BIDS-derivative units in which each leaf contains the exact code, runtime logs, outputs, and provenance metadata needed to re-execute the analysis, satisfying STAMPED end-to-end.
 These adoptions show that STAMPED provides a tool-agnostic, incrementally adoptable vocabulary that lets researchers, reviewers, collaborators, and emerging AI agents evaluate and improve the operational maturity of computational neuroscience.
