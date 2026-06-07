@@ -23,7 +23,7 @@ Building on the YODA and VAMP traditions from neuroimaging, and on patterns that
 Each uses RFC-2119 keywords (MUST/SHOULD/MAY) and spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental.
 Formal LinkML schemas, an interactive compliance checklist, and a worked-example catalog are provided as enabling tools to this end.
 
-We demonstrate application to two major neuroscience pipelines.
+We demonstrate STAMPED through two major neuroscience pipelines.
 OpenNeuroDerivatives publishes ~850 fMRIPrep/MRIQC outputs from OpenNeuro as DataLad-tracked BIDS-Derivatives datasets distributed via S3 and GitHub.
 DANDI Compute packages Allen Institute spike-sorting pipelines in a BIDS-Study layout where each run is a self-contained derivative bundling code, logs, output, and provenance under DataLad/git-annex.
 Mapping these onto STAMPED reveals where each pipeline meets practical minima and where targeted upgrades (pinned container builds, ephemeral re-execution, signed releases) raise operational maturity.
