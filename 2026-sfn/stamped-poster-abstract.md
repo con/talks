@@ -15,7 +15,7 @@ chars = [char for char in text if char not in ["\n"," "]]
 -->
 
 Neuroscience increasingly depends on computational pipelines combining code, data, and software environments.
-When these components are scattered across repositories, drives, wikis, and notebooks, the record of how results were produced is incomplete, eroding rigor and reproducibility.
+When these components are scattered across repositories, drives, wikis, and notebooks, the record of how final results were produced is incomplete, eroding rigor and reproducibility.
 FAIR and FAIR4RS guide discovery and reuse of digital objects but do not prescribe how research objects should be structured so others can re-execute and extend them.
 
 We address this operational gap with STAMPED, a vocabulary and evaluation framework for day-to-day practices that make a research object durable.
