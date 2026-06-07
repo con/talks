@@ -35,7 +35,7 @@ Yet the rate at which these resources can compound depends on whether each resea
 Today, too much of that work is repeated.
 STAMPED seeks to alleviate this bottleneck of scientific productivity.
 
-By naming seven operational properties of a research object, Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, we give the community a shared vocabulary that did not previously exist.
+By naming these seven operational properties of a research object, we give the community a shared vocabulary that did not previously exist.
 Researchers can now describe what their pipelines do and do not guarantee; reviewers can ask precise questions; collaborators can hand off work without losing context; and infrastructure projects such as DANDI Compute and OpenNeuroDerivatives can declare and verify the properties they enforce.
 Each principle is a spectrum starting at what many labs already do, so adoption is incremental rather than gatekept.
 
