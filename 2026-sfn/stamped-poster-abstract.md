@@ -4,7 +4,7 @@
 
 Abstract (limit: 2,300 characters, including punctuation but not spaces)
 
-Current: 2011, from 
+Current: 1821, from 
 
 ```python
 text = """[copy and paste text below]
@@ -15,18 +15,16 @@ chars = [char for char in text if char not in ["\n"," "]]
 -->
 
 Neuroscience increasingly depends on computational pipelines combining code, data, and software environments.
-When these components are scattered across repositories, shared drives, wikis, and lab notebooks, the record of how results were produced becomes incomplete, eroding rigor, reproducibility, and reusability.
-FAIR and FAIR4RS guide the discovery and reuse of digital objects but do not prescribe how research objects should be structured so others can re-execute and extend them.
+When these components are scattered across repositories, drives, wikis, and notebooks, the record of how final results were produced is incomplete, eroding rigor and reproducibility.
+FAIR and FAIR4RS guide discovery and reuse of digital objects but do not prescribe how research objects should be structured so others can re-execute and extend them.
 
 We address this operational gap with STAMPED, a vocabulary and evaluation framework for day-to-day practices that make a research object durable.
-The principles that embody this acronym are: Self-containment (one complete retrieval unit), Tracking (content-addressed versioning and provenance for all components), Actionability (machine-executable instructions), Modularity (independent, composable units), Portability (no hidden host coupling), Ephemerality (disposable environments per run), and Distributability (persistent retrievability with explicit licenses).
-Each principle uses RFC-2119 keywords (MUST/SHOULD/MAY) and spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental.
-The principles and checklist requirements are published in formal LinkML schemas.
-An interactive compliance checklist app and a catalogue of examples are available from `stamped-principles.org`.
+Building on the YODA and VAMP traditions from neuroimaging, and on patterns that have independently converged across geophysics, genomics, statistics, and neuroimaging over three decades, we formalize seven principles a research object should satisfy: Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, collectively STAMPED.
+Each uses RFC-2119 keywords (MUST/SHOULD/MAY) and spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental.
+Formal LinkML schemas, an interactive compliance checklist, and a worked-example catalog are provided as enabling tools to this end.
 
-We primarily demonstrate the application of these principles to enhancing the scientific rigor and reproducibility of two major neuroscience pipelines: OpenNeuroDerivatives and DANDI Compute.
+We demonstrate STAMPED through two major neuroscience pipelines.
 OpenNeuroDerivatives publishes ~850 fMRIPrep/MRIQC outputs from OpenNeuro as DataLad-tracked BIDS-Derivatives datasets distributed via S3 and GitHub.
-DANDI Compute utilizes Allen Institute spike-sorting pipelines in a BIDS-Study layout where each run is a self-contained derivative bundling code, logs, and output.
-
-Mapping these efforts onto STAMPED reveals where each pipeline meets practical minima and where targeted upgrades (pinned container builds, ephemeral re-execution, signed releases) raise operational maturity.
-STAMPED gives neuroscientists, reviewers, and AI coding agents a shared language and concrete criteria for building pipelines that others can trust, rerun, and extend.
+DANDI Compute, utilizing the Allen Institute for Neural Dynamics electrophysiology pipeline, packages spike-sorting outputs into nested BIDS-derivative units in which each leaf contains the exact code, runtime logs, outputs, and provenance metadata needed to re-execute the analysis, satisfying STAMPED end-to-end.
+These adoptions show that STAMPED provides a tool-agnostic, incrementally adoptable vocabulary that lets researchers, reviewers, collaborators, and emerging AI agents evaluate and improve the operational maturity of computational neuroscience.
+By making research objects re-executable and inspectable by construction, STAMPED converts reproducibility from an aspiration into a measurable property of everyday neuroscience practice.
