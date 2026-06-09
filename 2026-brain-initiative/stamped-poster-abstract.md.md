@@ -41,6 +41,7 @@ Each principle is a spectrum starting at what many labs already do, so adoption 
 
 STAMPED is also designed for the moment neuroscience is now entering, in which AI coding agents and autonomous research systems participate in analysis.
 When an agent modifies code, generates a script, or proposes a hypothesis, those actions become part of the scientific record and must be Tracked alongside human contributions.
+This is a natural extension of preregistration, which allows a plan and specification to be assigned their own persistent DOI before any implementation begins.
 When a specification can be regenerated into an implementation at near-zero cost by an AI assistant, the specification itself becomes the research object, and STAMPED tells us what that specification must satisfy to remain accountable.
 Without such principles, AI acceleration risks producing results that are fast but not introspectable.
 By formalizing these principles and providing schemas, checklists, and worked examples openly, we aim to make every BRAIN-funded pipeline a durable, composable, and auditable contribution to the next decade of neuroscience, an invitation to invent that future together rather than rebuild it apart.
