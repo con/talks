@@ -1,0 +1,42 @@
+SUBMISSION: 92
+TITLE: Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON
+
+----------------------- REVIEW 1 ---------------------
+
+SUBMISSION: 92
+TITLE: Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON
+
+----------- Overall evaluation -----------
+SCORE: 3 (strong accept)
+----- TEXT:
+This proposal presents a technically rich and insightful reflection on two decades of research software engineering practices at the Center for Open Neuroscience. The submission effectively demonstrates how the principles of reuse, composition, extension, standardization, and automation have been systematically applied to develop sustainable and scalable scientific software infrastructures supporting open neuroscience and broader scientific communities. The talk highlights the architectural evolution and engineering foundations of several influential platforms, including NeuroDebian, PyMVPA, DataLad, OpenNeuro, and DANDI. The discussion of distributed data management, federated data discovery, version-controlled research artifacts, and community-driven standards illustrates a mature and well-established approach to reproducible scientific computing. The proposal further showcases the integration of standards such as BIDS, NWB, and OME-Zarr, emphasizing interoperability and long-term maintainability across diverse research environments. A notable strength of the submission is its comprehensive treatment of automation practices, including continuous integration, automated testing, containerized workflows, performance benchmarking, and large-scale data synchronization. These practices are presented as essential enablers for maintaining reliability and operational efficiency across a broad ecosystem of research software projects. The discussion on AI adoption is timely and technically relevant. Rather than treating AI as a replacement for established engineering methodologies, the proposal appropriately frames AI-assisted development within the context of robust software engineering principles. The authors clearly articulate how standardization, automation, testing, and community collaboration remain critical for ensuring software quality and sustainability in increasingly AI-driven development environments.
+
+
+----------------------- REVIEW 2 ---------------------
+
+SUBMISSION: 92
+TITLE: Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON
+
+----------- Overall evaluation -----------
+SCORE: -2 (reject)
+----- TEXT:
+This porposal describes impressive, long-running research software engineering work around neuroscience, reproducible data management, automation, and infrastructure. 
+
+However, I found the proposal difficult to assess as a conference talk because it tries to cover too much. The abstract includes two decades of history, many projects, many standards, many collabs, AI adoption etc. Nearly all of these are relevant individually, but the proposal does not make clear what the central topic of the talk will be or what attendees should expect to take away beyond a broad appreciation of CON’s work. As written, the proposal reads like a project portfolio rather than a focused discussion of transferable RSE best practices. The domain-agnostic claim is plausible, but it would be stronger if the authors gave specific examples of how non-neuroscience RSEs can adopt the same patterns or tools.
+
+The connection to the USRSE’26 AI theme is present but not explicit. The submission makes a reasonable argument that AI increases the importance of reuse, standards, and automated review, but AI does not appear to be the core of the work. 
+
+I think the audience interest will be mixed. Attendees interested in long-lived scientific infrastructure may find this valuable. I would be concerned that a general RSE audience could come away overwhelmed by project names rather than equipped with practical guidance.
+
+Overall, I see this as a potentially valuable but unfocused submission.
+
+
+----------------------- REVIEW 3 ---------------------
+
+SUBMISSION: 92
+TITLE: Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON
+
+----------- Overall evaluation -----------
+SCORE: 3 (strong accept)
+----- TEXT:
+The talk abstract justifies why this talk is relevant to "Advancing Science in the Age of AI," and describes in detail a standardized framework for building an open neuroscience software stack in the era of AI. The authors propose following a set of five actions that keep AI generated code useful and accountable so that scientifically meaningful software can still be produced. To my knowledge, this talk is original and offers a creative and well-motivated solution to a new problem: how to robustly incorporate AI generated code in scientific settings. The proposal is clear, advances RSE practices, and will resonate with the target audience. The talk abstract provides clear examples of where this framework has succeeded in the past prior to GenAI, and how these successes might be extended to incorporate agentic approaches.
