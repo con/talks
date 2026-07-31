@@ -18,4 +18,38 @@ which will be in parallel to
 RAG Assistants
 Case Studies Demonstrating RSE Impacts Part I
 
-So, pretty much THE FIRST talk of the conference sessions (after Plenary)!
+Some rough point to account to while forming the talk:
+
+- pretty much THE FIRST talk of the conference sessions (after Plenary)!
+  - has potential to provide linkage for listeners into "what's coming" if anything obviously related
+
+- lead by the talk on "Drinking from the Firehose: ... AI..." so IMHO important to
+  - bring attention to the fact that many developers are AI-averse, and there is a WIDE spectrum of policies on AI use in development etc.
+    - some times it is not even explicitly stated!!!
+    - https://blog.codeberg.org/protecting-our-floss-commons-from-llms.html is nice reasoning for e.g. not supporting 'vibe coded' projects etc:  **AI exemplifies silo projects**
+  - **overall**: we need to strike the balance and it might not be obvious how?!
+    - we (CON) should remain true to the original principles: collaborations might be even more important than before (more silos!)
+    - so similar to codespell skill, AI skills need to pay close(r) attention to CONTRIBUTING.md etc on that
+
+- we do not have "STAMPED BoF", so STAMPED principles should be white-threaded throught the talk
+
+- MVC @ infrastructure level:
+
+ - some tids & bits throughout _backdrawer_/202x-mvc-stack.html and some slide in 2026-usrse-con-talk.html
+ - M - standardization (of (meta)data) can be critical to establish the framework for mutual HI & AI knowledge storage
+   - machine (not AI) and human readable
+   - unlike loose .md's - deterministically validatable
+   - facilitates all FAIR (all are about (meta)data), in particular 
+   - that is why we (CON) heavily involved in standards (BIDS, NWB, HED, DICOM, ...)
+ - with common M, can get range of C(ontrollers), e.g. see all the BIDS tools
+ - for the same M, can be a range of V(iewers), facilitating use-case specifics
+
+NB. I used (meta)data all around, and FAIR uses that formulation too 
+
+- interesting effects on AI use
+
+  - breaking out of silos -- there is a better chance to discover similar/related developments or facts to support arguments in other fields, which otherwise you would not be aware of.
+    - can cite that paper showing how silo'ed neuroscience is!
+    - hence speaking here and showing CON and BIDS etc
+
+
