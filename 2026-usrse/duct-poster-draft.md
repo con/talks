@@ -16,9 +16,7 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
 By default, that record is ephemeral — gone when the terminal scrolls or the agent's context rolls over.
 
-`con-duct` is a lightweight wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
-The monitor is standard-library Python needing no elevated privileges; it works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
-(POSIX-only: no Windows, and macOS `ps` reports some details differently than Linux.)
+`con-duct` is a lightweight, standard-library Python wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
 
 Every wrapped run leaves a complete trace:
  - full stdout and stderr, streamed to disk
