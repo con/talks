@@ -14,15 +14,16 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 ## Abstract
 
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
-By default, most of that record is ephemeral; `con-duct` is a lightweight wrapper that keeps it.
+By default, that record is ephemeral — gone when the terminal scrolls or the agent's context rolls over.
 
-Anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>` and leaves a complete trace:
+`con-duct` is a lightweight wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
+The monitor is standard-library Python needing no elevated privileges; it works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
+(POSIX-only: no Windows, and macOS `ps` reports some details differently than Linux.)
+
+Every wrapped run leaves a complete trace:
  - full stdout and stderr, streamed to disk
  - resource usage, sampled across the command's entire process tree
  - a record of the invocation, wall clock time, peak memory, exit code, and system and environment details
-
-The monitor is standard-library Python needing no elevated privileges: the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
-(POSIX-only: no Windows, and macOS `ps` reports some details differently than Linux.)
 
 **For research**, capture is provenance: `datalad run "duct <cmd> ..."` binds inputs, invocation, and outputs into a git commit, with the duct logs alongside [2].
 On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
