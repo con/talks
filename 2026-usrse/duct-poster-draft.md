@@ -37,6 +37,10 @@ File the issue; skip the re-run.
 
 `con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
 
+```{=latex}
+\newpage
+```
+
 ## Acknowledgments
 
 We thank the broader ReproNim and OpenNeuro communities for ongoing feedback on `con-duct`'s design and use.
