@@ -32,7 +32,7 @@ Did this run take longer?
  - `con-duct ls -e "exit_code != 0"` lists every failure.
  - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-**When an expensive job fails**, the bug-report evidence (invocation, host, full stderr, resource timeline) is already on disk.
+**When an expensive job fails**, the bug-report evidence is already on disk (invocation, host, full stderr, resource timeline).
 File the issue; skip the re-run.
 
 `con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
