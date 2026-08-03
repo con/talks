@@ -16,23 +16,28 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
 By default, most of that record is ephemeral; `con-duct` is a lightweight wrapper that keeps it.
 
-Anything you can run in a terminal (binaries, shell pipelines, scripts, etc) passes through `duct` unchanged and leaves a complete trace.
-Invoked as `duct -m "searchable message" <cmd>`, it streams full stdout and stderr to disk, samples resource usage across the command's entire process tree, and records the command, wall clock time, peak memory, exit code, and scheduler environment (SLURM/PBS job variables).
+Anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) passes through `duct` unchanged and leaves a complete trace.
+Invoked as `duct <cmd>`, your command runs and produces:
+ - full stdout and stderr to disk
+ - resource usage sampled across the command's entire process tree
+ - a record containing the command, wall clock time, peak memory, exit code, and system and environment details
+
 The monitor is standard-library Python needing no elevated privileges, so the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
 It is POSIX-only: no Windows, and since sampling relies on `ps`, macOS reports some details differently than Linux.
 
-For research, this capture is provenance, and it composes with existing tooling: `datalad run "duct <cmd> ..."` produces a git commit binding inputs, command, and outputs, with the duct logs alongside.
-On HPC, the same record doubles as sizing: the measured wall time and peak memory of the last run are the cheapest possible input to the next SLURM request, replacing the usual guesswork.
-(Sampled `ps` numbers are approximate; exact per-job accounting via cgroups and tighter SLURM integration is underway.)
+For research, this capture is provenance, and it composes with existing tooling: `datalad run "duct
+<cmd> ..."` produces a git commit binding inputs, command, and outputs, with the duct logs alongside.
+On HPC, the measured wall time and resource statistics help guide the next job.
 Hoffstaedter's `ds000007-mriqc` dataset [4] ships a `logs/duct/` directory alongside its MRIQC outputs, so `con-duct ls` and `con-duct plot` reconstruct the resource picture of a completed neuroimaging quality-control pipeline months after the fact, without re-executing it.
 
-The same unconditional capture pays off in daily work, where humans and agents now execute commands side by side and an agent's context rolls over even faster than a terminal scrolls.
-Full output, exit status, duration, and resource footprint are exactly the breadcrumbs a successor — human or agent — needs to pick up the thread.
-Did we get that warning last time?
-Did this run take longer?
+The same capture pays off in daily work, where humans and agents now execute commands side by side.
+Because the full record lands on disk rather than in an agent's context, it costs nothing to carry — and it equips a successor, human or agent, to answer questions that weren't known ahead of time:
+ - Did we get that warning last time?
+ - Did this run take longer?
+
 `con-duct ls` answers from disk, filtering on any captured field with a Python expression:
 
-- `con-duct ls -e "message=='<tag>'"` retrieves runs by their `-m` tag.
+- `con-duct ls -e "message=='<tag>'"` retrieves runs tagged at capture time with `duct -m "<tag>"`.
 - `con-duct ls -e "exit_code != 0"` lists every failure.
 - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
