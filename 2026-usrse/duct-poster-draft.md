@@ -16,32 +16,28 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
 By default, most of that record is ephemeral; `con-duct` is a lightweight wrapper that keeps it.
 
-Anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) passes through `duct` unchanged and leaves a complete trace.
-Invoked as `duct <cmd>`, your command runs and produces:
- - full stdout and stderr to disk
- - resource usage sampled across the command's entire process tree
- - a record containing the invocation, wall clock time, peak memory, exit code, and system and environment details
+Anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>` and leaves a complete trace:
+ - full stdout and stderr, streamed to disk
+ - resource usage, sampled across the command's entire process tree
+ - a record of the invocation, wall clock time, peak memory, exit code, and system and environment details
 
-The monitor is standard-library Python needing no elevated privileges, so the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
-It is POSIX-only: no Windows, and since sampling relies on `ps`, macOS reports some details differently than Linux.
+The monitor is standard-library Python needing no elevated privileges: the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
+(POSIX-only: no Windows, and macOS `ps` reports some details differently than Linux.)
 
-For research, this capture is provenance, and it composes with existing tooling: `datalad run "duct
-<cmd> ..."` produces a git commit binding inputs, command, and outputs, with the duct logs alongside.
-On HPC, the measured wall time and resource statistics help guide the next job.
-Hoffstaedter's `ds000007-mriqc` dataset [4] ships a `logs/duct/` directory alongside its MRIQC outputs, so `con-duct ls` and `con-duct plot` reconstruct the resource picture of a completed neuroimaging quality-control pipeline months after the fact, without re-executing it.
+**For research**, capture is provenance: `datalad run "duct <cmd> ..."` binds inputs, invocation, and outputs into a git commit, with the duct logs alongside [2].
+On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
 
-The same capture pays off in daily work, where humans and agents now execute commands side by side.
-Because the full record lands on disk rather than in an agent's context, it costs nothing to carry — and it equips a successor, human or agent, to answer questions that weren't known ahead of time:
- - Did we get that warning last time?
- - Did this run take longer?
-
+**In daily work**, humans and agents now execute commands side by side.
+The full record lands on disk, not in an agent's context — free to carry, and ready for the questions nobody knew to ask.
+Did we get that warning last time?
+Did this run take longer?
 `con-duct ls` answers from disk, filtering on any captured field with a Python expression:
+ - `con-duct ls -e "message=='<tag>'"` retrieves runs tagged at capture time with `duct -m "<tag>"`.
+ - `con-duct ls -e "exit_code != 0"` lists every failure.
+ - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-- `con-duct ls -e "message=='<tag>'"` retrieves runs tagged at capture time with `duct -m "<tag>"`.
-- `con-duct ls -e "exit_code != 0"` lists every failure.
-- `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
-
-And when an expensive job fails, the bug-report evidence — exact command, host, full stderr, and the resource timeline leading up to the failure — is already on disk: file the issue without re-running the job.
+**When an expensive job fails**, the bug-report evidence — invocation, host, full stderr, resource timeline — is already on disk.
+File the issue; skip the re-run.
 
 `con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
 
