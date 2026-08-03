@@ -13,38 +13,30 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 
 ## Abstract
 
-Agents and humans now routinely execute commands side-by-side, whether developing workflows, exploring datasets, invoking analysis tools, or chaining outputs through pipelines.
-The outputs of those commands are often worth keeping, whether to refer back to, to compare against, or to hand to a successor.
-By default they vanish the moment the terminal scrolls or the agent's context rolls over.
+Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
+By default, most of that record is ephemeral; `con-duct` is a lightweight wrapper that keeps it.
 
-In development and exploration, this is a context problem.
-A command's full stdout, its exit status, how long it took, and the resources used are exactly the breadcrumbs a successor (human or agent) needs to pick up where the last one left off, and the cost of capturing them is small enough that there is no reason not to.
- - Did we get that warning last time we ran that command?
- - Did this run take longer?
+Anything you can run in a terminal (binaries, shell pipelines, scripts, etc) passes through `duct` unchanged and leaves a complete trace.
+Invoked as `duct -m "searchable message" <cmd>`, it streams full stdout and stderr to disk, samples resource usage across the command's entire process tree at a configurable interval, and writes metadata recording the command, wall clock time, peak memory, exit code, and scheduler environment (SLURM/PBS job variables).
+The monitor depends only on the Python standard library and needs no elevated privileges, so the same wrapper works on a laptop, inside a container, or on an HPC compute node, whether the runner is a human at a terminal or an agent calling out via tool use.
+It is POSIX-only: Windows is unsupported, and because sampling relies on `ps`, macOS reports some resource details differently than Linux.
 
-For research outputs the stakes change.
-Capture becomes provenance: a record of what was run, against what inputs, producing what outputs, with which resources.
-The same recording does double duty on HPC, where the measured wall time and peak memory from earlier runs are the cheapest possible input to the next SLURM request, replacing the usual guesswork.
+For research, this capture is provenance, and it composes with existing tooling: `datalad run "duct <cmd> ..."` produces a git commit binding inputs, command, and outputs, with the duct logs alongside.
+On HPC, the same record doubles as sizing: the measured wall time and peak memory of the last run are the cheapest possible input to the next SLURM request, replacing the usual guesswork.
+Sampled `ps` measurements are approximate — good enough to replace guesswork, not exact accounting — and work is underway on exact per-job metrics via cgroups and tighter SLURM integration.
+Hoffstaedter's `ds000007-mriqc` dataset ships a `logs/duct/` directory alongside its MRIQC outputs (<https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc/src/branch/base/logs/duct/>), so `con-duct ls` and `con-duct plot` reproduce the resource picture of a completed neuroimaging quality-control pipeline months after the fact, without re-executing it.
 
-`con-duct` closes both halves of the loop with the same wrapper.
-`con-duct run` (or `duct` for convenience) handles the capture:
- - Invoked as `duct -m "searchable message/tag" <cmd>`, it streams full stdout and stderr to disk, polls the process group for resource usage at a configurable interval, and writes metadata recording the command, environment, wall clock time, peak RSS, and exit code.
- - Capture is automatic and identical whether the runner is a human in a terminal or an agent calling out via tool use.
- - The core monitor depends only on the Python standard library and needs no elevated privileges, so it works the same on a laptop, inside a container, or on an HPC compute node (`--mode current-session` for SLURM-tracked sessions).
+The same unconditional capture pays off in daily work, where humans and agents now execute commands side by side and an agent's context rolls over even faster than a terminal scrolls.
+A command's full output, exit status, duration, and resource footprint are exactly the breadcrumbs a successor — human or agent — needs to pick up where the last one left off.
+Did we get that warning last time?
+Did this run take longer?
+`con-duct ls` answers from disk rather than from memory, filtering on any captured field with a Python expression:
 
-The companion `con-duct ls` provides discovery:
-Its `-e` flag takes a Python expression over any captured field, so a later agent or human can retrieve runs by whatever dimension turns out to matter:
- - `con-duct ls -e "message=='<tag>'"` retrieves runs by their `-m` tag.
- - `con-duct ls -e "re.search('fmriprep', command)"` matches the command string against a regex.
- - `con-duct ls -e "exit_code != 0"` lists all failures.
- - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
- - `con-duct ls -e "wall_clock_time > 3600 and hostname=='cluster-node-7'"` narrows to long runs on a specific host.
+- `con-duct ls -e "message=='<tag>'"` retrieves runs by their `-m` tag.
+- `con-duct ls -e "exit_code != 0"` lists every failure.
+- `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-From any match, the full captured stdout, stderr, and resource samples are recoverable on disk, even when no one knew at runtime that those outputs would be needed.
-Aggregated across runs, the resource statistics, exit codes, and wall times surface patterns: performance issues, a regression in runtime, a flaky exit under specific inputs.
-The same wrapper composes with DataLad: `datalad run "duct <cmd> ..."` produces a git commit binding inputs, command, and outputs with the duct logs alongside.
-MRIQC is a neuroimaging quality-control pipeline, a typical HPC workload.
-Hoffstaedter's `ds000007-mriqc` dataset ships a `logs/duct/` directory alongside its MRIQC outputs (<https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc/src/branch/base/logs/duct/>), so `con-duct ls` and `con-duct plot` reproduce the resource picture of a completed `mriqc` run months after the fact, without re-executing the pipeline.
+And when an expensive job fails, the evidence for the bug report — exact command, host, full stderr, and the resource timeline leading up to the failure — is already on disk, so the issue can be filed without re-running the job.
 
 `con-duct` is available on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly at <https://github.com/con/duct>.
 
@@ -53,9 +45,8 @@ Hoffstaedter's `ds000007-mriqc` dataset ships a `logs/duct/` directory alongside
 We thank the broader ReproNim and OpenNeuro communities for ongoing feedback on `con-duct`'s design and use.
 `con-duct`'s resource-monitoring approach is based on brainlife's `smon` (<https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>).
 
-*AI-assisted content disclosure (per IEEE policy).* This submission was prepared with assistance from Anthropic's Claude (model: `claude-opus-4-7`, accessed via the Claude Code CLI in May 2026).
-The AI system contributed to drafting prose in the Abstract and Connection-to-Mission sections. The human authors specified the content, edited the prose, and verified all technical claims, command examples, figures, and references.
-The `con-duct` software described in this work was also developed with assistance from the multiple agents used by the authors for code generation, refactoring, and review. All merged code was reviewed by the human authors.
+*AI disclosure (per IEEE policy):* Prose in the Abstract and Connection-to-Mission sections was drafted with assistance from Anthropic's Claude; the authors specified the content, edited the text, and verified all technical claims, commands, and references.
+The `con-duct` software itself is developed with AI assistance, with human review of all merged code.
 
 ## References
 
@@ -68,9 +59,7 @@ The `con-duct` software described in this work was also developed with assistanc
 
 `con-duct` was built by RSEs at the Center for Open Neuroscience to record provenance for neuroimaging pipelines.
 The dev-side payoff (reaching back into outputs that would otherwise be gone) was an unexpected bonus.
-As LLM agents take on more of the executing (writing throwaway pipelines, exploring datasets, calling tools), RSEs are the people who decide whether that work remains auditable.
-AI only amplifies all of this.
-More context is produced, more streams run in parallel, and everything moves faster.
-RSEs still need to preserve that context, make it discoverable, and keep the capture cheap enough that nobody skips the step.
+As LLM agents take on more of the executing (writing throwaway pipelines, exploring datasets, calling tools), the volume of unrecorded work explodes: more commands, more parallel streams, results produced faster than anyone reads them.
+RSEs are the people who decide whether that work remains auditable — who preserve the context, make it discoverable, and keep capture cheap enough that nobody skips the step.
 
 `con-duct` is one small piece of an answer: a wrapper that makes the agent's work, like the human's, leave a trace.
