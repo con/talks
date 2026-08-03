@@ -17,28 +17,28 @@ Research outputs are only as trustworthy as the record of how they were produced
 By default, most of that record is ephemeral; `con-duct` is a lightweight wrapper that keeps it.
 
 Anything you can run in a terminal (binaries, shell pipelines, scripts, etc) passes through `duct` unchanged and leaves a complete trace.
-Invoked as `duct -m "searchable message" <cmd>`, it streams full stdout and stderr to disk, samples resource usage across the command's entire process tree at a configurable interval, and writes metadata recording the command, wall clock time, peak memory, exit code, and scheduler environment (SLURM/PBS job variables).
-The monitor depends only on the Python standard library and needs no elevated privileges, so the same wrapper works on a laptop, inside a container, or on an HPC compute node, whether the runner is a human at a terminal or an agent calling out via tool use.
-It is POSIX-only: Windows is unsupported, and because sampling relies on `ps`, macOS reports some resource details differently than Linux.
+Invoked as `duct -m "searchable message" <cmd>`, it streams full stdout and stderr to disk, samples resource usage across the command's entire process tree, and records the command, wall clock time, peak memory, exit code, and scheduler environment (SLURM/PBS job variables).
+The monitor is standard-library Python needing no elevated privileges, so the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
+It is POSIX-only: no Windows, and since sampling relies on `ps`, macOS reports some details differently than Linux.
 
 For research, this capture is provenance, and it composes with existing tooling: `datalad run "duct <cmd> ..."` produces a git commit binding inputs, command, and outputs, with the duct logs alongside.
 On HPC, the same record doubles as sizing: the measured wall time and peak memory of the last run are the cheapest possible input to the next SLURM request, replacing the usual guesswork.
-Sampled `ps` measurements are approximate — good enough to replace guesswork, not exact accounting — and work is underway on exact per-job metrics via cgroups and tighter SLURM integration.
-Hoffstaedter's `ds000007-mriqc` dataset ships a `logs/duct/` directory alongside its MRIQC outputs (<https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc/src/branch/base/logs/duct/>), so `con-duct ls` and `con-duct plot` reproduce the resource picture of a completed neuroimaging quality-control pipeline months after the fact, without re-executing it.
+(Sampled `ps` numbers are approximate; exact per-job accounting via cgroups and tighter SLURM integration is underway.)
+Hoffstaedter's `ds000007-mriqc` dataset [4] ships a `logs/duct/` directory alongside its MRIQC outputs, so `con-duct ls` and `con-duct plot` reconstruct the resource picture of a completed neuroimaging quality-control pipeline months after the fact, without re-executing it.
 
 The same unconditional capture pays off in daily work, where humans and agents now execute commands side by side and an agent's context rolls over even faster than a terminal scrolls.
-A command's full output, exit status, duration, and resource footprint are exactly the breadcrumbs a successor — human or agent — needs to pick up where the last one left off.
+Full output, exit status, duration, and resource footprint are exactly the breadcrumbs a successor — human or agent — needs to pick up the thread.
 Did we get that warning last time?
 Did this run take longer?
-`con-duct ls` answers from disk rather than from memory, filtering on any captured field with a Python expression:
+`con-duct ls` answers from disk, filtering on any captured field with a Python expression:
 
 - `con-duct ls -e "message=='<tag>'"` retrieves runs by their `-m` tag.
 - `con-duct ls -e "exit_code != 0"` lists every failure.
 - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-And when an expensive job fails, the evidence for the bug report — exact command, host, full stderr, and the resource timeline leading up to the failure — is already on disk, so the issue can be filed without re-running the job.
+And when an expensive job fails, the bug-report evidence — exact command, host, full stderr, and the resource timeline leading up to the failure — is already on disk: file the issue without re-running the job.
 
-`con-duct` is available on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly at <https://github.com/con/duct>.
+`con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
 
 ## Acknowledgments
 
@@ -53,7 +53,7 @@ The `con-duct` software itself is developed with AI assistance, with human revie
 1. `con-duct`. Center for Open Neuroscience. <https://github.com/con/duct>. RRID:SCR_025436.
 2. DataLad. <https://www.datalad.org/>. RRID:SCR_003931.
 3. brainlife `smon`. <https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>
-4. Hoffstaedter, F. `ds000007-mriqc`. <https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc>
+4. Hoffstaedter, F. `ds000007-mriqc` (duct logs in `logs/duct/`). <https://cerebra.fz-juelich.de/f.hoffstaedter/ds000007-mriqc/src/branch/base/logs/duct/>
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
