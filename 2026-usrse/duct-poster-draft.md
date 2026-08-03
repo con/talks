@@ -18,10 +18,7 @@ By default, that record is ephemeral — gone when the terminal scrolls or the a
 
 `con-duct` is a lightweight, standard-library Python wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
 
-Every wrapped run leaves a complete trace:
- - full stdout and stderr, streamed to disk
- - resource usage, sampled across the command's entire process tree
- - a record of the invocation, wall clock time, peak memory, exit code, and system and environment details
+Every wrapped run leaves a complete trace: full stdout and stderr streamed to disk; resource usage sampled across the command's entire process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
 
 **For research**, capture is provenance: `datalad run "duct <cmd> ..."` binds inputs, invocation, and outputs into a git commit, with the duct logs alongside [2].
 On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
