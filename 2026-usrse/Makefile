@@ -63,7 +63,7 @@ PDF_LATEX_OPTS := --to pdf \
                   -V linkcolor=darkgreen \
                   -V urlcolor=darkblue \
                   -V toccolor=darkgreen \
-                  -V 'header-includes=\definecolor{darkblue}{HTML}{00008B}\definecolor{darkgreen}{HTML}{006400}'
+                  -V 'header-includes=\definecolor{darkblue}{HTML}{00008B}\definecolor{darkgreen}{HTML}{006400}\usepackage{enumitem}\setlist{nosep}'
 
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
