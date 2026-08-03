@@ -20,7 +20,7 @@ Anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) pa
 Invoked as `duct <cmd>`, your command runs and produces:
  - full stdout and stderr to disk
  - resource usage sampled across the command's entire process tree
- - a record containing the command, wall clock time, peak memory, exit code, and system and environment details
+ - a record containing the invocation, wall clock time, peak memory, exit code, and system and environment details
 
 The monitor is standard-library Python needing no elevated privileges, so the same wrapper works on a laptop, in a container, or on an HPC node, for a human at a terminal or an agent calling a tool.
 It is POSIX-only: no Windows, and since sampling relies on `ps`, macOS reports some details differently than Linux.
