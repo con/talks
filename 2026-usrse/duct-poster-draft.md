@@ -14,7 +14,7 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 ## Abstract
 
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
-By default, that record is ephemeral — gone when the terminal scrolls or the agent's context rolls over.
+By default, that record is ephemeral, gone when the terminal scrolls or the agent's context rolls over.
 
 `con-duct` is a lightweight, standard-library Python wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
 
@@ -24,7 +24,7 @@ Every wrapped run leaves a complete trace: full stdout and stderr streamed to di
 On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
 
 **In daily work**, humans and agents now execute commands side by side.
-The full record lands on disk, not in an agent's context — free to carry, and ready for the questions nobody knew to ask.
+The full record lands on disk, not in an agent's context: free to carry, and ready for the questions nobody knew to ask.
 Did we get that warning last time?
 Did this run take longer?
 `con-duct ls` answers from disk, filtering on any captured field with a Python expression:
@@ -32,7 +32,7 @@ Did this run take longer?
  - `con-duct ls -e "exit_code != 0"` lists every failure.
  - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-**When an expensive job fails**, the bug-report evidence — invocation, host, full stderr, resource timeline — is already on disk.
+**When an expensive job fails**, the bug-report evidence (invocation, host, full stderr, resource timeline) is already on disk.
 File the issue; skip the re-run.
 
 `con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
@@ -57,6 +57,6 @@ The `con-duct` software itself is developed with AI assistance, with human revie
 `con-duct` was built by RSEs at the Center for Open Neuroscience to record provenance for neuroimaging pipelines.
 The dev-side payoff (reaching back into outputs that would otherwise be gone) was an unexpected bonus.
 As LLM agents take on more of the executing (writing throwaway pipelines, exploring datasets, calling tools), the volume of unrecorded work explodes: more commands, more parallel streams, results produced faster than anyone reads them.
-RSEs are the people who decide whether that work remains auditable — who preserve the context, make it discoverable, and keep capture cheap enough that nobody skips the step.
+RSEs are the people who decide whether that work remains auditable: who preserve the context, make it discoverable, and keep capture cheap enough that nobody skips the step.
 
 `con-duct` is one small piece of an answer: a wrapper that makes the agent's work, like the human's, leave a trace.
