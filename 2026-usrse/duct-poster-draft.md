@@ -22,7 +22,7 @@ It sits between shell history and full workflow or experiment-tracking systems: 
 A wrapped run leaves a complete trace: full stdout and stderr streamed to disk; resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
 
 **For research**, capture is provenance: `datalad run "duct <cmd> ..."` binds inputs, invocation, and outputs into a git commit, with the duct logs alongside [2].
-On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
+On HPC, yesterday's measured wall time and peak memory can help inform tomorrow's SLURM request.
 
 **In daily work**, humans and agents now execute commands side by side.
 The full record lands on disk, not in an agent's context: free to carry, and ready for the questions nobody knew to ask.
