@@ -16,9 +16,10 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
 By default, that record is ephemeral, gone when the terminal scrolls or the agent's context rolls over.
 
-`con-duct` is a lightweight, standard-library Python wrapper: anything you can run in a terminal (binaries, shell pipelines, scripts, etc.) runs unchanged as `duct <cmd>`.
+`con-duct` is a lightweight, standard-library Python wrapper: nearly anything you can run in a terminal runs unchanged as `duct <cmd>`.
+It sits between shell history and full workflow or experiment-tracking systems: more record than the former, far less machinery than the latter.
 
-Every wrapped run leaves a complete trace: full stdout and stderr streamed to disk; resource usage sampled across the command's entire process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
+A wrapped run leaves a complete trace: full stdout and stderr streamed to disk; resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
 
 **For research**, capture is provenance: `datalad run "duct <cmd> ..."` binds inputs, invocation, and outputs into a git commit, with the duct logs alongside [2].
 On HPC, yesterday's measured wall time and peak memory size tomorrow's SLURM request.
@@ -29,7 +30,7 @@ Did we get that warning last time?
 Did this run take longer?
 `con-duct ls` answers from disk, filtering on any captured field with a Python expression:
  - `con-duct ls -e "message=='<tag>'"` retrieves runs tagged at capture time with `duct -m "<tag>"`.
- - `con-duct ls -e "exit_code != 0"` lists every failure.
+ - `con-duct ls -e "exit_code != 0"` lists failures.
  - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
 **When an expensive job fails**, the bug-report evidence is already on disk (invocation, host, full stderr, resource timeline).
