@@ -86,7 +86,7 @@ Designing those systems as maintainable, reusable infrastructure brings together
 Orinoco provides a concrete setting in which to make that frequently invisible RSE contribution legible.
 
 This contribution advances US-RSE's Community, Advocacy, and Resources goals in distinct ways.
-It gives RSEs a concrete basis for comparing approaches across labs and institutions; advocates for metadata modeling and stewardship as consequential RSE work; and contributes open resources, including shared models, validation workflows, and service-backed and GitHub-based implementations, that practitioners can evaluate and adapt.
+It gives RSEs a concrete basis for exchanging approaches across labs and institutions; advocates for metadata modeling and stewardship as consequential RSE work; and contributes open models and validation workflows that practitioners can evaluate and adapt across service-backed and GitHub-based deployments.
 It also highlights the RSE judgment required to connect local needs with community standards and choose an operating model a group can sustain.
 
 The conference theme makes this foundation more urgent.

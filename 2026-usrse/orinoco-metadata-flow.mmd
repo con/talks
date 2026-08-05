@@ -1,19 +1,19 @@
 %% Solid arrows show metadata flow; dashed arrows show supporting model,
 %% deployment, and interoperability relationships.
 %% The component layout adapts Orinoco's 2026 selfhost_components.svg artwork.
-%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 20}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "21px"}}}%%
+%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 18, "rankSpacing": 22}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "27px"}}}%%
 flowchart LR
-    F["Metadata feeds<br/>Zotero groups | GitHub adapters<br/>PID and institutional sources"]
+    F["Metadata feeds<br/>Zotero | GitHub | institutional<br/>and PID sources"]
 
-    G["Lab-in-a-Box toolkit<br/>persistent Dump Things + SHACL-vue<br/>Forgejo for identity | collaboration | CI"]
+    G["Lab-in-a-Box<br/>persistent services<br/>Dump Things | Forgejo | CI"]
 
     subgraph O["Orinoco: open, lab-owned research-information system"]
         direction LR
-        M["DataLad Concepts<br/>LinkML research model"]
-        E["Feed + enrichment<br/>workflows"]
-        V["SHACL-vue<br/>model-driven entry and review"]
-        P["Dump Things metadata pool<br/>incoming → curation → official records<br/><b>operational source of truth</b>"]
-        Q["Open retrieval + projection<br/>REST API | dtc | qri"]
+        M["DataLad Concepts<br/>LinkML model"]
+        E["CI feeds +<br/>enrichment"]
+        V["SHACL-vue<br/>entry + review"]
+        P["Dump Things<br/>incoming → curated records<br/><b>operational source of truth</b>"]
+        Q["REST API | dtc | qri<br/>retrieval + projection"]
 
         M -. "forms and validation" .-> V
         M -. "schema validation" .-> P
@@ -22,15 +22,15 @@ flowchart LR
         P --> Q
     end
 
-    G -. "service-backed deployment" .-> O
+    G -. "service deployment" .-> O
 
-    F -->|"candidate records via CI adapters"| O
-    O --> U["Lab uses<br/><b>website</b> (Hugo + graph)<br/>reports | catalogs | discovery<br/>AI-assisted work"]
+    F -->|"source-specific CI adapters"| O
+    O --> U["Lab uses<br/><b>website + graph</b><br/>reports | catalogs | discovery | AI"]
 
-    O -. "shared IDs + ontology mappings" .-> K["Other governed<br/>research graphs"]
+    O -. "IDs + ontology mappings" .-> K["Other governed<br/>research graphs"]
 
-    L["Additional deployment option: Orinoco Lite<br/>modeled YAML + Git pull-request review<br/>GitHub Action: validate + project + publish"]
-    O -. "same model" .-> L
+    L["Orinoco Lite<br/>Git/PR review | GitHub Action<br/>validate + project + publish"]
+    O -. "additional option; same model" .-> L
 
     classDef feed fill:#edf4f8,stroke:#35627a,color:#142f3e,stroke-width:1.5px;
     classDef model fill:#eee8f7,stroke:#6a4b8a,color:#30203f,stroke-width:1.5px;
