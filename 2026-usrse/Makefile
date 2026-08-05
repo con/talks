@@ -11,6 +11,7 @@
 #   make                  -- builds <name>.html for every *.md in this folder
 #   make pdf              -- builds <name>.pdf for every *.md (needs a PDF engine)
 #   make html             -- explicit alias for the default
+#   make diagram          -- rebuilds the Orinoco metadata-flow figure
 #   make proposal         -- just talk-proposal-draft.html + talk-proposal-draft.pdf
 #   make clean            -- remove generated *.html / *.pdf
 #
@@ -42,6 +43,9 @@ PANDOC_OPTS := --standalone \
                --shift-heading-level-by=0 \
                --wrap=preserve
 
+# Pin the Mermaid renderer used for the committed poster figure.
+MERMAID_CLI ?= npx --yes @mermaid-js/mermaid-cli@11.16.0
+
 # HTML-specific
 HTML_OPTS := --to html5 \
              --embed-resources \
@@ -68,7 +72,7 @@ PDF_LATEX_OPTS := --to pdf \
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
-.PHONY: all html pdf proposal clean help check
+.PHONY: all html pdf diagram proposal clean help check
 
 all: pdf
 
@@ -76,7 +80,17 @@ html: $(HTMLS)
 
 pdf: $(PDFS)
 
+diagram: orinoco-metadata-flow.png
+
 proposal: talk-proposal-draft.html talk-proposal-draft.pdf
+
+orinoco-metadata-flow.png: orinoco-metadata-flow.mmd
+	@if [ -x "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then \
+	  export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; \
+	elif [ -x "/Applications/Chromium.app/Contents/MacOS/Chromium" ]; then \
+	  export PUPPETEER_EXECUTABLE_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium"; \
+	fi; \
+	$(MERMAID_CLI) -i "$<" -o "$@" -b white -w 1600 -s 2 -q
 
 # Generic pattern: any.md -> any.html
 %.html: %.md

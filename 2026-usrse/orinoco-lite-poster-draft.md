@@ -30,6 +30,10 @@ The service-backed Orinoco stack uses SHACL-vue and Dump Things for collaborativ
 For labs already working in GitHub, we are developing Orinoco Lite: human-readable YAML is reviewed in pull requests, a GitHub Action validates it, `qri` projects its relationships, and Hugo publishes a static website [8].
 Both paths maintain the same reusable model through review processes that fit different lab operations.
 
+![](orinoco-metadata-flow.png){width=100%}
+
+*Solid arrows show the working record-to-website path; the dashed arrow marks prospective reuse of modeled scope by `solidation`, whose GitHub-to-report path already works independently.*
+
 At CON, a YAML record for a DataLad publication includes its DOI and Zotero item identifiers and links the publication to Yaroslav Halchenko and the DataLad project.
 `qri` and Hugo use those relationships to generate publication, person, and project pages, related items, backlinks, and graph navigation.
 The website makes curation visibly useful: correcting one record improves every derived view.

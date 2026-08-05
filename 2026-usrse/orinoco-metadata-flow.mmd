@@ -1,0 +1,29 @@
+%% Solid arrows show working paths; the dashed arrow shows prospective reuse.
+%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 22}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "23px"}}}%%
+flowchart LR
+    K["Lab sources and shared model<br/>Zotero | ORCID | ROR | DOI<br/>LinkML / DataLad Concepts"]
+
+    subgraph E["Choose a review environment"]
+        direction TB
+        O["Service-backed Orinoco<br/>SHACL-vue | persistent Dump Things<br/>Lab-in-a-Box also deploys Forgejo"]
+        L["Orinoco Lite<br/>YAML | GitHub pull-request review<br/>GitHub Action"]
+    end
+
+    R["Reviewed connected records<br/>people | projects | outputs<br/>relationships | provenance"]
+    W["Lab website<br/>qri -> Hugo<br/>pages | backlinks | graph"]
+    C["Current project-health path<br/>GitHub activity -> consolidation<br/>-> Markdown report"]
+
+    K --> E
+    E --> R
+    R --> W
+    R -.-> C
+
+    classDef source fill:#edf4f8,stroke:#35627a,color:#142f3e,stroke-width:1.5px;
+    classDef pathway fill:#eef7ee,stroke:#39734a,color:#173b22,stroke-width:1.5px;
+    classDef records fill:#dcefe2,stroke:#1f6b3a,color:#12351f,stroke-width:2px;
+    classDef output fill:#fff6dc,stroke:#9a7422,color:#4a3710,stroke-width:1.5px;
+
+    class K source;
+    class O,L pathway;
+    class R records;
+    class W,C output;
