@@ -34,7 +34,7 @@ These same records provide a better basis for AI-assisted work. An assistant res
 
 ## Acknowledgments
 
-We thank Michael Hanke and the contributors to DataLad Concepts and the Orinoco ecosystem for the underlying schemas, services, and implementation patterns, and the broader Center for Open Neuroscience team for motivating operational use cases.
+We thank Michael Hanke, Stephan Heunis and other contributors to DataLad Concepts and the Orinoco ecosystem for the underlying schemas, services, and implementation patterns, and the broader Center for Open Neuroscience team for motivating operational use cases.
 
 OpenAI Codex assisted with source review, initial drafting, and copy-editing of the Abstract and the Connection to Mission, Goals, and Interests of the US-RSE Community. The authors selected the scope and framing, verified technical claims against the cited software, and reviewed and approved the final text.
 
