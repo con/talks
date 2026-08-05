@@ -17,34 +17,35 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 ## Abstract
 
 Research groups repeatedly need the same facts to update a website, prepare a funder report, assemble a collaborator list, revise a biosketch, or account for a grant's outputs.
-Those facts are dispersed across email, spreadsheets, CVs, proposals, acknowledgments, institutional systems, and web pages, so each task begins by recovering and reconciling what the lab already knows.
-A website is one visible symptom of treating research information as scattered prose rather than shared infrastructure.
+Those facts are scattered across email, spreadsheets, CVs, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
+A website is one visible symptom of treating research information as disconnected documents rather than shared infrastructure.
 
 Research-information management is an established field [1]-[3].
 CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
-Research groups still need a practical way to maintain finer-grained operational context under local governance, with an immediate return that makes curation worthwhile.
+Labs still need a locally governed approach whose immediate value makes curation worthwhile.
 
-Orinoco brings this approach to the scale of a research group [6].
-LinkML schemas from DataLad Concepts describe people, organizations, projects, grants, datasets, instruments, software, publications, and their relationships, with identifiers and provenance that keep records traceable.
-The service-backed Orinoco stack uses SHACL-vue and Dump Things for collaborative curation and supplies the research-information layer of Lab-in-a-Box [7]; its metadata-driven Psychoinformatics group website demonstrates the model in use and inspired our adaptation [6].
-For labs already working in GitHub, we are developing Orinoco Lite: human-readable YAML is reviewed in pull requests, a GitHub Action validates it, `qri` projects its relationships, and Hugo publishes a static website [8].
-Both paths maintain the same reusable model through review processes that fit different lab operations.
+Orinoco applies this pattern at research-group scale through an open, self-hostable set of interoperating tools [6].
+DataLad Concepts supplies a LinkML model for people, projects, outputs, and their relationships.
+Zotero groups and institutional sources can feed incoming areas through source-specific CI adapters; a GitHub-facing tool such as `solidation` could supply another feed [9].
+Dump Things validates records and separates incoming proposals from the curated official collection, the lab's operational source of truth for approved metadata.
+SHACL-vue supports model-driven entry and review, while `dtc` and `qri` project the collection into websites, reports, catalogs, and other applications.
+
+Lab-in-a-Box provides the service-backed deployment context, including persistent Dump Things and Forgejo among other self-hosted services [7].
+The metadata-driven Psychoinformatics website demonstrates one Orinoco projection [6].
+Open schemas, software, and interfaces let groups retain custody of their records and choose producers and consumers, which led CON to reuse Orinoco for its website and broader research-information needs.
 
 ![](orinoco-metadata-flow.png){width=100%}
 
-*Solid arrows show the working record-to-website path; the dashed arrow marks prospective reuse of modeled scope by `solidation`, whose GitHub-to-report path already works independently.*
+*Orinoco's open components turn source-specific metadata feeds into a reviewed lab pool and reusable projections; the callouts show the Lab-in-a-Box service setting and CON's additional GitHub-based deployment.*
 
-At CON, a YAML record for a DataLad publication includes its DOI and Zotero item identifiers and links the publication to Yaroslav Halchenko and the DataLad project.
-`qri` and Hugo use those relationships to generate publication, person, and project pages, related items, backlinks, and graph navigation.
-The website makes curation visibly useful: correcting one record improves every derived view.
+At CON, a modeled DataLad publication links DOI and Zotero identifiers to Yaroslav Halchenko and the DataLad project.
+`qri` and Hugo turn those relationships into pages, backlinks, and graph navigation, so correcting one record improves every derived view.
+For GitHub-oriented labs, we are developing Orinoco Lite: modeled YAML is reviewed in pull requests, a GitHub Action runs Orinoco validation and projection, and Hugo publishes a static website without a persistent metadata service [8].
+This changes deployment, not the information model or the possibilities for reuse.
 
-The model also supplies context to source-specific tools rather than replacing them.
-CON's `solidation` combines YAML lists of repositories and members with current GitHub activity to produce a Markdown project-health report [9].
-It could draw that scope from modeled relationships among people, projects, and repositories while GitHub remains authoritative for activity.
-
-Shared identifiers such as ORCID, ROR, and DOI, together with explicit mappings to PROV-O, provide connection points for linking selected records across independently governed lab graphs and could support questions that cross organizational boundaries.
-When a researcher asks for grant outputs, potential collaborators, or a biosketch update, an assistant can follow reviewed relationships, preserve sources, and propose structured corrections for human review.
-The website provides the immediate payoff; the governed record can also support reporting, cross-lab discovery, and AI-assisted work without creating another copy of the lab's knowledge.
+The lab-owned pool need not become a local silo.
+ORCID, ROR, DOI, and PROV-O mappings provide explicit join points across independently governed graphs.
+When a researcher needs grant outputs, potential collaborators, or a biosketch update, conventional or AI-assisted software can work from reviewed relationships and propose corrections for human approval.
 
 ```{=latex}
 \newpage
