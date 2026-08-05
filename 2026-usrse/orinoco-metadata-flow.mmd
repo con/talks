@@ -1,29 +1,47 @@
-%% Solid arrows show working paths; the dashed arrow shows prospective reuse.
-%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 22}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "23px"}}}%%
+%% Solid arrows show metadata flow; dashed arrows show supporting model,
+%% deployment, and interoperability relationships.
+%% The component layout adapts Orinoco's 2026 selfhost_components.svg artwork.
+%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 20}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "21px"}}}%%
 flowchart LR
-    K["Lab sources and shared model<br/>Zotero | ORCID | ROR | DOI<br/>LinkML / DataLad Concepts"]
+    F["Metadata feeds<br/>Zotero groups | GitHub adapters<br/>PID and institutional sources"]
 
-    subgraph E["Choose a review environment"]
-        direction TB
-        O["Service-backed Orinoco<br/>SHACL-vue | persistent Dump Things<br/>Lab-in-a-Box also deploys Forgejo"]
-        L["Orinoco Lite<br/>YAML | GitHub pull-request review<br/>GitHub Action"]
+    G["Lab-in-a-Box toolkit<br/>persistent Dump Things + SHACL-vue<br/>Forgejo for identity | collaboration | CI"]
+
+    subgraph O["Orinoco: open, lab-owned research-information system"]
+        direction LR
+        M["DataLad Concepts<br/>LinkML research model"]
+        E["Feed + enrichment<br/>workflows"]
+        V["SHACL-vue<br/>model-driven entry and review"]
+        P["Dump Things metadata pool<br/>incoming → curation → official records<br/><b>operational source of truth</b>"]
+        Q["Open retrieval + projection<br/>REST API | dtc | qri"]
+
+        M -. "forms and validation" .-> V
+        M -. "schema validation" .-> P
+        E <--> P
+        V <--> P
+        P --> Q
     end
 
-    R["Reviewed connected records<br/>people | projects | outputs<br/>relationships | provenance"]
-    W["Lab website<br/>qri -> Hugo<br/>pages | backlinks | graph"]
-    C["Current project-health path<br/>GitHub activity -> consolidation<br/>-> Markdown report"]
+    G -. "service-backed deployment" .-> O
 
-    K --> E
-    E --> R
-    R --> W
-    R -.-> C
+    F -->|"candidate records via CI adapters"| O
+    O --> U["Lab uses<br/><b>website</b> (Hugo + graph)<br/>reports | catalogs | discovery<br/>AI-assisted work"]
 
-    classDef source fill:#edf4f8,stroke:#35627a,color:#142f3e,stroke-width:1.5px;
-    classDef pathway fill:#eef7ee,stroke:#39734a,color:#173b22,stroke-width:1.5px;
-    classDef records fill:#dcefe2,stroke:#1f6b3a,color:#12351f,stroke-width:2px;
-    classDef output fill:#fff6dc,stroke:#9a7422,color:#4a3710,stroke-width:1.5px;
+    O -. "shared IDs + ontology mappings" .-> K["Other governed<br/>research graphs"]
 
-    class K source;
-    class O,L pathway;
-    class R records;
-    class W,C output;
+    L["Additional deployment option: Orinoco Lite<br/>modeled YAML + Git pull-request review<br/>GitHub Action: validate + project + publish"]
+    O -. "same model" .-> L
+
+    classDef feed fill:#edf4f8,stroke:#35627a,color:#142f3e,stroke-width:1.5px;
+    classDef model fill:#eee8f7,stroke:#6a4b8a,color:#30203f,stroke-width:1.5px;
+    classDef tool fill:#eef7ee,stroke:#39734a,color:#173b22,stroke-width:1.5px;
+    classDef pool fill:#dcefe2,stroke:#1f6b3a,color:#12351f,stroke-width:2.5px;
+    classDef use fill:#fff6dc,stroke:#9a7422,color:#4a3710,stroke-width:1.5px;
+    classDef note fill:#f4f4f4,stroke:#777,color:#333,stroke-width:1.25px,stroke-dasharray:4 3;
+
+    class F feed;
+    class M model;
+    class E,V,Q,G tool;
+    class P pool;
+    class U use;
+    class K,L note;
