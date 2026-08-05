@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/TurtleTech-ehf/snapper
+    rev: v0.9.1
+    hooks:
+      - id: snapper
+        files: ^2026-usrse/orinoco-lite-poster-draft\.md$
