@@ -16,40 +16,31 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 ## Abstract
 
-Ask a research group to update its website, prepare a funder report, assemble a collaborator list, revise a biosketch, or account for every output from a grant, and the same problem appears: the facts exist, but not in a form that can be reused.
-They have been copied among email, spreadsheets, CVs, proposals, manuscript acknowledgments, institutional systems, and web pages.
-Each new task begins by recovering, reconciling, and rewriting what the lab already knows.
-The website is not the problem; it is one visible symptom of treating research information as scattered prose rather than shared infrastructure.
+Research groups repeatedly need the same facts to update a website, prepare a funder report, assemble a collaborator list, revise a biosketch, or account for a grant's outputs.
+Those facts are dispersed across email, spreadsheets, CVs, proposals, acknowledgments, institutional systems, and web pages, so each task begins by recovering and reconciling what the lab already knows.
+A website is one visible symptom of treating research information as scattered prose rather than shared infrastructure.
 
 Research-information management is an established field [1]-[3].
-CERIF defines connected entities for interoperable research systems; commercial platforms and open systems such as VIVO and DSpace-CRIS maintain institutional research records; and OpenAIRE and OpenAlex show what connected scholarly metadata can support at global scale [1], [4], [5].
-This prior art demonstrates the value of modeling research information, but it also reveals a practical gap.
-A lab often needs finer-grained operational context, local authority over its records, and an immediate benefit that justifies keeping them current.
-Institutional-scale services and global discovery graphs address many research-information needs, but they do not by themselves give an individual lab a practical, locally governed path for maintaining the finer-grained context it uses day to day.
+CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
+Research groups still need a practical way to maintain finer-grained operational context under local governance, with an immediate return that makes curation worthwhile.
 
-Orinoco is an open, self-hostable ecosystem for maintaining and reusing structured research information [6].
-Its research-specific model represents people, organizations, projects, grants, datasets, instruments, software, publications, and their relationships as records that can be validated, reviewed, and traced to their sources.
-The full system provides shared services through which a group can curate those records collaboratively and use them in multiple applications.
-Its service-backed components also provide the research-information layer of Lab-in-a-Box, a broader self-hostable toolkit for research data, metadata, collaboration, and publication [7].
-The metadata-driven Psychoinformatics group website is a working example and inspired our adaptation [6].
-For labs already familiar with GitHub, we are developing Orinoco Lite: a GitHub Action that keeps human-readable YAML records under pull-request review, validates them, and generates a static Hugo website [8].
-In both cases, the lab maintains connected research information once and derives useful outputs from it.
-The website is an immediately useful output and an incentive to keep the records current, not the boundary of the system.
+Orinoco brings this approach to the scale of a research group [6].
+LinkML schemas from DataLad Concepts describe people, organizations, projects, grants, datasets, instruments, software, publications, and their relationships, with identifiers and provenance that keep records traceable.
+The service-backed Orinoco stack uses SHACL-vue and Dump Things for collaborative curation and supplies the research-information layer of Lab-in-a-Box [7]; its metadata-driven Psychoinformatics group website demonstrates the model in use and inspired our adaptation [6].
+For labs already working in GitHub, we are developing Orinoco Lite: human-readable YAML is reviewed in pull requests, a GitHub Action validates it, `qri` projects its relationships, and Hugo publishes a static website [8].
+Both paths maintain the same reusable model through review processes that fit different lab operations.
 
-Once information is maintained as connected records, common lab tasks become different views of shared knowledge.
-A person's affiliation, project role, and contribution to an output can support a team page, project history, publication list, biosketch, grant narrative, progress report, or collaborator search without being re-entered for each one.
-A correction improves every view derived from the record; each useful view, in turn, gives the group a reason to keep the record accurate.
-That feedback loop is central to the adoption model: metadata stewardship becomes part of ordinary lab work rather than a separate documentation obligation.
+At CON, a YAML record for a DataLad publication includes its DOI and Zotero item identifiers and links the publication to Yaroslav Halchenko and the DataLad project.
+`qri` and Hugo use those relationships to generate publication, person, and project pages, related items, backlinks, and graph navigation.
+The website makes curation visibly useful: correcting one record improves every derived view.
 
-The local payoff need not produce another information silo.
-Stable identifiers, provenance, and mappings to shared ontologies allow selected Orinoco records to be interpreted beyond the lab that maintains them.
-Independently governed graphs could therefore support questions across organizational boundaries without requiring every group to surrender its data to one central platform.
+The model also supplies context to source-specific tools rather than replacing them.
+CON's `solidation` combines YAML lists of repositories and members with current GitHub activity to produce a Markdown project-health report [9].
+It could draw that scope from modeled relationships among people, projects, and repositories while GitHub remains authoritative for activity.
 
-These same records provide a better basis for AI-assisted work.
-An assistant responding to a researcher's request can retrieve reviewed facts, follow relationships, preserve sources, and assemble a verifiable draft without first having to recover and reconcile the relevant information from inconsistent prose; it can also propose structured corrections for review.
-AI therefore amplifies both the value of reusable research information and the rate at which it can change, making explicit schemas, provenance, automated checks, and review increasingly important.
-The poster demonstrates the information model through its service-backed and GitHub-based implementations and shows how one record set supports multiple lab tasks.
-Its central claim is simple: a lab website can be a useful product of research-information stewardship instead of the place where research information goes to become stale.
+Shared identifiers such as ORCID, ROR, and DOI, together with explicit mappings to PROV-O, provide connection points for linking selected records across independently governed lab graphs and could support questions that cross organizational boundaries.
+When a researcher asks for grant outputs, potential collaborators, or a biosketch update, an assistant can follow reviewed relationships, preserve sources, and propose structured corrections for human review.
+The website provides the immediate payoff; the governed record can also support reporting, cross-lab discovery, and AI-assisted work without creating another copy of the lab's knowledge.
 
 ```{=latex}
 \newpage
@@ -80,6 +71,8 @@ Open-source research information systems.
 [Deployment toolkit](https://hub.psychoinformatics.de/lab-in-a-box/liab-deployments); M. Hanke et al., [*Lab in a box: A build-your-own-open-lab software toolkit*](https://doi.org/10.5281/zenodo.20583436), OHBM 2026 poster.
 8. Orinoco Lite.
 [Development repository](https://github.com/con/orinoco-lite-dev); [GitHub Action](https://github.com/con/orinoco-lite-action).
+9. Center for Open Neuroscience.
+[`solidation`: Produce activity reports from GitHub](https://github.com/con/solidation).
 
 ## Connection to Mission, Goals, and Interests of the US-RSE Community
 
