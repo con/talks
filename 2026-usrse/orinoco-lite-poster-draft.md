@@ -32,10 +32,6 @@ LinkML schemas provide machine-readable definitions of people, projects, grants,
 These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
-![](orinoco-metadata-flow.png){width=100%}
-
-*Orinoco's open components turn source-specific metadata feeds into a reviewed lab pool and reusable projections; the callouts show the Lab-in-a-Box service setting and CON's additional GitHub-based deployment.*
-
 Using Orinoco as a shared information foundation, Lab-in-a-Box presents a vision for creating lab-controlled digital infrastructure [7].
 The Psychoinformatics website, a part of this vision, demonstrates how structured knowledge can efficiently represent a research group’s work: linked records organize the site’s pages, related-item lists, backlinks, and graph navigation [6].
 The website therefore illustrates the wider value of curating and modeling lab metadata for reuse across lab operations.
