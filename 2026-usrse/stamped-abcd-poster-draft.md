@@ -14,16 +14,16 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 The scientific value of a computational finding depends on whether others can understand how it was produced, inspect its evidence, and re-execute or extend the analysis.
 Code alone is insufficient: data, parameters, software environments, execution context, and provenance must also be identifiable and recoverable.
-AI-assisted tools have potential to reduce the software development burden, but their sheer output volume and non-determinstic operation increase the importance of explicit capture of context, provenance, and reviewable intermediate states.
-STAMPED defines seven properties for organizing these materials as a durable research object.
+AI-assisted tools can reduce software-development effort, but their high-volume, nondeterministic output makes explicit context, provenance, and reviewable intermediate states increasingly important.
+STAMPED (<https://stamped-principles.org>) defines seven properties for organizing these materials as a durable research object.
 
 We applied STAMPED while reproducing an analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
-The reproduction used AI-assisted development, allowing us to examine how STAMPED structures the context, evidence, and handoffs surrounding automated work.
+The reproduction used AI-assisted development, allowing us to examine how STAMPED structures the context, evidence, and reviewable checkpoints surrounding automated work.
 The case study shows how the principles guide concrete decisions about the organization, execution, documentation, and distribution of a computational analysis.
 
-Overall STAMPED define following properties to characterize composed research objects:
+Together, the seven STAMPED properties characterize a composed research object:
 
-- **Self-contained:** Everything needed to understand and run the study was made identifiable from one research-object boundary, reducing reliance on undocumented local context (supported by DataLad and git-annex).
+- **Self-contained:** Everything needed to understand and run the study was available within one research-object boundary, eliminating the need to look elsewhere for context (supported by DataLad and git-annex).
 - **Tracked:** Results were linked to their inputs, transformations, execution context, and scientific meaning so their provenance could be inspected (recorded with Git, DataLad run records, `con-duct`, and NIDM/PROV).
 - **Actionable:** Procedures and expected outputs were encoded as executable, testable operations instead of instructions requiring interpretation (implemented through BIDS, tested BIDS Apps, Pixi tasks, manifests, validation commands, and Datalad run records).
 - **Modular:** Data, environments, operations, and results retained distinct identities so components could be reviewed, updated, and reused independently (organized as versioned DataLad subdatasets).
@@ -36,7 +36,7 @@ Designing the research object alongside the analysis makes later reproduction mo
 
 Within this structure, AI-assisted tools can help translate scientific intent into workflows and automate routine implementation, testing, and documentation.
 Without explicit controls, those efficiencies can amplify hidden assumptions, undocumented changes, fragile dependencies, and difficult-to-inspect outputs.
-STAMPED mitigates these risks by bounding context, preserving provenance, defining executable tasks and component interfaces, testing independence from local state, and retaining exact handoff states.
+STAMPED mitigates these risks by bounding context, preserving provenance, defining executable tasks and component interfaces, testing independence from local state, and preserving explicit states for human review.
 This allows researchers to benefit from automation while preserving oversight and devoting more attention to scientific questions, methods, and interpretation.
 
 ## Acknowledgments
@@ -78,9 +78,9 @@ Research software engineers help determine whether a computational result is mer
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference: coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution.
 This case study translates those properties into a concrete implementation and shows how they can be designed into an analysis from the beginning rather than added after publication.
 
-The contribution is a reusable decision framework for translating STAMPED principles into choices about research-object boundaries, provenance, execution, validation, and distribution.
-The worked reproduction exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
+The contribution is a worked example of how STAMPED principles guide choices about research-object boundaries, provenance, execution, validation, and distribution.
+It exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
 Although we demonstrate the approach through a scientific reproduction, such a reproduction is more thorough and achievable when the necessary context, procedures, and evidence are incorporated into the original analysis.
 
 The project also addresses the conference theme, "Advancing Science in the Age of AI," by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
-Using STAMPED as a shared point of reference, the poster invites RSEs to compare how their teams record decisions, divide responsibility, and evaluate handoffs, and to consider how those expectations could become community review criteria and institutional practice across research domains.
+Using STAMPED as a shared point of reference, the poster invites RSEs to compare how their teams record decisions, divide responsibility, and evaluate AI-assisted work, and to consider how those expectations could become community review criteria and institutional practice across research domains.
