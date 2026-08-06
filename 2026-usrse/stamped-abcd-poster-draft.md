@@ -22,15 +22,8 @@ We used STAMPED to assess an existing analysis presented at OHBM 2025 on age-dep
 We reworked the analysis to more closely align with the ideals laid out in the STAMPED principles.
 We made extensive use of AI in the development, testing, and documentation of the work, helping to assess how such practices interact with the application of the principles.
 
-Given an analysis pipeline and a chosen set of tools, we created a research object more closely aligned with the principles:
-
-- **Self-contained:** Everything needed to understand and run the study was available within one research-object boundary, eliminating the need to look elsewhere for context (supported by DataLad and git-annex).
-- **Tracked:** Results were linked to their inputs, transformations, execution context, and scientific meaning so their provenance could be inspected (recorded with Git, DataLad run records, `con-duct`, and NIDM/PROV).
-- **Actionable:** Procedures and expected outputs were encoded as executable, testable operations instead of instructions requiring interpretation (implemented through BIDS, tested BIDS Apps, Pixi tasks, manifests, validation commands, and Datalad run records).
-- **Modular:** Data, environments, operations, and results retained distinct identities so components could be reviewed, updated, and reused independently (organized as versioned DataLad subdatasets).
-- **Portable:** Software dependencies and interfaces were separated from site-specific configuration so execution could move across systems (supported by locked Pixi environments, exact Apptainer images, and standard interfaces).
-- **Ephemeral:** Fresh, disposable execution tested whether results followed from the declared research object rather than accumulated machine state (tested with BABS, Slurm, and clean-installation replay with `datalad rerun` and alike).
-- **Distributable:** Exact permitted research states remained persistently retrievable under explicit licensing and access rules, supporting reuse while protecting controlled data (implemented through Git/annex siblings and separate access boundaries).
+To improve the research object across the seven properties, we combined DataLad and git-annex for composition and state; Git, DataLad run records, `con-duct`, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
+Used together, these tools made data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable while exposing interactions among the principles.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
 The worked example exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
