@@ -14,6 +14,7 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 The scientific value of a computational finding depends on whether others can understand how it was produced, inspect its evidence, and re-execute or extend the analysis.
 Code alone is insufficient: data, parameters, software environments, execution context, and provenance must also be identifiable and recoverable.
+For RSEs, the practical payoff is less time reconstructing context and more efficient review, maintenance, collaboration, and extension of an analysis.
 AI-assisted tools can reduce software-development effort, but their high-volume, nondeterministic output makes explicit context, provenance, and reviewable intermediate states increasingly important.
 STAMPED (<https://stamped-principles.org>) defines seven properties for organizing these materials as a durable research object.
 
