@@ -17,11 +17,11 @@ Code alone is insufficient: data, parameters, software environments, execution c
 AI-assisted tools can reduce software-development effort, but their high-volume, nondeterministic output makes explicit context, provenance, and reviewable intermediate states increasingly important.
 STAMPED (<https://stamped-principles.org>) defines seven properties for organizing these materials as a durable research object.
 
-We applied STAMPED while reproducing an analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
-The reproduction used AI-assisted development, allowing us to examine how STAMPED structures the context, evidence, and reviewable checkpoints surrounding automated work.
-The case study shows how the principles guide concrete decisions about the organization, execution, documentation, and distribution of a computational analysis.
+We used STAMPED to assess an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
+We reworked the analysis to more closely align with the ideals laid out in the STAMPED principles.
+We made extensive use of AI in the development, testing, and documentation of the work, helping to assess how such practices interact with the application of the principles.
 
-Together, the seven STAMPED properties characterize a composed research object:
+Given an analysis pipeline and a chosen set of tools, we created a research object more closely aligned with the principles:
 
 - **Self-contained:** Everything needed to understand and run the study was available within one research-object boundary, eliminating the need to look elsewhere for context (supported by DataLad and git-annex).
 - **Tracked:** Results were linked to their inputs, transformations, execution context, and scientific meaning so their provenance could be inspected (recorded with Git, DataLad run records, `con-duct`, and NIDM/PROV).
@@ -31,13 +31,10 @@ Together, the seven STAMPED properties characterize a composed research object:
 - **Ephemeral:** Fresh, disposable execution tested whether results followed from the declared research object rather than accumulated machine state (tested with BABS, Slurm, and clean-installation replay with `datalad rerun` and alike).
 - **Distributable:** Exact permitted research states remained persistently retrievable under explicit licensing and access rules, supporting reuse while protecting controlled data (implemented through Git/annex siblings and separate access boundaries).
 
-Although this project demonstrates STAMPED through a scientific reproduction, its broader value lies in applying the principles from the start along with the FAIR principles mandating use of agreed upon standards.
-Designing the research object alongside the analysis makes later reproduction more thorough and achievable while strengthening review, collaboration, extension, and reuse throughout the study.
+Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
+The worked example exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
+Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
 
-Within this structure, AI-assisted tools can help translate scientific intent into workflows and automate routine implementation, testing, and documentation.
-Without explicit controls, those efficiencies can amplify hidden assumptions, undocumented changes, fragile dependencies, and difficult-to-inspect outputs.
-STAMPED mitigates these risks by bounding context, preserving provenance, defining executable tasks and component interfaces, testing independence from local state, and preserving explicit states for human review.
-This allows researchers to benefit from automation while preserving oversight and devoting more attention to scientific questions, methods, and interpretation.
 
 ## Acknowledgments
 
@@ -77,10 +74,6 @@ RRID:SCR_025436.
 Research software engineers help determine whether a computational result is merely produced once or becomes a durable scientific contribution.
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference: coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution.
 This case study translates those properties into a concrete implementation and shows how they can be designed into an analysis from the beginning rather than added after publication.
-
-The contribution is a worked example of how STAMPED principles guide choices about research-object boundaries, provenance, execution, validation, and distribution.
-It exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
-Although we demonstrate the approach through a scientific reproduction, such a reproduction is more thorough and achievable when the necessary context, procedures, and evidence are incorporated into the original analysis.
 
 The project also addresses the conference theme, "Advancing Science in the Age of AI," by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
 Using STAMPED as a shared point of reference, the poster invites RSEs to compare how their teams record decisions, divide responsibility, and evaluate AI-assisted work, and to consider how those expectations could become community review criteria and institutional practice across research domains.
