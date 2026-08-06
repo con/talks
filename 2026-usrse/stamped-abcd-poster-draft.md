@@ -26,7 +26,7 @@ To improve the research object across the seven properties, we combined DataLad 
 Used together, these tools made data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable while exposing interactions among the principles.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
-The worked example exposes the effort, evidence, and tradeoffs involved, giving RSEs an implementation pattern they can adapt across domains.
+The poster reports the practical details of this process—the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools—and invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
 
 
