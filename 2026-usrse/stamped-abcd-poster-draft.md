@@ -18,13 +18,13 @@ For RSEs, the practical payoff is less time reconstructing context and more effi
 AI-assisted tools can reduce software-development effort, but their high-volume, nondeterministic output makes explicit context, provenance, and reviewable intermediate states increasingly important.
 STAMPED (<https://stamped-principles.org>) defines seven properties for organizing these materials as a durable research object.
 
-We used STAMPED to assess an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
-We reworked the analysis to more closely align with the ideals laid out in the STAMPED principles.
-We used AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
-In this setting, the principles provided a structure for bounding context, preserving inspectable states, connecting automated outputs to evidence, and establishing checkpoints for human review.
+This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
+We use the principles to guide improvements to the research object surrounding the analysis.
+We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
+In this setting, the principles provide a structure for bounding context, preserving inspectable states, connecting automated outputs to evidence, and establishing checkpoints for human review.
 
-To improve the research object across the seven properties, we combined DataLad and git-annex for composition and state; Git, DataLad run records, `con-duct`, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
-Used together, these tools made data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable while exposing interactions among the principles.
+To improve the research object across the seven properties, we combine DataLad and git-annex for composition and state; Git, DataLad run records, `con-duct`, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
+Used together, these tools make data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable while exposing interactions among the principles.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
 The poster reports the practical details of this process—the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools—and invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
