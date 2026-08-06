@@ -32,14 +32,14 @@ LinkML schemas provide machine-readable definitions of people, projects, grants,
 These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
-Using Orinoco as a shared information foundation, Lab-in-a-Box presents a vision for creating lab-controlled digital infrastructure [7].
-The Psychoinformatics website, a part of this vision, demonstrates how structured knowledge can efficiently represent a research group’s work: linked records organize the site’s pages, related-item lists, backlinks, and graph navigation [6].
+Lab-in-a-Box builds on ORINOCO incorporating this pattern alongside other lab-operated services [7].
+An example of a deployment of this is the Psychoinformatics website that demonstrates how structured knowledge can efficiently represent a research group’s work: linked records organize the site’s pages, related-item lists, backlinks, and graph navigation [6].
 The website therefore illustrates the wider value of curating and modeling lab metadata for reuse across lab operations.
 
 Recognizing this utility, CON adopted Orinoco as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
 For now, we call this adaptation Orinoco Lite [8].
 Modeled YAML records in Git constitute the official collection.
-Changes may be proposed directly by people or prepared automatically from existing lab sources, such as our Zotero publication group and GitHub activity summarized by `con/solidation`; in either case, they are reviewed through pull requests.
+Changes may be proposed directly by people or prepared automatically from existing lab sources such as our Zotero publication group; in either case, they are reviewed through pull requests.
 A GitHub Action starts the required Orinoco components for each build and uses them to validate the records and regenerate the website.
 We will compare the trade-offs between Psychoinformatics’ service-backed deployment and CON’s GitHub-based adaptation, and invite other labs to consider how structured research information could support their own operations.
 
