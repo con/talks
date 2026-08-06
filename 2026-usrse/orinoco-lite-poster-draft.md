@@ -16,51 +16,39 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 ## Abstract
 
-Research groups repeatedly need the same facts to update a website, prepare a funder report, assemble a collaborator list, revise a biosketch, or account for a grant's outputs.
-Those facts are scattered across email, spreadsheets, CVs, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
-A website is one visible symptom of treating research information as disconnected documents rather than shared infrastructure.
+Research groups repeatedly need the same facts for their basic operations (CVs, grant applications, yearly reporting etc.).
+Those facts are scattered across email, spreadsheets, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
+A shared infrastructure to help organize this data improves efficiency and accuracy in lab operations.
+A lab website is a good example of something that would greatly benefit from being built on top of such an information system.
 
 Research-information management is an established field [1]-[3].
 CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
-A lab-scale system should complement these resources by preserving global identifiers while maintaining the local roles, relationships, tools, and emerging work needed for day-to-day operations.
-ORCID, ROR, DOI, and explicit mappings to terms in PROV-O provide possible connection points between local records and independently governed graphs.
-AI can reduce the effort of maintaining this information by extracting candidate facts, reconciling identifiers, helping researchers query reviewed relationships, or drafting schema-conforming additions.
-The schema constrains what kinds of records and relationships can be proposed, validation identifies malformed submissions, and human reviewers decide what enters the official record.
+By reusing shared identifiers such as ORCID, ROR, and DOI and mappings to terms in PROV-O, a lab-scale schema can build on this broader information landscape rather than create another silo, while retaining the flexibility to describe the local roles, relationships, tools, and emerging work needed for day-to-day operations.
+Such a schema organizes the records, constrains their structure, and supports validation as data is entered.
+This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
 
-Orinoco implements this pattern at research-group scale through an open, self-hostable set of interoperating components [6].
-DataLad Concepts supplies LinkML schemas: machine-readable definitions of people, projects, grants, research outputs, and their relationships.
-Source-specific adapters transform metadata feeds, such as Zotero groups or institutional exports, into model-conforming candidate records; an adapter around GitHub data or CON's activity-report tool, `solidation`, could provide another feed [9].
-The `dtc` command-line client submits and retrieves these records through Dump Things.
-Dump Things validates records against the shared model and separates incoming submissions from the curated official collection.
-SHACL-vue uses the same model to generate browser-based forms for entering, editing, and viewing records.
-For reuse, `qri` follows relationships and reshapes approved records for particular consumers, while Hugo turns them into the public website and graph navigation.
-The same approved knowledge can support reports, catalogs, discovery, and other lab operations.
-Together, these components give the group an operational source of truth under local control while allowing feeds to remain authoritative for source-specific observations.
-Open schemas and interfaces let a lab inspect each transformation, replace a feed or consumer, and connect selected records to information maintained elsewhere.
+Orinoco addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
+LinkML schemas provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
+These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
+Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
 ![](orinoco-metadata-flow.png){width=100%}
 
 *Orinoco's open components turn source-specific metadata feeds into a reviewed lab pool and reusable projections; the callouts show the Lab-in-a-Box service setting and CON's additional GitHub-based deployment.*
 
-Lab-in-a-Box is the broader self-hosted lab-service toolkit; its deployment workflows include persistent Dump Things and Forgejo among other services [7].
-This arrangement keeps facilities for contributing, curating, storing, and reusing research information continuously available.
-The Psychoinformatics website shows how the resulting knowledge can be presented: a scheduled workflow retrieves approved records and generates public pages, related-item lists, backlinks, and graph navigation [6].
-The website is one maintained representation of that knowledge, not its source.
+Using Orinoco as a shared information foundation, Lab-in-a-Box presents a vision for creating lab-controlled digital infrastructure [7].
+The Psychoinformatics website, a part of this vision, demonstrates how structured knowledge can efficiently represent a research group’s work: linked records organize the site’s pages, related-item lists, backlinks, and graph navigation [6].
+The website therefore illustrates the wider value of curating and modeling lab metadata for reuse across lab operations.
 
-CON chose to reuse Orinoco's model and processing components while coordinating them through our own code rather than adopting the same long-running service topology.
-We are developing Orinoco Lite as an additional deployment option for labs whose collaboration and review already happen in GitHub [8].
-The modeled YAML records in Git are the canonical source, proposed changes are reviewed in pull requests, and a GitHub Action starts the necessary Orinoco components temporarily.
-The Action starts Dump Things to validate the records, uses `dtc` to submit and retrieve them, uses `qri` to prepare website content and graph data, and invokes Hugo to build a static lab website.
-GitHub Pages hosts the result, so the deployed website does not depend on a continuously running metadata service.
+Recognizing this utility, CON adopted Orinoco as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
+For now, we call this adaptation Orinoco Lite [8].
+Modeled YAML records in Git constitute the official collection.
+Changes may be proposed directly by people or prepared automatically from existing lab sources, such as our Zotero publication group and GitHub activity summarized by `con/solidation`; in either case, they are reviewed through pull requests.
+A GitHub Action starts the required Orinoco components for each build and uses them to validate the records and regenerate the website.
+We will compare the trade-offs between Psychoinformatics’ service-backed deployment and CON’s GitHub-based adaptation, and invite other labs to consider how structured research information could support their own operations.
 
-This deployment fits CON because GitHub already supplies identity, review, automation, and hosting, while Orinoco supplies the shared model, validation, and reusable processing components.
-Orinoco Lite relocates the review and deployment boundary while preserving the modeled records as reusable inputs.
-Metadata feeds can run in CI and propose repository updates for review rather than writing directly to accepted records.
-It is therefore another way to operate the Orinoco approach, not a separate research-information system.
-
-We invite RSEs to combine semantic models with constrained AI: use AI to propose structured records and relationships, validate those proposals, and keep human curators responsible for approval.
-Curating knowledge once as shared metadata can make websites, reporting, discovery, and collaboration more efficient without sacrificing provenance or local control.
-
+For RSEs, the central opportunity is to treat lab metadata as shared infrastructure rather than maintain it separately for each application.
+A website provides an immediate and visible use for that infrastructure, but its larger value is an enduring body of curated, structured information that can be reused as the lab’s needs and tools evolve.
 ```{=latex}
 \newpage
 ```
@@ -95,15 +83,14 @@ Open-source research information systems.
 
 ## Connection to Mission, Goals, and Interests of the US-RSE Community
 
-Research software engineers often inherit not only research code, but also the information systems through which groups communicate their work to collaborators, funders, institutions, and the public.
+Research software engineers often inherit not only research code, but also the information systems through which groups coordinate their activities and communicate their work to collaborators, funders, institutions, and the public.
 Designing those systems as maintainable, reusable infrastructure brings together software architecture, data stewardship, interoperability, governance, and long-term sustainability.
 Orinoco provides a concrete setting in which to make that frequently invisible RSE contribution legible.
 
-This contribution advances US-RSE's Community, Advocacy, and Resources goals in distinct ways.
-It gives RSEs a concrete basis for exchanging approaches across labs and institutions; advocates for metadata modeling and stewardship as consequential RSE work; and contributes open models and validation workflows that practitioners can evaluate and adapt across service-backed and GitHub-based deployments.
+This contribution advances US-RSE’s Community, Advocacy, and Resources goals in distinct ways.
+It gives RSEs a concrete basis for exchanging approaches across labs and institutions; advocates for metadata modeling and stewardship as consequential RSE work; and presents open models and validation workflows that practitioners can evaluate.
 It also highlights the RSE judgment required to connect local needs with community standards and choose an operating model a group can sustain.
 
-The conference theme makes this foundation more urgent.
-AI assistance can increase both the demand for research information and the rate at which proposed changes are produced.
-Trustworthy sources, inspectable transformations, and accountable review therefore become more important, not less.
-The contribution is not simply an AI-enabled website; it is an example of RSEs creating governed information infrastructure on which conventional software and AI-assisted work can both rely.
+The conference theme makes this work particularly timely.
+AI can help extract and reorganize information from sources a lab already maintains, but its output becomes operationally useful only when it conforms to explicit models and passes accountable human review.
+Designing these boundaries is an RSE responsibility and an important part of building information infrastructure on which conventional and AI-assisted workflows can both rely.
