@@ -22,30 +22,44 @@ A website is one visible symptom of treating research information as disconnecte
 
 Research-information management is an established field [1]-[3].
 CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
-Labs still need a locally governed approach whose immediate value makes curation worthwhile.
+A lab-scale system should complement these resources by preserving global identifiers while maintaining the local roles, relationships, tools, and emerging work needed for day-to-day operations.
+ORCID, ROR, DOI, and explicit mappings to terms in PROV-O provide possible connection points between local records and independently governed graphs.
+AI can reduce the effort of maintaining this information by extracting candidate facts, reconciling identifiers, helping researchers query reviewed relationships, or drafting schema-conforming additions.
+The schema constrains what kinds of records and relationships can be proposed, validation identifies malformed submissions, and human reviewers decide what enters the official record.
 
-Orinoco applies this pattern at research-group scale through an open, self-hostable set of interoperating tools [6].
-DataLad Concepts supplies a LinkML model for people, projects, outputs, and their relationships.
-Zotero groups and institutional sources can feed incoming areas through source-specific CI adapters; a GitHub-facing tool such as `solidation` could supply another feed [9].
-Dump Things validates records and separates incoming proposals from the curated official collection, the lab's operational source of truth for approved metadata.
-SHACL-vue supports model-driven entry and review, while `dtc` and `qri` project the collection into websites, reports, catalogs, and other applications.
-
-Lab-in-a-Box provides the service-backed deployment context, including persistent Dump Things and Forgejo among other self-hosted services [7].
-The metadata-driven Psychoinformatics website demonstrates one Orinoco projection [6].
-Open schemas, software, and interfaces let groups retain custody of their records and choose producers and consumers, which led CON to reuse Orinoco for its website and broader research-information needs.
+Orinoco implements this pattern at research-group scale through an open, self-hostable set of interoperating components [6].
+DataLad Concepts supplies LinkML schemas: machine-readable definitions of people, projects, grants, research outputs, and their relationships.
+Source-specific adapters transform metadata feeds, such as Zotero groups or institutional exports, into model-conforming candidate records; an adapter around GitHub data or CON's activity-report tool, `solidation`, could provide another feed [9].
+The `dtc` command-line client submits and retrieves these records through Dump Things.
+Dump Things validates records against the shared model and separates incoming submissions from the curated official collection.
+SHACL-vue uses the same model to generate browser-based forms for entering, editing, and viewing records.
+For reuse, `qri` follows relationships and reshapes approved records for particular consumers, while Hugo turns them into the public website and graph navigation.
+The same approved knowledge can support reports, catalogs, discovery, and other lab operations.
+Together, these components give the group an operational source of truth under local control while allowing feeds to remain authoritative for source-specific observations.
+Open schemas and interfaces let a lab inspect each transformation, replace a feed or consumer, and connect selected records to information maintained elsewhere.
 
 ![](orinoco-metadata-flow.png){width=100%}
 
 *Orinoco's open components turn source-specific metadata feeds into a reviewed lab pool and reusable projections; the callouts show the Lab-in-a-Box service setting and CON's additional GitHub-based deployment.*
 
-At CON, a modeled DataLad publication links DOI and Zotero identifiers to Yaroslav Halchenko and the DataLad project.
-`qri` and Hugo turn those relationships into pages, backlinks, and graph navigation, so correcting one record improves every derived view.
-For GitHub-oriented labs, we are developing Orinoco Lite: modeled YAML is reviewed in pull requests, a GitHub Action runs Orinoco validation and projection, and Hugo publishes a static website without a persistent metadata service [8].
-This changes deployment, not the information model or the possibilities for reuse.
+Lab-in-a-Box is the broader self-hosted lab-service toolkit; its deployment workflows include persistent Dump Things and Forgejo among other services [7].
+This arrangement keeps facilities for contributing, curating, storing, and reusing research information continuously available.
+The Psychoinformatics website shows how the resulting knowledge can be presented: a scheduled workflow retrieves approved records and generates public pages, related-item lists, backlinks, and graph navigation [6].
+The website is one maintained representation of that knowledge, not its source.
 
-The lab-owned pool need not become a local silo.
-ORCID, ROR, DOI, and PROV-O mappings provide explicit join points across independently governed graphs.
-When a researcher needs grant outputs, potential collaborators, or a biosketch update, conventional or AI-assisted software can work from reviewed relationships and propose corrections for human approval.
+CON chose to reuse Orinoco's model and processing components while coordinating them through our own code rather than adopting the same long-running service topology.
+We are developing Orinoco Lite as an additional deployment option for labs whose collaboration and review already happen in GitHub [8].
+The modeled YAML records in Git are the canonical source, proposed changes are reviewed in pull requests, and a GitHub Action starts the necessary Orinoco components temporarily.
+The Action starts Dump Things to validate the records, uses `dtc` to submit and retrieve them, uses `qri` to prepare website content and graph data, and invokes Hugo to build a static lab website.
+GitHub Pages hosts the result, so the deployed website does not depend on a continuously running metadata service.
+
+This deployment fits CON because GitHub already supplies identity, review, automation, and hosting, while Orinoco supplies the shared model, validation, and reusable processing components.
+Orinoco Lite relocates the review and deployment boundary while preserving the modeled records as reusable inputs.
+Metadata feeds can run in CI and propose repository updates for review rather than writing directly to accepted records.
+It is therefore another way to operate the Orinoco approach, not a separate research-information system.
+
+We invite RSEs to combine semantic models with constrained AI: use AI to propose structured records and relationships, validate those proposals, and keep human curators responsible for approval.
+Curating knowledge once as shared metadata can make websites, reporting, discovery, and collaboration more efficient without sacrificing provenance or local control.
 
 ```{=latex}
 \newpage
