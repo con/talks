@@ -63,7 +63,7 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
 Research software engineers help determine whether a computational result is merely produced once or becomes a durable scientific contribution.
-STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference.
+STAMPED gives RSEs, researchers, and AI agents a shared vocabulary for the properties that make this difference.
 It encourages coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution [1].
 
 The project addresses the conference theme, “Advancing Science in the Age of AI,” by providing principles and tools that humans and AI systems can reuse to scaffold research projects, while drawing attention to the composition of evidence left by AI-assisted work.
