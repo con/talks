@@ -14,7 +14,7 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 RSEs routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
 This missing context makes analyses harder to review, maintain, transfer, and extend.
-AI-assisted tools can accelerate development, testing, and documentation, but their high-volume, nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
+AI-assisted tools can accelerate development, testing, and documentation, but their high-volume and nondeterministic output further complicate these tasks and heightens the need for explicit context and reviewable intermediate states.
 STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
 The framework complements the established FAIR (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
 
