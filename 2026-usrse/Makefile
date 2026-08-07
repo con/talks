@@ -65,6 +65,10 @@ PDF_LATEX_OPTS := --to pdf \
                   -V toccolor=darkgreen \
                   -V 'header-includes=\definecolor{darkblue}{HTML}{00008B}\definecolor{darkgreen}{HTML}{006400}'
 
+# This draft is longer than the one-page abstract template; keep this
+# adjustment scoped to this document rather than changing shared defaults.
+stamped-abcd-poster-draft.pdf: PDF_LATEX_OPTS := $(subst fontsize=11pt,fontsize=10pt,$(PDF_LATEX_OPTS))
+
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 

@@ -32,6 +32,10 @@ The poster reports the practical details of this process: the effort and judgmen
 In doing so, it shows why these practices are easier to incorporate during study design than to add retrospectively.
 It invites RSEs to compare these experiences with their own shared or domain-specific challenges.
 
+```{=latex}
+\newpage
+```
+
 ## Acknowledgments
 
 We thank the authors of the STAMPED principles and the developers and communities behind DataLad, BIDS, BABS, ReproNim, NIDM, Pixi, Apptainer, and `con-duct`.
@@ -42,28 +46,17 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 
 ## References
 
-1. Macdonald A, Baker CC, To I, Halchenko YO.
-*STAMPED principles for reproducible research objects*.
-May 2026.
-<https://github.com/stamped-principles/stamped-paper>
-2. Lee JA.
-*STAMPED-dl_morphometrics_biases: an ideal-oriented reconstruction of a neuroimaging analysis*.
-2026.
-<https://github.com/STAMPED-dl-morphometrics-biases/STAMPED-dl_morphometrics_biases>
-3. Nielson DM, Lee JA, Earl E, Moraczewski D, Pereira F. *Age dependent volume estimation biases in recon-all clinical and recon-any*.
-OHBM 2025 poster.
-<https://doi.org/10.17605/OSF.IO/P3KNS>
-4. Halchenko YO, et al. DataLad: distributed system for joint management of code, data, and their relationship.
-*Journal of Open Source Software*.
-2021;6(63):3262.
-<https://doi.org/10.21105/joss.03262>
-5. Zhao C, et al. A reproducible and generalizable software workflow for analysis of large-scale neuroimaging data collections using BIDS Apps.
-*Imaging Neuroscience*. 2024;2:imag-2-00074.
-<https://doi.org/10.1162/imag_a_00074>
-6. Center for Open Neuroscience.
-*con-duct: a lightweight wrapper for monitoring command execution*.
-RRID:SCR_025436.
-<https://github.com/con/duct>
+1. Macdonald A, Baker CC, To I, Halchenko YO; *STAMPED principles for reproducible research objects*; May 2026; [preprint](https://github.com/stamped-principles/stamped-paper)
+
+2. Lee JA; *STAMPED-dl_morphometrics_biases: an ideal-oriented reconstruction of a neuroimaging analysis*; 2026; [repository](https://github.com/STAMPED-dl-morphometrics-biases/STAMPED-dl_morphometrics_biases)
+
+3. Nielson DM, Lee JA, Earl E, Moraczewski D, Pereira F; *Age dependent volume estimation biases in recon-all clinical and recon-any*; OHBM 2025 poster; [doi:10.17605/OSF.IO/P3KNS](https://doi.org/10.17605/OSF.IO/P3KNS)
+
+4. Halchenko YO, et al.; DataLad: distributed system for joint management of code, data, and their relationship; *Journal of Open Source Software*; 2021;6(63):3262; [doi:10.21105/joss.03262](https://doi.org/10.21105/joss.03262)
+
+5. Zhao C, et al.; A reproducible and generalizable software workflow for analysis of large-scale neuroimaging data collections using BIDS Apps; *Imaging Neuroscience*; 2024;2:imag-2-00074; [doi:10.1162/imag_a_00074](https://doi.org/10.1162/imag_a_00074)
+
+6. Center for Open Neuroscience; *con-duct: a lightweight wrapper for monitoring command execution*; RRID:SCR_025436; [repository](https://github.com/con/duct)
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
