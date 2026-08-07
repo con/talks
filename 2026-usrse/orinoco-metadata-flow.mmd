@@ -1,0 +1,47 @@
+%% Solid arrows show metadata flow; dashed arrows show supporting model,
+%% deployment, and interoperability relationships.
+%% The component layout adapts Orinoco's 2026 selfhost_components.svg artwork.
+%%{init: {"htmlLabels": true, "flowchart": {"curve": "linear", "nodeSpacing": 18, "rankSpacing": 22}, "themeVariables": {"fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "27px"}}}%%
+flowchart LR
+    F["Metadata feeds<br/>Zotero | GitHub | institutional<br/>and PID sources"]
+
+    G["Lab-in-a-Box<br/>persistent services<br/>Dump Things | Forgejo | CI"]
+
+    subgraph O["Orinoco: open, lab-owned research-information system"]
+        direction LR
+        M["DataLad Concepts<br/>LinkML model"]
+        E["CI feeds +<br/>enrichment"]
+        V["SHACL-vue<br/>entry + review"]
+        P["Dump Things<br/>incoming → curated records<br/><b>operational source of truth</b>"]
+        Q["REST API | dtc | qri<br/>retrieval + projection"]
+
+        M -. "forms and validation" .-> V
+        M -. "schema validation" .-> P
+        E <--> P
+        V <--> P
+        P --> Q
+    end
+
+    G -. "service deployment" .-> O
+
+    F -->|"source-specific CI adapters"| O
+    O --> U["Lab uses<br/><b>website + graph</b><br/>reports | catalogs | discovery | AI"]
+
+    O -. "IDs + ontology mappings" .-> K["Other governed<br/>research graphs"]
+
+    L["Orinoco Lite<br/>Git/PR review | GitHub Action<br/>validate + project + publish"]
+    O -. "additional option; same model" .-> L
+
+    classDef feed fill:#edf4f8,stroke:#35627a,color:#142f3e,stroke-width:1.5px;
+    classDef model fill:#eee8f7,stroke:#6a4b8a,color:#30203f,stroke-width:1.5px;
+    classDef tool fill:#eef7ee,stroke:#39734a,color:#173b22,stroke-width:1.5px;
+    classDef pool fill:#dcefe2,stroke:#1f6b3a,color:#12351f,stroke-width:2.5px;
+    classDef use fill:#fff6dc,stroke:#9a7422,color:#4a3710,stroke-width:1.5px;
+    classDef note fill:#f4f4f4,stroke:#777,color:#333,stroke-width:1.25px,stroke-dasharray:4 3;
+
+    class F feed;
+    class M model;
+    class E,V,Q,G tool;
+    class P pool;
+    class U use;
+    class K,L note;

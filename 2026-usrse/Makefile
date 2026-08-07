@@ -11,6 +11,7 @@
 #   make                  -- builds <name>.html for every *.md in this folder
 #   make pdf              -- builds <name>.pdf for every *.md (needs a PDF engine)
 #   make html             -- explicit alias for the default
+#   make diagram          -- rebuilds the Orinoco metadata-flow figure
 #   make proposal         -- just talk-proposal-draft.html + talk-proposal-draft.pdf
 #   make clean            -- remove generated *.html / *.pdf
 #
@@ -42,6 +43,10 @@ PANDOC_OPTS := --standalone \
                --shift-heading-level-by=0 \
                --wrap=preserve
 
+# Pin the Mermaid renderer used for the committed poster figure.
+# Set PUPPETEER_EXECUTABLE_PATH externally when browser discovery is unavailable.
+MERMAID_CLI ?= npx --yes @mermaid-js/mermaid-cli@11.16.0
+
 # HTML-specific
 HTML_OPTS := --to html5 \
              --embed-resources \
@@ -72,7 +77,7 @@ stamped-abcd-poster-draft.pdf: PDF_LATEX_OPTS := $(subst fontsize=11pt,fontsize=
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
-.PHONY: all html pdf proposal clean help check
+.PHONY: all html pdf diagram proposal clean help check
 
 all: pdf
 
@@ -80,7 +85,12 @@ html: $(HTMLS)
 
 pdf: $(PDFS)
 
+diagram: orinoco-metadata-flow.png
+
 proposal: talk-proposal-draft.html talk-proposal-draft.pdf
+
+orinoco-metadata-flow.png: orinoco-metadata-flow.mmd
+	$(MERMAID_CLI) -i "$<" -o "$@" -b white -w 1600 -s 2 -q
 
 # Generic pattern: any.md -> any.html
 %.html: %.md
