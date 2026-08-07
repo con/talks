@@ -68,6 +68,6 @@ Research software engineers help determine whether a computational result is mer
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference.
 It encourages coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution [1].
 
-The project also addresses the conference theme, “Advancing Science in the Age of AI,” by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
+The project addresses the conference theme, “Advancing Science in the Age of AI,” by providing principles and tools which could be reused by both humans and AIs for scaffolding of the research projects, and also bringing attention to composition of evidence AI-assisted work leaves behind.
 The poster invites RSEs to compare how their teams bound context, record decisions, divide work between automation and human reviewers, and evaluate AI-assisted outputs.
 These comparisons can help identify shared expectations for reviewing AI-assisted research and inform longer-term community and institutional practices.
