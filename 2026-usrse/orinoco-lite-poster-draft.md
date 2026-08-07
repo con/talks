@@ -19,13 +19,13 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 Research groups repeatedly need the same facts (academic records, publications) for their basic operations (CVs, grant applications, yearly reporting etc.).
 Those facts are scattered across email, spreadsheets, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
 There is a growing number of systems (doi.org, ORCID, SciENcv, etc.) aiming to centralize collection and management of records of specific types (bibliography entries, personal records).
-But no open reusable system exists to integrate with them and maintain a research group centric collection of records.
+Research groups still need an open, reusable way to integrate these systems with a locally governed collection spanning record types and operational relationships.
 A shared, open, and reusable infrastructure to help organize this data improves efficiency and accuracy in lab operations.
 A lab website is a good example of something that would greatly benefit from being built on top of such an information system.
 
 Research-information management is an established field [1]-[3].
 CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
-Linked Data makes relationships machine-readable across independently maintained sources by using shared identifiers and formally defined terms, allowing information to be connected and reused without requiring every system to maintain its own copy.
+Many of these systems use Linked Data, which makes relationships machine-readable across independently maintained sources by using shared identifiers and formally defined terms, allowing information to be connected and reused without requiring every system to maintain its own copy.
 By reusing identifiers such as ORCID, ROR, and DOI and mappings to terms in PROV-O, a lab-scale schema can participate in this broader information landscape rather than create another silo, while retaining the flexibility to describe the local roles, relationships, tools, and emerging work needed for day-to-day operations.
 Such a schema organizes the records, constrains their structure, and supports validation as data is entered.
 This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
