@@ -90,7 +90,6 @@ ifneq ($(filter xelatex lualatex pdflatex,$(PDF_ENGINE)),)
 %.pdf: %.md
 	@echo "==> $@  (engine: $(PDF_ENGINE))"
 	$(PANDOC) $(PANDOC_OPTS) $(PDF_LATEX_OPTS) \
-	  --metadata title="$* (CON / US-RSE'26 draft)" \
 	  --pdf-engine=$(PDF_ENGINE) \
 	  -o "$@" "$<"
 else ifneq ($(filter wkhtmltopdf weasyprint,$(PDF_ENGINE)),)
