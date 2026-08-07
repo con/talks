@@ -26,12 +26,9 @@ Following a review of the original analysis, we use a coordinated set of tools t
 We show how these tools work in concert to make the data, environments, operations, and results more FAIR and STAMPED.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
-The poster reports the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
-It invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
-Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
-
-In doing so, it shows why these practices are easier to incorporate during study design than to add retrospectively.
-It invites RSEs to compare these experiences with their own shared or domain-specific challenges.
+We report the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
+Although we demonstrate the approach through a scientific reproduction, it is easier and more scientifically valuable when integrated from the start of the analysis.
+The poster invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 
 ```{=latex}
 \newpage
@@ -67,6 +64,6 @@ Research software engineers help determine whether a computational result is mer
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference.
 It encourages coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution [1].
 
-The project addresses the conference theme, “Advancing Science in the Age of AI,” by providing principles and tools which could be reused by both humans and AIs for scaffolding of the research projects, and also bringing attention to composition of evidence AI-assisted work leaves behind.
+The project addresses the conference theme, “Advancing Science in the Age of AI,” by providing principles and tools that humans and AI systems can reuse to scaffold research projects, while drawing attention to the composition of evidence left by AI-assisted work.
 The poster invites RSEs to compare how their teams bound context, record decisions, divide work between automation and human reviewers, and evaluate AI-assisted outputs.
 These comparisons can help identify shared expectations for reviewing AI-assisted research and inform longer-term community and institutional practices.
