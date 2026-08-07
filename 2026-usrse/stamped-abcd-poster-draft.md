@@ -67,7 +67,6 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 Research software engineers help determine whether a computational result is merely produced once or becomes a durable scientific contribution.
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference.
 It encourages coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution [1].
-This poster grounds that vocabulary in a practical implementation, showing how RSE decisions about provenance, execution, validation, and distribution shape the reviewability and reuse of computational research across domains.
 
 The project also addresses the conference theme, “Advancing Science in the Age of AI,” by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
 The poster invites RSEs to compare how their teams bound context, record decisions, divide work between automation and human reviewers, and evaluate AI-assisted outputs.
