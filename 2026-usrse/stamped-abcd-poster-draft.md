@@ -23,7 +23,7 @@ We use the principles to guide improvements to the research object surrounding t
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
 
 Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: DataLad and git-annex for composition and versioned state [4]; Git, DataLad run records, con-duct, and NIDM/PROV for provenance [4,6]; tested BIDS Apps and Pixi tasks for executable interfaces [5]; Apptainer, BABS, and Slurm for portable, fresh execution [5]; and persistent Git/annex siblings with separate access boundaries for distribution [4].
-We show how these tools work in concert to make the data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable.
+We show how these tools work in concert to make the data, environments, operations, and results more FAIR and STAMPED.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
 The poster reports the practical details of this process—the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools—and invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
