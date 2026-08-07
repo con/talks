@@ -41,7 +41,7 @@ The Psychoinformatics group website demonstrates how linked records organize pag
 Together, these deployments illustrate the wider value of curating and modeling research metadata for reuse across group operations.
 
 Recognizing this utility, CON adopted ORINOCO as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
-For now, we call this adaptation ORINOCO Lite [8].
+For now, we call this adaptation ORINOCO-Lite [8].
 Modeled YAML records in Git constitute the official collection.
 Whether edited directly or prepared automatically from existing lab sources such as our Zotero publication group, all proposed changes are reviewed through pull requests.
 A GitHub Action starts the required ORINOCO components for each build and uses them to validate the records and regenerate the website.
@@ -76,7 +76,7 @@ Open-source research information systems.
 [DataLad Concepts](https://concepts.datalad.org/); [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/); [ORINOCO documentation](https://hub.psychoinformatics.de/orinoco/); [Psychoinformatics group website](https://www.psychoinformatics.de/); [TRR379 website](https://www.trr379.de/); [TRR379 metadata pool](https://pool.v0.trr379.de/).
 7. Lab-in-a-Box.
 [Deployment toolkit](https://hub.psychoinformatics.de/lab-in-a-box/liab-deployments); M. Hanke et al., [*Lab in a box: A build-your-own-open-lab software toolkit*](https://doi.org/10.5281/zenodo.20583436), OHBM 2026 poster.
-8. ORINOCO Lite.
+8. ORINOCO-Lite.
 [Development repository](https://github.com/con/orinoco-lite-dev); [GitHub Action](https://github.com/con/orinoco-lite-action).
 
 ## Connection to Mission, Goals, and Interests of the US-RSE Community
