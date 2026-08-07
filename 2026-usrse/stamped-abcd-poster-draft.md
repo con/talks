@@ -2,9 +2,9 @@
 
 ## Authors
 
-- John A. Lee <John.A.Lee@dartmouth.edu>, Dartmouth College, ORCID 0000-0001-5884-4247
-- Austin Macdonald <Austin.S.Macdonald@dartmouth.edu>, Dartmouth College, ORCID 0000-0002-8124-807X
-- Yaroslav O. Halchenko <Yaroslav.O.Halchenko@dartmouth.edu>, Dartmouth College, ORCID 0000-0003-3456-2493
+- John A. Lee <John.A.Lee@dartmouth.edu>, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
+- Austin Macdonald <Austin.S.Macdonald@dartmouth.edu>, Dartmouth College, ORCID [0000-0002-8124-807X](https://orcid.org/0000-0002-8124-807X)
+- Yaroslav O. Halchenko <Yaroslav.O.Halchenko@dartmouth.edu>, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
 
 ## Keywords
 
@@ -12,13 +12,13 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 ## Abstract
 
-RSEs routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
+[Research software engineers](https://us-rse.org/) routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
 This missing context makes analyses harder to review, maintain, transfer, and extend.
-AI-assisted tools can accelerate development, testing, and documentation, but their high-volume and nondeterministic output further complicate these tasks and heightens the need for explicit context and reviewable intermediate states.
+AI-assisted tools can accelerate development, testing, and documentation, but their high-volume and nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
 STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
 The framework complements the established FAIR (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
 
-This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org) [3].
+This poster presents our application of STAMPED to an existing analysis presented at [OHBM 2025](https://doi.org/10.17605/OSF.IO/P3KNS) on age-dependent bias in cortical morphometry tools using [Adolescent Brain Cognitive Development (ABCD) Study](https://abcdstudy.org/) data [3].
 We use the principles to guide improvements to the research object surrounding the analysis [2].
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
 
@@ -40,9 +40,9 @@ It invites RSEs to compare these experiences with their own shared or domain-spe
 
 ## Acknowledgments
 
-We thank the authors of the STAMPED principles and the developers and communities behind DataLad, BIDS, BABS, ReproNim, NIDM, Pixi, Apptainer, and `con-duct`.
+We thank the authors of the STAMPED principles and the developers and communities behind DataLad, [BIDS](https://bids.neuroimaging.io/), BABS, [ReproNim](https://www.repronim.org/), NIDM, Pixi, Apptainer, and `con-duct`.
 
-AI-assisted content disclosure: This submission was prepared with assistance from OpenAI Codex (GPT-5, accessed August 2026).
+AI-assisted content disclosure: This submission was prepared with assistance from [OpenAI Codex](https://openai.com/codex/) (GPT-5, accessed August 2026).
 The system helped synthesize repository evidence and draft the Abstract and Connection to Mission sections.
 The authors reviewed the source evidence, edited the text, and remain responsible for all claims.
 
