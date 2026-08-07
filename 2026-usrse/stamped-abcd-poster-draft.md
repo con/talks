@@ -26,7 +26,8 @@ Following a review of the original analysis, we use a coordinated set of tools t
 We show how these tools work in concert to make the data, environments, operations, and results more FAIR and STAMPED.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
-The poster reports the practical details of this process—the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools—and invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
+The poster reports the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
+It invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
 
 The poster reports the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
