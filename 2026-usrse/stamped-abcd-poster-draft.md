@@ -12,24 +12,25 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 ## Abstract
 
-The scientific value of a computational finding depends on whether others can understand how it was produced, inspect its evidence, and re-execute or extend the analysis.
-Code alone is insufficient: data, parameters, software environments, execution context, and provenance must also be identifiable and recoverable.
-For RSEs, the practical payoff is less time reconstructing context and more efficient review, maintenance, collaboration, and extension of an analysis.
-AI-assisted tools can reduce software-development effort, but their high-volume, nondeterministic output makes explicit context, provenance, and reviewable intermediate states increasingly important.
-STAMPED (<https://stamped-principles.org>) defines seven properties for organizing these materials as a durable research object.
+RSEs routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
+This missing context makes analyses harder to review, maintain, transfer, and extend.
+AI-assisted tools can accelerate development, testing, and documentation, but their high-volume, nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
+STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object.
 
 This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
 We use the principles to guide improvements to the research object surrounding the analysis.
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
-In this setting, the principles provide a structure for bounding context, preserving inspectable states, connecting automated outputs to evidence, and establishing checkpoints for human review.
 
-To improve the research object across the seven properties, we combine DataLad and git-annex for composition and state; Git, DataLad run records, `con-duct`, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
-Used together, these tools make data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable while exposing interactions among the principles.
+Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: DataLad and git-annex for composition and versioned state; Git, DataLad run records, con-duct, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
+We show how these tools work in concert to make the data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
 The poster reports the practical details of this process—the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools—and invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
 
+The poster reports the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
+In doing so, it shows why these practices are easier to incorporate during study design than to add retrospectively.
+It invites RSEs to compare these experiences with their own shared or domain-specific challenges.
 
 ## Acknowledgments
 
@@ -68,7 +69,8 @@ RRID:SCR_025436.
 
 Research software engineers help determine whether a computational result is merely produced once or becomes a durable scientific contribution.
 STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference: coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution.
-This case study translates those properties into a concrete implementation and shows how they can be designed into an analysis from the beginning rather than added after publication.
+This poster grounds that vocabulary in a practical implementation, showing how RSE decisions about provenance, execution, validation, and distribution shape the reviewability and reuse of computational research across domains.
 
-The project also addresses the conference theme, "Advancing Science in the Age of AI," by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
-Using STAMPED as a shared point of reference, the poster invites RSEs to compare how their teams record decisions, divide responsibility, and evaluate AI-assisted work, and to consider how those expectations could become community review criteria and institutional practice across research domains.
+The project also addresses the conference theme, “Advancing Science in the Age of AI,” by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
+The poster invites RSEs to compare how their teams bound context, record decisions, divide work between automation and human reviewers, and evaluate AI-assisted outputs.
+These comparisons can help identify shared expectations for reviewing AI-assisted research and inform longer-term community and institutional practices.
