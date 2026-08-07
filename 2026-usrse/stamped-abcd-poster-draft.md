@@ -1,4 +1,4 @@
-# STAMPED in Practice: Reproducing a Scientific Result on ABCD Neuroimaging Study
+# STAMPED in Practice: Reproducing a Scientific Result Using ABCD Neuroimaging Data
 
 ## Authors
 
