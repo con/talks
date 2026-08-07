@@ -28,7 +28,7 @@ We show how these tools work in concert to make the data, environments, operatio
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
 We report the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
-Although we demonstrate the approach through a scientific reproduction, it is easier and more scientifically valuable when integrated from the start of the analysis.
+Although we demonstrate the approach through a scientific reproduction, it is easier and more scientifically valuable when integrated from the start of the analysis [8].
 The poster invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 
 ```{=latex}
@@ -59,6 +59,8 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 6. Center for Open Neuroscience; *con-duct: a lightweight wrapper for monitoring command execution*; RRID:SCR_025436; [repository](https://github.com/con/duct)
 
 7. Wilkinson MD, Dumontier M, Aalbersberg IJ, et al.; *The FAIR Guiding Principles for scientific data management and stewardship*; *Scientific Data*; 2016;3:160018; [doi:10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)
+
+8. Halchenko YO, Hanke M; *Four aspects to make science open “by design” and not as an after-thought*; *GigaScience*; 2015;4:31; [doi:10.1186/s13742-015-0072-7](https://doi.org/10.1186/s13742-015-0072-7)
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
