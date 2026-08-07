@@ -44,6 +44,7 @@ PANDOC_OPTS := --standalone \
                --wrap=preserve
 
 # Pin the Mermaid renderer used for the committed poster figure.
+# Set PUPPETEER_EXECUTABLE_PATH externally when browser discovery is unavailable.
 MERMAID_CLI ?= npx --yes @mermaid-js/mermaid-cli@11.16.0
 
 # HTML-specific
@@ -85,11 +86,6 @@ diagram: orinoco-metadata-flow.png
 proposal: talk-proposal-draft.html talk-proposal-draft.pdf
 
 orinoco-metadata-flow.png: orinoco-metadata-flow.mmd
-	@if [ -x "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then \
-	  export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; \
-	elif [ -x "/Applications/Chromium.app/Contents/MacOS/Chromium" ]; then \
-	  export PUPPETEER_EXECUTABLE_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium"; \
-	fi; \
 	$(MERMAID_CLI) -i "$<" -o "$@" -b white -w 1600 -s 2 -q
 
 # Generic pattern: any.md -> any.html

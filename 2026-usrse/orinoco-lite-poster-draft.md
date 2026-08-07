@@ -2,9 +2,9 @@
 
 ## Presenters
 
-- John Lee <[leej3@dartmouth.edu](mailto:leej3@dartmouth.edu)>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
-- Isaac To <[Isaac.C.To@dartmouth.edu](mailto:Isaac.C.To@dartmouth.edu)>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
-- Yaroslav O. Halchenko <[yaroslav.o.halchenko@dartmouth.edu](mailto:yaroslav.o.halchenko@dartmouth.edu)>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
+- John Lee <[John.A.Lee@dartmouth.edu](mailto:John.A.Lee@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
+- Isaac To <[Isaac.C.To@dartmouth.edu](mailto:Isaac.C.To@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
+- Yaroslav O. Halchenko <[yaroslav.o.halchenko@dartmouth.edu](mailto:yaroslav.o.halchenko@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
 
 ## Keywords
 
@@ -18,32 +18,33 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 Research groups repeatedly need the same facts (academic records, publications) for their basic operations (CVs, grant applications, yearly reporting etc.).
 Those facts are scattered across email, spreadsheets, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
-There is growing number of systems (doi.org, ORCID, SciENcv, etc) aiming to centralize collection and management of records of specific types (bibliography entries, personal records).
+There is a growing number of systems (doi.org, ORCID, SciENcv, etc.) aiming to centralize collection and management of records of specific types (bibliography entries, personal records).
 But no open reusable system exists to integrate with them and maintain a research group centric collection of records.
 A shared, open, and reusable infrastructure to help organize this data improves efficiency and accuracy in lab operations.
 A lab website is a good example of something that would greatly benefit from being built on top of such an information system.
 
 Research-information management is an established field [1]-[3].
 CERIF, VIVO, and DSpace-CRIS model institutional records, while OpenAIRE and OpenAlex demonstrate connected scholarly metadata at global scale [1], [4], [5].
-By reusing shared identifiers such as ORCID, ROR, and DOI and mappings to terms in PROV-O, a lab-scale schema can build on this broader information landscape rather than create another silo, while retaining the flexibility to describe the local roles, relationships, tools, and emerging work needed for day-to-day operations.
+Linked Data makes relationships machine-readable across independently maintained sources by using shared identifiers and formally defined terms, allowing information to be connected and reused without requiring every system to maintain its own copy.
+By reusing identifiers such as ORCID, ROR, and DOI and mappings to terms in PROV-O, a lab-scale schema can participate in this broader information landscape rather than create another silo, while retaining the flexibility to describe the local roles, relationships, tools, and emerging work needed for day-to-day operations.
 Such a schema organizes the records, constrains their structure, and supports validation as data is entered.
 This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
 
-To address the issue, the group of our long-time collaborator Michael Hanke at the INM-7 Institute of Forschungszentrum Jülich in Germany, developed ORINOCO.
+To address the issue, our long-time collaborator Michael Hanke and colleagues at the INM-7 Institute of Forschungszentrum Jülich in Germany developed ORINOCO (Organized Research Information: Ontology-mapping, Curation, Orchestration).
 ORINOCO addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
 It is grounded in the LinkML schemas which provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
 These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
-Lab-in-a-Box builds on ORINOCO incorporating this pattern alongside other lab-operated services [7].
-An example of a deployment of this is the Psychoinformatics website that demonstrates how structured knowledge can efficiently represent a research group’s work: linked records organize the site’s pages, related-item lists, backlinks, and graph navigation [6].
-The website therefore illustrates the wider value of curating and modeling lab metadata for reuse across lab operations.
+Lab-in-a-Box places ORINOCO alongside other lab-operated services [7].
+The Psychoinformatics group website demonstrates how linked records organize pages, related-item lists, backlinks, and graph navigation; TRR379 applies the same research-information approach at consortium scale, with schema-generated interfaces accepting records from people and automated processes [6].
+Together, these deployments illustrate the wider value of curating and modeling research metadata for reuse across group operations.
 
-Recognizing this utility, CON adopted Orinoco as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
-For now, we call this adaptation Orinoco Lite [8].
+Recognizing this utility, CON adopted ORINOCO as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
+For now, we call this adaptation ORINOCO Lite [8].
 Modeled YAML records in Git constitute the official collection.
-Changes may be proposed directly by people or prepared automatically from existing lab sources such as our Zotero publication group; in either case, as any other metadata ingest they could be reviewed through standard mechanism of pull requests.
-A GitHub Action starts the required Orinoco components for each build and uses them to validate the records and regenerate the website.
+Whether edited directly or prepared automatically from existing lab sources such as our Zotero publication group, all proposed changes are reviewed through pull requests.
+A GitHub Action starts the required ORINOCO components for each build and uses them to validate the records and regenerate the website.
 We will compare the trade-offs between Psychoinformatics’ service-backed deployment and CON’s GitHub-based adaptation, and invite other labs to consider how structured research information could support their own operations.
 
 For RSEs, the central opportunity is to treat lab metadata as shared infrastructure rather than maintain it separately for each application.
@@ -54,7 +55,7 @@ A website provides an immediate and visible use for that infrastructure, but its
 
 ## Acknowledgments
 
-We thank Michael Hanke, Stephan Heunis and other contributors to DataLad Concepts and the Orinoco ecosystem for the underlying schemas, services, and implementation patterns, and the broader Center for Open Neuroscience team for motivating operational use cases.
+We thank Michael Hanke, Stephan Heunis and other contributors to DataLad Concepts and the ORINOCO ecosystem for the underlying schemas, services, and implementation patterns, and the broader Center for Open Neuroscience team for motivating operational use cases.
 
 OpenAI Codex assisted with source review, initial drafting, and copy-editing of the Abstract and the Connection to Mission, Goals, and Interests of the US-RSE Community.
 The authors selected the scope and framing, verified technical claims against the cited software, and reviewed and approved the final text.
@@ -72,19 +73,17 @@ Open-source research information systems.
 5. Open scholarly knowledge graphs.
 [OpenAIRE Graph](https://graph.openaire.eu/); [OpenAlex](https://developers.openalex.org/).
 6. Research-information schemas, services, and projections.
-[DataLad Concepts](https://concepts.datalad.org/); [Orinoco](https://www.psychoinformatics.de/projects/orinoco/); [Orinoco documentation](https://hub.psychoinformatics.de/orinoco/); [Psychoinformatics group website](https://www.psychoinformatics.de/).
+[DataLad Concepts](https://concepts.datalad.org/); [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/); [ORINOCO documentation](https://hub.psychoinformatics.de/orinoco/); [Psychoinformatics group website](https://www.psychoinformatics.de/); [TRR379 website](https://www.trr379.de/); [TRR379 metadata pool](https://pool.v0.trr379.de/).
 7. Lab-in-a-Box.
 [Deployment toolkit](https://hub.psychoinformatics.de/lab-in-a-box/liab-deployments); M. Hanke et al., [*Lab in a box: A build-your-own-open-lab software toolkit*](https://doi.org/10.5281/zenodo.20583436), OHBM 2026 poster.
-8. Orinoco Lite.
+8. ORINOCO Lite.
 [Development repository](https://github.com/con/orinoco-lite-dev); [GitHub Action](https://github.com/con/orinoco-lite-action).
-9. Center for Open Neuroscience.
-[`solidation`: Produce activity reports from GitHub](https://github.com/con/solidation).
 
 ## Connection to Mission, Goals, and Interests of the US-RSE Community
 
 Research software engineers often inherit not only research code, but also the information systems through which groups coordinate their activities and communicate their work to collaborators, funders, institutions, and the public.
 Designing those systems as maintainable, reusable infrastructure brings together software architecture, data stewardship, interoperability, governance, and long-term sustainability.
-Orinoco provides a concrete setting in which to make that frequently invisible RSE contribution legible.
+ORINOCO provides a concrete setting in which to make that frequently invisible RSE contribution legible.
 
 This contribution advances US-RSE’s Community, Advocacy, and Resources goals in distinct ways.
 It gives RSEs a concrete basis for exchanging approaches across labs and institutions; advocates for metadata modeling and stewardship as consequential RSE work; and presents open models and validation workflows that practitioners can evaluate.
