@@ -3,6 +3,7 @@
 ## Authors
 
 - John A. Lee <John.A.Lee@dartmouth.edu>, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
+- Cody C. Baker <cody.c.baker.phd@gmail.com>, Dartmouth College, ORCID [0000-0002-0829-4790](https://orcid.org/0000-0002-0829-4790)
 - Austin Macdonald <Austin.S.Macdonald@dartmouth.edu>, Dartmouth College, ORCID [0000-0002-8124-807X](https://orcid.org/0000-0002-8124-807X)
 - Yaroslav O. Halchenko <Yaroslav.O.Halchenko@dartmouth.edu>, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
 
