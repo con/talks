@@ -2,7 +2,7 @@
 
 ## Presenters
 
-- Austin Macdonald \<austin.s.macdonald@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0002-8124-807X
+- Austin Macdonald \<austin.s.macdonald@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID 0000-0002-8124-807X
 - Cody C. Baker \<cody.c.baker.phd@gmail.com\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0002-0829-4790
 - John A. Lee \<John.A.Lee@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0001-5884-4247
 - Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, Department of Psychological and Brain Sciences, Dartmouth College / Center for Open Neuroscience, ORCID 0000-0003-3456-2493
@@ -16,7 +16,7 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 Research outputs are only as trustworthy as the record of how they were produced: what was run, against what inputs, producing what outputs, with which resources.
 By default, that record is ephemeral, gone when the terminal scrolls or the agent's context rolls over.
 
-`con-duct` is a lightweight, standard-library Python wrapper: nearly anything you can run in a terminal runs unchanged as `duct <cmd>`.
+`con-duct` is a lightweight, Python-based command line tool: nearly anything you can run in a terminal runs unchanged as `duct <cmd>`.
 It sits between shell history and full workflow or experiment-tracking systems: more record than the former, far less machinery than the latter.
 
 A wrapped run leaves a complete trace: full stdout and stderr streamed to disk; resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
