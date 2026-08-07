@@ -12,17 +12,17 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 
 ## Abstract
 
-[Research software engineers](https://us-rse.org/) routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
+Research software engineers routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
 This missing context makes analyses harder to review, maintain, transfer, and extend.
 AI-assisted tools can accelerate development, testing, and documentation, but their high-volume and nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
-STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
-The framework complements the established FAIR (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
+[STAMPED](https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
+The framework complements the established [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
 
 This poster presents our application of STAMPED to an existing analysis presented at [OHBM 2025](https://doi.org/10.17605/OSF.IO/P3KNS) on age-dependent bias in cortical morphometry tools using [Adolescent Brain Cognitive Development (ABCD) Study](https://abcdstudy.org/) data [3].
 We use the principles to guide improvements to the research object surrounding the analysis [2].
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
 
-Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: DataLad and git-annex for composition and versioned state [4]; Git, DataLad run records, con-duct, and NIDM/PROV for provenance [4,6]; tested BIDS Apps and Pixi tasks for executable interfaces [5]; Apptainer, BABS, and Slurm for portable, fresh execution [5]; and persistent Git/annex siblings with separate access boundaries for distribution [4].
+Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: [DataLad](https://www.datalad.org/) and [git-annex](https://git-annex.branchable.com/) for composition and versioned state [4]; Git, DataLad run records, [con-duct](https://github.com/con/duct), [NIDM](https://nidm.nidash.org/), and [PROV](https://www.w3.org/TR/prov-overview/) for provenance [4,6]; tested [BIDS Apps](https://bids-apps.neuroimaging.io/) and [Pixi](https://pixi.prefix.dev/latest/) tasks for executable interfaces [5]; [Apptainer](https://apptainer.org/), [BABS](https://pennlinc-babs.readthedocs.io/en/stable/), and [Slurm](https://slurm.schedmd.com/) for portable, fresh execution [5]; and persistent Git/annex siblings with separate access boundaries for distribution [4].
 We show how these tools work in concert to make the data, environments, operations, and results more FAIR and STAMPED.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
@@ -30,7 +30,6 @@ The poster reports the practical details of this process: the effort and judgmen
 It invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 Although we demonstrate the approach through a scientific reproduction, such an effort is more convenient if integrated from the start of the analysis.
 
-The poster reports the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
 In doing so, it shows why these practices are easier to incorporate during study design than to add retrospectively.
 It invites RSEs to compare these experiences with their own shared or domain-specific challenges.
 
