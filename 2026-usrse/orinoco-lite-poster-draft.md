@@ -2,9 +2,9 @@
 
 ## Presenters
 
-- John Lee <[John.A.Lee@dartmouth.edu](mailto:John.A.Lee@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
-- Isaac To <[Isaac.C.To@dartmouth.edu](mailto:Isaac.C.To@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
-- Yaroslav O. Halchenko <[yaroslav.o.halchenko@dartmouth.edu](mailto:yaroslav.o.halchenko@dartmouth.edu)>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
+- John Lee, [John.A.Lee@dartmouth.edu](mailto:John.A.Lee@dartmouth.edu), Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
+- Isaac To, [Isaac.C.To@dartmouth.edu](mailto:Isaac.C.To@dartmouth.edu), Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-4740-0824](https://orcid.org/0000-0002-4740-0824)
+- Yaroslav O. Halchenko, [yaroslav.o.halchenko@dartmouth.edu](mailto:yaroslav.o.halchenko@dartmouth.edu), Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
 
 ## Keywords
 
