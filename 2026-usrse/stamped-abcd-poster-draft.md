@@ -16,6 +16,7 @@ RSEs routinely encounter computational analyses whose code is available but whos
 This missing context makes analyses harder to review, maintain, transfer, and extend.
 AI-assisted tools can accelerate development, testing, and documentation, but their high-volume, nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
 STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
+The framework complements the established FAIR (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
 
 This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org) [3].
 We use the principles to guide improvements to the research object surrounding the analysis [2].
@@ -57,6 +58,8 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 5. Zhao C, et al.; A reproducible and generalizable software workflow for analysis of large-scale neuroimaging data collections using BIDS Apps; *Imaging Neuroscience*; 2024;2:imag-2-00074; [doi:10.1162/imag_a_00074](https://doi.org/10.1162/imag_a_00074)
 
 6. Center for Open Neuroscience; *con-duct: a lightweight wrapper for monitoring command execution*; RRID:SCR_025436; [repository](https://github.com/con/duct)
+
+7. Wilkinson MD, Dumontier M, Aalbersberg IJ, et al.; *The FAIR Guiding Principles for scientific data management and stewardship*; *Scientific Data*; 2016;3:160018; [doi:10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)
 
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
