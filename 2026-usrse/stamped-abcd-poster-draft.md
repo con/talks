@@ -15,13 +15,13 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 RSEs routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
 This missing context makes analyses harder to review, maintain, transfer, and extend.
 AI-assisted tools can accelerate development, testing, and documentation, but their high-volume, nondeterministic output further complicates these tasks and heightens the need for explicit context and reviewable intermediate states.
-STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object.
+STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
 
-This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org).
-We use the principles to guide improvements to the research object surrounding the analysis.
+This poster presents our application of STAMPED to an existing analysis presented at OHBM 2025 on age-dependent bias in cortical morphometry tools using Adolescent Brain Cognitive Development (ABCD) Study data (https://abcdstudy.org) [3].
+We use the principles to guide improvements to the research object surrounding the analysis [2].
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
 
-Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: DataLad and git-annex for composition and versioned state; Git, DataLad run records, con-duct, and NIDM/PROV for provenance; tested BIDS Apps and Pixi tasks for executable interfaces; Apptainer, BABS, and Slurm for portable, fresh execution; and persistent Git/annex siblings with separate access boundaries for distribution.
+Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: DataLad and git-annex for composition and versioned state [4]; Git, DataLad run records, con-duct, and NIDM/PROV for provenance [4,6]; tested BIDS Apps and Pixi tasks for executable interfaces [5]; Apptainer, BABS, and Slurm for portable, fresh execution [5]; and persistent Git/annex siblings with separate access boundaries for distribution [4].
 We show how these tools work in concert to make the data, environments, operations, and results more identifiable, executable, modular, portable, reviewable, and retrievable.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
@@ -61,7 +61,7 @@ The authors reviewed the source evidence, edited the text, and remain responsibl
 ## Connection to Mission, Goals, & Interests of US-RSE Community
 
 Research software engineers help determine whether a computational result is merely produced once or becomes a durable scientific contribution.
-STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference: coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution.
+STAMPED gives RSEs and researchers a shared vocabulary for the properties that make this difference: coherent research-object boundaries, exact identities, executable procedures, independent components, explicit environments, clean execution, and persistent distribution [1].
 This poster grounds that vocabulary in a practical implementation, showing how RSE decisions about provenance, execution, validation, and distribution shape the reviewability and reuse of computational research across domains.
 
 The project also addresses the conference theme, “Advancing Science in the Age of AI,” by shifting attention from what AI can do to what evidence AI-assisted work leaves behind.
