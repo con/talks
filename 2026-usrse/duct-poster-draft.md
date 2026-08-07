@@ -36,8 +36,7 @@ Pairing `con-duct` with `datalad` (git-based version control for data)[2] is an 
 `datalad run "duct <cmd> ..."` completes the execution and then commits the diff (including the duct logs).
 The invocation results in a **complete** provenance record binding results of running the command, along with `duct` collected logs, and automated commit message with optional specification of inputs and outputs.
 On HPC, last month's measured wall time and peak memory are already recorded, and can help inform tomorrow's SLURM request.
-
-**When an expensive job fails**, the bug-report evidence is already on disk, no re-run necessary to file an issue.
+**When an expensive job fails**, the bug-report evidence is already on disk, no re-run necessary to file an issue. 
 
 By automatically collecting and organizing this context, work gets done with fewer reruns, fewer LLM roundtrips, and the evidence to back it up.
 
@@ -50,7 +49,7 @@ By automatically collecting and organizing this context, work gets done with few
 ## Acknowledgments
 
 We thank the broader ReproNim and OpenNeuro communities for ongoing feedback on `con-duct`'s design and use.
-`con-duct`'s resource-monitoring approach is based on brainlife's `smon` (<https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>).
+`con-duct`'s resource-monitoring approach is based on brainlife's `smon` [3].
 
 *AI disclosure (per IEEE policy):* Prose in the Abstract and Connection-to-Mission sections was drafted with assistance from Anthropic's Claude; the authors specified the content, edited the text, and verified all technical claims, commands, and references.
 The `con-duct` software itself is developed with AI assistance, and with human review of all merged code.
