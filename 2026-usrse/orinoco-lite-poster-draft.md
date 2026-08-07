@@ -16,9 +16,11 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 ## Abstract
 
-Research groups repeatedly need the same facts for their basic operations (CVs, grant applications, yearly reporting etc.).
+Research groups repeatedly need the same facts (academic records, publications) for their basic operations (CVs, grant applications, yearly reporting etc.).
 Those facts are scattered across email, spreadsheets, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
-A shared infrastructure to help organize this data improves efficiency and accuracy in lab operations.
+There is growing number of systems (doi.org, ORCID, SciENcv, etc) aiming to centralize collection and management of records of specific types (bibliography entries, personal records).
+But no open reusable system exists to integrate with them and maintain a research group centric collection of records.
+A shared, open, and reusable infrastructure to help organize this data improves efficiency and accuracy in lab operations.
 A lab website is a good example of something that would greatly benefit from being built on top of such an information system.
 
 Research-information management is an established field [1]-[3].
@@ -27,8 +29,9 @@ By reusing shared identifiers such as ORCID, ROR, and DOI and mappings to terms 
 Such a schema organizes the records, constrains their structure, and supports validation as data is entered.
 This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
 
-Orinoco addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
-LinkML schemas provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
+To address the issue, the group of our long-time collaborator Michael Hanke at the INM-7 Institute of Forschungszentrum Jülich in Germany, developed ORINOCO.
+ORINOCO addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
+It is grounded in the LinkML schemas which provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
 These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
@@ -39,7 +42,7 @@ The website therefore illustrates the wider value of curating and modeling lab m
 Recognizing this utility, CON adopted Orinoco as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
 For now, we call this adaptation Orinoco Lite [8].
 Modeled YAML records in Git constitute the official collection.
-Changes may be proposed directly by people or prepared automatically from existing lab sources such as our Zotero publication group; in either case, they are reviewed through pull requests.
+Changes may be proposed directly by people or prepared automatically from existing lab sources such as our Zotero publication group; in either case, as any other metadata ingest they could be reviewed through standard mechanism of pull requests.
 A GitHub Action starts the required Orinoco components for each build and uses them to validate the records and regenerate the website.
 We will compare the trade-offs between Psychoinformatics’ service-backed deployment and CON’s GitHub-based adaptation, and invite other labs to consider how structured research information could support their own operations.
 
