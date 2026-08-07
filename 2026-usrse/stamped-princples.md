@@ -1,10 +1,12 @@
-# Pragmatic practices for reproducible and open science through case stories and principles
+# STAMPED Principles: Pragmatic practices for reproducible science
 
 
 ## Presenters
 
-Cody C.Baker <cody.c.baker.phd@gmail.com>, Center for Open Neuroscience, Dartmouth College, 0000-0002-0829-4790
-
+- Cody C.Baker <cody.c.baker.phd@gmail.com>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-0829-4790](https://orcid.org/0000-0002-0829-4790)
+- Austin Macdonald <Austin.S.Macdonald@dartmouth.edu>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0002-8124-807X](https://orcid.org/0000-0002-8124-807X)
+- John A. Lee <John.A.Lee@dartmouth.edu>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0001-5884-4247](https://orcid.org/0000-0001-5884-4247)
+- Yaroslav O. Halchenko <Yaroslav.O.Halchenko@dartmouth.edu>, Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College, ORCID [0000-0003-3456-2493](https://orcid.org/0000-0003-3456-2493)
 
 ## Keywords
 
@@ -17,7 +19,7 @@ This fragmentation undermines rigor, reproducibility, reusability, and efficienc
 Existing frameworks such as FAIR and FAIR4RS govern discovery and interoperability of digital objects, but do not specify how research objects should be structured and managed so they can be re-executed, extended, and audited.
 The community lacks a shared vocabulary for this operational layer.
 
-Building on the YODA and VAMP traditions from neuroimaging, and on patterns that have independently converged across geophysics, genomics, statistics, and neuroimaging over three decades, we formalize seven principles a research object should satisfy: Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, collectively STAMPED.
+Building on the YODA and VAMP traditions from neuroimaging, and on patterns that have independently converged across geophysics, genomics, statistics, and neuroscience over three decades, we formalize seven principles a research object should satisfy: Self-containment, Tracking, Actionability, Modularity, Portability, Ephemerality, and Distributability, collectively STAMPED.
 Each spans a spectrum from practical minimum to aspirational ideal, so adoption is non-prescriptive and incremental. 
 Formal LinkML schemas, an interactive compliance checklist, and the curated collection of examples are provided as enabling tools to this end.
 
