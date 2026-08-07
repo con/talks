@@ -17,9 +17,9 @@ Whether trying out a new tool, testing pipelines, or meticulously analyzing data
 The terminal outputs of tools and scripts frequently hold the necessary information, but they are
 often either invisible (and bloating) in an agent's context window, or forgotten after a human's terminal scrolls past the buffer.
 
-`con-duct` is a lightweight, Python-based command line tool: nearly anything you (or your agent) can run in a terminal runs unchanged as `duct <cmd>`.
+`con-duct` is a lightweight, Python-based command line tool: just use `duct <cmd>` instead of pure `<cmd>` to run a command.
 A wrapped run leaves a trail: full stdout and stderr streamed to disk; resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
-While workflow managers or experiment-tracking systems can produce a richer record, `con-duct` strikes a balance, collecting basic provenance with so little effort it can be used on everything.
+While workflow managers or experiment-tracking systems can produce a richer record, `con-duct` strikes a balance, collecting basic provenance with so little effort it can be used on everything, producing uniform records.
 
 **In daily work**, humans and agents now execute commands side by side.
 Using `con-duct`, the full record stays out of the context window until it is needed.
@@ -31,18 +31,17 @@ Did this run take longer?
  - `con-duct ls -e "exit_code != 0"` lists failures.
  - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-**For research**, the record stops being a convenience, and starts being part of the provenance chain.
-Pairing `con-duct` with `datalad` (git-based version control for data)[2] is an easy win for
-rigor.
+**For research**, the record stops being a convenience, and starts being a part of the provenance chain.
+Pairing `con-duct` with `datalad` (git-based version control for data)[2] is an easy win for rigor.
 `datalad run "duct <cmd> ..."` completes the execution and then commits the diff (including the duct logs).
-The invocation (and optionally inputs and outputs) is recorded directly into the commit message.
+The invocation results in a **complete** provenance record binding results of running the command, along with `duct` collected logs, and automated commit message with optional specification of inputs and outputs.
 On HPC, last month's measured wall time and peak memory are already recorded, and can help inform tomorrow's SLURM request.
 
 **When an expensive job fails**, the bug-report evidence is already on disk, no re-run necessary to file an issue.
 
 By automatically collecting and organizing this context, work gets done with fewer reruns, fewer LLM roundtrips, and the evidence to back it up.
 
-`con-duct` is on PyPI (`pip install con-duct`), registered as RRID:SCR_025436, and developed openly [1].
+`con-duct` is on PyPI (`pip install con-duct`), conda-forge, registered as `RRID:SCR_025436`, and developed openly [1].
 
 ```{=latex}
 \newpage
@@ -54,7 +53,7 @@ We thank the broader ReproNim and OpenNeuro communities for ongoing feedback on 
 `con-duct`'s resource-monitoring approach is based on brainlife's `smon` (<https://github.com/brainlife/abcd-spec/blob/master/hooks/smon>).
 
 *AI disclosure (per IEEE policy):* Prose in the Abstract and Connection-to-Mission sections was drafted with assistance from Anthropic's Claude; the authors specified the content, edited the text, and verified all technical claims, commands, and references.
-The `con-duct` software itself is developed with AI assistance, with human review of all merged code.
+The `con-duct` software itself is developed with AI assistance, and with human review of all merged code.
 
 ## References
 
