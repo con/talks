@@ -2,8 +2,24 @@
 
 set -eu
 
-con_logo=$(dirname $0)/../pics/con_logo_square_with_fuzzybackground.png
+script_dir=$(dirname "$0")
+con_logo_png="$script_dir/../pics/con_logo_square_with_fuzzybackground.png"
+con_logo_svg="$script_dir/../pics/con_logo_square_with_fuzzybackground.svg"
+
+# Pick logo based on whether the caller requested SVG output
+con_logo="$con_logo_png"
+prev_arg=""
+for arg in "$@"; do
+    case "$prev_arg" in
+        -o|--output-image)
+            if [[ "$arg" == *.svg ]]; then
+                con_logo="$con_logo_svg"
+            fi
+            ;;
+    esac
+    prev_arg="$arg"
+done
 
 set -x
 
-$(dirname "$0")/mkqrcode.py -i "$con_logo" -c H "$@"
+"$script_dir/mkqrcode.py" -i "$con_logo" -c H "$@"
