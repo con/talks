@@ -44,6 +44,21 @@ Some rough point to account to while forming the talk:
  - with common M, can get range of C(ontrollers), e.g. see all the BIDS tools
  - for the same M, can be a range of V(iewers), facilitating use-case specifics
 
+- "aspirational" vs "pragmatic"
+  - NIDM vs BIDS --> BIDS with TermURL ...  BEP028: BIDS-PROV
+  - W3C PROV vs DataLad run/containers-run  --> PROV export
+  - idea: siloed 'ad-hoc' implementations/schemas are seemingly easier (overfit the use-case) and could be considered to be "pragmatic" in the short(er) term but ideally adoption of common standard etc allows for longevity etc
+    - 'agreeing to agree' is 'hard': social aspect
+    - staged 'implementation': start with "inspired" aligned, proceed to *EPs, consider adopting "pluggable" standards (like NWB extensions)
+  - some middle grounds could be adopting 
+    - common languages to specify metadata schemas -- LinkML, developed just a few miles north
+    - already existing schemas and ontologies (schema.org; datacite...) 
+    - existing formalizations for e.g. 
+      - license descriptions (REUSE - https://github.com/con/skills/tree/master/introduce-reuse-compliance), 
+      - DUO  -- data use ontology
+      - STAMPED -- "language"/dimensions for research object
+    - ... git / git-annex ... ?
+
 NB. I used (meta)data all around, and FAIR uses that formulation too 
 
 - interesting effects on AI use
@@ -52,4 +67,11 @@ NB. I used (meta)data all around, and FAIR uses that formulation too
     - can cite that paper showing how silo'ed neuroscience is!
     - hence speaking here and showing CON and BIDS etc
 
+- ideas to circulate / point to
 
+  - AI is "expensive" in terms of resources.
+  - we need to "collaborate" more to not redo (less of "ephemeral" software), and also just "do once".  my example -- "codespell" cruisade. My AI spends my tokens once to do proper/thorough codespell' fixup. Quite tricky for elderly/big/specialized (like UBERON ontology) projects without AI!
+  
+  - so we should mandate our AIs to do research before jumping into implementing new stuff
+    - do we have/use good registries for code?
+      - so much relates to "programmer-archeologists" in A Deepness in the Sky (https://en.wikipedia.org/wiki/A_Deepness_in_the_Sky) -- legit field now https://en.wikipedia.org/wiki/Software_archaeology
