@@ -37,6 +37,20 @@ Concretely, almost every talk in the corpus revisits some subset of:
   `git-annex`), common data standards (BIDS, NWB, HED, DICOM), common metadata
   (LinkML, concepts.datalad.org), common organizational layouts (BIDS, YODA,
   STAMPED).  Standards are the language across labs and across HI ↔ AI.
+- **Collaborate** — ad-hoc solo projects produce silos and fragile tools; only
+  collaboration widens the range of use cases enough to force genuine robustness
+  and generality. Every long-lived project in the CON portfolio is a sustained
+  multi-stakeholder effort: `PyMVPA` with Michael Hanke (two decades and
+  counting); `NeuroDebian` — itself embedded inside the even larger Debian
+  community, contributing through and alongside `Debian Med` and `Debian Science`
+  blends rather than standing apart; the principle is that specialized projects
+  (NeuroDebian, Debian Med) should live *within* broader communities, not breed
+  outside them as competing ecosystems; `DataLad` with Michael Hanke and the
+  Psychoinformatics Lab at FZJ; `DANDI` with Satra Ghosh, Kitware, Ben Dichter, and the NWB / DANDI
+  community; `BIDS` — a genuinely large-scale community standard now spanning
+  hundreds of contributors. Contributions need not be code: testing,
+  troubleshooting, and articulating new use cases are what turn a solo hack into
+  infrastructure others can depend on.
 - **Automate** — none of the above scales without it. Unit/integration CI on
   every PR; daily-tested `git-annex` against DataLad; `con/tinuous` archiving
   CI logs and artifacts before they expire; auto-rebuilt `ReproNim/containers`;
