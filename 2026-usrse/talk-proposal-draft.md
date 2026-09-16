@@ -45,6 +45,7 @@ AI lets teams move faster than ever while generating an explosion of divergent a
 **Compose** appears effortless when AI generates ad-hoc adapters between misaligned components.
 Such practices are a recipe for fragile systems.
 **Standardize** remains the main protection against cacophonies of APIs and data formats, and **Automate**d testing and review the only viable defense at agent-rate output.
+Formalizations such as our [STAMPED](https://stamped-principles.org/) principles — encoding what makes a research object reproducible — give both human and AI agents shared vocabulary to reason about the artifacts they produce.
 
 AI makes going it alone tempting, you can move fast, you have all the flexibility to do whatever you want, and you have fewer dependencies and supply-chain risks.
 But even simple code bloats over time to cover all possible cases, security requires many eyes and iterations to harden, collaboration is still more efficient in the long term.
