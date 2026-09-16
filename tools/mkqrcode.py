@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 
 import argparse
+import base64
+import io
 import logging
 import re
 import sys
+import xml.etree.ElementTree as ET
 
 import qrcode
 from PIL import Image
 from pyzbar.pyzbar import decode
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
+from qrcode.image.svg import SvgPathFillImage
 
 # Create a dedicated logger
 lgr = logging.getLogger(__name__)
@@ -30,10 +34,66 @@ def validate_compression_qualities(qualities):
     return qualities
 
 
+def _generate_svg(text, input_image, output_image, compression_quality):
+    """Generate SVG QR code, embedding logo as a base64 data URI if given."""
+    compress_quality = getattr(qrcode.constants, f"ERROR_CORRECT_{compression_quality}")
+    qr = qrcode.QRCode(error_correction=compress_quality)
+    qr.add_data(text)
+    img = qr.make_image(image_factory=SvgPathFillImage)
+
+    svg_buffer = io.BytesIO()
+    img.save(svg_buffer)
+    svg_bytes = svg_buffer.getvalue()
+
+    ET.register_namespace("", "http://www.w3.org/2000/svg")
+    ET.register_namespace("xlink", "http://www.w3.org/1999/xlink")
+    root = ET.fromstring(svg_bytes)
+
+    if input_image:
+        lgr.debug(f"Embedding logo in SVG: {input_image}")
+        # Use viewBox coordinates for placement math
+        vb = root.get("viewBox", "0 0 37 37").split()
+        vb_w, vb_h = float(vb[2]), float(vb[3])
+        logo_size = min(vb_w, vb_h) * 0.30
+        logo_x = (vb_w - logo_size) / 2
+        logo_y = (vb_h - logo_size) / 2
+
+        ext = input_image.rsplit(".", 1)[-1].lower()
+        mime = {
+            "svg": "image/svg+xml",
+            "png": "image/png",
+            "jpg": "image/jpeg",
+            "jpeg": "image/jpeg",
+        }.get(ext, "image/png")
+        with open(input_image, "rb") as f:
+            logo_b64 = base64.b64encode(f.read()).decode()
+        href = f"data:{mime};base64,{logo_b64}"
+
+        svg_ns = "http://www.w3.org/2000/svg"
+        image_elem = ET.SubElement(root, f"{{{svg_ns}}}image")
+        image_elem.set("x", str(logo_x))
+        image_elem.set("y", str(logo_y))
+        image_elem.set("width", str(logo_size))
+        image_elem.set("height", str(logo_size))
+        image_elem.set("href", href)
+        # SVG 1.1 compat
+        image_elem.set("{http://www.w3.org/1999/xlink}href", href)
+
+    tree = ET.ElementTree(root)
+    ET.indent(tree)
+    with open(output_image, "wb") as f:
+        tree.write(f, xml_declaration=True, encoding="UTF-8")
+    lgr.info(f"SVG QR code saved: {output_image} (verification skipped for SVG)")
+
+
 def main(text, input_image, output_image, compression_qualities):
     lgr.debug(f"Processing text: {text}")
-    kws = {}
 
+    if output_image.lower().endswith(".svg"):
+        _generate_svg(text, input_image, output_image, compression_qualities[0])
+        return
+
+    kws = {}
     if input_image:
         lgr.debug(f"Embedding image: {input_image}")
         kws["embeded_image_path"] = input_image
