@@ -2,3 +2,5 @@
 **/.git* annex.largefiles=nothing
 * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 *.svg annex.largefiles=(largerthan=100K)
+# Keep the editable poster source available directly in Git.
+2026-usrse/orinoco-lite-poster.svg annex.largefiles=nothing
