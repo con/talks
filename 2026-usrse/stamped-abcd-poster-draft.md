@@ -16,18 +16,30 @@ STAMPED, reproducibility, research objects, neuroimaging, provenance, AI-assiste
 Research software engineers routinely encounter computational analyses whose code is available but whose data, parameters, software environments, execution context, and provenance are difficult to reconstruct.
 This missing context makes analyses harder to review, maintain, transfer, and extend.
 AI-assisted tools can accelerate development, testing, and documentation, but their high output volume and nondeterministic behavior further complicate these tasks and heighten the need for explicit context and reviewable intermediate states.
-STAMPED (https://stamped-principles.org) defines seven properties for organizing these materials as a durable and more useful research object [1].
+STAMPED ([https://stamped-principles.org](https://stamped-principles.org)) defines seven properties for organizing these materials as a durable and more useful research object [1].
 The framework complements the established [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable) principles by focusing on the organization and execution of computational research objects [7].
 
 This poster presents our application of STAMPED to an existing analysis presented at [OHBM 2025](https://doi.org/10.17605/OSF.IO/P3KNS) on age-dependent bias in cortical morphometry tools using [Adolescent Brain Cognitive Development (ABCD) Study](https://abcdstudy.org/) data [3].
-We use the principles to guide improvements to the research object surrounding the analysis [2].
+We apply STAMPED, developed in our prior work [1] and introduced in a companion poster, to guide improvements to the research object surrounding the analysis [2].
 We use AI extensively in development, testing, and documentation, making the reconstruction a practical test of the STAMPED vision for AI-assisted research.
 
-Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties: [DataLad](https://www.datalad.org/) and [git-annex](https://git-annex.branchable.com/) for composition and versioned state [4]; Git, DataLad run records, [con-duct](https://github.com/con/duct), [NIDM](https://nidm.nidash.org/), and [PROV](https://www.w3.org/TR/prov-overview/) for provenance [4,6]; tested [BIDS Apps](https://bids-apps.neuroimaging.io/) and [Pixi](https://pixi.prefix.dev/latest/) tasks for executable interfaces [5]; [Apptainer](https://apptainer.org/), [BABS](https://pennlinc-babs.readthedocs.io/en/stable/), and [Slurm](https://slurm.schedmd.com/) for portable, fresh execution [5]; and persistent git-annex remotes with separate access boundaries for distribution [4].
+Following a review of the original analysis, we use a coordinated set of tools to improve the research object across the seven properties:
+
+| Property | Implementation and tools |
+| --- | --- |
+| Self-containment | Explicit research-object boundaries using [DataLad](https://www.datalad.org/) and [git-annex](https://git-annex.branchable.com/) [4] |
+| Tracking | Versioned state and provenance using Git, DataLad run records, [con-duct](https://github.com/con/duct), [NIDM](https://nidm.nidash.org/), and [PROV](https://www.w3.org/TR/prov-overview/) [4,6] |
+| Actionability | Executable interfaces using tested [BIDS Apps](https://bids-apps.neuroimaging.io/) and [Pixi](https://pixi.prefix.dev/latest/) tasks [5] |
+| Modularity | Independently versioned components composed using DataLad [4] |
+| Portability | Explicit execution environments using [Apptainer](https://apptainer.org/) containers [5] |
+| Ephemerality | Fresh execution using Apptainer, [BABS](https://pennlinc-babs.readthedocs.io/en/stable/), and [Slurm](https://slurm.schedmd.com/) [5] |
+| Distributability | Persistent git-annex remotes with separate access boundaries [4] |
+
 We show how these tools work in concert to make the data, environments, operations, and results more FAIR and STAMPED.
+ABCD access restrictions introduce a practical tension between distributability and controlled access that we examine in applying the principles.
 
 Collectively, the decisions on how to implement the principles provide a worked example of how to use STAMPED to guide choices about research-object boundaries, provenance, execution, validation, and distribution.
-We report the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, and interactions among principles and tools.
+We report the practical details of this process: the effort and judgment required, problems encountered, tradeoffs made, evidence produced, interactions among principles and tools, and cases where satisfying one property complicates another.
 Although we demonstrate the approach through a scientific reproduction, it is easier and more scientifically valuable when integrated from the start of the analysis [8].
 The poster invites RSEs to consider which parts apply to their own shared or domain-specific challenges.
 
