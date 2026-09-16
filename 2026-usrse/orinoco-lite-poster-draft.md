@@ -16,36 +16,34 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 ## Abstract
 
-Research groups repeatedly need the same facts (academic records, publications) for their basic operations (CVs, grant applications, yearly reporting etc.).
-Those facts are scattered across email, spreadsheets, proposals, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
-There is a growing number of systems ([doi.org](https://doi.org), [ORCID](https://orcid.org), [SciENcv](https://www.ncbi.nlm.nih.gov/sciencv/), etc.) aiming to centralize collection and management of records of specific types (bibliography entries, personal records).
-Research groups still need an open, reusable way to integrate these systems with a locally governed collection spanning record types and operational relationships.
-A shared, open, and reusable infrastructure to help organize this data improves efficiency and accuracy in lab operations.
-A lab website is a good example of something that would greatly benefit from being built on top of such an information system.
+We compare two ways to deploy ORINOCO, a system for collaboratively managing and reusing structured research metadata.
+One way uses dedicated services to store records and review changes; the other uses a GitHub repository and pull requests.
+
+Research groups repeatedly need facts about people, projects, and publications for CVs, grant applications, and yearly reporting.
+Those facts are scattered across email, spreadsheets, institutional systems, and web pages, so each task begins by recovering what the lab already knows.
+Systems such as [ORCID](https://orcid.org) and [SciENcv](https://www.ncbi.nlm.nih.gov/sciencv/) manage specific record types, but research groups still need an open collection they control that brings these records together and describes their relationships.
+Such infrastructure improves efficiency and accuracy in lab operations and provides a foundation for lab websites.
 
 Research-information management is an established field [1]-[3].
-[CERIF](https://eurocris.org/services/cerif), [VIVO](https://vivoweb.org/), and [DSpace-CRIS](https://4science.com/open-source/) model institutional records, while [OpenAIRE](https://graph.openaire.eu/) and [OpenAlex](https://developers.openalex.org/) demonstrate connected scholarly metadata at global scale [1], [4], [5].
-Many of these systems use Linked Data, which makes relationships machine-readable across independently maintained sources by using shared identifiers and formally defined terms, allowing information to be connected and reused without requiring every system to maintain its own copy.
-By reusing identifiers such as [ORCID](https://orcid.org), [ROR](https://ror.org/), and [DOI](https://www.doi.org/) and mappings to terms in [PROV-O](https://www.w3.org/TR/prov-o/), a lab-scale schema can participate in this broader information landscape rather than create another silo, while retaining the flexibility to describe the local roles, relationships, tools, and emerging work needed for day-to-day operations.
-Such a schema organizes the records, constrains their structure, and supports validation as data is entered.
+[CERIF](https://eurocris.org/services/cerif) and systems such as [VIVO](https://vivoweb.org/) model institutional records, while scholarly knowledge graphs connect metadata at global scale [4], [5].
+Many use Linked Data: shared identifiers and formally defined terms make relationships machine-readable across independently maintained sources, allowing information to be connected and reused without every system maintaining its own copy.
+A schema defines the types of records, their relationships, and the rules used to validate them.
+Identifiers such as [ORCID](https://orcid.org) and [DOI](https://www.doi.org/) let a lab connect its records to this broader landscape while describing local roles, relationships, and tools.
 This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
 
-To address the issue, our long-time collaborator Michael Hanke and colleagues at the INM-7 Institute of Forschungszentrum Jülich in Germany developed [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/) (Organized Research Information: Ontology-mapping, Curation, Orchestration).
+Our long-time collaborator Michael Hanke and colleagues in the Psychoinformatics group at the INM-7 Institute of Forschungszentrum Jülich in Germany developed [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/) (Organized Research Information: Ontology-mapping, Curation, Orchestration).
 ORINOCO addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
 It is grounded in [LinkML](https://linkml.io/) schemas which provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
-These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated knowledge pool.
+These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated collection.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
-Lab-in-a-Box places ORINOCO alongside other lab-operated services [7].
-The Psychoinformatics group website demonstrates how linked records organize pages, related-item lists, backlinks, and graph navigation; [TRR379](https://www.trr379.de/) applies the same research-information approach at consortium scale, with schema-generated interfaces accepting records from people and automated processes [6].
-Together, these deployments illustrate the wider value of curating and modeling research metadata for reuse across group operations.
+The Lab-in-a-Box deployment toolkit places ORINOCO alongside other lab-operated services [7].
+The Psychoinformatics group website demonstrates how linked records organize pages, related-item lists, backlinks, and graph navigation; the [TRR379](https://www.trr379.de/) research consortium applies the same approach, with schema-generated interfaces accepting records from people and automated processes [6].
 
-Recognizing this utility, CON adopted ORINOCO as the information foundation for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to our GitHub-centered collaboration and review practices.
-For now, we call this adaptation [ORINOCO-Lite](https://github.com/con/orinoco-lite-dev) [8].
-Modeled YAML records in Git constitute the official collection.
+At the Center for Open Neuroscience (CON), we adopted ORINOCO for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to GitHub-centered collaboration and review in [ORINOCO-Lite](https://github.com/ORINOCO-Lite/orinoco-lite-dev) [8].
+Records stored as YAML text files in Git constitute the official collection.
 Whether edited directly or prepared automatically from existing lab sources such as our Zotero publication group, all proposed changes are reviewed through pull requests.
-A GitHub Action starts the required ORINOCO components for each build and uses them to validate the records and regenerate the website.
-We will compare the trade-offs between Psychoinformatics’ service-backed deployment and CON’s GitHub-based adaptation, and invite other labs to consider how structured research information could support their own operations.
+A GitHub Action uses ORINOCO components to validate the records and regenerate the website.
 
 For RSEs, the central opportunity is to treat lab metadata as shared infrastructure rather than maintain it separately for each application.
 A website provides an immediate and visible use for that infrastructure, but its larger value is an enduring body of curated, structured information that can be reused as the lab’s needs and tools evolve.
