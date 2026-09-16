@@ -20,8 +20,15 @@ Case Studies Demonstrating RSE Impacts Part I
 
 Some rough point to account to while forming the talk:
 
+- Keynote is by Fernando Perez, ipython/jupyter author.  I assisted with early Debian packaging/maintenance of ipython notebooks and promotion of then new technology the core (client/server) idea of which was implemented very quickly due to availability of nice libraries (would need to check what was for the message passing and web frontend)...
+
+- when talking about Debian highlight recent General resolution on LLM usage in Debian: "Responsible Use of Generative AI" , more at https://www.debian.org/vote/2026/vote_002#outcome 
+
+  - that could be contrasted to forgejo/codeberg/... on keeping projects AI free
+
 - pretty much THE FIRST talk of the conference sessions (after Plenary)!
   - has potential to provide linkage for listeners into "what's coming" if anything obviously related
+
 
 - lead by the talk on "Drinking from the Firehose: ... AI..." so IMHO important to
   - bring attention to the fact that many developers are AI-averse, and there is a WIDE spectrum of policies on AI use in development etc.
