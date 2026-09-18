@@ -49,7 +49,7 @@
     <tr>
 	<td>
       Yaroslav O. Halchenko<br>
-      <small>+ Cody Baker, Austin Macdonald, Isaac To, Vadim Melnik &mdash; the CON team</small><br>
+      <small>+ Cody Baker, Austin Macdonald, Isaac To, John A. Lee, Vadim Melnik &mdash; the CON team</small><br>
 	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
 	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
     </td>
@@ -770,50 +770,23 @@ flowchart LR
 
 
 <!-- =================================================================
-     SECTION: REUSE-IN-REVERSE — pulling content back from platforms
-     borrows: lightweight; AnnexTube + mykrok + con/serve referenced in
-     2026-ca-origami-retreat-aicoding.html and the proposal.
-     ================================================================= -->
-<section data-transition="slide">
+     SECTION: REUSE-IN-REVERSE — cut from 15-min version (too long)
+     AnnexTube / mykrok / con/serve can appear in a longer version or
+     as a backup slide if time permits.
+     Restore by un-commenting the slide block below.
 
+  <section data-transition="slide">
   <section data-background-gradient="radial-gradient(white, #f7dfd3)">
 	<h2><span style="color:#a04000;">Reuse, in reverse</span></h2>
 	<h3 class="fragment">Your data is yours, even when someone else hosts it.</h3>
   </section>
-
   <section>
-	<h2>Pull content back into <code>git</code> + <code>git-annex</code></h2>
-	<table style="font-size:0.9em;">
-	  <tr>
-		<td style="vertical-align:top;width:33%;padding:0.5em;">
-		  <strong><a href="https://github.com/con/annextube">AnnexTube</a></strong><br/>
-		  YouTube videos + transcripts + comments &rarr; DataLad/git-annex.
-		  Demo: <a href="https://datasets.datalad.org/repronim/ReproTube/web">ReproTube</a>.
-		</td>
-		<td style="vertical-align:top;width:33%;padding:0.5em;">
-		  <strong><a href="https://github.com/mykrok/mykrok">mykrok</a></strong><br/>
-		  Personal knowledge bag &mdash; pulls Google &amp; cloud silos back into a versioned local archive.
-		</td>
-		<td style="vertical-align:top;width:33%;padding:0.5em;">
-		  <strong><a href="https://con.github.io/serve/">con/serve</a></strong><br/>
-		  &ldquo;The Vault&rdquo;: a configuration-driven archival of Slack, Zoom, GitHub, AI sessions, &hellip; into DataLad subdatasets.
-		</td>
-	  </tr>
-	</table>
-	<p style="margin-top:0.6em;padding:0.5em;background-color:#fde8e8;border-left:4px solid #c00;font-size:0.8em;">
-	  <strong>WiP &mdash; <a href="https://con.github.io/serve/tools/web/wayback-archive/">Wayback&nbsp;archive</a></strong>
-	  (under <code>con/serve</code>): a <em>local archive of the Internet Archive&rsquo;s
-	  archive of your project&rsquo;s archive</em> &mdash; in case the IA itself goes away.
-	  Reuse-in-reverse, with a safety net.
-	</p>
-	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
-	  <strong>Take home:</strong> pick <em>one</em> commercial silo your group depends on.
-	  Set up a one-shot pull-back into a <code>git</code>+<code>git-annex</code> archive.
-	  You'll thank yourself in two years.
-	</p>
+	<h2>Pull content back: <a href="https://github.com/con/annextube">AnnexTube</a> / <a href="https://github.com/mykrok/mykrok">mykrok</a> / <a href="https://con.github.io/serve/">con/serve</a></h2>
+	<p>YouTube → DataLad. Cloud silos → git-annex. AI sessions → subdatasets.</p>
+  </section>
   </section>
 
-</section>
+     ================================================================= -->
 
 
 <!-- =================================================================
