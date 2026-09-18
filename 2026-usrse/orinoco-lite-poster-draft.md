@@ -16,7 +16,7 @@ research information management; metadata reuse; knowledge graphs; semantic inte
 
 ## Abstract
 
-We compare two ways to deploy ORINOCO, a system for collaboratively managing and reusing structured research metadata.
+We compare two ways to deploy [ORINOCO](https://hub.psychoinformatics.de/orinoco/), a system for collaboratively managing and reusing structured research metadata.
 One way uses dedicated services to store records and review changes; the other uses a GitHub repository and pull requests.
 
 Research groups repeatedly need facts about people, projects, and publications for CVs, grant applications, and yearly reporting.
@@ -31,16 +31,16 @@ A schema defines the types of records, their relationships, and the rules used t
 Identifiers such as [ORCID](https://orcid.org) and [DOI](https://www.doi.org/) let a lab connect its records to this broader landscape while describing local roles, relationships, and tools.
 This explicit modeling of lab metadata becomes especially valuable with AI: as AI makes it easier to extract and generate candidate content, the harder task is organizing, validating, and reviewing that content so that only trustworthy information enters the lab’s official record.
 
-Our long-time collaborator Michael Hanke and colleagues in the Psychoinformatics group at the INM-7 Institute of Forschungszentrum Jülich in Germany developed [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/) (Organized Research Information: Ontology-mapping, Curation, Orchestration).
+Our long-time collaborator Michael Hanke and colleagues in the [Psychoinformatics group](https://www.psychoinformatics.de) at the INM-7 Institute of Forschungszentrum Jülich in Germany developed [ORINOCO](https://www.psychoinformatics.de/projects/orinoco/) (Organized Research Information: Ontology-mapping, Curation, Orchestration).
 ORINOCO addresses this need at research-group scale through an open, self-hostable set of interoperating components [6].
 It is grounded in [LinkML](https://linkml.io/) schemas which provide machine-readable definitions of people, projects, grants, research outputs, and their relationships.
 These schemas drive browser-based forms for entering records and a service that validates submissions and stages them for review before they join the lab’s curated collection.
 Query and rendering tools can then follow the relationships among approved records and reshape them for websites, reports, catalogs, discovery, and other lab operations.
 
-The Lab-in-a-Box deployment toolkit places ORINOCO alongside other lab-operated services [7].
+The [Lab-in-a-Box](https://hub.psychoinformatics.de/lab-in-a-box/) deployment toolkit places ORINOCO alongside other lab-operated services [7].
 The Psychoinformatics group website demonstrates how linked records organize pages, related-item lists, backlinks, and graph navigation; the [TRR379](https://www.trr379.de/) research consortium applies the same approach, with schema-generated interfaces accepting records from people and automated processes [6].
 
-At the Center for Open Neuroscience (CON), we adopted ORINOCO for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to GitHub-centered collaboration and review in [ORINOCO-Lite](https://github.com/ORINOCO-Lite/orinoco-lite-dev) [8].
+At the Center for Open Neuroscience (CON), we are adopting ORINOCO for our lab website and broader research-information needs, retaining its schemas and processing tools while adapting their operation to GitHub-centered collaboration and review in [ORINOCO-Lite](https://github.com/ORINOCO-Lite/orinoco-lite-dev) [8].
 Records stored as YAML text files in Git constitute the official collection.
 Whether edited directly or prepared automatically from existing lab sources such as our Zotero publication group, all proposed changes are reviewed through pull requests.
 A GitHub Action uses ORINOCO components to validate the records and regenerate the website.
