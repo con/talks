@@ -1,7 +1,9 @@
-# Plan: formal talk records (`talks.yaml`) → INDEX.md, index.html, and the CON website
+# Plan: formal talk records (`talks.yaml`) → index.html, the CON website, and Zenodo
 
-Status: **proposal, for review** (2026-10-05). Nothing below is implemented
-yet. This file fixes the target, the design decisions and the order of work.
+Status: **proposal, for review** (2026-10-05; revised after the first review
+comments). In this repo nothing is implemented yet. The schema addition for
+events is drafted in datalad-concepts (§5.1). This file fixes the target, the
+design decisions and the order of work.
 
 ## The goal
 
@@ -17,7 +19,9 @@ every CON talk. Each record says where the talk can be found:
 
 From those records we then:
 
-1. generate `INDEX.md` and `index.html` with a script (no AI);
+1. generate `index.html` with a script (no AI). `INDEX.md` is retired:
+   `talks.yaml` itself is the inventory, and the slide-reuse hints move into it
+   (D6);
 2. write a guide that humans and an AI skill follow to add and update
    records (shacl-vue forms later);
 3. sync them into
@@ -40,37 +44,59 @@ datalad-concepts. It reaches con-site-specific **through an ORINOCO-Lite
 source adapter**, the same way Zotero and `con/dump-research-info` already
 do. We do not hand-write `xyzri:` records in this repo.
 
-The answer to "eventually or right away?" is **eventually, in two tiers**:
+**Events are records of their own, and talks point to them.**
 
-- **Tier A, possible as soon as `talks.yaml` exists.** Export each talk as
-  an `XYZPublication` with `kind: bibo:Slideshow`, with URLs (live slides,
-  YouTube, DOI) as `identifiers` and the event as
-  `generated_by.at_location` plus `at_time`. That is exactly how
-  con-site-specific *already* stores talks that came in from Zotero (e.g.
-  `XYZPublication/zotero-sfqu8qby.yaml`, the 2013 NeuroDebian talk, with a
-  YouTube URL as an identifier). `XYZPublication` is rendered today. This
-  tier needs no schema or theme change; it only adds one data record (the
-  `bibo:Slideshow` type, §5).
-- **Tier B, after a small upstream datalad-concepts addition.** This adds a
-  real event record, file/URL distributions, recordings as their own
-  documents, and a "talks" section on the site.
+- A talk is linked to the event(s) it was presented at, the same way a person
+  is linked to the group they belong to. Dates, web page, place and nesting
+  (conference → session → talk slot) are properties of the event, not of the
+  talk.
+- That makes events usable beyond talks:
+  - the "New Event" issues filed in [con/cierge](https://github.com/con/cierge);
+  - an "Events" page on the website later.
+- `xyzri` has no event concept, so this needs a minimal schema addition.
+  It is **drafted** on the fork `yarikoptic/datalad-concepts`, branch
+  `claude/serene-cray-ozqirg` (commit `419c37a`, not yet pushed; §5.1). It
+  adds:
+  - an `XYZEvent` class;
+  - an `XYZEventType` classifier;
+  - a `presented_at` link (`bibo:presentedAt`) from publications and
+    documents to events.
+- The draft is to be run by upstream; it may later move under the
+  ORINOCO-Lite org.
+
+**So "right away" for the talk records, and "once Event lands" for the
+website.**
+
+- Until the `XYZEvent` concept is available to ORINOCO-Lite, an interim
+  export would follow what psychoinformatics-site-specific does today (§1.3).
+- That means a talk becomes an `XYZPublication` (kind `fabio:Presentation`)
+  whose `generated_by.at_location` is a title-only `XYZPublicationVenue` of
+  kind `bibo:Conference`.
+- It works, but it loses the event's dates, URL, place and nesting.
 
 Why the records are not native `xyzri` from day one:
 
 - **(a) The schema can't express events or recordings yet.** `xyzri`
   (demo-research-information, *UNRELEASED*, pinned by ORINOCO-Lite at
-  datalad-concepts `cb6c791`) has no event, presentation or recording
-  class, and `XYZFile` has no URL slot.
+  datalad-concepts `cb6c791`) has no event concept: the draft above is not
+  upstream yet. `XYZFile` also has no URL slot.
 - **(b) It would bypass review and provenance.** con-site-specific's
   canonical store is *reviewed* records with *machine-provenance overlays*,
   fed by sources and adapters. A hand-kept `xyzri` corpus here would skip
   both.
 - **(c) Records here also hold things the website doesn't need.** Spine,
-  reusable highlights and story arc feed `INDEX.md` only.
+  reusable highlights and story arc are authoring aids for this repo.
 
 **Scope (decided):** talks by **all CON members**, not only Yarik's. For
-example, Cody Baker's BBQS STAMPED talk is in scope. The `people` registry
-covers the whole team.
+example, Cody Baker's BBQS STAMPED talk is in scope.
+
+**Membership is dated (D10).** A talk belongs to CON's collection when at
+least one author or presenter was a CON member on the presentation date.
+
+- Membership is recorded once, on the person records in con-site-specific,
+  as a dated relation to CON.
+- When someone leaves, an end date moves them to alumni/emeritus. Their later
+  works then fall outside CON's collection automatically.
 
 **Identifiers are shared from day one**, so the later sync is cheap:
 
@@ -110,7 +136,8 @@ the schema.org JSON-LD in `index.html`.
 2. a *topic-wise lookup*, an editorial map of where to borrow slides from
    across decks.
 
-Only part 1 belongs in records. Part 2 stays hand-written (see D6).
+Both parts move into records. Part 2 becomes topic tags on per-talk reuse
+highlights. `INDEX.md` can then be retired (D6).
 
 **`index.html` exists already.** It is the landing page at
 `datasets.datalad.org/.../talks/`. `tools/create_index.sh` builds it from
@@ -308,6 +335,15 @@ design point (D9).
 **Join keys for people:** only 2 of 35 person records carry an ORCID
 (`xyzri:ORCID`). 33 carry a GitHub handle (`creator: rrid:SCR_002630`).
 
+**CON membership has no dates.**
+
+- The site root (`XYZProject/site-root.yaml`) lists people through
+  `associated_with`, with roles `marcrel:led` or `marcrel:ctb`.
+- That list mixes CON staff with outside collaborators; Michael Hanke,
+  Satrajit Ghosh and Jean-Baptiste Poline, for example, are `ctb`.
+- There is no `started` or `ended` anywhere, and no person record has
+  `delegated_by`.
+
 ### 1.3 datalad-concepts `xyzri` (demo-research-information/unreleased)
 
 **A talk deck fits `XYZDocument` best.**
@@ -338,6 +374,48 @@ design point (D9).
   `marcrel:spk` (speaker) role appear **nowhere** yet.
 - Partial dates are fine: `at_time` is `W3CISO8601`, from `YYYY` up to a
   full datetime.
+
+**How psychoinformatics-site-specific does it today.** This was read from
+[ORINOCO-Lite/psychoinformatics-site-specific](https://github.com/ORINOCO-Lite/psychoinformatics-site-specific)
+at `780e5fd`.
+
+*Talks:*
+
+- 13 `XYZPublication` records have `kind: fabio:Presentation`. There are also
+  `fabio:ConferencePoster` and `bibo:AudioVisualDocument` records.
+- Their `XYZBibliographicType` records include:
+  - `fabio:Presentation` and `fabio:ConferencePoster`;
+  - `bibo:Slideshow` and `bibo:Slide`;
+  - `bibo:AudioVisualDocument`;
+  - `bibo:Conference`.
+
+*The conference:*
+
+- In one talk, it is
+  `generated_by: {object: obo:GSSO_006807, at_location: xyzrins:publication-venues/<uuid>, at_time: '2026-05-08'}`.
+  - `obo:GSSO_006807` is an `XYZActivity` record, "Conference presentation
+    (activity)".
+  - The venue is an `XYZPublicationVenue` with `kind: bibo:Conference` and
+    **only a title**.
+- The other talks name no event at all.
+- So a conference ends up shoe-horned into a publication venue: no dates, no
+  URL, no place, no nesting. The draft `XYZEvent` fixes exactly this.
+
+*Membership with dates:*
+
+- 28 of 59 person records carry
+  `delegated_by: [{object: xyzrins:organizations/<group>, roles: [...], started: {at_time}, ended: {at_time}}]`.
+- 9 of those have a `started` date and 3 an `ended` date.
+- This is the precedent for dated CON membership (D10).
+
+**con/cierge** (`9881d2d`) is "temporal itemization for the CON roadmap".
+
+- Its only issue template, "New Event", has one required free-text field,
+  "Event: drop links and/or describe this event".
+- Issues are added to project `con/8`.
+- The issues themselves were not read: the repo is not attached to this
+  session. Which fields they carry (dates, links, the project's custom
+  fields) is still to be checked.
 
 ### 1.4 annextube (video backups)
 
@@ -404,14 +482,23 @@ Talk  (the work = a slide deck; id = TALK-ID = deck filename stem)
 Three small **registries** live in the same file, next to the talks:
 
 - `people`: slug, name, ORCID, GitHub handle;
-- `events`: slug, name, acronym, URL, kind, location, start and end, plus
-  an optional `zenodo` deposit policy (community, fixed publication date,
-  license);
+- `events`: slug, name, acronym, URL, kind, location, start and end, plus:
+  - `part_of`, for nesting (talk slot → session → conference);
+  - an optional link to the con/cierge issue;
+  - an optional `zenodo` deposit policy (community, fixed publication date,
+    license);
+- `topics`: slug, title, and the reusable assets for that topic (the
+  "Asset:" lines of today's topic lookup);
 - `video_archives`: name, base URL, layout, UI URL template.
 
 They avoid repeating facts. For example, distribits 2024 hosts two of our
 talks, and US-RSE'26 hosts a talk plus posters and a BoF. Each registry also
 maps onto its own record type later.
+
+**A presentation is the talk's relation to an event.** If the session, time
+or speaker matters, the relation points to a nested talk-slot event. That
+event is `part_of` the conference, and its `associated_with` names the
+speaker (§5).
 
 ---
 
@@ -453,8 +540,9 @@ review.
 Exported PIDs:
 
 - `xyzrins:talks/<TALK-ID>`;
-- `xyzrins:events/<event-slug>`;
-- and in Tier B, `xyzrins:videos/<youtube-id>`.
+- `xyzrins:events/<event-slug>`, with nested slots at
+  `xyzrins:events/<event-slug>/<slot>`;
+- `xyzrins:videos/<youtube-id>` for recordings.
 
 People carry `orcid` and `github` where known. We should backfill ORCIDs into
 con-site-specific person records; 33 of 35 lack one.
@@ -480,20 +568,29 @@ template changes.
   `template`.
 - `0000-zoom-background` becomes `kind: template` and is never listed.
 
-**D6. INDEX.md is half generated**
+**D6. INDEX.md is retired**
 
-- The per-talk inventory is rewritten between
-  `<!-- BEGIN GENERATED from talks.yaml -->` and `<!-- END GENERATED -->`.
-- The intro, the slide-ID convention, the topic-wise lookup and "How to use
-  this index" stay hand-written.
-- Spine, highlights and notes move verbatim into each record's `index:`
-  block. That block is repo-internal and never exported.
-- Turning the topic lookup into data is a possible follow-up, not part of
-  this plan.
+- `talks.yaml` is the per-talk inventory, and `index.html` is its rendered
+  view.
+- The editorial reuse notes move into each talk's `reuse:` block (renamed
+  from `index:`):
+  - `spine` and `notes`;
+  - `highlights`, each `{text, slide: '#/<n>/<m>', topics: [...]}`, where
+    `slide` is the reveal.js fragment.
+- The topic-wise lookup becomes data. Each "steal a slide for X from file §
+  section" pointer becomes a topic tag on that talk's highlight, and the
+  per-topic "Asset:" lists go into the `topics` registry.
+- `index.html` gains a generated "Reusable slides by topic" section, so
+  humans keep the lookup. AI authoring reads `talks.yaml` directly.
+- After migration:
+  - `CLAUDE.md` and `SOUL.md` references move from `INDEX.md` to
+    `talks.yaml`;
+  - `INDEX.md` is removed (git history keeps it).
+- The `reuse:` block stays repo-internal and is never exported.
 
 **D7. Generated files are committed and reproducible**
 
-- `INDEX.md`, `index.html` and the JSON Schema are regenerated with
+- `index.html` and the JSON Schema are regenerated with
   `datalad run uv run catalog/talks.py render`, following the mechababs
   `datalad rerun` precedent.
 - CI and pre-commit run `render --check` and fail on drift.
@@ -522,6 +619,27 @@ template changes.
     source can exclude talks by type rather than by a hand-kept list.
 - Until migrated, these talks stay as they are (§9 Q2).
 
+**D10. Whether a talk is a "CON talk" follows dated membership**
+
+- Membership is recorded **once, in con-site-specific**, as a dated relation
+  from each person to CON (`ror:04tfhh831`). It follows the
+  psychoinformatics precedent:
+  `delegated_by: [{object: ror:04tfhh831, roles: [...], started: {at_time}, ended: {at_time}}]`.
+  An `ended` date makes a person alumni/emeritus.
+- A talk is in CON's collection if at least one author or presenter was a
+  member on the presentation date. This is **computed, never stored**.
+- Where it is used:
+  - `validate` warns about talks that fall outside every membership window;
+  - `zenodo push` submits only qualifying talks to community `con`;
+  - back-fill (Zenodo ORCID search, Zotero) skips works by former members
+    dated after they left, and works dated before a person joined.
+- `talks.yaml` does not copy membership dates. Instead,
+  `validate --site <con-site-specific checkout>` reads them; without that
+  option, the check is skipped.
+- Prerequisite in con-site-specific: give CON members dated `delegated_by`,
+  and stop using the site root's undated `associated_with` list as the
+  membership roster (it mixes in outside collaborators).
+
 ---
 
 ## 4. Work plan
@@ -530,15 +648,19 @@ template changes.
 
 1. Write `catalog/talks.schema.yaml` with:
    - classes `TalkCatalog`, `Talk`, `Slides`, `Presentation`, `Recording`,
-     `ArchivedCopy`, `ZenodoDeposit`, `ZenodoPolicy`, `Person`, `Event` and
-     `VideoArchive`;
+     `ArchivedCopy`, `ZenodoDeposit`, `ZenodoPolicy`, `Reuse`, `Highlight`,
+     `Person`, `Event`, `Topic` and `VideoArchive`;
    - enums `TalkStatus`, `TalkKind`, `SlideFormat`, `EventKind` and `StoryArc`
      (the arcs in SOUL.md §7).
 
    Generate `talks.schema.json` from it.
 2. Seed `talks.yaml` with **every** deck in §8, including `_backdrawer_/` with
    `status: shelved`:
-   - move the INDEX.md prose verbatim into `index:` blocks, without rewording;
+   - move the INDEX.md per-talk prose verbatim into `reuse:` blocks, without
+     rewording;
+   - turn each topic-lookup pointer into a `topics` tag on the matching
+     highlight;
+   - move each topic's assets into the `topics` registry;
    - fill dates from git and the title slides, partial where unsure;
    - add the known videos;
    - add the people from SOUL.md §8 and the US-RSE abstract.
@@ -552,32 +674,34 @@ template changes.
    - *(warnings only)* non-draft root decks have a QR code
      `pics/<TALK-ID>-qrcode.png`;
    - *(warnings only)* the HTML `<title>` matches the record title, ignoring
-     a `[WiP]` prefix.
+     a `[WiP]` prefix;
+   - *(warnings only, with `--site`)* each talk falls inside some author's or
+     presenter's CON membership window (D10).
 4. Add pre-commit hooks (`check-jsonschema` plus a local `talks.py validate`)
    and `.github/workflows/catalog.yml`.
 
 ### Phase 2: generators (~1 PR)
 
-1. `render` rewrites the INDEX.md generated block (D6).
-   - The output is deterministic and ordered newest first.
-   - Each entry gives title, status, event and date, and presenters if they
-     differ from the authors.
-   - Each entry links the source, live slides, PDF, video and archive copies,
-     followed by the spine, highlights and notes.
-2. `render` also writes `index.html`.
+1. `render` writes `index.html`, deterministic and ordered newest first.
    - It keeps the current CSS, which already rhymes with the CON site.
-   - It adds event, date and links.
+   - It adds event, date, presenters (when they differ from the authors), and
+     links to source, live slides, PDF, video and archive copies.
+   - It adds a "Reusable slides by topic" section built from the highlights'
+     topic tags (D6).
    - It includes subdirectory decks (mechababs), and external talks when they
      have `listed: true`.
    - Drafts and shelved decks are hidden or badged.
    - It embeds **schema.org JSON-LD** (`PresentationDigitalDocument`, `Event`,
      `VideoObject`). This is the first machine-readable projection of the
      records, and it is cheap.
-3. Run `render --check` in CI.
-4. Update the docs:
+2. Run `render --check` in CI.
+3. Update the docs and retire `INDEX.md`:
    - in `CLAUDE.md`, new-deck step 9 becomes "add or extend the `talks.yaml`
      record, then `catalog/talks.py render`", and the step-10 commit bundle
      gains `talks.yaml`;
+   - point `CLAUDE.md` and `SOUL.md` references to `INDEX.md` at
+     `talks.yaml`;
+   - `git rm INDEX.md`;
    - `README.md` gets one paragraph.
 
 ### Phase 3: videos, YouTube and annextube (~1 PR plus external PRs)
@@ -635,10 +759,30 @@ template changes.
 
 ### Phase 5: con-site-specific and the website (cross-repo)
 
-**5A. Tier A, no schema change.**
+**5A. Event concept in datalad-concepts.**
 
-1. `talks.py export-things` writes `xyzri` records to a scratch directory
-   (§5, column A) for review. Nothing is committed here.
+1. Drafted: commit `419c37a` on `yarikoptic/datalad-concepts`, branch
+   `claude/serene-cray-ozqirg` (§5.1).
+   - Next step: push it and open a PR against the fork, discuss, then
+     propose it upstream (psychoinformatics-de). The ORINOCO-Lite org may
+     host it later.
+2. ORINOCO-Lite pins datalad-concepts through its `things-schemas` submodule,
+   at `cb6c791`. Using `XYZEvent` on the site requires:
+   - moving that pin to a commit that has the change (the fork branch, until
+     upstream accepts it);
+   - declaring `xyzri:XYZEvent` in the projection (`pages` or
+     `unrendered_classes`), because every record class must be declared.
+
+**5B. Records and adapter.**
+
+1. `talks.py export-things` writes `xyzri` records to a scratch directory for
+   review; nothing is committed here. It writes:
+   - talks, with `presented_at`;
+   - `XYZEvent` records for events and talk slots;
+   - recordings.
+
+   The mapping is in §5. Until 5A is usable, `--interim` emits the
+   psychoinformatics-style form instead.
 2. In con-site-specific, add:
    - `sources/talks/source.yaml`, modeled on `sources/dump-research-info/`:
      ```yaml
@@ -650,8 +794,10 @@ template changes.
      decision_cache: site-specific/curation-records/talks.yaml
      ```
    - `XYZInstrument/source-adapter-talks-v1.yaml`;
-   - `XYZBibliographicType/slideshow.yaml` (`pid: bibo:Slideshow`);
-   - optionally `XYZAgentRole` `marcrel:spk`;
+   - `XYZBibliographicType` records for the talk kind (§9 Q12) and for
+     `bibo:AudioVisualDocument`;
+   - `XYZEventType` records (`bibo:Conference`, `bibo:Workshop`, …);
+   - `XYZAgentRole` records `marcrel:spk` and `marcrel:orm`;
    - `policy/` holding the person mapping (if slugs ever diverge) and the
      Zotero dedup list (D9).
 3. In the downstream site repo, add
@@ -665,18 +811,29 @@ template changes.
    possibly at `/talks/<id>/` through PID routing. That last point is
    inferred; check it with a build.
 
-**5B. Tier B, richer model.**
+**5C. Website: talks and events.**
 
-1. Propose the minimal `xyzri` additions in §5 upstream
-   (psychoinformatics-de/datalad-concepts), with this catalog as the
-   motivating use case.
-2. Ask ORINOCO-Lite (`www-from-model`) for a talk page template and a "talks"
-   section in `projection.yaml` and the navigation. The talk page would
-   embed the video and list the slides, archive copies and back-links to
-   persons and projects.
-3. Decide whether video and archive records live in con-site-specific, which
-   is likely if non-talk videos (tutorials) are wanted. If so, the
+1. Ask ORINOCO-Lite (`www-from-model`) for:
+   - a talk page template;
+   - an event page template;
+   - "Talks" and "Events" sections in `projection.yaml` and the navigation.
+2. A talk page embeds the video and lists the slides, archive copies, its
+   event, and back-links to persons and projects. An event page lists the
+   talks presented there.
+3. Decide whether video and archive records live in con-site-specific,
+   which is likely if non-talk videos (tutorials) are wanted. If so, the
    `video_archives` registry moves there and talks only reference it.
+
+**5D. Events from con/cierge (later).**
+
+1. Read the con/cierge "New Event" issues and project `con/8` (not yet
+   attached to this session) to see which fields they carry.
+2. A `cierge` source adapter turns those issues into `XYZEvent` candidates
+   for con-site-specific.
+3. The `events` entries in `talks.yaml` link to the same issue, so both
+   sources resolve to one event PID.
+4. At that point the event registry's home moves to con-site-specific, and
+   `talks.yaml` only references event slugs.
 
 ### Phase 6: Zenodo crosswalk and sync (details in §6)
 
@@ -716,45 +873,98 @@ template changes.
 
 **Order and dependencies:**
 
-- Phases 1 and 2 are self-contained and immediately useful: a correct
-  INDEX.md and index.html, plus CI.
+- Phases 1 and 2 are self-contained and immediately useful: `talks.yaml`
+  replaces INDEX.md, index.html is correct, and CI checks both.
 - Phase 3 needs ReproTube/contube clones and network access.
 - Phase 4 can start right after Phase 1.
-- 5A can start as soon as Phase 1 lands; 5B waits on upstream.
+- 5A is drafted; 5B can start as soon as Phase 1 lands, in interim form
+  if needed; 5C waits on 5A; 5D waits on cierge access.
 - Phase 6.1 is the only time-critical item, because of the US-RSE deadline.
-  6.4 waits for 5A.
+  6.4 waits for 5B.
 
 ---
 
 ## 5. Mapping `talks.yaml` → `xyzri`
 
-| `talks.yaml` | A: today (renders as a publication) | B: target (needs upstream additions) |
+| `talks.yaml` | With the drafted Event concept (target) | Interim, without it (psychoinformatics-style) |
 | --- | --- | --- |
-| Talk | `XYZPublication`, `pid: xyzrins:talks/<id>`, `kind: bibo:Slideshow`, `title`, `description` | `XYZDocument` (`distributions` narrowed to `XYZFile`, `about` narrowed to `XYZTopic`), or `XYZPublication` gaining `distributions` |
+| Talk | `XYZPublication`, `pid: xyzrins:talks/<id>`, `kind` per §9 Q12 (`fabio:Presentation` or `bibo:Slideshow`), `title`, `description` | same |
 | authors | `attributed_to: [{object: xyzrins:persons/<slug>, roles: [marcrel:aut]}]` | same |
 | projects | `generated_by: [{object: xyzrins:projects/<slug>}]`, as `datalad-joss-2021` does, so the talk is listed on the project page | same |
 | topics | `about: [xyzrins:topics/<slug>]` | same |
 | derived_from | `derived_from: [{object: xyzrins:talks/<parent>}]` (`EntityMixin`) | same |
-| presentation (event, date) | an extra `generated_by` entry `{at_time: <date>, at_location: <event IRI>}`, as publications use a venue | an activity for the talk slot: `part_of` the event, `associated_with` presenters (`marcrel:spk`), `used` the talk; the talk gets `presented_at` (`bibo:presentedAt`) |
-| event | only an IRI (the event URL) | **`XYZEvent`** (new): `title`, `at_location`, `started`/`ended`, `kind` from a new `XYZEventType` (`bibo:Conference`, `bibo:Workshop`, webinar…), `part_of` an `XYZEvent` or `XYZProject` (distribits) |
-| slides: live URL, source @ commit, PDF | `identifiers` (URL notations, as Zotero-derived records do) | `XYZFile` per artifact, with new `access_url` (`dcat:accessURL`) and `download_url` (`dcat:downloadURL`) slots; git blob id in `identifiers`; PDF `derived_from` the HTML |
+| presentation | `presented_at: [xyzrins:events/<event>/<slot>]` | `generated_by: [{object: obo:GSSO_006807, at_location: xyzrins:publication-venues/<event>, at_time: <date>}]` |
+| talk slot | `XYZEvent`: `kind: obo:GSSO_006807` (conference presentation), `part_of: [<event>]`, `started.at_time`, `associated_with` presenters (`marcrel:spk`), `used: [{object: <talk>}]` | — |
+| event | `XYZEvent`: `title`, `kind` (`XYZEventType`, e.g. `bibo:Conference`), `started`/`ended`, `at_location`, web page via `identifiers` or a `foaf:homepage` attribute, `associated_with` organizers (`marcrel:orm`), `part_of` for sub-events | `XYZPublicationVenue`: `title`, `kind: bibo:Conference` (title only) |
+| recording | `XYZDocument`: `kind: bibo:AudioVisualDocument`, `generated_by: [{object: <talk slot>}]`, YouTube and archive URLs in `identifiers` | YouTube URL in the talk's `identifiers`, as `zotero-sfqu8qby` does |
+| slides: live URL, source @ commit, PDF | `identifiers` (URL notations, as other records do) | same |
 | DOI | `identifiers: [{schema_type: dlthings:DOI, notation: 10.5281/…}]` | same |
-| recording | YouTube URL in the talk's `identifiers`, as `zotero-sfqu8qby` does | `XYZDocument` with `kind: bibo:AudioVisualDocument`, `generated_by` the talk-slot activity; one `XYZFile` per recording, with every copy (YouTube, ReproTube, contube) as access URLs; an optional `duration` (`schema:duration`) |
-| presenters ≠ authors | lost (only authors survive) | `associated_with` with `marcrel:spk` on the talk-slot activity |
-| `index:` block | not exported | not exported |
+| presenters ≠ authors | `associated_with` + `marcrel:spk` on the talk slot | lost |
+| `reuse:` block | not exported | not exported |
 
-**Proposed upstream changes for B**, all in
-`demo-research-information/unreleased.yaml`:
+### 5.1 The drafted schema change
 
-1. a new `XYZEvent` class plus an `XYZEventType` classifier;
-2. a `presented_at` slot;
-3. `access_url` and `download_url` on `XYZFile`;
-4. on `XYZDocument`, narrow `distributions` and `about`, and add `depiction`;
-5. optionally, `duration`.
+It lives on `yarikoptic/datalad-concepts`, branch `claude/serene-cray-ozqirg`,
+commit `419c37a`. The push is pending GitHub access. Everything is in
+`src/demo-research-information/unreleased.yaml`.
 
-**Data records** (no schema change): `bibo:Slideshow` and
-`bibo:AudioVisualDocument` as `XYZBibliographicType`; `marcrel:spk` (and
-`marcrel:orm`, `marcrel:vdg`) as `XYZAgentRole`.
+**`XYZEvent`**
+
+- Declared as `is_a: Thing` with the `ActivityMixin`.
+- Exact mapping `schema:Event`; broad mapping `prov:Activity`.
+- Slots:
+  - `title`;
+  - `started` and `ended`;
+  - a multivalued `at_location`;
+  - `part_of`, with range `XYZEvent`, for nesting;
+  - `associated_with`, for organizers, chairs and speakers;
+  - `used`, for the slides or poster;
+  - `about`, with range `XYZTopic`;
+  - `depiction`;
+  - `kind`, with range `XYZEventType`.
+
+**`XYZEventType`** is a classifier, e.g. `bibo:Conference`.
+
+**`presented_at`** has slot URI `bibo:presentedAt` and range `XYZEvent`. It
+is multivalued and is added to `XYZPublication` and `XYZDocument`.
+
+**Recordings need nothing new.** They name the talk slot as their
+`generated_by` activity.
+
+**Examples, each with a committed JSON conversion:**
+
+- `XYZEvent-01-conference`;
+- `XYZEvent-03-talk-slot`;
+- `XYZPublication-03-presented-at`;
+- `XYZDocument-03-recording`.
+
+They come with new validation configs for `XYZEvent` and `XYZDocument`.
+
+**Checks run locally** with linkml 1.11.1 plus the repo's patches, which is
+the version ORINOCO-Lite pins:
+
+- `make checkmodel/demo-research-information/unreleased`: lint and all
+  generators are clean.
+- `checkvalidation`: all valid configs pass.
+- Negative checks: `presented_at` on an `XYZProject` is rejected, and so is
+  an unknown slot on an event.
+- Re-converting the existing examples leaves them unchanged, and the RDF
+  output carries `bibo:presentedAt`.
+- codespell is clean.
+
+**Deliberately not in the minimal change** (later, if needed):
+
+- file URL slots (`dcat:accessURL` and `dcat:downloadURL` on `XYZFile`);
+- `duration`;
+- narrowing `XYZDocument.distributions` and `XYZDocument.about`;
+- an output → grant relation (§9 Q10).
+
+**Data records con-site-specific needs**, with no schema change:
+
+- `XYZEventType`: `bibo:Conference`, `bibo:Workshop`, …;
+- `XYZBibliographicType`: the talk kind and `bibo:AudioVisualDocument`;
+- `XYZAgentRole`: `marcrel:spk` and `marcrel:orm`;
+- the talk-slot kind `obo:GSSO_006807`, as an `XYZEventType`.
 
 ---
 
@@ -801,17 +1011,17 @@ but it is never a source.
 | `title` | `title` | `metadata.title` | an event policy may dictate the title, e.g. "as submitted" |
 | `description` (Markdown) | `description` | `metadata.description` (HTML) | rendered Markdown → HTML |
 | `authors[]` → `people` | `attributed_to` + `marcrel:aut` | `metadata.creators[]`: `person_or_org` with `given_name`, `family_name`, `identifiers: [{scheme: orcid}]`, `affiliations: [{id: <ROR>}]` | default affiliations: CON `ror:04tfhh831` and Dartmouth `ror:049s0rh22` (from `XYZOrganization/con.yaml`); the person registry needs given and family names split |
-| `presenters[]` beyond the authors | `marcrel:spk` (Tier B) | `metadata.contributors[]` with role `other`, plus a note in `description` | DataCite has no "speaker" role |
+| `presenters[]` beyond the authors | `marcrel:spk` on the talk slot | `metadata.contributors[]` with role `other`, plus a note in `description` | DataCite has no "speaker" role |
 | presentation `date` | `generated_by.at_time` | `metadata.publication_date`, plus `dates: [{type: other, description: presented}]` | an event can fix `publication_date` (US-RSE: 2026-10-19) |
-| `event` → `events` | `at_location` (A) / `XYZEvent` (B) | `custom_fields["meeting:meeting"]`: `title`, `acronym`, `dates`, `place`, `url`, `session` | |
+| `event` → `events` | `XYZEvent` (interim: title-only venue) | `custom_fields["meeting:meeting"]`: `title`, `acronym`, `dates`, `place`, `url`, `session` | |
 | — (always) plus `events.<e>.zenodo.community` | — | `communities`: `con`, plus the event's (e.g. `usrse26`); a review request on submit | `con` is the sync collection (§9 Q8) |
 | `projects[]`, `topics[]` | `generated_by` project / `about` | `metadata.subjects[]` (free keywords) | |
-| `grants[]` (new field, slugs = `xyzrins:grants/<slug>`) | Tier B: `funded_by` or `characterized_by schema:funding` (§9 Q10) | `metadata.funding[]`: `funder.id` (ROR), `award.number`, `award.title` | con-site-specific `XYZGrant` records lack a funder link; add one there, as a funder `XYZOrganization` with its ROR id |
+| `grants[]` (new field, slugs = `xyzrins:grants/<slug>`) | not modeled yet: `funded_by` or `characterized_by schema:funding` (§9 Q10) | `metadata.funding[]`: `funder.id` (ROR), `award.number`, `award.title` | con-site-specific `XYZGrant` records lack a funder link; add one there, as a funder `XYZOrganization` with its ROR id |
 | `license` (per talk; per export where it differs) | `rules` (things-rules); verify | `metadata.rights: [{id: <SPDX id, lowercased>}]` | must be stated per talk, never inherited (§9 Q9); an event policy (US-RSE: CC-BY-4.0) pre-fills it |
 | live slides URL (derived) | `identifiers` / `XYZFile` access URL | `related_identifiers`: `isvariantformof`, scheme `url` | the HTML is a different format of the deposited PDF |
 | source in this dataset at a commit | `XYZFile` + git id | `related_identifiers`: `isderivedfrom`, scheme `url`; GitHub blob URL at the commit | |
 | `derived_from[]` (lineage) | `derived_from` | `related_identifiers`: `isderivedfrom` (the parent's DOI if it has one, else its URL) | |
-| recordings: YouTube, archive copies | identifiers / Tier B video document | `related_identifiers`: `issupplementedby`, resource type `video` | |
+| recordings: YouTube, archive copies | recording `XYZDocument` (§5) | `related_identifiers`: `issupplementedby`, resource type `video` | |
 | talk page on the CON website | — | `related_identifiers`: `isdescribedby` | once Phase 5 exists |
 | deposited files | `distributions` → `XYZFile` | `files`: the PDF exported with decktape via `datalad run` (optionally also `.pptx`) | |
 | `zenodo.{record, doi, concept_doi}` | `identifiers: [{schema_type: dlthings:DOI}]` | read back from the API | owned by Zenodo; never hand-edited except to seed |
@@ -886,7 +1096,7 @@ instead of code, and an inverse spec for the import side.
 
 1. Write the talks crosswalk first, as plain Python in `catalog/talks.py`.
    Structure it field by field, mirroring the §6.2 table.
-2. Port it to linkml-map once the Tier A `xyzri` export exists.
+2. Port it to linkml-map once `export-things` exists (Phase 5B).
 
 **Upstream implications.**
 
@@ -931,6 +1141,13 @@ events:
     kind: workshop
     online: true
     start: 2026-03-11
+    # cierge: <issue number>             # link to the con/cierge "New Event" issue, when there is one
+
+topics:
+  five-verbs: {title: "Reuse / Compose / Extend / Standardize / Automate"}
+  reuse:
+    title: Reuse / upstream contribution / NeuroDebian
+    assets: [pics/neurodebian*.{png,svg}, pics/nd_overview.svg, pics/neuropy_history.svg]
 
 video_archives:
   reprotube:
@@ -967,12 +1184,14 @@ talks:
     date: 2026-10-19
     session: AI Assisted Code Development (Willow Glen Room)
     presenters: [yaroslav-halchenko]
-  index:                                 # INDEX.md only; never exported
+  reuse:                                 # authoring aid; never exported
     spine: >-
       the five-verb spine (Reuse / Compose / Extend / Standardize / Automate) …
     highlights:
-    - Title slide (per `SOUL.md` §3).
-    - '"Two decades, five verbs" intro slide (NEW).'
+    - text: '"Two decades, five verbs" intro slide (NEW).'
+      topics: [five-verbs]
+    - text: '"Reuse, in reverse" 3-up table (AnnexTube / mykrok / con/serve).'
+      topics: [reuse]
 
 - id: 2025-distribits-YODA
   title: "Pragmatic YODA: overview of YODA principles and their wild life encounters"
@@ -1006,22 +1225,51 @@ talks:
     presenters: [cody-baker]
 ```
 
-**Tier-A export of `2025-distribits-YODA`** (sketch; the `schema_type` of
-inlined objects is omitted for brevity):
+**Export of `2025-distribits-YODA` with the drafted Event concept** (sketch;
+the `schema_type` of inlined objects is omitted; the slot slug is
+illustrative):
 
 ```yaml
+# XYZPublication
 pid: xyzrins:talks/2025-distribits-YODA
 schema_type: xyzri:XYZPublication
-kind: bibo:Slideshow
+kind: fabio:Presentation                  # or bibo:Slideshow, §9 Q12
 title: 'Pragmatic YODA: overview of YODA principles and their wild life encounters'
 attributed_to:
 - {object: xyzrins:persons/yaroslav-halchenko, roles: [marcrel:aut]}
 generated_by:
 - {object: xyzrins:projects/yoda}
 - {object: xyzrins:projects/datalad}
-- {at_time: '2025-10', at_location: 'https://distribits.live/'}     # the presentation
+presented_at: [xyzrins:events/distribits-2025/halchenko-yoda]
 identifiers:
 - {notation: 'https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html'}
+---
+# XYZEvent (the conference)
+pid: xyzrins:events/distribits-2025
+schema_type: xyzri:XYZEvent
+title: distribits 2025
+kind: bibo:Conference
+started: {at_time: '2025-10'}             # VERIFY exact days
+attributes:
+- {predicate: foaf:homepage, value: 'https://distribits.live/'}
+---
+# XYZEvent (the talk slot)
+pid: xyzrins:events/distribits-2025/halchenko-yoda
+schema_type: xyzri:XYZEvent
+kind: obo:GSSO_006807
+part_of: [xyzrins:events/distribits-2025]
+associated_with:
+- {object: xyzrins:persons/yaroslav-halchenko, roles: [marcrel:spk]}
+used:
+- {object: xyzrins:talks/2025-distribits-YODA}
+---
+# XYZDocument (the recording)
+pid: xyzrins:videos/EuKVapscUQ4
+schema_type: xyzri:XYZDocument
+kind: bibo:AudioVisualDocument
+generated_by:
+- {object: xyzrins:events/distribits-2025/halchenko-yoda}
+identifiers:
 - {notation: 'https://www.youtube.com/watch?v=EuKVapscUQ4'}
 - {notation: 'https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/EuKVapscUQ4'}
 ```
@@ -1092,15 +1340,19 @@ the three whose type is not stated. Migrate them per D9.
    delivery time, or is the optional `commit:` field enough?
 6. **Zotero dedup policy (D9).** For an overlapping talk, should the talks
    adapter reuse the Zotero PID, or should Zotero exclude the item?
-7. **Upstream route for Tier B.** File the `XYZEvent` / `presented_at` /
-   file-URL proposal as a datalad-concepts issue now, or after Tier A shows
-   the website side working?
+7. **Upstream route for the Event change.** It is drafted (§5.1).
+   Proposed route:
+   1. a PR against `yarikoptic/datalad-concepts`;
+   2. then upstream at psychoinformatics-de;
+   3. possibly moved under the ORINOCO-Lite org later.
+
+   OK?
 8. ~~A CON Zenodo community?~~ **Decided: it exists**, as `con`
    (<https://zenodo.org/communities/con>). It is the collection that talk
    records sync to and from (§6.3).
 9. ~~License?~~ **Decided:**
-   - the catalog itself (`talks.yaml` and the generated `INDEX.md` /
-     `index.html`) is CC-BY 4.0;
+   - the catalog itself (`talks.yaml` and the generated `index.html`) is
+     CC-BY 4.0;
    - each talk states its own `license`, and an export or material can
      differ from it;
    - nothing is inherited from the repo `LICENSE`.
@@ -1114,6 +1366,18 @@ the three whose type is not stated. Migrate them per D9.
 11. ~~The US-RSE Zenodo record?~~ **Known:**
     <https://zenodo.org/records/22783262> (abstract). The pilot adds the
     slides as a new version (Phase 6.1).
+12. **Talk kind.** Use `fabio:Presentation`, as psychoinformatics does, or
+    `bibo:Slideshow`? Sharing the psychoinformatics choice makes both sites'
+    talk lists line up.
+13. **What `presented_at` points to.** Always a talk-slot event (needed for
+    the speaker, session and time), or directly the conference when nothing
+    more is known? The schema allows both.
+14. **Long-term home of events.** The proposal is con-site-specific, fed by
+    con/cierge and `talks.yaml`. con/cierge needs attaching to a session so
+    its issues and project fields can be read.
+15. **Membership roles.** Which `roles` mark CON membership in `delegated_by`
+    (e.g. `marcrel:rtm`, as psychoinformatics uses), and should the site
+    root's `associated_with` list then only hold leadership and projects?
 
 ---
 
@@ -1134,6 +1398,11 @@ the three whose type is not stated. Migrate them per D9.
   - `zenodo.org` and `sandbox.zenodo.org`;
   - `www.youtube.com`;
   - `dev.centerforopenneuroscience.org`.
+- con/cierge issues were not read; only its README and issue template were
+  (§1.3).
+- The datalad-concepts change was validated locally (§5.1). Pushing it to
+  `yarikoptic/datalad-concepts` failed with HTTP 403, because the Claude
+  GitHub App has no access to that repo.
 - The ORINOCO-Lite findings come from `orinoco-lite-dev` HEAD `992c917`.
   The CON downstream pins a different package commit (`1cbebd70`), and its
   `www-from-model` layouts were not inspected, so details of the adapter
