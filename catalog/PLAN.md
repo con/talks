@@ -558,6 +558,10 @@ review.
 - `gen-json-schema` produces `catalog/talks.schema.json`, which is committed.
   Validation then runs through the `check-jsonschema` pre-commit hook, so
   there is no heavy LinkML dependency in CI.
+  - Verified on the samples: `check-jsonschema` 0.38.2 and `talks.py validate`
+    agree.
+  - Year-only dates must be quoted (`'2016'`), because YAML reads them as
+    numbers.
 - `gen-shacl` is used later for shacl-vue (Phase 4).
 
 **D3. Identifiers**
@@ -684,7 +688,9 @@ template changes.
 
 ### Phase 1: schema, seeded records, validation (this repo only; ~1 PR)
 
-1. Write `catalog/talks.schema.yaml` with:
+1. *(Drafted from the samples, §7:* `catalog/talks.schema.yaml`, the
+   generated `catalog/talks.schema.json`, and `catalog/talks.py validate`.
+   *Finalize them.)* Write `catalog/talks.schema.yaml` with:
    - classes `TalkCatalog`, `Talk`, `Slides`, `Presentation`, `Recording`,
      `ArchivedCopy`, `ZenodoDeposit`, `ZenodoPolicy`, `Reuse`, `Highlight`,
      `Person`, `Event`, `Topic` and `VideoArchive`;
@@ -1188,6 +1194,10 @@ planned `talks.yaml` format, with each value annotated by its source:
 - All 23 validate against the drafted schema.
 - Every person, project, role and type they reference resolves to
   con-site-specific or to the samples.
+- The sample `talks.yaml` itself validates against the draft
+  `catalog/talks.schema.yaml`, via `catalog/talks.py validate` and via
+  `check-jsonschema`.
+- `samples/validate.sh` runs all of these checks.
 
 The samples README lists what they revealed. The decisions still needed are
 §9 Q16–Q20.
@@ -1251,9 +1261,10 @@ the three whose type is not stated. Migrate them per D9.
 3. **Posters and BoFs?** `posters/`, `2026-usrse/*poster*`, `2026-sfn/` and
    `2026-brain-initiative/` could use the same schema with `kind: poster` or
    `kind: bof`. Now, or later?
-4. **contube layout.** Is contube a single-channel archive of
-   `@centeropenneuro`, or a collection? This decides its URL template.
-   Should `@centeropenneuro` be added there if it isn't already?
+4. ~~contube layout?~~ **Answered.** It serves the single-channel UI route:
+   `…/contube/web/#/video/8NTWKHer5Zo` (the BBQS recording), so its template is
+   `{base}/web/#/video/{id}` with no channel. Its registry entry is in the
+   samples.
 5. **"As presented" pinning.** Create git tags `talk/<TALK-ID>/<date>` at
    delivery time, or is the optional `commit:` field enough?
 6. **Zotero dedup policy (D9).** For an overlapping talk, should the talks
@@ -1337,6 +1348,10 @@ From the samples (`catalog/samples/README.md`):
   - `dev.centerforopenneuroscience.org`.
 - con/cierge issues were not read; only its README and issue template were
   (§1.3).
+- DataLad is not installed in that session's container. So
+  `catalog/talks.schema.json` was generated with plain
+  `gen-json-schema --closed catalog/talks.schema.yaml` (linkml 1.11.1), not
+  through `datalad run` as D7 intends.
 - The datalad-concepts change was validated locally (§5.1). Pushing it to
   `yarikoptic/datalad-concepts` keeps failing with HTTP 403: the Claude
   GitHub App is not installed for that repository. Both commits are ready

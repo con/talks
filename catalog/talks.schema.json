@@ -1,0 +1,1034 @@
+{
+    "$defs": {
+        "ArchiveLayout": {
+            "description": "",
+            "enum": [
+                "collection",
+                "single-channel"
+            ],
+            "title": "ArchiveLayout",
+            "type": "string"
+        },
+        "ArchivedCopy": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "archive": {
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel directory; required for collection archives.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "archive"
+            ],
+            "title": "ArchivedCopy",
+            "type": "object"
+        },
+        "Event": {
+            "additionalProperties": false,
+            "description": "A conference, workshop, webinar (series), session, ... A session or a single webinar can be part of another event.",
+            "properties": {
+                "acronym": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cierge": {
+                    "description": "Number of the con/cierge \"New Event\" issue.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "end": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kind": {
+                    "$ref": "#/$defs/EventKind"
+                },
+                "location": {
+                    "description": "Free-text place (city, venue).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "online": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "part_of": {
+                    "description": "Slug of the event this one is part of.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "project": {
+                    "description": "con-site-specific project slug (e.g. distribits).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "room": {
+                    "description": "Free-text room within the venue.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "start": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "format": "uri",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "zenodo": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ZenodoPolicy"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "slug",
+                "name",
+                "kind"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
+        "EventKind": {
+            "description": "",
+            "enum": [
+                "conference",
+                "workshop",
+                "session",
+                "webinar",
+                "webinar-series",
+                "seminar",
+                "meeting"
+            ],
+            "title": "EventKind",
+            "type": "string"
+        },
+        "Event__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A conference, workshop, webinar (series), session, ... A session or a single webinar can be part of another event.",
+            "properties": {
+                "acronym": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cierge": {
+                    "description": "Number of the con/cierge \"New Event\" issue.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "end": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kind": {
+                    "$ref": "#/$defs/EventKind"
+                },
+                "location": {
+                    "description": "Free-text place (city, venue).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "online": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "part_of": {
+                    "description": "Slug of the event this one is part of.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "project": {
+                    "description": "con-site-specific project slug (e.g. distribits).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "room": {
+                    "description": "Free-text room within the venue.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "start": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "format": "uri",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "zenodo": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ZenodoPolicy"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "kind"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
+        "Highlight": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "slide": {
+                    "description": "reveal.js fragment, e.g. '#/3/1'.",
+                    "pattern": "^#/\\d+(/\\d+)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "text": {
+                    "type": "string"
+                },
+                "topics": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "text"
+            ],
+            "title": "Highlight",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "github": {
+                    "pattern": "^[A-Za-z0-9-]+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "orcid": {
+                    "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "slug",
+                "name"
+            ],
+            "title": "Person",
+            "type": "object"
+        },
+        "Person__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "github": {
+                    "pattern": "^[A-Za-z0-9-]+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "orcid": {
+                    "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Person",
+            "type": "object"
+        },
+        "Presentation": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "commit": {
+                    "pattern": "^[0-9a-f]{7,40}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "date": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "event": {
+                    "type": "string"
+                },
+                "presenters": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "recordings": {
+                    "items": {
+                        "$ref": "#/$defs/Recording"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "event"
+            ],
+            "title": "Presentation",
+            "type": "object"
+        },
+        "Recording": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "archived_in": {
+                    "items": {
+                        "$ref": "#/$defs/ArchivedCopy"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "end": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "start": {
+                    "description": "Offset (seconds) of the talk within a longer recording.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "youtube": {
+                    "pattern": "^[A-Za-z0-9_-]{11}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "youtube"
+            ],
+            "title": "Recording",
+            "type": "object"
+        },
+        "Reuse": {
+            "additionalProperties": false,
+            "description": "Authoring aid (formerly INDEX.md); never exported.",
+            "properties": {
+                "highlights": {
+                    "items": {
+                        "$ref": "#/$defs/Highlight"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "notes": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spine": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Reuse",
+            "type": "object"
+        },
+        "SlideFormat": {
+            "description": "",
+            "enum": [
+                "revealjs",
+                "marp",
+                "google-slides",
+                "pptx",
+                "pdf",
+                "other"
+            ],
+            "title": "SlideFormat",
+            "type": "string"
+        },
+        "Slides": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "doi": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "exports": {
+                    "description": "Paths of exports (PDF, PPTX) in this repository.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "$ref": "#/$defs/SlideFormat"
+                },
+                "source": {
+                    "description": "Path of the deck in this repository.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "format": "uri",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "format"
+            ],
+            "title": "Slides",
+            "type": "object"
+        },
+        "StoryArc": {
+            "description": "Recurring story arcs (SOUL.md \u00a77).",
+            "enum": [
+                "origin-stack-today",
+                "challenges-solutions-takehome",
+                "yoda-principle-a-day",
+                "nirvana",
+                "ai-coding-ladder",
+                "reuse-compose-extend-standardize",
+                "mvc-stack"
+            ],
+            "title": "StoryArc",
+            "type": "string"
+        },
+        "Talk": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "arc": {
+                    "$ref": "#/$defs/StoryArc"
+                },
+                "authors": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "companions": {
+                    "description": "Companion directories in this repository.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "derived_from": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "grants": {
+                    "description": "con-site-specific grant slugs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "TALK-ID; the deck filename stem and key of its published URL. Never reused.",
+                    "pattern": "^(\\d{4}|202x)-[A-Za-z0-9][A-Za-z0-9.-]*$",
+                    "type": "string"
+                },
+                "keywords": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kind": {
+                    "$ref": "#/$defs/TalkKind"
+                },
+                "license": {
+                    "description": "SPDX identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "listed": {
+                    "description": "List a talk hosted elsewhere in index.html.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "pid": {
+                    "description": "Site PID to use instead of xyzrins:talks/<id> (e.g. to keep the PID of a talk migrated from Zotero).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "presentations": {
+                    "items": {
+                        "$ref": "#/$defs/Presentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "projects": {
+                    "description": "con-site-specific project slugs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "reuse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Reuse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "slides": {
+                    "$ref": "#/$defs/Slides"
+                },
+                "status": {
+                    "$ref": "#/$defs/TalkStatus"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "zenodo": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ZenodoDeposit"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "zotero": {
+                    "description": "Zotero item key in the CON group library.",
+                    "pattern": "^[A-Z0-9]{8}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "title",
+                "id",
+                "kind",
+                "status",
+                "authors",
+                "slides"
+            ],
+            "title": "Talk",
+            "type": "object"
+        },
+        "TalkCatalog": {
+            "additionalProperties": false,
+            "description": "The whole talks.yaml file.",
+            "properties": {
+                "events": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Event__identifier_optional"
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "people": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Person__identifier_optional"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "talks": {
+                    "items": {
+                        "$ref": "#/$defs/Talk"
+                    },
+                    "type": "array"
+                },
+                "topics": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Topic__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "video_archives": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/VideoArchive__identifier_optional"
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "talks"
+            ],
+            "title": "TalkCatalog",
+            "type": "object"
+        },
+        "TalkKind": {
+            "description": "",
+            "enum": [
+                "talk",
+                "lightning",
+                "webinar",
+                "keynote",
+                "tutorial",
+                "template"
+            ],
+            "title": "TalkKind",
+            "type": "string"
+        },
+        "TalkStatus": {
+            "description": "",
+            "enum": [
+                "draft",
+                "scheduled",
+                "given",
+                "shelved"
+            ],
+            "title": "TalkStatus",
+            "type": "string"
+        },
+        "Topic": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "assets": {
+                    "description": "Reusable files (glob patterns allowed) for this topic.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "slug"
+            ],
+            "title": "Topic",
+            "type": "object"
+        },
+        "Topic__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "assets": {
+                    "description": "Reusable files (glob patterns allowed) for this topic.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [],
+            "title": "Topic",
+            "type": "object"
+        },
+        "VideoArchive": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "base": {
+                    "format": "uri",
+                    "type": "string"
+                },
+                "layout": {
+                    "$ref": "#/$defs/ArchiveLayout"
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "video_url": {
+                    "description": "Template for a video's web UI URL; placeholders {base}, {id}, and {channel} (collections only).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "slug",
+                "base",
+                "layout",
+                "video_url"
+            ],
+            "title": "VideoArchive",
+            "type": "object"
+        },
+        "VideoArchive__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "base": {
+                    "format": "uri",
+                    "type": "string"
+                },
+                "layout": {
+                    "$ref": "#/$defs/ArchiveLayout"
+                },
+                "slug": {
+                    "description": "Key of a registry entry; for people and projects it equals the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$",
+                    "type": "string"
+                },
+                "title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "video_url": {
+                    "description": "Template for a video's web UI URL; placeholders {base}, {id}, and {channel} (collections only).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "base",
+                "layout",
+                "video_url"
+            ],
+            "title": "VideoArchive",
+            "type": "object"
+        },
+        "ZenodoDeposit": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "concept_doi": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "doi": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "record": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "record"
+            ],
+            "title": "ZenodoDeposit",
+            "type": "object"
+        },
+        "ZenodoPolicy": {
+            "additionalProperties": false,
+            "description": "Deposit policy an event imposes (e.g. US-RSE'26).",
+            "properties": {
+                "community": {
+                    "type": "string"
+                },
+                "license": {
+                    "description": "SPDX identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "publication_date": {
+                    "pattern": "^\\d{4}(-[01]\\d(-[0-3]\\d)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "community"
+            ],
+            "title": "ZenodoPolicy",
+            "type": "object"
+        }
+    },
+    "$id": "https://github.com/con/talks/catalog/talks.schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "The whole talks.yaml file.",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "events": {
+            "additionalProperties": {
+                "$ref": "#/$defs/Event__identifier_optional"
+            },
+            "type": [
+                "object",
+                "null"
+            ]
+        },
+        "people": {
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/Person__identifier_optional"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "type": [
+                "object",
+                "null"
+            ]
+        },
+        "talks": {
+            "items": {
+                "$ref": "#/$defs/Talk"
+            },
+            "type": "array"
+        },
+        "topics": {
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/Topic__identifier_optional"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
+            },
+            "type": [
+                "object",
+                "null"
+            ]
+        },
+        "video_archives": {
+            "additionalProperties": {
+                "$ref": "#/$defs/VideoArchive__identifier_optional"
+            },
+            "type": [
+                "object",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "talks"
+    ],
+    "title": "con-talks-catalog",
+    "type": "object",
+    "version": "DRAFT"
+}
+

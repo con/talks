@@ -1,0 +1,349 @@
+id: https://github.com/con/talks/catalog/talks.schema
+name: con-talks-catalog
+title: CON talks catalog (talks.yaml)
+version: DRAFT
+description: >-
+  Schema of `talks.yaml`, the catalog of talks by members of the Center for
+  Open Neuroscience (CON). It is an authoring-friendly *source* format; its
+  slots and identifiers map onto datalad-concepts `xyzri` records for the
+  CON website (see catalog/PLAN.md, §2, §3 and §5).
+
+  DRAFT: derived from catalog/samples/talks.yaml for review of the plan.
+license: CC-BY-4.0
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  talks: https://github.com/con/talks/catalog/talks.schema/
+  bibo: http://purl.org/ontology/bibo/
+  dcterms: http://purl.org/dc/terms/
+  schema: http://schema.org/
+default_prefix: talks
+default_range: string
+
+imports:
+  - linkml:types
+
+types:
+  PartialDate:
+    typeof: string
+    description: >-
+      A date at the precision that is known: YYYY, YYYY-MM, or YYYY-MM-DD.
+      A year-only value must be quoted ('2016'): unquoted, YAML reads it
+      as a number.
+    pattern: '^\d{4}(-[01]\d(-[0-3]\d)?)?$'
+
+slots:
+  slug:
+    identifier: true
+    description: Key of a registry entry; for people and projects it equals
+      the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).
+    pattern: '^[a-z0-9][a-z0-9-]*$'
+  title:
+    slot_uri: dcterms:title
+  name:
+    slot_uri: schema:name
+  description:
+    slot_uri: dcterms:description
+  url:
+    range: uri
+  start:
+    range: PartialDate
+  end:
+    range: PartialDate
+  date:
+    range: PartialDate
+
+classes:
+  TalkCatalog:
+    tree_root: true
+    description: The whole talks.yaml file.
+    attributes:
+      people:
+        range: Person
+        multivalued: true
+        inlined: true
+      events:
+        range: Event
+        multivalued: true
+        inlined: true
+      video_archives:
+        range: VideoArchive
+        multivalued: true
+        inlined: true
+      topics:
+        range: Topic
+        multivalued: true
+        inlined: true
+      talks:
+        range: Talk
+        multivalued: true
+        inlined_as_list: true
+        required: true
+
+  Person:
+    slots: [slug, name]
+    slot_usage:
+      name:
+        required: true
+    attributes:
+      orcid:
+        pattern: '^\d{4}-\d{4}-\d{4}-\d{3}[0-9X]$'
+      github:
+        pattern: '^[A-Za-z0-9-]+$'
+
+  Event:
+    description: >-
+      A conference, workshop, webinar (series), session, ... A session or
+      a single webinar can be part of another event.
+    slots: [slug, name, url, start, end]
+    slot_usage:
+      name:
+        required: true
+    attributes:
+      acronym: {}
+      kind:
+        range: EventKind
+        required: true
+      part_of:
+        range: Event
+        description: Slug of the event this one is part of.
+      location:
+        description: Free-text place (city, venue).
+      room:
+        description: Free-text room within the venue.
+      online:
+        range: boolean
+      project:
+        description: con-site-specific project slug (e.g. distribits).
+      cierge:
+        range: integer
+        description: Number of the con/cierge "New Event" issue.
+      zenodo:
+        range: ZenodoPolicy
+        inlined: true
+
+  ZenodoPolicy:
+    description: Deposit policy an event imposes (e.g. US-RSE'26).
+    attributes:
+      community:
+        required: true
+      publication_date:
+        range: PartialDate
+      license:
+        description: SPDX identifier.
+
+  VideoArchive:
+    slots: [slug, title]
+    attributes:
+      base:
+        range: uri
+        required: true
+      layout:
+        range: ArchiveLayout
+        required: true
+      video_url:
+        required: true
+        description: >-
+          Template for a video's web UI URL; placeholders {base}, {id},
+          and {channel} (collections only).
+
+  Topic:
+    slots: [slug, title]
+    attributes:
+      assets:
+        multivalued: true
+        description: Reusable files (glob patterns allowed) for this topic.
+
+  Talk:
+    slots: [title, description]
+    slot_usage:
+      title:
+        required: true
+    attributes:
+      id:
+        identifier: true
+        description: >-
+          TALK-ID; the deck filename stem and key of its published URL.
+          Never reused.
+        pattern: '^(\d{4}|202x)-[A-Za-z0-9][A-Za-z0-9.-]*$'
+      pid:
+        description: >-
+          Site PID to use instead of xyzrins:talks/<id> (e.g. to keep the
+          PID of a talk migrated from Zotero).
+      kind:
+        range: TalkKind
+        required: true
+      status:
+        range: TalkStatus
+        required: true
+      authors:
+        range: Person
+        multivalued: true
+        required: true
+      keywords:
+        multivalued: true
+      projects:
+        multivalued: true
+        description: con-site-specific project slugs.
+      arc:
+        range: StoryArc
+      license:
+        description: SPDX identifier.
+      grants:
+        multivalued: true
+        description: con-site-specific grant slugs.
+      zotero:
+        pattern: '^[A-Z0-9]{8}$'
+        description: Zotero item key in the CON group library.
+      slides:
+        range: Slides
+        inlined: true
+        required: true
+      zenodo:
+        range: ZenodoDeposit
+        inlined: true
+      companions:
+        multivalued: true
+        description: Companion directories in this repository.
+      derived_from:
+        range: Talk
+        multivalued: true
+      listed:
+        range: boolean
+        description: List a talk hosted elsewhere in index.html.
+      presentations:
+        range: Presentation
+        multivalued: true
+        inlined_as_list: true
+      reuse:
+        range: Reuse
+        inlined: true
+
+  Slides:
+    slots: [url]
+    attributes:
+      format:
+        range: SlideFormat
+        required: true
+      source:
+        description: Path of the deck in this repository.
+      exports:
+        multivalued: true
+        description: Paths of exports (PDF, PPTX) in this repository.
+      doi: {}
+
+  ZenodoDeposit:
+    attributes:
+      record:
+        range: integer
+        required: true
+      doi: {}
+      concept_doi: {}
+
+  Presentation:
+    slots: [date]
+    attributes:
+      event:
+        range: Event
+        required: true
+      presenters:
+        range: Person
+        multivalued: true
+      commit:
+        pattern: '^[0-9a-f]{7,40}$'
+      recordings:
+        range: Recording
+        multivalued: true
+        inlined_as_list: true
+
+  Recording:
+    attributes:
+      youtube:
+        pattern: '^[A-Za-z0-9_-]{11}$'
+        required: true
+      start:
+        range: integer
+        description: Offset (seconds) of the talk within a longer recording.
+      end:
+        range: integer
+      archived_in:
+        range: ArchivedCopy
+        multivalued: true
+        inlined_as_list: true
+
+  ArchivedCopy:
+    attributes:
+      archive:
+        range: VideoArchive
+        required: true
+      channel:
+        description: Channel directory; required for collection archives.
+
+  Reuse:
+    description: Authoring aid (formerly INDEX.md); never exported.
+    attributes:
+      spine: {}
+      notes: {}
+      highlights:
+        range: Highlight
+        multivalued: true
+        inlined_as_list: true
+
+  Highlight:
+    attributes:
+      text:
+        required: true
+      slide:
+        description: reveal.js fragment, e.g. '#/3/1'.
+        pattern: '^#/\d+(/\d+)?$'
+      topics:
+        range: Topic
+        multivalued: true
+
+enums:
+  TalkKind:
+    permissible_values:
+      talk: {}
+      lightning: {}
+      webinar: {}
+      keynote: {}
+      tutorial: {}
+      template:
+        description: Not a talk (e.g. 0000-zoom-background); never listed.
+  TalkStatus:
+    permissible_values:
+      draft: {}
+      scheduled: {}
+      given: {}
+      shelved: {}
+  SlideFormat:
+    permissible_values:
+      revealjs: {}
+      marp: {}
+      google-slides: {}
+      pptx: {}
+      pdf: {}
+      other: {}
+  EventKind:
+    permissible_values:
+      conference: {}
+      workshop: {}
+      session: {}
+      webinar: {}
+      webinar-series: {}
+      seminar: {}
+      meeting: {}
+  ArchiveLayout:
+    permissible_values:
+      collection: {}
+      single-channel: {}
+  StoryArc:
+    description: Recurring story arcs (SOUL.md §7).
+    permissible_values:
+      origin-stack-today: {}
+      challenges-solutions-takehome: {}
+      yoda-principle-a-day: {}
+      nirvana: {}
+      ai-coding-ladder: {}
+      reuse-compose-extend-standardize: {}
+      mvc-stack: {}

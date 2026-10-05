@@ -8,6 +8,8 @@ generated_by:
 identifiers:
 - notation: https://www.youtube.com/watch?v=8NTWKHer5Zo
   schema_type: dlthings:Identifier
+- notation: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo
+  schema_type: dlthings:Identifier
 kind: bibo:AudioVisualDocument
 pid: xyzrins:videos/8NTWKHer5Zo
 schema_type: xyzri:XYZDocument

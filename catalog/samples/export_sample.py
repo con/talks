@@ -162,7 +162,7 @@ def export_talk(t, archives):
             urls = [f"https://www.youtube.com/watch?v={vid}"]
             for c in r.get("archived_in", []):
                 a = archives[c["archive"]]
-                urls.append(a["video_url"].format(base=a["base"], channel=c["channel"], id=vid))
+                urls.append(a["video_url"].format(base=a["base"], channel=c.get("channel"), id=vid))
             v["identifiers"] = [ident(u) for u in urls]
             out.append(("XYZDocument", v))
     return out

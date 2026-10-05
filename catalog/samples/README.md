@@ -7,9 +7,11 @@ anything is implemented.
 | File | What it is |
 | --- | --- |
 | `talks.yaml` | Five talks in the planned source format (PLAN §2, §3), plus the `people`, `events`, `video_archives` and `topics` registries. Each value carries a comment naming its source; unknown values are left out. |
+| `../talks.schema.yaml`, `../talks.schema.json` | **Draft** LinkML schema for `talks.yaml` (PLAN D2), and the JSON Schema generated from it with `gen-json-schema --closed`. |
+| `../talks.py` | **Draft** tool (PLAN D8). Only `validate` exists so far: JSON Schema checks plus checks a schema cannot express (references, tracked files, unique ids, and con-site-specific slugs with `--site`). |
 | `export_sample.py` | A prototype of `talks.py export-things` (PLAN Phase 5B). It maps `talks.yaml` onto `xyzri` records, following PLAN §5. |
 | `xyzri/<Class>/*.yaml` | Its output, laid out like con-site-specific `metadata/records/`. |
-| `validate.sh`, `check_refs.py` | Validate `xyzri/` against the schema, then report references that resolve to no record. |
+| `validate.sh`, `check_refs.py` | Validate `talks.yaml` (via `../talks.py validate`), then the `xyzri/` records against the drafted schema, then report references in `xyzri/` that resolve to no record. |
 
 The five talks were picked to cover the shapes the plan must handle:
 
@@ -18,7 +20,7 @@ The five talks were picked to cover the shapes the plan must handle:
 | `2026-usrse-con-talk` | scheduled; presented in a session; Zenodo record; 5 authors |
 | `2026-repronim-YODA-BIDS-webinar` | webinar within a series; `derived_from` another deck; YouTube plus ReproTube copy |
 | `2025-distribits-YODA` | conference with known dates; YouTube plus ReproTube copy; event linked to a project |
-| `2026-bbqs-stamped` | Google Slides with annexed exports; presenter differs from the author list; Zotero duplicate (`HUPZV3B5`) |
+| `2026-bbqs-stamped` | Google Slides with annexed exports; presenter differs from the author list; Zotero duplicate (`HUPZV3B5`); recording archived on contube (a single-channel archive) |
 | `2016-ohbm-datalad` | a talk migrated from Zotero (`7AHRXD2X`) that keeps its existing site PID |
 
 ## Regenerate and validate
@@ -38,7 +40,20 @@ python3 export_sample.py talks.yaml xyzri
 
 Result at the time of writing:
 
-- **All 23 records validate.**
+- **`talks.yaml`: 0 errors.** The 4 warnings are `derived_from` parents that
+  have no record in the sample.
+  - The same file also passes `check-jsonschema --schemafile
+    ../talks.schema.json` (0.38.2), the pre-commit route of PLAN D2.
+  - Deliberately broken copies are rejected for each of these:
+    - an unknown field;
+    - a bad date;
+    - a bad YouTube id;
+    - a bad enum value;
+    - a missing title;
+    - an unknown person or event;
+    - an untracked slide file;
+    - a collection archive without a channel.
+- **All 23 `xyzri` records validate.**
 - With con-site-specific given, every person, project, role and type
   reference resolves.
 - The only unresolved references are four `derived_from` parents
@@ -140,7 +155,14 @@ Result at the time of writing:
 - Session, webinar and webinar series use local types
   (`xyzrins:event-types/…`).
 
-### 11. Datetime type
+### 11. Year-only dates must be quoted in `talks.yaml`
+
+- YAML reads `2016` as a number, so it fails the string date pattern in both
+  `talks.py` and `check-jsonschema`.
+- Write `'2016'`. Full and month dates (`2026-10-19`, `2025-10`) need no
+  quotes.
+
+### 12. Datetime type in datalad-concepts
 
 - datalad-concepts' `W3CISO8601` pattern anchors only its first and last
   alternatives (`^…|…|…$`).

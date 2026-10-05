@@ -10,7 +10,7 @@
 #   [zotero]  con-site-specific sources/zotero/content/snapshot.json
 #   [psyinf]  ORINOCO-Lite/psychoinformatics-site-specific records (780e5fd)
 #   [soul]    SOUL.md §8
-#   [user]    stated by Yarik in the planning conversation
+#   [user]    stated by Yarik in the planning conversation or review comments
 # Unknown values are left out, not guessed.
 
 people:
@@ -66,7 +66,7 @@ events:
   ohbm-2016:
     name: OHBM Annual Meeting 2016
     kind: conference
-    start: 2016                                                  # [zotero] date "2016"
+    start: '2016'                                                # [zotero] date "2016" (quoted: year only)
     location: Geneva, Switzerland                                # [zotero] extra
 
 video_archives:
@@ -75,6 +75,11 @@ video_archives:
     base: https://datasets.datalad.org/repronim/ReproTube
     layout: collection
     video_url: "{base}/web/#/channel/{channel}/video/{id}"       # [user] URL examples
+  contube:
+    title: contube
+    base: https://datasets.datalad.org/centerforopenneuroscience/contube
+    layout: single-channel                                       # `#/video/<id>` route = single-channel UI (annextube router)
+    video_url: "{base}/web/#/video/{id}"                         # [user] URL example
 
 topics:
   yoda:
@@ -187,6 +192,7 @@ talks:
     presenters: [cody-baker]                                     # [index]
     recordings:
     - youtube: 8NTWKHer5Zo                                       # [zotero] url
+      archived_in: [{archive: contube}]                          # [user]
 
 - id: 2016-ohbm-datalad                                          # migrated from Zotero (PLAN D9)
   title: "DataLad – decentralized data distribution for consumption and sharing of scientific datasets"  # [zotero]
@@ -201,4 +207,4 @@ talks:
     url: http://www.pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf  # [zotero]
   presentations:
   - event: ohbm-2016
-    date: 2016                                                   # [zotero]
+    date: '2016'                                                 # [zotero] (quoted: year only)
