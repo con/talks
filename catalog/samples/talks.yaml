@@ -1,0 +1,204 @@
+# SAMPLE of the planned talks.yaml (see ../PLAN.md, §2, §3, §7).
+# Hand-written to review the shape; not yet validated by a talks schema
+# (Phase 1 writes catalog/talks.schema.yaml).
+#
+# Every value below comes from a source named in a trailing comment:
+#   [deck]    the talk's HTML in this repo (title slide, <title>, meta)
+#   [index]   INDEX.md
+#   [git]     first commit of the file in this repo
+#   [usrse]   2026-usrse/2026-usrse-con-talk-info.txt, -abstract.md
+#   [zotero]  con-site-specific sources/zotero/content/snapshot.json
+#   [psyinf]  ORINOCO-Lite/psychoinformatics-site-specific records (780e5fd)
+#   [soul]    SOUL.md §8
+#   [user]    stated by Yarik in the planning conversation
+# Unknown values are left out, not guessed.
+
+people:
+  # slugs = xyzrins:persons/<slug> in con-site-specific (all exist there)
+  yaroslav-halchenko: {name: Yaroslav O. Halchenko, orcid: 0000-0003-3456-2493, github: yarikoptic}  # [soul]
+  cody-baker:         {name: Cody Baker, orcid: 0000-0002-0829-4790}         # [soul] [usrse]
+  austin-macdonald:   {name: Austin Macdonald, orcid: 0000-0002-8124-807X}   # [soul] [usrse]
+  isaac-to:           {name: Isaac To, orcid: 0000-0002-4740-0824}           # [soul] [usrse]
+  vadim-melnik:       {name: Vadim Melnik, orcid: 0009-0007-3981-0798}       # [usrse] (SOUL.md says "TBD")
+  john-lee:           {name: John A. Lee, orcid: 0000-0001-5884-4247}        # [usrse] abstract only
+  benjamin-poldrack:  {name: Benjamin Poldrack}                              # [zotero] 7AHRXD2X
+  michael-hanke:      {name: Michael Hanke}                                  # [zotero] 7AHRXD2X
+
+events:
+  usrse-2026:
+    name: "US-RSE'26"
+    kind: conference
+    url: https://us-rse.org/usrse26/program/                     # [usrse]
+    start: 2026-10-19                                            # [usrse] first program day; end not recorded here
+    zenodo:                                                      # deposit policy imposed by the event [usrse]
+      community: usrse26
+      publication_date: 2026-10-19
+      license: CC-BY-4.0
+  usrse-2026-ai-assisted-code-development:
+    name: AI Assisted Code Development
+    kind: session
+    part_of: usrse-2026
+    start: 2026-10-19                                            # [usrse] "10:30am–12pm" (time zone not stated)
+    room: Willow Glen Room                                       # [usrse]
+  distribits-2025:
+    name: distribits 2025
+    kind: conference
+    url: https://distribits.live/                                # [deck] meta description
+    start: 2025-10-23                                            # [psyinf] "Distribits 2025" record
+    end: 2025-10-25                                              # [psyinf]
+    location: Düsseldorf, Germany (Haus der Universität)         # [psyinf]
+    project: distribits                                          # xyzrins:projects/distribits
+  repronim-webinars:
+    name: ReproNim Webinars
+    kind: webinar-series
+    url: https://repronim.org/about/webinars/                    # [deck] 2026-repronim-YODA-BIDS-webinar
+  repronim-webinar-2026-02-06:
+    name: ReproNim Webinar, 2026-02-06
+    kind: webinar
+    part_of: repronim-webinars
+    start: 2026-02-06                                            # [deck] "Friday, February 6th, 2026"
+    online: true
+  bbqs-2026-workshop:
+    name: Virtual BBQS Workshop                                  # [zotero] HUPZV3B5
+    kind: workshop
+    start: 2026-03-11                                            # [index]
+    online: true                                                 # [index] "virtual workshop"
+  ohbm-2016:
+    name: OHBM Annual Meeting 2016
+    kind: conference
+    start: 2016                                                  # [zotero] date "2016"
+    location: Geneva, Switzerland                                # [zotero] extra
+
+video_archives:
+  reprotube:
+    title: ReproTube
+    base: https://datasets.datalad.org/repronim/ReproTube
+    layout: collection
+    video_url: "{base}/web/#/channel/{channel}/video/{id}"       # [user] URL examples
+
+topics:
+  yoda:
+    title: YODA principles + "Look up you must not" + STAMPED    # [index] topic heading
+    assets: [pics/yoda-principles-reordered.png, pics/yoda-do-not-look-up.png]  # [index]
+  five-verbs:
+    title: Five verbs ↔ SciOps maturity levels                   # [index] topic heading
+
+talks:
+- id: 2026-usrse-con-talk
+  title: "Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON"  # [usrse]
+  kind: talk
+  status: scheduled
+  # [usrse] program lists 5 authors; the abstract also lists John A. Lee.
+  # The record is where this gets decided; the program list is used here.
+  authors: [yaroslav-halchenko, cody-baker, austin-macdonald, isaac-to, vadim-melnik]
+  description: >-                                                # [usrse] first paragraph of the abstract
+    For two decades the team of the Center for Open Neuroscience (CON) has
+    been building an open, largely domain-agnostic research-software stack —
+    first for neuroimaging, then for neuroscience broadly, and now used well
+    beyond. Five actions — Reuse, Compose, Extend, Standardize, and Automate —
+    carried us here, and we expect them to keep us productive as AI agents
+    enter the workflow.
+  keywords: [reuse, modularity, community standards, federation, reproducibility,
+             distributed data management, neuroinformatics, FAIR, open source]  # [usrse]
+  projects: [neurodebian, pymvpa, datalad, dandi, ember, openneuro, bids, nwb, con-tinuous, datalad-registry]  # [usrse] named in the abstract
+  license: CC-BY-4.0                                             # event policy [usrse]
+  slides:
+    format: revealjs
+    source: 2026-usrse-con-talk.html
+  zenodo:
+    record: 22783262                                             # [user] the abstract deposit
+  companions: [2026-usrse/]
+  derived_from: [2022-nih-compcore, 2024-distribits-datalad, 2025-distribits-YODA, 2023-bids-dicom, 2023-brain-dandi]  # [index] "borrowed from"
+  presentations:
+  - event: usrse-2026-ai-assisted-code-development
+    date: 2026-10-19                                             # [usrse]
+    # presenters: not recorded in any source read
+  reuse:
+    spine: >-                                                    # [index], abbreviated
+      the five-verb spine (Reuse / Compose / Extend / Standardize / Automate)
+      plus a "Reuse, in reverse" coda, an Automate section, and an HI+AI close.
+    highlights:
+    - text: '"Two decades, five verbs" intro slide (NEW).'      # [index]
+      topics: [five-verbs]
+    - text: '"The five verbs climb the SciOps ladder" mapping.'  # [index]
+      topics: [five-verbs]
+
+- id: 2026-repronim-YODA-BIDS-webinar
+  title: "ReproFlow & YODA: Structure your studies, observable and reproducible they become"  # [deck] <title>
+  kind: webinar
+  status: given
+  authors: [yaroslav-halchenko]                                  # [deck] title slide
+  projects: [yoda, datalad, con-duct]                            # [index] highlights
+  slides:
+    format: revealjs
+    source: 2026-repronim-YODA-BIDS-webinar.html
+  companions: [2026-repronim-YODA-BIDS-webinar/]
+  derived_from: [2025-distribits-YODA]                           # [index] "this is the parent of that deck"
+  presentations:
+  - event: repronim-webinar-2026-02-06
+    date: 2026-02-06                                             # [deck]
+    presenters: [yaroslav-halchenko]                             # [deck] title slide
+    recordings:
+    - youtube: 1XbTbJ_P2x0                                       # [deck] linked from 2026-ca-origami-retreat-aicoding.html
+      archived_in: [{archive: reprotube, channel: ReproNim}]     # [deck] same link
+  reuse:
+    highlights:
+    - text: '"Look up you must not!" corollary slide.'           # [index]
+      slide: null                                                # anchor to be filled during migration
+      topics: [yoda]
+
+- id: 2025-distribits-YODA
+  title: "Pragmatic YODA: overview of YODA principles and their wild life encounters"  # [deck] <title>
+  kind: talk
+  status: given
+  authors: [yaroslav-halchenko]
+  projects: [yoda, datalad, con-duct, reproman]                  # [index]
+  slides:
+    format: revealjs
+    source: 2025-distribits-YODA.html
+  presentations:
+  - event: distribits-2025
+    # presentation day within 2025-10-23..25 not recorded in any source read
+    presenters: [yaroslav-halchenko]                             # [deck] title slide
+    recordings:
+    - youtube: EuKVapscUQ4                                       # [deck] title slide, [index]
+      archived_in: [{archive: reprotube, channel: DataLad}]      # [user] ReproTube URL example
+  reuse:
+    highlights:
+    - text: Full YODA spine; parent of the 2026 ReproNim webinar deck.  # [index]
+      topics: [yoda]
+
+- id: 2026-bbqs-stamped
+  title: "Guidelines for Reproducible Research (STAMPED)"       # [index] [zotero]
+  kind: talk
+  status: given
+  # [index]: "Presenters: Cody Baker (Yaroslav Halchenko is just a co-author)";
+  # [zotero] HUPZV3B5 lists only Cody Baker as creator.
+  authors: [cody-baker, yaroslav-halchenko]
+  zotero: HUPZV3B5                                               # dedup key (PLAN D9)
+  slides:
+    format: google-slides
+    url: https://docs.google.com/presentation/d/1yC412amV-j3BUfZ8Aq0aPEay93mnvmbo833BfNwuI_8/edit?usp=sharing  # [index]
+    exports: [2026-bbqs-stamped.pdf, 2026-bbqs-stamped.pptx]     # [index]
+  companions: [2026-bbqs-stamped/]
+  presentations:
+  - event: bbqs-2026-workshop
+    date: 2026-03-11                                             # [index]
+    presenters: [cody-baker]                                     # [index]
+    recordings:
+    - youtube: 8NTWKHer5Zo                                       # [zotero] url
+
+- id: 2016-ohbm-datalad                                          # migrated from Zotero (PLAN D9)
+  title: "DataLad – decentralized data distribution for consumption and sharing of scientific datasets"  # [zotero]
+  kind: talk                                                     # [zotero] extra "... Talk"
+  status: given
+  authors: [yaroslav-halchenko, benjamin-poldrack, michael-hanke]  # [zotero] creators, in order
+  zotero: 7AHRXD2X
+  pid: xyzrins:publications/zotero-7ahrxd2x                      # keep the existing site PID (PLAN D9)
+  projects: [datalad]
+  slides:
+    format: pdf
+    url: http://www.pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf  # [zotero]
+  presentations:
+  - event: ohbm-2016
+    date: 2016                                                   # [zotero]

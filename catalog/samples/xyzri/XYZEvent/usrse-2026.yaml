@@ -1,0 +1,11 @@
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://us-rse.org/usrse26/program/
+kind: bibo:Conference
+pid: xyzrins:events/usrse-2026
+schema_type: xyzri:XYZEvent
+started:
+  at_time: '2026-10-19'
+  schema_type: dlthings:Start
+title: US-RSE'26

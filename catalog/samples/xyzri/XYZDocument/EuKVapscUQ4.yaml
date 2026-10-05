@@ -1,0 +1,14 @@
+derived_from:
+- object: xyzrins:talks/2025-distribits-YODA
+  schema_type: dlthings:Derivation
+generated_by:
+- object: xyzrins:events/distribits-2025
+  schema_type: dlthings:Generation
+identifiers:
+- notation: https://www.youtube.com/watch?v=EuKVapscUQ4
+  schema_type: dlthings:Identifier
+- notation: https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/EuKVapscUQ4
+  schema_type: dlthings:Identifier
+kind: bibo:AudioVisualDocument
+pid: xyzrins:videos/EuKVapscUQ4
+schema_type: xyzri:XYZDocument

@@ -1,0 +1,20 @@
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://distribits.live/
+- predicate: schema:location
+  schema_type: dlthings:AttributeSpecification
+  value: Düsseldorf, Germany (Haus der Universität)
+ended:
+  at_time: '2025-10-25'
+  schema_type: dlthings:End
+influenced_by:
+- object: xyzrins:projects/distribits
+  schema_type: xyzri:XYZInfluence
+kind: bibo:Conference
+pid: xyzrins:events/distribits-2025
+schema_type: xyzri:XYZEvent
+started:
+  at_time: '2025-10-23'
+  schema_type: dlthings:Start
+title: distribits 2025
