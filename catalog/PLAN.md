@@ -1348,10 +1348,12 @@ From the samples (`catalog/samples/README.md`):
   - `dev.centerforopenneuroscience.org`.
 - con/cierge issues were not read; only its README and issue template were
   (§1.3).
-- DataLad is not installed in that session's container. So
-  `catalog/talks.schema.json` was generated with plain
-  `gen-json-schema --closed catalog/talks.schema.yaml` (linkml 1.11.1), not
-  through `datalad run` as D7 intends.
+- `catalog/talks.schema.json` is produced with `datalad run` (D7; commit
+  `[DATALAD RUNCMD] catalog: generate talks.schema.json…`), so
+  `datalad rerun` regenerates it.
+  - The run used datalad 1.6.6 and git-annex 10.20260901, both installed
+    from PyPI with `uv pip install datalad git-annex`, plus linkml 1.11.1.
+  - The same `uv pip install` works for CI.
 - The datalad-concepts change was validated locally (§5.1). Pushing it to
   `yarikoptic/datalad-concepts` keeps failing with HTTP 403: the Claude
   GitHub App is not installed for that repository. Both commits are ready
