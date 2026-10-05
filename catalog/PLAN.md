@@ -68,6 +68,10 @@ Why the records are not native `xyzri` from day one:
 - **(c) Records here also hold things the website doesn't need.** Spine,
   reusable highlights and story arc feed `INDEX.md` only.
 
+**Scope (decided):** talks by **all CON members**, not only Yarik's. For
+example, Cody Baker's BBQS STAMPED talk is in scope. The `people` registry
+covers the whole team.
+
 **Identifiers are shared from day one**, so the later sync is cheap:
 
 - person slugs = `xyzrins:persons/<slug>`;
@@ -175,10 +179,17 @@ US-RSE'26 also sets rules for that deposit
 - publication date is fixed to 2026-10-19;
 - ORCIDs are requested;
 - slides are due by **2026-10-21**;
-- the license is "leave default CC-BY 4.0", while this repo's `LICENSE` is
-  **CC-BY-SA 4.0**.
+- the license is "leave default CC-BY 4.0". This repo's `LICENSE` is
+  CC-BY-SA 4.0, but individual talks and materials may carry their own
+  licenses (decided, §9 Q9).
 
 So events impose deposit policy, and this crosswalk must handle it.
+
+The talk abstract is already deposited as
+<https://zenodo.org/records/22783262>. It is listed in CON's Zenodo
+community **`con`** (<https://zenodo.org/communities/con>), which is the
+collection that talk records sync to and from (decided, §9 Q8 and Q11).
+Both URLs come from Yarik; this session could not fetch them (§10).
 
 **Every older deck already has a slot for a slides DOI.** Each one carries a
 commented-out `Slides: DOI 10.5281/zenodo.6346849 (Scan the QR code)`
@@ -262,13 +273,34 @@ Read from con-site-specific, `ORINOCO-Lite/orinoco-lite-dev` (HEAD
   in this review.
 
 **Talks are already in the store.** 34 `XYZPublication` records carry
-`kind: bibo:Document`, imported from Zotero's "articles & posters"
-collection. Several of them are talks or posters:
+`kind: bibo:Document`, imported from Zotero. The Zotero snapshot
+(`sources/zotero/content/snapshot.json`, fetched 2026-08-26) has no item of
+Zotero type `presentation`. Talks and posters are `document` items, and
+only the free-text `extra` field says which is which.
 
-- `zotero-sfqu8qby`: NeuroDebian 2013, with YouTube `WhUrTRuMoFs`;
-- `zotero-5z7a6krc` and `zotero-7ahrxd2x`: OHBM 2015/2016 talk PDFs on
-  pymvpa.org;
-- the YODA poster from OHBM 2018.
+Items whose `extra` field says they are talks:
+
+| Zotero key | On site as | Year | Title (abbreviated) | `extra` says | Material (item `url`) |
+| --- | --- | --- | --- | --- | --- |
+| `5Z7A6KRC` | `zotero-5z7a6krc` | 2015 | Overview of statistical evaluation techniques adopted by publicly available MVPA… | OHBM, Honolulu. Talk | `pymvpa.org/files/OHBM2015_Halchenko.pdf` |
+| `ABZE6DSN` | `zotero-abze6dsn` | 2015 | Clustering cortical searchlights based on shared representational geometry | Oral presentation, OHBM, Honolulu | — |
+| `4J5D6V7H` | `zotero-4j5d6v7h` | 2016 | Resources for practicing PR4NI – pragmatic cursory overview | OHBM, Tutorials, Geneva. Talk | `pymvpa.org/files/OHBM2016_Halchenko_resources.pdf` |
+| `7AHRXD2X` | `zotero-7ahrxd2x` | 2016 | DataLad – decentralized data distribution… | OHBM, Geneva. Talk | `pymvpa.org/files/OHBM2016_Halchenko_datalad.pdf` |
+| `QHQKTYYQ` | `zotero-qhqktyyq` | 2016 | DueCredit – automagically collect citations… | OHBM, Geneva. Talk | — |
+| `M5E9BT5H` | `zotero-m5e9bt5h` | 2018 | ReproIn: automatic generation of shareable, version-controlled BIDS datasets… | Poster and talk, OHBM, Singapore | — |
+| `7U85ZJ95` | `zotero-7u85zj95` | 2018 | Variability of the Neuroimaging Results Across OS, and How to Avoid it | Talk, annual meeting of the Biological Psychiatry | — |
+| `HUPZV3B5` | **not on site** | 2026-03 | Guidelines for Reproducible Research (STAMPED) | Talk, Virtual BBQS Workshop | YouTube `8NTWKHer5Zo` |
+
+- `HUPZV3B5` is this repo's `2026-bbqs-stamped`. It sits in the Zotero
+  "External" collection, which the site's Zotero source does not include.
+  This is how that talk's video id became known.
+- Three items do not state a type in `extra`. They need a human decision:
+  - `SFQU8QBY` (2013, NeuroDebian; its only URL is YouTube `WhUrTRuMoFs`);
+  - `HYWV9D2A` (2010, Cognitive Neuroscience Society annual meeting,
+    Montreal);
+  - `QLTPV7JM` (2014, CRCNS PI meeting, Tempe).
+- The other 19 meeting-related `document` items say "Poster". They are out
+  of scope for talks (§9 Q3).
 
 This makes **ownership and dedup between Zotero and `talks.yaml`** a real
 design point (D9).
@@ -356,7 +388,8 @@ Talk  (the work = a slide deck; id = TALK-ID = deck filename stem)
  ├─ projects[]/topics[]→ Project / Topic (con-site-specific slugs)
  ├─ derived_from[]     → Talk (lineage) | URL
  ├─ grants[]           → Grant (con-site-specific slugs; for Zenodo `funding`)
- ├─ license            default CC-BY-SA-4.0; an event may override it
+ ├─ license            per talk (and per export where it differs); no default
+ │                     inherited from the repo LICENSE
  ├─ slides             source path in this dataset; rendered URL (derived);
  │                     exports (PDF/PPTX); original (e.g. Google Slides)
  ├─ zenodo             record id, DOI, concept DOI (owned by Zenodo; §6)
@@ -481,8 +514,13 @@ template changes.
 - A record may carry `zotero: <item key>`. The talks adapter then either
   reuses that publication PID or the Zotero site policy excludes the item, so
   the website never shows a talk twice.
-- Older talks that exist only in Zotero (2010–2019) stay there until someone
-  migrates them; migration is optional (§9 Q2).
+- To migrate the Zotero-held talks (§1.2 table):
+  - add a `talks.yaml` record carrying `zotero: <key>`;
+  - the talks adapter **keeps the existing PID**
+    (`xyzrins:publications/zotero-<key>`), so site URLs stay stable;
+  - in Zotero, change the item's type to `presentation`, so the Zotero
+    source can exclude talks by type rather than by a hand-kept list.
+- Until migrated, these talks stay as they are (§9 Q2).
 
 ---
 
@@ -646,11 +684,16 @@ template changes.
    Phase 1, or by hand before Phase 1 if needed.
    - `talks.py zenodo render 2026-usrse-con-talk` emits InvenioRDM record
      JSON.
+   - The target is the existing abstract record
+     <https://zenodo.org/records/22783262>. US-RSE asks for slides to be
+     added "as a revision", which means a **new version** of that record,
+     staying in communities `usrse26` and `con`.
    - `zenodo diff` and `zenodo push --sandbox` run against
-     `sandbox.zenodo.org`, then `push` updates the real draft in community
-     `usrse26`.
+     `sandbox.zenodo.org`, then `push` creates the new-version draft for a
+     human to publish.
    - The PDF is exported with decktape under `datalad run`.
-   - The DOI and record ids are written back into `talks.yaml`.
+   - The record id, version DOI and concept DOI are written back into
+     `talks.yaml`.
 2. **Generalize to every talk that has a `zenodo:` block.**
    - Add `zenodo pull`, which writes back DOIs and reports drift when someone
      edited the record on Zenodo.
@@ -658,10 +701,15 @@ template changes.
      and posts it; on `workflow_dispatch` with `apply` it pushes. The token
      lives in the `ZENODO_TOKEN` secret.
    - A new record is never published automatically: DOIs are permanent.
-3. **Back-fill.** Search Zenodo by creator ORCID and by community to find
-   existing deposits of CON talks and posters, and propose `zenodo:` blocks.
-   Dedup against Zotero's "zenodo/osf dois" collection, which
-   con-site-specific already ingests (D9).
+3. **Back-fill from community `con`.**
+   - List the records of the `con` community and match them to
+     `talks.yaml` by DOI, then by title and date.
+   - Propose `zenodo:` blocks for matches, and new talk records for
+     unmatched `presentation` records.
+   - Additionally, search by member ORCIDs for deposits that are not in the
+     community, and propose adding them to it.
+   - Dedup against Zotero's "CON Zenodo/OSF DOIs" collection, which
+     con-site-specific already ingests (D9).
 4. **Lift the crosswalk to `xyzri` ↔ Zenodo** (§6.4). It would be an
    ORINOCO-Lite export projection plus a `zenodo` source adapter, so the
    same mapping serves publications, software (`XYZInstrument`) and datasets.
@@ -756,10 +804,10 @@ but it is never a source.
 | `presenters[]` beyond the authors | `marcrel:spk` (Tier B) | `metadata.contributors[]` with role `other`, plus a note in `description` | DataCite has no "speaker" role |
 | presentation `date` | `generated_by.at_time` | `metadata.publication_date`, plus `dates: [{type: other, description: presented}]` | an event can fix `publication_date` (US-RSE: 2026-10-19) |
 | `event` → `events` | `at_location` (A) / `XYZEvent` (B) | `custom_fields["meeting:meeting"]`: `title`, `acronym`, `dates`, `place`, `url`, `session` | |
-| `events.<e>.zenodo.community` | — | `communities` (a review request on submit) | plus an optional CON-wide community (§9 Q8) |
+| — (always) plus `events.<e>.zenodo.community` | — | `communities`: `con`, plus the event's (e.g. `usrse26`); a review request on submit | `con` is the sync collection (§9 Q8) |
 | `projects[]`, `topics[]` | `generated_by` project / `about` | `metadata.subjects[]` (free keywords) | |
-| `grants[]` (new field, slugs = `xyzrins:grants/<slug>`) | Tier B: `funded_by` or `characterized_by schema:funding` (§9 Q10) | `metadata.funding[]`: `funder.id` (ROR), `award.number`, `award.title` | con-site-specific `XYZGrant` records lack a funder link; add `attributed_to` NIH (`ror:01cwqze88`) etc. there |
-| `license` (default `CC-BY-SA-4.0`) | `rules` (things-rules); verify | `metadata.rights: [{id: cc-by-sa-4.0}]` | conflicts with US-RSE's default CC-BY-4.0 (§9 Q9) |
+| `grants[]` (new field, slugs = `xyzrins:grants/<slug>`) | Tier B: `funded_by` or `characterized_by schema:funding` (§9 Q10) | `metadata.funding[]`: `funder.id` (ROR), `award.number`, `award.title` | con-site-specific `XYZGrant` records lack a funder link; add one there, as a funder `XYZOrganization` with its ROR id |
+| `license` (per talk; per export where it differs) | `rules` (things-rules); verify | `metadata.rights: [{id: <SPDX id, lowercased>}]` | must be stated per talk, never inherited (§9 Q9); an event policy (US-RSE: CC-BY-4.0) pre-fills it |
 | live slides URL (derived) | `identifiers` / `XYZFile` access URL | `related_identifiers`: `isvariantformof`, scheme `url` | the HTML is a different format of the deposited PDF |
 | source in this dataset at a commit | `XYZFile` + git id | `related_identifiers`: `isderivedfrom`, scheme `url`; GitHub blob URL at the commit | |
 | `derived_from[]` (lineage) | `derived_from` | `related_identifiers`: `isderivedfrom` (the parent's DOI if it has one, else its URL) | |
@@ -778,6 +826,10 @@ but it is never a source.
   - version history;
   - file checksums;
   - community review state.
+
+**The Zenodo-side collection is community `con`.** Every talk deposit is
+submitted there, in addition to any event community. `zenodo pull` also
+reports `con` records that have no `talks.yaml` record, and the reverse.
 
 **Plan/apply commands.**
 
@@ -864,7 +916,6 @@ events:
     acronym: US-RSE'26
     url: https://us-rse.org/usrse26/
     kind: conference
-    location: San Jose, CA, USA          # VERIFY
     start: 2026-10-19                    # VERIFY full span
     zenodo:                              # deposit policy imposed by the event
       community: usrse26
@@ -900,15 +951,16 @@ talks:
   projects: [neurodebian, pymvpa, datalad, bids, dandi, con-duct, con-tinuous, yoda]
   arc: reuse-compose-extend-standardize
   derived_from: [2024-distribits-datalad, 2022-nih-compcore, 2025-distribits-YODA]
-  grants: [nih-dandi]                    # xyzrins:grants/<slug>; VERIFY which ones apply
+  license: CC-BY-4.0                     # per talk; matches the US-RSE deposit policy
+  grants: []                             # xyzrins:grants/<slug>; the deck's Acknowledgements
+                                         # shows only NIH/NSF/BMBF logos, no award numbers
   slides:
     format: revealjs
     source: 2026-usrse-con-talk.html     # live URL is derived from this
     exports: [2026-usrse-con-talk.pdf]   # decktape, produced with `datalad run`
-  zenodo:                                # written back by `talks.py zenodo pull`
-    record: NNNNNNN                      # §9 Q11: the existing usrse26 deposit
-    doi: 10.5281/zenodo.NNNNNNN
-    concept_doi: 10.5281/zenodo.NNNNNNN
+  zenodo:                                # filled in by `talks.py zenodo pull`
+    record: 22783262                     # the abstract deposit (communities usrse26, con)
+    # doi / concept_doi: pulled from the record; not copied by hand
   companions: [2026-usrse/]
   presentations:
   - event: usrse-2026
@@ -984,16 +1036,16 @@ or still to be verified.
 
 | TALK-ID | Event / kind | Date | Format | Known video |
 | --- | --- | --- | --- | --- |
-| `2026-usrse-con-talk` | US-RSE'26, AI Assisted Code Development; 5–6 authors | 2026-10-19 | reveal.js (draft) | — (Zenodo DOI due) |
+| `2026-usrse-con-talk` | US-RSE'26, AI Assisted Code Development; 5–6 authors | 2026-10-19 | reveal.js (draft) | — (Zenodo record 22783262, abstract) |
 | `2026-mcgill-mechababs` | McGill neuroscience group | 2026-08-11 | marp, in a subdirectory | ? |
-| `2026-bbqs-stamped` | BBQS virtual workshop; presenter Cody Baker | 2026-03-11 | Google Slides + `.pptx`/`.pdf` | ? |
+| `2026-bbqs-stamped` | BBQS virtual workshop; presenter Cody Baker | 2026-03-11 | Google Slides + `.pptx`/`.pdf` | YouTube `8NTWKHer5Zo` (from Zotero `HUPZV3B5`) |
 | `2026-brainhack-containers-mashup` | BrainHack 2026, containers | *2026-06-11* | reveal.js (2 slides) | ? |
 | `2026-nih-bids2.0` | NIMH DSST Lunch & Learn | 2026-06-02 | reveal.js | ? |
 | `2026-ca-origami-retreat-aicoding` | CA Origami Retreat 2026 | *2026-02-24* | reveal.js | ? |
 | `2026-repronim-YODA-BIDS-webinar` | ReproNim Webinar | 2026-02-06 | reveal.js | YouTube `1XbTbJ_P2x0`; ReproTube `ReproNim` |
 | `2025-distribits-YODA` | distribits 2025 | *2025-10-21* | reveal.js | YouTube `EuKVapscUQ4`; ReproTube `DataLad` |
 | `2025-ca-origami-retreat` | CA Origami Retreat 2025 | *2025-02-27* | reveal.js | ? |
-| `2024-distribits-datalad` | distribits 2024 | *2024-03-29* (event 2024-04) | reveal.js | ? (distribits 2024 was recorded) |
+| `2024-distribits-datalad` | distribits 2024 | *2024-03-29* (event 2024-04) | reveal.js | ? |
 | `2024-distribits-datalad-name` | distribits 2024, lightning | 2024-04? (added *2024-08-14*) | reveal.js | ? |
 | `2023-brain-dandi` | BRAIN Initiative talk | *2023-06-27* | reveal.js | ? |
 | `2023-brain-dandi-imgdatasrc` | short DANDI talk | *2023-06-29* | reveal.js | ? |
@@ -1013,25 +1065,23 @@ decks; §9 Q2):
 | ReproNim webinar, "Reproducible Execution of Data Collection/Processing" | 2020 | `repronim/artwork/talks/webinar-2020-reprocomp/` | YouTube `dwBtrpI2iS0` |
 | ReproNim webinar, ReproFlow | 2024-06 | `repronim/artwork/talks/webinar-2024-reproflow/` | ? |
 
-Talks from 2010–2019 that already exist in Zotero, and so on the site (D9):
-
-| Record | Talk | Material |
-| --- | --- | --- |
-| `zotero-sfqu8qby` | NeuroDebian 2013 | YouTube `WhUrTRuMoFs` |
-| `zotero-5z7a6krc` | OHBM 2015 | PDF |
-| `zotero-7ahrxd2x` | OHBM 2016 DataLad | PDF |
-| `zotero-4j5d6v7h` | OHBM 2016 resources | PDF |
+Talks already recorded in Zotero: the eight items in the §1.2 table, plus
+the three whose type is not stated. Migrate them per D9.
 
 ---
 
 ## 9. Open questions
 
-1. **Whose talks?** Only Yarik's, or every CON member's? This decides
-   whether `con/talks` becomes *the* home for all CON talk records,
-   including talks whose slides live elsewhere.
-2. **How far back?** Include external and pre-2022 talks (ReproNim artwork,
-   Google Slides, and the Zotero-held 2010–2019 talks) from the start, or
-   only this repo's decks first? The schema supports both.
+1. ~~Whose talks?~~ **Decided: all CON members.** `con/talks` holds the
+   records for every CON talk, including talks whose slides live
+   elsewhere.
+2. **How far back, and in what order?** Proposed order:
+   1. this repo's decks;
+   2. the eight Zotero talks (§1.2), keeping their PIDs (D9);
+   3. the three Zotero items of unstated type, after a human decides;
+   4. ReproNim-artwork and Google Slides talks (§8).
+
+   Confirm, or reorder.
 3. **Posters and BoFs?** `posters/`, `2026-usrse/*poster*`, `2026-sfn/` and
    `2026-brain-initiative/` could use the same schema with `kind: poster` or
    `kind: bof`. Now, or later?
@@ -1045,31 +1095,45 @@ Talks from 2010–2019 that already exist in Zotero, and so on the site (D9):
 7. **Upstream route for Tier B.** File the `XYZEvent` / `presented_at` /
    file-URL proposal as a datalad-concepts issue now, or after Tier A shows
    the website side working?
-8. **A CON Zenodo community.** Create one (e.g. `centerforopenneuroscience`)
-   so every talk deposit is also submitted there, alongside event
-   communities such as `usrse26`?
-9. **License for deposits.** The repo is CC-BY-SA 4.0; US-RSE says to "leave
-   the default" CC-BY 4.0. Should a per-talk `license` override exist (and
-   be used for US-RSE)? Decks include borrowed images (`pics/borrowed/`)
-   under their own terms, so the deposited PDF's license statement needs a
-   decision either way.
+8. ~~A CON Zenodo community?~~ **Decided: it exists**, as `con`
+   (<https://zenodo.org/communities/con>). It is the collection that talk
+   records sync to and from (§6.3).
+9. ~~License?~~ **Decided:**
+   - the catalog itself (`talks.yaml` and the generated `INDEX.md` /
+     `index.html`) is CC-BY 4.0;
+   - each talk states its own `license`, and an export or material can
+     differ from it;
+   - nothing is inherited from the repo `LICENSE`.
+
+   Still open: how a deposited PDF states the terms of borrowed images
+   (`pics/borrowed/`).
 10. **Funding linkage.** Should talks list `grants` explicitly, as slugs of
     con-site-specific `XYZGrant` records, or inherit them from their projects?
     Either way, grant records need funder ROR links for Zenodo `funding`, and
     datalad-concepts needs a recommended output → grant relation.
-11. **The US-RSE Zenodo record.** The abstract was due on Zenodo by
-    2026-09-16, so a record (and DOI) probably exists already. Its record id
-    or DOI is needed to seed the pilot (Phase 6.1); it is not in the repo.
+11. ~~The US-RSE Zenodo record?~~ **Known:**
+    <https://zenodo.org/records/22783262> (abstract). The pilot adds the
+    slides as a new version (Phase 6.1).
 
 ---
 
 ## 10. Review notes and limits
 
 - The network policy of the session that produced this plan blocked
-  `datasets.datalad.org`, `youtube.com` and
-  `dev.centerforopenneuroscience.org`. So the annextube findings come from
-  reading code, not from inspecting ReproTube or contube, and no video ids
-  were looked up beyond those already present in this repo.
+  `datasets.datalad.org`, `zenodo.org`, `www.youtube.com` and
+  `dev.centerforopenneuroscience.org`. As a result:
+  - the annextube findings come from reading code, not from inspecting
+    ReproTube or contube;
+  - the Zenodo field names in §6 come from memory and must be checked
+    against the API;
+  - the video ids in this plan come only from this repo and from the Zotero
+    snapshot in con-site-specific; none were looked up;
+  - no content of those sites is assumed.
+- Implementing Phases 3 and 6 needs these hosts allowed:
+  - `datasets.datalad.org`;
+  - `zenodo.org` and `sandbox.zenodo.org`;
+  - `www.youtube.com`;
+  - `dev.centerforopenneuroscience.org`.
 - The ORINOCO-Lite findings come from `orinoco-lite-dev` HEAD `992c917`.
   The CON downstream pins a different package commit (`1cbebd70`), and its
   `www-from-model` layouts were not inspected, so details of the adapter
