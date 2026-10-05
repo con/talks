@@ -128,6 +128,65 @@ the schema.org JSON-LD in `index.html`.
   **`xyzri` ↔ Zenodo/DataCite** crosswalk, usable for publications, software
   and datasets as well (§6).
 
+
+### 0.1 How the pieces interact
+
+Solid arrows are the main flows; dashed arrows are schemas or later work.
+The numbers refer to the table below.
+
+```mermaid
+flowchart LR
+    author(["author or<br/>AI skill"])
+    subgraph talks["con/talks — DataLad dataset"]
+        direction TB
+        schema["catalog/talks.schema.yaml<br/>(LinkML)"]
+        yaml[("talks.yaml")]
+        html["index.html"]
+        decks["decks<br/>.html .pdf .pptx"]
+        schema -.->|"2"| yaml
+        yaml -->|"3"| html
+    end
+    mirror["datasets.datalad.org<br/>…/talks/"]
+    yt["YouTube"]
+    arch["annextube archives<br/>ReproTube · contube"]
+    zenodo["Zenodo<br/>communities con · usrse26"]
+    subgraph site["CON website pipeline"]
+        direction TB
+        dc["datalad-concepts<br/>xyzri + XYZEvent"]
+        csite["con-site-specific<br/>records + provenance"]
+        web["CON website<br/>(ORINOCO-Lite)"]
+        dc -.->|"schema"| csite
+        csite -->|"9"| web
+    end
+    zotero["Zotero group"]
+    cierge["con/cierge<br/>event issues"]
+
+    author -->|"1"| yaml
+    html -->|"4"| mirror
+    decks -->|"4"| mirror
+    yt -->|"5"| arch
+    arch <-->|"6"| yaml
+    yaml <-->|"7"| zenodo
+    decks -->|"7"| zenodo
+    yaml -->|"8"| csite
+    zotero -->|"10"| csite
+    cierge -.->|"11"| csite
+```
+
+| # | From → to | Command or mechanism | When | Phase |
+| --- | --- | --- | --- | --- |
+| 1 | author or AI skill → `talks.yaml` | edit, following `catalog/README.md` or the `talk-record` skill, then `talks.py validate` | every change | 1, 4 |
+| 2 | `talks.schema.yaml` → `talks.yaml` | `talks.py validate`: LinkML (closed) plus references and tracked files; `--site` also reads con-site-specific (slugs, dated membership) | pre-commit, CI | 1 |
+| 3 | `talks.yaml` → `index.html` | `talks.py render` under `datalad run` (`datalad rerun` reproduces it); CI runs `render --check` | after edits | 2 |
+| 4 | `index.html`, decks → datasets.datalad.org | `datalad push` to the `datasets.datalad.org` sibling (the existing publication path) | on publishing | — |
+| 5 | YouTube → annextube archives | annextube backups of ReproTube and contube channels | by the archives | 3 |
+| 6 | archives ↔ `talks.yaml` | → `talks.py find-videos` reads `channels.tsv` and `videos.tsv` and proposes YAML; ← back-links as `extra_metadata.json`, via PRs to the archive | on demand | 3 |
+| 7 | `talks.yaml` ↔ Zenodo; decks → Zenodo | → `talks.py zenodo render`, `diff`, `push` (drafts only; the PDF comes from decktape under `datalad run`, then `git annex registerurl`); ← `talks.py zenodo pull` writes DOIs back and reports drift | per talk; CI dry-run diff | 6 |
+| 8 | `talks.yaml` → con-site-specific | the talks source adapter (`extensions/source-adapters/talks/review.py`, run by `/curation submit`) at a pinned commit; `talks.py export-things` previews its output | when talks change | 5 |
+| 9 | con-site-specific → website | ORINOCO-Lite `validate` and `build`, in the downstream site repo | site builds | 5 |
+| 10 | Zotero → con-site-specific | the existing Zotero adapter; deduplicated against talks (D9) | existing | — |
+| 11 | con/cierge → con-site-specific | a cierge adapter for event records | later | 5D |
+
 ---
 
 ## 1. Review findings
