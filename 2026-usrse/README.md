@@ -1,5 +1,8 @@
 This is folder to collect ideas/drafts for submissions for https://us-rse.org/usrse26/ as described on https://us-rse.org/usrse26/participate/ .
 
+The Orinoco Lite poster is available as an [editable SVG](orinoco-lite-poster.svg), with [editing and export notes](poster-notes.md).
+Its [submitted abstract](orinoco-lite-poster-draft.md) remains alongside it.
+
 ### Meeting theme etc
 
 That meeting is about/for Software Research Engineers. And this particular meeting has following
@@ -45,5 +48,4 @@ not most of them are domain agnostic, and US-RSE conference covers many
 scientific fields.  So, it would be great to alert audience to our efforts and
 efforts of our collaborators (like https://www.distribits.live/ conference
 etc).
-
 
