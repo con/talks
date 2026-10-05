@@ -8,6 +8,10 @@ description: >-
   slots and identifiers map onto datalad-concepts `xyzri` records for the
   CON website (see catalog/PLAN.md, §2, §3 and §5).
 
+  Controlled values (licenses, event kinds) are enums whose permissible
+  values carry the identifier they stand for (`meaning`), so exporters take
+  identifiers from this schema instead of hard-coding them.
+
   DRAFT: derived from catalog/samples/talks.yaml for review of the plan.
 license: CC-BY-4.0
 
@@ -17,6 +21,8 @@ prefixes:
   bibo: http://purl.org/ontology/bibo/
   dcterms: http://purl.org/dc/terms/
   schema: http://schema.org/
+  spdxlic: https://spdx.org/licenses/
+  xyzrins: https://concepts.datalad.org/s/demo-research-information/ns/
 default_prefix: talks
 default_range: string
 
@@ -35,8 +41,9 @@ types:
 slots:
   slug:
     identifier: true
-    description: Key of a registry entry; for people and projects it equals
-      the con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).
+    description: >-
+      Key of a registry entry. For people and projects it equals the
+      con-site-specific slug (xyzrins:persons/<slug>, xyzrins:projects/<slug>).
     pattern: '^[a-z0-9][a-z0-9-]*$'
   title:
     slot_uri: dcterms:title
@@ -52,14 +59,26 @@ slots:
     range: PartialDate
   date:
     range: PartialDate
+  license:
+    range: License
 
 classes:
   TalkCatalog:
     tree_root: true
     description: The whole talks.yaml file.
     attributes:
+      collections:
+        range: uri
+        multivalued: true
+        description: >-
+          Collections every deposit of a talk should also be in, in addition
+          to an event's collection (e.g. CON's Zenodo community).
       people:
         range: Person
+        multivalued: true
+        inlined: true
+      organizations:
+        range: Organization
         multivalued: true
         inlined: true
       events:
@@ -91,6 +110,16 @@ classes:
       github:
         pattern: '^[A-Za-z0-9-]+$'
 
+  Organization:
+    slots: [slug, name]
+    slot_usage:
+      name:
+        required: true
+    attributes:
+      ror:
+        description: ROR identifier, without the https://ror.org/ prefix.
+        pattern: '^0[a-z0-9]{8}$'
+
   Event:
     description: >-
       A conference, workshop, webinar (series), session, ... A session or
@@ -113,24 +142,39 @@ classes:
         description: Free-text room within the venue.
       online:
         range: boolean
+      organizers:
+        multivalued: true
+        description: >-
+          Slugs of people and/or organizations (from the `people` and
+          `organizations` registries) who organized the event.
       project:
         description: con-site-specific project slug (e.g. distribits).
       cierge:
         range: integer
         description: Number of the con/cierge "New Event" issue.
-      zenodo:
-        range: ZenodoPolicy
+      collection:
+        range: MaterialsCollection
         inlined: true
 
-  ZenodoPolicy:
-    description: Deposit policy an event imposes (e.g. US-RSE'26).
-    attributes:
-      community:
+  MaterialsCollection:
+    description: >-
+      Where an event collects the materials (slides, posters) of its
+      presentations, and what it requires of deposits there. For example,
+      US-RSE'26 collects them in the Zenodo community `usrse26`, with a fixed
+      publication date and a default license. Not specific to any platform:
+      the platform follows from `url`.
+    slots: [url, license]
+    slot_usage:
+      url:
         required: true
+        description: The collection, e.g. https://zenodo.org/communities/usrse26
+    attributes:
       publication_date:
         range: PartialDate
-      license:
-        description: SPDX identifier.
+        description: Publication date deposits must carry.
+      due:
+        range: PartialDate
+        description: Deadline for depositing materials.
 
   VideoArchive:
     slots: [slug, title]
@@ -155,7 +199,7 @@ classes:
         description: Reusable files (glob patterns allowed) for this topic.
 
   Talk:
-    slots: [title, description]
+    slots: [title, description, license]
     slot_usage:
       title:
         required: true
@@ -187,8 +231,6 @@ classes:
         description: con-site-specific project slugs.
       arc:
         range: StoryArc
-      license:
-        description: SPDX identifier.
       grants:
         multivalued: true
         description: con-site-specific grant slugs.
@@ -199,9 +241,10 @@ classes:
         range: Slides
         inlined: true
         required: true
-      zenodo:
-        range: ZenodoDeposit
-        inlined: true
+      deposits:
+        range: Deposit
+        multivalued: true
+        inlined_as_list: true
       companions:
         multivalued: true
         description: Companion directories in this repository.
@@ -230,15 +273,23 @@ classes:
       exports:
         multivalued: true
         description: Paths of exports (PDF, PPTX) in this repository.
-      doi: {}
 
-  ZenodoDeposit:
-    attributes:
-      record:
-        range: integer
+  Deposit:
+    description: >-
+      A record of the talk's materials in a repository such as Zenodo or OSF.
+      The platform and record id follow from `url`; DOIs are filled in by
+      the repository and pulled back (catalog/PLAN.md §6).
+    slots: [url]
+    slot_usage:
+      url:
         required: true
-      doi: {}
-      concept_doi: {}
+        description: Landing page of the record, e.g. https://zenodo.org/records/22783262
+    attributes:
+      doi:
+        pattern: '^10\.\d{4,9}/\S+$'
+      concept_doi:
+        pattern: '^10\.\d{4,9}/\S+$'
+        description: DOI of all versions of the record.
 
   Presentation:
     slots: [date]
@@ -280,7 +331,13 @@ classes:
         description: Channel directory; required for collection archives.
 
   Reuse:
-    description: Authoring aid (formerly INDEX.md); never exported.
+    description: >-
+      Notes for authors of future decks: the role INDEX.md played so far.
+      `spine` is the talk's structure, `notes` anything else worth knowing,
+      and `highlights` lists the slides worth borrowing, each with its
+      reveal.js anchor and topic tags. index.html renders the highlights as
+      "Reusable slides by topic", and people and AI assistants read them
+      when assembling a new deck. Not exported to the website or Zenodo.
     attributes:
       spine: {}
       notes: {}
@@ -290,6 +347,7 @@ classes:
         inlined_as_list: true
 
   Highlight:
+    description: A slide (or group of slides) worth reusing in other decks.
     attributes:
       text:
         required: true
@@ -301,7 +359,36 @@ classes:
         multivalued: true
 
 enums:
+  License:
+    description: Licenses, identified by SPDX.
+    permissible_values:
+      CC-BY-4.0:
+        meaning: spdxlic:CC-BY-4.0
+      CC-BY-SA-4.0:
+        meaning: spdxlic:CC-BY-SA-4.0
+      CC0-1.0:
+        meaning: spdxlic:CC0-1.0
+  EventKind:
+    description: >-
+      Kinds of events. Exported as XYZEventType records with the `meaning`
+      as PID; bibo terms where they exist, CON-local types otherwise.
+    permissible_values:
+      conference:
+        meaning: bibo:Conference
+      workshop:
+        meaning: bibo:Workshop
+      session:
+        meaning: xyzrins:event-types/session
+      webinar:
+        meaning: xyzrins:event-types/webinar
+      webinar-series:
+        meaning: xyzrins:event-types/webinar-series
+      seminar:
+        meaning: xyzrins:event-types/seminar
+      meeting:
+        meaning: xyzrins:event-types/meeting
   TalkKind:
+    description: Kinds of talks (all exported as fabio:Presentation).
     permissible_values:
       talk: {}
       lightning: {}
@@ -311,12 +398,14 @@ enums:
       template:
         description: Not a talk (e.g. 0000-zoom-background); never listed.
   TalkStatus:
+    description: Where a talk is in its life cycle.
     permissible_values:
       draft: {}
       scheduled: {}
       given: {}
       shelved: {}
   SlideFormat:
+    description: Format of the slides.
     permissible_values:
       revealjs: {}
       marp: {}
@@ -324,16 +413,8 @@ enums:
       pptx: {}
       pdf: {}
       other: {}
-  EventKind:
-    permissible_values:
-      conference: {}
-      workshop: {}
-      session: {}
-      webinar: {}
-      webinar-series: {}
-      seminar: {}
-      meeting: {}
   ArchiveLayout:
+    description: Layout of an annextube archive (decides its URL template).
     permissible_values:
       collection: {}
       single-channel: {}

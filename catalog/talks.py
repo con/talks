@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
 # /// script
-# dependencies = ["pyyaml", "jsonschema"]
+# dependencies = ["pyyaml", "linkml"]
 # ///
 """Tooling for talks.yaml (catalog/PLAN.md, D8). DRAFT: only `validate`.
 
   talks.py validate [TALKS_YAML] [--site CON_SITE_SPECIFIC_CHECKOUT]
 
-Checks TALKS_YAML (default: talks.yaml at the repository root) against
-catalog/talks.schema.json (generated from catalog/talks.schema.yaml with
-`gen-json-schema --closed`), and then what a schema cannot express:
-references between entries, files existing in this repository, unique
-ids. With --site, people/project/grant slugs are also looked up in a
-con-site-specific checkout.
+Checks TALKS_YAML (default: talks.yaml at the repository root) against the
+LinkML schema catalog/talks.schema.yaml (closed: unknown fields are errors),
+and then what a schema cannot express: references between entries, files
+existing in this repository, unique ids. With --site, people/project/grant
+slugs are also looked up in a con-site-specific checkout.
 """
 import argparse
-import json
 import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
 
-import jsonschema
 import yaml
+from linkml.validator import Validator
+from linkml.validator.plugins import JsonschemaValidationPlugin
 
 CATALOG = Path(__file__).resolve().parent
 REPO = CATALOG.parent
@@ -38,9 +37,8 @@ Loader.yaml_implicit_resolvers = {
 
 
 def load(path):
-    # Dates stay strings (as check-jsonschema also treats them). A year-only
-    # date must be quoted ('2016'): unquoted, YAML reads it as a number, and
-    # both this validator and check-jsonschema reject it.
+    # Dates stay strings. A year-only date must be quoted ('2016'):
+    # unquoted, YAML reads it as a number, which the schema rejects.
     return yaml.load(Path(path).read_text(), Loader=Loader)
 
 
@@ -56,11 +54,10 @@ class Report:
 
 
 def check_schema(cat, rep):
-    schema = json.loads((CATALOG / "talks.schema.json").read_text())
-    validator = jsonschema.Draft7Validator(schema)
-    for e in sorted(validator.iter_errors(cat), key=lambda e: list(e.absolute_path)):
-        where = "/".join(str(p) for p in e.absolute_path) or "/"
-        rep.error(where, e.message)
+    validator = Validator(str(CATALOG / "talks.schema.yaml"),
+                          validation_plugins=[JsonschemaValidationPlugin(closed=True)])
+    for r in validator.validate(cat, "TalkCatalog").results:
+        rep.error("schema", r.message)
 
 
 def repo_files():
@@ -71,6 +68,7 @@ def repo_files():
 
 def check_refs(cat, rep, site=None):
     people = set(cat.get("people") or {})
+    organizations = set(cat.get("organizations") or {})
     events = cat.get("events") or {}
     archives = cat.get("video_archives") or {}
     topics = set(cat.get("topics") or {})
@@ -85,6 +83,9 @@ def check_refs(cat, rep, site=None):
     for slug, ev in events.items():
         if ev.get("part_of") and ev["part_of"] not in events:
             rep.error(f"events/{slug}", f"part_of: unknown event {ev['part_of']!r}")
+        for o in ev.get("organizers") or []:
+            if o not in people | organizations:
+                rep.error(f"events/{slug}", f"organizers: unknown person or organization {o!r}")
 
     youtube = Counter()
     for t in talks:

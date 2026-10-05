@@ -508,14 +508,19 @@ Talk  (the work = a slide deck; id = TALK-ID = deck filename stem)
            └─ archived_in[] → VideoArchive + channel dir
 ```
 
-Three small **registries** live in the same file, next to the talks:
+Small **registries** live in the same file, next to the talks. The file
+also has a top-level `collections` list, e.g. CON's Zenodo community, which
+every deposit should join:
 
 - `people`: slug, name, ORCID, GitHub handle;
+- `organizations`: slug, name, ROR (e.g. CON, `04tfhh831`);
 - `events`: slug, name, acronym, URL, kind, location, start and end, plus:
   - `part_of`, for nesting (session → conference; series → webinar);
+  - `organizers`, slugs of people and/or organizations (§5.2);
   - an optional link to the con/cierge issue;
-  - an optional `zenodo` deposit policy (community, fixed publication date,
-    license);
+  - an optional `collection`: where and how the event gathers materials
+    (`url`, e.g. a Zenodo community; publication date; license; due date).
+    It is not tied to one platform;
 - `topics`: slug, title, and the reusable assets for that topic (the
   "Asset:" lines of today's topic lookup);
 - `video_archives`: name, base URL, layout, UI URL template.
@@ -555,13 +560,21 @@ review.
 - The schema is `catalog/talks.schema.yaml`.
 - Its `slot_uri`s point at the dlthings, schema.org, DCTERMS or PROV terms
   that the adapter will emit.
-- `gen-json-schema` produces `catalog/talks.schema.json`, which is committed.
-  Validation then runs through the `check-jsonschema` pre-commit hook, so
-  there is no heavy LinkML dependency in CI.
-  - Verified on the samples: `check-jsonschema` 0.38.2 and `talks.py validate`
-    agree.
-  - Year-only dates must be quoted (`'2016'`), because YAML reads them as
-    numbers.
+- **The LinkML schema is the only schema file.** `talks.py validate` checks
+  `talks.yaml` against it directly through LinkML's validator: closed, so
+  unknown fields are errors, and about 1.5 s per run.
+  - No generated JSON Schema is committed. An earlier draft did commit one;
+    it was dropped in review.
+  - pre-commit and CI run `uv run catalog/talks.py validate`. uv caches the
+    linkml install.
+- **Controlled values are enums whose values carry identifiers** (`meaning`).
+  - Licenses map to `spdxlic:<id>`.
+  - Event kinds map to `bibo:Conference`, `bibo:Workshop`, or CON-local
+    `xyzrins:event-types/…`.
+  - Exporters read those identifiers from the schema instead of hard-coding
+    them.
+- Year-only dates must be quoted (`'2016'`), because YAML reads them as
+  numbers.
 - `gen-shacl` is used later for shacl-vue (Phase 4).
 
 **D3. Identifiers**
@@ -688,16 +701,16 @@ template changes.
 
 ### Phase 1: schema, seeded records, validation (this repo only; ~1 PR)
 
-1. *(Drafted from the samples, §7:* `catalog/talks.schema.yaml`, the
-   generated `catalog/talks.schema.json`, and `catalog/talks.py validate`.
-   *Finalize them.)* Write `catalog/talks.schema.yaml` with:
-   - classes `TalkCatalog`, `Talk`, `Slides`, `Presentation`, `Recording`,
-     `ArchivedCopy`, `ZenodoDeposit`, `ZenodoPolicy`, `Reuse`, `Highlight`,
-     `Person`, `Event`, `Topic` and `VideoArchive`;
-   - enums `TalkStatus`, `TalkKind`, `SlideFormat`, `EventKind` and `StoryArc`
+1. *(Drafted from the samples, §7:* `catalog/talks.schema.yaml` and
+   `catalog/talks.py validate`. *Finalize them.)* Write
+   `catalog/talks.schema.yaml` with:
+   - classes `TalkCatalog`, `Talk`, `Slides`, `Deposit`, `Presentation`,
+     `Recording`, `ArchivedCopy`, `Reuse`, `Highlight`, `Person`,
+     `Organization`, `Event`, `MaterialsCollection`, `Topic` and
+     `VideoArchive`;
+   - enums `License` and `EventKind`, both with `meaning` identifiers, plus
+     `TalkStatus`, `TalkKind`, `SlideFormat`, `ArchiveLayout` and `StoryArc`
      (the arcs in SOUL.md §7).
-
-   Generate `talks.schema.json` from it.
 2. Seed `talks.yaml` with **every** deck in §8, including `_backdrawer_/` with
    `status: shelved`:
    - move the INDEX.md per-talk prose verbatim into `reuse:` blocks, without
@@ -713,7 +726,8 @@ template changes.
    - every root `20*.html` and every known subdirectory deck has a record,
      and every record's source path exists (checked via `git ls-files`, so
      annexed files without content pass);
-   - references to `people`, `events` and `video_archives` resolve;
+   - references to `people`, `organizations`, `events`, `topics` and
+     `video_archives` resolve;
    - YouTube ids are unique unless deliberately shared;
    - *(warnings only)* non-draft root decks have a QR code
      `pics/<TALK-ID>-qrcode.png`;
@@ -721,8 +735,8 @@ template changes.
      a `[WiP]` prefix;
    - *(warnings only, with `--site`)* each talk falls inside some author's or
      presenter's CON membership window (D10).
-4. Add pre-commit hooks (`check-jsonschema` plus a local `talks.py validate`)
-   and `.github/workflows/catalog.yml`.
+4. Add a local pre-commit hook (`uv run catalog/talks.py validate`) and
+   `.github/workflows/catalog.yml`.
 
 ### Phase 2: generators (~1 PR)
 
@@ -893,6 +907,16 @@ template changes.
 
 1. **Pilot: the US-RSE'26 talk, due 2026-10-21.** This can run right after
    Phase 1, or by hand before Phase 1 if needed.
+   - Its record already carries:
+     - DOI `10.5281/zenodo.22783262`; concept DOI `…22783261`;
+     - 6 creators with ORCIDs;
+     - the meeting block;
+     - 5 grants;
+     - communities `usrse26` and `con`.
+   - A first `zenodo diff` would flag:
+     - Vadim Melnik's swapped name ("Vadim, Melnik");
+     - publication date `2026-09-16` versus the US-RSE policy date
+       `2026-10-19`.
    - `talks.py zenodo render 2026-usrse-con-talk` emits InvenioRDM record
      JSON.
    - The target is the existing abstract record
@@ -905,7 +929,7 @@ template changes.
    - The PDF is exported with decktape under `datalad run`.
    - The record id, version DOI and concept DOI are written back into
      `talks.yaml`.
-2. **Generalize to every talk that has a `zenodo:` block.**
+2. **Generalize to every talk with a Zenodo entry in `deposits`.**
    - Add `zenodo pull`, which writes back DOIs and reports drift when someone
      edited the record on Zenodo.
    - Add a CI workflow, `zenodo-sync.yml`. On a push it runs a dry-run diff
@@ -915,8 +939,9 @@ template changes.
 3. **Back-fill from community `con`.**
    - List the records of the `con` community and match them to
      `talks.yaml` by DOI, then by title and date.
-   - Propose `zenodo:` blocks for matches, and new talk records for
-     unmatched `presentation` records.
+   - Propose `deposits` entries for matches, and new talk records for
+     unmatched `presentation` records. The community also holds a poster
+     (§9 Q3).
    - Additionally, search by member ORCIDs for deposits that are not in the
      community, and propose adding them to it.
    - Dedup against Zotero's "CON Zenodo/OSF DOIs" collection, which
@@ -1035,6 +1060,77 @@ the version ORINOCO-Lite pins:
 - `XYZBibliographicType`: the talk kind and `bibo:AudioVisualDocument`;
 - `XYZAgentRole`: `obo:CRO_0000100` (Presenter) and `marcrel:orm`.
 
+### 5.2 Organizers and co-organization (e.g. distribits)
+
+**What psychoinformatics-site-specific does** (`780e5fd`):
+
+- Its "Distribits" `XYZProject` is `part_of` the site root (`xyzrins:.`), so
+  it is listed among the group's projects.
+- That project's `associated_with` lists the organizers with role
+  `marcrel:orm`. Yarik appears there as `orcid:0000-0003-3456-2493`, since he
+  has no person record on that site.
+- The per-year editions ("Distribits 2024", "Distribits 2025") are separate
+  `XYZProject`s with their own organizers. Yarik is not listed for either.
+- Organizations are associated with projects too, e.g. FZJ with role
+  "Supporting host".
+
+**How CON would depict its part in organizing**, with the concepts as
+drafted:
+
+- **On the event.**
+  - `associated_with: [{object: ror:04tfhh831, roles: [marcrel:orm]}]`
+    names CON (the organization) as co-organizer.
+  - A further `{object: xyzrins:persons/<p>, roles: [marcrel:orm]}` entry
+    is added for each CON person who organized.
+  - In `talks.yaml` this is `events.<e>.organizers: [con, <person>, …]`,
+    referring to the `organizations` and `people` registries.
+  - The samples do this for distribits 2025 (CON only: which persons
+    organized is not recorded in any source read; §9 Q21).
+- **On the series.** con-site-specific already has
+  `xyzrins:projects/distribits` as `part_of` its site root, but with no
+  `associated_with`.
+  - Adding CON people as `marcrel:orm` there mirrors psychoinformatics.
+  - That is a con-site-specific edit, not a talks one.
+- **Linking an event to its series project** is still open (§9 Q18).
+
+### 5.3 Describing how copies are accessed: QUAY
+
+[ThHanke/quay](https://github.com/ThHanke/quay) (`81e114b`) is "QUAY:
+Qualified Usage, Access and Yield", a **DCAT profile** published as
+OWL + SHACL and built with ODK, under `https://w3id.org/quay/`.
+
+- It describes how a `dcat:Distribution` is reached:
+  - an access description: protocol, authentication, operations;
+  - a yield description: delivery mode such as Bulk or **Streaming**,
+    versioning, verification;
+  - ODRL policies.
+- It ships patterns for **git-annex remotes**: web, git, S3, rsync and
+  others.
+- It also ships a pattern for **Zenodo**.
+
+**Where it fits.** It covers the part of this plan about *where* a talk can
+be found, but in more detail: *how* each copy is accessed.
+
+- slides over HTTPS from datasets.datalad.org, or by cloning the dataset with
+  git or DataLad;
+- a PDF from a versioned Zenodo record, with md5 checksums;
+- YouTube as streaming;
+- an annextube copy, whose video is a git-annex key behind the web special
+  remote.
+
+**Recommendation.** No QUAY in `talks.yaml` itself.
+
+- Access characteristics belong to a *platform*, not to a talk. They would
+  be described once per registry entry: a `video_archives` entry, and a
+  future `platforms` registry for YouTube, Zenodo and datasets.datalad.org.
+- QUAY becomes relevant when datalad-concepts gains distribution access
+  slots, the "file URL slots" deliberately left out of §5.1.
+  - Reusing QUAY's terms there would avoid inventing
+    `access_url`/`download_url`. QUAY builds on `dcat:accessURL` and
+    `dcat:downloadURL`.
+  - Since QUAY is OWL/SHACL rather than LinkML, datalad-concepts would
+    reference its IRIs through mappings or `slot_uri`.
+
 ---
 
 ## 6. Zenodo crosswalk and two-way sync
@@ -1068,9 +1164,24 @@ exist in the award registry.
 (the "CON talks collection") could later be **generated** from `talks.yaml`,
 but it is never a source.
 
-> The InvenioRDM field names above come from knowledge of the API rather than
-> from reading it in this session. Verify them against the Zenodo REST docs
-> and `sandbox.zenodo.org` before the pilot.
+> **Checked against a real record** (22783262, fetched 2026-10-05; details in
+> `samples/README.md`).
+>
+> `GET https://zenodo.org/api/records/<id>` returns:
+>
+> - `metadata.creators[]` as `{name: "Family, Given", affiliation, orcid}`;
+> - `metadata.meeting` as `{title, acronym, dates, place, url}`;
+> - `metadata.grants[]` as
+>   `{code, internal_id: "<funder DOI>::<code>", funder: {name, doi, acronym}, title, program}`;
+> - `metadata.related_identifiers[]`, `metadata.license.id`,
+>   `metadata.communities[].id`, `metadata.resource_type.type`;
+> - `metadata.custom` (`code:codeRepository`). There is no `custom_fields`
+>   key.
+>
+> The InvenioRDM-native names in the table below (`person_or_org`, `funding`,
+> `custom_fields["meeting:meeting"]`) are therefore *not* what this
+> endpoint returns. The crosswalk targets the observed serialization, and
+> the write format gets checked on `sandbox.zenodo.org` before the pilot.
 
 ### 6.2 Crosswalk: `talks.yaml` (and its `xyzri` image) → Zenodo record
 
@@ -1083,7 +1194,7 @@ but it is never a source.
 | `presenters[]` beyond the authors | `obo:CRO_0000100` role on the attribution | `metadata.contributors[]` with role `other`, plus a note in `description` | DataCite has no "speaker" role |
 | presentation `date` | `generated_by.at_time` | `metadata.publication_date`, plus `dates: [{type: other, description: presented}]` | an event can fix `publication_date` (US-RSE: 2026-10-19) |
 | `event` → `events` | `XYZEvent` (interim: title-only venue) | `custom_fields["meeting:meeting"]`: `title`, `acronym`, `dates`, `place`, `url`, `session` | |
-| — (always) plus `events.<e>.zenodo.community` | — | `communities`: `con`, plus the event's (e.g. `usrse26`); a review request on submit | `con` is the sync collection (§9 Q8) |
+| catalog `collections`, plus `events.<e>.collection.url` | — | `communities`: `con`, plus the event's (e.g. `usrse26`); a review request on submit | `con` is the sync collection (§9 Q8). `collection` and `deposits` are not Zenodo-specific: the platform follows from the URL |
 | `projects[]`, `topics[]` | `generated_by` project / `about` | `metadata.subjects[]` (free keywords) | |
 | `grants[]` (new field, slugs = `xyzrins:grants/<slug>`) | not modeled yet: `funded_by` or `characterized_by schema:funding` (§9 Q10) | `metadata.funding[]`: `funder.id` (ROR), `award.number`, `award.title` | con-site-specific `XYZGrant` records lack a funder link; add one there, as a funder `XYZOrganization` with its ROR id |
 | `license` (per talk; per export where it differs) | `rules` (things-rules); verify | `metadata.rights: [{id: <SPDX id, lowercased>}]` | must be stated per talk, never inherited (§9 Q9); an event policy (US-RSE: CC-BY-4.0) pre-fills it |
@@ -1093,7 +1204,7 @@ but it is never a source.
 | recordings: YouTube, archive copies | recording `XYZDocument` (§5) | `related_identifiers`: `issupplementedby`, resource type `video` | |
 | talk page on the CON website | — | `related_identifiers`: `isdescribedby` | once Phase 5 exists |
 | deposited files | `distributions` → `XYZFile` | `files`: the PDF exported with decktape via `datalad run` (optionally also `.pptx`) | |
-| `zenodo.{record, doi, concept_doi}` | `identifiers: [{schema_type: dlthings:DOI}]` | read back from the API | owned by Zenodo; never hand-edited except to seed |
+| `deposits[].{url, doi, concept_doi}` | `identifiers`: URL, plus `dlthings:DOI` for each DOI | read back from the API | owned by the repository; never hand-edited except to seed |
 
 ### 6.3 Sync semantics ("automagically", but safely)
 
@@ -1195,8 +1306,7 @@ planned `talks.yaml` format, with each value annotated by its source:
 - Every person, project, role and type they reference resolves to
   con-site-specific or to the samples.
 - The sample `talks.yaml` itself validates against the draft
-  `catalog/talks.schema.yaml`, via `catalog/talks.py validate` and via
-  `check-jsonschema`.
+  `catalog/talks.schema.yaml`, via `catalog/talks.py validate`.
 - `samples/validate.sh` runs all of these checks.
 
 The samples README lists what they revealed. The decisions still needed are
@@ -1214,14 +1324,14 @@ or still to be verified.
 | --- | --- | --- | --- | --- |
 | `2026-usrse-con-talk` | US-RSE'26, AI Assisted Code Development; 5–6 authors | 2026-10-19 | reveal.js (draft) | — (Zenodo record 22783262, abstract) |
 | `2026-mcgill-mechababs` | McGill neuroscience group | 2026-08-11 | marp, in a subdirectory | ? |
-| `2026-bbqs-stamped` | BBQS virtual workshop; presenter Cody Baker | 2026-03-11 | Google Slides + `.pptx`/`.pdf` | YouTube `8NTWKHer5Zo` (from Zotero `HUPZV3B5`) |
+| `2026-bbqs-stamped` | BBQS virtual workshop; presenter Cody Baker | 2026-03-11 | Google Slides + `.pptx`/`.pdf` | YouTube `8NTWKHer5Zo` (from Zotero `HUPZV3B5`); contube (verified) |
 | `2026-brainhack-containers-mashup` | BrainHack 2026, containers | *2026-06-11* | reveal.js (2 slides) | ? |
 | `2026-nih-bids2.0` | NIMH DSST Lunch & Learn | 2026-06-02 | reveal.js | ? |
 | `2026-ca-origami-retreat-aicoding` | CA Origami Retreat 2026 | *2026-02-24* | reveal.js | ? |
 | `2026-repronim-YODA-BIDS-webinar` | ReproNim Webinar | 2026-02-06 | reveal.js | YouTube `1XbTbJ_P2x0`; ReproTube `ReproNim` |
-| `2025-distribits-YODA` | distribits 2025 | *2025-10-21* | reveal.js | YouTube `EuKVapscUQ4`; ReproTube `DataLad` |
+| `2025-distribits-YODA` | distribits 2025 (2025-10-23..25) | *2025-10-21* | reveal.js | YouTube `EuKVapscUQ4`; ReproTube `DataLad` (verified) |
 | `2025-ca-origami-retreat` | CA Origami Retreat 2025 | *2025-02-27* | reveal.js | ? |
-| `2024-distribits-datalad` | distribits 2024 | *2024-03-29* (event 2024-04) | reveal.js | ? |
+| `2024-distribits-datalad` | distribits 2024 (2024-04-04..06) | *2024-03-29* | reveal.js | YouTube `Mkb7qpYaL7o`; ReproTube `DataLad` (found by name search) |
 | `2024-distribits-datalad-name` | distribits 2024, lightning | 2024-04? (added *2024-08-14*) | reveal.js | ? |
 | `2023-brain-dandi` | BRAIN Initiative talk | *2023-06-27* | reveal.js | ? |
 | `2023-brain-dandi-imgdatasrc` | short DANDI talk | *2023-06-29* | reveal.js | ? |
@@ -1237,9 +1347,9 @@ decks; §9 Q2):
 
 | Talk | Date | Slides | Video |
 | --- | --- | --- | --- |
-| ReproNim webinar, "Version control your data and computation using containers, DataLad and ReproMan…" | 2020-06-05 | Google Slides | YouTube `ix3lC6HGo-Q` |
-| ReproNim webinar, "Reproducible Execution of Data Collection/Processing" | 2020 | `repronim/artwork/talks/webinar-2020-reprocomp/` | YouTube `dwBtrpI2iS0` |
-| ReproNim webinar, ReproFlow | 2024-06 | `repronim/artwork/talks/webinar-2024-reproflow/` | ? |
+| ReproNim webinar, "Version control your data and computation using containers, DataLad and ReproMan…" | 2020-06-05 | Google Slides | YouTube `ix3lC6HGo-Q` ("ReproNim Webinar: Containers", ReproTube `ReproNim`, uploaded 2020-06-07) |
+| ReproNim webinar, "Reproducible Execution of Data Collection/Processing" | 2020 | `repronim/artwork/talks/webinar-2020-reprocomp/` | YouTube `dwBtrpI2iS0` (ReproTube `ReproNim`, uploaded 2020-12-04) |
+| ReproNim webinar, ReproFlow | 2024-06 | `repronim/artwork/talks/webinar-2024-reproflow/` | YouTube `SZ96Q6pwJzQ` ("SciOps from ReproNim/ ReproFlow", ReproTube `ReproNim`) |
 
 Talks already recorded in Zotero: the eight items in the §1.2 table, plus
 the three whose type is not stated. Migrate them per D9.
@@ -1327,13 +1437,31 @@ From the samples (`catalog/samples/README.md`):
     - Migrated Zotero talks keep `xyzrins:publications/…` PIDs, so talks
       would live under two route prefixes.
 
+21. **Who organized distribits 2025 from CON?** The event lists CON as
+    co-organizer (§5.2), and person organizers need a source. Should
+    con-site-specific's `projects/distribits` also get CON organizers?
+22. **The `reuse:` name.** The block holds the authoring notes that INDEX.md
+    held. Keep `reuse`, or rename it (e.g. `authoring`)?
+23. **QUAY.** Track it for when datalad-concepts gets distribution access
+    slots (§5.3), or engage earlier, e.g. by describing the video archives
+    with it?
 ---
 
 ## 10. Review notes and limits
 
-- The network policy of the session that produced this plan blocked
+- **Network.** The environment this plan was written in ("Default") blocks
   `datasets.datalad.org`, `zenodo.org`, `www.youtube.com` and
-  `dev.centerforopenneuroscience.org`. As a result:
+  `dev.centerforopenneuroscience.org`.
+  - A helper session in "Default Cloud Environment" (all reachable, HTTP
+    200) later fetched:
+    - the Zenodo record;
+    - ReproTube and contube rows;
+    - the published talks listing;
+    - the dev site's navigation.
+
+    Those facts are recorded in `samples/README.md` and in §6 and §8.
+  - Future sessions for Phases 3 and 6 should start in that environment.
+  - The remaining points below describe the state *before* that check.
   - the annextube findings come from reading code, not from inspecting
     ReproTube or contube;
   - the Zenodo field names in §6 come from memory and must be checked
@@ -1348,12 +1476,13 @@ From the samples (`catalog/samples/README.md`):
   - `dev.centerforopenneuroscience.org`.
 - con/cierge issues were not read; only its README and issue template were
   (§1.3).
-- `catalog/talks.schema.json` is produced with `datalad run` (D7; commit
-  `[DATALAD RUNCMD] catalog: generate talks.schema.json…`), so
-  `datalad rerun` regenerates it.
-  - The run used datalad 1.6.6 and git-annex 10.20260901, both installed
-    from PyPI with `uv pip install datalad git-annex`, plus linkml 1.11.1.
-  - The same `uv pip install` works for CI.
+- DataLad tooling: `uv pip install datalad git-annex` provides datalad 1.6.6
+  and git-annex 10.20260901 from PyPI. That is enough for `datalad run` (D7)
+  in a container or CI.
+  - `catalog/talks.schema.json` was briefly produced that way (a
+    `[DATALAD RUNCMD]` commit).
+  - It has since been dropped, because validation now reads the LinkML
+    schema directly (D2).
 - The datalad-concepts change was validated locally (§5.1). Pushing it to
   `yarikoptic/datalad-concepts` keeps failing with HTTP 403: the Claude
   GitHub App is not installed for that repository. Both commits are ready

@@ -7,7 +7,7 @@ anything is implemented.
 | File | What it is |
 | --- | --- |
 | `talks.yaml` | Five talks in the planned source format (PLAN §2, §3), plus the `people`, `events`, `video_archives` and `topics` registries. Each value carries a comment naming its source; unknown values are left out. |
-| `../talks.schema.yaml`, `../talks.schema.json` | **Draft** LinkML schema for `talks.yaml` (PLAN D2), and the JSON Schema generated from it with `gen-json-schema --closed`. |
+| `../talks.schema.yaml` | **Draft** LinkML schema for `talks.yaml` (PLAN D2). It is the only schema file; no generated JSON is stored. |
 | `../talks.py` | **Draft** tool (PLAN D8). Only `validate` exists so far: JSON Schema checks plus checks a schema cannot express (references, tracked files, unique ids, and con-site-specific slugs with `--site`). |
 | `export_sample.py` | A prototype of `talks.py export-things` (PLAN Phase 5B). It maps `talks.yaml` onto `xyzri` records, following PLAN §5. |
 | `xyzri/<Class>/*.yaml` | Its output, laid out like con-site-specific `metadata/records/`. |
@@ -42,8 +42,7 @@ Result at the time of writing:
 
 - **`talks.yaml`: 0 errors.** The 4 warnings are `derived_from` parents that
   have no record in the sample.
-  - The same file also passes `check-jsonschema --schemafile
-    ../talks.schema.json` (0.38.2), the pre-commit route of PLAN D2.
+  - `talks.py` validates it directly against the LinkML schema (closed).
   - Deliberately broken copies are rejected for each of these:
     - an unknown field;
     - a bad date;
@@ -52,7 +51,11 @@ Result at the time of writing:
     - a missing title;
     - an unknown person or event;
     - an untracked slide file;
-    - a collection archive without a channel.
+    - a collection archive without a channel;
+    - an unquoted year;
+    - a license outside the `License` enum;
+    - an unknown organizer;
+    - a malformed DOI.
 - **All 23 `xyzri` records validate.**
 - With con-site-specific given, every person, project, role and type
   reference resolves.
@@ -135,10 +138,10 @@ Result at the time of writing:
 ### 8. Facts still missing (left out rather than guessed)
 
 - the day of the YODA talk within distribits 2025 (2025-10-23 to 2025-10-25);
-- the US-RSE presenter and the conference end date;
-- the 2016 OHBM presenter and date;
-- video titles, which Phase 3's `find-videos` would read from annextube
-  `videos.tsv`.
+- the US-RSE presenter;
+- the 2016 OHBM presenter and date.
+
+The US-RSE end date and place now come from the Zenodo record (see below).
 
 ### 9. PIDs and routes
 
@@ -157,8 +160,8 @@ Result at the time of writing:
 
 ### 11. Year-only dates must be quoted in `talks.yaml`
 
-- YAML reads `2016` as a number, so it fails the string date pattern in both
-  `talks.py` and `check-jsonschema`.
+- YAML reads `2016` as a number, so it fails the schema's string date
+  pattern.
 - Write `'2016'`. Full and month dates (`2026-10-19`, `2025-10`) need no
   quotes.
 
@@ -168,6 +171,129 @@ Result at the time of writing:
   alternatives (`^…|…|…$`).
 - So, for example, `2026-10-19T10:30` without a time zone is accepted.
 - That bug predates this work and is worth a separate upstream fix.
+
+## Changes after review (2026-10-05)
+
+**Nothing Zenodo-specific in `talks.yaml`.**
+
+- An event's `collection` (`url`, `publication_date`, `license`, `due`) says
+  where and how it gathers materials, e.g. the Zenodo community `usrse26`.
+- A talk's `deposits` (`url`, `doi`, `concept_doi`) lists its records in any
+  repository.
+- The top-level `collections` names CON's own community (`con`).
+- The platform follows from the URL.
+
+**Identifiers live in the schema.**
+
+- `License` and `EventKind` are enums whose values carry `meaning`
+  identifiers, such as `spdxlic:CC-BY-4.0` or `bibo:Conference`.
+- `export_sample.py` takes event-type PIDs from there.
+
+**Organizers.**
+
+- An `organizations` registry (CON, `ror: 04tfhh831`) and
+  `events.<e>.organizers` were added.
+- distribits 2025 lists CON, as the `[user]` comment records. In `xyzri`
+  this becomes `associated_with: [{object: ror:04tfhh831, roles:
+  [marcrel:orm]}]`; see PLAN §5.2.
+- distribits 2025 now links to its edition page,
+  `https://www.distribits.live/events/2025-distribits/`.
+
+**`reuse:`** is explained in the schema: authoring notes, formerly
+INDEX.md, never exported.
+
+## Verified against live sources (2026-10-05)
+
+These were fetched by a helper session in the "Default Cloud Environment",
+which has network access. This session's environment blocks those hosts.
+
+### Zenodo record 22783262 (the US-RSE'26 abstract)
+
+**Identity:**
+
+- DOI `10.5281/zenodo.22783262`; concept DOI `10.5281/zenodo.22783261`.
+- Communities: `usrse26` and `con`.
+- `resource_type: presentation`; `license: cc-by-4.0`.
+
+**Fields of `GET /api/records/<id>` used by the crosswalk** (PLAN §6):
+
+- `metadata.creators[]`: `{name: "Family, Given", affiliation, orcid}`;
+- `metadata.meeting`: `{title, acronym, dates, place, url}`;
+- `metadata.grants[]`: `{code, internal_id: "<funder DOI>::<code>", funder: {name, doi, acronym}, title, program}`;
+- `metadata.related_identifiers[]`: `{identifier, relation, resource_type, scheme}`;
+- `metadata.custom`: `{"code:codeRepository": "https://github.com/con/talks"}`;
+- `metadata.version`.
+
+There is no `custom_fields` key in this serialization.
+
+**What `zenodo diff` would already report against `talks.yaml`:**
+
+- **Creators.** There are 6, including John A. Lee, matching the abstract
+  (the program lists 5). Vadim Melnik is entered as `"Vadim, Melnik"`, with
+  family and given name swapped.
+- **Publication date.** It is `2026-09-16`, the abstract upload date. The
+  US-RSE guidance says to set `2026-10-19`.
+- **Grants.** Five are listed: DANDI `2R24MH117295-06`, OpenNeuro
+  `2R24MH117179-06`, EMBER `1R24MH136632-01`, ReproNim `5P41EB019936-09`,
+  NSF `1912266`. con-site-specific holds DANDI and OpenNeuro under
+  *other award years* (`1R24MH117295-01A1`, `5R24MH117179-07`). So grants
+  must be matched on the core project number (`R24MH117295`), not the full
+  award code. ReproNim and NSF have no record there.
+
+**Community `con` holds 3 records:**
+
+- this talk abstract;
+- a poster, "The Ecosystem of Standards in Neuroscience: Which Ones Are For
+  You?" (2025-11-11, record 18333008);
+- a dataset (Haxby et al. 2001, record 1203329).
+
+### annextube archives
+
+**ReproTube `channels.tsv`** has `channel_dir`s `DataLad` and `ReproNim`, as
+the URL templates assume.
+
+**The three sample videos are present:**
+
+| Video | Archive | Title | Published | Duration | Status |
+| --- | --- | --- | --- | --- | --- |
+| `EuKVapscUQ4` | DataLad | 'Yaroslav Halchenko: "Pragmatic YODA: …"' | 2025-11-12 | 1702 s | downloaded |
+| `1XbTbJ_P2x0` | ReproNim | "YODA: Structure your studies, observable and reproducible they become" | 2026-02-06 | 3656 s | `metadata_only` |
+| `8NTWKHer5Zo` | contube | "Guidelines for Reproducible Research (STAMPED)" | 2026-03-30 | 2915 s | `metadata_only` |
+
+- `8NTWKHer5Zo` is from the channel "CON: Center for Open Neuroscience". Its
+  description says "CON member Cody Baker presented".
+- **`published_at` is the upload date, not the talk date.** The distribits
+  talk (2025-10-23 to 25) was uploaded 2025-11-12, and the BBQS talk
+  (2026-03-11) on 2026-03-30. Never use it as a presentation date.
+
+**contube is a single-channel archive.**
+
+- It has no `channels.tsv` (404), and its `videos/videos.tsv` holds 32
+  videos from 16 YouTube channels, CON's among them.
+- Its `channel.json` describes "Brainhack-AMX", not CON. That looks like a
+  contube/annextube bug worth reporting.
+
+**A name search over the two ReproTube `videos.tsv` files** (what Phase 3's
+`find-videos` does) finds:
+
+| Video | Title | Published | What it matches |
+| --- | --- | --- | --- |
+| `Mkb7qpYaL7o` | 'Yaroslav Halchenko: "What's in the DataLad sandwich?" AKA DataLad "ecosystem"' | 2024-04-09 | `2024-distribits-datalad` |
+| `_McJ1BtLsiQ` | "Isaac To, Yaroslav Halchenko: DataLad-Registry, …" | 2024-04-09 | a CON talk at distribits 2024 |
+| `ix3lC6HGo-Q` | "ReproNim Webinar: Containers" | 2020-06-07 | external candidate (PLAN §8) |
+| `dwBtrpI2iS0` | "ReproNim Webinar: Reproducible Execution of Data Collection/Processing" | 2020-12-04 | external candidate (PLAN §8) |
+| `SZ96Q6pwJzQ` | "SciOps from ReproNim/ ReproFlow" | 2024-06-16 | the 2024 ReproFlow webinar |
+| `pVrjRRrmKbY` | "Introduction to DataLad" | 2021-03-26 | — |
+
+It also finds panels and an unconference session from distribits 2024 and
+2025.
+
+### Published talks listing and dev site
+
+- `datasets.datalad.org/centerforopenneuroscience/talks/` lists the same 16
+  entries as `index.html`. There is no `2026-mcgill-mechababs/` entry.
+- The dev site's navigation is: People, Projects, Publications, Datasets,
+  Instruments, Explore. There are no Talks or Events sections yet.
 
 ## CON membership: the shape only (no records written)
 

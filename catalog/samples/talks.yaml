@@ -11,7 +11,12 @@
 #   [psyinf]  ORINOCO-Lite/psychoinformatics-site-specific records (780e5fd)
 #   [soul]    SOUL.md §8
 #   [user]    stated by Yarik in the planning conversation or review comments
+#   [zenodo]  https://zenodo.org/api/records/22783262 (fetched 2026-10-05)
+#   [archive] annextube videos.tsv of ReproTube / contube (fetched 2026-10-05)
 # Unknown values are left out, not guessed.
+
+collections:
+  - https://zenodo.org/communities/con                           # [user] CON's community; every deposit goes there too
 
 people:
   # slugs = xyzrins:persons/<slug> in con-site-specific (all exist there)
@@ -24,16 +29,23 @@ people:
   benjamin-poldrack:  {name: Benjamin Poldrack}                              # [zotero] 7AHRXD2X
   michael-hanke:      {name: Michael Hanke}                                  # [zotero] 7AHRXD2X
 
+organizations:
+  con: {name: Center for Open Neuroscience, ror: 04tfhh831}     # con-site-specific XYZOrganization/con.yaml
+
 events:
   usrse-2026:
-    name: "US-RSE'26"
+    name: US Research Software Engineering Conference 2026      # [zenodo] meeting.title
+    acronym: "USRSE'26"                                          # [zenodo] meeting.acronym
     kind: conference
-    url: https://us-rse.org/usrse26/program/                     # [usrse]
-    start: 2026-10-19                                            # [usrse] first program day; end not recorded here
-    zenodo:                                                      # deposit policy imposed by the event [usrse]
-      community: usrse26
+    url: https://us-rse.org/usrse26                              # [zenodo] meeting.url
+    start: 2026-10-19                                            # [zenodo] "October 19-21, 2026"
+    end: 2026-10-21                                              # [zenodo]
+    location: San Jose, CA                                       # [zenodo] meeting.place
+    collection:                                                  # where/how the event collects materials [usrse]
+      url: https://zenodo.org/communities/usrse26
       publication_date: 2026-10-19
       license: CC-BY-4.0
+      due: 2026-10-21
   usrse-2026-ai-assisted-code-development:
     name: AI Assisted Code Development
     kind: session
@@ -43,11 +55,15 @@ events:
   distribits-2025:
     name: distribits 2025
     kind: conference
-    url: https://distribits.live/                                # [deck] meta description
+    url: https://www.distribits.live/events/2025-distribits/     # [user]
     start: 2025-10-23                                            # [psyinf] "Distribits 2025" record
     end: 2025-10-25                                              # [psyinf]
     location: Düsseldorf, Germany (Haus der Universität)         # [psyinf]
     project: distribits                                          # xyzrins:projects/distribits
+    # [user] CON took part in organizing; which CON members were organizers
+    # is not recorded in any source read ([psyinf] lists Yarik as organizer
+    # of the Distribits *series* project, not of the 2025 edition).
+    organizers: [con]
   repronim-webinars:
     name: ReproNim Webinars
     kind: webinar-series
@@ -93,9 +109,10 @@ talks:
   title: "Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON"  # [usrse]
   kind: talk
   status: scheduled
-  # [usrse] program lists 5 authors; the abstract also lists John A. Lee.
-  # The record is where this gets decided; the program list is used here.
-  authors: [yaroslav-halchenko, cody-baker, austin-macdonald, isaac-to, vadim-melnik]
+  # [usrse] program lists 5 authors; the abstract and the Zenodo record [zenodo]
+  # list 6 (also John A. Lee), in this order. The record is where this gets
+  # decided; the abstract/Zenodo list is used here.
+  authors: [yaroslav-halchenko, cody-baker, austin-macdonald, isaac-to, john-lee, vadim-melnik]
   description: >-                                                # [usrse] first paragraph of the abstract
     For two decades the team of the Center for Open Neuroscience (CON) has
     been building an open, largely domain-agnostic research-software stack —
@@ -106,12 +123,19 @@ talks:
   keywords: [reuse, modularity, community standards, federation, reproducibility,
              distributed data management, neuroinformatics, FAIR, open source]  # [usrse]
   projects: [neurodebian, pymvpa, datalad, dandi, ember, openneuro, bids, nwb, con-tinuous, datalad-registry]  # [usrse] named in the abstract
-  license: CC-BY-4.0                                             # event policy [usrse]
+  license: CC-BY-4.0                                             # event policy [usrse]; [zenodo] license
+  # [zenodo] grants: DANDI 2R24MH117295-06, OpenNeuro 2R24MH117179-06,
+  # EMBER 1R24MH136632-01, ReproNim 5P41EB019936-09, NSF 1912266 (DataLad).
+  # con-site-specific has records for the first three (under other award
+  # years: 1R24MH117295-01A1, 5R24MH117179-07); none for ReproNim or NSF yet.
+  grants: [nih-dandi, nih-openneuro, nih-ember]
   slides:
     format: revealjs
     source: 2026-usrse-con-talk.html
-  zenodo:
-    record: 22783262                                             # [user] the abstract deposit
+  deposits:
+  - url: https://zenodo.org/records/22783262                     # [user] the abstract deposit
+    doi: 10.5281/zenodo.22783262                                 # [zenodo]
+    concept_doi: 10.5281/zenodo.22783261                         # [zenodo]
   companions: [2026-usrse/]
   derived_from: [2022-nih-compcore, 2024-distribits-datalad, 2025-distribits-YODA, 2023-bids-dicom, 2023-brain-dandi]  # [index] "borrowed from"
   presentations:
@@ -189,7 +213,7 @@ talks:
   presentations:
   - event: bbqs-2026-workshop
     date: 2026-03-11                                             # [index]
-    presenters: [cody-baker]                                     # [index]
+    presenters: [cody-baker]                                     # [index]; [archive] "CON member Cody Baker presented"
     recordings:
     - youtube: 8NTWKHer5Zo                                       # [zotero] url
       archived_in: [{archive: contube}]                          # [user]

@@ -1,7 +1,12 @@
+associated_with:
+- object: ror:04tfhh831
+  roles:
+  - marcrel:orm
+  schema_type: dlthings:Association
 attributes:
 - predicate: foaf:homepage
   schema_type: dlthings:AttributeSpecification
-  value: https://distribits.live/
+  value: https://www.distribits.live/events/2025-distribits/
 - predicate: schema:location
   schema_type: dlthings:AttributeSpecification
   value: Düsseldorf, Germany (Haus der Universität)

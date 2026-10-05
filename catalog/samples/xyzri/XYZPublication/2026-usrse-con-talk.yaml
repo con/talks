@@ -15,6 +15,10 @@ attributed_to:
   roles:
   - marcrel:aut
   schema_type: dlthings:Attribution
+- object: xyzrins:persons/john-lee
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
 - object: xyzrins:persons/vadim-melnik
   roles:
   - marcrel:aut
@@ -61,6 +65,10 @@ identifiers:
   schema_type: dlthings:Identifier
 - notation: https://zenodo.org/records/22783262
   schema_type: dlthings:Identifier
+- notation: 10.5281/zenodo.22783262
+  schema_type: dlthings:DOI
+- notation: 10.5281/zenodo.22783261
+  schema_type: dlthings:DOI
 kind: fabio:Presentation
 pid: xyzrins:talks/2026-usrse-con-talk
 presented_at:
