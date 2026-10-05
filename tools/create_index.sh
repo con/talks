@@ -14,11 +14,17 @@ cd "$REPO_ROOT"
 OUT="index.html"
 
 # Extract title from an HTML file: first <title>...</title>, fall back to filename.
+# For non-HTML files, fall back to the stem (filename without extension).
 extract_title() {
-    local f="$1" t
-    t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
-    if [ -z "$t" ]; then
-        t=$(basename "$f" .html)
+    local f="$1" t ext
+    ext="${f##*.}"
+    if [ "$ext" = "html" ]; then
+        t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
+        [ -z "$t" ] && t=$(basename "$f" .html)
+    else
+        # Non-HTML talk (e.g. .pdf/.pptx) — use stem as title
+        t=$(basename "$f")
+        t="${t%.*}"
     fi
     # Strip leading/trailing whitespace
     echo "$t" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
@@ -34,10 +40,11 @@ html_escape() {
 }
 
 # Collect & sort talks (reverse: newest first)
-mapfile -t TALKS < <(ls -1 20*.html 2>/dev/null | sort -r)
+# Include .html decks and .pdf exports of non-reveal.js talks (e.g. Google Slides).
+mapfile -t TALKS < <(ls -1 20*.html 20*.pdf 2>/dev/null | sort -r)
 
 if [ "${#TALKS[@]}" -eq 0 ]; then
-    echo "No 20*.html talks found in $REPO_ROOT" >&2
+    echo "No 20*.html / 20*.pdf talks found in $REPO_ROOT" >&2
     exit 1
 fi
 
