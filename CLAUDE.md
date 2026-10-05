@@ -28,6 +28,8 @@ pics/                     — all images (canonical assets are listed in SOUL §
 pics/borrowed/            — third-party images
 3rd-party/                — third-party PDFs cited in slides
 embed/                    — small HTML iframes referenced by some decks
+hedgedoc.html             — viewer for HedgeDoc-markdown decks (?md=…), see README
+tools/hedgedoc-fetch      — fetch such a deck + images into _hedgedoc/ (git-ignored)
 posters/                  — poster sources (separate flow)
 2026-usrse/               — venue-specific drafts: proposal, BoF/poster templates,
                             lineage diagrams

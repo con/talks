@@ -48,6 +48,19 @@ docker run --rm -t --net=host -v `pwd`:/slides astefanutti/decktape http://local
 - The tool [directpoll](https://directpoll.com/) works fantastic for virtual talks. See [#34](https://github.com/datalad-handbook/course/issues/34) or the template talk for info on how to use it
 - We have made good experiences with live code demonstrations. The ``tools/cast_live`` script is used for this. It is highly advised to test whether this script works on your set-up beforehand! 
 
+## Rendering HedgeDoc markdown slides
+
+Decks written for [HedgeDoc](https://hedgedoc.org)'s slide mode (a single markdown file with YAML front matter and `slideOptions`, `---`/`----` horizontal/vertical slide separators, `Note:` speaker notes) can be rendered with the reveal.js of this repository via ``hedgedoc.html``:
+
+```sh
+tools/hedgedoc-fetch https://example.com/talk.md   # markdown + its images -> _hedgedoc/talk/
+python3 -m http.server 8000                        # or: npm start
+# open http://localhost:8000/hedgedoc.html?md=_hedgedoc/talk/talk.md
+```
+
+- For a HedgeDoc note, give ``tools/hedgedoc-fetch`` the ``<note-url>/download`` URL. Fetching is needed for offline use, or when the server of the markdown does not allow cross-origin requests; otherwise ``?md=`` takes any path under the served directory or a URL.
+- Append ``&theme=beige`` (or any other reveal.js theme; HedgeDoc's default is ``white``) or reveal.js options (e.g. ``&slideNumber=c``) to the URL, or ``&print-pdf`` to export to PDF as above.
+
 ## License
 
 CC-BY-SA: You are free to
