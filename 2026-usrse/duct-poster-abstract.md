@@ -2,10 +2,11 @@
 
 ## Presenters
 
-- Austin Macdonald \<austin.s.macdonald@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID 0000-0002-8124-807X
-- Cody C. Baker \<cody.c.baker.phd@gmail.com\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID 0000-0002-0829-4790
-- John A. Lee \<John.A.Lee@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID 0000-0001-5884-4247
-- Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College, ORCID 0000-0003-3456-2493
+- Austin Macdonald \<austin.s.macdonald@dartmouth.edu\>, ORCID 0000-0002-8124-807X
+- Cody C. Baker \<cody.c.baker.phd@gmail.com\>, ORCID 0000-0002-0829-4790
+- John A. Lee \<John.A.Lee@dartmouth.edu\>, ORCID 0000-0001-5884-4247
+- Yaroslav O. Halchenko \<yaroslav.o.halchenko@dartmouth.edu\>, ORCID 0000-0003-3456-2493
+- All: Center for Open Neuroscience, Department of Psychological and Brain Sciences, Dartmouth College
 
 ## Keywords
 
@@ -15,11 +16,11 @@ agentic workflows, provenance, reproducibility, resource monitoring, HPC
 
 Whether trying out a new tool, testing pipelines, or meticulously analyzing data for research, the daily work of RSEs and their agents depends on keeping context lean but relevant.
 The terminal outputs of tools and scripts frequently hold the necessary information, but they are
-often either invisible (and bloating) in an agent's context window, or forgotten after a human's terminal scrolls past the buffer.
+often either bloating an agent's context window, or forgotten after a human's terminal scrolls past the buffer.
 
-`con-duct` is a lightweight, Python-based command line tool: just use `duct <cmd>` instead of pure `<cmd>` to run a command.
-A wrapped run leaves a trail: full stdout and stderr streamed to disk; resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
-While workflow managers or experiment-tracking systems can produce a richer record, `con-duct` strikes a balance, collecting basic provenance with so little effort it can be used on everything, producing uniform records.
+`con-duct` is a lightweight, Python-based command line tool with no third-party dependencies: just use `duct <cmd>` instead of `<cmd>` to run a command.
+A wrapped run leaves a trail: full stdout and stderr streamed to disk (or skipped, for sensitive output); resource usage sampled across the command's process tree; and a record of the invocation, wall clock time, peak memory, exit code, and system and environment details.
+Workflow managers and experiment trackers produce richer records (the poster compares them); `con-duct` collects basic provenance with so little effort it can be used on everything, producing uniform records.
 
 **In daily work**, humans and agents now execute commands side by side.
 Using `con-duct`, the full record stays out of the context window until it is needed.
@@ -31,16 +32,17 @@ Did this run take longer?
  - `con-duct ls -e "exit_code != 0"` lists failures.
  - `con-duct ls -e "peak_rss > 8e9"` finds runs that exceeded a memory budget.
 
-Tools can adopt `con-duct` internally rather than reinventing per-tool monitoring: ReproNim's `containers` [5] and ReproStim [6] both offer it already, and one `con-duct ls` query spans the records from all of them.
+**At the tool level**, projects can adopt `con-duct` internally rather than reinventing per-tool monitoring: ReproNim's `containers` [5] and ReproStim [6] both offer it already, and the same `con-duct ls` queries read their records.
 
-**For research**, the record stops being a convenience, and starts being a part of the provenance chain.
+**For research**, the record stops being a convenience, and starts being a part of the provenance chain [4].
 Pairing `con-duct` with `datalad` (git-based version control for data)[2] is an easy win for rigor.
 `datalad run "duct <cmd> ..."` completes the execution and then commits the diff (including the duct logs).
-The invocation results in a **complete** provenance record binding results of running the command, along with `duct` collected logs, and automated commit message with optional specification of inputs and outputs.
 On HPC, last month's measured wall time and peak memory are already recorded, and can help inform tomorrow's SLURM request.
-**When an expensive job fails**, the bug-report evidence is already on disk, no re-run necessary to file an issue. 
+**When an expensive job fails**, the bug-report evidence is already on disk, no re-run necessary to file an issue.
 
 `con-duct` is on PyPI (`pip install con-duct`), conda-forge, registered as `RRID:SCR_025436`, and developed openly [1].
+The poster shows three real cases: an fMRIPrep run on a SLURM cluster, its five hours of CPU and memory plotted from the record; a Kubernetes upgrade worked deploy by deploy, with every attempt's command, exit code, and wall time kept by `con-duct`; and `duct` wrapped around `duct` to measure its own overhead.
+Keeping agents' work auditable will take more than one tool; `con-duct` is one small piece: a wrapper that makes the agent's work, like the human's, leave a trace.
 
 ```{=latex}
 \newpage

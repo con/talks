@@ -18,6 +18,12 @@ listed in the *Shelved (backdrawer)* section below the active inventory.
 Cross-references in the per-topic lookup point at the shelved path
 (`_backdrawer_/<TALK-ID>.html`).
 
+### `2026-mcgill-mechababs/slides.html` — *mechababs: STAMPED execution of BIDS Apps at scale*
+- **Venue / date**: McGill neuroscience group, 2026-08-11 (20 min + 10 min discussion).
+- **Not a reveal.js deck**: marp source `2026-mcgill-mechababs/slides.md`, built to a self-contained `slides.html` via `datalad run` (marp-cli 4.5.0; `datalad rerun` regenerates it). Lives in its own subdirectory, no root `<TALK-ID>.html`. Slide IDs below do not apply.
+- **Spine**: Why (so many datasets) / How (STAMPED, DataLad) / What (BABS, mechababs) / flow + provenance / gaps / BIDS Study + BEP 028 / nipoppy comparison.
+- **Reusable highlights**: BABS interface + mechababs config-layer split; output-structure and derivative-details slides; provenance-capture slide; BEP 028 "gaps we have already hit" list.
+
 ### `2026-usrse-con-talk.html` — *[WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON*  *(draft)*
 - **Venue / date**: US-RSE'26 (proposal-stage draft; title carries a `[WiP]` marker in the tab and on the title slide).
 - **Spine**: the five-verb spine (Reuse / Compose / Extend / Standardize / **Automate**) plus a "Reuse, in reverse" coda, an Automate section (with the *meta-automation* handoff), and an HI+AI close.
