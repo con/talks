@@ -1,0 +1,5 @@
+description: Oral presentation intended to present information or teach people about
+  a particular subject, such as a talk or poster presentation at a conference.
+name: Presenter
+pid: obo:CRO_0000100
+schema_type: xyzri:XYZAgentRole

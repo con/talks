@@ -1,0 +1,28 @@
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  - obo:CRO_0000100
+  schema_type: dlthings:Attribution
+derived_from:
+- object: xyzrins:talks/2025-distribits-YODA
+  schema_type: dlthings:Derivation
+generated_by:
+- object: xyzrins:projects/yoda
+  schema_type: dlthings:Generation
+- object: xyzrins:projects/datalad
+  schema_type: dlthings:Generation
+- object: xyzrins:projects/con-duct
+  schema_type: dlthings:Generation
+identifiers:
+- notation: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html
+  schema_type: dlthings:Identifier
+kind: fabio:Presentation
+pid: xyzrins:talks/2026-repronim-YODA-BIDS-webinar
+presented_at:
+- at_time: '2026-02-06'
+  object: xyzrins:events/repronim-webinar-2026-02-06
+  schema_type: xyzri:XYZPresentation
+schema_type: xyzri:XYZPublication
+title: 'ReproFlow & YODA: Structure your studies, observable and reproducible they
+  become'
