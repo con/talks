@@ -1,0 +1,110 @@
+name: Preview
+
+# Builds a preview of only the decks (top-level *.html) a pull request adds or
+# changes, together with just the files they use (reveal.js, css/, pics/...),
+# with git-annex'ed content fetched from datasets.datalad.org.
+#
+# Runs with a read-only token, so it is safe for pull requests from forks.
+# The build is handed to `preview-deploy.yml` as an artifact, and that
+# workflow — which runs from the default branch with write access — publishes
+# it to `gh-pages`.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+env:
+  ANNEX_REMOTE_URL: https://datasets.datalad.org/centerforopenneuroscience/talks/.git
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        if: github.event.action != 'closed'
+        uses: actions/checkout@v7
+        with:
+          # full history for git-annex; HEAD is the merge of the pull request
+          # into its base, so HEAD^1 is the base
+          fetch-depth: 0
+
+      - name: Find changed decks
+        id: decks
+        if: github.event.action != 'closed'
+        run: |
+          # top-level *.html only: decks live at the repository root
+          git diff --name-only --diff-filter=AMR HEAD^1 HEAD -- '*.html' \
+            | grep -E '^[^/]+\.html$' > "$RUNNER_TEMP/decks" || true
+          echo "Decks to preview:"
+          cat "$RUNNER_TEMP/decks"
+          if [ -s "$RUNNER_TEMP/decks" ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get reveal.js
+        if: steps.decks.outputs.found == 'true'
+        # not `submodules: true`: 2022-nih-compcore has a relative URL that
+        # only resolves on datasets.datalad.org
+        run: git submodule update --init --depth 1 reveal.js reveal.js-mermaid-plugin
+
+      - name: Set up git-annex
+        if: steps.decks.outputs.found == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq git-annex
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch --no-tags origin '+refs/heads/git-annex:refs/remotes/origin/git-annex'
+          git remote add --fetch datasets.datalad.org "$ANNEX_REMOTE_URL"
+          git annex init --quiet
+
+      - name: Build site
+        if: steps.decks.outputs.found == 'true'
+        run: |
+          mapfile -t DECKS < "$RUNNER_TEMP/decks"
+          python3 tools/build_preview.py preview-site "${DECKS[@]}" | tee "$RUNNER_TEMP/build.log"
+          if grep -q '^MISSING: ' "$RUNNER_TEMP/build.log"; then
+            {
+              echo "### Files not available for the preview"
+              echo
+              echo "Not on any reachable annex remote yet (e.g. not pushed to datasets.datalad.org), or referenced but nonexistent:"
+              echo
+              sed -n 's/^MISSING: \(.*\)/- `\1`/p' "$RUNNER_TEMP/build.log"
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload site
+        if: steps.decks.outputs.found == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-site
+          path: preview-site/
+          include-hidden-files: true
+          retention-days: 1
+
+      - name: Record pull request
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+          PREVIEW_ACTION: ${{ github.event.action == 'closed' && 'remove' || (steps.decks.outputs.found == 'true' && 'deploy' || 'skip') }}
+        run: |
+          mkdir -p preview-meta
+          echo "$PR_NUMBER" > preview-meta/pr-number
+          echo "$PREVIEW_ACTION" > preview-meta/action
+          if [ "$PREVIEW_ACTION" = deploy ]; then
+            cp "$RUNNER_TEMP/decks" preview-meta/decks
+          fi
+
+      - name: Upload pull request record
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-meta
+          path: preview-meta/
+          retention-days: 1
