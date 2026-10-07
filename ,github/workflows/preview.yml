@@ -1,0 +1,66 @@
+name: Preview
+
+# Run manually (Actions -> Preview -> Run workflow) with a pull request
+# number to publish, under `pr-preview/pr-<N>/` on the `gh-pages` branch, a
+# preview of only the decks (top-level *.html) that pull request adds or
+# changes, together with just the files they use (reveal.js, css/, pics/...),
+# with git-annex'ed content fetched from datasets.datalad.org.
+# Run it with `remove` to delete that preview again.
+#
+# The pull request's content is built with a read-only token; only the
+# resulting files are handed to the deploy job, which has write access.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number
+        required: true
+        type: number
+      action:
+        description: Deploy or remove the preview
+        required: true
+        type: choice
+        options:
+          - deploy
+          - remove
+        default: deploy
+
+concurrency:
+  group: preview-${{ inputs.pr }}
+  cancel-in-progress: false
+
+env:
+  ANNEX_REMOTE_URL: https://datasets.datalad.org/centerforopenneuroscience/talks/.git
+
+jobs:
+  build-preview:
+    if: inputs.action == 'deploy'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      decks: ${{ steps.decks.outputs.decks }}
+      head-sha: ${{ steps.pr.outputs.head-sha }}
+    steps:
+      - name: Look up pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.pr }}
+        run: |
+          read -r STATE HEAD_SHA < <(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.state + " " + .head.sha')
+          if [[ "$STATE" != open ]]; then
+            echo "::error::Pull request #$PR_NUMBER is $STATE."
+            exit 1
+          fi
+          echo "head-sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # the merge of the pull request into its base, so HEAD^1 is the
+          # base; full history for git-annex
+          ref: refs/pull/${{ inputs.pr }}/merge
+          fetch-depth: 0
