@@ -1,0 +1,690 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>Open Neuroscience Infrastructure for Intracranial EEG</title>
+		<meta name="description" content="Dartmouth/DH Human Intracranial Electrophysiology Consortium, October 9th 2026. A tour of the open-neuroscience toolbelt (BIDS, NWB, DataLad, STAMPED, archives) and an invitation to help bridge academia and the clinic.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+<!--
+  DRAFT for review. TODO markers throughout flag content that needs
+  input from Cody Baker or is explicitly out of scope for this first
+  draft. See 2026-dhmc-ieeg/NOTES.md for the original brief.
+-->
+
+
+<!-- ============================================================ -->
+<!-- Title                                                         -->
+<!-- ============================================================ -->
+<section>
+  <section>
+	<a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
+	<h2 style="margin-top:0.3em;margin-bottom:0.3em;">Open Neuroscience Infrastructure for Intracranial EEG</h2>
+	<p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.8em;font-style:italic;">
+	  <strong>A toolbelt, not one solution &mdash; and an invitation to help bridge academia and the clinic</strong>
+	</p>
+
+	<div style="margin-top:0.3em;text-align:center">
+	<table style="border: none;">
+	<tr>
+	  <td style="vertical-align:top">
+		Yaroslav O. Halchenko<br>
+		<small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+		<small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+	  </td>
+	  <td style="vertical-align:top">
+		Cody Baker<br>
+		<small>cody.c.baker.phd@gmail.com</small><br>
+		<small><a href="https://orcid.org/0000-0002-0829-4790" target="_blank">ORCID 0000-0002-0829-4790</a></small>
+	  </td>
+	</tr>
+	<tr>
+	  <td colspan="2">
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+		  <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+		  <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College, New Hampshire, USA</a></small>
+		<img style="width:160px; margin: 0px" data-src="pics/2026-dhmc-ieeg-qrcode.png"/>
+	  </td>
+	</tr>
+	</table>
+	</div>
+
+	<small>
+	  <strong>Dartmouth/DH Human Intracranial Electrophysiology Consortium &mdash; October 9th, 2026</strong><br/>
+	  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-dhmc-ieeg.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-dhmc-ieeg.html</a>
+	</small>
+	<br>
+	<small>
+	  <a href="http://datalad.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/datalad_D.svg"/></a>
+	  <a href="http://neuro.debian.net" target="_blank"><img style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
+	  <a href="http://repronim.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/repronim-logo-vertical.svg"/></a>
+	  <a href="https://open-brain-consent.readthedocs.io" target="_blank"><img style="height:100px;margin:15px" data-src="pics/OBC_LogoCheck.svg"/></a>
+	  <a href="https://dandiarchive.org" target="_blank"><img style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
+	  <a href="https://bids.neuroimaging.io/" target="_blank"><img style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
+	  <a href="https://standforukraine.com/" target="_blank"><img style="height:100px;margin:15px" data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+	</small>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Opener: interactive + toolbelt framing                       -->
+<!-- ============================================================ -->
+<section>
+  <section>
+	<h2>Before we start</h2>
+	<p style="font-size:1.3em;margin-top:1em;">What does <em>your</em> pipeline look like today?</p>
+	<p class="fragment">acquisition &rarr; preprocessing &rarr; analysis &rarr; sharing (or not)</p>
+	<p class="fragment"><em>(~5 min &mdash; we'll shape the rest of the talk around what you tell us)</em></p>
+	<aside class="notes">
+	  Deliberate agenda item, not an informal aside &mdash; actually budget
+	  the 5 minutes. Use the answers to decide which later sections to
+	  linger on vs. skip.
+	</aside>
+  </section>
+
+  <section>
+	<h2>One toolbelt, not one solution</h2>
+	<ul>
+	  <li class="fragment">"Many sizes fit all" &mdash; no single tool or standard solves everything</li>
+	  <li class="fragment">You don't have to "buy in 100%" &mdash; pieces compose, and are useful alone</li>
+	  <li class="fragment">Everything today is a <strong>pointer</strong>: a name, a URL, a reason to look closer &mdash;
+		not a deep technical tutorial</li>
+	</ul>
+	<aside class="notes">
+	  Many-lenses-one-stack framing (SOUL.md &sect;1): the same stack can be
+	  read as Models/Views/Controllers, as STAMPED, as FAIR, as YODA, as
+	  SciOps maturity &mdash; pick whichever lens helps in the moment.
+	</aside>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- The Gap: academia <-> clinic                                  -->
+<!-- ============================================================ -->
+<section>
+  <section>
+	<h2>Where this is going</h2>
+	<p>Two worlds that talk past each other &mdash; and a group sitting exactly in the middle</p>
+
+	<style>.gap-diagram svg { width: 1150px !important; height: auto !important; }</style>
+	<div class="mermaid gap-diagram">
+	  <pre>
+graph LR
+  A[Academia / open neuroscience] -. weak .-> B(DHMC iEEG group - already here) -. weak .-> C[Clinic / hardware / vendors]
+  classDef aca fill:#dff0d8,stroke:#3c763d;
+  classDef bridge fill:#fcf8e3,stroke:#8a6d3b;
+  classDef clin fill:#d9edf7,stroke:#31708f;
+  class A aca
+  class B bridge
+  class C clin
+	  </pre>
+	</div>
+
+	<table style="width:100%;font-size:0.5em;margin-top:0.5em;border:none;">
+	  <tr style="vertical-align:top">
+		<td style="width:33%;text-align:left;">BIDS / HED, NWB, DataLad,<br/>OpenNeuro / NEMAR / DANDI</td>
+		<td style="width:33%;text-align:center;">DICOM WG-16 &harr; BIDS, neuroconv, OBC (consent)</td>
+		<td style="width:33%;text-align:right;">Natus / Blackrock / Ripple /<br/>Nihon Kohden / Medtronic, DICOM, PACS, EHR/EMR</td>
+	  </tr>
+	</table>
+	<aside class="notes">
+	  Centerpiece slide. The claim: standards-and-tools culture on the
+	  left mostly doesn't talk to acquisition-hardware-and-clinical-IT
+	  culture on the right. Intracranial EEG researchers sit in both
+	  worlds already (clinical acquisition for epilepsy monitoring +
+	  research analysis) &mdash; that's the liaison opportunity this talk
+	  is building toward (see closing section).
+	</aside>
+  </section>
+
+  <section data-transition="slide" data-background-color="#2f2a22">
+	<!-- The source figure is white line-art on a transparent background --
+		 needs a dark slide background to be visible (it's meant to be
+		 viewed that way; on the default beige theme it disappears). -->
+	<h2 style="color:#f5efe0;">Carrots, not (only) sticks</h2>
+	<img data-src="pics/borrowed/human+carrot.png" style="height:550px;"/>
+	<p style="font-size:0.6em;color:#cfc6b0;">
+	  Figure from M. Hanke, <em>"Carrots! Not sticks!"</em>
+	  <a href="https://hedgedoc.psychoinformatics.de/p/gBE63_ytiE" target="_blank" style="color:#e8c37a;">hedgedoc.psychoinformatics.de/p/gBE63_ytiE</a>
+	</p>
+  </section>
+
+  <section>
+	<h2>What pulls people toward standards</h2>
+	<ul>
+	  <li class="fragment"><strong>Carrots</strong> &mdash; the standards themselves: free tools, free archive storage,
+		"someone else already solved this", collaborators who can actually read your data</li>
+	  <li class="fragment"><strong>Sticks</strong> exist too &mdash; mostly from funders and journals:
+		NIH Data Management &amp; Sharing Policy, journal data-availability requirements</li>
+	  <li class="fragment">Our pitch today is almost entirely carrots &mdash; the stick is already pulling on everyone;
+		we're here to make the carrot side concrete</li>
+	</ul>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Standards: BIDS basics (high-level, pointer-heavy)            -->
+<!-- ============================================================ -->
+<section>
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+## Standards as an enabler for tooling
+
+"Cool stuff (visualization, turnkey apps) is possible only because of boring stuff (standards)"
+
+----
+
+### Why do we need standards?
+
+> Researcher A collects data, publishes a paper. Researcher B requests the data.
+> The data arrive &mdash; organized however Researcher A felt like organizing them.
+> Researcher B gives up.
+
+<small>adapted from Rokem/Gau/Halchenko, <code>202404xx-NSF-POSE-BIDS</code></small>
+
+----
+
+### BIDS: Brain Imaging Data Structure
+
+<img data-src="pics/bids-logo-wide.png" style="width:900px;"/>
+
+<small>
+  <a href="https://www.nature.com/articles/sdata201644">Gorgolewski, K. J. et al. (incl. <b>Halchenko, Y. O.</b>) (2016).
+  The brain imaging data structure... Scientific Data, 3:160044</a>
+</small>
+
+- a standard for organizing and describing neuroscience data
+- a set of tools and services that use it (validators, BIDS-Apps, PyBIDS, ...)
+- a community that develops, maintains, and extends it &mdash; **200,000+ individuals'** data stored in BIDS today
+
+----
+
+### Modular, like separating pasta ingredients from the dish
+
+- **sourcedata/** &mdash; raw ingredients, kept as-is
+- **derivatives/** &mdash; each processing pipeline's output, separate and swappable
+- "you've seen one BIDS dataset, you've seen them all" &mdash; `sub-<label>/[ses-<label>/]<datatype>/`
+
+<small>analogy via Rémi Gau, <a href="https://doi.org/10.5281/zenodo.5863713">10.5281/zenodo.5863713</a></small>
+
+----
+
+### iEEG is a first-class BIDS citizen
+
+- **BEP010** &mdash; intracranial EEG extension
+  (<a href="https://doi.org/10.1038/s41597-019-0105-7">Holdgraf et al., Scientific Data, 2019</a>)
+- `channels.tsv` &mdash; per-channel metadata (type, sampling frequency, status)
+- `electrodes.tsv` &mdash; electrode coordinates; clarified **REQUIRED** for iEEG in
+  <a href="https://github.com/bids-standard/bids-specification/pull/1896">bids-specification PR#1896</a> (v1.10.1)
+- **HED** (Hierarchical Event Descriptor) tags for event annotation &mdash; see NEMAR, next section
+
+----
+
+### Inheritance: don't repeat 320 JSON files
+
+40 subjects &times; 2 sessions &times; 4 runs = 320 files to edit? No &mdash;
+one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridden.
+
+	</textarea>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- NWB (Cody's section)                                          -->
+<!-- ============================================================ -->
+<section>
+  <!-- TODO (Cody): spectrogram plugin example still to come. -->
+  <section>
+	<h2>NWB: one file format for all modalities + metadata</h2>
+	<img data-src="pics/2026-dhmc-ieeg-nwb-one-for-all.svg" style="width:1250px;"/>
+	<aside class="notes">
+	  Neurodata Without Borders: open standard for neurophysiology data
+	  (spikes, LFP, behavior, imaging, ...) in a single self-describing,
+	  HDF5- or Zarr-backed file &mdash; data and metadata travel together.
+	</aside>
+  </section>
+
+  <section>
+	<img data-src="pics/2026-dhmc-ieeg-nwb-convert-scale.svg" style="width:1250px;"/>
+	<aside class="notes">
+	  Pick the point on the automated &harr; flexible scale that fits:
+	  GUIDE (no code, GUI), NeuroConv (low code, common formats),
+	  PyNWB / MatNWB (custom code against the NWB APIs).
+	</aside>
+  </section>
+
+  <section>
+	<img data-src="pics/2026-dhmc-ieeg-neuroconv-formats.svg" style="width:1250px;"/>
+	<p style="font-size:0.6em;">
+	  <a href="https://neuroconv.readthedocs.io/" target="_blank">neuroconv.readthedocs.io</a>
+	</p>
+	<aside class="notes">
+	  NeuroConv format coverage &mdash; a concrete bridge from
+	  clinical/proprietary acquisition hardware (Blackrock, Neuralynx,
+	  EDF, ...) into NWB. Greyed-out entries are in progress.
+	</aside>
+  </section>
+
+  <section>
+	<h2>Neurosift: stream, don't download</h2>
+	<ul>
+	  <li>Browser-based NWB viewer &mdash; no download required, works directly against DANDI</li>
+	  <li>Open-source</li>
+	  <li>New <strong>event-related signals</strong> view: align any time series to any column
+		of a trials/intervals table, pick channels, group trials by a condition</li>
+	</ul>
+	<p>
+	  One known iEEG NWB example on DANDI:
+	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
+	  &mdash; TODO: find/convert a second example with spectrograms if one exists.
+	</p>
+	<aside class="notes">
+	  Live demo won't work well over this group's Zoom &mdash; the next three
+	  slides are screenshots; each title links to the live view.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2F92e831a1-3427-4e06-9934-30d202bcc02d%2Fdownload%2F&amp;dandisetId=000409&amp;dandisetVersion=0.260309.1324&amp;tab=view%3AEventRelatedSignal%7C%2Fintervals%2Ftrials%5E%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy#ta_series=%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy&amp;ta_groupby=gabor_stimulus_contrast&amp;ta_align=auditory_cue_time&amp;ta_win=-4%2C4" target="_blank">Example 1: behavior, grouped by condition</a></h3>
+	<img data-src="pics/neurosift-event-related-motion-energy-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  Camera motion energy, aligned to <code>auditory_cue_time</code>,
+	  grouped by <code>gabor_stimulus_contrast</code>
+	  &mdash; <a href="https://dandiarchive.org/dandiset/000409" target="_blank">DANDI:000409</a>
+	</p>
+	<aside class="notes">
+	  Solid lines are per-group means, dashed are spread, faint lines are
+	  individual trials. Motion energy dips into the cue, then rebounds
+	  after it &mdash; and the rebound separates by stimulus contrast.
+	  Everything here is streamed from DANDI; nothing downloaded.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2F7a2d22aa-b7c3-43e6-a1e0-129a37bf8ffc%2Fdownload%2F&amp;dandisetId=001539&amp;dandisetVersion=0.250815.1203&amp;tab=view%3ATimeAlignedSeries%7C%2Fintervals%2Ftrials%5E%2Fprocessing%2Fbehavior%2FPosition%2FSpatialSeries#ta_series=%2Fprocessing%2Fecephys%2FLFP%2FElectricalSeries&amp;ta_align=reward_start_time&amp;ta_channels=0%2C2%2C4" target="_blank">Example 2: LFP aligned to reward</a></h3>
+	<img data-src="pics/neurosift-event-related-lfp-reward-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  LFP aligned to <code>reward_start_time</code>, channels 0, 2, 4
+	  &mdash; <a href="https://dandiarchive.org/dandiset/001539" target="_blank">DANDI:001539</a>
+	</p>
+	<aside class="notes">
+	  Trials without a reward time are skipped and reported in the title
+	  ("68 of 95 intervals; 27 without reward_start_time"). Clear evoked
+	  deflection right after reward onset on every selected channel.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2Ffe5b6b44-12a6-4f59-a91f-953850564fb0%2Fdownload%2F&amp;dandisetId=001637&amp;dandisetVersion=draft&amp;tab=view%3ATimeAlignedSeries%7C%2Fintervals%2F40+hz+pulse+train_presentations%5E%2Facquisition%2Fraw_running_wheel_rotation#ta_series=%2Fprocessing%2Fecephys%2FLFP%2FElectricalSeriesProbeD-LFP&amp;ta_channels=5%2C22%2C25%2C32" target="_blank">Example 3: LFP around stimulus presentations</a></h3>
+	<img data-src="pics/neurosift-event-related-lfp-40hz-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  40&nbsp;Hz pulse-train presentations, probe&nbsp;D LFP, channels 5, 22, 25, 32
+	  &mdash; <a href="https://dandiarchive.org/dandiset/001637" target="_blank">DANDI:001637</a>
+	</p>
+	<aside class="notes">
+	  Any intervals table works, not just "trials" &mdash; here the
+	  stimulus-presentation table. Transient at pulse-train onset, then a
+	  slower negative deflection around 1&nbsp;s.
+	</aside>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Archives                                                      -->
+<!-- ============================================================ -->
+<section>
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+## Archives: free backup, open by design
+
+----
+
+### NEMAR &mdash; Neuroelectromagnetic Data Archive and Tools Resource
+
+<img data-src="pics/nemar-dataexplorer-20261006.png" style="width:1000px;"/>
+
+[nemar.org](https://nemar.org) &mdash; SCCN + SDSC, UC San Diego (NIH/NIMH R24MH120037)
+
+----
+
+### NEMAR, verified facts (as of 2026-10-05)
+
+- Covers **EEG, MEG, iEEG, EMG** &mdash; iEEG is first-class, not an afterthought
+- Auto-mirrors new public OpenNeuro EEG/MEG/iEEG datasets within ~24h, BIDS-formatted
+- **762 datasets, ~40K participants, 59.2 TB** hosted today
+- Built-in **HED** annotation support + search/filter by HED coverage
+- Compute bridge to SDSC / Neuroscience Gateway &mdash; analyze without downloading
+- An experimental "NEMAR Assistant" chatbot answers questions and plots recordings
+  (general-purpose today, not a dedicated HED-annotation generator &mdash;
+  that piece is still aspirational)
+
+----
+
+### DANDI &mdash; the broader NWB-centric archive
+
+<img data-src="pics/dandi-slide-modalities.svg" style="width:900px;"/>
+
+[dandiarchive.org](https://dandiarchive.org) &mdash; also hosts iEEG data in NWB form (see ds008610 above)
+
+----
+
+### EMBER &mdash; new since your notes were written
+
+<img data-src="pics/borrowed/ember-archive-webshot-20261005.png" style="width:950px;"/>
+
+Official BRAIN Initiative archive for the **BBQS** program (JHU/APL-led, with **Dartmouth/CON**),
+live since 2024, built on DANDI infrastructure. [emberarchive.org](https://emberarchive.org)
+
+	</textarea>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- RDM / toolbelt practices                                      -->
+<!-- ============================================================ -->
+<section>
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+## RDM: Data Management
+
+----
+
+### `datalad run` &mdash; version control for outcomes, not just code
+
+```
+datalad run -m "run preprocessing" \
+  "python preprocess.py {inputs} {outputs}"
+```
+
+- captures exact command, inputs, outputs, environment as a git commit
+- `datalad rerun` replays it later, on different data, to check it still works
+- works over arbitrarily large (binary) data via `git-annex`
+
+----
+
+### STAMPED &mdash; one slide
+
+<img data-src="pics/stamped-principles-webshot_20260602.png" style="width:900px;"/>
+
+**S**elf-contained, **T**racked, **A**ctionable, **M**odular, **P**ortable, **E**phemeral, **D**istributable
+
+<small><a href="https://stamped-principles.org/">stamped-principles.org</a> &mdash;
+Macdonald, Baker, To, Halchenko (2026); Cody's deeper dive: BBQS workshop slides (<code>2026-bbqs-stamped</code>)</small>
+
+----
+
+### (Meta)BIDS-Study: self-containment + modularity together
+
+<img data-src="pics/openneuro-studies-webshot_20260602.png" style="width:900px;"/>
+
+<a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a> &mdash;
+a dataset of datasets, each still independently valid BIDS
+
+	</textarea>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Compute (pointer-weight)                                      -->
+<!-- ============================================================ -->
+<section>
+  <section>
+	<h2>Compute: pointers only</h2>
+	<ul>
+	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
+	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
+		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
+	  <li>DANDI Compute &mdash; standardized processing of NWB data on DANDI (next slides)</li>
+	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
+	</ul>
+  </section>
+
+  <!-- The DANDI Compute figure is a tall poster (1680x2421); the first slide
+	   shows it whole, the following ones crop the same SVG (scaled to
+	   1300px wide, i.e. x0.774) to one panel each. -->
+  <section>
+	<style>
+	  .dc-crop { width:1300px; overflow:hidden; margin:0 auto; }
+	  .reveal .dc-crop img { width:1300px; max-width:none; max-height:none; margin:0; border:none; box-shadow:none; }
+	</style>
+	<h3>DANDI Compute</h3>
+	<img class="r-stretch" data-src="pics/dandi-compute-figure.svg"/>
+	<aside class="notes">
+	  Runs the Allen Institute for Neural Dynamics electrophysiology
+	  pipeline over NWB data on DANDI. Spike-sorting outputs are packaged
+	  as nested BIDS-derivative units; each leaf carries the exact code,
+	  runtime logs, outputs, and provenance metadata needed to re-execute
+	  it &mdash; STAMPED end-to-end (see the STAMPED slide).
+	  Overview only &mdash; the next slides zoom into each panel.
+	</aside>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: orchestration</h3>
+	<div class="dc-crop" style="height:790px;">
+	  <img data-src="pics/dandi-compute-figure.svg"/>
+	</div>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: the spike-sorting pipeline</h3>
+	<div class="dc-crop" style="height:360px;">
+	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-822px;"/>
+	</div>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: the derivative it produces</h3>
+	<div class="dc-crop" style="height:580px;">
+	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-1216px;"/>
+	</div>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Visions for the future                                        -->
+<!-- ============================================================ -->
+<section>
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+## Visions for the future
+
+----
+
+### Mass preprocessed data, reused with confidence
+
+- "Mass compute" (see mechababs) makes mass-preprocessing tractable
+- Goal: future "meta-studies" / multiverse analyses that trust someone else's preprocessing
+  because STAMPED provenance makes it checkable
+
+----
+
+### Knowledge bases: from local to global
+
+<div style="display:flex;justify-content:space-around;align-items:flex-start;">
+<div><img data-src="pics/borrowed/brainkb-webshot-20261006.png" style="width:440px;"/><br/>
+  <small><a href="https://brainkb.org">BrainKB</a> &mdash; NIH-funded open neuroscience knowledge graph
+  (BICAN, ReproNim, BBQS, Brain Connects)</small></div>
+<div><img data-src="pics/borrowed/ebrains-kg-webshot-20261006.png" style="width:440px;"/><br/>
+  <small><a href="https://ebrains.eu">EBRAINS Knowledge Graph</a> &mdash; EU openMINDS-based
+  semantic metadata graph</small></div>
+</div>
+
+----
+
+### ORINOCO / ORINOCO-Lite &mdash; our own tooling, not an external project
+
+- `dump-things-service` &mdash; self-hostable LinkML-based structured-metadata store
+- `ORINOCO-Lite` &mdash; GitHub-native deployments, already running for CON and
+  Psychoinformatics group sites
+- Local knowledge bases that could, in principle, federate upward into
+  BrainKB / EBRAINS-scale graphs
+
+	</textarea>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Bridge-building: the liaison ask                              -->
+<!-- ============================================================ -->
+<section>
+  <section data-transition="slide">
+	<h1>All standards are "Bad"<sup>*</sup>,<br>but some are used</h1>
+	<p>* ref: D. Clunie, MICCAI 2017</p>
+  </section>
+
+  <section>
+	<h2>Two widely-used standards which could cooperate more</h2>
+	<p>BIDS (academia) and DICOM (clinic/vendors) &mdash; same underlying problem,
+	   different communities, thin collaboration today</p>
+	<small>see <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-bids-dicom.html">2023-bids-dicom.html</a>
+	  (BIDS 4 DICOM WG-16 talk) for the longer version of this argument</small>
+	<!-- NOTE: NOTES.md said "WG-32" -- the existing 2023 talk and its
+		 source materials say WG-16. Please confirm which is meant
+		 before this goes out; using WG-16 here since that's what we
+		 can verify. -->
+  </section>
+
+  <section>
+	<h2>How could we collaborate on metadata that matters clinically?</h2>
+	<ul>
+	  <li>Should individual labs channel requests to manufacturers one at a time,
+		or could DICOM Working Groups (e.g. WG-16) help coordinate?</li>
+	  <li>Proposition: a library of concrete DICOM&harr;BIDS/NWB conversions,
+		per manufacturer and modality</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>You're already standing in the gap</h2>
+	<ul>
+	  <li class="fragment">This group runs clinical iEEG acquisition <em>and</em> does research analysis &mdash;
+		both worlds, already, every day</li>
+	  <li class="fragment">That makes you natural informants for <code>neuroconv</code> format support,
+		BEP010 edge cases, and DICOM&harr;BIDS/NWB conversion libraries</li>
+	  <li class="fragment"><strong>Ask</strong>: who else should be in that room? what hardware/format
+		gaps have you hit that we should know about?</li>
+	</ul>
+  </section>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Take-home                                                     -->
+<!-- ============================================================ -->
+<section data-markdown>
+  <textarea data-template>
+
+## Monday checklist
+
+- Browse [nemar.org](https://nemar.org) or [dandiarchive.org](https://dandiarchive.org) &mdash; find a dataset like yours
+- Skim the [BIDS iEEG spec](https://bids-specification.readthedocs.io/) section (BEP010)
+- Tell us: what hardware/format gap should be on our radar?
+- Keep the conversation going &mdash; this is a toolbelt, pick what's useful, ignore the rest
+
+  </textarea>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- Acknowledgements                                              -->
+<!-- ============================================================ -->
+<section>
+  <h2>Acknowledgements</h2>
+  <table>
+  <tr style="vertical-align:top">
+	<td style="vertical-align:top">
+	  <dl>
+		<dt>Collaborators &amp; sources</dt>
+		<dd style="margin-left:5px!important">
+		  <ul style="margin-left:5px!important">
+			  <li>Ariel Rokem, Rémi Gau &mdash; BIDS-101 slide material</li>
+			  <li>Michael Hanke &mdash; "Carrots! Not sticks!" figure</li>
+			  <li>Austin Macdonald &mdash; mechababs</li>
+			  <li>SCCN/NEMAR, EMBER/BBQS, BrainKB, EBRAINS teams</li>
+		  </ul>
+		</dd>
+	  </dl>
+	</td>
+	<td style="vertical-align:top">
+	  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
+	  <img style="height:150px;margin-right:10px" data-src="pics/borrowed/nsf_2020.png" />
+	  <img style="height:150px;margin-right:10px" data-src="pics/borrowed/nih.png" />
+	  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
+	  <img style="height:100px;margin:20px" data-src="pics/borrowed/repronim_logo.svg" />
+	  <img style="height:120px;margin:20px" data-src="pics/borrowed/openneuro_logo.png" />
+	  <img style="height:140px;margin:20px" data-src="pics/borrowed/dandi_logo.svg" />
+	</td>
+  </tr>
+  </table>
+</section>
+
+<section data-transition-speed="zoom">
+  <h1>Thank you!</h1>
+  <h2>Questions &amp; discussion</h2>
+</section>
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+		  Reveal.initialize({
+			hash: true,
+			width: 1400, height: 1050,
+			margin: 0.1,
+			minScale: 0.2, maxScale: 1.0,
+			progress: true, history: true, center: true,
+			controls: true, slideNumber: 'c',
+			pdfSeparateFragments: false,
+			pdfMaxPagesPerSlide: 1,
+			pdfPageHeightOffset: -1,
+			transition: ['slide', 'fade'],
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+		  });
+		</script>
+	</body>
+</html>
