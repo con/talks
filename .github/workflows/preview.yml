@@ -1,62 +1,89 @@
 name: Preview
 
-# Builds a preview of only the decks (top-level *.html) a pull request adds or
+# Run manually (Actions -> Preview -> Run workflow) with a pull request
+# number to publish, under `pr-preview/pr-<N>/` on the `gh-pages` branch, a
+# preview of only the decks (top-level *.html) that pull request adds or
 # changes, together with just the files they use (reveal.js, css/, pics/...),
 # with git-annex'ed content fetched from datasets.datalad.org.
+# Run it with `remove` to delete that preview again.
 #
-# Runs with a read-only token, so it is safe for pull requests from forks.
-# The build is handed to `preview-deploy.yml` as an artifact, and that
-# workflow — which runs from the default branch with write access — publishes
-# it to `gh-pages`.
+# The pull request's content is built with a read-only token; only the
+# resulting files are handed to the deploy job, which has write access.
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number
+        required: true
+        type: number
+      action:
+        description: Deploy or remove the preview
+        required: true
+        type: choice
+        options:
+          - deploy
+          - remove
+        default: deploy
 
-concurrency: preview-${{ github.ref }}
+concurrency:
+  group: preview-${{ inputs.pr }}
+  cancel-in-progress: false
 
 env:
   ANNEX_REMOTE_URL: https://datasets.datalad.org/centerforopenneuroscience/talks/.git
 
 jobs:
   build-preview:
+    if: inputs.action == 'deploy'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: read
+    outputs:
+      decks: ${{ steps.decks.outputs.decks }}
+      head-sha: ${{ steps.pr.outputs.head-sha }}
     steps:
+      - name: Look up pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.pr }}
+        run: |
+          read -r STATE HEAD_SHA < <(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.state + " " + .head.sha')
+          if [[ "$STATE" != open ]]; then
+            echo "::error::Pull request #$PR_NUMBER is $STATE."
+            exit 1
+          fi
+          echo "head-sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
-        if: github.event.action != 'closed'
         uses: actions/checkout@v7
         with:
-          # full history for git-annex; HEAD is the merge of the pull request
-          # into its base, so HEAD^1 is the base
+          # the merge of the pull request into its base, so HEAD^1 is the
+          # base; full history for git-annex
+          ref: refs/pull/${{ inputs.pr }}/merge
           fetch-depth: 0
 
       - name: Find changed decks
         id: decks
-        if: github.event.action != 'closed'
         run: |
           # top-level *.html only: decks live at the repository root
-          git diff --name-only --diff-filter=AMR HEAD^1 HEAD -- '*.html' \
-            | grep -E '^[^/]+\.html$' > "$RUNNER_TEMP/decks" || true
-          echo "Decks to preview:"
-          cat "$RUNNER_TEMP/decks"
-          if [ -s "$RUNNER_TEMP/decks" ]; then
-            echo "found=true" >> "$GITHUB_OUTPUT"
+          DECKS=$(git diff --name-only --diff-filter=AMR HEAD^1 HEAD -- '*.html' \
+            | grep -E '^[A-Za-z0-9][A-Za-z0-9._+-]*\.html$' | tr '\n' ' ' || true)
+          if [ -z "$DECKS" ]; then
+            echo "::error::Pull request #${{ inputs.pr }} changes no decks; nothing to preview."
+            exit 1
           fi
+          echo "Decks to preview: $DECKS"
+          echo "decks=$DECKS" >> "$GITHUB_OUTPUT"
 
       - name: Get reveal.js
-        if: steps.decks.outputs.found == 'true'
         # not `submodules: true`: 2022-nih-compcore has a relative URL that
         # only resolves on datasets.datalad.org
         run: git submodule update --init --depth 1 reveal.js reveal.js-mermaid-plugin
 
       - name: Set up git-annex
-        if: steps.decks.outputs.found == 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq git-annex
@@ -67,9 +94,10 @@ jobs:
           git annex init --quiet
 
       - name: Build site
-        if: steps.decks.outputs.found == 'true'
+        env:
+          DECKS: ${{ steps.decks.outputs.decks }}
         run: |
-          mapfile -t DECKS < "$RUNNER_TEMP/decks"
+          read -ra DECKS <<< "$DECKS"
           python3 tools/build_preview.py preview-site "${DECKS[@]}" | tee "$RUNNER_TEMP/build.log"
           if grep -q '^MISSING: ' "$RUNNER_TEMP/build.log"; then
             {
@@ -82,7 +110,6 @@ jobs:
           fi
 
       - name: Upload site
-        if: steps.decks.outputs.found == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: preview-site
@@ -90,21 +117,73 @@ jobs:
           include-hidden-files: true
           retention-days: 1
 
-      - name: Record pull request
-        env:
-          PR_NUMBER: ${{ github.event.number }}
-          PREVIEW_ACTION: ${{ github.event.action == 'closed' && 'remove' || (steps.decks.outputs.found == 'true' && 'deploy' || 'skip') }}
-        run: |
-          mkdir -p preview-meta
-          echo "$PR_NUMBER" > preview-meta/pr-number
-          echo "$PREVIEW_ACTION" > preview-meta/action
-          if [ "$PREVIEW_ACTION" = deploy ]; then
-            cp "$RUNNER_TEMP/decks" preview-meta/decks
-          fi
+  deploy-preview:
+    needs: build-preview
+    # also run for `remove`, where the build is skipped
+    if: ${{ !cancelled() && (inputs.action == 'remove' || needs.build-preview.result == 'success') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
 
-      - name: Upload pull request record
-        uses: actions/upload-artifact@v7
+      - name: Download site
+        if: inputs.action == 'deploy'
+        uses: actions/download-artifact@v8
         with:
-          name: preview-meta
-          path: preview-meta/
-          retention-days: 1
+          name: preview-site
+          path: preview-site
+
+      - name: Deploy preview
+        id: preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: preview-site
+          preview-branch: gh-pages
+          action: ${{ inputs.action }}
+          pr-number: ${{ inputs.pr }}
+          deploy-commit-message: Deploy preview for PR ${{ inputs.pr }}
+          remove-commit-message: Remove preview for PR ${{ inputs.pr }}
+          # The action's own comment looks for the pull request in the
+          # triggering event, which `workflow_dispatch` does not carry.
+          comment: false
+
+      - name: Compose preview comment
+        if: inputs.action == 'deploy'
+        env:
+          PREVIEW_URL: ${{ steps.preview.outputs.preview-url }}
+          HEAD_SHA: ${{ needs.build-preview.outputs.head-sha }}
+          DECKS: ${{ needs.build-preview.outputs.decks }}
+          DEPLOYMENTS_URL: ${{ github.server_url }}/${{ github.repository }}/deployments
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo ":rocket: Preview of $HEAD_SHA:"
+            echo
+            for deck in $DECKS; do
+              echo "- [$deck](${PREVIEW_URL%/}/$deck)"
+            done
+            echo
+            echo "It will be live once the [GitHub Pages deployment]($DEPLOYMENTS_URL) finishes."
+            echo "Images whose git-annex content is not on datasets.datalad.org yet are listed in the [build summary]($RUN_URL)."
+            echo "Re-run the [Preview workflow](${{ github.server_url }}/${{ github.repository }}/actions/workflows/preview.yml) to update it."
+          } > "$RUNNER_TEMP/comment.md"
+
+      - name: Comment preview link
+        if: inputs.action == 'deploy'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: pr-preview
+          number: ${{ inputs.pr }}
+          path: ${{ runner.temp }}/comment.md
+
+      - name: Comment preview removal
+        if: inputs.action == 'remove'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: pr-preview
+          number: ${{ inputs.pr }}
+          message: |
+            Preview removed.

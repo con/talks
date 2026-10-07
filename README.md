@@ -30,7 +30,8 @@ to get access to the files stored on this remote (I didn't bother adding it as a
 
 ## Pull request previews
 
-For pull requests that add or change a deck (top-level `*.html`), GitHub Actions publishes a preview of just those decks, with only the files they use, to `pr-preview/pr-<N>/` on the `gh-pages` branch and links them in a PR comment.
+To preview the decks (top-level `*.html`) a pull request adds or changes, run the *Preview* workflow (Actions → Preview → Run workflow) with the PR number.
+It publishes just those decks, with only the files they use, to `pr-preview/pr-<N>/` on the `gh-pages` branch and links them in a PR comment; run it with `remove` to delete the preview.
 git-annex'ed content is fetched from datasets.datalad.org, so `datalad push` new images there to see them in the preview.
 To build the same locally: `tools/build_preview.py <outdir> <deck>.html ...`.
 
