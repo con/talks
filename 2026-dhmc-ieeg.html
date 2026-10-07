@@ -261,33 +261,99 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 <!-- NWB (Cody's section)                                          -->
 <!-- ============================================================ -->
 <section>
-  <!-- TODO (Cody): this whole section is a skeleton. Please replace/
-	   expand with your own slides and the neurosift + LFP/spectrogram
-	   plugin demo. -->
+  <!-- TODO (Cody): spectrogram plugin example still to come. -->
   <section>
-	<h2>NWB: Neurodata Without Borders</h2>
-	<ul>
-	  <li>Open standard for neurophysiology data (spikes, LFP, behavior, imaging, ...)</li>
-	  <li>Self-describing, HDF5- or Zarr-backed container format</li>
-	  <li><code>neuroconv</code> &mdash; converts many acquisition-system formats into NWB
-		(a concrete bridge from clinical/proprietary hardware formats)</li>
-	</ul>
-	<aside class="notes">TODO (Cody): swap in your own NWB intro framing.</aside>
+	<h2>NWB: one file format for all modalities + metadata</h2>
+	<img data-src="pics/2026-dhmc-ieeg-nwb-one-for-all.svg" style="width:1250px;"/>
+	<aside class="notes">
+	  Neurodata Without Borders: open standard for neurophysiology data
+	  (spikes, LFP, behavior, imaging, ...) in a single self-describing,
+	  HDF5- or Zarr-backed file &mdash; data and metadata travel together.
+	</aside>
   </section>
 
   <section>
-	<h2>neurosift: stream, don't download</h2>
+	<img data-src="pics/2026-dhmc-ieeg-nwb-convert-scale.svg" style="width:1250px;"/>
+	<aside class="notes">
+	  Pick the point on the automated &harr; flexible scale that fits:
+	  GUIDE (no code, GUI), NeuroConv (low code, common formats),
+	  PyNWB / MatNWB (custom code against the NWB APIs).
+	</aside>
+  </section>
+
+  <section>
+	<img data-src="pics/2026-dhmc-ieeg-neuroconv-formats.svg" style="width:1250px;"/>
+	<p style="font-size:0.6em;">
+	  <a href="https://neuroconv.readthedocs.io/" target="_blank">neuroconv.readthedocs.io</a>
+	</p>
+	<aside class="notes">
+	  NeuroConv format coverage &mdash; a concrete bridge from
+	  clinical/proprietary acquisition hardware (Blackrock, Neuralynx,
+	  EDF, ...) into NWB. Greyed-out entries are in progress.
+	</aside>
+  </section>
+
+  <section>
+	<h2>Neurosift: stream, don't download</h2>
 	<ul>
 	  <li>Browser-based NWB viewer &mdash; no download required, works directly against DANDI</li>
 	  <li>Open-source</li>
-	  <li><strong>TODO (Cody)</strong>: record GIFs of your LFP (event-related) and spectrogram plugins &mdash;
-		live demo won't work over this group's Zoom, needs to be pre-recorded</li>
+	  <li>New <strong>event-related signals</strong> view: align any time series to any column
+		of a trials/intervals table, pick channels, group trials by a condition</li>
 	</ul>
 	<p>
 	  One known iEEG NWB example on DANDI:
 	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
 	  &mdash; TODO: find/convert a second example with spectrograms if one exists.
 	</p>
+	<aside class="notes">
+	  Live demo won't work well over this group's Zoom &mdash; the next three
+	  slides are screenshots; each title links to the live view.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2F92e831a1-3427-4e06-9934-30d202bcc02d%2Fdownload%2F&amp;dandisetId=000409&amp;dandisetVersion=0.260309.1324&amp;tab=view%3AEventRelatedSignal%7C%2Fintervals%2Ftrials%5E%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy#ta_series=%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy&amp;ta_groupby=gabor_stimulus_contrast&amp;ta_align=auditory_cue_time&amp;ta_win=-4%2C4" target="_blank">Example 1: behavior, grouped by condition</a></h3>
+	<img data-src="pics/neurosift-event-related-motion-energy-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  Camera motion energy, aligned to <code>auditory_cue_time</code>,
+	  grouped by <code>gabor_stimulus_contrast</code>
+	  &mdash; <a href="https://dandiarchive.org/dandiset/000409" target="_blank">DANDI:000409</a>
+	</p>
+	<aside class="notes">
+	  Solid lines are per-group means, dashed are spread, faint lines are
+	  individual trials. Motion energy dips into the cue, then rebounds
+	  after it &mdash; and the rebound separates by stimulus contrast.
+	  Everything here is streamed from DANDI; nothing downloaded.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2F7a2d22aa-b7c3-43e6-a1e0-129a37bf8ffc%2Fdownload%2F&amp;dandisetId=001539&amp;dandisetVersion=0.250815.1203&amp;tab=view%3ATimeAlignedSeries%7C%2Fintervals%2Ftrials%5E%2Fprocessing%2Fbehavior%2FPosition%2FSpatialSeries#ta_series=%2Fprocessing%2Fecephys%2FLFP%2FElectricalSeries&amp;ta_align=reward_start_time&amp;ta_channels=0%2C2%2C4" target="_blank">Example 2: LFP aligned to reward</a></h3>
+	<img data-src="pics/neurosift-event-related-lfp-reward-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  LFP aligned to <code>reward_start_time</code>, channels 0, 2, 4
+	  &mdash; <a href="https://dandiarchive.org/dandiset/001539" target="_blank">DANDI:001539</a>
+	</p>
+	<aside class="notes">
+	  Trials without a reward time are skipped and reported in the title
+	  ("68 of 95 intervals; 27 without reward_start_time"). Clear evoked
+	  deflection right after reward onset on every selected channel.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2Ffe5b6b44-12a6-4f59-a91f-953850564fb0%2Fdownload%2F&amp;dandisetId=001637&amp;dandisetVersion=draft&amp;tab=view%3ATimeAlignedSeries%7C%2Fintervals%2F40+hz+pulse+train_presentations%5E%2Facquisition%2Fraw_running_wheel_rotation#ta_series=%2Fprocessing%2Fecephys%2FLFP%2FElectricalSeriesProbeD-LFP&amp;ta_channels=5%2C22%2C25%2C32" target="_blank">Example 3: LFP around stimulus presentations</a></h3>
+	<img data-src="pics/neurosift-event-related-lfp-40hz-20261007.png" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  40&nbsp;Hz pulse-train presentations, probe&nbsp;D LFP, channels 5, 22, 25, 32
+	  &mdash; <a href="https://dandiarchive.org/dandiset/001637" target="_blank">DANDI:001637</a>
+	</p>
+	<aside class="notes">
+	  Any intervals table works, not just "trials" &mdash; here the
+	  stimulus-presentation table. Transient at pulse-train onset, then a
+	  slower negative deflection around 1&nbsp;s.
+	</aside>
   </section>
 </section>
 
@@ -395,14 +461,57 @@ a dataset of datasets, each still independently valid BIDS
 <!-- Compute (pointer-weight)                                      -->
 <!-- ============================================================ -->
 <section>
-  <h2>Compute: pointers only</h2>
-  <ul>
-	<li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
-	<li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
-	  STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
-	<li><strong>TODO</strong>: dandi-compute demo &mdash; not yet documented anywhere we could pull from; need a pointer/screenshot from whoever owns it</li>
-	<li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
-  </ul>
+  <section>
+	<h2>Compute: pointers only</h2>
+	<ul>
+	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
+	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
+		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
+	  <li>DANDI Compute &mdash; standardized processing of NWB data on DANDI (next slides)</li>
+	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
+	</ul>
+  </section>
+
+  <!-- The DANDI Compute figure is a tall poster (1680x2421); the first slide
+	   shows it whole, the following ones crop the same SVG (scaled to
+	   1300px wide, i.e. x0.774) to one panel each. -->
+  <section>
+	<style>
+	  .dc-crop { width:1300px; overflow:hidden; margin:0 auto; }
+	  .reveal .dc-crop img { width:1300px; max-width:none; max-height:none; margin:0; border:none; box-shadow:none; }
+	</style>
+	<h3>DANDI Compute</h3>
+	<img class="r-stretch" data-src="pics/dandi-compute-figure.svg"/>
+	<aside class="notes">
+	  Runs the Allen Institute for Neural Dynamics electrophysiology
+	  pipeline over NWB data on DANDI. Spike-sorting outputs are packaged
+	  as nested BIDS-derivative units; each leaf carries the exact code,
+	  runtime logs, outputs, and provenance metadata needed to re-execute
+	  it &mdash; STAMPED end-to-end (see the STAMPED slide).
+	  Overview only &mdash; the next slides zoom into each panel.
+	</aside>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: orchestration</h3>
+	<div class="dc-crop" style="height:790px;">
+	  <img data-src="pics/dandi-compute-figure.svg"/>
+	</div>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: the spike-sorting pipeline</h3>
+	<div class="dc-crop" style="height:360px;">
+	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-822px;"/>
+	</div>
+  </section>
+
+  <section>
+	<h3>DANDI Compute: the derivative it produces</h3>
+	<div class="dc-crop" style="height:580px;">
+	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-1216px;"/>
+	</div>
+  </section>
 </section>
 
 
