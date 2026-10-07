@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assemble a minimal static site with only the given decks and what they use.
 
-Usage: tools/build_preview.py OUTDIR DECK.html [DECK.html ...]
+Usage (from the repository root): tools/build_preview.py OUTDIR DECK.html [DECK.html ...]
 
 Starting from the decks, follows local references (src/href/data-src/
 data-background*/data-markdown attributes, markdown links and CSS url())
@@ -22,7 +22,9 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-REPO = Path(__file__).resolve().parent.parent
+# The repository to build from is the current directory, not the one this
+# script lives in: the Preview workflow runs it on another checkout.
+REPO = Path.cwd()
 
 # Files that are scanned for further references
 SCANNED_SUFFIXES = {".html", ".htm", ".css", ".md"}
