@@ -28,13 +28,6 @@ git remote add --fetch datasets.datalad.org https://datasets.datalad.org/centerf
 
 to get access to the files stored on this remote (I didn't bother adding it as auto-enabling git-annex type=git remote yet).
 
-## Pull request previews
-
-To preview the decks (top-level `*.html`) a pull request adds or changes, run the *Preview* workflow (Actions → Preview → Run workflow) with the PR number.
-It publishes just those decks, with only the files they use, to `pr-preview/pr-<N>/` on the `gh-pages` branch and links them in a PR comment; run it with `remove` to delete the preview.
-git-annex'ed content is fetched from datasets.datalad.org, so `datalad push` new images there to see them in the preview.
-To build the same locally: `tools/build_preview.py <outdir> <deck>.html ...`.
-
 ## Advice for creating presentations
 
 - ``clone`` the repository to your local computer and ``datalad get`` all subdatasets (``datalad get -n -r .``).
