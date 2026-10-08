@@ -484,23 +484,30 @@
 
   <section>
 	<h2>In large part thanks to apps such as Neurosift</h2>
-	<ul>
-	  <li>Browser-based NWB viewer: <a href="https://neurosift.app" target="_blank">neurosift.app</a><ul>
-		<li>no download required</li>
-		<li>integrates with most major archives (DANDI, EMBER, OpenNeuro)</li>
-		<li>works on TB-sized files "just as well" as MB-sized ones</li>
+	<div style="display:inline-block;text-align:left;font-size:0.85em;">
+	<ul style="margin-left:1em;">
+	  <li>Browser-based NWB viewer: <a href="https://neurosift.app" target="_blank">neurosift.app</a>
+		<ul>
+		  <li>no download required</li>
+		  <li>integrates with most major archives (DANDI, EMBER, OpenNeuro)</li>
+		  <li>works on TB-sized files "just as well" as MB-sized ones</li>
 		</ul></li>
-	  <li>Free & Open-source: fix & extend at will</li>
-	  <li><strong>New</strong> event-related signals view: <br/>align any time series to any column
-		of a trials/intervals table, pick channels, group trials by a condition</li>
+	  <li>Free & Open-source: <a href="https://github.com/flatironinstitute/neurosift" target="_blank">github.com/flatironinstitute/neurosift</a> (fix & extend at will)
+		<ul>
+		  <li>Created by <strong>Jeremy Magland</strong> (Flatiron Institute)
+			<img data-src="pics/jeremy-magland.jpg" style="height:2.4em;width:2.4em;border-radius:50%;margin:0 0 0 0.4em;vertical-align:middle;border:none;box-shadow:none;"/><br/>
+			<small><a href="https://joss.theoj.org/papers/10.21105/joss.06590" target="_blank">Magland, J. et al. Neurosift. <em>Journal of Open Source Software</em>. doi:10.21105/joss.06590</a></small></li>
+		</ul></li>
+	  <li><strong>New</strong> event-related signals view
+		<ul><li>align any time series to any column of a trials/intervals table, pick channels, group trials by a condition</li></ul></li>
 	  <li><strong>New</strong> spectrogram view</li>
 	</ul>
-	<p>
+	<p style="margin:0.6em 0 0 1em;font-size:0.9em;">
 	  One known iEEG NWB example on OpenNeuro:
 	  <!-- TODO: find some on DANDI with the neurosift registration fix -->
 	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
-	  <!-- TODO: find/convert a second example with spectrograms if one exists. -->
 	</p>
+	</div>
 	<aside class="notes">
 	  Live demo won't work well over this group's Zoom &mdash; the next
 	  slides are screenshots; each title links to the live view.
