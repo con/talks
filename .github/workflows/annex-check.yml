@@ -1,0 +1,32 @@
+name: git-annex
+
+# Checks that pull requests annex what .gitattributes says belongs in
+# git-annex, and that the annexed content can be obtained from one of the
+# remotes below (or a remote named in the pull request description with a
+# line "Extra git-annex remote: URL").  See
+# https://github.com/con/ci-actions/tree/claude/bold-bohr-lvtger/annex-check
+
+on:
+  pull_request:
+    # edited: to follow changes to "Extra git-annex remote:" lines
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  annex-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # all commits of the pull request, and the git-annex branch
+          fetch-depth: 0
+
+      - uses: con/ci-actions/annex-check@claude/bold-bohr-lvtger
+        with:
+          annex-remotes: |
+            https://datasets.datalad.org/centerforopenneuroscience/talks/.git
+            https://hub.centerforopenneuroscience.org/con/talks
+          # as `datalad save` does
+          dotfiles: true
