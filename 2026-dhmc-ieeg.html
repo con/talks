@@ -346,9 +346,41 @@
 	  every archive downstream (OpenNeuro, DANDI, NEMAR, EMBER) relies on consent like this at the gate</p>
   </section>
 
-  <!-- TODO: add here a summary slide on advocating clinicians to
-  provision data sharing/deposit to public archives into their consent
-  forms -->
+  <!-- ---- the "ask" slide that closes the consent detour ---- -->
+  <section data-transition="slide">
+	<h3>The ask: plan for depositing to the archive <em>in the consent form</em></h3>
+	  <h4>Consent is the one step that is MUCH harder if not impossible to do later!</h4>
+
+	<blockquote style="width:88%;font-size:0.7em;">
+	  &ldquo;We will give access to the data we are collecting, including the imaging data,
+	  to the general public via the Internet and a fully open database.&rdquo;
+	  <br/><small>&mdash; one sentence from the
+		<a href="https://open-brain-consent.readthedocs.io/en/stable/ultimate.html" target="_blank">OBC Ultimate form</a></small>
+	</blockquote>
+
+	<h4>Ideally aim to</h4>
+
+	<ul style="font-size:0.7em;">
+	  <li>Name the <strong>archives</strong>, not just &ldquo;investigators at other institutions&rdquo;:
+		<a href="https://openneuro.org" target="_blank">OpenNeuro</a>/<a href="https://nemar.org" target="_blank">NEMAR</a>,
+		<a href="https://dandiarchive.org" target="_blank">DANDI</a>,
+		<a href="https://emberarchive.org" target="_blank">EMBER</a></li>
+	  <li><strong>Open</strong> as the default tier; controlled access as the fallback, not the only option</li>
+	  <li>Permit <strong>secondary research</strong> beyond this protocol's aims, with <strong>no end date</strong></li>
+	  <li>Cover the <strong>whole record</strong>: iEEG + electrode-localization CT/MRI + task logs + video</li>
+	  <li>Take care about data <strong>(pseudo)annonymization</strong> as early as feasible</li>
+	</ul>
+	<p style="font-size:0.6em;">
+	  Reuse vetted wording the way you reuse a software license &mdash; your IRB then reviews a
+	  known template instead of ad-hoc prose:
+	  <a href="https://open-brain-consent.readthedocs.io/" target="_blank">open-brain-consent.readthedocs.io</a>
+	  &middot;
+	  <a href="https://osp.od.nih.gov/wp-content/uploads/Informed-Consent-Resource-for-Secondary-Research-with-Data-and-Biospecimens.pdf" target="_blank">NIH
+		sample language for secondary research (2022)</a>
+	  &middot; it also covers the sharing half of your
+	  <a href="https://sharing.nih.gov/data-management-and-sharing-policy" target="_blank">NIH DMS plan</a>
+	</p>
+  </section>
 
   <!-- repeat the same slide to reposition for the next block -->
   <section data-transition="slide">
@@ -511,11 +543,11 @@
 <!-- substantial (5-slide) detour -- bookend with a repeat of the
 	 archives image before moving to the next increment (bids). -->
 <section>
-  <section>
+  <section data-transition="slide">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/archives.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
 ## Archives: free backup, (ours) open by design
@@ -533,25 +565,52 @@
 		10.5281/zenodo.18333008</a>
 </small>
 
-
 ----
 
 ### DANDI &mdash; the broader NWB-centric archive
 
-<img data-src="pics/dandi-slide-modalities.svg" style="width:900px;"/>
+<a href="https://dandiarchive.org/">
+  <img data-src="pics/borrowed/dandiarchive-webshote-20261008.png"/>
+</a>
 
-[dandiarchive.org](https://dandiarchive.org) &mdash; also hosts iEEG
-data in NWB form (see [DANDI:000623](https://dandiarchive.org/dandiset/000623))
+BRAIN Initiative archive for the neurophysiological data (MIT and
+**Dartmouth/CON** lead, with Kitware, et al), live since
+2019. [dandiarchive.org](https://dandiarchive.org)
+
+Also hosts iEEG data in NWB form (see
+[DANDI:000623](https://dandiarchive.org/dandiset/000623))
 
 ----
 
-### EMBER &mdash; new since your notes were written
+#### [stats.dandiarchive.org](https://stats.dandiarchive.org)
+
+<a href="https://stats.dandiarchive.org/">
+  <img data-src="pics/borrowed/dandiarchive-stats-webshote-20261008.png"/>
+</a>
+
+----
+
+### EMBER
 
 <img data-src="pics/borrowed/ember-archive-webshot-20261005.png" style="width:950px;"/>
 
-Official BRAIN Initiative archive for the **BBQS** program (JHU/APL-led, with **Dartmouth/CON**),
-live since 2024, built on DANDI infrastructure. [emberarchive.org](https://emberarchive.org)
+BRAIN Initiative archive for the [**BBQS**](https://brain-bbqs.org)
+program (JHU/APL-led, with **Dartmouth/CON** as Co-I), live since
+2024, built on DANDI
+infrastructure. [emberarchive.org](https://emberarchive.org)
 
+----
+
+### OpenNeuro
+
+<a href="https://openneuro.org/">
+  <img data-src="pics/borrowed/openneuro-ieeg-webshote-20261008.png"/>
+</a>
+
+BRAIN Initiative archive for \*MRI, EEG, MEG
+etc human data (Stanford-led, with **Dartmouth/CON** as Co-I), live
+since 2017.
+[openneuro.org](https://openneuro.org)
 
 ----
 
