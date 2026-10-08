@@ -31,6 +31,25 @@
   DRAFT for review. TODO markers throughout flag content that needs
   input from Cody Baker or is explicitly out of scope for this first
   draft. See 2026-dhmc-ieeg/NOTES.md for the original brief.
+
+  Structure (2026-10-07 reorg, refined 2026-10-07): the backbone is two
+  incrementally-built diagrams (pics/academic-clinician.svg and
+  pics/academic-participants.svg, sequences driven by their .svgtune
+  files, pre-rendered under pics/academic-clinician_tuned/ and
+  pics/academic-participants_tuned/). Image slides are NOT annotated
+  with which svgtune step they are -- the filename already says so.
+  Existing content slides ("detours") are slotted in right after the
+  diagram step that introduces their topic, grouped with it into one
+  top-level section. When a detour is substantial (2+ slides), the
+  section closes by returning to the same triggering image once more
+  (a bookend) before the next top-level section moves on to the next
+  increment -- a smoother transition than jumping straight from
+  content back into a new, slightly-changed diagram. Light, single-
+  slide detours (or bare TODO placeholders) skip the bookend and just
+  flow into the next section. Slide titles for the bare image-reveal
+  slides are intentionally left blank -- TBD. Anything that doesn't
+  map onto either diagram lives in the "Leftover" section near the
+  end for Yarik to triage.
 -->
 
 
@@ -40,7 +59,7 @@
 <section>
   <section>
 	<a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
-	<h2 style="margin-top:0.3em;margin-bottom:0.3em;">Open Neuroscience Infrastructure for Intracranial EEG</h2>
+	<h2 style="margin-top:0.3em;margin-bottom:0.3em;">Open Neuroscience Infrastructure <br/> for Intracranial EEG</h2>
 	<p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.8em;font-style:italic;">
 	  <strong>A toolbelt, not one solution &mdash; and an invitation to help bridge academia and the clinic</strong>
 	</p>
@@ -51,11 +70,12 @@
 	  <td style="vertical-align:top">
 		Yaroslav O. Halchenko<br>
 		<small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
-		<small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+		<small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small><br>
+		<small><a href="https://orcid.org/0000-0003-3456-2493" target="_blank">ORCID 0000-0003-3456-2493</a></small>
+
 	  </td>
 	  <td style="vertical-align:top">
-		Cody Baker<br>
-		<small>cody.c.baker.phd@gmail.com</small><br>
+		Cody Baker<br/><br/>
 		<small><a href="https://orcid.org/0000-0002-0829-4790" target="_blank">ORCID 0000-0002-0829-4790</a></small>
 	  </td>
 	</tr>
@@ -89,180 +109,239 @@
   </section>
 </section>
 
-
 <!-- ============================================================ -->
-<!-- Opener: interactive + toolbelt framing                       -->
+<!-- Who I am / what CON does                             -->
 <!-- ============================================================ -->
-<section>
+<section data-transition-speed="zoom">
   <section>
-	<h2>Before we start</h2>
-	<p style="font-size:1.3em;margin-top:1em;">What does <em>your</em> pipeline look like today?</p>
-	<p class="fragment">acquisition &rarr; preprocessing &rarr; analysis &rarr; sharing (or not)</p>
-	<p class="fragment"><em>(~5 min &mdash; we'll shape the rest of the talk around what you tell us)</em></p>
-	<aside class="notes">
-	  Deliberate agenda item, not an informal aside &mdash; actually budget
-	  the 5 minutes. Use the answers to decide which later sections to
-	  linger on vs. skip.
-	</aside>
+  <img style="height:800px" data-src="pics/yarik-goal.svg"/>
   </section>
 
+<!--  <section>
+	<h1>Who am I?</h1>
+	<img style="height:400px" data-src="pics/borrowed/twitter-unsolicited-advice.png"/>
+  </section> -->
+
   <section>
-	<h2>One toolbelt, not one solution</h2>
-	<ul>
-	  <li class="fragment">"Many sizes fit all" &mdash; no single tool or standard solves everything</li>
-	  <li class="fragment">You don't have to "buy in 100%" &mdash; pieces compose, and are useful alone</li>
-	  <li class="fragment">Everything today is a <strong>pointer</strong>: a name, a URL, a reason to look closer &mdash;
-		not a deep technical tutorial</li>
+	<h3>Brief Yarik's Bio</h3>
+	<p>Born in Siberia (RSFSR, USSR), Grew up in Ukraine, Matured in U.S.A.</p>
+	<ul style="font-size:120%">
+	  <li class="fragment"><b>-1994 Physics Mathematics Gymnasium #17 (Ukraine):</b><br>
+		<small> Regional&State Physics and Programming
+		  competitions. MS-DOS. Borland Pascal</small></li>
+
+	  <li class="fragment"><b>-1999 VSTU (Ukraine):
+		  <span style="float:right;">Masters in Opto-Electronic Engineering</span></b><br>
+		<small> (@yarikoptic). State Physics and International ACM Programming
+		  competitions. Spine diagnostic apparatus. Member of "Small Academy of Science of
+		  Ukraine". SPIE. Soros Fellowship (twice). MS-DOS/Windows.
+		  Borland Pascal, Delphi, VBA
+	  </small></li>
+
+	  <li class="fragment"><b>-2003 University of New Mexico:
+		  <span style="float:right;">Masters in Computer Science</span></b><br>
+		<small><a href="http://www.bcl.hamilton.ie/~barak/">B.Pearlmutter</a>.
+		  SOBI/JADE ICA for single trial MEG. Favorite course: Data structures
+		  and algorithms.
+		  <a href="https://debian.org">Debian GNU/Linux</a>.
+		  C, Matlab, shell. CVS
+	  </small></li>
+
+	  <li class="fragment"><b>-2009 Rutgers-Newark/NJIT:
+		  <span style="float:right;">Ph.D. in Computer Science</span></b><br>
+		<small><a href="http://rubic-web.rutgers.edu/people.html">S.Hanson</a>.
+		  <a href="http://dx.doi.org/10.1162/neco.2007.09-06-340">fMRI decoding (RFE SVM)</a>.
+		  <a href="https://link.springer.com/article/10.1385/NI:2:1:071?noAccess=true">RUMBA</a>.
+		  HPC sysadmin (cfengine, PBS).
+		  <a href="https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/Hanke_m.html">M.Hanke</a>.
+		  Debian pkg-exppsy (for FSL and PyEPL).
+		  <a href="https://nm.debian.org/person/yoh/">Official Debian developer</a>.
+		  <a href="https://arxiv.org/abs/1307.2150">fMRI/EEG (TRANS)fusion</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>.
+		  C++, Python. SVN, GIT. 1 wife, 3 kids
+	  </small></li>
+	  <li class="fragment"><b>- NOW Dartmouth College, PBS Department: <br>
+		  <span style="float:right;">Postdoc, Scientist, Research Assistant/Associate/<emph>null</emph> Professor</span></b><br>
+		<small><a href="https://haxbylab.dartmouth.edu/">J.Haxby</a>.
+		  <a href="http://pymvpa.org">PyMVPA</a>
+		  (<a href="http://dx.doi.org/10.1016/j.neuron.2011.08.026">Hyperalignment</a>,
+		  ...),
+		  <a href="https://neuro.debian.net">NeuroDebian</a>,
+		  <a href="https://datalad.org">DataLad</a>,
+		  <a href="https://repronim.org">ReproNim</a>,
+		  <a href="https://dandiarchive.org">DANDI</a>,
+		  <a href="https://stamped-principles.org">STAMPED</a>,
+		  ...
+		  1(+1) dog, 3 cats, <a href="https://github.com/yarikoptic/coop">Chicken Coop (12 chickens, 1 rooster)</a>,
+		  ...
+		  <a href="https://www.distribits.live/">distribits</a>,
+		  <a href="https://centerforopenneuroscience.org/">CON</a>:
+		</small>
+	  </li>
 	</ul>
-	<aside class="notes">
-	  Many-lenses-one-stack framing (SOUL.md &sect;1): the same stack can be
-	  read as Models/Views/Controllers, as STAMPED, as FAIR, as YODA, as
-	  SciOps maturity &mdash; pick whichever lens helps in the moment.
-	</aside>
+
+	<aside class="notes"><ul>
+		<li>Russian Soviet Federative Socialist Republic</li>
+	</ul></aside>
+
   </section>
-</section>
 
-
-<!-- ============================================================ -->
-<!-- The Gap: academia <-> clinic                                  -->
-<!-- ============================================================ -->
-<section>
   <section>
-	<h2>Where this is going</h2>
-	<p>Two worlds that talk past each other &mdash; and a group sitting exactly in the middle</p>
-
-	<style>.gap-diagram svg { width: 1150px !important; height: auto !important; }</style>
-	<div class="mermaid gap-diagram">
-	  <pre>
-graph LR
-  A[Academia / open neuroscience] -. weak .-> B(DHMC iEEG group - already here) -. weak .-> C[Clinic / hardware / vendors]
-  classDef aca fill:#dff0d8,stroke:#3c763d;
-  classDef bridge fill:#fcf8e3,stroke:#8a6d3b;
-  classDef clin fill:#d9edf7,stroke:#31708f;
-  class A aca
-  class B bridge
-  class C clin
-	  </pre>
+	<div class="r-stack">
+	  <img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+	  <!-- TODO update this compilation! prepend with proper Ack-->
+	  <!-- <img class="fragment" style="width:1000px" data-src="pics/con-ack-bmbf.png"/> -->
+	  <!-- img class="fragment" data-src="pics/borrowed/con-webshot-20150812-front-down.png"/> -->
+	  <img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+	  <!-- img class="fragment" style="width:2400px" data-src="pics/con-projects-standards-20260601.png"/-->
+	  <!-- <img class="fragment" style="width:500px"
+				data-src="pics/con-ack-joeybenetc-extended.svg"/> -->
 	</div>
-
-	<table style="width:100%;font-size:0.5em;margin-top:0.5em;border:none;">
-	  <tr style="vertical-align:top">
-		<td style="width:33%;text-align:left;">BIDS / HED, NWB, DataLad,<br/>OpenNeuro / NEMAR / DANDI</td>
-		<td style="width:33%;text-align:center;">DICOM WG-16 &harr; BIDS, neuroconv, OBC (consent)</td>
-		<td style="width:33%;text-align:right;">Natus / Blackrock / Ripple /<br/>Nihon Kohden / Medtronic, DICOM, PACS, EHR/EMR</td>
-	  </tr>
-	</table>
-	<aside class="notes">
-	  Centerpiece slide. The claim: standards-and-tools culture on the
-	  left mostly doesn't talk to acquisition-hardware-and-clinical-IT
-	  culture on the right. Intracranial EEG researchers sit in both
-	  worlds already (clinical acquisition for epilepsy monitoring +
-	  research analysis) &mdash; that's the liaison opportunity this talk
-	  is building toward (see closing section).
-	</aside>
-  </section>
-
-  <section data-transition="slide" data-background-color="#2f2a22">
-	<!-- The source figure is white line-art on a transparent background --
-		 needs a dark slide background to be visible (it's meant to be
-		 viewed that way; on the default beige theme it disappears). -->
-	<h2 style="color:#f5efe0;">Carrots, not (only) sticks</h2>
-	<img data-src="pics/borrowed/human+carrot.png" style="height:550px;"/>
-	<p style="font-size:0.6em;color:#cfc6b0;">
-	  Figure from M. Hanke, <em>"Carrots! Not sticks!"</em>
-	  <a href="https://hedgedoc.psychoinformatics.de/p/gBE63_ytiE" target="_blank" style="color:#e8c37a;">hedgedoc.psychoinformatics.de/p/gBE63_ytiE</a>
-	</p>
   </section>
 
   <section>
-	<h2>What pulls people toward standards</h2>
+	<h2>Acknowledgements</h2>
+	<img style="height:150px;margin-right:50px" data-src="pics/con_logo_square.png" />
+	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nih.png" />
+	<img style="height:150px;margin-right:50px" data-src="pics/borrowed/nsf1.jpg" />
+	<img style="height:120px;margin-right:50px;margin-bottom:30px" data-src="pics/datalad_D.svg" />
+  </section>
+
+  <section>
+	<h2>Disclaimers</h2>
+	<h3>One toolbelt, not one solution</h3>
 	<ul>
-	  <li class="fragment"><strong>Carrots</strong> &mdash; the standards themselves: free tools, free archive storage,
-		"someone else already solved this", collaborators who can actually read your data</li>
-	  <li class="fragment"><strong>Sticks</strong> exist too &mdash; mostly from funders and journals:
-		NIH Data Management &amp; Sharing Policy, journal data-availability requirements</li>
-	  <li class="fragment">Our pitch today is almost entirely carrots &mdash; the stick is already pulling on everyone;
-		we're here to make the carrot side concrete</li>
+	  <li>"Many sizes fit all" &mdash; no single tool or standard solves everything</li>
+	  <li>You don't have to "buy in 100%" &mdash; pieces compose, and are useful alone</li>
+	  <li>Everything today is a <strong>pointer</strong> not a deep technical tutorial</li>
 	</ul>
   </section>
 </section>
 
 
 <!-- ============================================================ -->
-<!-- Standards: BIDS basics (high-level, pointer-heavy)            -->
+<!-- Overview build: Academia <-> Clinical researchers             -->
+<!-- pics/academic-clinician.svg, incremental per .svgtune          -->
+<!-- Replaces the old mermaid "Where this is going" slide.          -->
 <!-- ============================================================ -->
-<section>
-  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-	<textarea data-template>
-
-## Standards as an enabler for tooling
-
-"Cool stuff (visualization, turnkey apps) is possible only because of boring stuff (standards)"
-
-----
-
-### Why do we need standards?
-
-> Researcher A collects data, publishes a paper. Researcher B requests the data.
-> The data arrive &mdash; organized however Researcher A felt like organizing them.
-> Researcher B gives up.
-
-<small>adapted from Rokem/Gau/Halchenko, <code>202404xx-NSF-POSE-BIDS</code></small>
-
-----
-
-### BIDS: Brain Imaging Data Structure
-
-<img data-src="pics/bids-logo-wide.png" style="width:900px;"/>
-
-<small>
-  <a href="https://www.nature.com/articles/sdata201644">Gorgolewski, K. J. et al. (incl. <b>Halchenko, Y. O.</b>) (2016).
-  The brain imaging data structure... Scientific Data, 3:160044</a>
-</small>
-
-- a standard for organizing and describing neuroscience data
-- a set of tools and services that use it (validators, BIDS-Apps, PyBIDS, ...)
-- a community that develops, maintains, and extends it &mdash; **200,000+ individuals'** data stored in BIDS today
-
-----
-
-### Modular, like separating pasta ingredients from the dish
-
-- **sourcedata/** &mdash; raw ingredients, kept as-is
-- **derivatives/** &mdash; each processing pipeline's output, separate and swappable
-- "you've seen one BIDS dataset, you've seen them all" &mdash; `sub-<label>/[ses-<label>/]<datatype>/`
-
-<small>analogy via Rémi Gau, <a href="https://doi.org/10.5281/zenodo.5863713">10.5281/zenodo.5863713</a></small>
-
-----
-
-### iEEG is a first-class BIDS citizen
-
-- **BEP010** &mdash; intracranial EEG extension
-  (<a href="https://doi.org/10.1038/s41597-019-0105-7">Holdgraf et al., Scientific Data, 2019</a>)
-- `channels.tsv` &mdash; per-channel metadata (type, sampling frequency, status)
-- `electrodes.tsv` &mdash; electrode coordinates; clarified **REQUIRED** for iEEG in
-  <a href="https://github.com/bids-standard/bids-specification/pull/1896">bids-specification PR#1896</a> (v1.10.1)
-- **HED** (Hierarchical Event Descriptor) tags for event annotation &mdash; see NEMAR, next section
-
-----
-
-### Inheritance: don't repeat 320 JSON files
-
-40 subjects &times; 2 sessions &times; 4 runs = 320 files to edit? No &mdash;
-one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridden.
-
-	</textarea>
+<section data-transition="slide">
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/base.svg" style="width:1300px;height:731px;"></object>
+	<aside class="notes">
+	  Replaces the old "Where this is going" framing. The claim:
+	  standards-and-tools culture on the Academics side mostly doesn't
+	  talk to acquisition-hardware-and-clinical-IT culture on the
+	  Clinical researchers side. Intracranial EEG researchers sit in
+	  both worlds already -- that's the liaison opportunity this talk
+	  builds toward (see the WG-32 slides a few steps down).
+	</aside>
   </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/layers.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/clinical.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <!-- ---- liaison-ask detour, bridging through the wg32 reveal ---- -->
+  <section data-transition="slide">
+	<h1>All standards are "Bad"<sup>*</sup>,<br>but some are used</h1>
+	<p>* ref: D. Clunie (of DICOM fame), MICCAI 2017</p>
+  </section>
+
+  <section>
+	<h2>Two widely-used standards which could cooperate more are:</h2>
+	<h3>BIDS (academia) and DICOM (clinic/vendors)</h3>
+	<p> Same underlying problem, different communities, thin collaboration today</p>
+	<small>see <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-bids-dicom.html">2023-bids-dicom.html</a>
+	  (BIDS 4 DICOM talk) for the longer version of this argument</small>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/wg32.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <!-- TODO: point to WG-32 call to review the compressor -->
+  <!-- TODO: point to https://github.com/dandi/compression-comparisons-t261-study and invite the use cases! -->
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/academic.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-clinician_tuned/bep032.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<!-- final frame; title is baked into the SVG itself: "Academic
+		 ecosystem: interoperable by standards". Hands off into the
+		 zoomed academic-participants build below. -->
+     <object type="image/svg+xml" data="pics/academic-clinician_tuned/ecosystem.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <!-- TODO: add overview slide(s) to let listeners know about Standards poster: https://zenodo.org/records/18333008 -->
+
 </section>
 
 
 <!-- ============================================================ -->
-<!-- NWB (Cody's section)                                          -->
+<!-- Zoom: the Academic ecosystem                                  -->
+<!-- pics/academic-participants.svg, incremental per .svgtune       -->
 <!-- ============================================================ -->
 <section>
-  <!-- TODO (Cody): spectrogram plugin example still to come. -->
+  <section data-transition="slide">
+	<h1>Zooming-in on Academic ecosystem</h1>
+  </section>
+
   <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/base.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/participants.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <!-- ---- Open Brain Consent detour, triggered by the participants reveal ---- -->
+  <section data-transition="slide">
+	<img style="width:350px;" data-src="pics/OBC_LogoCheck.svg"/>
+	<p><a href="https://open-brain-consent.readthedocs.io/" target="_blank">open-brain-consent.readthedocs.io</a></p>
+	<p><small>Born in 2014</small></p>
+	<small>
+	  <a href="https://onlinelibrary.wiley.com/doi/10.1002/hbm.25351" target="_blank">
+	  E. Bannier, G. Barker, V. Borghesani, ..., <b>Y. O. Halchenko</b>, ..., H. Zhu.
+	  The Open Brain Consent: Informing research participants and obtaining consent
+	  to share brain imaging data. Human Brain Mapping, feb 2021. doi: 10.1002/hbm.25351</a>
+	</small>
+  </section>
+
+  <section>
+	<h3>Federally regulated but locally &ldquo;managed&rdquo;</h3>
+	<div class="r-stack">
+	  <img                  style="width:1100px" data-src="pics/obc-main.png"/>
+	  <img class="fragment" style="width:1100px" data-src="pics/obc-ultimate.png"/>
+	</div>
+	<p style="font-size:0.6em;">Over 20 contributors &middot; 8 translations of the Ultimate Form &middot;
+	  IRB committees can use OBC instead of reviewing ad-hoc wording &mdash;
+	  every archive downstream (OpenNeuro, DANDI, NEMAR, EMBER) relies on consent like this at the gate</p>
+  </section>
+
+  <!-- repeat the same slide to reposition for the next block -->
+  <section data-transition="slide">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/participants.svg" style="width:1300px;height:731px;"></object>
+  </section>
+  <!-- ---- end Open Brain Consent detour ---- -->
+</section>
+
+
+<!-- ---- NWB detour (Cody's section), triggered by the nwb reveal ---- -->
+<section>
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-transition="slide">
 	<h2>NWB: one file format for all modalities + metadata</h2>
 	<img data-src="pics/2026-dhmc-ieeg-nwb-one-for-all.svg" style="width:1250px;"/>
 	<aside class="notes">
@@ -292,8 +371,21 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 	  EDF, ...) into NWB. Greyed-out entries are in progress.
 	</aside>
   </section>
+</section>
+<!-- ---- end NWB detour ---- -->
 
+
+<!-- ---- neurosift detour, triggered by the nwb-apps reveal ---- -->
+<!-- intro + three example screenshots -- no bookend repeat, straight
+	 into the next increment (archives), same treatment as the NWB
+	 section above. -->
+<section>
   <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb-apps.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-transition="slide">
+	<!-- TODO (Cody): spectrogram plugin example still to come. -->
 	<h2>Neurosift: stream, don't download</h2>
 	<ul>
 	  <li>Browser-based NWB viewer &mdash; no download required, works directly against DANDI</li>
@@ -356,13 +448,18 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 	</aside>
   </section>
 </section>
+<!-- ---- end neurosift detour ---- -->
 
 
-<!-- ============================================================ -->
-<!-- Archives                                                      -->
-<!-- ============================================================ -->
+<!-- ---- Archives detour, triggered by the archives reveal ---- -->
+<!-- substantial (5-slide) detour -- bookend with a repeat of the
+	 archives image before moving to the next increment (bids). -->
 <section>
-  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/archives.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
 ## Archives: free backup, open by design
@@ -407,75 +504,125 @@ live since 2024, built on DANDI infrastructure. [emberarchive.org](https://ember
 
 	</textarea>
   </section>
+
+  <!-- repeat the same slide to reposition for the next block -->
+  <section data-transition="slide">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/archives.svg" style="width:1300px;height:731px;"></object>
+  </section>
 </section>
+<!-- ---- end Archives detour ---- -->
 
 
-<!-- ============================================================ -->
-<!-- RDM / toolbelt practices                                      -->
-<!-- ============================================================ -->
+<!-- ---- Standards/BIDS detour, triggered by the bids reveal ---- -->
+<!-- substantial (5-slide) detour -- bookend with a repeat of the
+	 bids image before moving to the next increment (nwb2bids). -->
 <section>
-  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section  data-transition="slide">
+	<img style="width:2000px" data-src="pics/bids-logo-wide.png"/>
+	<br>
+	<small>
+	  <a href="https://www.nature.com/articles/sdata201644">
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+		E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
+		D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+		Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+		Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (<b>2016</b>). The
+		brain imaging data structure, a format for organizing and describing outputs
+		of neuroimaging experiments. Scientific Data, 3:160044</a>
+	</small>
+  </section>
+
+  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
-## RDM: Data Management
+## Standards as an enabler for tooling
+
+"Cool stuff (visualization, turnkey apps) is possible only because of boring stuff (standards)"
 
 ----
 
-### `datalad run` &mdash; version control for outcomes, not just code
+### Why do we need standards?
 
-```
-datalad run -m "run preprocessing" \
-  "python preprocess.py {inputs} {outputs}"
-```
+> Researcher A collects data, publishes a paper. Researcher B requests the data.
+> The data arrive &mdash; organized however Researcher A felt like organizing them.
+> Researcher B gives up.
 
-- captures exact command, inputs, outputs, environment as a git commit
-- `datalad rerun` replays it later, on different data, to check it still works
-- works over arbitrarily large (binary) data via `git-annex`
+<small>adapted from Rokem/Gau/Halchenko, <code>202404xx-NSF-POSE-BIDS</code></small>
 
 ----
 
-### STAMPED &mdash; one slide
+<img data-src="pics/bids-logo-wide.png" style="width:900px;"/>
 
-<img data-src="pics/stamped-principles-webshot_20260602.png" style="width:900px;"/>
+<small>
+  <a href="https://www.nature.com/articles/sdata201644">Gorgolewski, K. J. et al. (incl. <b>Halchenko, Y. O.</b>) (2016).
+  The brain imaging data structure... Scientific Data, 3:160044</a>
+</small>
 
-**S**elf-contained, **T**racked, **A**ctionable, **M**odular, **P**ortable, **E**phemeral, **D**istributable
-
-<small><a href="https://stamped-principles.org/">stamped-principles.org</a> &mdash;
-Macdonald, Baker, To, Halchenko (2026); Cody's deeper dive: BBQS workshop slides (<code>2026-bbqs-stamped</code>)</small>
+- a standard for organizing and describing neuroscience data
+- a set of tools and services that use it (validators, BIDS-Apps, PyBIDS, ...)
+- a community that develops, maintains, and extends it &mdash; **200,000+ individuals'** data stored in BIDS today
 
 ----
 
-### (Meta)BIDS-Study: self-containment + modularity together
+### Modular, like separating pasta ingredients from the dish
 
-<img data-src="pics/openneuro-studies-webshot_20260602.png" style="width:900px;"/>
+- **sourcedata/** &mdash; raw ingredients, kept as-is
+- **derivatives/** &mdash; each processing pipeline's output, separate and swappable
+- "you've seen one BIDS dataset, you've seen them all" &mdash; `sub-<label>/[ses-<label>/]<datatype>/`
 
-<a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a> &mdash;
-a dataset of datasets, each still independently valid BIDS
+<small>analogy via Rémi Gau, <a href="https://doi.org/10.5281/zenodo.5863713">10.5281/zenodo.5863713</a></small>
+
+----
+
+### iEEG is a first-class BIDS citizen
+
+- **BEP010** &mdash; intracranial EEG extension
+  (<a href="https://doi.org/10.1038/s41597-019-0105-7">Holdgraf et al., Scientific Data, 2019</a>)
+- `channels.tsv` &mdash; per-channel metadata (type, sampling frequency, status)
+- `electrodes.tsv` &mdash; electrode coordinates; clarified **REQUIRED** for iEEG in
+  <a href="https://github.com/bids-standard/bids-specification/pull/1896">bids-specification PR#1896</a> (v1.10.1)
+- **HED** (Hierarchical Event Descriptor) tags for event annotation &mdash; NEMAR has built-in HED support (see Archives, previous section)
+
+----
+
+### Inheritance: don't repeat 320 JSON files
+
+40 subjects &times; 2 sessions &times; 4 runs = 320 files to edit? No &mdash;
+one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridden.
 
 	</textarea>
   </section>
+
+  <!-- repeat the same slide to reposition for the next block -->
+  <section data-transition="slide">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
+  </section>
 </section>
+<!-- ---- end Standards/BIDS detour ---- -->
 
 
-<!-- ============================================================ -->
-<!-- Compute (pointer-weight)                                      -->
-<!-- ============================================================ -->
+<!-- ---- quiet connector nodes: no content of their own yet beyond a  -->
+<!-- ---- DANDI Compute slides after the dandi-compute reveal         -->
 <section>
   <section>
-	<h2>Compute: pointers only</h2>
-	<ul>
-	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
-	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
-		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
-	  <li>DANDI Compute &mdash; standardized processing of NWB data on DANDI (next slides)</li>
-	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
-	</ul>
+	<!-- TODO: no dedicated nwb2bids slide yet; the tool is already named
+		 directly on the diagram (github.com/con/nwb2bids). Add a slide
+		 here if this deserves more than the diagram label. -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb2bids.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/dandi-compute.svg" style="width:1300px;height:731px;"></object>
   </section>
 
   <!-- The DANDI Compute figure is a tall poster (1680x2421); the first slide
 	   shows it whole, the following ones crop the same SVG (scaled to
 	   1300px wide, i.e. x0.774) to one panel each. -->
-  <section>
+  <section data-transition="slide">
 	<style>
 	  .dc-crop { width:1300px; overflow:hidden; margin:0 auto; }
 	  .reveal .dc-crop img { width:1300px; max-width:none; max-height:none; margin:0; border:none; box-shadow:none; }
@@ -512,13 +659,191 @@ a dataset of datasets, each still independently valid BIDS
 	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-1216px;"/>
 	</div>
   </section>
+
+  <section>
+	<!-- TODO: no slide yet for the AV/stimuli-capture node (Magewell,
+		 CurDes Birch, MKV format, ReproStim, BEP044/BEP047). -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/av.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<!-- TODO: Pozu ("turnkey platform for pose estimation and behavioral
+		 annotations with integration into archives", per NOTES.md) could
+		 not be independently verified (no public repo/site found as of
+		 2026-10-05) -- treat as forward-looking/unconfirmed until Pozu
+		 has something public to point to. -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/pozu.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<!-- TODO: no dedicated HED slide yet; NEMAR's HED support is already
+		 covered in the Archives detour above. Add one here if HED
+		 deserves its own moment independent of NEMAR. -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/hed.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<!-- TODO: no slide yet for sync (Lab Streaming Layer, ReproStim QR codes). -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/sync.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<!-- TODO: no dedicated BIDS-Apps slide yet beyond the mention in the
+		 Compute detour below (fMRIPrep etc). -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids-apps.svg" style="width:1300px;height:731px;"></object>
+  </section>
 </section>
 
 
+<!-- ---- Compute detour, triggered by the compute reveal ---- -->
+<!-- light, single-slide detour -- no bookend repeat. -->
+<section>
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/compute.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-transition="slide">
+	<h2>Compute: pointers only</h2>
+	<ul>
+	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
+	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
+		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
+	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
+	</ul>
+  </section>
+</section>
+<!-- ---- end Compute detour ---- -->
+
+
+<!-- ---- RDM detour, triggered by the data-management reveal ---- -->
+<!-- light, single-slide detour -- no bookend repeat. -->
+<section>
+  <section>
+	<!-- title baked into the SVG itself: "Data management across the
+		 academic ecosystem" -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/data-management.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-markdown data-transition="slide">
+	<textarea data-template>
+
+### `datalad run` &mdash; version control for outcomes, not just code
+
+```
+datalad run -m "run preprocessing" \
+  "python preprocess.py {inputs} {outputs}"
+```
+
+- captures exact command, inputs, outputs, environment as a git commit
+- `datalad rerun` replays it later, on different data, to check it still works
+- works over arbitrarily large (binary) data via `git-annex`
+
+	</textarea>
+  </section>
+</section>
+<!-- ---- end RDM detour ---- -->
+
+
+<!-- ---- STAMPED detour, triggered by the stamped reveal (final frame  -->
+<!-- ---- of the academic-participants build) ---- -->
+<!-- substantial (2-slide) detour -- bookend with a repeat of the
+	 stamped image as the closing frame of the whole build. -->
+<section>
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/stamped.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
+	<textarea data-template>
+
+### STAMPED &mdash; one slide
+
+<img data-src="pics/stamped-principles-webshot_20260602.png" style="width:900px;"/>
+
+**S**elf-contained, **T**racked, **A**ctionable, **M**odular, **P**ortable, **E**phemeral, **D**istributable
+
+<small><a href="https://stamped-principles.org/">stamped-principles.org</a> &mdash;
+Macdonald, Baker, To, Halchenko (2026); Cody's deeper dive: BBQS workshop slides (<code>2026-bbqs-stamped</code>)</small>
+
+----
+
+### (Meta)BIDS-Study: self-containment + modularity together
+
+<img data-src="pics/openneuro-studies-webshot_20260602.png" style="width:900px;"/>
+
+<a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a> &mdash;
+a dataset of datasets, each still independently valid BIDS
+
+	</textarea>
+  </section>
+
+  <!-- repeat the same slide to close the build -->
+  <section data-transition="slide">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/stamped.svg" style="width:1300px;height:731px;"></object>
+  </section>
+</section>
+<!-- ---- end STAMPED detour ---- -->
+
+
 <!-- ============================================================ -->
-<!-- Visions for the future                                        -->
+<!-- Leftover: not yet placed into the new structure               -->
+<!-- These don't map onto a specific step in either diagram --     -->
+<!-- kept here for Yarik to triage.                                -->
 <!-- ============================================================ -->
 <section>
+  <section>
+	<h2>Leftover: not yet placed</h2>
+	<p style="font-size:0.7em;">These don't map onto a specific step in either
+	  incremental diagram (academic-clinician / academic-participants) &mdash;
+	  kept here for Yarik to decide where (or whether) they belong.</p>
+  </section>
+
+    <section>
+	<h2>How could we collaborate on metadata that matters clinically?</h2>
+	<ul>
+	  <li>Should individual labs channel requests to manufacturers one at a time,
+		or could <a href="https://www.dicomstandard.org/activity/wgs/wg-32" target="_blank">DICOM WG-32</a> help coordinate?</li>
+	  <li>Proposition: a library of concrete DICOM&harr;BIDS/NWB conversions,
+		per manufacturer and modality</li>
+	</ul>
+  </section>
+
+  <section>
+	<h2>You're already standing in the gap</h2>
+	<ul>
+	  <li class="fragment">This group runs clinical iEEG acquisition <em>and</em> does research analysis &mdash;
+		both worlds, already, every day</li>
+	  <li class="fragment">That makes you natural informants for <code>neuroconv</code> format support,
+		BEP010 edge cases, and DICOM&harr;BIDS/NWB conversion libraries</li>
+	  <li class="fragment"><strong>Ask</strong>: who else should be in that room? what hardware/format
+		gaps have you hit that we should know about?</li>
+	</ul>
+  </section>
+
+  <section data-transition="slide" data-background-color="#2f2a22">
+	<!-- The source figure is white line-art on a transparent background --
+		 needs a dark slide background to be visible (it's meant to be
+		 viewed that way; on the default beige theme it disappears). -->
+	<h2 style="color:#f5efe0;">Carrots, not (only) sticks</h2>
+	<img data-src="pics/borrowed/human+carrot.png" style="height:550px;"/>
+	<p style="font-size:0.6em;color:#cfc6b0;">
+	  Figure from M. Hanke, <em>"Carrots! Not sticks!"</em>
+	  <a href="https://hedgedoc.psychoinformatics.de/p/gBE63_ytiE" target="_blank" style="color:#e8c37a;">hedgedoc.psychoinformatics.de/p/gBE63_ytiE</a>
+	</p>
+  </section>
+
+  <section>
+	<h2>What pulls people toward standards</h2>
+	<ul>
+	  <li class="fragment"><strong>Carrots</strong> &mdash; the standards themselves: free tools, free archive storage,
+		"someone else already solved this", collaborators who can actually read your data</li>
+	  <li class="fragment"><strong>Sticks</strong> exist too &mdash; mostly from funders and journals:
+		NIH Data Management &amp; Sharing Policy, journal data-availability requirements</li>
+	  <li class="fragment">Our pitch today is almost entirely carrots &mdash; the stick is already pulling on everyone;
+		we're here to make the carrot side concrete</li>
+	</ul>
+  </section>
+
   <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
@@ -556,51 +881,6 @@ a dataset of datasets, each still independently valid BIDS
   BrainKB / EBRAINS-scale graphs
 
 	</textarea>
-  </section>
-</section>
-
-
-<!-- ============================================================ -->
-<!-- Bridge-building: the liaison ask                              -->
-<!-- ============================================================ -->
-<section>
-  <section data-transition="slide">
-	<h1>All standards are "Bad"<sup>*</sup>,<br>but some are used</h1>
-	<p>* ref: D. Clunie, MICCAI 2017</p>
-  </section>
-
-  <section>
-	<h2>Two widely-used standards which could cooperate more</h2>
-	<p>BIDS (academia) and DICOM (clinic/vendors) &mdash; same underlying problem,
-	   different communities, thin collaboration today</p>
-	<small>see <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-bids-dicom.html">2023-bids-dicom.html</a>
-	  (BIDS 4 DICOM WG-16 talk) for the longer version of this argument</small>
-	<!-- NOTE: NOTES.md said "WG-32" -- the existing 2023 talk and its
-		 source materials say WG-16. Please confirm which is meant
-		 before this goes out; using WG-16 here since that's what we
-		 can verify. -->
-  </section>
-
-  <section>
-	<h2>How could we collaborate on metadata that matters clinically?</h2>
-	<ul>
-	  <li>Should individual labs channel requests to manufacturers one at a time,
-		or could DICOM Working Groups (e.g. WG-16) help coordinate?</li>
-	  <li>Proposition: a library of concrete DICOM&harr;BIDS/NWB conversions,
-		per manufacturer and modality</li>
-	</ul>
-  </section>
-
-  <section>
-	<h2>You're already standing in the gap</h2>
-	<ul>
-	  <li class="fragment">This group runs clinical iEEG acquisition <em>and</em> does research analysis &mdash;
-		both worlds, already, every day</li>
-	  <li class="fragment">That makes you natural informants for <code>neuroconv</code> format support,
-		BEP010 edge cases, and DICOM&harr;BIDS/NWB conversion libraries</li>
-	  <li class="fragment"><strong>Ask</strong>: who else should be in that room? what hardware/format
-		gaps have you hit that we should know about?</li>
-	</ul>
   </section>
 </section>
 
@@ -685,6 +965,9 @@ a dataset of datasets, each still independently valid BIDS
 			transition: ['slide', 'fade'],
 			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
 		  });
+		  // Give arrow keys back to reveal.js after a click inside an embedded SVG
+		  document.querySelectorAll('object').forEach(o =>
+			  o.addEventListener('mouseleave', () => o.blur()));
 		</script>
 	</body>
 </html>
