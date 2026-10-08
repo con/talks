@@ -18,6 +18,178 @@ listed in the *Shelved (backdrawer)* section below the active inventory.
 Cross-references in the per-topic lookup point at the shelved path
 (`_backdrawer_/<TALK-ID>.html`).
 
+### `2026-reproAI-MIT-STAMPED.html` — *STAMPED principles and their role in the age of AI-driven scientific software development*
+- **Venue / date**: LLM Workshop, MIT, 2026-10-16 (25 min + 5 min Q&A).
+- **Spine**: hybrid of the *Challenges → Solutions → Take-home* arc
+  (`SOUL.md` §7.2) with the AI flavoring of §7.5. Five acts:
+  Frame → *What changed* → STAMPED → *What makes it actionable* →
+  *Harnesses and skills as shareable artifacts* → Close.
+  Parent decks: `2026-repronim-YODA-BIDS-webinar.html` (provenance
+  slides) and `2026-ca-origami-retreat-aicoding.html` (AI framing).
+- **Thesis**: agents do not fail for lack of intelligence, they fail for
+  lack of *structure to act on*; **Actionability** is the load-bearing
+  STAMPED property for agents, and **standards are what make it cheap**.
+  The next thing owed to the commons is not more code but **shared
+  harnesses and skills**.
+- **Reusable highlights**:
+  - Title slide (per `SOUL.md` §3) — note the logo strip swaps OBC for
+    `pics/stamped-yoda.svg` linking to stamped-principles.org.
+  - **STAMPED section opener** using `pics/borrowed/stamped-banner_ver-3.svg`
+    (the project's own banner: the seven words with icons, 385×100 mm).
+    Much stronger than a text-only opener — reuse it in any STAMPED deck.
+  - **"Standing on two talks"** two-column credit slide (NEW): the
+    ReproNim YODA webinar + [Oscar Esteban's OHBM 2026 AI
+    Educational](https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/).
+    The *Agent = Model + Harness* formulation is borrowed from it with
+    attribution; reuse this slide shape whenever a deck picks up where
+    someone else's left off.
+  - **"Without structure, the agent has to guess"** (NEW, *the hinge
+    slide of the deck*): side-by-side `study_final2/` vs. a BIDS tree,
+    with "*Infer.*" repeated down the left column. Domain-agnostic —
+    swap the right-hand tree for any standard.
+  - **"STAMPED in one table"** (NEW): all seven properties with a third
+    column, *what it buys an agent*. The single most portable slide here.
+  - **"STAMPED and FAIR do different jobs"** (NEW): sharing vs.
+    operational, three-row contrast.
+  - **"Actionability is the one that agents live or die on"** (NEW) —
+    carries the Clunie "all standards are bad" line into the AI frame.
+  - **"…and AI changed *what counts as* actionable"** (NEW, *the pivot
+    of the deck*): three-row escalation — *Before* (exact command/API →
+    tools and humans who already knew) / *Now* (a procedure described in
+    **human language** + scripts where precision matters → **any agent on
+    first contact**; the interface moved from syntax to language) /
+    *Next* (routines that fire without being asked → **the harness**
+    acts). Plus a two-column breakdown: **Skills** (language carries the
+    judgement, scripts the precision, one-skill-one-job) and **Routines**
+    (Claude Code on the web watching a repo, scheduled agents, CI).
+    Punchline: *AI made automation on top of actionability cheap — that
+    is the real multiplier.*
+  - **"So grade *them* too: a skill is a research object"** (NEW, *the
+    recursive turn*): seven-row table mapping each STAMPED property onto
+    a skill/automation. Punchline: **good automation and good skills
+    pass the STAMPED checklist — that is what makes them reusable beyond
+    the author.** Absorbs the checklist / examples / `main.tex` links.
+  - Provenance block borrowed from the ReproNim webinar: `datalad run`
+    RUNCMD record, "provenance doesn't care who wrote the code" beat
+    (from `2026-usrse-con-talk.html`), `con/duct` webshot.
+  - **The BIDS→provenance bridge** (NEW, on the BIDS slide): *"a layout
+    only tells you **what** the files are"* →
+    **standard → `datalad run` → `duct` = what it is → how it was made →
+    what it took.** The one-line connective tissue that makes Act III
+    read as one argument instead of three tool demos. Steal it verbatim.
+  - **"…and *that log is* the provenance you need later"** (NEW):
+    `con/duct` reframed for an AI audience — three operator questions
+    (OOM? how much to request? what did it print?) answered by the
+    trace rather than by recollection. `REPRONIM_USE_DUCT=1` pointer.
+  - **"Agent = Model + Harness"** harness-anatomy table (NEW): each
+    harness piece (`AGENTS.md` / skills / hooks / MCP / sandbox) mapped
+    onto the STAMPED property it satisfies.
+  - **"We are already doing this — upstream, in public"** (NEW): the
+    [`K-Dense-AI/scientific-agent-skills`](https://github.com/K-Dense-AI/scientific-agent-skills)
+    contribution table — `skills/bids` ([PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125), ours, merged),
+    `skills/datalad` ([PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227), Dylan Pulver, merged with our upstream review),
+    [PR #265](https://github.com/K-Dense-AI/scientific-agent-skills/pull/265) (Brent McPherson — STAMPED→DataLad command mapping, *open* as of 2026-10-05),
+    [issue #217](https://github.com/K-Dense-AI/scientific-agent-skills/issues/217) ("should STAMPED be its own skill?" + where domain skills should live).
+  - `con/skills` table, refreshed against the current repo listing.
+  - **"Two regimes — and be honest about which one you are in"** (NEW,
+    *the thesis slide of the deck*): **A. scaffolded self-verification**
+    (executable spec the loop is checked against; tests/validators as
+    the oracle — the loop must be able to *fail*; provenance so drift is
+    detectable; automated gates before human eyes) vs. **B. small,
+    human-reviewable, hand-tried** (a readable diff as a *design
+    constraint, not a courtesy*; one concern per change; run it by hand
+    before you believe it; reversibility as the safety mechanism).
+    Punchline: *the safe size of an AI-assisted work item is set by the
+    strength of your verification loop* — and the way out of B is
+    **A**ctionable specs + **T**racked provenance + **M**odular units,
+    i.e. STAMPED again. Kicker correctly attributes *"less is more"* to
+    **Robert Browning, *Andrea del Sarto*, 1855** (Mies van der Rohe
+    popularised it and credited Peter Behrens) — reuse the attribution,
+    it is almost always got wrong.
+  - **"We are not the only ones saying this"** (NEW): the receipts table —
+    [DORA 2025](https://dora.dev/insights/balancing-ai-tensions/)
+    ("small batches is a critical countermeasure"; "verification is a
+    fundamentally different cognitive task than creation"),
+    [METR RCT 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)
+    (19% slower / felt 20% faster — cite for the *perception gap*; METR
+    labels it historical),
+    [Addy Osmani](https://addyo.substack.com/p/code-review-in-the-age-of-ai)
+    ("proof over vibes"),
+    [Simon Willison](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)
+    ("deliver code you have proven to work"), and Faros telemetry
+    (PR size +51%, review time +441%, incidents/PR +243%).
+    **The best single slide in the corpus for arguing AI-assisted work
+    discipline to a skeptical or an over-enthusiastic audience.**
+  - HI ↔ AI 4-stance policy table (trimmed from `2026-usrse-con-talk.html`),
+    now prefaced by the regime mapping (*rows 1–2 are regime B; rows 3–4
+    are only honest once regime A is built*),
+    with the **Autonomous** row now naming real exemplars:
+    [Brain Researcher](https://brain-researcher.com/) (Poldrack lab,
+    [arXiv:2608.19902](https://arxiv.org/abs/2608.19902)) and
+    [K-Dense AI](https://github.com/K-Dense-AI/). Footnote: both are
+    *harnesses* — **autonomy is bought with structure, not a bigger
+    model**. The same paper supplies the hinge slide's evidence
+    footnote (tool-selection accuracy 23.3% → 93.6% across 7 models).
+  - 6-item Monday checklist (incl. *size the work to the loop you
+    actually have*); canonical Acknowledgements; STAMPED-Yoda closer.
+  - **"All three layers, one real artifact — built with AI"** +
+    **"So I tried to `rerun` it. Live, on this laptop."** (NEW, 2 slides,
+    *the strongest evidence in the deck*): the
+    [`dandi/compression-comparisons-t261-study`](https://github.com/dandi/compression-comparisons-t261-study)
+    worked example — BIDS-shaped layout, tool and 523 GB data as
+    subdatasets pinned by commit, and `[DATALAD RUNCMD]` records whose
+    `cmd` **is** a `duct` invocation. Verified counts (2026-10-06):
+    1265 commits / 1216 RUNCMD / 1095 wrapping `duct` / 912 cells, 0
+    errors / 3838 h recorded compute / 26 `Co-Authored-By: Claude`.
+    The second slide reports an **actual rerun from a clean clone**:
+    every scientific number (`cr`, `encoded_bytes`, `rmse`,
+    `round_trip_ok`, `signal_std`) came back **bit-for-bit** across a
+    different machine, kernel and Python patch — and the *one* thing
+    that broke was **D**istributable (a `.gitmodules` `url = ../..` that
+    resolves only on the author's disk). See `PLAN.md` §4b for the full
+    method, and reuse this as the canonical "STAMPED, graded by actually
+    being someone else" example.
+  - **"Where are *you* on the ladder?"** (NEW): `ai-ladder-skills.png`
+    beside a condensed L1–L5 table (*what it looks like* / *the skill you
+    have to acquire*). Punchline: **L4–L5 is where a bad harness stops
+    being survivable — invest in the harness, not the model.**
+    Credit: Jo Van Eyck, *You are Not Ready: Agentic coding in 2026*.
+  - **"And the loop that gets you up it"** (NEW): 5-stage mermaid beside
+    the **development-model mapping** (vibe coding / spec-driven /
+    compound engineering). Punchline: **stage 5 is where a skill is
+    born**, and what it writes down is exactly the artifact that must be
+    STAMPED. This is the best pairing of the loop with the dev models in
+    the corpus — prefer it over the markdown version in
+    `2026-ca-origami-retreat-aicoding.html`.
+  - **"That was the *individual* ladder. Here is the *team* one."**
+    (NEW): the **SciOps maturity figure**,
+    `pics/borrowed/neuro-sciops-fig.svg` (derived at authoring time from
+    the annexed `pics/borrowed/neuro-sciops.pdf` via `pymupdf`'s
+    `get_svg_image(text_as_path=True)`; the source PDF is pure vector, so
+    prefer SVG over a raster render — sharper at projector scale and in
+    the PDF export, and smaller than the PNG it replaced). **The figure is credited on-slide to the SciOps preprint**
+    (Johnson, Nguyen, Dichter, …, Martone, Pestilli, Yatsenko;
+    [arXiv:2401.00077](https://arxiv.org/abs/2401.00077)) — reuse it the
+    same way; it is not a CON figure. Punchline: *L5 presupposes L3.*
+  - **Appendix vertical stack** (skipped in a 25-min delivery): STAMPED
+    vs. FAIR, Portable+Ephemeral, the long-form AI-coding ladder,
+    BEP028, `con/yolo` + `con/serve`, related-CON-talks table.
+- Companion **video playlist** spec: `2026-reproAI-MIT-STAMPED/playlist.md`
+  — 8 videos for the ReproNim YouTube channel, with **yt-dlp-verified
+  licences** (4 CC-BY on the DataLad channel, 1 ReproNim-own, 3 Standard
+  Licence that are linked but never mirrored) and the ReproTube archival
+  status (all mirrorable ones *already archived*). Reuse the verification
+  one-liner in that file before any future mirroring decision.
+- Notes: plan in `2026-reproAI-MIT-STAMPED/PLAN.md` (includes pre-delivery
+  TODOs: confirm the workshop's official name, re-check PR #265 state,
+  publish the playlist).
+  Deck is 41 slides (34 main + 7 appendix); verified rendered with no
+  broken images, no console errors, and no slide overflowing the
+  1400×1050 canvas by more than ~42px. **34 main slides is well over
+  budget for the 25-min slot** — four main-deck slides carry a
+  `SKIP CANDIDATE` marker in their `<aside class="notes">`; dropping all
+  four lands at 30, still ~2 long. See `PLAN.md` §6 for the cut order.
+
 ### `2026-mcgill-mechababs/slides.html` — *mechababs: STAMPED execution of BIDS Apps at scale*
 - **Venue / date**: McGill neuroscience group, 2026-08-11 (20 min + 10 min discussion).
 - **Not a reveal.js deck**: marp source `2026-mcgill-mechababs/slides.md`, built to a self-contained `slides.html` via `datalad run` (marp-cli 4.5.0; `datalad rerun` regenerates it). Lives in its own subdirectory, no root `<TALK-ID>.html`. Slide IDs below do not apply.
@@ -391,6 +563,11 @@ ReproNim-containers / con/duct / ReproMan)
   `pics/dandiarchive-webshots.png`, `pics/dandisets-healthstatus.png`.
 
 ### YODA principles + "Look up you must not" + STAMPED
+- `2026-reproAI-MIT-STAMPED.html` — **best standalone STAMPED
+  treatment in reveal.js**: the seven-property table (with an
+  agent-affordance column), the STAMPED-vs-FAIR contrast, the
+  Actionability-is-load-bearing slide, and the
+  checklist/examples/paper sub-site table.
 - `2025-distribits-YODA.html` and `2026-repronim-YODA-BIDS-webinar.html`
   — full YODA spine.
 - `2026-nih-bids2.0.html` § Modularity → YODA hierarchy with containers
@@ -402,6 +579,34 @@ ReproNim-containers / con/duct / ReproMan)
   `pics/yoda-hierarchy-with-containers.png`,
   `pics/yoda-do-not-look-up.png`, `pics/yoda-all-the-way-down.png`,
   `pics/stamped-principles-webshot_20260602.png`.
+
+### Worked example: a full STAMPED research object (AI-built)
+- `2026-reproAI-MIT-STAMPED.html` § Act III, last two slides —
+  [`dandi/compression-comparisons-t261-study`](https://github.com/dandi/compression-comparisons-t261-study):
+  BIDS-shaped layout + pinned subdatasets + 1216 `[DATALAD RUNCMD]`
+  commits, 1095 of them wrapping `duct`. **The single best "all the
+  pieces, on a real study" artifact in the corpus** — use it whenever a
+  deck needs to show the layers composing rather than describing them.
+- *Rerun evidence*: a clean-clone `datalad rerun` of the 0.5 s smoke cell
+  reproduced every scientific value bit-for-bit; only timings and the
+  environment record moved. Method and caveats in
+  `2026-reproAI-MIT-STAMPED/PLAN.md` §4b.
+- *Known defect worth citing*: `.gitmodules` `url = ../..` breaks
+  `datalad get` for any outside cloner — a live **D**istributable
+  failure, one-line fix. Good teaching material for the checklist.
+
+### Companion video playlists / YouTube licensing / ReproTube
+- `2026-reproAI-MIT-STAMPED/playlist.md` — the model for a talk-companion
+  playlist: ordered video list, **licences verified with `yt-dlp`** (not
+  assumed), an explicit mirror-vs-link rule, and the ReproTube archival
+  status of each entry. Copy this file as the template for future decks.
+- *Rule of thumb established there*: CC-BY → may be mirrored to ReproTube;
+  Standard YouTube Licence → playlist link only, never mirrored.
+- *Note*: `con/annextube` is channel-oriented and mirrors each channel's
+  own playlists; a curated **cross-channel** playlist has no archival
+  representation today. Recommended stance: leave it, the playlist is a
+  view and every mirrorable video is already archived per-channel.
+- *Asset*: <https://datasets.datalad.org/repronim/ReproTube/channels.tsv>
 
 ### Provenance / `datalad run` / `datalad rerun` / RUNCMD → BEP028
 - `2025-distribits-YODA.html` and `2026-repronim-YODA-BIDS-webinar.html`
@@ -443,6 +648,13 @@ ReproNim-containers / con/duct / ReproMan)
 - `2023-brain-dandi.html` § "Where data go to die".
 
 ### AI angle / HI+AI / AI-coding ladder / con/serve
+- `2026-reproAI-MIT-STAMPED.html` — **the STAMPED↔AI deck**: "without
+  structure the agent has to guess" contrast slide, STAMPED-table
+  *what-it-buys-an-agent* column, the **"AI changed what counts as
+  actionable"** escalation, Agent=Model+Harness anatomy table, the
+  **AI-coding-ladder + 5-stage-loop + dev-model** pair (promoted out of
+  the appendix and better laid out than the CA Origami original), the
+  **SciOps figure**, and the "skills are the new reusable module" argument.
 - `2026-ca-origami-retreat-aicoding.html` — full deck.
 - `2026-repronim-YODA-BIDS-webinar.html` § hand-off to AI talk
   (Appendix-style slide referenced from the AI talk's "Previously on…").
@@ -522,6 +734,35 @@ ReproNim-containers / con/duct / ReproMan)
   literate than data-archive-literate, or when a critic asks
   "why don't you just build a portal?".
 
+### Actionability in the AI era / automations on top of standards
+- `2026-reproAI-MIT-STAMPED.html` § Act II — the three-tier escalation
+  (*exact command* → *procedure in human language* → *routines that fire
+  unasked*) and the two mechanisms it unlocks: **skills** (human
+  language carries judgement, scripts carry precision, modularity still
+  applies) and **harness-provided routines** (Claude Code on the web
+  watching a repo, scheduled agents, CI beyond tests).
+- `2026-reproAI-MIT-STAMPED.html` § "So grade *them* too" — the
+  recursive claim that **skills and automations are themselves research
+  objects that must pass the STAMPED checklist**, which is what makes
+  them reusable beyond their author. Reuse this slide in any deck that
+  argues for sharing harnesses rather than hoarding prompts.
+
+### AI work-item sizing / verification loops / review burden
+- `2026-reproAI-MIT-STAMPED.html` § "Two regimes" + "We are not the only
+  ones saying this" — the thesis and its receipts. Use whenever a deck
+  needs to argue *why* AI-assisted work must stay small absent a
+  self-checking harness, or to push back on "the model is good enough
+  now".
+- *External evidence worth keeping at hand*:
+  [DORA 2025](https://dora.dev/insights/balancing-ai-tensions/);
+  [METR RCT 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/);
+  [Addy Osmani, *Code Review in the Age of AI*](https://addyo.substack.com/p/code-review-in-the-age-of-ai);
+  [Simon Willison, *Your job is to deliver code you have proven to work*](https://simonwillison.net/2025/Dec/18/code-proven-to-work/);
+  [Faros/DORA-2025 telemetry](https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025).
+- *Aphorism*: "less is more" = Robert Browning, *Andrea del Sarto*, 1855
+  — **not** Mies van der Rohe (who credited Peter Behrens). Counter:
+  Robert Venturi, "less is a bore" (1966).
+
 ### Five verbs ↔ SciOps maturity levels
 - *Mapping* (Johnson *et al.*, 2024; <https://arxiv.org/abs/2401.00077>):
   - **L1 Initial** — ad-hoc; no CON verb yet.
@@ -529,6 +770,12 @@ ReproNim-containers / con/duct / ReproMan)
   - **L3 Defined** — Reuse / Compose / Extend / Standardize; FAIR data + FAIR workflows. *Paper-cited L3 exemplars*: BIDS, NWB, DataLad / git-annex, DANDI, brainlife.io.
   - **L4 Scalable** — Automate; "SciOps pipelines" (semi-automated continuous workflows).
   - **L5 Optimizing** — Automate × AI; closing the discovery loop.
+- *Figure*: `pics/borrowed/neuro-sciops-fig.svg` (vector, converted from
+  the annexed `pics/borrowed/neuro-sciops.pdf`) — the five-level ladder
+  graphic from the preprint itself. **Always credit Johnson et al.
+  on-slide**; it is not a CON figure. Used in
+  `2026-reproAI-MIT-STAMPED.html` § "That was the individual ladder.
+  Here is the team one."
 - *Slide anchors*: `2026-usrse-con-talk.html` § Automate's 4th slide ("The five verbs climb the SciOps ladder"); `_backdrawer_/202x-mvc-stack.html` § Many-lenses Maturity row (now spells out all 5 levels); `2026-usrse-con-talk.html` § HI+AI's updated SciOps bullet (STAMPED = per-artifact, SciOps = team-operations).
 - *SOUL.md §7* explicitly lists the verb→level mapping; cite it from any future deck that wants to talk about maturity.
 - *Practical implication*: when you name one of the 5 verbs in a slide, mention which SciOps level it corresponds to — CMM language travels well to RSE audiences.
@@ -562,6 +809,27 @@ ReproNim-containers / con/duct / ReproMan)
   (YouTube id `oF98hdaph1k`, timestamp 644s); cite when borrowing or expanding the schema-driven-UI argument.
 - *Suggested screenshots to add later*: DANDI meditor at <https://gui.dandiarchive.org/>; a `shacl-vue`-rendered website (per psychoinformatics-de's deployments).
 
+### Agent skills / harnesses as shareable artifacts
+- `2026-reproAI-MIT-STAMPED.html` § Act IV — the canonical treatment:
+  harness-anatomy table (`AGENTS.md` / skills / hooks / MCP / sandbox
+  ↔ STAMPED properties), the upstream-contribution table, and the
+  `con/skills` listing.
+- `2026-ca-origami-retreat-aicoding.html` § "Reusable Skills: con/skills"
+  — the workflow-level view (compound engineering stage 5).
+- *External*: [`K-Dense-AI/scientific-agent-skills`](https://github.com/K-Dense-AI/scientific-agent-skills)
+  (177 skills, Agent Skills spec, MIT) — CON authored `skills/bids`
+  ([PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125))
+  and reviewed `skills/datalad`
+  ([PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227));
+  STAMPED→DataLad command mapping is
+  [PR #265](https://github.com/K-Dense-AI/scientific-agent-skills/pull/265).
+  The open design question — *where should domain skills live?* — is
+  [issue #217](https://github.com/K-Dense-AI/scientific-agent-skills/issues/217).
+- *External*: [Oscar Esteban, OHBM 2026 AI
+  Educational](https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/)
+  — "Agent = Model + Harness", `AGENTS.md` as the operational contract,
+  grounding-beats-search experiment. Credit it when borrowing.
+
 ### CON identity / acknowledgements / funders
 - `2024-distribits-datalad.html` final acknowledgements slide is the
   canonical layout: software → some-slides-origin → Funders → Collaborators.
@@ -589,6 +857,20 @@ ReproNim-containers / con/duct / ReproMan)
   `2024-distribits-datalad.html`, `2025-distribits-YODA.html`,
   `2026-ca-origami-retreat-aicoding.html` ("Let the AI agents be with
   you", with the Yoda SVG as a sign-off).
+
+## Repo-level tooling (`tools/`)
+
+Reach for these before writing anything per-talk:
+
+| Tool | What it does |
+| ---------------------- | ------------------------------------------------------------------------------------------------ |
+| `tools/mkqrcode.py`    | QR-code generation (PNG or SVG), with optional embedded logo and a decode-back verification pass   |
+| `tools/mkqrcode_con`   | Thin wrapper: `mkqrcode.py` with the CON logo and `-c H` error correction — **the branded variant** |
+| `tools/qrcode_url.sh`  | URL → QR shortcut                                                                                  |
+| `tools/mkpdf.py`       | Headless reveal.js → PDF for **any** deck (Playwright; page size from each deck's own reveal config). Third option next to `README.md`'s manual `?print-pdf` and decktape-in-Docker routes. Derived PDFs are not committed |
+| `tools/create_index.sh`| Index generation                                                                                   |
+| `tools/copy_pics.sh`   | Picture copying helper                                                                             |
+| `tools/get_pdf_page_to_png` | Extract one PDF page as a trimmed, transparent PNG (needs `pdftk`/`pdftoppm`/`convert`)       |
 
 ## How to use this index
 

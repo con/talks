@@ -1,0 +1,1577 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Edit me start! -->
+		<title>STAMPED principles and their role in the age of AI-driven scientific software development</title>
+		<meta name="description" content="LLM Workshop, MIT, October 16th, 2026. STAMPED, standards, provenance (datalad run, con/duct), and why harnesses and skills are the next shareable research artifact.">
+		<meta name="author" content=" Yaroslav O. Halchenko ">
+		<!-- Edit me end! -->
+
+		<link rel="stylesheet" href="css/custom.css">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<!-- Start of slides -->
+
+<!-- =================================================================
+     ACT 0 — Frame
+     ================================================================= -->
+
+<!-- S1. Title slide -->
+<section>
+  <section>
+	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:120px;"></a>
+	  <h2 style="margin-top:0.2em;margin-bottom:0.2em;font-size:1.45em;">STAMPED principles and their role in the age of<br/>AI-driven scientific software development</h2>
+	  <p style="margin-top:0.2em;margin-bottom:0.2em;font-size:0.7em;font-style:italic;">
+	  <strong>Agents often fail not for lack of "intelligence".<br/>They fail for lack of structure to act on.</strong>
+	  </p>
+
+    <div style="margin-top:0.3em;text-align:center">
+    <table style="border: none;">
+    <tr>
+	<td>
+      Yaroslav O. Halchenko<br>
+	  <small><a href="https://twitter.com/yarikoptic" target="_blank"><img data-src="pics/twitter.png" style="height:30px;margin:0px" />@yarikoptic</a></small>
+	  <small><a href="https://fosstodon.org/@yarikoptic" target="_blank"><img data-src="pics/mastodon-icon.svg" style="height:30px;margin:0px;margin-right:0.1em" />@yarikoptic@fosstodon.org</a></small>
+    </td>
+	<td></td>
+    </tr>
+    <tr>
+      <td>
+		<small><br><a href="http://centerforopenneuroscience.org/" target="_blank">Center for Open Neuroscience</a>
+          <br><a href="https://pbs.dartmouth.edu/" target="_blank">Department of Psychological and Brain Sciences</a>
+          <br><a href="https://www.dartmouth.edu/ccn/" target="_blank">Center for Cognitive Neuroscience</a><br>
+		  <a href="http://www.dartmouth.edu" target="_blank">Dartmouth College<br>
+		  New Hampshire, USA</a></small>
+
+		  <img style="width:140px; margin: 0px" data-src="pics/2026-reproAI-MIT-STAMPED-qrcode.png"/>
+      </td>
+	  <td>
+	  </td>
+    </tr>
+    </table>
+    </div>
+<small>
+  <strong>LLM Workshop &mdash; MIT &mdash; October 16<sup>th</sup>, 2026</strong><br/>
+  Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
+  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-reproAI-MIT-STAMPED.html#/">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-reproAI-MIT-STAMPED.html</a><br/>
+<br>
+<small>
+     <a href="http://datalad.org" target="_blank"> <img  style="height:78px;margin:10px" data-src="pics/datalad_D.svg"/></a>
+	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:78px;margin:10px" data-src="pics/neurodebian.png"/></a>
+	 <a href="http://repronim.org" target="_blank"> <img  style="height:78px;margin:10px"  data-src="pics/repronim-logo-vertical.svg"/></a>
+	 <a href="https://stamped-principles.org/" target="_blank"> <img  style="height:78px;margin:10px"  data-src="pics/stamped-yoda.svg"/></a>
+	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:78px;margin:10px" data-src="pics/dandi-logo-square.svg"/></a>
+	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:78px;margin:10px" data-src="pics/BIDS_Logo.png"/></a>
+	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:78px;margin:10px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
+
+</small>
+
+</small>
+
+	<aside class="notes">
+	  Dave's original framing for this slot was "STAMPED and how coding
+	  is transformed and the new scientific framework for code/software
+	  development". That is the talk — but it is not only about
+	  standards, so the title leads with the principles.
+	  25 min + 5 Q&amp;A. Everything on the content slides is a link;
+	  the deck is meant to be clicked through afterwards.
+	</aside>
+  </section>
+</section>
+
+
+<!-- S2. Reality Check -->
+<section>
+  <h2 style="margin-top:0.5em;margin-bottom:0.5em;">Reality Check</h2>
+
+  <div style="text-align:center; margin-top:0.5em;">
+    <img src="pics/borrowed/idiocracy-fixed.gif" style="width:45%; box-shadow: 10px 10px 8px #888888;"/>
+  </div>
+
+  <div style="margin-top:0.8em; padding:0.8em; background-color:rgba(255,255,255,0.9); border-radius:10px;">
+    <p style="font-size:0.85em; margin-bottom:0.3em;">
+      <strong>Disclaimer:</strong> I am not here to sell you a model, a vendor, or a workflow.
+    </p>
+    <p style="font-size:0.8em; font-style:italic; color:#555; margin-top:0.3em;">
+      I am here to argue that the boring infrastructure work we have been doing for 20 years<br/>
+      is <em>exactly</em> what decides whether agents help you or hurt you.
+    </p>
+  </div>
+  <p style="font-size:0.7em;margin-top:0.6em;color:#555;">
+	<strong>Counts and names on these slides are links</strong> &mdash; follow along, click through later.
+  </p>
+</section>
+
+
+<!-- S3. Previously on... / standing on two talks -->
+<section>
+  <h3>Standing on two talks</h3>
+  <table style="width:100%;font-size:0.8em;margin-top:0.5em;">
+	<tr style="vertical-align:top;">
+	  <td style="width:50%;padding-right:1em;border-right:2px solid #999;">
+		<strong style="color:#2a5;">Mine &mdash; ReproNim webinar, Feb 2026</strong><br/>
+		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html#/" target="_blank">ReproFlow &amp; YODA: structure your studies</a>
+		(<a href="https://www.youtube.com/watch?v=1XbTbJ_P2x0" target="_blank">video</a>)
+		<ul style="margin-top:0.4em;">
+		  <li>Version control <em>everything</em></li>
+		  <li>Look up you must not</li>
+		  <li>Compose modularly you shall</li>
+		  <li>&hellip; and preserve <strong>all</strong> artifacts as an AI-accessible knowledge base</li>
+		</ul>
+	  </td>
+	  <td style="width:50%;padding-left:1em;">
+		<strong style="color:#e53;">Oscar Esteban &mdash; OHBM 2026 Educational</strong><br/>
+		<a href="https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/" target="_blank">Using LLMs in Neuroimaging Research: LLMs for Coding</a>
+		<ul style="margin-top:0.4em;">
+		  <li><strong>Agent = Model + Harness</strong></li>
+		  <li><a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> as the operational contract</li>
+		  <li>Context engineering &gt; prompt wording</li>
+		  <li>Grounding beats a bigger search</li>
+		</ul>
+	  </td>
+	</tr>
+  </table>
+
+  <div style="margin-top:1em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.85em;">
+	Oscar showed <strong>how to build the harness</strong>.<br/>
+	This talk is about <strong>what the harness stands on</strong> &mdash; and how harnesses themselves become shareable.
+  </div>
+
+  <aside class="notes">
+	Credit Oscar explicitly and warmly. His deck is the practical
+	companion to this one; several people in the room will have seen it.
+	"Agent = Model + Harness" is his formulation and I am reusing it
+	on purpose — reuse over reinvention, which is also the thesis.
+  </aside>
+</section>
+
+
+<!-- =================================================================
+     ACT I — What actually changed
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background="black">
+	<h2 style="color:white;">It&rsquo;s 2026. Agents write the code.</h2>
+	<aside class="notes">Short beat. Do not argue with it. Move on.</aside>
+  </section>
+
+  <section>
+	<h3>So the bottleneck moved</h3>
+	<table style="width:90%;margin:auto;font-size:0.95em;margin-top:1em;">
+	  <tr>
+		<td style="text-align:right;padding:0.5em;width:45%;"><em>writing</em> the code</td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;width:45%;"><strong>verifying</strong> and <strong>situating</strong> it</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:right;padding:0.5em;"><em>can I express this?</em></td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;"><strong>is this right, and does it fit what already exists?</strong></td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:1.2em;text-align:center;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank"><img src="pics/borrowed/2026-ai-intensifies.png" style="max-height:380px;box-shadow:5px 5px 8px #888;"/></a>
+	</div>
+	<p style="font-size:0.7em;color:#555;margin-top:0.3em;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank">HBR, Feb 2026: &ldquo;AI doesn&rsquo;t reduce work, it intensifies it&rdquo;</a>
+	</p>
+	<aside class="notes">
+	  Agent-rate output demands agent-rate review. You cannot
+	  hand-inspect what an agent produces in an afternoon. The only
+	  things that scale with it are standards (so correctness is
+	  checkable) and provenance (so the history is reconstructable).
+	</aside>
+  </section>
+
+  <section>
+	<h3>Without structure, the agent has to guess</h3>
+	<table style="width:100%;font-size:0.78em;margin-top:0.5em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:50%;padding-right:1em;">
+		  <strong style="color:#c62828;">What an agent finds in most labs</strong>
+<pre style="font-size:0.78em;"><code>study_final2/
+  scans/
+    s01_ep2d_bold_moco_3.nii
+    s01_t1_mprage_FINAL.nii
+    s02_ep2d_bold_moco_3(1).nii
+  analysis_new/
+    run_it.sh
+    run_it_OLD.sh
+    results_use_this_one.mat
+  notes.docx</code></pre>
+		  <ul style="margin-top:0.4em;">
+			<li>Which file is which subject? <em>Infer.</em></li>
+			<li>What are the acquisition parameters? <em>Infer.</em></li>
+			<li>Which script made <code>results_use_this_one.mat</code>? <em>Infer.</em></li>
+			<li>Was it run on the fixed data or the broken data? <em>Infer.</em></li>
+		  </ul>
+		</td>
+		<td style="width:50%;padding-left:1em;border-left:2px solid #666;">
+		  <strong style="color:#2a5;">What an agent finds in a <a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a> dataset</strong>
+<pre style="font-size:0.78em;"><code>ds000001/
+  dataset_description.json
+  participants.tsv
+  sub-01/
+    anat/sub-01_T1w.nii.gz
+    anat/sub-01_T1w.json
+    func/sub-01_task-rest_bold.nii.gz
+    func/sub-01_task-rest_bold.json
+  derivatives/
+    mriqc/dataset_description.json</code></pre>
+		  <ul style="margin-top:0.4em;">
+			<li>Subject, session, task, run: <strong>in the filename</strong></li>
+			<li>Parameters: <strong>in the sidecar</strong></li>
+			<li>Provenance of derivatives: <strong><code>GeneratedBy</code></strong></li>
+			<li>Correctness: <strong><a href="https://github.com/bids-standard/bids-validator" target="_blank">a validator says so</a></strong></li>
+		  </ul>
+		</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  Same model. Same prompt. <strong>Different affordances.</strong>
+	  On the left the agent improvises confidently and is wrong.
+	  On the right it can <em>act</em>, and the validator catches it when it does not.
+	</div>
+	<p style="font-size:0.66em;margin-top:0.35em;color:#555;">
+	  Not just rhetoric: a structured neuroimaging harness moved first-choice tool-selection accuracy from
+	  <strong>23.3% to 93.6%</strong> across seven models &mdash;
+	  <a href="https://arxiv.org/abs/2608.19902" target="_blank">Chen, &hellip;, Poldrack,
+	  <em>Bringing analytic rigor to agentic AI for science</em>, arXiv:2608.19902, 2026</a>
+	  (<a href="https://brain-researcher.com/" target="_blank">brain-researcher.com</a>).
+	</p>
+	<aside class="notes">
+	  This is the hinge of the talk. An unstructured tree does not give
+	  the agent less information — it gives it *ambiguous* information,
+	  which is worse, because a model will resolve ambiguity with a
+	  plausible guess rather than an error.
+	</aside>
+  </section>
+
+  <section>
+	<h3>This problem already has a name</h3>
+	<table style="width:100%;margin-top:1em;">
+	  <tr style="vertical-align:middle;">
+		<td style="width:48%;text-align:center;">
+		  <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"><img data-src="pics/yoda-principles-reordered.png" style="max-height:480px;"/></a>
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">YODA</a></strong>, 2018 &mdash; for humans composing studies</p>
+		</td>
+		<td style="width:4%;text-align:center;font-size:2em;">&rarr;</td>
+		<td style="width:48%;text-align:center;">
+		  <a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/stamped-principles-webshot_20260602.png" style="max-height:480px;box-shadow:5px 5px 8px #888;"/></a>
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://stamped-principles.org/" target="_blank">STAMPED</a></strong>, 2026 &mdash; generalized, gradeable, domain-agnostic</p>
+		</td>
+	  </tr>
+	</table>
+	<p style="font-size:0.75em;margin-top:0.5em;color:#555;">
+	  We did not invent these <em>for</em> AI. That is the point &mdash; they were already the right properties.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     ACT II — STAMPED
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:96%;max-width:1300px;"/></a>
+	<h3 class="fragment" style="margin-top:0.6em;">Seven properties a research object should have &mdash;<br/>whoever, <em>or whatever</em>, picks it up next.</h3>
+	<aside class="notes">
+	  Let the banner sit for a beat before advancing the fragment.
+	  Banner art is the STAMPED project's own (stamped-principles.org).
+	</aside>
+  </section>
+
+  <section>
+	<h3>STAMPED in one table</h3>
+	<table style="font-size:0.8em;width:97%;margin:auto;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.35em;width:17%;">Property</th>
+		<th style="text-align:left;padding:0.35em;width:30%;">In one line</th>
+		<th style="text-align:left;padding:0.35em;">What it buys an <em>agent</em></th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>S</strong>elf-contained</td>
+		<td style="padding:0.35em;">Everything under one boundary</td>
+		<td style="padding:0.35em;">A bounded context window. Nothing it needs is &ldquo;on Bob&rsquo;s laptop&rdquo;.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>T</strong>racked</td>
+		<td style="padding:0.35em;">Version control &amp; provenance</td>
+		<td style="padding:0.35em;">A diff to review, and a record of <em>who/what</em> produced each change &mdash; including the agent.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>A</strong>ctionable</td>
+		<td style="padding:0.35em;">Executable &amp; documented workflows</td>
+		<td style="padding:0.35em;"><strong>The load-bearing one.</strong> A command it can run, not a paragraph it must interpret.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>M</strong>odular</td>
+		<td style="padding:0.35em;">Independent &amp; composable modules</td>
+		<td style="padding:0.35em;">A unit small enough to reason about, swap, and verify in isolation.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>P</strong>ortable</td>
+		<td style="padding:0.35em;">Runs anywhere with explicit specs</td>
+		<td style="padding:0.35em;">The agent&rsquo;s sandbox is not your laptop. If it only runs on your laptop, it does not run.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>E</strong>phemeral</td>
+		<td style="padding:0.35em;">Transient compute environment</td>
+		<td style="padding:0.35em;">Throw-away containers &mdash; exactly how agents already work. No accreted state to corrupt.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>D</strong>istributable</td>
+		<td style="padding:0.35em;">Shareable, persistent, retrievable</td>
+		<td style="padding:0.35em;">It can <code>get</code> the inputs itself instead of asking you for a Dropbox link.</td>
+	  </tr>
+	</table>
+	<p style="font-size:0.72em;margin-top:0.6em;">
+	  <a href="https://doi.org/10.31222/osf.io/f3h82_v1" target="_blank">
+		A. Macdonald, C. Baker, I. To, <b>Y. O. Halchenko</b>.
+		<em>STAMPED: principles for reproducible research objects.</em>
+		Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1</a>
+	  &nbsp;&middot;&nbsp;
+	  sources: <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">stamped-principles/stamped-paper</a>
+	  &nbsp;&middot;&nbsp;
+	  <a href="https://paper.stamped-principles.org" target="_blank">paper.stamped-principles.org</a>
+	</p>
+	<aside class="notes">
+	  Do not read the table. Say: seven properties, each a spectrum not
+	  a pass/fail gate, each with MUST/SHOULD/MAY requirements under it.
+	  Then jump straight to the third column as the reason this audience
+	  should care.
+	</aside>
+  </section>
+
+  <section>
+	<h3><strong>A</strong>ctionability is the one that agents live or die on</h3>
+	<div style="font-size:0.9em;margin-top:0.8em;">
+	  <p>An actionable object answers, <em>without a human in the loop</em>:</p>
+	  <ul>
+		<li><strong>What is this?</strong> &rarr; a declared standard (<a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a>, <a href="https://www.nwb.org/" target="_blank">NWB</a>), not a README paragraph</li>
+		<li><strong>How do I run it?</strong> &rarr; a recorded command, not &ldquo;see Methods&rdquo;</li>
+		<li><strong>Did I get it right?</strong> &rarr; a validator exit code, not a reviewer&rsquo;s opinion</li>
+	  </ul>
+	</div>
+
+	<div style="margin-top:1em; padding:1em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.9em;">
+	  <strong>And standards are what make Actionability cheap.</strong>
+	  You do not negotiate the layout per project &mdash; you inherit it.<br/>
+	  <em>&ldquo;You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all&rdquo;</em> was a convenience for humans.
+	  For a model that would otherwise have to <em>infer</em> the layout, it is the difference between acting and hallucinating.
+	</div>
+
+	<p style="font-size:0.78em;margin-top:0.7em;font-style:italic;color:#555;">
+	  &ldquo;All standards are &lsquo;bad&rsquo;, but some are used.&rdquo; &mdash; D. Clunie, MICCAI 2017.
+	  A used standard beats a correct one &mdash; and now it has a second constituency.
+	</p>
+	<aside class="notes">
+	  This is the slide Dave's title was pointing at. Say it plainly:
+	  structure is not bureaucracy, it is the interface that lets a
+	  non-human collaborator participate without going wild.
+	  Then: but "actionable" did not stay still — next slide.
+	</aside>
+  </section>
+
+  <section>
+	<h3>&hellip; and AI changed <em>what counts as</em> actionable</h3>
+	<table style="width:99%;margin:auto;font-size:0.76em;margin-top:0.4em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.35em;width:14%;"></th>
+		<th style="text-align:left;padding:0.35em;width:36%;">&ldquo;Actionable&rdquo; required&hellip;</th>
+		<th style="text-align:left;padding:0.35em;">&hellip; so what could act</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Before</strong></td>
+		<td style="padding:0.35em;">An <em>exact</em> command, API call, or documented CLI. Prose was not enough.</td>
+		<td style="padding:0.35em;">Tools, and humans who already knew the tool.
+		  Everything else stayed a paragraph in the Methods.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>Now</strong></td>
+		<td style="padding:0.35em;">A procedure <strong>described in human language</strong> &mdash;
+		  with scripts dropped in exactly where precision matters.</td>
+		<td style="padding:0.35em;"><strong>Any agent, on first contact.</strong>
+		  The interface moved from <em>syntax</em> to <em>language</em>, so vastly more of what we
+		  already wrote down became executable.</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Next</strong></td>
+		<td style="padding:0.35em;">Routines that fire <strong>without being asked</strong>.</td>
+		<td style="padding:0.35em;">The <strong>harness</strong> itself &mdash; CI, PR monitors, scheduled agents.</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.7em;font-size:0.8em;">
+	  <table style="width:99%;margin:auto;">
+		<tr style="vertical-align:top;">
+		  <td style="width:50%;padding-right:0.8em;">
+			<strong style="color:#2e7d32;">1. <a href="https://code.claude.com/docs/en/skills" target="_blank">Skills</a> &mdash; logic written in language</strong>
+			<ul style="margin-top:0.3em;">
+			  <li>Human language carries the <em>judgement</em>; scripts carry the <em>precision</em></li>
+			  <li>One skill, one job &mdash; <strong>modularity still applies</strong></li>
+			  <li>The procedure you did by hand three times, written down once</li>
+			</ul>
+		  </td>
+		  <td style="width:50%;padding-left:0.8em;border-left:2px solid #666;">
+			<strong style="color:#1565c0;">2. Routines &mdash; the harness runs them for you</strong>
+			<ul style="margin-top:0.3em;">
+			  <li><a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank">Claude Code on the web</a> watching a repo: triage issues, review PRs</li>
+			  <li>Scheduled agents; <a href="https://github.com/con/tinuous" target="_blank">CI</a> that does more than run tests</li>
+			  <li>No human has to <em>remember</em> to invoke it</li>
+			</ul>
+		  </td>
+		</tr>
+	  </table>
+	</div>
+
+	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  AI did not only make <em>more things</em> actionable. It made <strong>automation on top of
+	  actionability cheap</strong> &mdash; which is the real multiplier.
+	</div>
+	<aside class="notes">
+	  The escalation is the point: actionable -> automatable. Before, you
+	  automated only what already had a clean CLI. Now the unit of
+	  automation can be a described procedure, so the set of things worth
+	  automating exploded. That is the opportunity — and the next slide is
+	  the bill that comes with it.
+	</aside>
+  </section>
+
+  <section>
+	<h3>So grade <em>them</em> too: a skill is a research object</h3>
+	<p style="font-size:0.85em;margin-top:-0.2em;">
+	  A skill that only runs in your repo, on your paths, undocumented and unversioned,
+	  is a <strong>silo with a friendlier interface</strong>.
+	</p>
+	<table style="width:99%;margin:auto;font-size:0.72em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.3em;width:16%;">Property</th>
+		<th style="text-align:left;padding:0.3em;">&hellip; applied to a skill or an automation</th>
+	  </tr>
+	  <tr><td style="padding:0.3em;"><strong>S</strong>elf-contained</td>
+		  <td style="padding:0.3em;">Carries its own references and scripts. Not &ldquo;see our internal wiki&rdquo;.</td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>T</strong>racked</td>
+		  <td style="padding:0.3em;">In git, with a <code>metadata.version</code> and a history &mdash; so a change to the procedure is reviewable.</td></tr>
+	  <tr><td style="padding:0.3em;"><strong>A</strong>ctionable</td>
+		  <td style="padding:0.3em;">Runnable commands and scripts, not only prose. <em>Recursive, and the point.</em></td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>M</strong>odular</td>
+		  <td style="padding:0.3em;">One skill, one job. Composable with the others instead of a mega-prompt.</td></tr>
+	  <tr><td style="padding:0.3em;"><strong>P</strong>ortable</td>
+		  <td style="padding:0.3em;">No hardcoded paths, no &ldquo;works on our cluster&rdquo;. Declares its dependencies and versions.</td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>E</strong>phemeral</td>
+		  <td style="padding:0.3em;">Runs in a fresh sandbox. No accreted state it silently depends on.</td></tr>
+	  <tr><td style="padding:0.3em;"><strong>D</strong>istributable</td>
+		  <td style="padding:0.3em;">Published where someone else can find and install it &mdash; not pasted into chat.</td></tr>
+	</table>
+
+	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  <strong>Good automation and good skills pass the STAMPED checklist.</strong>
+	  That is not a purity test &mdash; it is precisely what makes them reusable
+	  <em>beyond the person who wrote them</em>.
+	</div>
+
+	<p style="font-size:0.72em;margin-top:0.5em;">
+	  Walk it yourself: <a href="https://checklist.stamped-principles.org/" target="_blank">checklist.stamped-principles.org</a>
+	  (MUST / SHOULD / MAY, item by item) &middot;
+	  <a href="https://examples.stamped-principles.org/" target="_blank">examples</a> &middot;
+	  <a href="https://stamped-principles.org/" target="_blank">principles</a> &middot;
+	  <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">paper source</a>
+	  (<a href="https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex" target="_blank"><code>main.tex</code></a>
+	  &mdash; small enough to paste into a context window, which is how we actually grade a study today).
+	</p>
+	<aside class="notes">
+	  This is the recursive turn and it is worth saying out loud: the
+	  principles we wrote for datasets and analyses apply, unchanged, to
+	  the skills and automations we are now writing. A skill is just
+	  another research object. And the upstream skills repo already
+	  enforces a version of this — frontmatter validation, structure
+	  checks, test suites for skills that ship scripts, link checking.
+	  That is a STAMPED review in all but name.
+	</aside>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     ACT III — What makes it actionable in practice
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>What we built to make this real</h2>
+	<h3 class="fragment">Twenty years of it, in neuroimaging, before anyone said &ldquo;agent&rdquo;.</h3>
+  </section>
+
+  <section>
+	<h3>Standards are the grammar &mdash; <a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a> as the worked example</h3>
+	<a href="https://bids-standard.github.io/" target="_blank"><img data-src="pics/BIDS-minder.svg" style="max-height:360px;"/></a>
+	<div style="margin-top:0.4em;font-size:0.76em;">
+	  11 modalities &middot; <a href="https://bids.neuroimaging.io/extensions/beps.html" target="_blank">25 active BEPs</a> &middot;
+	  a <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank">machine-readable schema</a> &middot;
+	  a <a href="https://github.com/bids-standard/bids-validator" target="_blank">validator</a> &middot;
+	  <a href="https://bids-apps.neuroimaging.io/" target="_blank">BIDS-Apps</a> with one calling convention
+	</div>
+	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.82em;">
+	  The schema is the part that matters here: the standard is not prose an agent reads,
+	  it is <strong>data an agent queries</strong>. And the validator is the type-checker that
+	  turns a confident wrong answer into a failing build.
+	</div>
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.86em;">
+	  <strong>But a layout only tells you <em>what</em> the files are.</strong>
+	  It says nothing about <em>how they came to be</em>, or <em>what it cost</em> to make them.
+	  Standard &rarr; <code>datalad&nbsp;run</code> &rarr; <code>duct</code>:
+	  <strong>what it is &rarr; how it was made &rarr; what it took.</strong>
+	  Three layers, and an agent needs all three.
+	</div>
+	<aside class="notes">
+	  SKIP CANDIDATE if running long &mdash; the "agent has to guess"
+	  slide already made this point; this one only adds the schema +
+	  validator detail, which can be said in one sentence over it.
+	</aside>
+	<p style="font-size:0.66em;margin-top:0.35em;">
+	  <a href="https://www.nature.com/articles/sdata201644" target="_blank">
+		K. J. Gorgolewski, &hellip;, <b>Y. O. Halchenko</b>, &hellip;, R. A. Poldrack.
+		<em>The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments.</em>
+		Scientific Data 3:160044, 2016.</a>
+	</p>
+  </section>
+
+  <section>
+	<h3><strong>T</strong>racked: <a href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" target="_blank"><code>datalad run</code></a> writes the record for you</h3>
+<pre style="font-size:0.72em;"><code class="language-shell">$ datalad run -m "run brain extract workflow" \
+    --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+    --output "sub-*/anat" \
+    bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz</code></pre>
+<pre style="font-size:0.72em;"><code class="language-shell">$ git show --stat
+commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
+
+    [DATALAD RUNCMD] run brain extract workflow
+
+    === Do not change lines below ===
+    {
+     "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz ...",
+     "dsid": "b656ac80-973c-45ef-887e-1b8d6f6a51dd",
+     "exit": 0,
+     "inputs": ["inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz"],
+     "outputs": ["sub-*/anat"],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+ sub-001/anat.nii.gz      | 1 +
+ sub-001/anat_mask.nii.gz | 1 +</code></pre>
+	<ul style="font-size:0.88em;">
+	  <li>Machine-readable, <em>in the commit message</em> &mdash; no sidecar database to lose</li>
+	  <li>Clean git state in, clean git state out: <strong>no surprises</strong></li>
+	  <li><a href="https://docs.datalad.org/en/stable/generated/man/datalad-rerun.html" target="_blank"><code>datalad rerun</code></a> reads it back and re-executes</li>
+	</ul>
+	<p style="font-size:0.72em;margin-top:0.3em;">
+	  Example from the <a href="https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html" target="_blank">DataLad Handbook</a>.
+	  Found in the wild in <a href="https://github.com/datalad/datalad-usage-dashboard" target="_blank">~15% of indexed DataLad repositories on GitHub</a>.
+	</p>
+  </section>
+
+  <section>
+	<h3>Provenance does not care who wrote the code</h3>
+	<p style="font-size:1.4em;margin-top:1.2em;">
+	  Agent-written or hand-written, the <code>[DATALAD RUNCMD]</code> record is the same shape.
+	</p>
+	<p style="font-size:1.2em;margin-top:1em;">
+	  The tests do not know the code was AI-generated either.
+	</p>
+	<div style="margin-top:1.2em; padding:0.9em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.95em;">
+	  This is why <strong>Tracking</strong> is the principle that makes AI disclosure
+	  <em>mechanical</em> instead of aspirational &mdash; and we will come back to that at the end.
+	</div>
+	<aside class="notes">Hold here. This is take-home line #1.</aside>
+  </section>
+
+  <section>
+	<h3>The missing piece: <a href="https://github.com/con/duct" target="_blank">con/duct</a></h3>
+	<a href="https://github.com/con/duct" target="_blank"><img data-src="pics/webshot-con-duct.png" style="max-height:560px;"/></a>
+	<div style="margin-top:0.5em;font-size:0.88em;">
+	  Wrap <em>any</em> command. It records, next to the outputs:
+	  wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
+	  <code>stdout</code>/<code>stderr</code> &mdash; as plain, self-contained files.
+	</div>
+	<aside class="notes">
+	  SKIP CANDIDATE if running long &mdash; the next slide carries the
+	  argument; this one is the screenshot that sells it.
+	</aside>
+  </section>
+
+  <section>
+	<h3>&hellip; and <em>that log is</em> the provenance you need later</h3>
+	<table style="width:100%;font-size:0.72em;margin-top:0.3em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:44%;padding-right:0.8em;vertical-align:top;">
+		  <strong>&ldquo;Why did this get OOM-killed on the cluster?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Peak RSS over time, per process. Not your memory of it.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;How much do I request for 2,000 subjects?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Measured, from the run you already did.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;What did it print before it died?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Captured, versioned, next to the outputs.</li></ul>
+		</td>
+		<td style="width:56%;padding-left:0.8em;border-left:2px solid #666;text-align:center;vertical-align:top;">
+		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession" target="_blank"><img data-src="pics/duct-mriqc-cerebra.png" style="max-width:100%;max-height:360px;"/></a>
+		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/" target="_blank"><code>con-duct plot</code></a> &mdash; MRIQC on one subject/session</p>
+		</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  <strong>Why an AI audience should care:</strong> when you hand a failing pipeline to an agent,
+	  it needs <em>numbers and text it can read</em>, not a human recollection.
+	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
+	  Self-contained (<strong>S</strong>), tracked (<strong>T</strong>), immediately actionable (<strong>A</strong>).
+	</div>
+	<p style="font-size:0.72em;margin-top:0.4em;">
+	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
+	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
+	  and every <code>datalad containers-run</code> gets a duct trace for free.
+	</p>
+  </section>
+
+  <section>
+	<h3>All three layers, one real artifact &mdash; built with AI</h3>
+	<p style="font-size:0.8em;margin-top:-0.3em;">
+	  <a href="https://github.com/dandi/compression-comparisons-t261-study" target="_blank"><code>dandi/compression-comparisons-t261-study</code></a>
+	  &mdash; a reproduction of
+	  <a href="https://doi.org/10.1088/1741-2552/acf5a4" target="_blank">Buccino et al. 2023</a> on ephys compression,
+	  plus a comparison against the new ITU-T T.261 codec.
+	</p>
+	<table style="width:100%;font-size:0.72em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:46%;padding-right:0.8em;vertical-align:top;">
+		<strong>1. The layout (<em>what</em>)</strong>
+<pre style="font-size:0.74em;margin-top:0.2em;"><code data-noescape>dataset_description.json
+code/
+  compression-comparisons-tools/
+  run_sweep.sh
+sourcedata/
+  aind-ephys-compression/      <span style="color:#8bc34a">#&nbsp;523&nbsp;GB</span>
+derivatives/
+  compbench-*/&lt;cell&gt;/
+    metrics.json  manifest.json
+    duct-info.json  duct-usage.jsonl
+  reports-*/</code></pre>
+		<p style="margin-top:0.3em;">BIDS-shaped, YODA-composed: data and tool are
+		<strong>subdatasets pinned by commit</strong>, not copies.</p>
+	  </td>
+	  <td style="width:54%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>2. The record (<em>how</em>) &mdash; and 3. the cost (<em>what it took</em>)</strong>
+<pre style="font-size:0.68em;margin-top:0.2em;"><code data-noescape>$ git log --oneline
+7733465 [DATALAD RUNCMD] cell aind-634568__zstd...
+
+ "cmd": "<span style="color:#ffb74d">duct</span> --output-prefix .../duct- \
+      --sample-interval 1 --report-interval 5 \
+      <span style="color:#ffb74d">compbench run</span> --codec zstd ...",
+ "inputs":  ["sourcedata/aind-ephys-compression/.."],
+ "outputs": ["derivatives/../aind-634568__zstd.."],
+ "exit": 0</code></pre>
+		<p style="margin-top:0.3em;">The recorded command <strong>is</strong> a <code>duct</code>
+		invocation &mdash; so every cell commits its own resource trace beside its own results.</p>
+	  </td>
+	</tr></table>
+
+	<table style="width:99%;margin:auto;font-size:0.7em;margin-top:0.4em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="padding:0.25em;">commits</th><th style="padding:0.25em;"><code>[DATALAD RUNCMD]</code></th>
+		<th style="padding:0.25em;">of those, wrapping <code>duct</code></th>
+		<th style="padding:0.25em;">cells</th><th style="padding:0.25em;">recorded compute</th>
+		<th style="padding:0.25em;">AI disclosure</th>
+	  </tr>
+	  <tr style="text-align:center;">
+		<td style="padding:0.25em;"><strong>1265</strong></td><td style="padding:0.25em;"><strong>1216</strong></td>
+		<td style="padding:0.25em;"><strong>1095</strong></td>
+		<td style="padding:0.25em;"><strong>912</strong>, 0 errors</td>
+		<td style="padding:0.25em;"><strong>3838 h</strong> (peak RSS 120 GB)</td>
+		<td style="padding:0.25em;"><strong>26</strong> <code>Co-Authored-By:&nbsp;Claude</code></td>
+	  </tr>
+	</table>
+	<aside class="notes">
+	  This is the slide that joins the three tools into one object. Say:
+	  everything in the previous three slides, at scale, on a real study,
+	  and the bulk of it driven by an agent. The README is worth reading
+	  aloud from — it records its own gaps rather than papering over them.
+	</aside>
+  </section>
+
+  <section>
+	<h3>So I tried to <code>rerun</code> it. Live, on this laptop.</h3>
+	<table style="width:100%;font-size:0.74em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:53%;padding-right:0.8em;vertical-align:top;">
+<pre style="font-size:0.66em;"><code data-noescape>$ datalad clone .../compression-comparisons-t261-study
+$ datalad get code/compression-comparisons-tools
+  <span style="color:#ef9a9a">✗ fatal: repository not found</span>
+
+$ # .gitmodules says:  url = ../..
+$ #  → resolves to https://github.com/ (not a repo)
+$ # fine on the author's disk; breaks for a cloner
+
+$ git clone .../dandi/compression-comparisons \
+     code/compression-comparisons-tools <span style="color:#8bc34a"># by hand</span>
+$ uv venv envs/compbench &amp;&amp; uv pip install ...
+
+$ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
+  run(ok): ... [duct --clobber --output-prefix ..]
+  <span style="color:#8bc34a">Wall Clock Time: 0.549 sec   RSS peak: 7.8 MB</span></code></pre>
+	  </td>
+	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>Did the science come back?</strong>
+		<table style="width:100%;font-size:0.85em;margin-top:0.3em;">
+		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
+		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.51429112246829 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>rmse</code></td><td style="padding:0.2em;">0.0 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>round_trip_ok</code></td><td style="padding:0.2em;">true <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.609486021761 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">differ &mdash; <em>as they must</em></td></tr>
+		  <tr><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">kernel 6.12&rarr;7.1,<br/>python 3.13.15&rarr;3.13.5</td></tr>
+		</table>
+		<p style="font-size:0.92em;margin-top:0.4em;">
+		  Different machine, different kernel, six weeks later &mdash;
+		  <strong>every scientific number came back bit-for-bit.</strong>
+		  Only timings and the environment record moved.
+		</p>
+	  </td>
+	</tr></table>
+
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.82em;">
+	  <strong>And the checklist earned its keep:</strong> the one thing that broke was
+	  <strong>D</strong>istributable &mdash; a relative submodule URL that resolved only on
+	  the author&rsquo;s own disk. <strong>S</strong>, <strong>T</strong>, <strong>A</strong> and
+	  <strong>M</strong> all held. You do not find that by reading your own repo;
+	  you find it by <em>being someone else</em>.
+	</div>
+	<aside class="notes">
+	  Be honest and specific here: I did not reproduce the 17-hour cells.
+	  I picked the 0.5-second synthetic smoke cell, because the record
+	  told me exactly which cells were cheap — that is itself the
+	  argument for duct. And report the bug as a finding, not a gotcha:
+	  it is fixable in one line (../compression-comparisons) and it is
+	  exactly what a STAMPED pass is for.
+	</aside>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     ACT IV — Harnesses and skills as shareable artifacts
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>So what do we build <em>next</em>?</h2>
+	<h3 class="fragment">Not more code. <strong>Harnesses and skills.</strong></h3>
+  </section>
+
+  <section>
+	<h3>Agent = Model + <span style="color:#d84315;">Harness</span></h3>
+	<p style="font-size:0.8em;color:#555;margin-top:-0.3em;">
+	  formulation borrowed from <a href="https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/" target="_blank">Oscar Esteban, OHBM 2026</a>
+	</p>
+	<table style="width:95%;margin:auto;font-size:0.85em;margin-top:0.8em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.4em;width:25%;">Harness piece</th>
+		<th style="text-align:left;padding:0.4em;">What it is</th>
+		<th style="text-align:left;padding:0.4em;width:22%;">STAMPED property</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> / <a href="https://code.claude.com/docs/en/memory" target="_blank"><code>CLAUDE.md</code></a></td>
+		<td style="padding:0.4em;">The project&rsquo;s operational contract: conventions, commands, what not to do</td>
+		<td style="padding:0.4em;"><strong>S</strong>elf-contained</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><a href="https://code.claude.com/docs/en/skills" target="_blank">Skills</a></td>
+		<td style="padding:0.4em;">A named, reusable procedure with its own references and scripts</td>
+		<td style="padding:0.4em;"><strong>M</strong>odular, <strong>A</strong>ctionable</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;"><a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks</a> / CI</td>
+		<td style="padding:0.4em;">Guard rails that run whether or not anyone remembered to</td>
+		<td style="padding:0.4em;"><strong>T</strong>racked</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.4em;"><a href="https://modelcontextprotocol.io/" target="_blank">MCP</a> servers</td>
+		<td style="padding:0.4em;">The port to external systems &mdash; archives, trackers, databases</td>
+		<td style="padding:0.4em;"><strong>D</strong>istributable</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.4em;">Container / sandbox<br/>(<a href="https://github.com/con/yolo" target="_blank">con/yolo</a>)</td>
+		<td style="padding:0.4em;">Where it is allowed to run, and how much it can break</td>
+		<td style="padding:0.4em;"><strong>P</strong>ortable, <strong>E</strong>phemeral</td>
+	  </tr>
+	</table>
+	<div style="margin-top:0.9em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.9em;">
+	  The harness is <em>itself</em> a research object. Which means it can be
+	  self-contained, tracked, modular, portable &mdash; <strong>or it can be a pile of prompts in your notes app.</strong>
+	</div>
+  </section>
+
+  <!-- ============ Two ladders: individual (AI coding) and team (SciOps) ============ -->
+  <section>
+	<h3>Where are <em>you</em> on the ladder?</h3>
+	<table style="width:100%;margin-top:0.3em;"><tr style="vertical-align:top;"><td style="width:29%;padding-right:0.7em;vertical-align:top;">
+	  <a href="https://www.youtube.com/watch?v=6W_-YWHKwZ4" target="_blank"><img data-src="pics/borrowed/ai-ladder-skills.png" style="max-width:100%;"/></a>
+	  <p style="font-size:0.62em;margin-top:0.3em;color:#555;">
+		Ladder figure &amp; framing:
+		<a href="https://www.youtube.com/watch?v=6W_-YWHKwZ4" target="_blank">Jo Van Eyck,
+		&ldquo;You are Not Ready: Agentic coding in 2026&rdquo;</a>
+	  </p>
+	</td><td style="width:71%;padding-left:0.7em;vertical-align:top;">
+	<table style="width:100%;font-size:0.63em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.28em;width:17%;">Level</th>
+		<th style="text-align:left;padding:0.28em;width:36%;">What it looks like</th>
+		<th style="text-align:left;padding:0.28em;">The skill you have to acquire</th>
+	  </tr>
+	  <tr><td style="padding:0.28em;"><strong>L1</strong> Chat</td>
+		  <td style="padding:0.28em;">Browser tab; copy-paste</td>
+		  <td style="padding:0.28em;">Prompt &amp; <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank">context engineering</a></td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.28em;"><strong>L2</strong> Mid-loop</td>
+		  <td style="padding:0.28em;">In the IDE &mdash; &ldquo;autocomplete on steroids&rdquo;</td>
+		  <td style="padding:0.28em;">Critically evaluating alternatives, not accepting them</td></tr>
+	  <tr><td style="padding:0.28em;"><strong>L3</strong> In-the-loop</td>
+		  <td style="padding:0.28em;">The <em>babysitting phase</em> &mdash; you watch it struggle</td>
+		  <td style="padding:0.28em;">Doom loops, guard rails, <strong>extracting reusable skills</strong>. <em>2&ndash;3 months, minimum.</em></td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.28em;"><strong>L4</strong> On-the-loop</td>
+		  <td style="padding:0.28em;">Spec it, hand off, verify the artifact</td>
+		  <td style="padding:0.28em;">Everything above <em>plus</em> a real harness: skills, tests, sandboxes, scanners</td></tr>
+	  <tr><td style="padding:0.28em;"><strong>L5</strong> Multi-agent</td>
+		  <td style="padding:0.28em;">Orchestration; the frontier</td>
+		  <td style="padding:0.28em;">Everyone is still figuring this out</td></tr>
+	</table>
+	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.75em;">
+	  <strong>L4&ndash;L5 is exactly where a bad harness stops being survivable</strong> &mdash;
+	  which is why the harness, not the model, is the thing to invest in.
+	</div>
+	</td></tr></table>
+	<aside class="notes">
+	  Ask the room by show of hands. Most will be L1-L2, a few L3.
+	  The honest message: you cannot buy your way to L4 with a better
+	  model — L3 is a time tax nobody skips, and what you accumulate
+	  during it IS the harness.
+	</aside>
+  </section>
+
+  <section>
+	<h3>And the loop that gets you up it</h3>
+	<table style="width:100%;margin-top:0.2em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:36%;vertical-align:top;">
+		  <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '17px'}}}%%
+flowchart TD
+    IDEA["Idea"] --> S1["1. Overall design / spec"]
+    S1 --> S2["2. Aspect design / prompt"]
+    S2 --> S3["3. AI work"]
+    S3 --> S4["4. Review / test"]
+    S4 -->|"iterate"| S2
+    S4 --> S5["5. Compound into spec / SKILL"]
+    S5 -->|"next aspect"| S2
+    S5 -->|"adjust / memorize"| S1
+
+    style IDEA fill:#9c27b0,color:#fff,stroke:#7b1fa2,stroke-width:2px
+    style S1 fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
+    style S2 fill:#2e7d32,color:#fff,stroke:#1b5e20,stroke-width:2px
+    style S3 fill:#e65100,color:#fff,stroke:#bf360c,stroke-width:2px
+    style S4 fill:#c62828,color:#fff,stroke:#b71c1c,stroke-width:2px
+    style S5 fill:#283593,color:#fff,stroke:#1a237e,stroke-width:3px
+		  </div>
+		</td>
+		<td style="width:64%;padding-left:1em;vertical-align:top;">
+		  <table style="width:100%;font-size:0.68em;">
+			<tr style="background-color:#e8eaf6;">
+			  <th style="text-align:left;padding:0.3em;width:28%;">Development model</th>
+			  <th style="text-align:left;padding:0.3em;width:30%;">Stages used</th>
+			  <th style="text-align:left;padding:0.3em;">What is missing</th>
+			</tr>
+			<tr><td style="padding:0.3em;"><strong>Vibe coding</strong></td>
+				<td style="padding:0.3em;">2 &rarr; 3 &rarr; 4 (loop)</td>
+				<td style="padding:0.3em;">No spec, no condensing &mdash; the knowledge evaporates with the session</td></tr>
+			<tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>Spec-driven</strong></td>
+				<td style="padding:0.3em;"><strong>1</strong> &rarr; 2 &rarr; 3 &rarr; 4 &rarr; 2&hellip;</td>
+				<td style="padding:0.3em;">Loops back to the prompt; the spec should be updated too</td></tr>
+			<tr><td style="padding:0.3em;"><strong>Compound engineering</strong></td>
+				<td style="padding:0.3em;">1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; <strong>5</strong> &rarr; 1+2&hellip;</td>
+				<td style="padding:0.3em;"><strong>Nothing</strong> &mdash; each cycle makes the next one cheaper</td></tr>
+		  </table>
+		  <div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.76em;">
+			<strong>Stage 5 is where a skill is born.</strong>
+			Vibe coding throws the lesson away; compound engineering writes it down &mdash;
+			and what it writes down is exactly the artifact we just said must be STAMPED.
+		  </div>
+		  <p style="font-size:0.7em;margin-top:0.5em;">
+			Tooling for stage 1: <a href="https://github.com/github/spec-kit" target="_blank">spec-kit</a> &middot;
+			<a href="https://github.com/Fission-AI/OpenSpec" target="_blank">OpenSpec</a> &middot;
+			<a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank">compound-engineering</a> &middot;
+			<a href="https://github.com/chrisfoulon/LAD" target="_blank">LAD</a>
+			(in use in <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank">dandi-cli</a>)
+		  </p>
+		</td>
+	  </tr>
+	</table>
+	<aside class="notes">
+	  The single most useful sentence here: "each unit of engineering work
+	  should make subsequent units easier, not harder". If your AI usage
+	  is not producing reusable artifacts, you are at stage 4 forever.
+	</aside>
+  </section>
+
+  <section>
+	<h3>That was the <em>individual</em> ladder. Here is the <em>team</em> one.</h3>
+	<a href="https://arxiv.org/abs/2401.00077" target="_blank"><img data-src="pics/borrowed/neuro-sciops-fig.svg" style="max-width:92%;"/></a>
+	<p style="font-size:0.68em;margin-top:0.3em;">
+	  <strong>Figure reproduced from:</strong>
+	  <a href="https://arxiv.org/abs/2401.00077" target="_blank">E. C. Johnson, T. T. Nguyen, B. K. Dichter, &hellip;,
+	  M. E. Martone, F. Pestilli, D. Yatsenko.
+	  <em>SciOps: Achieving Productivity and Reliability in Data-Intensive Research.</em>
+	  arXiv:2401.00077, 2024.</a>
+	</p>
+	<div style="margin-top:0.35em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  The preprint names <strong>BIDS, NWB, DataLad/git-annex, DANDI and brainlife.io</strong> as its own
+	  Level-3 exemplars &mdash; and reserves <strong>Level 5 (AI + human in the loop)</strong> for the top.
+	  <br/><strong>L5 presupposes L3 underneath it.</strong> You do not get closed-loop discovery
+	  on top of <code>study_final2/</code>.
+	</div>
+	<aside class="notes">
+	  Two ladders, one climb: the AI-coding ladder is personal maturity,
+	  SciOps is team/operational maturity. STAMPED is what each individual
+	  artifact needs so that either climb is possible at all. Be explicit
+	  that this figure is from the SciOps preprint, not from this talk.
+	</aside>
+  </section>
+
+  <section>
+	<h3>Right now, everyone is rebuilding the same private harness</h3>
+	<p style="font-size:1.15em;margin-top:1em;">
+	  A hundred labs, each writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
+	  None of them shared. None of them versioned. None of them tested.
+	</p>
+	<p style="font-size:1.15em;margin-top:1em;">
+	  We have seen this failure mode before. It was called<br/>
+	  <em>&ldquo;every lab has its own analysis scripts&rdquo;</em>, and we fixed it with standards and packages.
+	</p>
+	<div style="margin-top:1.2em; padding:0.9em; background-color:#fffacd; border-left:4px solid #f90; font-size:1.0em;">
+	  <strong>Skills are the new reusable module.</strong>
+	  Apply <strong>M</strong>odularity and <strong>D</strong>istributability to the harness,
+	  or watch AI recreate the silo problem at machine speed.
+	</div>
+	<aside class="notes">
+	  This is the "ask" of the talk, stated before the evidence.
+	  Then show that we are already doing it, upstream, in public.
+	  SKIP CANDIDATE if running long &mdash; it can be delivered verbally
+	  as the lead-in to the contributions table.
+	</aside>
+  </section>
+
+  <section>
+	<h3>We are already doing this &mdash; upstream, in public</h3>
+	<p style="font-size:0.85em;margin-top:-0.2em;">
+	  <a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank">K-Dense-AI/scientific-agent-skills</a>
+	  &mdash; <a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills" target="_blank">177 scientific skills</a>,
+	  <a href="https://code.claude.com/docs/en/skills" target="_blank">Agent Skills</a> spec, MIT-licensed, scanned and reviewed.
+	</p>
+	<table style="width:99%;margin:auto;font-size:0.68em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.3em;width:20%;">Contribution</th>
+		<th style="text-align:left;padding:0.35em;width:17%;">Who</th>
+		<th style="text-align:left;padding:0.35em;">What it carries</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids" target="_blank"><code>skills/bids</code></a><br/>
+		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/125" target="_blank">PR #125</a> &mdash; merged</td>
+		<td style="padding:0.35em;"><strong>ours</strong> (CON)</td>
+		<td style="padding:0.35em;">Entity grammar &amp; 35 entities &middot; the
+		  <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank">machine-readable schema</a> shipped as a reference &middot;
+		  all <a href="https://bids.neuroimaging.io/extensions/beps.html" target="_blank">25 BEPs</a> &middot;
+		  <a href="https://heudiconv.repronim.org/" target="_blank">HeuDiConv</a>/<a href="https://reproin.repronim.org/" target="_blank">ReproIn</a>/dcm2bids/BIDScoin conversion paths &middot;
+		  validation &middot; derivatives &amp; BIDS-Apps</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad" target="_blank"><code>skills/datalad</code></a><br/>
+		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/227" target="_blank">PR #227</a> &mdash; merged</td>
+		<td style="padding:0.35em;">Dylan Pulver,<br/><em>with our upstream review</em></td>
+		<td style="padding:0.35em;">Clone/<code>get</code> semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot;
+		  <strong><code>datalad run</code> / <code>rerun</code> / <code>containers-run</code> as the provenance spine</strong> &middot;
+		  publishing to siblings &middot; STAMPED landed in
+		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md" target="_blank"><code>references/provenance.md</code></a> on our suggestion</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/265" target="_blank">PR #265</a> &mdash; <em>open</em></td>
+		<td style="padding:0.35em;">Brent McPherson<br/>(McGill)</td>
+		<td style="padding:0.35em;"><strong>Maps all seven STAMPED properties onto concrete DataLad commands</strong>,
+		  plus a <em>read-only evidence probe</em> per property
+		  (<code>datalad subdatasets -r</code> for S/M, <code>git log --grep '[DATALAD RUNCMD]'</code> for T,
+		  <code>datalad rerun --report</code> for A, <code>datalad siblings</code> for D&hellip;)</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/issues/217" target="_blank">issue #217</a> &mdash; closed</td>
+		<td style="padding:0.35em;"><strong>ours</strong> (CON)</td>
+		<td style="padding:0.35em;">&ldquo;Should STAMPED be its own skill?&rdquo; &mdash; and the still-open question underneath:
+		  <strong>where should domain skills live?</strong> An upstream monorepo, or the project&rsquo;s own repo, with discovery on top?</td>
+	  </tr>
+	</table>
+	<p style="font-size:0.72em;margin-top:0.4em;font-style:italic;color:#555;">
+	  Note the shape: a community member wrote the DataLad skill, we reviewed it, and a third party
+	  then extended it with STAMPED. That is <em>exactly</em> how a standard spreads &mdash; and it is
+	  now happening to harnesses.
+	</p>
+  </section>
+
+  <section>
+	<h3>And domain-agnostic ones: <a href="https://github.com/con/skills/" target="_blank">con/skills</a></h3>
+	<table style="width:94%;margin:auto;font-size:0.74em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.35em;width:38%;">Skill</th>
+		<th style="text-align:left;padding:0.35em;">What it automates</th>
+	  </tr>
+	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/introduce-reuse-compliance" target="_blank">introduce-reuse-compliance</a></td>
+		  <td style="padding:0.35em;">SPDX / <a href="https://reuse.software/" target="_blank">REUSE</a> licensing metadata &mdash; including for BIDS datasets</td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/credit-contributions" target="_blank">credit-contributions</a></td>
+		  <td style="padding:0.35em;"><a href="https://credit.niso.org/" target="_blank">CRediT</a> author-contribution statements from git history</td></tr>
+	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/tinuous-analyzer" target="_blank">tinuous-analyzer</a></td>
+		  <td style="padding:0.35em;">CI-failure investigation across archived <a href="https://github.com/con/tinuous" target="_blank">con/tinuous</a> logs</td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/bisect-and-patch-git-annex" target="_blank">bisect-and-patch-git-annex</a></td>
+		  <td style="padding:0.35em;">Bisect a <code>git-annex</code> regression from CI logs and produce a red/green PR</td></tr>
+	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/issue-triage" target="_blank">issue-triage</a> &middot; <a href="https://github.com/con/skills/tree/master/pr-feedback-review" target="_blank">pr-feedback-review</a></td>
+		  <td style="padding:0.35em;">Triage and review work, cross-referenced against the codebase</td></tr>
+	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/introduce-codespell" target="_blank">introduce-codespell</a> &middot; <a href="https://github.com/con/skills/tree/master/introduce-intuit-auto" target="_blank">introduce-intuit-auto</a></td>
+		  <td style="padding:0.35em;">Bootstrap spell-checking / automated releases into any project</td></tr>
+	</table>
+
+	<div style="margin-top:0.7em; padding:0.7em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.8em;">
+	  Each of these started as a thing we did by hand three times and got tired of.
+	  Writing it down as a skill is how the <em>n</em>-th time gets cheaper &mdash; for us,
+	  and for whoever clones the repo.
+	</div>
+	<p style="font-size:0.74em;margin-top:0.4em;">
+	  Deeper dive on the workflow around these:
+	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/" target="_blank">&ldquo;A few words of intro into AI assisted coding&rdquo;</a>
+	  (CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.
+	</p>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     ACT V — Close
+     ================================================================= -->
+<section data-transition="slide">
+
+  <section>
+	<h3>Two regimes &mdash; and be honest about which one you are in</h3>
+	<p style="font-size:0.95em;margin-top:-0.2em;">
+	  Either the system <strong>checks itself</strong> against goals and spec &mdash;
+	  or the work items stay <strong>small enough that a human still can</strong>.
+	</p>
+	<table style="width:100%;font-size:0.75em;margin-top:0.3em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:50%;padding-right:0.8em;vertical-align:top;">
+		  <strong style="color:#1565c0;">A. Scaffolded self-verification</strong><br/>
+		  <em>the agentic system keeps itself in sync</em>
+		  <ul style="margin-top:0.3em;">
+			<li>An <strong>executable spec</strong> the loop is checked against
+			  (<a href="https://github.com/github/spec-kit" target="_blank">spec-kit</a>,
+			   <a href="https://github.com/Fission-AI/OpenSpec" target="_blank">OpenSpec</a>,
+			   <a href="https://github.com/chrisfoulon/LAD" target="_blank">LAD</a>)</li>
+			<li>Tests and <strong>validators as the oracle</strong> &mdash; the loop must be able to <em>fail</em></li>
+			<li><strong>Provenance</strong> so drift is detectable at all
+			  (<code>datalad run</code>, <a href="https://github.com/con/duct" target="_blank">duct</a>, CI history)</li>
+			<li>Automated gates <em>before</em> human eyes; humans review intent and architecture</li>
+		  </ul>
+		  <div style="margin-top:0.4em;padding:0.5em;background-color:#e3f2fd;border-left:4px solid #1976d2;">
+			Only <em>then</em> are large autonomous batches defensible.
+		  </div>
+		</td>
+		<td style="width:50%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		  <strong style="color:#2e7d32;">B. Small, human-reviewable, hand-tried</strong><br/>
+		  <em>where almost every research project actually is</em>
+		  <ul style="margin-top:0.3em;">
+			<li><strong>A diff a human can actually read is a design constraint, not a courtesy</strong></li>
+			<li>One concern per change; small commits; mark them (<code>@pytest.mark.ai_generated</code>)</li>
+			<li><strong>Run it by hand before you believe it.</strong> Agent-rate output, human-rate trust</li>
+			<li>Cheap to back out &mdash; the <em>reversibility</em> is the safety mechanism</li>
+		  </ul>
+		  <div style="margin-top:0.4em;padding:0.5em;background-color:#e8f5e9;border-left:4px solid #2e7d32;">
+			Not a lesser mode &mdash; the <strong>correct default</strong> until A is actually built.
+		  </div>
+		</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  There is no third regime where you ship <em>large, unverified</em> agent output safely.
+	  And the way out of B is not a better model &mdash; it is
+	  <strong>A</strong>ctionable specs, <strong>T</strong>racked provenance and
+	  <strong>M</strong>odular units: the same STAMPED properties, again.
+	</div>
+	<p style="font-size:0.68em;margin-top:0.4em;font-style:italic;color:#555;">
+	  &ldquo;Well, less is more&rdquo; &mdash; Robert Browning, <em>Andrea del Sarto</em>, 1855;
+	  later the motto of Mies van der Rohe, who credited his mentor Peter Behrens rather than claiming it.
+	</p>
+	<aside class="notes">
+	  This is the slide to slow down on. The claim is not "AI bad" — it
+	  is that the size of a safe work item is set by the strength of your
+	  verification loop, and nothing else. Most research projects have a
+	  weak loop, so their safe work item is small. That is fine; it is
+	  only dangerous when unacknowledged.
+	  Next slide shows this is not just our opinion.
+	</aside>
+  </section>
+
+  <section>
+	<h3>We are not the only ones saying this</h3>
+	<table style="width:99%;margin:auto;font-size:0.70em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.3em;width:23%;">Source</th>
+		<th style="text-align:left;padding:0.3em;">What it found / argues</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.3em;"><a href="https://dora.dev/insights/balancing-ai-tensions/" target="_blank"><strong>DORA 2025</strong></a>
+		  (Google Cloud)</td>
+		<td style="padding:0.3em;">Higher AI adoption raises throughput <em>and</em> <strong>delivery instability</strong>.
+		  Their prescription is literally regime A+B:
+		  &ldquo;<em>working in small batches is a critical countermeasure to the risks of AI-assisted
+		  development</em>&rdquo;, plus test automation and fast feedback &mdash; because
+		  &ldquo;<em>verification is a fundamentally different cognitive task than creation</em>&rdquo;.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.3em;"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank"><strong>METR RCT</strong></a>, 2025</td>
+		<td style="padding:0.3em;">16 experienced OSS developers, 246 real issues, <em>on repos they already maintained</em>:
+		  <strong>19% slower</strong> with AI tools &mdash; while estimating they had been <strong>20% faster</strong>.
+		  The perception gap is the hazard, not the tooling.
+		  <em>(METR now labels this historical &mdash; tools moved on. The gap is the durable lesson.)</em></td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.3em;"><a href="https://addyo.substack.com/p/code-review-in-the-age-of-ai" target="_blank"><strong>Addy Osmani</strong></a></td>
+		<td style="padding:0.3em;">&ldquo;Proof over vibes.&rdquo; Verification, not authoring, is the bottleneck;
+		  <em>break agent output into digestible commits</em>; no PR without tests or a demo;
+		  humans stay non-negotiable for security and architecture.</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.3em;"><a href="https://simonwillison.net/2025/Dec/18/code-proven-to-work/" target="_blank"><strong>Simon Willison</strong></a><br/>
+		  <small><a href="https://www.youtube.com/watch?v=owmJyKVu5f8" target="_blank">&#9654; Pragmatic Summit talk</a><br/>
+		  <a href="https://youtu.be/wc8FBhQtdsA" target="_blank">&#9654; Lenny&rsquo;s Podcast</a></small></td>
+		<td style="padding:0.3em;">&ldquo;<em>Your job is to deliver code you have proven to work.</em>&rdquo;
+		  The skill is instructing <em>and then confidently verifying</em>; a model cannot take accountability, you can.
+		  And on regime B specifically &mdash; even <em>with</em> tests, he reports that
+		  &ldquo;<em>I haven&rsquo;t used it yet</em>&rdquo; still undermines his confidence in a change.
+		  <strong>Trying it by hand is not superstition.</strong></td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.3em;"><a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025" target="_blank"><strong>Faros telemetry</strong></a>
+		  (~22k devs)</td>
+		<td style="padding:0.3em;">PR size <strong>+51%</strong>, median time in review <strong>+441%</strong>,
+		  incidents per PR <strong>+243%</strong>. Big agent diffs do not get reviewed &mdash; they get waved through.</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  Converging, from very different vantage points:
+	  <strong>the safe size of an AI-assisted work item is set by the strength of your verification loop.</strong>
+	  Build the loop, or keep the items small. Preferably both.
+	</div>
+	<aside class="notes">
+	  SKIP CANDIDATE if running long &mdash; these are the receipts for the
+	  previous slide and are ideal to hold back for Q&amp;A instead.
+	</aside>
+  </section>
+
+  <section>
+	<h3>HI &harr; AI &mdash; every project picks its own policy</h3>
+	<p style="font-size:0.7em;margin-top:-0.35em;margin-bottom:0.2em;color:#555;">
+	  Rows 1&ndash;2 live in <strong>regime B</strong>; rows 3&ndash;4 are only honest once
+	  <strong>regime A</strong> is actually built.
+	</p>
+	<table style="font-size:0.63em;width:99%;margin:auto;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.28em;width:22%;">Stance</th>
+		<th style="text-align:left;padding:0.35em;width:26%;">OSS exemplars</th>
+		<th style="text-align:left;padding:0.35em;width:28%;">CON / adjacent example</th>
+		<th style="text-align:left;padding:0.35em;">Leans on</th>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Reject</strong> AI-generated content</td>
+		<td style="padding:0.35em;"><a href="https://ziglang.org/" target="_blank">Zig</a>, <a href="https://krita.org/" target="_blank">Krita</a>, Clojure, QEMU</td>
+		<td style="padding:0.35em;"><a href="https://git-annex.branchable.com/contribute/" target="_blank"><strong>git-annex</strong></a> upstream &mdash; pure-HI commits</td>
+		<td style="padding:0.35em;">AI stays ephemeral; never enters the tracked artifact</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>Accept with disclosure</strong></td>
+		<td style="padding:0.35em;"><a href="https://numpy.org/" target="_blank">NumPy</a>, <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>, Linux kernel, Django</td>
+		<td style="padding:0.35em;"><a href="https://datalad.org/" target="_blank"><strong>DataLad</strong></a>, <a href="https://dandiarchive.org/" target="_blank"><strong>DANDI</strong></a> &mdash;
+		  <code>Co-Authored-By: Claude&hellip;</code> trailers, <code>@pytest.mark.ai_generated</code></td>
+		<td style="padding:0.35em;"><strong>T</strong>racking &mdash; provenance is non-negotiable</td>
+	  </tr>
+	  <tr>
+		<td style="padding:0.35em;"><strong>Spec-driven AI-generated</strong><br/>(HI specs, AI writes, HI reviews)</td>
+		<td style="padding:0.35em;">Common in practice; rarely a <em>declared</em> policy</td>
+		<td style="padding:0.35em;"><a href="https://github.com/con/annextube" target="_blank"><strong>AnnexTube</strong></a>,
+		  <a href="https://github.com/con/citations-collector" target="_blank"><strong>citations-collector</strong></a>,
+		  parts of <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank"><strong>dandi-cli</strong></a></td>
+		<td style="padding:0.35em;"><strong>T</strong> + <strong>A</strong> + <strong>M</strong> &mdash; the spec <em>is</em> the contract</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.35em;"><strong>Autonomous</strong> agents in the loop</td>
+		<td style="padding:0.35em;"><a href="https://brain-researcher.com/" target="_blank"><strong>Brain Researcher</strong></a>
+		  (Poldrack lab) &mdash; agentic neuroimaging analysis;
+		  <a href="https://github.com/K-Dense-AI/" target="_blank"><strong>K-Dense AI</strong></a> &mdash; &ldquo;AI co-scientists&rdquo;
+		  (and the host of the skills library we contribute to)</td>
+		<td style="padding:0.35em;"><a href="https://github.com/con/skills" target="_blank"><strong>con/skills</strong></a> +
+		  <a href="https://github.com/con/yolo" target="_blank"><strong>con/yolo</strong></a> for triage, review, dep updates</td>
+		<td style="padding:0.35em;">All of STAMPED &mdash; the harness becomes the type-checker</td>
+	  </tr>
+	</table>
+	<p style="margin-top:0.35em;padding:0.45em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.7em;">
+	  <strong>Common ground, all four:</strong> AI cannot be an author
+	  (<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html" target="_blank">ICMJE, Jan 2026</a>);
+	  humans retain full responsibility; AI use is disclosed <em>inside the artifact</em>.
+	  <strong>STAMPED Tracking is what makes that mechanical rather than a promise.</strong>
+	</p>
+	<p style="margin-top:0.25em;font-size:0.7em;font-style:italic;">
+	  Catalog of declared OSS stances:
+	  <a href="https://github.com/melissawm/open-source-ai-contribution-policies" target="_blank">melissawm/open-source-ai-contribution-policies</a>.
+	  &mdash; Note what the row-4 exemplars <em>are</em>: <strong>harnesses</strong>.
+	  <a href="https://brain-researcher.com/" target="_blank">Brain Researcher</a> constrains the agent to
+	  acceptable analyses and required validations rather than trusting it &mdash;
+	  autonomy is bought with <em>structure</em>, not with a bigger model.
+	</p>
+  </section>
+
+  <section>
+	<h3>Take home &mdash; what to do Monday</h3>
+	<ol style="font-size:0.85em;margin-top:0.5em;line-height:1.45;">
+	  <li><strong>Make one object actionable.</strong> Pick one study. Put it in a declared standard
+		(<a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a>, <a href="https://www.nwb.org/" target="_blank">NWB</a>)
+		and run the validator. The agent gets a grammar; you get a type-checker.</li>
+	  <li><strong>Record one command.</strong> Wrap your next analysis step in
+		<a href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" target="_blank"><code>datalad run</code></a>
+		&mdash; or at minimum in <a href="https://github.com/con/duct" target="_blank"><code>duct</code></a>.
+		A provenance record you did not have to remember to write.</li>
+	  <li><strong>Grade one thing against STAMPED.</strong>
+		<a href="https://checklist.stamped-principles.org/" target="_blank">checklist.stamped-principles.org</a>,
+		fifteen minutes, and you will know which property is your weakest.</li>
+	  <li><strong>Write down your harness.</strong> An
+		<a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> in the repo beats a prompt in your notes app.
+		Declare your AI policy there while you are at it.</li>
+	  <li><strong>Size the work to the loop you actually have.</strong> Until the project
+		self-checks, keep AI-assisted items small, reviewable, and tried by your own hand &mdash;
+		and say so out loud, so nobody mistakes regime B for regime A.</li>
+	  <li><strong>Push one skill upstream.</strong> The next person who needs your procedure should
+		<code>clone</code> it, not re-derive it.
+		<a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank">scientific-agent-skills</a>,
+		<a href="https://github.com/con/skills" target="_blank">con/skills</a>, or your own repo &mdash; but <em>somewhere public</em>.</li>
+	</ol>
+	<div style="margin-top:0.9em; padding:0.8em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.95em;">
+	  Standards and provenance were always the right answer.
+	  <strong>AI did not change the answer &mdash; it changed the deadline.</strong>
+	</div>
+  </section>
+
+</section>
+
+
+<!-- =================================================================
+     Acknowledgements (canonical layout from 2024-distribits-datalad.html)
+     ================================================================= -->
+<section>
+  <h2>Acknowledgements</h2>
+  <table>
+  <tr style="vertical-align:top">
+    <td style="vertical-align:top;font-size:0.72em;width:42%;">
+      <dl>
+        <dt>STAMPED</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Austin Macdonald, Cody Baker, Isaac To</li>
+              <li><a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/265">Brent McPherson</a> (STAMPED &rarr; DataLad commands)</li>
+          </ul>
+        </dd>
+        <dt style="margin-top:12px">Software</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Joey Hess (git-annex)</li>
+              <li>The DataLad team &amp; contributors</li>
+              <li>The BIDS, NWB &amp; DANDI communities</li>
+          </ul>
+        </dd>
+        <dt style="margin-top:12px">Some slides origin:</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li><a href="https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/">Oscar Esteban</a>, OHBM 2026 Educational</li>
+              <li><a href="https://github.com/datalad/datalad-course">datalad-course/</a> materials</li>
+              <img src="pics/borrowed/bannerthanks.svg" style="max-height:170px">
+          </ul>
+        </dd>
+      </dl>
+    </td>
+    <td style="vertical-align:top">
+  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
+  <img style="height:130px;margin-right:10px" data-src="pics/borrowed/nsf_2020.png" />
+  <img style="height:130px;margin-right:10px" data-src="pics/borrowed/nih.png" />
+  <img style="height:130px;margin-right:50pxi;margin-left:10px" data-src="pics/borrowed/binc.png" />
+  <img style="height:130px;margin-left:50px" data-src="pics/borrowed/bmbf_2020.png" />
+  <div style="margin-top:-20px">
+  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/erdf.png" />
+  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/cbbs_logo.png" />
+  <img style="height:60px" data-src="pics/borrowed/LSA-Logo.png" />
+  <img style="height:80px;margin-top:0px;margin-left:auto;margin-right:auto;width:20%" data-src="pics/borrowed/fzj_logo.svg" />
+  </div>
+  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
+  <div style="margin-top:-20px">
+  <img style="height:85px;margin:15px" data-src="pics/borrowed/hbp_logo.png" />
+  <img style="height:85px;margin:15px" data-src="pics/borrowed/conp_logo.png" />
+  <img style="height:85px;margin:15px" data-src="pics/borrowed/vbc_logo.png" />
+  <img style="height:85px;margin:15px" data-src="pics/borrowed/repronim_logo.svg" />
+  </div>
+  <div style="margin-top:-40px">
+  <img style="height:100px;margin:15px" data-src="pics/borrowed/openneuro_logo.png" />
+  <img style="height:100px;margin:15px" data-src="pics/borrowed/cbrain_logo.png" />
+  <img style="height:115px;margin:15px" data-src="pics/borrowed/brainlife_logo.png" />
+  <img style="height:115px;margin:15px" data-src="pics/borrowed/dandi_logo.svg" />
+  </div>
+  </td>
+  </tr>
+  </table>
+</section>
+
+
+<!-- Thank you -->
+<section data-transition-speed="zoom">
+  <h1>Thank you!</h1>
+  <h3>Structure your objects, and<br/>let both intelligences work on them</h3>
+  <a href="https://stamped-principles.org/" target="_blank"><img style="height:420px;margin:20px" data-src="pics/stamped-yoda.svg"/></a>
+  <p style="font-size:0.8em;">
+	<a href="https://stamped-principles.org/" target="_blank">stamped-principles.org</a> &middot;
+	<a href="https://checklist.stamped-principles.org/" target="_blank">checklist</a> &middot;
+	<a href="https://examples.stamped-principles.org/" target="_blank">examples</a> &middot;
+	<a href="https://github.com/con/skills" target="_blank">con/skills</a> &middot;
+	<a href="https://github.com/con/duct" target="_blank">con/duct</a>
+  </p>
+</section>
+
+
+<!-- =================================================================
+     APPENDIX — vertical stack, skipped in a 25-minute delivery
+     ================================================================= -->
+<section>
+
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2>Appendix</h2>
+	<p style="font-size:0.9em;">Material cut for time &mdash; press <strong>&darr;</strong> to walk it, or follow the links.</p>
+  </section>
+
+  <section>
+	<h3>STAMPED and <a href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> do different jobs</h3>
+	<table style="width:92%;margin:auto;font-size:0.9em;margin-top:1em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="text-align:left;padding:0.5em;width:50%;">FAIR</th>
+		<th style="text-align:left;padding:0.5em;width:50%;">STAMPED</th>
+	  </tr>
+	  <tr style="vertical-align:top;">
+		<td style="padding:0.5em;">About <strong>sharing</strong>: can someone else <em>find</em> this and <em>get</em> it?</td>
+		<td style="padding:0.5em;">About the object being <strong>operational on its own</strong>: can someone &mdash; or something &mdash; <em>re-run</em> it?</td>
+	  </tr>
+	  <tr style="vertical-align:top;background-color:#fafafa;">
+		<td style="padding:0.5em;">A FAIR dataset can still be a <code>.zip</code> of <code>.mat</code> files with a DOI.</td>
+		<td style="padding:0.5em;">A STAMPED object carries its own layout, environment, and execution record.</td>
+	  </tr>
+	  <tr style="vertical-align:top;">
+		<td style="padding:0.5em;">Graded by a repository.</td>
+		<td style="padding:0.5em;">Graded by a <a href="https://checklist.stamped-principles.org/" target="_blank">checklist</a> you can walk, item by item.</td>
+	  </tr>
+	</table>
+	<div style="margin-top:1em; padding:0.8em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.85em;">
+	  Not competitors &mdash; <strong>different lenses on the same stack</strong>. FAIR tells you whether the world can reach it.
+	  STAMPED tells you whether anything useful happens once it does.
+	</div>
+  </section>
+
+  <section>
+	<h3><strong>P</strong>ortable + <strong>E</strong>phemeral: the environment travels with the record</h3>
+	<table style="width:100%;font-size:0.76em;margin-top:0.3em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:55%;padding-right:1em;">
+<pre style="font-size:0.78em;"><code class="language-shell">$ datalad containers-run \
+    -n repronim-mriqc \
+    -m "run MRIQC on sub-01" \
+    --input sub-01 --output derivatives/mriqc \
+    '{inputs}' '{outputs}' participant</code></pre>
+		  <ul style="margin-top:0.5em;">
+			<li>Container image is a <strong>tracked subdataset</strong>, not a <code>latest</code> tag that drifts</li>
+			<li>The commit records image <em>and</em> command together</li>
+			<li>Bind-mount only the current module &mdash; <strong>look up you must not</strong></li>
+			<li>Throw the container away afterwards: that is <strong>Ephemerality</strong>, and it is already how agents run</li>
+		  </ul>
+		</td>
+		<td style="width:45%;padding-left:1em;text-align:center;">
+		  <a href="https://github.com/ReproNim/containers" target="_blank"><img data-src="pics/webshot-repronim-containers.png" style="max-width:100%;max-height:430px;box-shadow:5px 5px 8px #888;"/></a>
+		  <p style="font-size:0.78em;margin-top:0.3em;"><a href="https://github.com/ReproNim/containers" target="_blank">ReproNim/containers</a> &mdash; auto-rebuilt, versioned collection</p>
+		</td>
+	  </tr>
+	</table>
+	<p style="font-size:0.8em;margin-top:0.5em;color:#555;">
+	  &ldquo;Depend on where you run, you should not.&rdquo; An agent&rsquo;s sandbox is not your laptop &mdash;
+	  which makes portability a correctness property, not a courtesy.
+	</p>
+  </section>
+
+
+  <section data-markdown><textarea data-template>
+## AI coding ladder &mdash; the long version
+
+<small>
+
+| Level | Reality | Time to pass through |
+|----------------------------|--------------------------------------------------------------------------------------------|-------------------------------|
+| **L1 Chat**                | Browser tab, copy-paste. Hint: run several models in parallel via [Open WebUI](https://github.com/open-webui/open-webui) / [chat.dartmouth.edu](https://chat.dartmouth.edu) | Hours to basics, weeks to efficient |
+| **L2 Mid-loop**            | LLM in the IDE; comment &rarr; 1&ndash;3 candidate implementations                            | Relatively quick              |
+| **L3 In-the-loop**         | *"You need to see them struggle and you need to get frustrated with these struggles"*          | **2&ndash;3 months minimum**, regardless of seniority |
+| **L4 On-the-loop**         | Spec, hand off, coffee, verify. Parallel sessions, each in its own [worktree](https://git-scm.com/docs/git-worktree) | *"Not a lot of people are here today"* |
+| **L5 Multi-agent**         | [Agent teams](https://code.claude.com/docs/en/agent-teams), orchestration                     | Everyone is still figuring it out |
+
+> *"If you start at L5 without the foundations, you will shoot yourself, your organization, and your friends in the foot."*
+> **Do your reps. Climb deliberately.**
+
+Credit: [Jo Van Eyck, "You are Not Ready: Agentic coding in 2026"](https://www.youtube.com/watch?v=6W_-YWHKwZ4).
+Full walkthrough in [the CA Origami Retreat deck](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/3).
+
+</small>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Provenance as a standard: [BEP028](https://github.com/bids-standard/BEP028_BIDSprov)
+
+<small>
+
+- `datalad run` provenance maps onto [W3C PROV](https://www.w3.org/TR/prov-dm/) records
+  (see [metalad:runprov](https://github.com/datalad/datalad-metalad/blob/master/datalad_metalad/extractors/runprov.py))
+- BEP028 proposes PROV for BIDS: **Activities** (what ran), **Entities** (inputs/outputs), **Agents** (tools)
+- JSON-LD &mdash; machine-readable, queryable
+- Details &amp; examples: [BIDS PR #2099](https://github.com/bids-standard/bids-specification/pull/2099)
+
+![](pics/bep028-example1.png)<!-- .element: style="height:380px" -->
+
+This is the **Extend** move: an ad-hoc `[DATALAD RUNCMD]` convention lifted into a community standard.
+
+</small>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## [con/yolo](https://github.com/con/yolo) &mdash; sandboxed agents
+
+<small>
+
+- Podman-containerized Claude Code; permission-bypass ("YOLO") mode made **survivable**
+- Preserves config and working-directory paths; interoperates with native sessions
+- **Why it belongs in a STAMPED talk:** it is the **E**phemerality + **P**ortability
+  property applied to the agent itself &mdash; bounded blast radius, throw-away environment
+
+</small>
+
+## Preserve everything: [con/serve](https://github.com/con/serve)
+
+<small>
+
+Slack, Zoom, YouTube, GitHub issues, CI logs, AI sessions &rarr; one git-annex/DataLad vault
+&rarr; archives, backups, published sites.
+Then: *raw materials (depth) &rarr; synthesized insight (surface)*, with an agent doing the synthesis.
+
+See [con/ceptualization#2](https://github.com/con/ceptualization/issues/2) and the
+[YODA webinar](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html#/).
+
+</small>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Related CON talks
+
+<small>
+
+| Talk | Why you might want it |
+|------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| [ReproFlow &amp; YODA](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html)      | The full YODA principle-by-principle walk            |
+| [A few words of intro into AI assisted coding](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html) | The practical agentic-coding workflow                |
+| [Pragmatic YODA](https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html)                       | distribits 2025; [video](https://www.youtube.com/watch?v=EuKVapscUQ4) |
+| [BIDS 2.0](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-nih-bids2.0.html)                                 | Deprecations, inconsistencies, study datasets        |
+| [What's in the DataLad sandwich](https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html)    | The DataLad ecosystem in depth                       |
+
+All decks: <https://datasets.datalad.org/centerforopenneuroscience/talks/>
+
+</small>
+  </textarea></section>
+
+</section>
+
+<!-- End of slides -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js/plugin/search/search.js"></script>
+		<script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1400,
+				height: 1050,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				progress: true,
+				history: true,
+				center: true,
+				controls: true,
+				slideNumber: 'c',
+				pdfSeparateFragments: false,
+				pdfMaxPagesPerSlide: 1,
+				pdfPageHeightOffset: -1,
+				transition: ['slide', 'fade'], // none/fade/slide/convex/concave/zoom
+				// Learn about plugins: https://revealjs.com/plugins/
+				// RevealSearch: Press CTRL+Shift+F to search slide content
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealMermaid ]
+			});
+		</script>
+	</body>
+</html>
