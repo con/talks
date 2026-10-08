@@ -31,7 +31,9 @@ to get access to the files stored on this remote (I didn't bother adding it as a
 ## Advice for creating presentations
 
 - ``clone`` the repository to your local computer and ``datalad get`` all subdatasets (``datalad get -n -r .``).
-- For simple use cases such as viewing presentations it should suffice to open any raw ``.html`` in a browser of your choice. In this scenario, you *may* be able to generate a PDF from your slides by opening the presentation in a recent version of Chrome or Chromium, and append ``?print-pdf`` to the URL. Afterwards, you may be able to print to PDF from your browser. 
+- For simple use cases such as viewing presentations it should suffice to open any raw ``.html`` in a browser of your choice. In this scenario, you *may* be able to generate a PDF from your slides by opening the presentation in a recent version of Chrome or Chromium, and append ``?print-pdf`` to the URL. Afterwards, you may be able to print to PDF from your browser.
+  - **Gotcha:** the query string must come *before* the ``#`` fragment. reveal.js tests ``window.location.search``, so ``deck.html?print-pdf`` and ``deck.html?print-pdf#/4`` both work, but ``deck.html#/4?print-pdf`` **silently does nothing** -- the whole ``#/4?print-pdf`` is the hash, and ``search`` stays empty. Since normal navigation leaves a ``#/<slide>`` in the URL bar, appending ``?print-pdf`` to what you are looking at is exactly the case that fails. (``?view=print`` works too.)
+  - In the print dialog set **Margins: None** and **Background graphics: on**, and choose a landscape paper size. Chrome's dialog cannot adopt the deck's own page size, so slides end up letterboxed on A4/Letter with white bands -- fine for sharing, not pixel-perfect. ``tools/mkpdf.py`` below avoids this.
 - For more use cases and more reliable PDF exports, use [reveal.js's full setup](https://revealjs.com/installation/#full-setup). This requires a working installation of [Node.js](https://nodejs.org/):
  
 ```sh
@@ -45,6 +47,12 @@ npm start
 docker run --rm -t --net=host -v `pwd`:/slides astefanutti/decktape http://localhost:8000/<presentation-of-your-choice.html> slides.pdf -s  1024x768
 ```
 - More options, e.g., exports of individual slide screenshots, are in decktape's [documentation](https://github.com/astefanutti/decktape)
+- If you have neither Docker nor a running npm server, ``tools/mkpdf.py`` exports any deck in this repo headlessly, straight from the ``.html`` file, needing only [uv](https://docs.astral.sh/uv/):
+```sh
+uv run --with playwright playwright install chromium   # once
+uv run --with playwright python tools/mkpdf.py <presentation-of-your-choice.html>
+```
+  It writes ``<presentation>.pdf`` next to the deck (override with ``-o``). Page size is taken from the deck's own reveal ``width``/``height`` config, so 4:3 and 16:9 decks both come out right with no flags. Use ``--wait`` to give mermaid-heavy decks longer to render. **Do not commit the generated PDFs** -- they are derived artifacts; the live HTML is what gets shared.
 - The tool [directpoll](https://directpoll.com/) works fantastic for virtual talks. See [#34](https://github.com/datalad-handbook/course/issues/34) or the template talk for info on how to use it
 - We have made good experiences with live code demonstrations. The ``tools/cast_live`` script is used for this. It is highly advised to test whether this script works on your set-up beforehand! 
 
