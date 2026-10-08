@@ -619,16 +619,13 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/dandi-compute.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <!-- The DANDI Compute figure is a tall poster (1680x2421); the first slide
-	   shows it whole, the following ones crop the same SVG (scaled to
-	   1300px wide, i.e. x0.774) to one panel each. -->
+  <!-- The DANDI Compute figure is a tall poster (1680x2421): the first
+	   slide shows it whole, the following ones show single panels
+	   extracted by svgtune (pics/dandi-compute-figure.svgtune ->
+	   pics/dandi-compute-figure_tuned/). -->
   <section data-transition="slide">
-	<style>
-	  .dc-crop { width:1300px; overflow:hidden; margin:0 auto; }
-	  .reveal .dc-crop img { width:1300px; max-width:none; max-height:none; margin:0; border:none; box-shadow:none; }
-	</style>
 	<h3>DANDI Compute</h3>
-	<img class="r-stretch" data-src="pics/dandi-compute-figure.svg"/>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure.svg" style="height:860px;width:597px;"></object>
 	<aside class="notes">
 	  Runs the Allen Institute for Neural Dynamics electrophysiology
 	  pipeline over NWB data on DANDI. Spike-sorting outputs are packaged
@@ -641,23 +638,17 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 
   <section>
 	<h3>DANDI Compute: orchestration</h3>
-	<div class="dc-crop" style="height:790px;">
-	  <img data-src="pics/dandi-compute-figure.svg"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/orchestration.svg" style="width:1300px;height:812px;"></object>
   </section>
 
   <section>
 	<h3>DANDI Compute: the spike-sorting pipeline</h3>
-	<div class="dc-crop" style="height:360px;">
-	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-822px;"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/pipeline.svg" style="width:1300px;height:385px;"></object>
   </section>
 
   <section>
 	<h3>DANDI Compute: the derivative it produces</h3>
-	<div class="dc-crop" style="height:580px;">
-	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-1216px;"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/derivative.svg" style="width:1300px;height:605px;"></object>
   </section>
 
   <section>
