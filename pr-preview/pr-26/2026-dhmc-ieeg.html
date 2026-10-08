@@ -346,9 +346,41 @@
 	  every archive downstream (OpenNeuro, DANDI, NEMAR, EMBER) relies on consent like this at the gate</p>
   </section>
 
-  <!-- TODO: add here a summary slide on advocating clinicians to
-  provision data sharing/deposit to public archives into their consent
-  forms -->
+  <!-- ---- the "ask" slide that closes the consent detour ---- -->
+  <section data-transition="slide">
+	<h3>The ask: plan for depositing to the archive <em>in the consent form</em></h3>
+	  <h4>Consent is the one step that is MUCH harder if not impossible to do later!</h4>
+
+	<blockquote style="width:88%;font-size:0.7em;">
+	  &ldquo;We will give access to the data we are collecting, including the imaging data,
+	  to the general public via the Internet and a fully open database.&rdquo;
+	  <br/><small>&mdash; one sentence from the
+		<a href="https://open-brain-consent.readthedocs.io/en/stable/ultimate.html" target="_blank">OBC Ultimate form</a></small>
+	</blockquote>
+
+	<h4>Ideally aim to</h4>
+
+	<ul style="font-size:0.7em;">
+	  <li>Name the <strong>archives</strong>, not just &ldquo;investigators at other institutions&rdquo;:
+		<a href="https://openneuro.org" target="_blank">OpenNeuro</a>/<a href="https://nemar.org" target="_blank">NEMAR</a>,
+		<a href="https://dandiarchive.org" target="_blank">DANDI</a>,
+		<a href="https://emberarchive.org" target="_blank">EMBER</a></li>
+	  <li><strong>Open</strong> as the default tier; controlled access as the fallback, not the only option</li>
+	  <li>Permit <strong>secondary research</strong> beyond this protocol's aims, with <strong>no end date</strong></li>
+	  <li>Cover the <strong>whole record</strong>: iEEG + electrode-localization CT/MRI + task logs + video</li>
+	  <li>Take care about data <strong>(pseudo)annonymization</strong> as early as feasible</li>
+	</ul>
+	<p style="font-size:0.6em;">
+	  Reuse vetted wording the way you reuse a software license &mdash; your IRB then reviews a
+	  known template instead of ad-hoc prose:
+	  <a href="https://open-brain-consent.readthedocs.io/" target="_blank">open-brain-consent.readthedocs.io</a>
+	  &middot;
+	  <a href="https://osp.od.nih.gov/wp-content/uploads/Informed-Consent-Resource-for-Secondary-Research-with-Data-and-Biospecimens.pdf" target="_blank">NIH
+		sample language for secondary research (2022)</a>
+	  &middot; it also covers the sharing half of your
+	  <a href="https://sharing.nih.gov/data-management-and-sharing-policy" target="_blank">NIH DMS plan</a>
+	</p>
+  </section>
 
   <!-- repeat the same slide to reposition for the next block -->
   <section data-transition="slide">
@@ -385,8 +417,29 @@
   </section>
 
   <section>
+	<h2>NWB GUIDE: the TurboTax of file conversions</h2>
+	<div style="display:flex;align-items:center;justify-content:center;gap:30px;">
+	  <img data-src="pics/nwb-guide-logo.png" style="height:260px;margin:0;"/>
+	  <img data-src="pics/nwb-guide-file-metadata-20261008.webp" style="width:920px;margin:0;"/>
+	</div>
+	<p style="font-size:0.6em;">
+	  <a href="https://github.com/NeurodataWithoutBorders/nwb-guide" target="_blank">github.com/NeurodataWithoutBorders/nwb-guide</a>
+	</p>
+	<aside class="notes">
+	  No-code desktop app, step by step like tax software: project
+	  structure &rarr; data entry (source data, file metadata) &rarr;
+	  conversion (validate, preview, review) &rarr; upload to DANDI.
+	  Screenshot: the File Metadata step for one session, Neuropixels
+	  device and electrode groups prefilled from the source data.
+	</aside>
+  </section>
+
+  <section>
 	<h2>Life without NWB</h2>
-	<img data-src="pics/2026-dhmc-ieeg-neuroconv-formats.svg" style="width:1250px;"/>
+	<div style="display:flex;align-items:center;justify-content:center;gap:20px;">
+	  <img data-src="pics/neuroconv-formats-cloud.svg" style="width:1030px;margin:0;"/>
+	  <a href="https://neuroconv.readthedocs.io/" target="_blank"><img data-src="pics/neuroconv-logo.png" style="width:240px;margin:0;border:none;box-shadow:none;background:none;"/></a>
+	</div>
 	<p style="font-size:0.6em;">
 	  <a href="https://neuroconv.readthedocs.io/" target="_blank">neuroconv.readthedocs.io</a>
 	</p>
@@ -430,27 +483,33 @@
   </section>
 
   <section>
-	<!-- TODO (Cody): spectrogram plugin example still to come. -->
 	<h2>In large part thanks to apps such as Neurosift</h2>
-	<ul>
-	  <li>Browser-based NWB viewer:<ul>
-		<li>no download required</li>
-		<li>works directly against DANDI</li>
-		<li>works on GB-sized files "just as well"</li>
+	<div style="display:inline-block;text-align:left;font-size:0.85em;">
+	<ul style="margin-left:1em;">
+	  <li>Browser-based NWB viewer: <a href="https://neurosift.app" target="_blank">neurosift.app</a>
+		<ul>
+		  <li>no download required</li>
+		  <li>integrates with most major archives (DANDI, EMBER, OpenNeuro)</li>
+		  <li>works on TB-sized files "just as well" as MB-sized ones</li>
 		</ul></li>
-	  <li>Free & Open-source: fix & extend at will</li>
-	  <li><strong>New</strong> event-related signals view: <br/>align any time series to any column
-		of a trials/intervals table, pick channels, group trials by a condition</li>
+	  <li>Free & Open-source: <a href="https://github.com/flatironinstitute/neurosift" target="_blank">github.com/flatironinstitute/neurosift</a> (fix & extend at will)
+		<ul>
+		  <li>Created by <strong>Jeremy Magland</strong> (Flatiron Institute)
+			<img data-src="pics/jeremy-magland.jpg" style="height:2.4em;width:2.4em;border-radius:50%;margin:0 0 0 0.4em;vertical-align:middle;border:none;box-shadow:none;"/><br/>
+			<small><a href="https://joss.theoj.org/papers/10.21105/joss.06590" target="_blank">Magland, J. et al. Neurosift. <em>Journal of Open Source Software</em>. doi:10.21105/joss.06590</a></small></li>
+		</ul></li>
+	  <li><strong>New</strong> event-related signals view
+		<ul><li>align any time series to any column of a trials/intervals table, pick channels, group trials by a condition</li></ul></li>
 	  <li><strong>New</strong> spectrogram view</li>
 	</ul>
-	<p>
+	<p style="margin:0.6em 0 0 1em;font-size:0.9em;">
 	  One known iEEG NWB example on OpenNeuro:
 	  <!-- TODO: find some on DANDI with the neurosift registration fix -->
 	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
-	  <!-- TODO: find/convert a second example with spectrograms if one exists. -->
 	</p>
+	</div>
 	<aside class="notes">
-	  Live demo won't work well over this group's Zoom &mdash; the next three
+	  Live demo won't work well over this group's Zoom &mdash; the next
 	  slides are screenshots; each title links to the live view.
 	</aside>
   </section>
@@ -505,6 +564,39 @@
 	</aside>
   </section>
 
+  <section>
+	<h3><a href="https://codycbakerphd.github.io/neurosift/previews/claude-happy-mendel-yb9e7n/nwb?url=https://api.dandiarchive.org/api/assets/467bf91b-008c-439f-9414-0edd45db6912/download/&amp;dandisetId=001347&amp;dandisetVersion=0.250528.0702&amp;tab=view:LfpSpectrogram|/processing/ecephys/LFP/v_trace&amp;spec=%7B%22%2Fprocessing%2Fecephys%2FLFP%2Fv_trace%22%3A%7B%22config%22%3A%7B%22taper%22%3A%22multitaper%22%2C%22nw%22%3A3%2C%22k%22%3A5%2C%22waveletCycles%22%3A7%2C%22waveletFreqDependent%22%3Afalse%2C%22windowSizeSamples%22%3A1024%2C%22overlap%22%3A0.5%2C%22detrend%22%3A%22linear%22%2C%22highPassHz%22%3Anull%2C%22lowPassHz%22%3Anull%2C%22filterOrder%22%3A4%2C%22zeroPhase%22%3Atrue%2C%22notchEnabled%22%3Atrue%2C%22notchBaseHz%22%3A60%2C%22notchHarmonics%22%3A3%2C%22fTestRemove%22%3Afalse%2C%22decimationFactor%22%3A1%2C%22artifactThresholdSd%22%3Anull%2C%22normalization%22%3A%22whiten%22%2C%22baselineWindowSec%22%3Anull%2C%22colorLimitMode%22%3A%22auto%22%2C%22colorLimitLock%22%3Afalse%2C%22colorMinDb%22%3Anull%2C%22colorMaxDb%22%3Anull%2C%22autoPercentile%22%3A2%2C%22fMinHz%22%3A0%2C%22fMaxHz%22%3A100%2C%22logFreq%22%3Afalse%2C%22colormap%22%3A%22magma%22%2C%22channelMode%22%3A%22mean%22%7D%2C%22channels%22%3A%5B0%5D%2C%22visRange%22%3A%5B88.286822824506%2C209.65355489574316%5D%7D%7D" target="_blank">Example 4: spectrogram of an LFP trace</a></h3>
+	<img data-src="pics/neurosift-spectrogram-v-trace-20261008.webp" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  <code>/processing/ecephys/LFP/v_trace</code>, 0&ndash;100&nbsp;Hz, ~2&nbsp;min of a 200&nbsp;Hz recording
+	  &mdash; <a href="https://dandiarchive.org/dandiset/001347" target="_blank">DANDI:001347</a><br/>
+	  Karl Deisseroth Lab, Stanford University
+	  &middot; human neural response to an eyepuff
+	</p>
+	<aside class="notes">
+	  Spectrogram view: DPSS multitaper (NW&nbsp;3, K&nbsp;5), 1024-sample
+	  windows with 50% overlap, 60&nbsp;Hz notch, 1/f whitening, magma
+	  colormap. Everything is computed in the browser from the streamed
+	  data. The link currently points at a Neurosift preview build.
+	</aside>
+  </section>
+
+  <section>
+	<h3><a href="https://on-the-fly-spectrogram-previ.neurosift.pages.dev/nwb?url=https://api.dandiarchive.org/api/assets/8941eed3-5cb3-4a81-be34-a37a211a4ebd/download/&amp;dandisetId=000059&amp;dandisetVersion=0.250624.0444&amp;spec=%7B%22%2Fprocessing%2Fecephys%2FLFP%2FLFP%22%3A%7B%22config%22%3A%7B%22taper%22%3A%22hann%22%2C%22nw%22%3A3%2C%22k%22%3A5%2C%22waveletCycles%22%3A7%2C%22waveletFreqDependent%22%3Afalse%2C%22windowSizeSamples%22%3A512%2C%22overlap%22%3A0.5%2C%22detrend%22%3A%22linear%22%2C%22highPassHz%22%3Anull%2C%22lowPassHz%22%3Anull%2C%22filterOrder%22%3A4%2C%22zeroPhase%22%3Atrue%2C%22notchEnabled%22%3Atrue%2C%22notchBaseHz%22%3A60%2C%22notchHarmonics%22%3A1%2C%22fTestRemove%22%3Afalse%2C%22decimationFactor%22%3A1%2C%22artifactThresholdSd%22%3Anull%2C%22normalization%22%3A%22none%22%2C%22baselineWindowSec%22%3Anull%2C%22colorLimitMode%22%3A%22auto%22%2C%22colorLimitLock%22%3Afalse%2C%22colorMinDb%22%3Anull%2C%22colorMaxDb%22%3Anull%2C%22autoPercentile%22%3A2%2C%22fMinHz%22%3A0%2C%22fMaxHz%22%3A625%2C%22logFreq%22%3Afalse%2C%22colormap%22%3A%22viridis%22%2C%22channelMode%22%3A%22mean%22%7D%2C%22channels%22%3A%5B6%2C7%2C8%5D%2C%22visRange%22%3A%5B0.35447761194029853%2C30.354477611940297%5D%7D%7D&amp;tab=view:LfpSpectrogram|/processing/ecephys/LFP/LFP" target="_blank">Example 5: spectrogram, no normalization</a></h3>
+	<img data-src="pics/neurosift-spectrogram-lfp-20261008.webp" style="width:1300px;"/>
+	<p style="font-size:0.6em;">
+	  <code>/processing/ecephys/LFP/LFP</code>, channels 6&ndash;8 averaged, 0&ndash;625&nbsp;Hz, first 30&nbsp;s of a 1250&nbsp;Hz recording
+	  &mdash; <a href="https://dandiarchive.org/dandiset/000059" target="_blank">DANDI:000059</a>
+	  <!-- TODO (Cody): lab / species / task for DANDI:000059 -->
+	</p>
+	<aside class="notes">
+	  Same view with different settings: Hann window (512 samples, 50%
+	  overlap), 60&nbsp;Hz notch, raw dB (no normalization), viridis
+	  colormap, full 0&ndash;625&nbsp;Hz range. The link currently points
+	  at a Neurosift preview build.
+	</aside>
+  </section>
+
   <section data-transition="slide">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb-apps.svg" style="width:1300px;height:731px;"></object>
   </section>
@@ -517,11 +609,11 @@
 <!-- substantial (5-slide) detour -- bookend with a repeat of the
 	 archives image before moving to the next increment (bids). -->
 <section>
-  <section>
+  <section data-transition="slide">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/archives.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
+  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
 ## Archives: free backup, (ours) open by design
@@ -539,25 +631,52 @@
 		10.5281/zenodo.18333008</a>
 </small>
 
-
 ----
 
 ### DANDI &mdash; the broader NWB-centric archive
 
-<img data-src="pics/dandi-slide-modalities.svg" style="width:900px;"/>
+<a href="https://dandiarchive.org/">
+  <img data-src="pics/borrowed/dandiarchive-webshote-20261008.png"/>
+</a>
 
-[dandiarchive.org](https://dandiarchive.org) &mdash; also hosts iEEG
-data in NWB form (see [DANDI:000623](https://dandiarchive.org/dandiset/000623))
+BRAIN Initiative archive for the neurophysiological data (MIT and
+**Dartmouth/CON** lead, with Kitware, et al), live since
+2019. [dandiarchive.org](https://dandiarchive.org)
+
+Also hosts iEEG data in NWB form (see
+[DANDI:000623](https://dandiarchive.org/dandiset/000623))
 
 ----
 
-### EMBER &mdash; new since your notes were written
+#### [stats.dandiarchive.org](https://stats.dandiarchive.org)
+
+<a href="https://stats.dandiarchive.org/">
+  <img data-src="pics/borrowed/dandiarchive-stats-webshote-20261008.png"/>
+</a>
+
+----
+
+### EMBER
 
 <img data-src="pics/borrowed/ember-archive-webshot-20261005.png" style="width:950px;"/>
 
-Official BRAIN Initiative archive for the **BBQS** program (JHU/APL-led, with **Dartmouth/CON**),
-live since 2024, built on DANDI infrastructure. [emberarchive.org](https://emberarchive.org)
+BRAIN Initiative archive for the [**BBQS**](https://brain-bbqs.org)
+program (JHU/APL-led, with **Dartmouth/CON** as Co-I), live since
+2024, built on DANDI
+infrastructure. [emberarchive.org](https://emberarchive.org)
 
+----
+
+### OpenNeuro
+
+<a href="https://openneuro.org/">
+  <img data-src="pics/borrowed/openneuro-ieeg-webshote-20261008.png"/>
+</a>
+
+BRAIN Initiative archive for \*MRI, EEG, MEG
+etc human data (Stanford-led, with **Dartmouth/CON** as Co-I), live
+since 2017.
+[openneuro.org](https://openneuro.org)
 
 ----
 
