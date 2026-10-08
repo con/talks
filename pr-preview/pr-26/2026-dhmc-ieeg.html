@@ -388,15 +388,20 @@
 	<!-- TODO (Cody): spectrogram plugin example still to come. -->
 	<h2>Neurosift: stream, don't download</h2>
 	<ul>
-	  <li>Browser-based NWB viewer &mdash; no download required, works directly against DANDI</li>
-	  <li>Open-source</li>
-	  <li>New <strong>event-related signals</strong> view: align any time series to any column
+	  <li>Browser-based NWB viewer:<ul>
+		<li>no download required</li>
+		<li>works directly against DANDI</li>
+		<li>works on GB-sized files "just as well"</li>
+		</li>
+	  <li>Free & Open-source: fix & extend at will</li></ul>
+	  <li>New <strong>event-related signals</strong> view: <br/>align any time series to any column
 		of a trials/intervals table, pick channels, group trials by a condition</li>
 	</ul>
 	<p>
 	  One known iEEG NWB example on DANDI:
+	  <!-- TODO: talks about DANDI but points to OpenNeuro, wrong or just confusing? -->
 	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
-	  &mdash; TODO: find/convert a second example with spectrograms if one exists.
+	  <!-- TODO: find/convert a second example with spectrograms if one exists. -->
 	</p>
 	<aside class="notes">
 	  Live demo won't work well over this group's Zoom &mdash; the next three
@@ -619,16 +624,13 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/dandi-compute.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <!-- The DANDI Compute figure is a tall poster (1680x2421); the first slide
-	   shows it whole, the following ones crop the same SVG (scaled to
-	   1300px wide, i.e. x0.774) to one panel each. -->
+  <!-- The DANDI Compute figure is a tall poster (1680x2421): the first
+	   slide shows it whole, the following ones show single panels
+	   extracted by svgtune (pics/dandi-compute-figure.svgtune ->
+	   pics/dandi-compute-figure_tuned/). -->
   <section data-transition="slide">
-	<style>
-	  .dc-crop { width:1300px; overflow:hidden; margin:0 auto; }
-	  .reveal .dc-crop img { width:1300px; max-width:none; max-height:none; margin:0; border:none; box-shadow:none; }
-	</style>
 	<h3>DANDI Compute</h3>
-	<img class="r-stretch" data-src="pics/dandi-compute-figure.svg"/>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure.svg" style="height:860px;width:597px;"></object>
 	<aside class="notes">
 	  Runs the Allen Institute for Neural Dynamics electrophysiology
 	  pipeline over NWB data on DANDI. Spike-sorting outputs are packaged
@@ -641,23 +643,17 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 
   <section>
 	<h3>DANDI Compute: orchestration</h3>
-	<div class="dc-crop" style="height:790px;">
-	  <img data-src="pics/dandi-compute-figure.svg"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/orchestration.svg" style="width:1300px;height:812px;"></object>
   </section>
 
   <section>
 	<h3>DANDI Compute: the spike-sorting pipeline</h3>
-	<div class="dc-crop" style="height:360px;">
-	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-822px;"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/pipeline.svg" style="width:1300px;height:385px;"></object>
   </section>
 
   <section>
 	<h3>DANDI Compute: the derivative it produces</h3>
-	<div class="dc-crop" style="height:580px;">
-	  <img data-src="pics/dandi-compute-figure.svg" style="margin-top:-1216px;"/>
-	</div>
+	<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/derivative.svg" style="width:1300px;height:605px;"></object>
   </section>
 
   <section>
