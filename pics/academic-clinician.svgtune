@@ -15,6 +15,9 @@ layer label:re=^clinical$ style=display:inline
 layer label:re=^wg32$ style=display:inline
 %save wg32
 
+layer label:re=^standards$ style=display:inline
+%save standards
+
 layer label:re=^academic$ style=display:inline
 %save academic
 
