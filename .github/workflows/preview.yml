@@ -1,16 +1,21 @@
 name: Preview
 
-# Run manually (Actions -> Preview -> Run workflow) with a pull request
-# number to publish, under `pr-preview/pr-<N>/` on the `gh-pages` branch, a
+# Runs automatically for pull requests from branches of this repository
+# (opened, pushed to, reopened: deploy; closed: remove), and can be run
+# manually (Actions -> Preview -> Run workflow) with a pull request number,
+# e.g. for pull requests from forks. It publishes, under `pr-preview/pr-<N>/` on the `gh-pages` branch, a
 # preview of only the decks (top-level *.html) that pull request adds or
 # changes, together with just the files they use (reveal.js, css/, pics/...),
 # with git-annex'ed content fetched from datasets.datalad.org.
-# Run it with `remove` to delete that preview again.
+# Run it manually with `remove` to delete a preview again. Pull requests
+# which change no decks get no preview (and no failing check).
 #
 # The pull request's content is built with a read-only token; only the
 # resulting files are handed to the deploy job, which has write access.
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
   workflow_dispatch:
     inputs:
       pr:
@@ -27,15 +32,44 @@ on:
         default: deploy
 
 concurrency:
-  group: preview-${{ inputs.pr }}
+  group: preview-${{ github.event.pull_request.number || inputs.pr }}
   cancel-in-progress: false
 
 env:
   ANNEX_REMOTE_URL: https://datasets.datalad.org/centerforopenneuroscience/talks/.git
 
 jobs:
+  params:
+    # Pull requests from forks get a read-only token and cannot deploy
+    # (run the workflow manually for those).
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    outputs:
+      pr: ${{ steps.p.outputs.pr }}
+      action: ${{ steps.p.outputs.action }}
+    steps:
+      - name: Work out pull request and action
+        id: p
+        env:
+          EVENT: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          EVENT_PR: ${{ github.event.pull_request.number }}
+          INPUT_PR: ${{ inputs.pr }}
+          INPUT_ACTION: ${{ inputs.action }}
+        run: |
+          if [[ "$EVENT" == pull_request ]]; then
+            PR=$EVENT_PR
+            if [[ "$EVENT_ACTION" == closed ]]; then ACTION=remove; else ACTION=deploy; fi
+          else
+            PR=$INPUT_PR
+            ACTION=$INPUT_ACTION
+          fi
+          echo "pr=$PR" >> "$GITHUB_OUTPUT"
+          echo "action=$ACTION" >> "$GITHUB_OUTPUT"
+
   build-preview:
-    if: inputs.action == 'deploy'
+    needs: params
+    if: needs.params.outputs.action == 'deploy'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -48,7 +82,7 @@ jobs:
         id: pr
         env:
           GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ inputs.pr }}
+          PR_NUMBER: ${{ needs.params.outputs.pr }}
         run: |
           read -r STATE HEAD_SHA < <(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.state + " " + .head.sha')
           if [[ "$STATE" != open ]]; then
@@ -62,7 +96,7 @@ jobs:
         with:
           # the merge of the pull request into its base, so HEAD^1 is the
           # base; full history for git-annex
-          ref: refs/pull/${{ inputs.pr }}/merge
+          ref: refs/pull/${{ needs.params.outputs.pr }}/merge
           fetch-depth: 0
 
       - name: Find changed decks
@@ -72,18 +106,25 @@ jobs:
           DECKS=$(git diff --name-only --diff-filter=AMR HEAD^1 HEAD -- '*.html' \
             | grep -E '^[A-Za-z0-9][A-Za-z0-9._+-]*\.html$' | tr '\n' ' ' || true)
           if [ -z "$DECKS" ]; then
-            echo "::error::Pull request #${{ inputs.pr }} changes no decks; nothing to preview."
+            if [[ "${{ github.event_name }}" == pull_request ]]; then
+              echo "::notice::Pull request #${{ needs.params.outputs.pr }} changes no decks; no preview."
+              echo "decks=" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::Pull request #${{ needs.params.outputs.pr }} changes no decks; nothing to preview."
             exit 1
           fi
           echo "Decks to preview: $DECKS"
           echo "decks=$DECKS" >> "$GITHUB_OUTPUT"
 
       - name: Get reveal.js
+        if: steps.decks.outputs.decks != ''
         # not `submodules: true`: 2022-nih-compcore has a relative URL that
         # only resolves on datasets.datalad.org
         run: git submodule update --init --depth 1 reveal.js reveal.js-mermaid-plugin
 
       - name: Set up git-annex
+        if: steps.decks.outputs.decks != ''
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq git-annex
@@ -94,6 +135,7 @@ jobs:
           git annex init --quiet
 
       - name: Build site
+        if: steps.decks.outputs.decks != ''
         env:
           DECKS: ${{ steps.decks.outputs.decks }}
         run: |
@@ -115,6 +157,7 @@ jobs:
           fi
 
       - name: Upload site
+        if: steps.decks.outputs.decks != ''
         uses: actions/upload-artifact@v7
         with:
           name: preview-site
@@ -124,9 +167,9 @@ jobs:
           retention-days: 1
 
   deploy-preview:
-    needs: build-preview
+    needs: [params, build-preview]
     # also run for `remove`, where the build is skipped
-    if: ${{ !cancelled() && (inputs.action == 'remove' || needs.build-preview.result == 'success') }}
+    if: ${{ !cancelled() && (needs.params.outputs.action == 'remove' || (needs.build-preview.result == 'success' && needs.build-preview.outputs.decks != '')) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -136,7 +179,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download site
-        if: inputs.action == 'deploy'
+        if: needs.params.outputs.action == 'deploy'
         uses: actions/download-artifact@v8
         with:
           name: preview-site
@@ -148,16 +191,16 @@ jobs:
         with:
           source-dir: preview-site
           preview-branch: gh-pages
-          action: ${{ inputs.action }}
-          pr-number: ${{ inputs.pr }}
-          deploy-commit-message: Deploy preview for PR ${{ inputs.pr }}
-          remove-commit-message: Remove preview for PR ${{ inputs.pr }}
+          action: ${{ needs.params.outputs.action }}
+          pr-number: ${{ needs.params.outputs.pr }}
+          deploy-commit-message: Deploy preview for PR ${{ needs.params.outputs.pr }}
+          remove-commit-message: Remove preview for PR ${{ needs.params.outputs.pr }}
           # The action's own comment looks for the pull request in the
           # triggering event, which `workflow_dispatch` does not carry.
           comment: false
 
       - name: Compose preview comment
-        if: inputs.action == 'deploy'
+        if: needs.params.outputs.action == 'deploy'
         env:
           PREVIEW_URL: ${{ steps.preview.outputs.preview-url }}
           HEAD_SHA: ${{ needs.build-preview.outputs.head-sha }}
@@ -178,18 +221,18 @@ jobs:
           } > "$RUNNER_TEMP/comment.md"
 
       - name: Comment preview link
-        if: inputs.action == 'deploy'
+        if: needs.params.outputs.action == 'deploy'
         uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
-          number: ${{ inputs.pr }}
+          number: ${{ needs.params.outputs.pr }}
           path: ${{ runner.temp }}/comment.md
 
       - name: Comment preview removal
-        if: inputs.action == 'remove'
+        if: needs.params.outputs.action == 'remove'
         uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
-          number: ${{ inputs.pr }}
+          number: ${{ needs.params.outputs.pr }}
           message: |
             Preview removed.
