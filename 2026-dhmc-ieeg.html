@@ -316,10 +316,21 @@
 	<ul>
 	  <li>"Many sizes fit all" &mdash; no single tool or standard solves everything</li>
 	  <li>You don't have to "buy in 100%" &mdash; pieces compose, and are useful alone</li>
-	  <li>Everything today is a <strong>pointer</strong> not a deep technical tutorial</li>
-	  <li>There is a community to join!</li>
+	  <li>Everything today is a <strong>pointer</strong> not a tutorial</li>
 	</ul>
+	<h3>There is community to join!</h3>
   </section>
+
+  <section data-transition="slide">
+	<h2>Carrots, not (only) sticks</h2>
+	<img data-src="pics/borrowed/human+carrot_black.png" style="height:550px;"/>
+	<p>
+	<small>
+	  Figure from a recent talk by M. Hanke, <em>"Carrots! Not sticks!"</em>
+	  <a href="https://hedgedoc.psychoinformatics.de/p/gBE63_ytiE" target="_blank" style="color:#e8c37a;">hedgedoc.psychoinformatics.de/p/gBE63_ytiE</a>
+	</small></p>
+  </section>
+
 </section>
 
 
@@ -1138,105 +1149,6 @@ a dataset of datasets, each still independently valid BIDS
 <!-- ---- end STAMPED detour ---- -->
 
 
-<!-- ============================================================ -->
-<!-- Leftover: not yet placed into the new structure               -->
-<!-- These don't map onto a specific step in either diagram --     -->
-<!-- kept here for Yarik to triage.                                -->
-<!-- ============================================================ -->
-<section>
-  <section>
-	<h2>Leftover: not yet placed</h2>
-	<p style="font-size:0.7em;">These don't map onto a specific step in either
-	  incremental diagram (academic-clinician / academic-participants) &mdash;
-	  kept here for Yarik to decide where (or whether) they belong.</p>
-  </section>
-
-    <section>
-	<h2>How could we collaborate on metadata that matters clinically?</h2>
-	<ul>
-	  <li>Should individual labs channel requests to manufacturers one at a time,
-		or could <a href="https://www.dicomstandard.org/activity/wgs/wg-32" target="_blank">DICOM WG-32</a> help coordinate?</li>
-	  <li>Proposition: a library of concrete DICOM&harr;BIDS/NWB conversions,
-		per manufacturer and modality</li>
-	</ul>
-  </section>
-
-  <section>
-	<h2>You're already standing in the gap</h2>
-	<ul>
-	  <li class="fragment">This group runs clinical iEEG acquisition <em>and</em> does research analysis &mdash;
-		both worlds, already, every day</li>
-	  <li class="fragment">That makes you natural informants for <code>neuroconv</code> format support,
-		BEP010 edge cases, and DICOM&harr;BIDS/NWB conversion libraries</li>
-	  <li class="fragment"><strong>Ask</strong>: who else should be in that room? what hardware/format
-		gaps have you hit that we should know about?</li>
-	</ul>
-  </section>
-
-  <section data-transition="slide" data-background-color="#2f2a22">
-	<!-- The source figure is white line-art on a transparent background --
-		 needs a dark slide background to be visible (it's meant to be
-		 viewed that way; on the default beige theme it disappears). -->
-	<h2 style="color:#f5efe0;">Carrots, not (only) sticks</h2>
-	<img data-src="pics/borrowed/human+carrot.png" style="height:550px;"/>
-	<p style="font-size:0.6em;color:#cfc6b0;">
-	  Figure from M. Hanke, <em>"Carrots! Not sticks!"</em>
-	  <a href="https://hedgedoc.psychoinformatics.de/p/gBE63_ytiE" target="_blank" style="color:#e8c37a;">hedgedoc.psychoinformatics.de/p/gBE63_ytiE</a>
-	</p>
-  </section>
-
-  <section>
-	<h2>What pulls people toward standards</h2>
-	<ul>
-	  <li class="fragment"><strong>Carrots</strong> &mdash; the standards themselves: free tools, free archive storage,
-		"someone else already solved this", collaborators who can actually read your data</li>
-	  <li class="fragment"><strong>Sticks</strong> exist too &mdash; mostly from funders and journals:
-		NIH Data Management &amp; Sharing Policy, journal data-availability requirements</li>
-	  <li class="fragment">Our pitch today is almost entirely carrots &mdash; the stick is already pulling on everyone;
-		we're here to make the carrot side concrete</li>
-	</ul>
-  </section>
-
-  <section data-markdown data-separator="^\n----\n" data-vertical="^\n---\n">
-	<textarea data-template>
-
-## Visions for the future
-
-----
-
-### Mass preprocessed data, reused with confidence
-
-- "Mass compute" (see mechababs) makes mass-preprocessing tractable
-- Goal: future "meta-studies" / multiverse analyses that trust someone else's preprocessing
-  because STAMPED provenance makes it checkable
-
-----
-
-### Knowledge bases: from local to global
-
-<div style="display:flex;justify-content:space-around;align-items:flex-start;">
-<div><img data-src="pics/borrowed/brainkb-webshot-20261006.png" style="width:440px;"/><br/>
-  <small><a href="https://brainkb.org">BrainKB</a> &mdash; NIH-funded open neuroscience knowledge graph
-  (BICAN, ReproNim, BBQS, Brain Connects)</small></div>
-<div><img data-src="pics/borrowed/ebrains-kg-webshot-20261006.png" style="width:440px;"/><br/>
-  <small><a href="https://ebrains.eu">EBRAINS Knowledge Graph</a> &mdash; EU openMINDS-based
-  semantic metadata graph</small></div>
-</div>
-
-----
-
-### ORINOCO / ORINOCO-Lite &mdash; our own tooling, not an external project
-
-- `dump-things-service` &mdash; self-hostable LinkML-based structured-metadata store
-- `ORINOCO-Lite` &mdash; GitHub-native deployments, already running for CON and
-  Psychoinformatics group sites
-- Local knowledge bases that could, in principle, federate upward into
-  BrainKB / EBRAINS-scale graphs
-
-	</textarea>
-  </section>
-</section>
-
 
 <!-- ============================================================ -->
 <!-- Take-home                                                     -->
@@ -1246,11 +1158,13 @@ a dataset of datasets, each still independently valid BIDS
 
 ## Monday checklist
 
-- Browse [nemar.org](https://nemar.org) or [dandiarchive.org](https://dandiarchive.org) &mdash; find a dataset like yours
-- Skim the [BIDS iEEG spec](https://bids-specification.readthedocs.io/) section (BEP010)
+- Browse: [nemar.org](https://nemar.org) and/or [dandiarchive.org](https://dandiarchive.org) &mdash; find a dataset like yours
+- Skim: [BIDS iEEG](https://bids-specification.readthedocs.io/) (BEP010) and/or [BIDS microelectrode](https://con.github.io/talks/pr-preview/pr-26/2026-dhmc-ieeg.html#/6/4) (BEP032) specs
 - Tell us: what hardware/format gap should be on our radar?
-- Keep the conversation going &mdash; this is a toolbelt, pick what's useful, ignore the rest
-
+- Think: what could lossy compression effect in your analyses?
+- Consider (for the night): [DataLad Handbook](https://handbook.datalad.org/en/latest/)
+- Keep the conversation going: this is a toolbelt, pick what's useful, ignore the rest
+- Keep an eye for: series of talks at PBS around all these topics
   </textarea>
 </section>
 
