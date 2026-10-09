@@ -256,6 +256,9 @@
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#franco_pestilli_" target="_blank" title="Franco Pestilli — Department of Psychology"><img data-src="pics/con-whoweare/franco.jpg" alt="Franco Pestilli"/><span>Franco Pestilli</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael.jpg" alt="Michael Hanke"/><span>Michael Hanke</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satra.jpg" alt="Satrajit Ghosh"/><span>Satrajit Ghosh</span></a>
+  </div></div>
+  <!-- just "row" divider -->
+  <div class="cww-tier"> <div class="cww-faces">
 	  <a href="https://repronim.org/" target="_blank" title="ReproNim"><img style="height:60px;margin:10px" data-src="pics/borrowed/repronim_logo.svg" /></a>
 	  <a href="https://openneuro.org" target="_blank" title="OpenNeuro"><img style="height:70px;margin:10px" data-src="pics/borrowed/openneuro_logo.png" /></a>
 	  <a href="https://dandiarchive.org" target="_blank" title="DANDI"><img style="height:80px;margin:10px" data-src="pics/borrowed/dandi_logo.svg" /></a>
@@ -280,6 +283,9 @@
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#samuel_nastase_" target="_blank" title="Samuel Nastase — Princeton, NJ"><img data-src="pics/con-whoweare/sam.jpg" alt="Samuel Nastase"/><span>Samuel Nastase</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#nikolaas_n_oosterhof_" target="_blank" title="Nikolaas N. Oosterhof — Hiding somewhere in Netherlands"><img data-src="pics/con-whoweare/nick.jpg" alt="Nikolaas N. Oosterhof"/><span>Nikolaas N. Oosterhof</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#matthew_brett_" target="_blank" title="Matthew Brett — University of Birmingham, UK"><img data-src="pics/con-whoweare/matthew.jpg" alt="Matthew Brett"/><span>Matthew Brett</span></a>
+  </div></div>
+	  <!-- just "row" divider -->
+  <div class="cww-tier"> <div class="cww-faces">
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#kyle_meyer_" target="_blank" title="Kyle Meyer — Programmer"><img data-src="pics/con-whoweare/kyle.jpg" alt="Kyle Meyer"/><span>Kyle Meyer</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#chris_cheng_" target="_blank" title="Chris Cheng — Dartmouth College"><img data-src="pics/con-whoweare/chris.jpg" alt="Chris Cheng"/><span>Chris Cheng</span></a>
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#soichi_hayashi_" target="_blank" title="Soichi Hayashi — Indiana University, Bloomington"><img data-src="pics/con-whoweare/soichi.jpg" alt="Soichi Hayashi"/><span>Soichi Hayashi</span></a>
@@ -1156,8 +1162,6 @@ since 2017.
   </section>
 
   <section>
-	<!-- title baked into the SVG itself: "Data management across the
-		 academic ecosystem" -->
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/data-management.svg" style="width:1300px;height:731px;"></object>
   </section>
 
@@ -1188,12 +1192,55 @@ doi: 10.21105/joss.03262
   </section>
 
   <section>
+  <h2>Why version control?</h2>
+  <table style="width:70%;">
+    <tr>
+      <td style="width:40%; vertical-align:top;">
+        <ul>
+		  <li class="fade-in">collaborate</li>
+		  <li class="fade-in">keep things synchronized</li>
+          <li class="fade-in">keep track of changes</li>
+		  <li class="fade-in">use as a backup</li>
+		  <li class="fade-in">search (grep)</li>
+		  <li class="fade-in">...</li>
+          <!-- Add more list items here -->
+        </ul>
+      </td>
+      <td style="width:60%; text-align:center;">
+        <img src="pics/borrowed/phdcomics-notfinal.png" style="box-shadow: 10px 10px 8px #888888; height:700px;" height="700">
+		<small>Borrowed from <a href="https://phdcomics.com/comics/archive.php?comicid=1531">PhD Comics 1531</a>.</small>
+      </td>
+    </tr>
+  </table>
+  <aside class="notes">
+    <li>Not only manuscripts, but also data!</li>
+  </aside>
+  </section>
+
+  <section>
 	<h2>Meet one of the "largest" Git "repositories"</h2>
 	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
 
 	<p>over 6,000+ Git repositories as "subdatasets", <br>
 	  with access to 600TB+ of neural data</p>
   </section>
+
+  <section>
+	<h2>In DataLad We Trust!</h2>
+	<h3>And so do they:</h3>
+	<img data-src="pics/datalad-decentralized.jpg"/>
+	<small>
+	  <a href="https://www.degruyter.com/document/doi/10.1515/nf-2020-0037/html">
+		M. Hanke, F. Pestilli, A. S. Wagner, C. J. Markiewicz, J.-B. Poline, and <b>Y. O. Halchenko</b>. In defense of
+		decentralized research data management. Neuroforum, 0(0), jan 2021. doi: 10.1515/nf-2020-0037
+	  </a>
+	</small>
+  </section>
+
+  <section  data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/data-management.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
 </section>
 <!-- ---- end RDM detour ---- -->
 
@@ -1210,25 +1257,18 @@ doi: 10.21105/joss.03262
   <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
-### STAMPED &mdash; one slide
+	  <img data-src="pics/stamped-principles-webshot_20260602.png" style="width:900px;"/>
 
-<img data-src="pics/stamped-principles-webshot_20260602.png" style="width:900px;"/>
-
-**S**elf-contained, **T**racked, **A**ctionable, **M**odular, **P**ortable, **E**phemeral, **D**istributable
-
-<small><a href="https://stamped-principles.org/">stamped-principles.org</a> &mdash;
-Macdonald, Baker, To, Halchenko (2026); Cody's deeper dive: BBQS workshop slides (<code>2026-bbqs-stamped</code>)</small>
-
-----
-
-### (Meta)BIDS-Study: self-containment + modularity together
-
-<img data-src="pics/openneuro-studies-webshot_20260602.png" style="width:900px;"/>
-
-<a href="https://github.com/OpenNeuroStudies/OpenNeuroStudies">OpenNeuroStudies</a> &mdash;
-a dataset of datasets, each still independently valid BIDS
+  Cody's deeper dive @ BBQS workshop: <a href="2026-bbqs-stamped.pdf">slides</a>, and <a href="https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo">video@CONTube</a><br/>
+  Collection of examples: <a href="https://examples.stamped-principles.org/">examples.stamped-principles.org</a><br>
+  Checklist: <a href="https://checklist.stamped-principles.org/">checklist.stamped-principles.org</a><br>
 
 	</textarea>
+  </section>
+
+  <section>
+	<h3>Goal: Distill the best operation practices for Humans and AI</h3>
+	<img src="pics/borrowed/notebooklm-stamped-glassbox-20261008-p3.png"/>
   </section>
 
   <!-- repeat the same slide to close the build -->
@@ -1239,22 +1279,19 @@ a dataset of datasets, each still independently valid BIDS
 <!-- ---- end STAMPED detour ---- -->
 
 
-
-<!-- ============================================================ -->
-<!-- Take-home                                                     -->
-<!-- ============================================================ -->
 <section data-markdown>
   <textarea data-template>
 
-## Monday checklist
+## Take Home Weekend Entertainment Checklist from CON</h1>
 
-- Browse: [nemar.org](https://nemar.org) and/or [dandiarchive.org](https://dandiarchive.org) &mdash; find a dataset like yours
-- Skim: [BIDS iEEG](https://bids-specification.readthedocs.io/) (BEP010) and/or [BIDS microelectrode](https://con.github.io/talks/pr-preview/pr-26/2026-dhmc-ieeg.html#/6/4) (BEP032) specs
-- Tell us: what hardware/format gap should be on our radar?
-- Think: what could lossy compression effect in your analyses?
-- Consider (for the night): [DataLad Handbook](https://handbook.datalad.org/en/latest/)
-- Keep the conversation going: this is a toolbelt, pick what's useful, ignore the rest
-- Keep an eye for: series of talks at PBS around all these topics
+- ☐ Browse: [nemar.org](https://nemar.org) and/or [dandiarchive.org](https://dandiarchive.org) &mdash; find a dataset like yours
+- ☐ Skim: [BIDS iEEG](https://bids-specification.readthedocs.io/) (BEP010) and/or [BIDS microelectrode](https://con.github.io/talks/pr-preview/pr-26/2026-dhmc-ieeg.html#/6/4) (BEP032) specs
+- ☐ Consider (for the night): [DataLad Handbook](https://handbook.datalad.org/en/latest/)
+- ☐ Check (with AI?): your results against [STAMPED Checklist](https://checklist.stamped-principles.org)
+- ☐ This is a toolbelt, **pick what's useful to you most**
+- ☐ Tell us: what hardware/format gap should be on our radar?
+- ☐ Think: what could lossy compression effect in your analyses?
+- ☐ **Keep an eye for: series of talks at PBS around all these topics**
   </textarea>
 </section>
 
@@ -1262,6 +1299,11 @@ a dataset of datasets, each still independently valid BIDS
 <section data-transition-speed="zoom">
   <h1>Thank you!</h1>
   <h2>Questions &amp; discussion</h2>
+  <h3>Think about your SciOps level</h3>
+	<img data-src="pics/borrowed/neuro-sciops-fig.svg"/>
+	<p>
+	  <small>From <a href="https://arxiv.org/abs/2401.00077v1">"A Maturity Model for Operations in Neuroscience Research"</a>, 2026<br/> by E.C. Johnson, ..., <b>Y.O. Halchenko</b>, ..., D. Yatsenko  <a href="https://arxiv.org/abs/2401.00077v1">https://arxiv.org/abs/2401.00077v1</a></small>
+
 </section>
 
 <!-- End of slides -->
