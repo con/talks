@@ -321,8 +321,16 @@
 	<h3>There is community to join!</h3>
   </section>
 
+  <section>
+	<h2>Goal: uplift community in SciOps level</h2>
+	<img data-src="pics/borrowed/neuro-sciops-fig.svg"/>
+	<p>
+	  <small>From <a href="https://arxiv.org/abs/2401.00077v1">"A Maturity Model for Operations in Neuroscience Research"</a>, 2026<br/> by E.C. Johnson, ..., <b>Y.O. Halchenko</b>, ..., D. Yatsenko  <a href="https://arxiv.org/abs/2401.00077v1">https://arxiv.org/abs/2401.00077v1</a></small>
+  </section>
+
+  
   <section data-transition="slide">
-	<h2>Carrots, not (only) sticks</h2>
+	<h2>HOW: Carrot a day keeps SciOps at gain!</h2>
 	<img data-src="pics/borrowed/human+carrot_black.png" style="height:550px;"/>
 	<p>
 	<small>
@@ -514,7 +522,7 @@
   </section>
 
   <!-- ---- the "ask" slide that closes the consent detour ---- -->
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<h3>The ask: plan for depositing to the archive <em>in the consent form</em></h3>
 	  <h4>Consent is the one step that is MUCH harder if not impossible to do later!</h4>
 
@@ -526,8 +534,8 @@
 	</blockquote>
 	  -->
   </section>
+
   <section>
-	  
 	<h4>Ideally aim to</h4>
 
 	<ul style="font-size:0.7em;">
@@ -566,7 +574,7 @@
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<h2>NWB: one file format for all modalities + metadata</h2>
 	<img data-src="pics/2026-dhmc-ieeg-nwb-one-for-all.svg" style="width:1250px;"/>
 	<aside class="notes">
@@ -638,7 +646,7 @@
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb-apps.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<h2>Web streaming is on the rise</h2>
 	<img data-src="pics/dandi-usage-per-quarter-20261008.png" style="width:1100px;margin:0;"/><br/>
 	<img data-src="pics/dandi-usage-by-region-20261008.svg" style="height:390px;margin:0;"/>
@@ -690,6 +698,14 @@
 	  slides are screenshots; each title links to the live view.
 	</aside>
   </section>
+
+  <section>
+	<h2>Standards are an enabler for tooling</h2>
+
+	  <h3>Cool stuff (visualization, turnkey apps) is possible only because of boring stuff (standards)</h3>
+
+  </section>
+
 
   <section>
 	<h3><a href="https://event-related-signals.neurosift.pages.dev/nwb?url=https%3A%2F%2Fapi.dandiarchive.org%2Fapi%2Fassets%2F92e831a1-3427-4e06-9934-30d202bcc02d%2Fdownload%2F&amp;dandisetId=000409&amp;dandisetVersion=0.260309.1324&amp;tab=view%3AEventRelatedSignal%7C%2Fintervals%2Ftrials%5E%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy#ta_series=%2Fprocessing%2Fmotion_energy%2FLeftCameraMotionEnergy&amp;ta_groupby=gabor_stimulus_contrast&amp;ta_align=auditory_cue_time&amp;ta_win=-4%2C4" target="_blank">Example 1: behavior, grouped by condition</a></h3>
@@ -878,7 +894,7 @@ since 2017.
   </section>
 
   <!-- repeat the same slide to reposition for the next block -->
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/archives.svg" style="width:1300px;height:731px;"></object>
   </section>
 </section>
@@ -893,85 +909,118 @@ since 2017.
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section  data-transition="slide">
-	<img style="width:2000px" data-src="pics/bids-logo-wide.png"/>
-	<br>
-	<small>
-	  <a href="https://www.nature.com/articles/sdata201644">
-		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
-		E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
-		D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
-		Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
-		Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (<b>2016</b>). The
-		brain imaging data structure, a format for organizing and describing outputs
-		of neuroimaging experiments. Scientific Data, 3:160044</a>
-	</small>
-  </section>
-
-  <section data-markdown data-transition="slide" data-separator="^\n----\n" data-vertical="^\n---\n">
+  <section data-markdown data-transition="slide-in" data-separator="^\n----\n" data-vertical="^\n---\n">
 	<textarea data-template>
 
-## Standards as an enabler for tooling
-
-"Cool stuff (visualization, turnkey apps) is possible only because of boring stuff (standards)"
-
-----
-
-### Why do we need standards?
+### Why do we need dataset standards?
 
 > Researcher A collects data, publishes a paper. Researcher B requests the data.
 > The data arrive &mdash; organized however Researcher A felt like organizing them.
 > Researcher B gives up.
 
-<small>adapted from Rokem/Gau/Halchenko, <code>202404xx-NSF-POSE-BIDS</code></small>
-
-----
-
-<img data-src="pics/bids-logo-wide.png" style="width:900px;"/>
-
-<small>
-  <a href="https://www.nature.com/articles/sdata201644">Gorgolewski, K. J. et al. (incl. <b>Halchenko, Y. O.</b>) (2016).
-  The brain imaging data structure... Scientific Data, 3:160044</a>
-</small>
-
-- a standard for organizing and describing neuroscience data
-- a set of tools and services that use it (validators, BIDS-Apps, PyBIDS, ...)
-- a community that develops, maintains, and extends it &mdash; **200,000+ individuals'** data stored in BIDS today
-
-----
-
-### Modular, like separating pasta ingredients from the dish
-
-- **sourcedata/** &mdash; raw ingredients, kept as-is
-- **derivatives/** &mdash; each processing pipeline's output, separate and swappable
-- "you've seen one BIDS dataset, you've seen them all" &mdash; `sub-<label>/[ses-<label>/]<datatype>/`
-
-<small>analogy via Rémi Gau, <a href="https://doi.org/10.5281/zenodo.5863713">10.5281/zenodo.5863713</a></small>
-
-----
-
-### iEEG is a first-class BIDS citizen
-
-- **BEP010** &mdash; intracranial EEG extension
-  (<a href="https://doi.org/10.1038/s41597-019-0105-7">Holdgraf et al., Scientific Data, 2019</a>)
-- `channels.tsv` &mdash; per-channel metadata (type, sampling frequency, status)
-- `electrodes.tsv` &mdash; electrode coordinates; clarified **REQUIRED** for iEEG in
-  <a href="https://github.com/bids-standard/bids-specification/pull/1896">bids-specification PR#1896</a> (v1.10.1)
-- **HED** (Hierarchical Event Descriptor) tags for event annotation &mdash; NEMAR has built-in HED support (see Archives, previous section)
-
-----
-
-### Inheritance: don't repeat 320 JSON files
-
-40 subjects &times; 2 sessions &times; 4 runs = 320 files to edit? No &mdash;
-one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridden.
-
+<small>adapted from Rokem/Gau/Halchenko, <a href="202404xx-NSF-POSE-BIDS.pdf@">2024: BIDS presented at NSF POSE workshop</a></small>
 	</textarea>
+  </section>
+  
+  <section
+	data-background-iframe="pics/bids-10th-birthday-card.html"
+	data-background-interactive>
+  </section>
+
+  <section >
+	<h3>BIDS Features</h3>
+
+	<table style="border:none; width:120%;">
+	  <tr style="vertical-align:middle;">
+		<td style="width:30%; text-align:center;vertical-align:middle">
+		  <img style="max-width:100%;" data-src="pics/borrowed/dicom2bids-justbids.png" alt="DICOMs reorganized into a BIDS dataset"/>
+		</td>
+		<td style="width:70%; text-align:left;">
+		  <ul style="font-size:0.7em;">
+			<li><strong>Modular composition</strong>
+			  <ul><li>related: YODA &rarr;
+			  now <a href="https://stamped-principles.org/">STAMPED</a>
+			  principles (more later)</li></ul>
+			</li>
+			<li><strong><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#filesystem-structure">Consistent folder composition</a></strong>
+			  <ul><li><code><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#study-dataset">[study/]</a>&lt;dataset&gt;/sub-&lt;label&gt;/[ses-&lt;label&gt;/]&lt;datatype&gt;/</code></li>
+				<li><b>You have seen one BIDS dataset -- you have seen them all!</b></li>
+
+			  </ul>
+			</li>
+			<li><strong>Expressive file naming schema</strong>
+			  <ul>
+				<li>related:
+				  <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf"><em>Naming Things</em></a> by Jenny Bryan;
+				  <a href="https://djnavarro.net/slides-project-structure/#1"><em>Project structure</em></a> by Danielle Navarro;
+				  DataLad RDM Course &mdash;
+				  <a href="https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html#how-to-name-a-file">How to name a file</a></li>
+			  </ul>
+			</li>
+			<li><strong>Standard file formats</strong>
+			  <ul><li>NIfTI / TSV / JSON / EDF / BrainVision / &hellip; per modality (see <a href="https://bids-specification.readthedocs.io/en/stable/">spec</a>)</li></ul>
+			</li>
+			<li><strong>Documented metadata</strong>
+			  <ul><li><a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#key-value-files-dictionaries">JSON sidecars</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#tabular-files">TSV "summaries"</a> + <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#the-inheritance-principle">inheritance principle</a></li></ul>
+			</li>
+			<li><strong>Human- and machine-readable data</strong>
+			  <ul>
+				<li>Human-readable <a href="https://bids-specification.readthedocs.io/">specification</a> (Markdown &rarr; HTML / PDF)</li>
+				<li>Machine-readable <a href="https://github.com/bids-standard/bids-specification/tree/master/src/schema">schema</a> (YAML) &mdash; validator, docs, and tooling generated from it</li>
+				<li><a href="https://bids-apps.neuroimaging.io/apps/">BIDS-apps</a> (such as mriqc, fmriprep, etc) for turnkey pipelines</li>
+				<li><a href="https://github.com/bids-standard/pybids">PyBIDS</a>, <a href="https://github.com/childmindresearch/bids2table/">bids2table</a>, <a href="https://github.com/khanlab/snakebids">snakebids</a> etc. for scripting</li>
+
+			  </ul>
+			</li>
+			<li><strong>Constant evolution</strong>
+			  <ul><li>via <a href="https://bids.neuroimaging.io/extensions/">BIDS Extension Proposals (BEPs)</a> and open
+				<a href="https://github.com/bids-standard/bids-specification/pulls">PR review</a></li></ul>
+			</li>
+		  </ul>
+		</td>
+	  </tr>
+	</table>
+
+	<p style="text-align:right;margin-top:0.3em;"><small>
+	  See deeper overview at <a href="https://docs.google.com/presentation/d/1x-LdlVGItyX6oINm8URIP5cZWBvQG6bM/edit?usp=sharing&ouid=106463979469591360865&rtpof=true&sd=true">"The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience"</a>,<br/> NSF POSE Workshop 2024
+	</small></p>
+  </section>
+
+  <section>
+	<h3>iEEG is a first-class BIDS citizen</h3>
+
+	<a href="https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html">
+	  <div class="r-stack">
+	  <img src="pics/borrowed/bids-ieeg-20261008.png" />
+	  <img class="fragment" src="pics/borrowed/bids-ieeg-formats-20261008.png" />
+	  </div>
+	</a>
+	  <small>See also <a href="https://doi.org/10.1038/s41597-019-0105-7">Holdgraf et al., Scientific Data, 2019</a></small>
+
+  </section>
+
+  <section data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/heudiconv.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section data-transition="slide">
+	<h2>DICOMs to BIDS: ReproIn + HeuDiConv</h2>
+	<div class="r-stack">
+	  <img src="pics/dbic-conversions-p1.png"/>
+	  <img class="fragment" src="pics/dbic-conversions-p2.png"/>
+	</div>
+	<small>
+	  Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+	</small>
   </section>
 
   <!-- repeat the same slide to reposition for the next block -->
-  <section data-transition="slide">
-	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
+  <section data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/heudiconv.svg" style="width:1300px;height:731px;"></object>
   </section>
 </section>
 <!-- ---- end Standards/BIDS detour ---- -->
@@ -986,6 +1035,26 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 		 here if this deserves more than the diagram label. -->
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb2bids.svg" style="width:1300px;height:731px;"></object>
   </section>
+
+  <section data-transition="slide-in">
+	<h3>nwb2bids: NWB dandisets represented in BIDS</h3>
+	<a href="https://github.com/bids-dandisets/dashboard?tab=readme-ov-file#dandisets">
+	  <img data-src="pics/borrowed/bids-dandisets-dashboard-20261008.png"/>
+	</a>
+  </section>
+
+  <section>
+	<h3>nwb2bids: BIDS version of 000003</h3>
+	<h4>You seen one of them -- you saw them all</h4>
+	<a href="https://github.com/bids-dandisets/000003/tree/draft/sub-YutaMouse57/ses-YutaMouse57-161016/ecephys">
+	  <img data-src="pics/borrowed/bids-dandisets-000003-20261008.png"/>
+	</a>
+  </section>
+
+  <section data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/nwb2bids.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
 
   <section>
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/dandi-compute.svg" style="width:1300px;height:731px;"></object>
@@ -1024,10 +1093,31 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
   </section>
 
   <section>
-	<!-- TODO: no slide yet for the AV/stimuli-capture node (Magewell,
-		 CurDes Birch, MKV format, ReproStim, BEP044/BEP047). -->
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/dandi-compute.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
+  <section>
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/av.svg" style="width:1300px;height:731px;"></object>
   </section>
+
+  <section>
+	<h3><a href="https://github.com/ReproNim/reprostim/">ReproFlow: Automatic collection of Audio-Video Stimuli and responses</a></h3>
+	<object type="image/svg+xml" data="pics/borrowed/reproflow.svg" style="width:1300px;height:731px;"></object>
+   </section>
+
+  <section>
+	<h3><a href="https://github.com/dbic/QA/tree/with-reprostim-videos/sub-qa/ses-20240730/func/">... and then all into BIDS too!</a></h3>
+	<img data-src="pics/borrowed/dbic-QA-audiovideo-20261008.png"/>
+	<small>
+	  Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+	</small>
+
+  </section>
+
+  <section data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/av.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
 
   <section>
 	<!-- TODO: Pozu ("turnkey platform for pose estimation and behavioral
@@ -1065,43 +1155,44 @@ one `task-xyz_ieeg.json` at the dataset root covers all of them unless overridde
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/compute.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-transition="slide">
-	<h2>Compute: pointers only</h2>
-	<ul>
-	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
-	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
-		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
-	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
-	</ul>
-  </section>
-</section>
-<!-- ---- end Compute detour ---- -->
-
-
-<!-- ---- RDM detour, triggered by the data-management reveal ---- -->
-<!-- light, single-slide detour -- no bookend repeat. -->
-<section>
   <section>
 	<!-- title baked into the SVG itself: "Data management across the
 		 academic ecosystem" -->
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/data-management.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-markdown data-transition="slide">
-	<textarea data-template>
+  	<section  data-transition="slide">
+	<a href="https://datalad.org">
+	  <img style="height:400px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:200px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	</p>
 
-### `datalad run` &mdash; version control for outcomes, not just code
+	<br><br><small>Born in 2013</small>
 
-```
-datalad run -m "run preprocessing" \
-  "python preprocess.py {inputs} {outputs}"
-```
+	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
+		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
+management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
+doi: 10.21105/joss.03262
+	</a></small>
+  </section>
 
-- captures exact command, inputs, outputs, environment as a git commit
-- `datalad rerun` replays it later, on different data, to check it still works
-- works over arbitrarily large (binary) data via `git-annex`
+  <section data-transition="slide">
+	<h2>DataLad in one figure</h2>
+	<img data-src="pics/datalad_process_tuned/00base_preview.png">
+  </section>
 
-	</textarea>
+  <section>
+	<h2>Meet one of the "largest" Git "repositories"</h2>
+	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+	<p>over 6,000+ Git repositories as "subdatasets", <br>
+	  with access to 600TB+ of neural data</p>
   </section>
 </section>
 <!-- ---- end RDM detour ---- -->
