@@ -1000,26 +1000,27 @@ since 2017.
 
   </section>
 
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/bids.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  
-  <section data-transition="slide">
+  <section>
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/heudiconv.svg" style="width:1300px;height:731px;"></object>
   </section>
 
   <section data-transition="slide">
-	<h2>@DBIC: ReproIn + HeuDiConv</h2>
+	<h2>DICOMs to BIDS: ReproIn + HeuDiConv</h2>
 	<div class="r-stack">
 	  <img src="pics/dbic-conversions-p1.png"/>
 	  <img class="fragment" src="pics/dbic-conversions-p2.png"/>
-
 	</div>
+	<small>
+	  Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+	</small>
   </section>
 
   <!-- repeat the same slide to reposition for the next block -->
-  <section data-transition="slide">
+  <section data-transition="slide-in">
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/heudiconv.svg" style="width:1300px;height:731px;"></object>
   </section>
 </section>
@@ -1097,10 +1098,27 @@ since 2017.
   </section>
 
   <section>
-	<!-- TODO: no slide yet for the AV/stimuli-capture node (Magewell,
-		 CurDes Birch, MKV format, ReproStim, BEP044/BEP047). -->
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/av.svg" style="width:1300px;height:731px;"></object>
   </section>
+
+  <section>
+	<h3><a href="https://github.com/ReproNim/reprostim/">ReproFlow: Automatic collection of Audio-Video Stimuli and responses</a></h3>
+	<object type="image/svg+xml" data="pics/borrowed/reproflow.svg" style="width:1300px;height:731px;"></object>
+   </section>
+
+  <section>
+	<h3><a href="https://github.com/dbic/QA/tree/with-reprostim-videos/sub-qa/ses-20240730/func/">... and then all into BIDS too!</a></h3>
+	<img data-src="pics/borrowed/dbic-QA-audiovideo-20261008.png"/>
+	<small>
+	  Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+	</small>
+
+  </section>
+
+  <section data-transition="slide-in">
+	<object type="image/svg+xml" data="pics/academic-participants_tuned/av.svg" style="width:1300px;height:731px;"></object>
+  </section>
+
 
   <section>
 	<!-- TODO: Pozu ("turnkey platform for pose estimation and behavioral
@@ -1138,43 +1156,44 @@ since 2017.
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/compute.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-transition="slide">
-	<h2>Compute: pointers only</h2>
-	<ul>
-	  <li><a href="https://github.com/ReproNim/containers">ReproNim/containers</a> &mdash; portable, versioned software environments</li>
-	  <li><a href="https://github.com/con/mechababs">mechababs</a> + <a href="https://github.com/PennLINC/babs">BABS</a> &mdash;
-		STAMPED execution of BIDS-Apps at scale, DataLad-native, per-subject isolation</li>
-	  <li><strong>TODO</strong>: "compute on Unity" &mdash; need one line from you/Austin; nothing in our existing materials mentions this</li>
-	</ul>
-  </section>
-</section>
-<!-- ---- end Compute detour ---- -->
-
-
-<!-- ---- RDM detour, triggered by the data-management reveal ---- -->
-<!-- light, single-slide detour -- no bookend repeat. -->
-<section>
   <section>
 	<!-- title baked into the SVG itself: "Data management across the
 		 academic ecosystem" -->
 	<object type="image/svg+xml" data="pics/academic-participants_tuned/data-management.svg" style="width:1300px;height:731px;"></object>
   </section>
 
-  <section data-markdown data-transition="slide">
-	<textarea data-template>
+  	<section  data-transition="slide">
+	<a href="https://datalad.org">
+	  <img style="height:400px"
+		   data-src="pics/datalad_logo_wide.gif"/></a>
+	<p style="margin-top:200px;font-size:150%">
+	  A data management suite that makes data access and management as
+	  easy as managing code and software!
+	</p>
 
-### `datalad run` &mdash; version control for outcomes, not just code
+	<br><br><small>Born in 2013</small>
 
-```
-datalad run -m "run preprocessing" \
-  "python preprocess.py {inputs} {outputs}"
-```
+	<small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">
+		<b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat,
+S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B.
+Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas,
+R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint
+management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021.
+doi: 10.21105/joss.03262
+	</a></small>
+  </section>
 
-- captures exact command, inputs, outputs, environment as a git commit
-- `datalad rerun` replays it later, on different data, to check it still works
-- works over arbitrarily large (binary) data via `git-annex`
+  <section data-transition="slide">
+	<h2>DataLad in one figure</h2>
+	<img data-src="pics/datalad_process_tuned/00base_preview.png">
+  </section>
 
-	</textarea>
+  <section>
+	<h2>Meet one of the "largest" Git "repositories"</h2>
+	<img style=""  data-src="pics/datasets.datalad.org-20220313.png">
+
+	<p>over 6,000+ Git repositories as "subdatasets", <br>
+	  with access to 600TB+ of neural data</p>
   </section>
 </section>
 <!-- ---- end RDM detour ---- -->
