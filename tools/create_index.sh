@@ -22,9 +22,16 @@ extract_title() {
         t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
         [ -z "$t" ] && t=$(basename "$f" .html)
     else
-        # Non-HTML talk (e.g. .pdf/.pptx) — use stem as title
-        t=$(basename "$f")
-        t="${t%.*}"
+        # Non-HTML talk (e.g. .pdf/.pptx) — try companion README heading,
+        # fall back to filename stem.
+        local stem
+        stem=$(basename "$f")
+        stem="${stem%.*}"
+        t=""
+        if [ -f "${stem}/README.md" ]; then
+            t=$(sed -n 's/^# *//p' "${stem}/README.md" | head -n1)
+        fi
+        [ -z "$t" ] && t="$stem"
     fi
     # Strip leading/trailing whitespace
     echo "$t" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
@@ -52,8 +59,11 @@ fi
 list_items=""
 prev_year=""
 for f in "${TALKS[@]}"; do
+    raw_title=$(extract_title "$f")
+    # Skip work-in-progress decks
+    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
     year="${f:0:4}"
-    title=$(extract_title "$f" | html_escape)
+    title=$(echo "$raw_title" | html_escape)
     name_escaped=$(echo "$f" | html_escape)
     if [ "$year" != "$prev_year" ]; then
         if [ -n "$prev_year" ]; then
