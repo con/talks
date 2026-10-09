@@ -22,6 +22,9 @@ layer label:re=^bids$ style=display:inline
 layer label:re=^bids\~av$ style=display:inline
 %save bids
 
+layer label:re=^heudiconv$ style=display:inline
+%save heudiconv
+
 layer label:re=^nwb2bids$ style=display:inline
 %save nwb2bids
 
