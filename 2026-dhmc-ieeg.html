@@ -671,6 +671,7 @@
 		  <li>no download required</li>
 		  <li>integrates with most major archives (DANDI, EMBER, OpenNeuro)</li>
 		  <li>works on TB-sized files "just as well" as MB-sized ones</li>
+			  <li>fully persistent URLs leading to specific visualizations; easy to send to collaborators!</li>
 		</ul></li>
 	  <li>Free & Open-source (fix & extend at will)
 		<ul>
@@ -679,13 +680,10 @@
 		</ul></li>
 	  <li><strong>New</strong> event-related signals view
 		<ul><li>align any time series to any column of a trials/intervals table, pick channels, group trials by a condition</li></ul></li>
-	  <li><strong>New</strong> spectrogram view</li>
+	  <li><strong>New</strong> spectrogram view
+		<ul><li><strong><em>on-the-fly</em></strong> spectrograms (<strong>not</strong> pre-calculated)</li>
+		<li>Large range of options for configuring strategy and hyperparameters</li></ul></li>
 	</ul>
-	<p style="margin:0.6em 0 0 1em;font-size:0.9em;">
-	  One known iEEG NWB example on OpenNeuro:
-	  <!-- TODO: find some on DANDI with the neurosift registration fix -->
-	  <a href="https://openneuro.org/datasets/ds008610/versions/1.0.0/file-display/sub-01:ses-ieeg01:ieeg:sub-01_ses-ieeg01_task-FUS_acq-VPL_run-005_ieeg.nwb" target="_blank">ds008610 (LFP only)</a>
-	</p>
 	</div>
 	<div style="position:absolute;right:0;bottom:0;display:flex;align-items:center;gap:14px;font-size:0.5em;text-align:right;">
 	  <div>
@@ -777,12 +775,13 @@
   </section>
 
   <section>
-	<h3><a href="https://on-the-fly-spectrogram-previ.neurosift.pages.dev/nwb?url=https://api.dandiarchive.org/api/assets/8941eed3-5cb3-4a81-be34-a37a211a4ebd/download/&amp;dandisetId=000059&amp;dandisetVersion=0.250624.0444&amp;spec=%7B%22%2Fprocessing%2Fecephys%2FLFP%2FLFP%22%3A%7B%22config%22%3A%7B%22taper%22%3A%22hann%22%2C%22nw%22%3A3%2C%22k%22%3A5%2C%22waveletCycles%22%3A7%2C%22waveletFreqDependent%22%3Afalse%2C%22windowSizeSamples%22%3A512%2C%22overlap%22%3A0.5%2C%22detrend%22%3A%22linear%22%2C%22highPassHz%22%3Anull%2C%22lowPassHz%22%3Anull%2C%22filterOrder%22%3A4%2C%22zeroPhase%22%3Atrue%2C%22notchEnabled%22%3Atrue%2C%22notchBaseHz%22%3A60%2C%22notchHarmonics%22%3A1%2C%22fTestRemove%22%3Afalse%2C%22decimationFactor%22%3A1%2C%22artifactThresholdSd%22%3Anull%2C%22normalization%22%3A%22none%22%2C%22baselineWindowSec%22%3Anull%2C%22colorLimitMode%22%3A%22auto%22%2C%22colorLimitLock%22%3Afalse%2C%22colorMinDb%22%3Anull%2C%22colorMaxDb%22%3Anull%2C%22autoPercentile%22%3A2%2C%22fMinHz%22%3A0%2C%22fMaxHz%22%3A625%2C%22logFreq%22%3Afalse%2C%22colormap%22%3A%22viridis%22%2C%22channelMode%22%3A%22mean%22%7D%2C%22channels%22%3A%5B6%2C7%2C8%5D%2C%22visRange%22%3A%5B0.35447761194029853%2C30.354477611940297%5D%7D%7D&amp;tab=view:LfpSpectrogram|/processing/ecephys/LFP/LFP" target="_blank">Example 5: spectrogram, no normalization</a></h3>
+	<h3><a href="https://on-the-fly-spectrogram-previ.neurosift.pages.dev/nwb?url=https://api.dandiarchive.org/api/assets/8941eed3-5cb3-4a81-be34-a37a211a4ebd/download/&amp;dandisetId=000059&amp;dandisetVersion=0.250624.0444&amp;spec=%7B%22%2Fprocessing%2Fecephys%2FLFP%2FLFP%22%3A%7B%22config%22%3A%7B%22taper%22%3A%22hann%22%2C%22nw%22%3A3%2C%22k%22%3A5%2C%22waveletCycles%22%3A7%2C%22waveletFreqDependent%22%3Afalse%2C%22windowSizeSamples%22%3A512%2C%22overlap%22%3A0.5%2C%22detrend%22%3A%22linear%22%2C%22highPassHz%22%3Anull%2C%22lowPassHz%22%3Anull%2C%22filterOrder%22%3A4%2C%22zeroPhase%22%3Atrue%2C%22notchEnabled%22%3Atrue%2C%22notchBaseHz%22%3A60%2C%22notchHarmonics%22%3A1%2C%22fTestRemove%22%3Afalse%2C%22decimationFactor%22%3A1%2C%22artifactThresholdSd%22%3Anull%2C%22normalization%22%3A%22none%22%2C%22baselineWindowSec%22%3Anull%2C%22colorLimitMode%22%3A%22auto%22%2C%22colorLimitLock%22%3Afalse%2C%22colorMinDb%22%3Anull%2C%22colorMaxDb%22%3Anull%2C%22autoPercentile%22%3A2%2C%22fMinHz%22%3A0%2C%22fMaxHz%22%3A625%2C%22logFreq%22%3Afalse%2C%22colormap%22%3A%22viridis%22%2C%22channelMode%22%3A%22mean%22%7D%2C%22channels%22%3A%5B6%2C7%2C8%5D%2C%22visRange%22%3A%5B0.35447761194029853%2C30.354477611940297%5D%7D%7D&amp;tab=view:LfpSpectrogram|/processing/ecephys/LFP/LFP" target="_blank">Example 5: spectrogram, temperature-controlling probe</a></h3>
 	<img data-src="pics/neurosift-spectrogram-lfp-20261008.webp" style="width:1300px;"/>
 	<p style="font-size:0.6em;">
 	  <code>/processing/ecephys/LFP/LFP</code>, channels 6&ndash;8 averaged, 0&ndash;625&nbsp;Hz, first 30&nbsp;s of a 1250&nbsp;Hz recording
-	  &mdash; <a href="https://dandiarchive.org/dandiset/000059" target="_blank">DANDI:000059</a>
-	  <!-- TODO (Cody): lab / species / task for DANDI:000059 -->
+	  &mdash; <a href="https://dandiarchive.org/dandiset/000059" target="_blank">DANDI:000059</a><br/>
+	  Buzs&aacute;ki Lab, NYU
+	  &middot; rat &middot; memory + spatial navigation task
 	</p>
 	<aside class="notes">
 	  Same view with different settings: Hann window (512 samples, 50%
