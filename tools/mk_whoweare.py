@@ -26,6 +26,27 @@ regenerate from.
 Portraits are rendered through `object-fit: cover`, so non-square
 originals are centre-cropped rather than squashed, and are downscaled on
 the way in (--max-size, 0 to keep the originals).
+
+TODO: emit the logo tiers too, so the whole Acknowledgements slide is
+generated rather than hand-maintained.  Right now --inject overwrites
+everything between the markers, so any logo row added to a deck by hand
+is lost on the next run.  Two separate pieces of work:
+
+  * Collaborating projects / Partners.  Both already live on the same
+    whoweare page, as <a href=...><img title=...></a> inside
+    div#collaborating-projects and the Partners row -- links and titles
+    come for free.  They are dropped today because tiers without
+    portraits are filtered out in main().  Needs: a second "logo tier"
+    renderer (no round crop, no name caption, height-based sizing), a
+    way to pick a handful rather than all ~40 projects (--projects
+    repronim,openneuro,dandi,datalad?), and the images pulled from
+    theme/static/img/3rd/ instead of .../team/.
+
+  * Funders.  NOT on the whoweare page at all -- there is no funders
+    section to scrape.  Needs its own source: either a small table in
+    this script (logo, href, title, award number) or a funders page on
+    the website to parse once one exists.  Award numbers matter here;
+    the logos alone are less useful than a link to the award.
 """
 
 import argparse
