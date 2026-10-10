@@ -8,48 +8,82 @@ the truth.
 
 Commits so far:
 
-| repo | commit | what |
-| --- | --- | --- |
-| `talks` | `fe21f2c` | usrse deck adopts the dhmc acknowledgements slide verbatim |
-| `talks` | `6a5be4f` | one "Funders and in-kind" row, historical order |
-| `talks` | *(latest)* | official PBS and DBIC marks replace the text placeholders |
-| `con.org` | `dd2cad5` | association schema, harvester, validator (**WiP, has known defects**) |
+| repo      | commit    | what                                                                  |
+| --------- | --------- | --------------------------------------------------------------------- |
+| `talks`   | `fe21f2c` | usrse deck adopts the dhmc acknowledgements slide verbatim            |
+| `talks`   | `6a5be4f` | one "Funders and in-kind" row, historical order                       |
+| `talks`   | `79df3c7` | official PBS and DBIC marks replace the text placeholders             |
+| `talks`   | `17f3903` | YOH back among the Centroids; plan state recorded                     |
+| `talks`   | `9a5d9fe` | generated project bands replace the hand-placed logo strip            |
+| `talks`   | `d22d638` | INCF moves to in-kind; BIDS gets its real mark                        |
+| `con.org` | `dd2cad5` | first association schema, harvester, validator (superseded)           |
+| `con.org` | `6c18ecf` | defect fixes against the first review                                 |
+| `con.org` | `0cf3004` | people and project records extracted, both round-trip clean           |
+| `con.org` | `c5840ca` | curated slide selection; decision to adopt the datalad-concepts shape |
+| `con.org` | `3d7d5d3` | INCF to in-kind, BIDS logo override                                   |
+| `con.org` | *(head)*  | records in the real schema; evidence as JSON-Pointer overlays         |
 
 Phase status:
 
-| # | phase | state |
-| --- | --- | --- |
-| 0 | branch check, mounts, this plan | done |
-| 1 | association schema | v2 written; **tooling has not caught up** |
-| 2 | evidence harvest | partial; PsychoPy audited, correction drafted not applied |
-| 3 | project logos and group photos | **not started** — gated on phases 1-2 |
-| 4 | `mk_whoweare.py` rewrite (YAML-driven, `--select`) | not started |
-| 5 | backbone slides from selections | not started |
-| 6 | playwright verification | harness exists and is in use throughout |
+| # | phase                                              | state                                          |
+| - | -------------------------------------------------- | ---------------------------------------------- |
+| 0 | branch check, mounts, this plan                    | done                                           |
+| 1 | association schema                                 | **done** — see §3, it is not ours              |
+| 2 | evidence harvest                                   | PsychoPy and CON converted and validated       |
+| 3 | project logos and group photos                     | logos done for the 10-project selection        |
+| 4 | `mk_whoweare.py` rewrite (YAML-driven, `--select`) | superseded by `scripts/render_ack_projects.py` |
+| 5 | backbone slides from selections                    | acknowledgements band done; rest not started   |
+| 6 | playwright verification                            | harness in use throughout                      |
 
-### Known defects to clear before phase 3
+### The finding that reshaped phases 1-2
 
-Found by two independent reviews and reproduced before being written down:
+`ORINOCO-Lite/con-site-specific` is not a future destination — it is a live
+corpus of **24 `XYZProject`, 35 `XYZPerson`, 8 `XYZOrganization` and 9
+`XYZAgentRole` records for CON**, already carrying `associated_with` with
+`object` and `roles`, plus `metadata/overlays/` and `curation-records/`.
 
-1. `psychopy.yaml` as committed is **wrong**: contributor phase ends 2011-07-23
-   when the git log says 2018-04-06 (42 commits in the gap, including the 2013
-   CI build-out); the packager phase attributes Hanke's 2008 `UNRELEASED` entry
-   to us and pairs `status: transitioned` with `end: null`; the `user` phase has
-   no evidence at all. Corrected draft exists, not yet applied.
-2. The dates were back-inferred from whichever quote was to hand rather than
-   re-derived — and **contradict this repo's own
-   `reports/associations-evidence.json`**, which already held the right numbers.
-   Phase skeletons should be generated from the harvester, not typed.
-3. `validate_associations.py` crashes on an empty file or a mis-indented
-   `provenance:`, naming itself rather than the offending YAML.
-4. Its lower-bound rule has a false positive (rejects the legitimate "listed at
-   least since the 2021 reorg" case, which is 10 of 19 anchors) and a false
-   negative (defeated by any unrelated second provenance entry).
-5. `harvest_associations.py` needs `--follow` (nothing can date before the
-   2015-07-21 rename `features.html` → `projects.html`) and silently skips the
-   11 `<h2>` without an `id` — **distribits among them**.
-6. `ai_contribution_stance` belongs in `content/stances/`, not in an
-   association record.
+Everything the first association schema invented already existed there in
+better form, and the one thing missing from it is exactly what we set out to
+add: **temporal extent, and provenance of the date.** So the model was
+replaced rather than patched — see `con.org:content/associations/SCHEMA.md`,
+which is now the reference. §3 below is kept only as the record of what was
+tried.
+
+### Defects cleared
+
+1. `psychopy.yaml` corrected (contributor phase to 2018-04-06, Hanke's 2008
+   `UNRELEASED` entry attributed to him, the evidence-free `user` claim moved
+   to a `pending:` block that is explicitly not asserted).
+2. The validator no longer crashes on an empty file, a non-mapping top level,
+   or malformed YAML; fault injection confirms nine distinct failures are
+   caught and a clean tree exits 0.
+3. The bound rule was not just buggy, it was **backwards**: an artifact shows
+   the oldest or newest surviving trace, never the event, so a `started` from
+   a first commit is an `upper` bound and an `ended` from a last commit a
+   `lower` one. Six bounds in the PsychoPy evidence were wrong. The validator
+   now enforces direction per slot.
+4. `supports: [start]` replaced by a JSON Pointer naming the exact slot, so
+   coverage is checked rather than a label trusted.
+
+### Still open
+
+1. **HED has no record anywhere on the site** (`grep` over `content/pages`
+   for hedtags / "hierarchical event descriptor" / `>HED<` returns zero). It
+   was explicitly asked for on the slide. Fix is to add it to `projects.html`
+   under Standards beside BIDS and NWB; commented out in the selection until
+   then so the omission is visible.
+2. The `xyzrins:` namespace is literally the *demo* namespace, yet all 67
+   con-site-specific records use it. Kept for byte-compatibility; needs a
+   decision.
+3. Whether same-pid records merge across stores — decides whether the
+   additive `records/XYZOrganization/con.yaml` (pid plus one attribute) is
+   legitimate.
+4. Whether a handover belongs in `End`'s Trigger slot. The one mapping made
+   by interpretation rather than by matching an existing use.
+5. Associations still to write: JB ↔ INCF, Dave Kennedy ↔ NITRC, and the
+   remaining projects in the slide selection.
+6. `published_anchor` from Pelican's `output/*.html` on every person/project
+   record; `anchor_id` demoted.
 
 ### Evidence already in hand
 
@@ -173,6 +207,15 @@ copyright extracts), but writes need `con.org` mounted locally.
 
 ## 3. Data model
 
+> **Superseded.** The model below was written before
+> `con-site-specific`'s records were found. It is kept as the record of what
+> was tried and why it was dropped; the live reference is
+> `con.org:content/associations/SCHEMA.md`. In short: `phases` was a list of
+> associations, `actor` was a reinvention of `Association.object`, `role` was
+> already multivalued and IRI-typed, `transitioned_to` is `End`'s Trigger,
+> and `supports:` is a JSON Pointer.
+
+
 ### 3.1 Associations are phases, not a start/end pair
 
 The recurring story is **transition**, not a clean stop. PsychoPy is the
@@ -268,8 +311,13 @@ single source.
 
 Wanted additions, beyond what `projects.html` already lists: Debian, Debian
 Med / Debian Science blends, distribits, PyMVPA, EMBER, Kitware, ChRIS
-(<https://chrisproject.org/>), BIDS, INCF, NITRC, scikit-learn, Jupyter
-(IPython), **PsychoPy**. Aim at *large* community projects. Cross-check against
+(<https://chrisproject.org/>), BIDS, **NWB**, **HED**, INCF, NITRC,
+scikit-learn, Jupyter (IPython), **PsychoPy**.
+
+NWB and HED are not optional: NWB is the format the whole DANDI/EMBER side
+rests on, and HED is the annotation layer NEMAR already searches by. Both are
+standards bodies we sit inside rather than tools we merely use, which is the
+distinction the `roles` field exists to carry (`steering` vs `user`). Aim at *large* community projects. Cross-check against
 <https://centerforopenneuroscience.org/projects> and
 <https://centerforopenneuroscience.org/whoweare#partners_>.
 
