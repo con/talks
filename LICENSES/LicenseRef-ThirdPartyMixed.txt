@@ -15,6 +15,14 @@ For these files:
     publishers or rights holders -- NOT by the maintainers of this
     repository.
 
+    One exception, marked as such where it applies: a few files are our
+    own compositions built on top of borrowed pieces (a diagram whose
+    layers include third-party clipart, a figure embedding a borrowed
+    photograph).  There the annotation names us as holder of the
+    composition AND records undetermined third-party rights in the
+    embedded elements.  The whole still cannot be offered under this
+    repository's terms alone, which is why it carries this marker.
+
   * They are NOT licensed under this repository's CC-BY-SA-4.0 terms.
     The repository-wide license applies to the slides, diagrams, text
     and other material authored here, and cannot and does not extend

@@ -51,6 +51,17 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Hakim El Hattab <hakim.elhattab@gmail.com> and reveal.js contributors"
 SPDX-License-Identifier = "MIT"
 
+# Our own code.  CC-BY-SA is a content license and Creative Commons advises
+# against using it for software, so the helper scripts and the CI workflows
+# carry Apache-2.0 instead of the repository-wide slide license.  In-file SPDX
+# headers still win over this (see precedence on the catch-all), which is how
+# 2026-nih-bids2.0/ keeps its MIT headers.
+[[annotations]]
+path = ["tools/**", ".github/**"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "Apache-2.0"
+
 # Git submodules.  The REUSE spec treats each submodule as a separate Project
 # and reuse-tool skips them, so these lines are never exercised by `reuse
 # lint` -- but REUSE.toml is also read by humans, and without this block the
@@ -58,7 +69,12 @@ SPDX-License-Identifier = "MIT"
 # 2022-nih-compcore is our own talk subdataset and carries this repository's
 # terms.
 [[annotations]]
-path = ["reveal.js", "reveal.js-mermaid-plugin"]
+path = [
+    "reveal.js",
+    "reveal.js/**",
+    "reveal.js-mermaid-plugin",
+    "reveal.js-mermaid-plugin/**",
+]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Hakim El Hattab and reveal.js contributors; zjffun and reveal.js-mermaid-plugin contributors"
 SPDX-License-Identifier = "MIT"
@@ -181,8 +197,10 @@ path = [
     "pics/borrowed/repronim_logo.svg",
     "pics/borrowed/vbc_logo.png",
     # ... and the third-party project marks that ended up in pics/ root.
-    # DataLad / DANDI / NeuroDebian / CON marks are deliberately NOT here:
-    # those are our own projects and stay under the catch-all.
+    # The DataLad, NeuroDebian and DANDI marks are handled further down
+    # instead -- the first two are attributed to the people who actually drew
+    # them, the DANDI one joins this marker. Only the CON marks stay under the
+    # catch-all, being our own.
     "pics/BIDS_Logo.png",
     "pics/bids-logo-wide.png",
     "pics/mastodon-icon.svg",
@@ -203,8 +221,11 @@ SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
 # Adapted from "Carrots! Not sticks!" by Michael Hanke,
 # <https://hedgedoc.psychoinformatics.de/edfuJiNaSNufM4trL8_HhA#/>.
 # No license is stated on that page; the author confirmed CC-BY for all of it
-# (Matrix, 2026-10).  CC-BY-4.0 permits adaptations under other terms, but the
-# adaptations here deliberately stay on the upstream license.
+# (Matrix, 2026-10).  "CC-BY" without a version is read here as the current
+# version at the time of use, i.e. 4.0 -- the same reading applied to the SfN
+# poster below, where Zenodo independently records cc-by-4.0.  CC-BY-4.0
+# permits adaptations under other terms, but the adaptations here deliberately
+# stay on the upstream license.
 [[annotations]]
 path = [
     "pics/humancarrot_*.svg",
@@ -250,6 +271,8 @@ path = [
     "pics/datalad_process.svg",
     "pics/datalad_process.svgtune",
     "pics/datalad_process_tuned/**",
+    # sits beside the directory rather than in it, so the glob above misses it
+    "pics/datalad_process_tuned_00.png",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = [
@@ -300,8 +323,19 @@ path = [
     "pics/datalad-handbook-repropaper.png",
     "pics/datalad-handbook-usecases.svg",
     "pics/datalad-handbook-yoda.png",
-    # verified byte-identical (md5) to datalad-handbook/artwork or
-    # datalad-handbook/datalad-course, both CC-BY-SA-4.0:
+    # Verified byte-identical (md5) to an upstream file, both repos being
+    # CC-BY-SA-4.0.  Note what this does and does not establish: it shows where
+    # our copy came from, not who originally drew it.  For the three circulating
+    # open-science animations in particular, the handbook may itself have
+    # borrowed them.  Recorded here so the next reader can re-check:
+    #   containers-run.svg          <- artwork/src/containers-run.svg
+    #   datalad-animated.gif        <- datalad-course/pics/datalad-animated.gif
+    #   decentral_RDM_overview.png  <- datalad-course/pics/
+    #   virtual_dirtree.png         <- artwork/src/img/virtual_dirtree.svg
+    #   openneuro2.gif              <- datalad-course/pics/openneuro2.gif
+    #   openscience.gif             <- datalad-course/pics/openscience.gif
+    #   shareresearch2.gif          <- datalad-course/pics/shareresearch2.gif
+    #   borrowed/versioncontrol.svg <- artwork/src/versioncontrol.svg
     "pics/containers-run.svg",
     "pics/datalad-animated.gif",
     "pics/decentral_RDM_overview.png",
@@ -311,7 +345,7 @@ path = [
     "pics/virtual_dirtree.png",
     "pics/borrowed/versioncontrol.svg",
 ]
-precedence = "override"
+precedence = "aggregate"
 SPDX-FileCopyrightText = "The DataLad handbook contributors <https://github.com/datalad-handbook/book>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
@@ -353,6 +387,7 @@ SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
 # are not, and the whole therefore cannot be offered under our terms alone.
 [[annotations]]
 path = [
+    "pics/con-ack-bmbf.png",
     "pics/con-ack-bmbf.svg",
     "pics/con-ack-joeybenetc-extended.svg",
     "pics/digits-budda.svg",
@@ -363,8 +398,8 @@ path = [
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = [
-    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
-    "NOASSERTION",
+    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu> (composition)",
+    "Undetermined third-party rights holders (embedded elements)",
 ]
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
@@ -398,7 +433,11 @@ path = [
     "pics/borrowed/2025-sfn-poster-data-standards--archives.png",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2025 Oliver Ruebel, Cody C. Baker, ..., Yaroslav O. Halchenko and co-authors <https://doi.org/10.5281/zenodo.18333008>"
+SPDX-FileCopyrightText = [
+    "2025 Oliver Ruebel",
+    "2025 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+    "2025 The Neuro* standards Community <https://doi.org/10.5281/zenodo.18333008>",
+]
 SPDX-License-Identifier = "CC-BY-4.0"
 
 # Screenshots of our own sites and infrastructure that happen to sit in
