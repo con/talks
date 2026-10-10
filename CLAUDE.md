@@ -190,10 +190,10 @@ The PNG itself is binary; commit it via DataLad
 
 ### Licensing a new asset
 
-The repo is REUSE-compliant (`REUSE.toml` + `LICENSES/`). Anything dropped
-into `pics/borrowed/` or `3rd-party/` is already covered by the catch-all
-third-party markers, so no action is needed for the common case. Act only
-when:
+The repo is striving to be REUSE-compliant (`REUSE.toml` + `LICENSES/`).
+Anything dropped into `pics/borrowed/` or `3rd-party/` is already covered
+by the catch-all third-party markers, so no action is needed for the common
+case. Act only when:
 
 - **you know the provenance** — add a narrowing block (later blocks win)
   recording the real holder and license, as is already done for the YODA
