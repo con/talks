@@ -325,8 +325,12 @@ inventing new ones.
 
 ## 4. Resources (where things live)
 
-- **Logos & images**: `pics/` (232 files; see `ls pics/` and grep). All the
-  CON-flavored marks plus borrowed third-party assets in `pics/borrowed/`.
+- **Logos & images**: `pics/` (443 tracked files; see `ls pics/` and grep).
+  All the CON-flavored marks plus borrowed third-party assets in
+  `pics/borrowed/` — though that convention was applied inconsistently over
+  the years, so plenty of borrowed material sits in `pics/` root too. The
+  lists below are a *findability* index, not a provenance record: for who
+  owns what, read `REUSE.toml`.
 - **YODA artwork**: `pics/yoda*.png/svg`,
   `pics/yoda-principles-reordered.png`, `pics/principle-vcs.png`,
   `pics/principle-computeenv.png`, `pics/principle-structure.png`,
@@ -454,14 +458,16 @@ thumbnail, with the YouTube URL in a `<small>` underneath.
 ## 6. License and sharing
 
 - Repository is **CC-BY-SA** (`LICENSE`). Reuse and remix freely; share
-  alike. But that covers *what we authored* — the borrowed screenshots,
-  figures, cartoons and logos in slides are not ours to relicense.
-- Per-file copyright/licensing is machine-readable via **`REUSE.toml`**
-  (+ `LICENSES/`), including two `LicenseRef-*` markers for third-party
-  material of undetermined provenance and for third-party logos. When
-  adding a borrowed asset, add or extend an annotation block for it; when
-  you learn the real provenance of an existing one, narrow it. See the
-  *Licensing* section of `README.md`.
+  alike — but that covers *what we authored*. Slides quote the world, and
+  the borrowed screenshots, figures, cartoons and logos are not ours to
+  relicense. Saying so plainly is the same instinct as §2's loud
+  acknowledgements and §5's citation blocks: credit is part of the work,
+  not paperwork bolted onto it.
+- **`REUSE.toml`** (+ `LICENSES/`) is the authoritative per-file record of
+  copyright and provenance — including for material whose origin could not
+  be reconstructed, which is marked unknown rather than quietly absorbed
+  under our license. Mechanics live in *Licensing* in `README.md`; what to
+  do when you add an asset lives in `CLAUDE.md`.
 - Live mirror:
   <https://datasets.datalad.org/centerforopenneuroscience/talks/>.
 - Sources: this repository (`git clone https://datasets.datalad.org/

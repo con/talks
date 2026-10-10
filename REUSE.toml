@@ -50,9 +50,70 @@ precedence = "override"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
-# Screenshots of figures and tables from a third-party publication.
+# Third-party material that lives in pics/ root rather than pics/borrowed/.
+# The "borrowed" convention was applied inconsistently over the years, and not
+# every one of these has "webshot" in its name, so they have to be listed
+# explicitly. Moving them would break the decks that reference them by path,
+# hence annotating in place.
+#
+# (a) Figures, tables and headers lifted from third-party publications.
 [[annotations]]
-path = "pics/f1000-webshot-*.png"
+path = [
+    "pics/2017-Clunie-31.png",
+    "pics/2017-Clunie-85.png",
+    "pics/2017-Clunie-87.png",
+    "pics/2017-Clunie-93.png",
+    "pics/2017-Clunie-95.png",
+    "pics/HPW+21_fig1.jpg",
+    "pics/datalad-decentralized.jpg",
+    "pics/f1000-webshot-20200930*.png",
+    "pics/hbm_nifti_2004-header.png",
+    "pics/w3cprov.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# (b) Screenshots and screen recordings of third-party web sites and apps.
+[[annotations]]
+path = [
+    "pics/bids-2.0-incf2024-webshottop.png",
+    "pics/bids-nipoppy.png",
+    "pics/bids-princeton.png",
+    "pics/google-rdm.png",
+    "pics/nemar-dataexplorer-20261006.png",
+    "pics/nemar-homepage-20261006.png",
+    "pics/neurosift-event-related-lfp-40hz-20261007.png",
+    "pics/neurosift-event-related-lfp-reward-20261007.png",
+    "pics/neurosift-event-related-motion-energy-20261007.png",
+    "pics/neurosift-spectrogram-lfp-20261008.webp",
+    "pics/neurosift-spectrogram-v-trace-20261008.webp",
+    "pics/nwb-guide-file-metadata-20261008.webp",
+    "pics/openneuro-studies-webshot_20260602.png",
+    "pics/openneuro2.gif",
+    "pics/stamped-principles-webshot_20260602.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# (c) Stock imagery, clipart, cartoons and photographs of people. Some carry
+# their origin in the filename (svgrepo.com, the openclipart author
+# "kattekrab"); for others the decks themselves say it -- 2022-nih-compcore
+# captions god-is-at-the-computer.jpg as "Unknown artist/origin, borrowed
+# from ...", which is this marker's case exactly.
+[[annotations]]
+path = [
+    "pics/MRI-scanner.png",
+    "pics/Ukrainian_Blue-Yellow_ribbon.svg",
+    "pics/big-bug-svgrepo-com.svg",
+    "pics/god-is-at-the-computer.jpg",
+    "pics/jeremy-magland.jpg",
+    "pics/kattekrab_Sitting_Buddha_Silhouette.svg",
+    "pics/magewell.jpg",
+    "pics/surface-depth-v2.jpg",
+    "pics/tall-burger.png",
+]
 precedence = "override"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
@@ -84,6 +145,17 @@ path = [
     "pics/borrowed/reproin-logo.jpg",
     "pics/borrowed/repronim_logo.svg",
     "pics/borrowed/vbc_logo.png",
+    # ... and the third-party project marks that ended up in pics/ root.
+    # DataLad / DANDI / NeuroDebian / CON marks are deliberately NOT here:
+    # those are our own projects and stay under the catch-all.
+    "pics/BIDS_Logo.png",
+    "pics/bids-logo-wide.png",
+    "pics/mastodon-icon.svg",
+    "pics/neuroconv-logo.png",
+    "pics/neurosift-logo.png",
+    "pics/nwb-guide-logo.png",
+    "pics/openneuro.svg",
+    "pics/twitter.png",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "NOASSERTION"
@@ -110,12 +182,17 @@ SPDX-FileCopyrightText = [
 ]
 SPDX-License-Identifier = "CC-BY-4.0"
 
-# ReproNim containers / STAMPED artwork, likewise adapted from Michael Hanke's
-# CC-BY material (same source as above), including the svgtune-derived layer
-# variants under *_tuned/.
+# ReproNim containers / STAMPED artwork: mixed-copyright throughout. Michael
+# Hanke created the original YODA figure (without the containers layer) under
+# CC-BY; the containers and STAMPED layers, the svgtune recipe that drives
+# them, and the *_tuned/ layer variants it produces are built atop it here.
+# Both copyrights therefore apply across the whole set -- there is no clean
+# seam at which to split it.
 [[annotations]]
 path = [
     "pics/repronim-containers-*",
+    "pics/repronim-containers-stamped.svg",
+    "pics/repronim-containers-stamped.svgtune",
     "pics/repronim-containers-stamped_tuned/**",
 ]
 precedence = "override"
@@ -153,10 +230,20 @@ SPDX-FileCopyrightText = [
 ]
 SPDX-License-Identifier = "CC-BY-4.0"
 
-# Screenshot of the DataLad handbook <https://handbook.datalad.org>, which is
-# itself CC-BY-SA-4.0 -- the same license this repository uses.
+# Figures and screenshots from the DataLad handbook
+# <https://handbook.datalad.org>, which is itself CC-BY-SA-4.0 -- the same
+# license this repository uses, so these fold in cleanly. README.md has always
+# said this repository's content is "based on the DataLad handbook"; this
+# records which files that actually refers to.
 [[annotations]]
-path = "pics/datalad-handbook-yoda.png"
+path = [
+    "pics/datalad-handbook-basics.svg",
+    "pics/datalad-handbook-enter.svg",
+    "pics/datalad-handbook-logo.svg",
+    "pics/datalad-handbook-repropaper.png",
+    "pics/datalad-handbook-usecases.svg",
+    "pics/datalad-handbook-yoda.png",
+]
 precedence = "override"
 SPDX-FileCopyrightText = "The DataLad handbook contributors <https://github.com/datalad-handbook/book>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
