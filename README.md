@@ -68,3 +68,57 @@ under the following terms:
    - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
    - ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+### Not everything here is ours
+
+Slides quote the world: screenshots of web pages and papers, figures,
+cartoons, funder logos. Those are **not** covered by the CC-BY-SA above —
+they belong to their original rights holders, and this repository cannot
+and does not relicense them. The CC-BY-SA applies to the slides, diagrams
+and text authored here.
+
+Which is which is recorded per-file, machine-readably, following the
+[REUSE specification](https://reuse.software/):
+
+| Where | What |
+| ------------------------------------- | ---------------------------------------------------------------------------- |
+| `REUSE.toml`                          | per-path copyright and license annotations, with comments explaining each group |
+| `LICENSES/`                           | full license texts                                                            |
+| `LICENSES/LicenseRef-ThirdPartyMixed.txt` | marker for third-party material whose provenance could not be reconstructed |
+| `LICENSES/LicenseRef-ThirdPartyLogo.txt`  | marker for third-party logos and trademarks (nominative use only)          |
+
+The two `LicenseRef-*` entries are **markers, not license grants**. They
+record "this is someone else's, and we could not determine whose" rather
+than pretending to ownership — their `SPDX-FileCopyrightText` is
+`NOASSERTION` for exactly that reason. If you want to reuse one of those
+files, track down the original rights holder.
+
+Known provenance *is* recorded where we have it — for example the YODA
+artwork (from [myyoda/poster](https://github.com/myyoda/poster), © 2018
+Michael Hanke and Kyle Meyer, CC-BY-4.0) and the carrot/ReproNim-containers
+artwork adapted from Michael Hanke's *"Carrots! Not sticks!"*
+([slides](https://hedgedoc.psychoinformatics.de/edfuJiNaSNufM4trL8_HhA#/),
+CC-BY per the author). Corrections and additions are very welcome —
+please open an issue or a PR.
+
+Check compliance with:
+
+```sh
+uvx --from reuse reuse lint
+```
+
+#### Caveat: `reuse lint` only sees about half of this repository
+
+[REUSE specification 3.3](https://reuse.software/spec-3.3/) excludes
+"Symlinks and files with no data (zero-byte)" from *Covered Files*, and
+`reuse` implements that by skipping every symlink unconditionally. This is
+a git-annex dataset, so **282 of its 587 tracked files are symlinks** —
+most of `pics/` — and the linter neither checks nor counts them. A green
+`300 / 300` from `reuse lint` therefore means "the 300 non-annexed files
+are fine", not "the repository is fully covered".
+
+The annotations in `REUSE.toml` still describe the annexed files correctly;
+they are simply not machine-verified here. Upstream has been aware of this
+since 2022 — see [reuse-tool#627](https://codeberg.org/fsfe/reuse-tool/issues/627)
+and the open [PR #764](https://codeberg.org/fsfe/reuse-tool/pulls/764),
+which is blocked on a specification change rather than on the code.

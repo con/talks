@@ -454,7 +454,14 @@ thumbnail, with the YouTube URL in a `<small>` underneath.
 ## 6. License and sharing
 
 - Repository is **CC-BY-SA** (`LICENSE`). Reuse and remix freely; share
-  alike.
+  alike. But that covers *what we authored* — the borrowed screenshots,
+  figures, cartoons and logos in slides are not ours to relicense.
+- Per-file copyright/licensing is machine-readable via **`REUSE.toml`**
+  (+ `LICENSES/`), including two `LicenseRef-*` markers for third-party
+  material of undetermined provenance and for third-party logos. When
+  adding a borrowed asset, add or extend an annotation block for it; when
+  you learn the real provenance of an existing one, narrow it. See the
+  *Licensing* section of `README.md`.
 - Live mirror:
   <https://datasets.datalad.org/centerforopenneuroscience/talks/>.
 - Sources: this repository (`git clone https://datasets.datalad.org/

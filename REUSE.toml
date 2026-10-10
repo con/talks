@@ -1,0 +1,175 @@
+version = 1
+
+# ---------------------------------------------------------------------------
+# How this file is organised
+#
+# Blocks are evaluated in order and a LATER block WINS over an earlier one for
+# any path both of them match.  So the layout here is:
+#
+#   1. a catch-all for everything authored in this repository;
+#   2. the "we cannot determine this" markers for third-party material;
+#   3. narrowing blocks for material whose provenance IS known.
+#
+# The catch-all uses precedence = "closest", so an in-file SPDX header (as
+# already present in e.g. 2026-nih-bids2.0/) always wins over it.
+#
+# KNOWN LIMITATION: `reuse lint` skips every symlink (REUSE spec 3.3 excludes
+# symlinks from "Covered Files").  282 of this repository's 587 tracked files
+# are git-annex symlinks, so the linter verifies only about half the tree.  The
+# annotations below still describe those files correctly; they are simply not
+# machine-checked here.  See the "Licensing" section of README.md.
+# ---------------------------------------------------------------------------
+
+
+# === 1. Everything authored in this repository =============================
+
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+
+# === 2. Third-party material of undetermined provenance ====================
+
+# The "borrowed" tree and the cited PDFs: screenshots of web pages and
+# publications, figures, cartoons, photographs.  Not ours, provenance largely
+# unreconstructable.  See LICENSES/LicenseRef-ThirdPartyMixed.txt.
+[[annotations]]
+path = ["pics/borrowed/**", "3rd-party/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Portraits of CON team members, used on the "who we are" slides.  Copyright
+# rests with the respective individuals and photographers, not with this
+# repository.
+[[annotations]]
+path = "pics/con-whoweare/**"
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Screenshots of figures and tables from a third-party publication.
+[[annotations]]
+path = "pics/f1000-webshot-*.png"
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+
+# === 3. Third-party logos and trademarks ===================================
+
+# Funder, institution and collaborating-project marks, reproduced for
+# nominative use on acknowledgement slides.  Each mark belongs to its
+# organisation.  See LICENSES/LicenseRef-ThirdPartyLogo.txt.
+[[annotations]]
+path = [
+    "pics/borrowed/LSA-Logo.png",
+    "pics/borrowed/bannerthanks.svg",
+    "pics/borrowed/binc.png",
+    "pics/borrowed/bmbf_2020.png",
+    "pics/borrowed/brainlife_logo.png",
+    "pics/borrowed/cbbs_logo.png",
+    "pics/borrowed/cbrain_logo.png",
+    "pics/borrowed/conp_logo.png",
+    "pics/borrowed/dandi_logo.svg",
+    "pics/borrowed/erdf.png",
+    "pics/borrowed/fzj_logo.svg",
+    "pics/borrowed/hbp_logo.png",
+    "pics/borrowed/nih.png",
+    "pics/borrowed/nsf1.jpg",
+    "pics/borrowed/nsf_2020.png",
+    "pics/borrowed/openneuro_logo.png",
+    "pics/borrowed/reproin-logo.jpg",
+    "pics/borrowed/repronim_logo.svg",
+    "pics/borrowed/vbc_logo.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+
+# === 4. Known provenance: adaptations of Michael Hanke's CC-BY material =====
+
+# Adapted from "Carrots! Not sticks!" by Michael Hanke,
+# <https://hedgedoc.psychoinformatics.de/edfuJiNaSNufM4trL8_HhA#/>.
+# No license is stated on that page; the author confirmed CC-BY for all of it
+# (Matrix, 2026-10).  CC-BY-4.0 permits adaptations under other terms, but the
+# adaptations here deliberately stay on the upstream license.
+[[annotations]]
+path = [
+    "pics/humancarrot_*.svg",
+    "pics/borrowed/human+carrot.png",
+    "pics/borrowed/human+carrot_black.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "Michael Hanke <michael.hanke@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# ReproNim containers / STAMPED artwork, likewise adapted from Michael Hanke's
+# CC-BY material (same source as above), including the svgtune-derived layer
+# variants under *_tuned/.
+[[annotations]]
+path = [
+    "pics/repronim-containers-*",
+    "pics/repronim-containers-stamped_tuned/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "Michael Hanke <michael.hanke@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# YODA principle artwork, derived from the YODA poster
+# <https://github.com/myyoda/poster> (ohbm2018.pdf), which declares
+# "2018 Michael Hanke <michael.hanke@gmail.com>, Kyle Meyer <kyle@kyleam.com>"
+# under CC-BY-4.0 in its own REUSE.toml.
+[[annotations]]
+path = [
+    "pics/yoda.svg",
+    "pics/yoda-layout.png",
+    "pics/yoda-principles.png",
+    "pics/yoda-principles-reordered.png",
+    "pics/yoda-principles-reordered.svg",
+    "pics/yoda-all-the-way-down.png",
+    "pics/yoda-do-not-look-up.png",
+    "pics/yoda-hierarchy-with-containers.png",
+    "pics/yoda-say-track.png",
+    "pics/yoda-say-track.svg",
+    "pics/principle-vcs.png",
+    "pics/principle-computeenv.png",
+    "pics/principle-structure.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2018 Michael Hanke <michael.hanke@gmail.com>",
+    "2018 Kyle Meyer <kyle@kyleam.com>",
+    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Screenshot of the DataLad handbook <https://handbook.datalad.org>, which is
+# itself CC-BY-SA-4.0 -- the same license this repository uses.
+[[annotations]]
+path = "pics/datalad-handbook-yoda.png"
+precedence = "override"
+SPDX-FileCopyrightText = "The DataLad handbook contributors <https://github.com/datalad-handbook/book>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+
+# === 5. Known provenance: decks co-authored with others ====================
+
+# Authored in Google Slides and presented jointly; see 2026-bbqs-stamped/README.md.
+[[annotations]]
+path = ["2026-bbqs-stamped.pdf", "2026-bbqs-stamped.pptx", "2026-bbqs-stamped/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2026 Cody Baker <cody.c.baker.phd@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
