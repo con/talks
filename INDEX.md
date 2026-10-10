@@ -238,13 +238,13 @@ Cross-references in the per-topic lookup point at the shelved path
     citation (canonical citation slide).
   - "BIDS ..." features bullets, including "you've seen one BIDS dataset
     you've seen them all".
-  - BIDS-minder upstream-images slide
-    (`bids-standard.github.io/.../BIDS-minder.svg`).
+  - BIDS-minder slide (`pics/BIDS-minder.svg`).
   - DICOM ↔ BIDS chronology (1982 DICOM → 2014 BIDS).
   - Clunie MICCAI 2017 5-image fragments (data is in `pics/2017-Clunie-*.png`).
   - **"All standards are 'Bad', but some are used"** — recurring
     rhetorical slide.
-  - DICOMs in BIDS workflow (sourcedata, .json sidecars, BEP019, PR#1450).
+  - DICOMs in BIDS workflow (ReproIn `pics/dbic-flow.png` +
+    `pics/dbic-conversions.png`; sourcedata, .json sidecars, BEP019, PR#1450).
 
 ### `2023-brain-dandi-imgdatasrc.html` — short DANDI talk
 - Tiny deck (86 lines), title-only template; safe to ignore as source.
@@ -365,7 +365,8 @@ ReproNim-containers / con/duct / ReproMan)
 - *Asset*: `pics/webshot-repronim-containers.png`,
   `pics/repronim-containers-{workflow,show,yoda-lower}.png`,
   `pics/webshot-con-duct.png`, `pics/screenshot-duct-*.png`,
-  `pics/duct-mriqc-cerebra.png`, `pics/borrowed/reproin-logo.jpg`.
+  `pics/duct-mriqc-cerebra.png`, `pics/borrowed/reproin-logo.jpg`,
+  `pics/dbic-flow.png`, `pics/dbic-conversions.png` (+ `-p1`/`-p2` crops).
 
 ### Extend / standards work / BIDS BEPs / BIDS 2.0
 - `2026-nih-bids2.0.html` — **best BIDS 2.0 walkthrough**: deprecations
