@@ -1168,6 +1168,11 @@ flowchart LR
 .con-whoweare .cww-person span { display: block; font-size: var(--cww-font);
                                  overflow-wrap: break-word; }
 .con-whoweare .cww-person:hover img { outline: 2px solid currentColor; }
+.con-whoweare .cww-proj { display: inline-flex; align-items: center; margin: 0 13px;
+                          text-decoration: none; color: inherit; }
+.con-whoweare .cww-proj img { margin: 0; border: 0; box-shadow: none; background: none; }
+.con-whoweare .cww-more { font-size: 0.32em; font-style: italic; opacity: 0.75;
+                          white-space: nowrap; }
 .con-whoweare .cww-org { display: inline-flex; flex-direction: column; align-items: center;
                          justify-content: flex-end; margin: 0 14px; text-decoration: none;
                          color: inherit; min-height: 78px; }
@@ -1199,10 +1204,6 @@ flowchart LR
   </div></div>
   <!-- just "row" divider -->
   <div class="cww-tier"> <div class="cww-faces">
-	  <a href="https://repronim.org/" target="_blank" title="ReproNim"><img style="height:60px;margin:10px" data-src="pics/borrowed/repronim_logo.svg" /></a>
-	  <a href="https://openneuro.org" target="_blank" title="OpenNeuro"><img style="height:70px;margin:10px" data-src="pics/borrowed/openneuro_logo.png" /></a>
-	  <a href="https://dandiarchive.org" target="_blank" title="DANDI"><img style="height:80px;margin:10px" data-src="pics/borrowed/dandi_logo.svg" /></a>
-	  <a href="https://www.datalad.org" target="_blank" title="DataLad"><img style="height:55px;margin:10px" data-src="pics/datalad_D.svg" /></a>
 	</div>
   </div>
   <div class="cww-tier"><span class="cww-label">Affiliated Faculty</span>
@@ -1235,6 +1236,26 @@ flowchart LR
 	  <a class="cww-person" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/jwodder.jpg" alt="John Wodder"/><span>John Wodder</span></a>
 	</div>
   </div>
+  <div class="cww-tier"><span class="cww-label">Worked on directly</span>
+	<div class="cww-faces" style="align-items:center;">
+	  <a class="cww-proj" href="https://datalad.org" target="_blank" title="DataLad"><img style="height:42px" data-src="pics/con-projects/datalad_logo.png"/></a>
+	  <a class="cww-proj" href="http://repronim.org/" target="_blank" title="ReproNim"><img style="height:58px" data-src="pics/con-projects/repronim_logo.svg"/></a>
+	  <a class="cww-proj" href="https://dandiarchive.org" target="_blank" title="DANDI"><img style="height:49px" data-src="pics/con-projects/dandi_logo.png"/></a>
+	  <a class="cww-proj" href="https://emberarchive.org" target="_blank" title="EMBER"><img style="height:58px" data-src="pics/con-projects/ember_logo.png"/></a>
+	  <a class="cww-proj" href="http://bids.neuroimaging.io" target="_blank" title="Brain Imaging Data Structure (BIDS)"><img style="height:42px" data-src="pics/con-projects/bids_logo.png"/></a>
+	  <a class="cww-proj" href="https://www.nwb.org/" target="_blank" title="Neurodata Without Borders: Neurophysiology (NWB:N)"><img style="height:30px" data-src="pics/con-projects/nwb_logo.png"/></a>
+	  <a class="cww-proj" href="https://incf.org" target="_blank" title="INCF"><img style="height:30px" data-src="pics/con-projects/incf_logo.png"/></a>
+	</div>
+  </div>
+  <div class="cww-tier"><span class="cww-label">Large communities we take part in</span>
+	<div class="cww-faces" style="align-items:center;">
+	  <a class="cww-proj" href="http://scikit-learn.org/stable/" target="_blank" title="scikit-learn"><img style="height:33px" data-src="pics/con-projects/scikit-learn_logo.png"/></a>
+	  <a class="cww-proj" href="http://www.psychopy.org/" target="_blank" title="PsychoPy"><img style="height:33px" data-src="pics/con-projects/psychopy_logo.png"/></a>
+	  <a class="cww-proj" href="http://www.humanconnectome.org/" target="_blank" title="HCP"><img style="height:33px" data-src="pics/con-projects/hcp_logo.png"/></a>
+	  <a class="cww-proj cww-more" href="https://centerforopenneuroscience.org/projects" target="_blank" title="71 project records exist; this selection shows 10.">…and many more</a>
+	</div>
+  </div>
+
   <div class="cww-tier"><span class="cww-label">Funders and in-kind support</span>
 	<div class="cww-faces" style="align-items:center;">
 	  <a class="cww-org" href="https://home.dartmouth.edu/" target="_blank" title="Dartmouth College &mdash; infrastructure, and the acceptance and encouragement to work in the open"><img style="height:62px" data-src="pics/dartmouth-logo.svg"/></a>
