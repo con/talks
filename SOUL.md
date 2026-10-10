@@ -466,8 +466,8 @@ thumbnail, with the YouTube URL in a `<small>` underneath.
 - **`REUSE.toml`** (+ `LICENSES/`) is the authoritative per-file record of
   copyright and provenance — including for material whose origin could not
   be reconstructed, which is marked unknown rather than quietly absorbed
-  under our license. Mechanics live in *Licensing* in `README.md`; what to
-  do when you add an asset lives in `CLAUDE.md`.
+  under our license. Mechanics live under *"Not everything here is ours"*
+  in `README.md`; what to do when you add an asset lives in `CLAUDE.md`.
 - Live mirror:
   <https://datasets.datalad.org/centerforopenneuroscience/talks/>.
 - Sources: this repository (`git clone https://datasets.datalad.org/

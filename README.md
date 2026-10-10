@@ -80,18 +80,25 @@ and text authored here.
 Which is which is recorded per-file, machine-readably, following the
 [REUSE specification](https://reuse.software/):
 
-| Where | What |
-| ------------------------------------- | ---------------------------------------------------------------------------- |
-| `REUSE.toml`                          | per-path copyright and license annotations, with comments explaining each group |
-| `LICENSES/`                           | full license texts                                                            |
-| `LICENSES/LicenseRef-ThirdPartyMixed.txt` | marker for third-party material whose provenance could not be reconstructed |
-| `LICENSES/LicenseRef-ThirdPartyLogo.txt`  | marker for third-party logos and trademarks (nominative use only)          |
+| Where                                     | What                                                                            |
+| ----------------------------------------- | ------------------------------------------------------------------------------- |
+| `REUSE.toml`                              | per-path copyright and license annotations, with comments explaining each group  |
+| `LICENSES/`                               | full license texts                                                              |
+| `LICENSES/LicenseRef-ThirdPartyMixed.txt` | marker for third-party material whose provenance could not be reconstructed     |
+| `LICENSES/LicenseRef-ThirdPartyLogo.txt`  | marker for third-party logos and trademarks (nominative use only)               |
 
 The two `LicenseRef-*` entries are **markers, not license grants**. They
 record "this is someone else's, and we could not determine whose" rather
 than pretending to ownership — their `SPDX-FileCopyrightText` is
 `NOASSERTION` for exactly that reason. If you want to reuse one of those
 files, track down the original rights holder.
+
+One caveat on that `NOASSERTION`: it reads as intended in `REUSE.toml` and
+in this document, but `reuse spdx` currently emits it wrapped as
+`FileCopyrightText: <text>SPDX-FileCopyrightText: NOASSERTION</text>`
+rather than as the bare SPDX sentinel. An SBOM consumer may therefore treat
+it as a literal copyright string instead of "unknown". Read `REUSE.toml` as
+the authoritative statement.
 
 Known provenance *is* recorded where we have it — for example the YODA
 artwork (from [myyoda/poster](https://github.com/myyoda/poster), © 2018
@@ -104,21 +111,26 @@ please open an issue or a PR.
 Check compliance with:
 
 ```sh
-uvx --from reuse reuse lint
+uvx --from 'reuse==6.2.0' reuse lint
 ```
+
+(The version is pinned to match `.pre-commit-config.yaml`; the counts below
+are version-dependent.)
 
 #### Caveat: `reuse lint` only sees about half of this repository
 
 [REUSE specification 3.3](https://reuse.software/spec-3.3/) excludes
 "Symlinks and files with no data (zero-byte)" from *Covered Files*, and
 `reuse` implements that by skipping every symlink unconditionally. This is
-a git-annex dataset, so **282 of its 587 tracked files are symlinks** —
-most of `pics/` — and the linter neither checks nor counts them. A green
-`300 / 300` from `reuse lint` therefore means "the 300 non-annexed files
-are fine", not "the repository is fully covered".
+a git-annex dataset, so **282 of its tracked files are symlinks** — most of
+`pics/` — and the linter neither checks nor counts them. Together with the
+submodules, the license files and `REUSE.toml` itself, which the spec also
+excludes, only **300 files out of roughly 590 tracked** are actually
+checked. A green `300 / 300` from `reuse lint` therefore means "the 300
+files it looks at are fine", not "the repository is fully covered".
 
 The annotations in `REUSE.toml` still describe the annexed files correctly;
 they are simply not machine-verified here. Upstream has been aware of this
 since 2022 — see [reuse-tool#627](https://codeberg.org/fsfe/reuse-tool/issues/627)
-and the open [PR #764](https://codeberg.org/fsfe/reuse-tool/pulls/764),
-which is blocked on a specification change rather than on the code.
+and the long-stalled draft [PR #764](https://codeberg.org/fsfe/reuse-tool/pulls/764),
+which needs a specification change before it can land.

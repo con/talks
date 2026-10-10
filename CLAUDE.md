@@ -186,7 +186,7 @@ The PNG itself is binary; commit it via DataLad
 | Venue-specific submission docs (PRD, BoF, poster, abstract) | `<venue-dir>/` (e.g. `2026-usrse/`) |
 | New reusable image | `pics/` (or `pics/borrowed/` if third-party) |
 | New citation PDF | `3rd-party/` |
-| Copyright/licensing for any new asset | an `[[annotations]]` block in `REUSE.toml` |
+| Copyright/licensing, when the asset is *not* a plain drop into `pics/borrowed/` | an `[[annotations]]` block in `REUSE.toml` |
 
 ### Licensing a new asset
 
