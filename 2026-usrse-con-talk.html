@@ -290,7 +290,52 @@ Era 2009–2012. Verb lens: COMPOSE.
 <section data-transition="none">
 	<h1 style="font-size:3em;color:#2e7d32;">EXTEND</h1>
   </section>
-<section data-markdown><textarea data-template>
+<section data-transition="none">
+	<h3>Not an ending &mdash; a handover <em>upwards</em></h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:3em;margin:1em 0 0.6em 0;">
+	  <img style="height:150px;" data-src="pics/borrowed/debian-openlogo.svg" alt="Debian"/>
+	  <img style="height:150px;" data-src="pics/borrowed/debian-med-logo.svg" alt="Debian Med"/>
+	</div>
+	<p style="font-size:1.15em;margin:0.2em 0;">
+	  <a href="https://www.debian.org/devel/debian-med/">Debian Med</a> &middot;
+	  <a href="https://wiki.debian.org/DebianScience">Debian Science</a> &middot;
+	  <a href="https://wiki.debian.org/Teams/PythonTeam">Debian Python Team</a>
+	</p>
+	<p><small>Small team, wide scope &rarr; big teams, each with a narrower one.<br/>
+	  Packages we used to carry alone are now co-maintained: more hands, a bus factor above one.<br/>
+	  <em>Later</em> &mdash; <a href="https://tracker.debian.org/pkg/psychopy">psychopy</a> moves to Debian Med in 2020;
+	  nifticlib, gifticlib, odin, cmtk follow over the next two years.</small></p>
+	<aside class="notes">
+	  Important correction to the obvious reading: this is not NeuroDebian ending. It is the
+	  maintenance moving from a two-person team to teams that scale better, at the cost of a
+	  narrower target each. I am still in all three. The Debian QA page counts roughly 73
+	  package entries under Debian Med, 38 under the Python Team, 28 under Debian Science.
+	  The scope narrows per team; the total breadth goes up.
+	</aside>
+  </section>
+
+  <section data-background="pics/borrowed/debconf10-nyc-group.jpg"
+           data-background-size="cover"
+           data-background-position="center">
+	<!-- TODO: crop to show Yaroslav (#10 in the numbered wiki photo) with surrounding people -->
+	<div style="position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:0.4em;">
+	  <small style="color:white;"><a href="https://wiki.debian.org/DebConf10" style="color:#80cbc4;">DebConf10</a>, New York City, 2010. This is what &ldquo;joining&rdquo; looks like.</small>
+	</div>
+	<aside class="notes">DebConf10, NYC 2010. Yaroslav is #10 in the numbered group photo. The point of
+	  putting this here rather than at the end: the community came first, the software second.</aside>
+  </section>
+
+  <section data-background="pics/borrowed/debconf15-heidelberg-group.jpg"
+           data-background-size="cover"
+           data-background-position="center">
+	<div style="position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:0.4em;">
+	  <small style="color:white;"><em>Later</em> &mdash; <a href="https://wiki.debian.org/DebConf15" style="color:#80cbc4;">DebConf15</a>, Heidelberg, 2015. Still going.</small>
+	</div>
+	<aside class="notes">Five years on, same community. Breaking the era boundary on purpose: the
+	  Debian thread never stops, so finish telling it here rather than fragmenting it.</aside>
+  </section>
+
+  <section data-markdown><textarea data-template>
 ### 2009–2012 &mdash; who we were working with
 
 <iframe src="2026-usrse-con-talk/ack-2012.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
@@ -471,10 +516,31 @@ Era 2017–2020. Verb lens: COMPOSE.
 	</p>
   </section>
 <section data-transition="none">
-	<h2><a href="https://www.debian.org/devel/debian-med/">Debian Med</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Packaging. Still there.</p>
-	<p><small>pkg-exppsy &rarr; NeuroDebian &rarr; Debian Med &amp; Debian Science &rarr; conda-forge.<br/>
-	  <em>A successful bridge dissolves into the commons.</em></small></p>
+	<h2><a href="https://github.com/ReproNim/reproman">ReproMan</a></h2>
+	<p style="font-size:1.4em;margin-top:1.5em;">Run it <em>there</em>. Record what &ldquo;there&rdquo; was.</p>
+	<p><small>Started 2016 as NICEMAN. Submit to containers, AWS, SLURM/condor &mdash; and collect the
+	  environment (Debian and conda packages, VCS revisions) in enough detail to re-create it.<br/>
+	  M. Travers, R. Buccigrossi, C. Haselgrove, K. Meyer, and <strong>Y. O. Halchenko</strong>.
+	  <a href="http://goo.gl/CvaY1e">NICEMAN: NeuroImaging Computational Environments Manager</a>, OHBM 2018.</small></p>
+	<aside class="notes">ReproMan is the one in this deck that did not take off the way the others did,
+	  and that is worth saying out loud. But the question it asked outlived it.</aside>
+  </section>
+
+  <section data-transition="none">
+	<h3>ReproMan&rsquo;s afterlife: <a href="https://github.com/con/duct">con/duct</a></h3>
+	<p style="font-size:1.2em;margin-top:1em;">
+	  ReproMan asked <em>what did that remote run actually cost?</em><br/>
+	  brainlife&rsquo;s <a href="https://github.com/brainlife/abcd-spec/blob/master/hooks/smon"><code>smon</code></a> showed how to sample it.<br/>
+	  <strong>2024:</strong> <code>duct &lt;cmd&gt;</code> &mdash; no third-party dependencies, uniform records.
+	</p>
+	<p><small><em>Later</em>, well out of this era &mdash; but it belongs to this story, not to 2024.
+	  Already adopted inside <a href="https://github.com/ReproNim/containers">ReproNim/containers</a> and
+	  <a href="https://github.com/ReproNim/reprostim">ReproStim</a>; <code>RRID:SCR_025436</code>.<br/>
+	  Poster this week: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
+	  <em>Agent-friendly Provenance Capture with <code>con-duct</code></em>. Go find Austin.</small></p>
+	<aside class="notes">Reuse across a decade and across two communities: the need came from ReproMan,
+	  the sampling approach came from brainlife, the tool is ours. Nobody started from scratch.
+	  Plug Austin's poster here explicitly &mdash; he is presenting it, not me.</aside>
   </section>
 <section data-transition="none">
 	<h2><a href="https://www.nwb.org/">NWB</a> + <a href="https://www.kitware.com/">Kitware</a></h2>
@@ -490,10 +556,7 @@ Era 2017–2020. Verb lens: COMPOSE.
 <section data-transition="none">
 	<h1 style="font-size:3em;color:#6a1b9a;">STANDARDIZE</h1>
   </section>
-<section data-transition="none">
-	<h2><a href="https://github.com/ReproNim/containers">ReproNim/containers</a></h2>
-	<p style="font-size:1.5em;margin-top:2em;">&ldquo;Auto-rebuilt. Auto-snapshotted. Always current.&rdquo;</p>
-  </section>
+
 <section data-markdown><textarea data-template>
 ### 2017–2020 &mdash; who we were working with
 
@@ -686,10 +749,7 @@ Era 2025–. Verb lens: REUSE · COMPOSE · EXTEND · STANDARDIZE · AUTOMATE.
     <h2><a href="https://github.com/duecredit/duecredit">duecredit</a></h2>
     <p>Automated scholarly credit tracking.</p>
   </section>
-<section>
-    <h2><a href="https://github.com/con/duct">con/duct</a></h2>
-    <p>Process monitor. Wall time. Memory. Per task.</p>
-  </section>
+
 <section>
     <h2><a href="https://github.com/con/citations-collector">citations-collector</a></h2>
     <p>Citation harvesting for your stack.</p>
@@ -833,18 +893,7 @@ dimmed = association already ended.
   </section>
 
   <!-- Community photos burst — emotional counter-argument -->
-  <section data-background="pics/borrowed/debconf10-nyc-group.jpg"
-           data-background-size="cover"
-           data-background-position="center">
-	<!-- TODO: crop to show Yaroslav (#10 in the numbered wiki photo) with surrounding people -->
-	<aside class="notes">DebConf10, NYC 2010. Yaroslav is #10 in the group.</aside>
-  </section>
-
-  <section data-background="pics/borrowed/debconf15-heidelberg-group.jpg"
-           data-background-size="cover"
-           data-background-position="center">
-	<aside class="notes">DebConf15, Heidelberg 2015.</aside>
-  </section>
+  
 
   <section>
 	<!-- TODO: BIDS inaugural meeting / BIDS steering group photo -->
@@ -1158,7 +1207,6 @@ dimmed = association already ended.
 <section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
 </section>
 
--->
 
 <!-- End of slides -->
 
