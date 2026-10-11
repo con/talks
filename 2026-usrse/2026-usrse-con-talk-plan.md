@@ -434,48 +434,90 @@ All are single-concept; most are text-only or one-logo. No new images required e
 
 ## TODO — NiPy: our entry into the community (2005–2008, paying off in 2009–2012)
 
-**Status:** not started. Raised 2026-10-11.
+**Status:** not started. Raised 2026-10-11, revised same day after checking the
+archives.
 
 The 2005–2008 era currently ends on PyMVPA and its test suite. What actually
 closed that era is missing: **NiPy was our entry into the community.** Before
-NiPy we were two people packaging for ourselves; after it we were in a room
-with the people who became nibabel, nipype, nitime, dipy and scikit-learn.
-That is the first time the "community" thread in this talk has anything to
-point at, and right now the deck does not mention NiPy once (`grep -ci nipy`
-on the deck returns 0).
+it, two people packaging for themselves; after it, a room with the people who
+became nibabel, nipype, nitime and dipy. The deck does not mention NiPy once
+(`grep -ci nipy` on it returns 0).
 
-### 1. Add NiPy as a project we collaborated on
+### 1. The thing to check first — nibabel's git history is ours
+
+```bash
+gh api "repos/nipy/nibabel/commits?per_page=1&page=6449" --jq '.[0].commit'
+```
+
+nibabel's **root commit** is 2007-02-08, author `mhanke-guest`, message
+*"Move pynifti packaging to alioth (really)."*, and its `git-svn-id` trailer
+reads:
+
+```
+svn+ssh://svn.debian.org/svn/pkg-exppsy/pynifti/trunk@179
+```
+
+`pkg-exppsy` is the subversion repo in this deck's own 2005–2008 era title.
+nibabel — the file-format layer under essentially every Python neuroimaging
+tool in use today — has its git history rooted in our Debian packaging repo,
+by way of Hanke's PyNIfTI. `yoh-guest` appears four days later, 2007-02-12.
+Christopher Burns (Berkeley / NiPy) shows up 2008-06-30, which is the NiPy
+convergence arriving in the tree.
+
+This is a better "small seeds grow big" than anything else in the deck,
+because the seed is ours and it is verifiable in one command. It belongs at
+the close of 2005–2008, and it makes the NiPy entry below land as consequence
+rather than anecdote.
+
+Dates for the neighbouring projects, same method (repo root commits):
+
+- **nipype** — 2009-07-15, Jarrod Millman; Satra led it out. "Soon after the
+  2008 workshop" checks out.
+- **nitime** — 2009-09-02, Fernando Perez.
+
+### 2. Add NiPy as a project we collaborated on
 
 `con-site-specific` already has `XYZProject/nipy.yaml`, `nitime.yaml`,
 `nibabel.yaml` and `nipype.yaml` — but `nipy.yaml` and `nitime.yaml` are bare
 stubs with **no `associated_with` and no `started`**, so they cannot surface in
-the era acknowledgements at all. Needs:
+the era acknowledgements at all. Needs contributor associations
+(`marcrel:ctb`) for YOH and Hanke with researched dates, then a band entry in
+`tools/mk_ack_eras.py`.
 
-- contributor associations (`marcrel:ctb`) for YOH and Hanke on `nipy`, with
-  dates researched the way the Debian ones were (first commits / first ML
-  posts, not guessed);
-- then a band entry in `tools/mk_ack_eras.py` so NiPy appears in the
-  "Large communities we take part in" band from the 2005–2008 fragment onward.
+Framing to get right: the `nipy` **package** is effectively RIP and we were
+contributors, not leads. The point is not the package — it is that the
+community around it still runs everything. So this is where "a project ending
+is not the thing ending" gets said for the first time, and it rhymes with the
+Debian handover slide two eras later.
 
-Framing to get right: the `nipy` **package** is effectively RIP, and we were
-contributors, not leads. The point is not the package. The point is that the
-*community* around it is still running everything — so this is the slide where
-"a project ending is not the thing ending" gets stated for the first time,
-and it rhymes with the Debian handover slide two eras later.
+### 3. The 2008 NiPy workshop — needs sourcing
 
-### 2. The EuroSciPy 2011 slide — "small seeds grow big"
+Per YOH: a **NiPy-specific workshop in 2008**, and soon after it Satra split
+out nipype and nibabel was born. **I could not source the event itself.** The
+surrounding record is consistent with it and nothing contradicts it: 2008 is
+the year Fernando Perez and Matthew Brett went full-time at the UC Berkeley
+Brain Imaging Center with Brett coming to work on NIPY, Neurospin began
+refactoring FFF toward NiPy (Roche, Thirion, Thyreau, with Perez advising),
+and Gaël Varoquaux joined Parietal at Neurospin. See
+<http://nipy.org/nipy/history.html>, whose narrative stops in 2008.
 
-Your memory of a NiPy-ish workshop in Paris with Fernando, Gaël and Matthew
-Brett, and of EuroSciPy 2011, are **the same event**, not two:
+Where to look next: the `nipy-devel` mailing list archive for 2008 (the
+announcement and logistics thread would be there), and personal photo archives.
+Do not put a date or an attendee list on a slide until one of those confirms it.
+
+**Note this is NOT the Paris event in §4.** Earlier I conflated them; they are
+three years apart.
+
+### 4. The EuroSciPy 2011 slide — "small seeds grow big"
 
 > **Python in Neuroscience**, satellite to EuroSciPy 2011
 > Paris, École Normale Supérieure, **29–30 August 2011**
-> (main EuroSciPy was 25–28 Aug, same venue)
-> Program committee included **Gaël Varoquaux** (INSERM U992, Saclay),
-> Bertrand Thirion, Romain Brette, Eilif Müller, Raphaël Ritz,
-> Laurent Perrinet, Andrew Davison.
+> (main EuroSciPy 25–28 Aug, same venue)
+> Program committee: Bertrand Thirion, Romain Brette, Eilif Müller,
+> **Gaël Varoquaux** (INSERM U992), Raphaël Ritz, Laurent Perrinet,
+> Andrew Davison.
 
-Book of abstracts (39 pp, authoritative):
+Book of abstracts, 39 pp, authoritative:
 <https://pythonneuro.sciencesconf.org/conference/pythonneuro/boa_en.pdf>
 
 The table of contents is the slide. No commentary needed:
@@ -488,39 +530,48 @@ The table of contents is the slide. No commentary needed:
 | 22   | NiPyPe: a flexible, lightweight and extensible neuroimaging data processing framework | S. Ghosh et al.                |
 | 25   | Nitime and IPython: tools for time-series analysis and high-level parallel computing  | F. Perez et al.                |
 
-Four lines apart on one program: Brett's file-format conductor, our PyMVPA,
-our NeuroDebian, Ghosh's NiPyPe, and Fernando's nitime talk.
+**What to say, precisely.** The printed abstract does *not* name the IPython
+notebook — its second half is IPython's then-new **ZeroMQ parallel-computing
+backend**. But per YOH, who was in the room: in the talk itself Fernando
+demoed what was released shortly after as the IPython notebook (IPython 0.12,
+December 2011), and NeuroDebian began packaging it soon after that.
 
-**One correction to carry into the slide:** the abstract does *not* mention the
-IPython notebook. Its second half is IPython's then-new **ZeroMQ-based parallel
-computing backend** — which is the architecture the notebook was built on, and
-the notebook shipped in IPython 0.12 four months later (Dec 2011). So the
-honest and sharper version of "small seeds grow big" is: *this* is the abstract,
-and it is about a messaging backend, mixed in with a time-series library. The
-notebook is not even named yet. Say that; do not claim the abstract announced
-the notebook.
+So the slide is stronger than the abstract, not weaker: the written record
+describes a messaging backend mixed in with a time-series library, four pages
+from our PyMVPA and NeuroDebian abstracts, and what was actually shown that
+day became Jupyter. Say both halves — the abstract on screen, the demo in the
+telling. Do not claim the abstract announced the notebook.
 
-The abstract also ends with `Nitime can be found at: http://nipy.org/nitime` —
-nitime lived *under nipy.org*. That is the direct line from §1 to this slide.
+The abstract also signs off `Nitime can be found at: http://nipy.org/nitime` —
+nitime lived under nipy.org, which is the line back to §2.
 
 **And the reason this lands at US-RSE specifically:** per the delivery notes
-above, our session is the first after the Plenary — **Fernando Pérez / Jupyter**.
-Showing his 2011 abstract, from a program we are also on, a few hours after he
-speaks, is the single best "small seeds" moment available in this deck. Keep it
-to one slide and do not labour it.
+above, our session is the first after the Plenary — **Fernando Pérez /
+Jupyter**. His 2011 abstract, from a program we are also on, a few hours after
+he speaks. One slide. Do not labour it.
 
-### 3. Photo
+### 5. Photo
 
-You offered to find one from the Paris workshop. If it exists it goes in the
-2009–2012 era next to the abstract slide, same treatment as the two DebConf
-photos (background image, `position:fixed` caption bar — note `position:absolute`
-does **not** work, the section is auto-height and vertically centred).
+YOH to look for one from the 2008 workshop. If it turns up it goes at the
+close of 2005–2008; a 2011 Paris one would go in 2009–2012 beside the abstract
+slide. Same treatment as the two DebConf photos: background image with a
+`position:fixed` caption bar — `position:absolute` does **not** work, because
+the section is auto-height and vertically centred, so the caption lands across
+the middle of the photograph.
 
 ### Still to verify
 
-- Whether Fernando Pérez, Gaël Varoquaux and Matthew Brett were all physically
-  present (the program committee list and author lists are confirmed; attendance
-  is not).
-- Exact first NiPy contribution dates for YOH and Hanke.
-- Whether nitime co-authors beyond "F Perez et al." should be named — the TOC
-  abbreviates and the abstract page itself carries no author block.
+- The 2008 workshop itself: date, location, attendees (§3).
+- First NiPy contribution dates for YOH and Hanke, for the records in §2.
+- When NeuroDebian first shipped the IPython notebook. The published
+  `ipython` changelog on metadata.ftp-master only reaches back to 2016 —
+  try snapshot.debian.org or the NeuroDebian repo history instead.
+- Whether Perez, Varoquaux and Brett were all physically present in 2011
+  (committee and author lists are confirmed; attendance is not).
+
+### Assets
+
+- `pics/debian-python-logo.png` — the snake-as-Debian-swirl, YOH's own
+  artwork, from <https://wiki.debian.org/Python>. Only a 300×371 PNG is
+  attached to the wiki page; **replace with the source SVG when YOH finds it**
+  (the other two Debian marks on that slide are SVG).
