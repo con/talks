@@ -1,0 +1,457 @@
+version = 1
+
+# ---------------------------------------------------------------------------
+# How this file is organised
+#
+# Blocks are evaluated in order and a LATER block WINS over an earlier one for
+# any path both of them match.  So the layout here is:
+#
+#   1. a catch-all for everything authored in this repository;
+#   1b. vendored upstream that the catch-all must not reach;
+#   2. the "we cannot determine this" markers for third-party material;
+#   3. narrowing blocks for material whose provenance IS known.
+#
+# Only the LAST matching block is consulted for a given file -- `precedence`
+# does not arbitrate between blocks, it only decides how a block combines with
+# copyright/licensing found INSIDE the file.  The catch-all uses "closest" so
+# an in-file SPDX header (as in 2026-nih-bids2.0/) wins outright; the markers
+# use "aggregate" so that if a borrowed file does carry a header, that
+# evidence is kept rather than discarded -- which matters most precisely where
+# we are admitting we do not know who owns something.
+#
+# KNOWN LIMITATION: `reuse lint` skips every symlink (REUSE spec 3.3 excludes
+# symlinks from "Covered Files").  282 of this repository's tracked files are
+# git-annex symlinks, so the linter verifies only about half the tree -- 300
+# files, of roughly 590 tracked.  The annotations below still describe the
+# annexed files correctly; they are simply not machine-checked here.  See
+# "Not everything here is ours" in README.md.
+# ---------------------------------------------------------------------------
+
+
+# === 1. Everything authored in this repository =============================
+
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+
+# === 1b. Vendored upstream, not authored here ==============================
+
+# These three are reveal.js 4.3.1 upstream verbatim -- package.json declares
+# "name": "reveal.js", "license": "MIT" and Hakim El Hattab as author.  The
+# catch-all above would otherwise assert our copyright and a ShareAlike grant
+# over somebody else's MIT code, which is the exact failure this file exists
+# to prevent.  reuse does not read package.json's own "license" field, so the
+# annotation has to be explicit.
+[[annotations]]
+path = ["package.json", "package-lock.json", "gulpfile.js"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Hakim El Hattab <hakim.elhattab@gmail.com> and reveal.js contributors"
+SPDX-License-Identifier = "MIT"
+
+# Our own code.  CC-BY-SA is a content license and Creative Commons advises
+# against using it for software, so the helper scripts and the CI workflows
+# carry Apache-2.0 instead of the repository-wide slide license.  In-file SPDX
+# headers still win over this (see precedence on the catch-all), which is how
+# 2026-nih-bids2.0/ keeps its MIT headers.
+[[annotations]]
+path = ["tools/**", ".github/**"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Git submodules.  The REUSE spec treats each submodule as a separate Project
+# and reuse-tool skips them, so these lines are never exercised by `reuse
+# lint` -- but REUSE.toml is also read by humans, and without this block the
+# catch-all above reads as a claim over ~2MB of third-party MIT code.
+# 2022-nih-compcore is our own talk subdataset and carries this repository's
+# terms.
+[[annotations]]
+path = [
+    "reveal.js",
+    "reveal.js/**",
+    "reveal.js-mermaid-plugin",
+    "reveal.js-mermaid-plugin/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Hakim El Hattab and reveal.js contributors; zjffun and reveal.js-mermaid-plugin contributors"
+SPDX-License-Identifier = "MIT"
+
+
+# === 2. Third-party material of undetermined provenance ====================
+
+# The "borrowed" tree and the cited PDFs: screenshots of web pages and
+# publications, figures, cartoons, photographs.  Not ours, provenance largely
+# unreconstructable.  See LICENSES/LicenseRef-ThirdPartyMixed.txt.
+[[annotations]]
+path = ["pics/borrowed/**", "3rd-party/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Portraits of CON team members, used on the "who we are" slides.  Copyright
+# rests with the respective individuals and photographers, not with this
+# repository.
+[[annotations]]
+path = "pics/con-whoweare/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Third-party material that lives in pics/ root rather than pics/borrowed/.
+# The "borrowed" convention was applied inconsistently over the years, and not
+# every one of these has "webshot" in its name, so they have to be listed
+# explicitly. Moving them would break the decks that reference them by path,
+# hence annotating in place.
+#
+# (a) Figures, tables and headers lifted from third-party publications.
+[[annotations]]
+path = [
+    "pics/2017-Clunie-31.png",
+    "pics/2017-Clunie-85.png",
+    "pics/2017-Clunie-87.png",
+    "pics/2017-Clunie-93.png",
+    "pics/2017-Clunie-95.png",
+    "pics/HPW+21_fig1.jpg",
+    "pics/data-repository-submissions.png",
+    "pics/datalad-decentralized.jpg",
+    "pics/f1000-webshot-20200930*.png",
+    "pics/hbm_nifti_2004-header.png",
+    "pics/uniform_analysis.svg",
+    "pics/w3cprov.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# (b) Screenshots and screen recordings of third-party web sites and apps.
+[[annotations]]
+path = [
+    "pics/bids-2.0-incf2024-webshottop.png",
+    "pics/bids-nipoppy.png",
+    "pics/bids-princeton.png",
+    "pics/google-rdm.png",
+    "pics/nemar-dataexplorer-20261006.png",
+    "pics/nemar-homepage-20261006.png",
+    "pics/neurosift-event-related-lfp-40hz-20261007.png",
+    "pics/neurosift-event-related-lfp-reward-20261007.png",
+    "pics/neurosift-event-related-motion-energy-20261007.png",
+    "pics/neurosift-spectrogram-lfp-20261008.webp",
+    "pics/neurosift-spectrogram-v-trace-20261008.webp",
+    "pics/nwb-guide-file-metadata-20261008.webp",
+    "pics/openneuro-studies-webshot_20260602.png",
+    "pics/stamped-principles-webshot_20260602.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# (c) Stock imagery, clipart, cartoons and photographs of people. Some carry
+# their origin in the filename (svgrepo.com, the openclipart author
+# "kattekrab"); for others the decks themselves say it -- 2022-nih-compcore
+# captions god-is-at-the-computer.jpg as "Unknown artist/origin, borrowed
+# from ...", which is this marker's case exactly.
+[[annotations]]
+path = [
+    "pics/MRI-scanner.png",
+    "pics/Ukrainian_Blue-Yellow_ribbon.svg",
+    "pics/big-bug-svgrepo-com.svg",
+    "pics/god-is-at-the-computer.jpg",
+    "pics/jeremy-magland.jpg",
+    "pics/kattekrab_Sitting_Buddha_Silhouette.svg",
+    "pics/magewell.jpg",
+    "pics/surface-depth-v2.jpg",
+    "pics/tall-burger.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+
+# === 3. Third-party logos and trademarks ===================================
+
+# Funder, institution and collaborating-project marks, reproduced for
+# nominative use on acknowledgement slides.  Each mark belongs to its
+# organisation.  See LICENSES/LicenseRef-ThirdPartyLogo.txt.
+[[annotations]]
+path = [
+    "pics/borrowed/LSA-Logo.png",
+    "pics/borrowed/bannerthanks.svg",
+    "pics/borrowed/binc.png",
+    "pics/borrowed/bmbf_2020.png",
+    "pics/borrowed/brainlife_logo.png",
+    "pics/borrowed/cbbs_logo.png",
+    "pics/borrowed/cbrain_logo.png",
+    "pics/borrowed/conp_logo.png",
+    "pics/borrowed/dandi_logo.svg",
+    "pics/borrowed/erdf.png",
+    "pics/borrowed/fzj_logo.svg",
+    "pics/borrowed/hbp_logo.png",
+    "pics/borrowed/nih.png",
+    "pics/borrowed/nsf1.jpg",
+    "pics/borrowed/nsf_2020.png",
+    "pics/borrowed/openneuro_logo.png",
+    "pics/borrowed/reproin-logo.jpg",
+    "pics/borrowed/repronim_logo.svg",
+    "pics/borrowed/vbc_logo.png",
+    # ... and the third-party project marks that ended up in pics/ root.
+    # The DataLad, NeuroDebian and DANDI marks are handled further down
+    # instead -- the first two are attributed to the people who actually drew
+    # them, the DANDI one joins this marker. Only the CON marks stay under the
+    # catch-all, being our own.
+    "pics/BIDS_Logo.png",
+    "pics/bids-logo-wide.png",
+    "pics/mastodon-icon.svg",
+    "pics/neuroconv-logo.png",
+    "pics/neurosift-logo.png",
+    "pics/nwb-guide-logo.png",
+    "pics/openneuro.svg",
+    "pics/repronim-logo-vertical.svg",
+    "pics/twitter.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+
+# === 4. Known provenance: adaptations of Michael Hanke's CC-BY material =====
+
+# Adapted from "Carrots! Not sticks!" by Michael Hanke,
+# <https://hedgedoc.psychoinformatics.de/edfuJiNaSNufM4trL8_HhA#/>.
+# No license is stated on that page; the author confirmed CC-BY for all of it
+# (Matrix, 2026-10).  "CC-BY" without a version is read here as the current
+# version at the time of use, i.e. 4.0 -- the same reading applied to the SfN
+# poster below, where Zenodo independently records cc-by-4.0.  CC-BY-4.0
+# permits adaptations under other terms, but the adaptations here deliberately
+# stay on the upstream license.
+[[annotations]]
+path = [
+    "pics/humancarrot_*.svg",
+    "pics/borrowed/human+carrot.png",
+    "pics/borrowed/human+carrot_black.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "Michael Hanke <michael.hanke@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# ReproNim containers / STAMPED artwork: mixed-copyright throughout. Michael
+# Hanke created the original YODA figure (without the containers layer) under
+# CC-BY; the containers and STAMPED layers, the svgtune recipe that drives
+# them, and the *_tuned/ layer variants it produces are built atop it here.
+# Both copyrights therefore apply across the whole set -- there is no clean
+# seam at which to split it.
+[[annotations]]
+path = [
+    "pics/repronim-containers-*",
+    "pics/repronim-containers-stamped.svg",
+    "pics/repronim-containers-stamped.svgtune",
+    "pics/repronim-containers-stamped_tuned/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "Michael Hanke <michael.hanke@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# The DataLad process figure and its svgtune-derived layer variants. Michael
+# Hanke's drawing: every one of these carries
+# inkscape:export-filename="/home/mih/psycho/talks/keynote_openscience_
+# marburg2018/pics/datalad_process.png", and its path data appears verbatim in
+# myyoda/poster's ohbm2018.svg. The svgtune recipe and the _tuned/ variants are
+# our derivative work on his base -- same arrangement as repronim-containers-*.
+[[annotations]]
+path = [
+    "pics/datalad_process.png",
+    "pics/datalad_process.svg",
+    "pics/datalad_process.svgtune",
+    "pics/datalad_process_tuned/**",
+    # sits beside the directory rather than in it, so the glob above misses it
+    "pics/datalad_process_tuned_00.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "Michael Hanke <michael.hanke@gmail.com>",
+    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# YODA principle artwork, derived from the YODA poster
+# <https://github.com/myyoda/poster> (ohbm2018.pdf), which declares
+# "2018 Michael Hanke <michael.hanke@gmail.com>, Kyle Meyer <kyle@kyleam.com>"
+# under CC-BY-4.0 in its own REUSE.toml.
+[[annotations]]
+path = [
+    "pics/yoda.svg",
+    "pics/yoda-layout.png",
+    "pics/yoda-principles.png",
+    "pics/yoda-principles-reordered.png",
+    "pics/yoda-principles-reordered.svg",
+    "pics/yoda-all-the-way-down.png",
+    "pics/yoda-do-not-look-up.png",
+    "pics/yoda-hierarchy-with-containers.png",
+    "pics/yoda-say-track.png",
+    "pics/yoda-say-track.svg",
+    "pics/stamped-yoda.svg",
+    "pics/principle-vcs.png",
+    "pics/principle-computeenv.png",
+    "pics/principle-structure.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2018 Michael Hanke <michael.hanke@gmail.com>",
+    "2018 Kyle Meyer <kyle@kyleam.com>",
+    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Figures and screenshots from the DataLad handbook
+# <https://handbook.datalad.org>, which is itself CC-BY-SA-4.0 -- the same
+# license this repository uses, so these fold in cleanly. README.md has always
+# said this repository's content is "based on the DataLad handbook"; this
+# records which files that actually refers to.
+[[annotations]]
+path = [
+    "pics/datalad-handbook-basics.svg",
+    "pics/datalad-handbook-enter.svg",
+    "pics/datalad-handbook-logo.svg",
+    "pics/datalad-handbook-repropaper.png",
+    "pics/datalad-handbook-usecases.svg",
+    "pics/datalad-handbook-yoda.png",
+    # Verified byte-identical (md5) to an upstream file, both repos being
+    # CC-BY-SA-4.0.  Note what this does and does not establish: it shows where
+    # our copy came from, not who originally drew it.  For the three circulating
+    # open-science animations in particular, the handbook may itself have
+    # borrowed them.  Recorded here so the next reader can re-check:
+    #   containers-run.svg          <- artwork/src/containers-run.svg
+    #   datalad-animated.gif        <- datalad-course/pics/datalad-animated.gif
+    #   decentral_RDM_overview.png  <- datalad-course/pics/
+    #   virtual_dirtree.png         <- artwork/src/img/virtual_dirtree.svg
+    #   openneuro2.gif              <- datalad-course/pics/openneuro2.gif
+    #   openscience.gif             <- datalad-course/pics/openscience.gif
+    #   shareresearch2.gif          <- datalad-course/pics/shareresearch2.gif
+    #   borrowed/versioncontrol.svg <- artwork/src/versioncontrol.svg
+    "pics/containers-run.svg",
+    "pics/datalad-animated.gif",
+    "pics/decentral_RDM_overview.png",
+    "pics/openneuro2.gif",
+    "pics/openscience.gif",
+    "pics/shareresearch2.gif",
+    "pics/virtual_dirtree.png",
+    "pics/borrowed/versioncontrol.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "The DataLad handbook contributors <https://github.com/datalad-handbook/book>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+
+# Project marks drawn by other people. The DataLad "D" and wordmark are Alex
+# Waite's (inkscape:export-filename="/home/aqw/git/datalad.org/new_logo7.7.png",
+# and datalad_D.svg / datalad_logo_wide.svg are byte-identical to the
+# CC-BY-SA-4.0 datalad-course copies); the NeuroDebian mark is Michael Hanke's
+# ("/home/michael/hacking/debneuro.png"). Ours as projects, but not ours as
+# drawings.
+[[annotations]]
+path = [
+    "pics/datalad_D.svg",
+    "pics/datalad_logo_posters_banner.svg",
+    "pics/datalad_logo_wide.gif",
+    "pics/datalad_logo_wide.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Alex Waite and the DataLad contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["pics/neurodebian_logo.svg", "pics/neurodebian_logo_web_banner.png"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Michael Hanke <michael.hanke@gmail.com>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# The DANDI mark, matching how pics/borrowed/dandi_logo.svg is already treated.
+[[annotations]]
+path = "pics/dandi-logo-square.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+# Our own compositions built on top of borrowed pieces: the digits-* set layers
+# the kattekrab Buddha silhouette and the svgrepo bug (both marked third-party
+# above) under our own elements; yarik-goal.svg and the con-ack-* figures embed
+# borrowed rasters and portraits. The composition is ours, the embedded pieces
+# are not, and the whole therefore cannot be offered under our terms alone.
+[[annotations]]
+path = [
+    "pics/con-ack-bmbf.png",
+    "pics/con-ack-bmbf.svg",
+    "pics/con-ack-joeybenetc-extended.svg",
+    "pics/digits-budda.svg",
+    "pics/digits-bug.svg",
+    "pics/digits-feedme.svg",
+    "pics/digits.svg",
+    "pics/yarik-goal.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu> (composition)",
+    "Undetermined third-party rights holders (embedded elements)",
+]
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+
+# === 5. Known provenance: decks co-authored with others ====================
+
+# Authored in Google Slides and presented jointly; see 2026-bbqs-stamped/README.md.
+[[annotations]]
+path = ["2026-bbqs-stamped.pdf", "2026-bbqs-stamped.pptx", "2026-bbqs-stamped/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2026 Cody Baker <cody.c.baker.phd@gmail.com>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+
+# === 6. Corrections to the blanket markers above ===========================
+# These blocks are LAST on purpose: they win over the pics/borrowed/** marker,
+# restoring provenance we actually do know.
+
+# The SfN 2025 standards poster: Zenodo 10.5281/zenodo.18333008, 34 authors led
+# by Oliver Ruebel, CC-BY-4.0. Not ours alone -- and not unknown either, so
+# neither the catch-all (for the repo-root copies) nor the borrowed marker (for
+# the two crops) was right.
+[[annotations]]
+path = [
+    "2025-sfn-poster-data-standards.jpg",
+    "2025-sfn-poster-data-standards.pdf",
+    "pics/borrowed/2025-sfn-poster-data-standards_preview.jpg",
+    "pics/borrowed/2025-sfn-poster-data-standards--archives.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "2025 Oliver Ruebel",
+    "2025 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+    "2025 The Neuro* standards Community <https://doi.org/10.5281/zenodo.18333008>",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Screenshots of our own sites and infrastructure that happen to sit in
+# pics/borrowed/. Their equivalents in pics/ root are under the catch-all, so
+# leaving these as "unknown" marked the same work two different ways and sent
+# reusers hunting for a rights holder that is us.
+[[annotations]]
+path = [
+    "pics/borrowed/bids-dandisets-dashboard-20261008.png",
+    "pics/borrowed/con-webshot-20150812-front-down.png",
+    "pics/borrowed/dandiarchive-stats-webshote-20261008.png",
+    "pics/borrowed/dandiarchive-webshote-20261008.png",
+    "pics/borrowed/dbic-QA-audiovideo-20261008.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

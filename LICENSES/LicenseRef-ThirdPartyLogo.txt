@@ -1,0 +1,30 @@
+Third-Party Logos and Trademarks
+================================
+
+This is NOT a license grant. It is a marker.
+
+Files annotated with `LicenseRef-ThirdPartyLogo` are logos, wordmarks,
+banners and other trademarks belonging to third-party organisations:
+funding agencies, institutions, collaborating projects and software
+projects.
+
+They are reproduced in the slides of this repository for nominative
+use only -- that is, to identify and credit the funders, institutions
+and projects being named on a given slide. This is the ordinary
+practice of acknowledgement slides in academic presentations.
+
+For these files:
+
+  * Each mark remains the property of its respective organisation.
+
+  * They are NOT licensed under this repository's CC-BY-SA-4.0 terms,
+    and no endorsement by the organisation depicted is implied.
+
+  * Trademark rights are separate from, and are not waived by, any
+    copyright license. Even where the underlying image file might be
+    freely licensed, use of the mark remains governed by the owner's
+    trademark policy.
+
+  * If you reuse slides from this repository, keep these marks only
+    where they are still accurate acknowledgements, and consult the
+    owner's brand/trademark guidelines before any other use.
