@@ -84,9 +84,10 @@ BANDS = [
         # Its Open Use logo (the swirl without the word) is explicitly free
         # for anyone, unlike the Official Use one.
         ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46),
-        # The blend has no mark of its own -- blends.debian.org/med uses the
-        # same swirl -- so it appears as text rather than a second swirl.
-        ("Debian Med", "2020-02-24", None, 0),
+        # debianmed-mh.svg from people.debian.org/~tille/debian-med/logos/ --
+        # the caduceus-in-a-swirl mark, scalable, unlike the med-06.jpg
+        # wordmark.  blends.debian.org itself just reuses the Debian swirl.
+        ("Debian Med", "2020-02-24", "pics/borrowed/debian-med-logo.svg", 46),
         ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33),
         ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33),
         ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33),
