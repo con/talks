@@ -429,3 +429,98 @@ All are single-concept; most are text-only or one-logo. No new images required e
   joke, don't add words.
 - **Closing:** say the closing line slowly. Stop. Let the Yoda SVG sit. Do not move to the
   thank-you slide until the line has landed.
+
+---
+
+## TODO — NiPy: our entry into the community (2005–2008, paying off in 2009–2012)
+
+**Status:** not started. Raised 2026-10-11.
+
+The 2005–2008 era currently ends on PyMVPA and its test suite. What actually
+closed that era is missing: **NiPy was our entry into the community.** Before
+NiPy we were two people packaging for ourselves; after it we were in a room
+with the people who became nibabel, nipype, nitime, dipy and scikit-learn.
+That is the first time the "community" thread in this talk has anything to
+point at, and right now the deck does not mention NiPy once (`grep -ci nipy`
+on the deck returns 0).
+
+### 1. Add NiPy as a project we collaborated on
+
+`con-site-specific` already has `XYZProject/nipy.yaml`, `nitime.yaml`,
+`nibabel.yaml` and `nipype.yaml` — but `nipy.yaml` and `nitime.yaml` are bare
+stubs with **no `associated_with` and no `started`**, so they cannot surface in
+the era acknowledgements at all. Needs:
+
+- contributor associations (`marcrel:ctb`) for YOH and Hanke on `nipy`, with
+  dates researched the way the Debian ones were (first commits / first ML
+  posts, not guessed);
+- then a band entry in `tools/mk_ack_eras.py` so NiPy appears in the
+  "Large communities we take part in" band from the 2005–2008 fragment onward.
+
+Framing to get right: the `nipy` **package** is effectively RIP, and we were
+contributors, not leads. The point is not the package. The point is that the
+*community* around it is still running everything — so this is the slide where
+"a project ending is not the thing ending" gets stated for the first time,
+and it rhymes with the Debian handover slide two eras later.
+
+### 2. The EuroSciPy 2011 slide — "small seeds grow big"
+
+Your memory of a NiPy-ish workshop in Paris with Fernando, Gaël and Matthew
+Brett, and of EuroSciPy 2011, are **the same event**, not two:
+
+> **Python in Neuroscience**, satellite to EuroSciPy 2011
+> Paris, École Normale Supérieure, **29–30 August 2011**
+> (main EuroSciPy was 25–28 Aug, same venue)
+> Program committee included **Gaël Varoquaux** (INSERM U992, Saclay),
+> Bertrand Thirion, Romain Brette, Eilif Müller, Raphaël Ritz,
+> Laurent Perrinet, Andrew Davison.
+
+Book of abstracts (39 pp, authoritative):
+<https://pythonneuro.sciencesconf.org/conference/pythonneuro/boa_en.pdf>
+
+The table of contents is the slide. No commentary needed:
+
+| Page | Abstract                                                                              | Authors                        |
+| ---- | ------------------------------------------------------------------------------------- | ------------------------------ |
+| 13   | NiBabel: Conductor for a cacophony of neuro-imaging file formats                      | M. Brett, S. Gerhard, M. Hanke |
+| 18   | The virtues and sins of PyMVPA                                                        | **Y. O. Halchenko**, M. Hanke  |
+| 21   | More than batteries included: NeuroDebian                                             | M. Hanke, **Y. O. Halchenko**  |
+| 22   | NiPyPe: a flexible, lightweight and extensible neuroimaging data processing framework | S. Ghosh et al.                |
+| 25   | Nitime and IPython: tools for time-series analysis and high-level parallel computing  | F. Perez et al.                |
+
+Four lines apart on one program: Brett's file-format conductor, our PyMVPA,
+our NeuroDebian, Ghosh's NiPyPe, and Fernando's nitime talk.
+
+**One correction to carry into the slide:** the abstract does *not* mention the
+IPython notebook. Its second half is IPython's then-new **ZeroMQ-based parallel
+computing backend** — which is the architecture the notebook was built on, and
+the notebook shipped in IPython 0.12 four months later (Dec 2011). So the
+honest and sharper version of "small seeds grow big" is: *this* is the abstract,
+and it is about a messaging backend, mixed in with a time-series library. The
+notebook is not even named yet. Say that; do not claim the abstract announced
+the notebook.
+
+The abstract also ends with `Nitime can be found at: http://nipy.org/nitime` —
+nitime lived *under nipy.org*. That is the direct line from §1 to this slide.
+
+**And the reason this lands at US-RSE specifically:** per the delivery notes
+above, our session is the first after the Plenary — **Fernando Pérez / Jupyter**.
+Showing his 2011 abstract, from a program we are also on, a few hours after he
+speaks, is the single best "small seeds" moment available in this deck. Keep it
+to one slide and do not labour it.
+
+### 3. Photo
+
+You offered to find one from the Paris workshop. If it exists it goes in the
+2009–2012 era next to the abstract slide, same treatment as the two DebConf
+photos (background image, `position:fixed` caption bar — note `position:absolute`
+does **not** work, the section is auto-height and vertically centred).
+
+### Still to verify
+
+- Whether Fernando Pérez, Gaël Varoquaux and Matthew Brett were all physically
+  present (the program committee list and author lists are confirmed; attendance
+  is not).
+- Exact first NiPy contribution dates for YOH and Hanke.
+- Whether nitime co-authors beyond "F Perez et al." should be named — the TOC
+  abbreviates and the abstract page itself carries no author block.
