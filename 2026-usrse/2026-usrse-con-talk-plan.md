@@ -550,36 +550,50 @@ above, our session is the first after the Plenary — **Fernando Pérez /
 Jupyter**. His 2011 abstract, from a program we are also on, a few hours after
 he speaks. One slide. Do not labour it.
 
-### 5. Decomposition as a named move — and what it costs
+### 5. (DE)COMPOSE — the move, its cost, and why AI makes it urgent
 
-Raised by YOH 2026-10-11, and it is a through-line the deck is currently
-telling four times without ever naming.
+Raised by YOH 2026-10-11 and refined the same day. A through-line the deck
+tells four times without ever naming.
 
-**The move:** splitting a larger project into smaller ones is itself the
-step that buys agile development and reuse. It is the face of COMPOSE nobody
-says out loud — you can only compose from small modules because somebody
-decomposed them first. The deck has a COMPOSE slide (16/10, *"small modules,
-common substrate / Sandwich, don't silo"*) that presents the modules as if
-they were simply found that way. They were not; each one is a split.
+**The move:** splitting a larger project into smaller ones is itself the step
+that buys agile development and reuse. It is the face of COMPOSE nobody says
+out loud — you can only compose from small modules because somebody
+decomposed them first. Slide 16/10 (*"small modules, common substrate"*)
+presents the modules as if they were found that way. They were not.
 
-| When  | Split                       | Into                                                                    | In deck?             |
-| ----- | --------------------------- | ----------------------------------------------------------------------- | -------------------- |
-| 2007  | PyNIfTI                     | nibabel                                                                 | no — §1, to build    |
-| 2009  | nipy                        | nibabel · nipype · nitime                                               | no — §1/§2, to build |
-| 2015– | datalad                     | datalad-{crawler,container,neuroimaging,osf,fuse,xnat,ukbiobank,next,…} | yes — 17/2           |
-| 2020  | NeuroDebian (2 people)      | Debian Med · Debian Science · Debian Python Team                        | yes — 16/14          |
-| 2024  | ReproMan + brainlife `smon` | con/duct                                                                | yes — 18/7           |
+**Done:** the in-era word slide 16/11 now reads **(DE)COMPOSE**, the "(DE)"
+in a lighter tint. The Act I verb slide stays plain COMPOSE on purpose —
+introduce the five words cleanly, reveal the hidden half once the content
+has earned it.
 
-The 2020 row is the interesting one: that is the same move applied to
-**people** rather than code, and the slide for it already exists and already
-argues it ("a handover upwards" — small team, wide scope → big teams, each
-narrower). Worth saying explicitly when that slide is delivered, because it
-makes decomposition a social technique as well as an architectural one.
+**The core survives the split.** This is the part that makes it a technique
+rather than an obituary, and it must be said explicitly on each instance:
 
-**The cost, which the deck already has a slide for.** N packages means N
-harnesses: N repos, N CI configs, N release processes, N doc builds, N
-packaging recipes, and cross-version compatibility testing between them that
-did not exist when it was one tree. Slide 19/17 already lands exactly this —
+| When  | Core        | Extracted                                                     | The core afterwards                          | In deck?    |
+| ----- | ----------- | ------------------------------------------------------------- | -------------------------------------------- | ----------- |
+| 2009  | nipy        | nibabel · nipype · nitime                                     | **still there** — the fMRI analysis package  | no — §1/§2  |
+| 2015– | datalad     | datalad-{crawler,container,neuroimaging,osf,fuse,xnat,next,…} | **still there** — the domain-agnostic core   | yes — 17/2  |
+| 2020  | NeuroDebian | Debian Med · Debian Science · Debian Python Team              | **still there** — the repo and the backports | yes — 16/14 |
+| 2024  | ReproMan    | con/duct (with brainlife `smon`)                              | the exception — ReproMan did not carry on    | yes — 18/7  |
+
+PyNIfTI → nibabel is deliberately *not* a row here: that one is absorption,
+not extraction, and it belongs in §1 as the root-commit fact.
+
+ReproMan is the honest exception and should be presented as one — it is
+already framed that way in its slide notes ("the one that did not take off;
+the question it asked outlived it"). Four cases, three where the parent is
+still shipping: that is a pattern, not a rule, and saying so is more
+convincing than pretending it is a rule.
+
+The 2020 row is the one worth pausing on: the same move applied to **people**
+rather than code, and that slide already argues it in those terms ("a
+handover upwards"). Decomposition is a social technique as well as an
+architectural one.
+
+**The cost — the deck has the slide, missing the cause.** N packages means N
+repos, N CI configs, N release processes, N doc builds, N packaging recipes,
+plus cross-version testing between them that did not exist when it was one
+tree. Slide 19/17 lands exactly that burden —
 
 > *"Each automation is itself code — CI YAML, hooks, nightly cron, deploy
 > scripts, glue. Someone maintains that. By 2024 the harness was bigger than
@@ -587,32 +601,42 @@ did not exist when it was one tree. Slide 19/17 already lands exactly this —
 > dragged toward AI assistance — not for the science, but for the
 > maintenance of the meta-layer."*
 
-— but it presents the harness burden as if it arrived from nowhere.
-**Decomposition is where it comes from.** One added clause on 19/17 closes
-the loop, and the payoff slide (19/18, `con/skills` + `con/yolo`, *"we
-automate the harness itself"*) is already in place as the answer. So is
-`/introduce-reuse-compliance` at 16/8, which is the same answer at the
+— but presents it as if it arrived from nowhere. **Decomposition is where it
+comes from.** One added clause closes the loop; the payoff slide after it
+(19/18, `con/skills` + `con/yolo`, *"we automate the harness itself"*) is
+already the answer, as is `/introduce-reuse-compliance` at 16/8 at the
 per-repo scale.
 
-**Why this matters for a US-RSE audience specifically:** the room has lived
-the split-into-packages decision and the monorepo-vs-many-repos argument. The
-honest version — *decompose for reuse, pay for it in scaffolding, and let AI
-carry the scaffolding* — is a concrete, non-hype claim about where AI
-actually earns its place in an RSE group. It is the same argument as the
-whole talk, at the scale of a build system.
+**Why this is urgent now, and not just good hygiene.** AI can produce very
+large codebases very fast, and what it does not produce is **clean working
+surfaces**. Module boundaries are the surfaces both humans and agents work
+against: they are what makes a change local, a test meaningful, a reuse
+possible. A monolithic ad-hoc beast is less robust to maintain and extend
+*whether or not* the next contributor is an AI — and agents make the beast
+faster to grow, so the boundary problem arrives sooner and larger.
+
+So the claim for this room: **decompose into small modules and reuse what
+exists, rather than generating another monolith. Pay for it in scaffolding.
+Let AI carry the scaffolding.** That is the whole talk's argument at the
+scale of a build system, delivered to an audience that has personally had
+the monorepo-versus-many-repos fight.
+
+Placement: this extends two beats already in the deck — slide 2 ("AI tends to
+produce silos") and 18/4 ("AI generates glue. Nobody owns the glue."). The
+new idea is that a *silo* and a *monolith* are the same failure seen from
+outside and inside. One beat, in the 2021–2024 or 2025– era where the AI
+material lives, not in 2009–2012.
 
 **To do:**
 
-- Name the move once, at the close of 2005–2008, right after the nibabel
-  root-commit slide (§1) — that is its first instance and the strongest one.
-- Call back in one word at 17/2 (datalad extensions) and 18/7 (con/duct);
-  both slides exist and need no new content, just the word.
+- Name the move at the close of 2005–2008, after the nibabel root-commit
+  slide (§1) — first instance, strongest one.
+- Add "and the core is still there" to 17/2 and 16/14; one clause each.
 - Add the causal clause to 19/17 so the harness burden traces to the splits.
-- Decide whether it gets its own verb word-slide in the deck's visual grammar
-  (REUSE / COMPOSE / EXTEND / STANDARDIZE / AUTOMATE are the five). Leaning
-  **no** — a sixth word dilutes an anchor phrase the whole talk is built on.
-  Better as the second half of COMPOSE: *"compose from small modules — which
-  means somebody has to split them first."*
+- Write the AI beat above as one or two slides in the late eras.
+- Do **not** add a sixth verb word-slide. REUSE / COMPOSE / EXTEND /
+  STANDARDIZE / AUTOMATE is an anchor phrase the whole talk is built on.
+  (DE)COMPOSE is a reveal inside COMPOSE, not a new word.
 
 ### 6. Photo
 
