@@ -21,15 +21,23 @@ nothing here needs.  Both were checked under Chromium before choosing.
 Each fragment is self-styled, because reveal's CSS does not cross the iframe
 boundary.
 
-People are drawn from the site-root project's associations in
-con-site-specific, which carry `started` (and `ended`) dates derived from
-the website's own git history.  A person belongs to an era when their
-association began at or before that era's end:
+Each fragment keeps the SECTION STRUCTURE of the full acknowledgements
+slide -- Centroids, Collaborators, Affiliated Faculty, Emeritus, the two
+project bands, and Funders and in-kind support -- and shows a section
+heading only once something is listed under it.  So the slide does not just
+accumulate faces, it grows the shape of the final slide.
+
+People move between sections as the talk advances.  Someone who has left is
+not dimmed in place: they appear under **Emeritus**, which is where they are
+today.  While they were still staff they appear under Centroids, because all
+fourteen of the current Emeritus carry `marcrel:swd` (software developer) on
+their CON association -- the tier recorded in the store is today's, and the
+role is what says what they were at the time.
 
     new      joined within this era      -- highlighted
     present  joined earlier, still here  -- normal
-    past     association already ended   -- dimmed
-    unseen   has not joined yet          -- omitted
+    (left)   association ended           -- moved to the Emeritus section
+    unseen   has not joined yet          -- omitted entirely
 """
 import argparse
 import html
@@ -59,14 +67,62 @@ ERAS = [
     ("2026", "2025–", "STAMPED · ORINOCO-Lite"),
 ]
 
+# Project logos, with the date each project enters the story.  Dates are the
+# project `started` in the record store; the band is the one the
+# acknowledgements selection puts it in.
+BANDS = [
+    ("Worked on directly", [
+        ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42),
+        ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58),
+        ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49),
+        ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58),
+        ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42),
+        ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30),
+    ]),
+    ("Large communities we take part in", [
+        ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33),
+        ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33),
+        ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33),
+    ]),
+]
+
+# Funders and in-kind support, with when each first supported the work.
+#
+# The award dates are the funders' own, from NIH RePORTER and the NSF award
+# API: NSF 1429999 starts 2014-09-01 and NIH's first money is ReproNim/CRNC
+# on 2016-04-15.  That ordering is the point -- NSF funded DataLad years
+# before NIH funded anything here, and NeuroDebian was never NIH-funded at
+# all.
+#
+# The institutional rows are EDITORIAL, not sourced: Dartmouth, PBS, CCN and
+# DBIC have supported the work in kind for longer than CON has existed, and
+# 2015-07 is simply when the Center they host was founded.  INCF's backing
+# for the NIDM and BIDS grassroots work has no date in the store either.
+FUNDERS = [
+    ("Dartmouth College", "2015-07-01", "pics/dartmouth-logo.svg", 62),
+    ("PBS", "2015-07-01", "pics/borrowed/pbs-mark.svg", 60),
+    ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46),
+    ("DBIC", "2015-07-01", "pics/borrowed/dbic-logo.png", 42),
+    ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62),
+    ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62),
+    ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30),
+    ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44),
+]
+
 CSS = """
 /* The slide carries the era title, so the fragment does not repeat it --
    it only draws the grid, centred, filling the width it is given. */
 html,body{margin:0;padding:0;background:transparent;height:100%;
   font-family:'Source Sans Pro',Helvetica,sans-serif;color:#333;}
 body{display:flex;flex-direction:column;justify-content:center;}
+.sec{margin:0 0 10px 0;}
+.lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;opacity:.6;margin:0 0 3px 0;text-align:center;}
 .grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
-  gap:6px 12px;}
+  gap:4px 10px;}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:0 22px;}
+.logos img{display:block;}
 .p{width:92px;text-align:center;text-decoration:none;color:inherit;
   transition:opacity .4s ease;}
 .p img{width:62px;height:62px;border-radius:50%;object-fit:cover;
@@ -75,7 +131,7 @@ body{display:flex;flex-direction:column;justify-content:center;}
 .new img{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.18);}
 .new span{font-weight:700;color:#c0392b;}
 .present{opacity:1;}
-.past{opacity:.3;filter:grayscale(80%);}
+.past{opacity:.45;filter:grayscale(70%);}
 .count{font-size:13px;color:#777;margin-top:14px;text-align:center;}
 """
 
@@ -110,7 +166,7 @@ def load():
         d = yaml.safe_load(f.read_text())
         people[d["pid"]] = (f.stem, d)
 
-    earliest, ended, via = {}, {}, {}
+    earliest, ended, via, isdev = {}, {}, {}, {}
     for f in sorted((R / "XYZProject").glob("*.yaml")):
         proj = yaml.safe_load(f.read_text())
         for a in (proj.get("associated_with") or []):
@@ -122,6 +178,11 @@ def load():
                 earliest[pid] = st
                 via[pid] = f.stem
             if f.stem == "site-root":
+                # marcrel:swd on the CON association says they were staff,
+                # which is what decides where a current-Emeritus person sits
+                # while they were still active
+                if "marcrel:swd" in (a.get("roles") or []):
+                    isdev[pid] = True
                 if not st:
                     # Deliberately undated on the site root: the founding
                     # director predates the website, so his association has
@@ -148,6 +209,7 @@ def load():
             "started": earliest.get(pid),
             "ended": ended.get(pid),
             "via": via.get(pid),
+            "swd": isdev.get(pid, False),
         })
     return rows
 
@@ -170,44 +232,84 @@ def portraits_from_deck():
 
 
 def fragment(rows, era_end, era_start, label, sub, pics):
-    shown = []
+    """One era's slide: the full slide's sections, with only what exists yet.
+
+    A section heading appears the moment something is listed under it and not
+    before, so the shape of the final acknowledgements slide assembles over
+    the talk rather than arriving all at once.
+    """
+    # Which section is each person in, as of this era?
+    sections = {"Centroids": [], "Collaborators": [],
+                "Affiliated Faculty": [], "Emeritus": []}
+    n_new = 0
     for r in rows:
         st = r["started"]
         if st is None or st > era_end:
-            continue                      # not yet part of the story
+            continue                       # not yet part of the story
         if r["ended"] and r["ended"] <= era_end:
-            cls = "past"
-        elif st >= era_start:
-            cls = "new"
+            sec, cls = "Emeritus", "past"
         else:
-            cls = "present"
-        shown.append((cls, r))
-    # Stable chronological order, NOT grouped by state.  Grouping the new
-    # arrivals first made every face jump position between eras, which
-    # destroys the build-up: the point is that the grid GROWS and the eye
-    # can see where.  Sorted by when each person joined, each era appends.
-    shown.sort(key=lambda x: (x[1]["started"] or "", x[1]["name"]))
+            tier = r["tier"]
+            # The store records TODAY's tier.  Everyone currently Emeritus
+            # carries marcrel:swd on their CON association, i.e. they were
+            # staff -- so while still active they belong under Centroids.
+            if tier == "Emeritus":
+                tier = "Centroids" if r["swd"] else "Collaborators"
+            sec = tier if tier in sections else "Collaborators"
+            cls = "new" if st >= era_start else "present"
+        if cls == "new":
+            n_new += 1
+        sections[sec].append((cls, r))
+    for v in sections.values():
+        v.sort(key=lambda x: (x[1]["started"] or "", x[1]["name"]))
 
     out = ['<!DOCTYPE html><html><head><meta charset="utf-8">',
-           f'<style>{CSS}</style></head><body>',
-           '<div class="grid">']
-    for cls, r in shown:
-        pic = pics.get(r["name"])
-        img = (f'<img src="{pic}" alt="{html.escape(r["name"])}"/>' if pic
-               else '<img alt=""/>')
-        out.append(
-            f'<a class="p {cls}" target="_blank" '
-            f'href="https://centerforopenneuroscience.org/whoweare" '
-            f'title="{html.escape(r["name"])}'
-            f'{" — joined " + r["started"] if r["started"] else ""}">'
-            f'{img}<span>{html.escape(r["name"])}</span></a>')
-    n_new = sum(1 for c, _ in shown if c == "new")
-    out.append('</div>')
-    out.append(f'<p class="count">{len(shown)} '
-               f'{"person" if len(shown) == 1 else "people"}'
-               f'{f" &middot; {n_new} new in this era" if n_new else ""}</p>')
+           f'<style>{CSS}</style></head><body>']
+    shown_total = 0
+    for sec in ("Centroids", "Collaborators", "Affiliated Faculty", "Emeritus"):
+        group = sections[sec]
+        if not group:
+            continue                       # heading stays hidden until filled
+        shown_total += len(group)
+        out.append('<div class="sec">')
+        out.append(f'<span class="lbl">{html.escape(sec)}</span>')
+        out.append('<div class="grid">')
+        for cls, r in group:
+            pic = pics.get(r["name"])
+            img = (f'<img src="{pic}" alt="{html.escape(r["name"])}"/>' if pic
+                   else '<img alt=""/>')
+            since = f' \u2014 since {r["started"]}' if r["started"] != "0000" else ""
+            out.append(
+                f'<a class="p {cls}" target="_blank" '
+                f'href="https://centerforopenneuroscience.org/whoweare" '
+                f'title="{html.escape(r["name"])}{since}">'
+                f'{img}<span>{html.escape(r["name"])}</span></a>')
+        out.append('</div></div>')
+
+    for band_label, items in BANDS:
+        live = [x for x in items if x[1] <= era_end]
+        if not live:
+            continue
+        out.append('<div class="sec">')
+        out.append(f'<span class="lbl">{html.escape(band_label)}</span>')
+        out.append('<div class="logos">')
+        for name, since, src, h in live:
+            out.append(f'<img src="../{src}" alt="{html.escape(name)}" '
+                       f'title="{html.escape(name)}" style="height:{h}px"/>')
+        out.append('</div></div>')
+
+    live_f = [x for x in FUNDERS if x[1] <= era_end]
+    if live_f:
+        out.append('<div class="sec">')
+        out.append('<span class="lbl">Funders and in-kind support</span>')
+        out.append('<div class="logos">')
+        for name, since, src, h in live_f:
+            out.append(f'<img src="../{src}" alt="{html.escape(name)}" '
+                       f'title="{html.escape(name)}" style="height:{h}px"/>')
+        out.append('</div></div>')
+
     out.append('</body></html>')
-    return "\n".join(out), len(shown), n_new
+    return "\n".join(out), shown_total, n_new
 
 
 def main():

@@ -5,8 +5,14 @@
 html,body{margin:0;padding:0;background:transparent;height:100%;
   font-family:'Source Sans Pro',Helvetica,sans-serif;color:#333;}
 body{display:flex;flex-direction:column;justify-content:center;}
+.sec{margin:0 0 10px 0;}
+.lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;opacity:.6;margin:0 0 3px 0;text-align:center;}
 .grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
-  gap:6px 12px;}
+  gap:4px 10px;}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:0 22px;}
+.logos img{display:block;}
 .p{width:92px;text-align:center;text-decoration:none;color:inherit;
   transition:opacity .4s ease;}
 .p img{width:62px;height:62px;border-radius:50%;object-fit:cover;
@@ -15,20 +21,57 @@ body{display:flex;flex-direction:column;justify-content:center;}
 .new img{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.18);}
 .new span{font-weight:700;color:#c0392b;}
 .present{opacity:1;}
-.past{opacity:.3;filter:grayscale(80%);}
+.past{opacity:.45;filter:grayscale(70%);}
 .count{font-size:13px;color:#777;margin-top:14px;text-align:center;}
 </style></head><body>
+<div class="sec">
+<span class="lbl">Centroids</span>
 <div class="grid">
-<a class="p present" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Yaroslav O. Halchenko — joined 0000"><img src="../pics/con-whoweare/yarik.jpg" alt="Yaroslav O. Halchenko"/><span>Yaroslav O. Halchenko</span></a>
-<a class="p present" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Michael Hanke — joined 2007-05-24"><img src="../pics/con-whoweare/michael.jpg" alt="Michael Hanke"/><span>Michael Hanke</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="James V. Haxby — joined 2015-07-22"><img src="../pics/con-whoweare/jim.jpg" alt="James V. Haxby"/><span>James V. Haxby</span></a>
-<a class="p past" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Jason Gors — joined 2015-07-22"><img src="../pics/con-whoweare/jason.jpg" alt="Jason Gors"/><span>Jason Gors</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Joey Hess — joined 2015-07-22"><img src="../pics/con-whoweare/joey.jpg" alt="Joey Hess"/><span>Joey Hess</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Matteo Visconti di Oleggio Castello — joined 2015-07-22"><img src="../pics/con-whoweare/matteo.jpg" alt="Matteo Visconti di Oleggio Castello"/><span>Matteo Visconti di Oleggio Castello</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Matthew Brett — joined 2015-07-22"><img src="../pics/con-whoweare/matthew.jpg" alt="Matthew Brett"/><span>Matthew Brett</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Samuel Nastase — joined 2015-07-22"><img src="../pics/con-whoweare/sam.jpg" alt="Samuel Nastase"/><span>Samuel Nastase</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Nikolaas N. Oosterhof — joined 2015-08-17"><img src="../pics/con-whoweare/nick.jpg" alt="Nikolaas N. Oosterhof"/><span>Nikolaas N. Oosterhof</span></a>
-<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Benjamin Poldrack — joined 2015-10-06"><img src="../pics/con-whoweare/ben.jpg" alt="Benjamin Poldrack"/><span>Benjamin Poldrack</span></a>
-</div>
-<p class="count">10 people &middot; 7 new in this era</p>
+<a class="p present" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Yaroslav O. Halchenko"><img src="../pics/con-whoweare/yarik.jpg" alt="Yaroslav O. Halchenko"/><span>Yaroslav O. Halchenko</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Matteo Visconti di Oleggio Castello — since 2015-07-22"><img src="../pics/con-whoweare/matteo.jpg" alt="Matteo Visconti di Oleggio Castello"/><span>Matteo Visconti di Oleggio Castello</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Matthew Brett — since 2015-07-22"><img src="../pics/con-whoweare/matthew.jpg" alt="Matthew Brett"/><span>Matthew Brett</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Samuel Nastase — since 2015-07-22"><img src="../pics/con-whoweare/sam.jpg" alt="Samuel Nastase"/><span>Samuel Nastase</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Nikolaas N. Oosterhof — since 2015-08-17"><img src="../pics/con-whoweare/nick.jpg" alt="Nikolaas N. Oosterhof"/><span>Nikolaas N. Oosterhof</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Benjamin Poldrack — since 2015-10-06"><img src="../pics/con-whoweare/ben.jpg" alt="Benjamin Poldrack"/><span>Benjamin Poldrack</span></a>
+</div></div>
+<div class="sec">
+<span class="lbl">Collaborators</span>
+<div class="grid">
+<a class="p present" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Michael Hanke — since 2007-05-24"><img src="../pics/con-whoweare/michael.jpg" alt="Michael Hanke"/><span>Michael Hanke</span></a>
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Joey Hess — since 2015-07-22"><img src="../pics/con-whoweare/joey.jpg" alt="Joey Hess"/><span>Joey Hess</span></a>
+</div></div>
+<div class="sec">
+<span class="lbl">Affiliated Faculty</span>
+<div class="grid">
+<a class="p new" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="James V. Haxby — since 2015-07-22"><img src="../pics/con-whoweare/jim.jpg" alt="James V. Haxby"/><span>James V. Haxby</span></a>
+</div></div>
+<div class="sec">
+<span class="lbl">Emeritus</span>
+<div class="grid">
+<a class="p past" target="_blank" href="https://centerforopenneuroscience.org/whoweare" title="Jason Gors — since 2015-07-22"><img src="../pics/con-whoweare/jason.jpg" alt="Jason Gors"/><span>Jason Gors</span></a>
+</div></div>
+<div class="sec">
+<span class="lbl">Worked on directly</span>
+<div class="logos">
+<img src="../pics/con-projects/datalad_logo.png" alt="DataLad" title="DataLad" style="height:42px"/>
+<img src="../pics/con-projects/repronim_logo.svg" alt="ReproNim" title="ReproNim" style="height:58px"/>
+<img src="../pics/bids-logo-wide.png" alt="BIDS" title="BIDS" style="height:42px"/>
+</div></div>
+<div class="sec">
+<span class="lbl">Large communities we take part in</span>
+<div class="logos">
+<img src="../pics/con-projects/scikit-learn_logo.png" alt="scikit-learn" title="scikit-learn" style="height:33px"/>
+<img src="../pics/con-projects/psychopy_logo.png" alt="PsychoPy" title="PsychoPy" style="height:33px"/>
+</div></div>
+<div class="sec">
+<span class="lbl">Funders and in-kind support</span>
+<div class="logos">
+<img src="../pics/dartmouth-logo.svg" alt="Dartmouth College" title="Dartmouth College" style="height:62px"/>
+<img src="../pics/borrowed/pbs-mark.svg" alt="PBS" title="PBS" style="height:60px"/>
+<img src="../pics/ccn-logo.svg" alt="CCN" title="CCN" style="height:46px"/>
+<img src="../pics/borrowed/dbic-logo.png" alt="DBIC" title="DBIC" style="height:42px"/>
+<img src="../pics/borrowed/nsf1.jpg" alt="NSF" title="NSF" style="height:62px"/>
+<img src="../pics/borrowed/nih.png" alt="NIH" title="NIH" style="height:62px"/>
+<img src="../pics/borrowed/incf-mark.png" alt="INCF" title="INCF" style="height:30px"/>
+</div></div>
 </body></html>
