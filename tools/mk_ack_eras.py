@@ -80,6 +80,13 @@ BANDS = [
         ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30),
     ]),
     ("Large communities we take part in", [
+        # Debian is where the practice was learned and is still packaged into.
+        # Its Open Use logo (the swirl without the word) is explicitly free
+        # for anyone, unlike the Official Use one.
+        ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46),
+        # The blend has no mark of its own -- blends.debian.org/med uses the
+        # same swirl -- so it appears as text rather than a second swirl.
+        ("Debian Med", "2020-02-24", None, 0),
         ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33),
         ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33),
         ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33),
@@ -123,6 +130,8 @@ body{display:flex;flex-direction:column;justify-content:center;}
 .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
   gap:0 22px;}
 .logos img{display:block;}
+.chip{display:inline-block;font-size:15px;font-weight:600;color:#555;
+  border:1px solid #cfc6b8;border-radius:4px;padding:4px 10px;}
 .p{width:92px;text-align:center;text-decoration:none;color:inherit;
   transition:opacity .4s ease;}
 .p img{width:62px;height:62px;border-radius:50%;object-fit:cover;
@@ -231,6 +240,14 @@ def portraits_from_deck():
             re.findall(r'data-src="(pics/con-whoweare/[^"]+)" alt="([^"]+)"', deck)}
 
 
+def logo_or_text(name, src, h):
+    """A band entry.  Not everything has a mark -- Debian Med uses Debian's."""
+    if src:
+        return (f'<img src="../{src}" alt="{html.escape(name)}" '
+                f'title="{html.escape(name)}" style="height:{h}px"/>')
+    return f'<span class="chip" title="{html.escape(name)}">{html.escape(name)}</span>'
+
+
 def fragment(rows, era_end, era_start, label, sub, pics):
     """One era's slide: the full slide's sections, with only what exists yet.
 
@@ -294,8 +311,7 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append(f'<span class="lbl">{html.escape(band_label)}</span>')
         out.append('<div class="logos">')
         for name, since, src, h in live:
-            out.append(f'<img src="../{src}" alt="{html.escape(name)}" '
-                       f'title="{html.escape(name)}" style="height:{h}px"/>')
+            out.append(logo_or_text(name, src, h))
         out.append('</div></div>')
 
     live_f = [x for x in FUNDERS if x[1] <= era_end]
@@ -304,8 +320,7 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append('<span class="lbl">Funders and in-kind support</span>')
         out.append('<div class="logos">')
         for name, since, src, h in live_f:
-            out.append(f'<img src="../{src}" alt="{html.escape(name)}" '
-                       f'title="{html.escape(name)}" style="height:{h}px"/>')
+            out.append(logo_or_text(name, src, h))
         out.append('</div></div>')
 
     out.append('</body></html>')
