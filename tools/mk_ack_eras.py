@@ -72,25 +72,25 @@ ERAS = [
 # acknowledgements selection puts it in.
 BANDS = [
     ("Worked on directly", [
-        ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42),
-        ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58),
-        ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49),
-        ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58),
-        ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42),
-        ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30),
+        ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42, "https://www.datalad.org/"),
+        ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58, "https://repronim.org/"),
+        ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49, "https://dandiarchive.org/"),
+        ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58, "https://emberarchive.org/"),
+        ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42, "https://bids.neuroimaging.io/"),
+        ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30, "https://nwb.org/"),
     ]),
     ("Large communities we take part in", [
         # Debian is where the practice was learned and is still packaged into.
         # Its Open Use logo (the swirl without the word) is explicitly free
         # for anyone, unlike the Official Use one.
-        ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46),
+        ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46, "https://www.debian.org"),
         # debianmed-mh.svg from people.debian.org/~tille/debian-med/logos/ --
         # the caduceus-in-a-swirl mark, scalable, unlike the med-06.jpg
         # wordmark.  blends.debian.org itself just reuses the Debian swirl.
-        ("Debian Med", "2020-02-24", "pics/borrowed/debian-med-logo.svg", 46),
-        ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33),
-        ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33),
-        ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33),
+        ("Debian Med", "2020-02-24", "pics/borrowed/debian-med-logo.svg", 46, "https://blends.debian.org/med/"),
+        ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33, "https://scikit-learn.org/stable/"),
+        ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33, "https://www.psychopy.org/"),
+        ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33, "https://www.humanconnectome.org/"),
     ]),
 ]
 
@@ -111,14 +111,14 @@ BANDS = [
 # as a postdoc.  INCF's backing for the NIDM and BIDS grassroots work has no
 # date in the store either.
 FUNDERS = [
-    ("Dartmouth College", "2009-01-01", "pics/dartmouth-logo.svg", 62),
-    ("PBS", "2009-01-01", "pics/borrowed/pbs-mark.svg", 60),
-    ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46),
-    ("DBIC", "2009-01-01", "pics/borrowed/dbic-logo.png", 42),
-    ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62),
-    ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62),
-    ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30),
-    ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44),
+    ("Dartmouth College", "2009-01-01", "pics/dartmouth-logo.svg", 62, "https://home.dartmouth.edu/"),
+    ("PBS", "2009-01-01", "pics/borrowed/pbs-mark.svg", 60, "https://pbs.dartmouth.edu/"),
+    ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46, "https://www.dartmouth.edu/ccn/"),
+    ("DBIC", "2009-01-01", "pics/borrowed/dbic-logo.png", 42, "https://www.dartmouth.edu/dbic/"),
+    ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62, "https://www.nsf.gov"),
+    ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62, "https://www.nih.gov"),
+    ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30, "https://incf.org"),
+    ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44, "https://aws.amazon.com/opendata/open-data-sponsorship-program/"),
 ]
 
 # Jim Haxby is dated 2015-07-22 in the store because the Center's own record
@@ -242,29 +242,44 @@ def load():
     return rows
 
 
-def portraits_from_deck():
-    """name -> existing portrait path, read out of the deck itself.
+PORTRAIT_SOURCE = "con-whoweare.phtml"
+
+
+def portraits():
+    """name -> existing portrait path, from the shared whoweare fragment.
 
     The record store names portraits `persons/<slug>/portrait.ext`, but this
     repo already carries them under short hand-chosen names
     (pics/con-whoweare/yarik.jpg).  Reusing those avoids copying 33 more
-    binaries into a DataLad dataset to say the same thing, and keeps the
-    fragments consistent with the full acknowledgements slide.
+    binaries into a DataLad dataset to say the same thing.
+
+    Read from con-whoweare.phtml -- which tools/mk_whoweare.py generates from
+    the live whoweare page, and which names the downloaded files -- rather than
+    from a deck.  Decks now EMBED the fragments this script writes, so scraping
+    one for portraits would be circular.
 
     Paths get `../` because an iframe resolves relative to the FRAGMENT,
     which lives one directory down.
     """
-    deck = (HERE / "2026-usrse-con-talk.html").read_text()
-    return {name: "../" + src for src, name in
-            re.findall(r'data-src="(pics/con-whoweare/[^"]+)" alt="([^"]+)"', deck)}
+    src = (HERE / PORTRAIT_SOURCE).read_text()
+    return {name: "../" + p for p, name in
+            re.findall(r'data-src="(pics/con-whoweare/[^"]+)" alt="([^"]+)"', src)}
 
 
-def logo_or_text(name, src, h):
-    """A band entry.  Not everything has a mark -- Debian Med uses Debian's."""
-    if src:
-        return (f'<img src="../{src}" alt="{html.escape(name)}" '
-                f'title="{html.escape(name)}" style="height:{h}px"/>')
-    return f'<span class="chip" title="{html.escape(name)}">{html.escape(name)}</span>'
+def logo_or_text(name, src, h, url=None):
+    """A band entry.  Not everything has a mark -- Debian Med uses Debian's.
+
+    Everything is a link: people follow a deck afterwards and click the logos,
+    and the repo's slide rules require counts and marks to be navigable.
+    target=_top so a click inside the iframe navigates the whole page rather
+    than loading a site into an 880px box with no way back out.
+    """
+    n = html.escape(name)
+    inner = (f'<img src="../{src}" alt="{n}" title="{n}" style="height:{h}px"/>'
+             if src else f'<span class="chip" title="{n}">{n}</span>')
+    if not url:
+        return inner
+    return f'<a href="{html.escape(url)}" target="_top" title="{n}">{inner}</a>'
 
 
 def fragment(rows, era_end, era_start, label, sub, pics):
@@ -329,8 +344,8 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append('<div class="sec">')
         out.append(f'<span class="lbl">{html.escape(band_label)}</span>')
         out.append('<div class="logos">')
-        for name, since, src, h in live:
-            out.append(logo_or_text(name, src, h))
+        for name, since, src, h, url in live:
+            out.append(logo_or_text(name, src, h, url))
         out.append('</div></div>')
 
     live_f = [x for x in FUNDERS if x[1] <= era_end]
@@ -338,8 +353,8 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append('<div class="sec">')
         out.append('<span class="lbl">Funders and in-kind support</span>')
         out.append('<div class="logos">')
-        for name, since, src, h in live_f:
-            out.append(logo_or_text(name, src, h))
+        for name, since, src, h, url in live_f:
+            out.append(logo_or_text(name, src, h, url))
         out.append('</div></div>')
 
     out.append('</body></html>')
@@ -352,7 +367,7 @@ def main():
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
     rows = load()
-    pics = portraits_from_deck()
+    pics = portraits()
     missing = sorted({r["name"] for r in rows} - set(pics))
     if missing:
         print(f"no portrait for {len(missing)}: {missing}", file=sys.stderr)
