@@ -368,6 +368,20 @@ def main():
         print(f"  {label:10s} {n:7d} {n_new:4d}  {f.relative_to(HERE)}"
               f"  ({len(frag)//1024}K)")
         prev = str(int(end) + 1)
+
+    # Same final state, but with nobody ringed as "new".  The ring means "new
+    # in this era", which only means anything inside the US-RSE deck's seven-era
+    # build-up; in a deck that just wants the acknowledgements once (the MIT
+    # STAMPED talk) it reads as an unexplained highlight.  era_start in the
+    # future => no row can be new.
+    last = ERAS[-1][0]
+    frag, n, _ = fragment(rows, last + "-12-31", "9999-01-01",
+                          ERAS[-1][1], ERAS[-1][2], pics)
+    f = OUT / "ack-now.html"
+    if a.write:
+        f.write_text(frag)
+    print(f"  {'current':10s} {n:7d} {'-':>4s}  {f.relative_to(HERE)}"
+          f"  ({len(frag)//1024}K)")
     return 0
 
 
