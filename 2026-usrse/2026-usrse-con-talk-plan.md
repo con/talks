@@ -34,6 +34,29 @@ Lessig move: cut content, add ~60 single-concept transition/beat slides.
 - One light moment per block max; deliver and immediately move on.
 - Target 40-50% image-only slides.
 
+**Whose words are these?** The deck mixes YOH's own compressions with real
+quotations, and twice shipped a compression inside quote marks under someone
+else's name. The rule, applied throughout:
+
+- **His line = a heading, no quote marks.** The display font and position
+  already say "this is the talk speaking".
+- **Quote marks = verbatim**, always, and the author is named.
+- **Where his line distils a specific source, the source line starts with
+  `after`** — "after D. Clunie, MICCAI 2017". One word, standard usage, needs
+  no explaining, and survives into the published deck where nobody is there
+  to say it out loud.
+
+Live examples of the shape: the Codeberg slide (heading, then two verbatim
+blockquotes with full attribution), the Clunie standardize slide (heading,
+then `after`), and the Networked Intelligence slide (our compression plain,
+the authors' own sentence underneath in quote marks).
+
+Rejected: marking his lines with his portrait from the acknowledgements grid.
+It competes with a one-line aphorism at projection size, it spends the
+portrait's meaning in the two places it already earns it (title slide and
+every era's grid), and a face beside a claim reads as self-promotion in a
+talk whose argument is that none of this was done alone.
+
 ---
 
 ## Three-Act Structure
