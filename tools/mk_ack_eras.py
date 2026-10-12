@@ -102,20 +102,32 @@ BANDS = [
 # before NIH funded anything here, and NeuroDebian was never NIH-funded at
 # all.
 #
-# The institutional rows are EDITORIAL, not sourced: Dartmouth, PBS, CCN and
-# DBIC have supported the work in kind for longer than CON has existed, and
-# 2015-07 is simply when the Center they host was founded.  INCF's backing
-# for the NIDM and BIDS grassroots work has no date in the store either.
+# The institutional rows are EDITORIAL, not sourced.  Dartmouth, PBS and DBIC
+# date from 2009, when YOH joined Jim Haxby's lab in the PBS department as a
+# postdoc (CV: Postdoctoral Fellow, 2009-2012; Hanke was there 2009-2011
+# before returning to Germany).  Only the year is sourced -- the month is a
+# placeholder, and any date in 2009 lands in the right era.  CCN stays at
+# 2015-07 because CON became one of its Associated Programs as a Center, not
+# as a postdoc.  INCF's backing for the NIDM and BIDS grassroots work has no
+# date in the store either.
 FUNDERS = [
-    ("Dartmouth College", "2015-07-01", "pics/dartmouth-logo.svg", 62),
-    ("PBS", "2015-07-01", "pics/borrowed/pbs-mark.svg", 60),
+    ("Dartmouth College", "2009-01-01", "pics/dartmouth-logo.svg", 62),
+    ("PBS", "2009-01-01", "pics/borrowed/pbs-mark.svg", 60),
     ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46),
-    ("DBIC", "2015-07-01", "pics/borrowed/dbic-logo.png", 42),
+    ("DBIC", "2009-01-01", "pics/borrowed/dbic-logo.png", 42),
     ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62),
     ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62),
     ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30),
     ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44),
 ]
+
+# Jim Haxby is dated 2015-07-22 in the store because the Center's own record
+# is the only association it carries for him -- there is no Haxby-lab or PBS
+# project record yet.  But the collaboration starts in 2009, with the postdoc.
+# Pin him there until con-site-specific grows a record that says so properly.
+EARLIEST_OVERRIDE = {
+    "xyzrins:persons/james-haxby": "2009-01-01",
+}
 
 CSS = """
 /* The slide carries the era title, so the fragment does not repeat it --
@@ -208,6 +220,12 @@ def load():
                         (b.get("object") == pid and not b.get("ended"))
                         for b in (proj.get("associated_with") or [])):
                     ended[pid] = en
+
+    for pid, when in EARLIEST_OVERRIDE.items():
+        if pid in people and (pid not in earliest or when < earliest[pid]):
+            earliest[pid] = when
+            via[pid] = "editorial"
+
     rows = []
     for pid, (slug, d) in people.items():
         if pid not in earliest and one(d, "dlthings:tier") is None:
