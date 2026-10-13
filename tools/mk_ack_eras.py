@@ -29,15 +29,32 @@ accumulate faces, it grows the shape of the final slide.
 
 People move between sections as the talk advances.  Someone who has left is
 not dimmed in place: they appear under **Emeritus**, which is where they are
-today.  While they were still staff they appear under Centroids, because all
-fourteen of the current Emeritus carry `marcrel:swd` (software developer) on
-their CON association -- the tier recorded in the store is today's, and the
-role is what says what they were at the time.
+today.  The tier recorded in the store is TODAY's, so the role on the CON
+association is what says what they were at the time, and WHEN that role
+started is what says from when.  Most of the Emeritus have one association
+carrying `marcrel:swd` (software developer) for their whole stay, so they are
+Centroids throughout.  Andy Connolly has two: contributor from 2014 and staff
+only from 2020, so he moves Collaborators -> Centroids -> Emeritus as the
+talk advances.  That is the store's own answer, not an editorial one.
 
-    new      joined within this era      -- highlighted
-    present  joined earlier, still here  -- normal
-    (left)   association ended           -- moved to the Emeritus section
-    unseen   has not joined yet          -- omitted entirely
+    accent   joined within this era, or named in ACCENT -- ringed
+    dim      already on the slide from an earlier era      -- faded back
+    (left)   association ended       -- moved to the Emeritus section, NOT faded
+    unseen   has not joined yet      -- omitted entirely
+
+Leaving is not a reason to be greyed out.  Emeritus is where someone is
+filed today, not a statement that their work mattered less, so the Emeritus
+section renders at full strength like every other section.  Fading is used
+for one thing only: on an era slide, everyone already introduced steps back
+so the people this era is about can be seen.  The final slide
+(`ack-now.html`) fades nobody and rings nobody.
+
+Who gets the accent is, by default, whoever arrived in this era.  The store
+cannot answer "who worked on THIS era's projects" -- the later project
+records name only the PI or the lead (`repronim` names nobody at all, `dandi`
+names two people), so deriving the accent from project associations would
+grey out most of the people who built the thing.  ACCENT below is the manual
+override for that, per era.
 """
 import argparse
 import html
@@ -52,8 +69,11 @@ except ImportError:
     sys.exit("PyYAML is required")
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
+# The record store is vendored as a submodule, so a fresh clone generates the
+# same slide without a second checkout living somewhere else on the machine.
+# CON_RECORD_STORE still wins, for running against an uncommitted store.
 STORE = pathlib.Path(os.environ.get(
-    "CON_RECORD_STORE", "/home/yoh/proj/orinoco-lite/con-site-specific"))
+    "CON_RECORD_STORE", HERE / "sourcedata/con-site-specific"))
 OUT = HERE / "2026-usrse-con-talk"
 
 # The chronology the abstract itself walks, cut into the eras the talk visits.
@@ -67,30 +87,39 @@ ERAS = [
     ("2026", "2025–", "STAMPED · ORINOCO-Lite"),
 ]
 
+# Extra people to ring on a given era's slide, beyond that era's arrivals.
+# Keyed by the era's end year, values are display names as they appear in the
+# record store.  Use this when an era is about work done by people who were
+# already here -- the arrival date cannot say that, and the project records
+# are too thin to derive it (see the module docstring).
+ACCENT = {
+    # "2024": ["John Lee", "Austin Macdonald"],
+}
+
 # Project logos, with the date each project enters the story.  Dates are the
 # project `started` in the record store; the band is the one the
 # acknowledgements selection puts it in.
 BANDS = [
     ("Worked on directly", [
-        ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42),
-        ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58),
-        ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49),
-        ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58),
-        ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42),
-        ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30),
+        ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42, "https://www.datalad.org/"),
+        ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58, "https://repronim.org/"),
+        ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49, "https://dandiarchive.org/"),
+        ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58, "https://emberarchive.org/"),
+        ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42, "https://bids.neuroimaging.io/"),
+        ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30, "https://nwb.org/"),
     ]),
     ("Large communities we take part in", [
         # Debian is where the practice was learned and is still packaged into.
         # Its Open Use logo (the swirl without the word) is explicitly free
         # for anyone, unlike the Official Use one.
-        ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46),
+        ("Debian", "2005-07-04", "pics/borrowed/debian-openlogo.svg", 46, "https://www.debian.org"),
         # debianmed-mh.svg from people.debian.org/~tille/debian-med/logos/ --
         # the caduceus-in-a-swirl mark, scalable, unlike the med-06.jpg
         # wordmark.  blends.debian.org itself just reuses the Debian swirl.
-        ("Debian Med", "2020-02-24", "pics/borrowed/debian-med-logo.svg", 46),
-        ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33),
-        ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33),
-        ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33),
+        ("Debian Med", "2020-02-24", "pics/borrowed/debian-med-logo.svg", 46, "https://blends.debian.org/med/"),
+        ("scikit-learn", "2010-03-24", "pics/con-projects/scikit-learn_logo.png", 33, "https://scikit-learn.org/stable/"),
+        ("PsychoPy", "2009-06-15", "pics/con-projects/psychopy_logo.png", 33, "https://www.psychopy.org/"),
+        ("HCP", "2017-01-01", "pics/con-projects/hcp_logo.png", 33, "https://www.humanconnectome.org/"),
     ]),
 ]
 
@@ -111,14 +140,14 @@ BANDS = [
 # as a postdoc.  INCF's backing for the NIDM and BIDS grassroots work has no
 # date in the store either.
 FUNDERS = [
-    ("Dartmouth College", "2009-01-01", "pics/dartmouth-logo.svg", 62),
-    ("PBS", "2009-01-01", "pics/borrowed/pbs-mark.svg", 60),
-    ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46),
-    ("DBIC", "2009-01-01", "pics/borrowed/dbic-logo.png", 42),
-    ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62),
-    ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62),
-    ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30),
-    ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44),
+    ("Dartmouth College", "2009-01-01", "pics/dartmouth-logo.svg", 62, "https://home.dartmouth.edu/"),
+    ("PBS", "2009-01-01", "pics/borrowed/pbs-mark.svg", 60, "https://pbs.dartmouth.edu/"),
+    ("CCN", "2015-07-01", "pics/ccn-logo.svg", 46, "https://www.dartmouth.edu/ccn/"),
+    ("DBIC", "2009-01-01", "pics/borrowed/dbic-logo.png", 42, "https://www.dartmouth.edu/dbic/"),
+    ("NSF", "2014-09-01", "pics/borrowed/nsf1.jpg", 62, "https://www.nsf.gov"),
+    ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62, "https://www.nih.gov"),
+    ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30, "https://incf.org"),
+    ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44, "https://aws.amazon.com/opendata/open-data-sponsorship-program/"),
 ]
 
 # Jim Haxby is dated 2015-07-22 in the store because the Center's own record
@@ -150,12 +179,31 @@ body{display:flex;flex-direction:column;justify-content:center;}
 .p img{width:62px;height:62px;border-radius:50%;object-fit:cover;
   border:2px solid transparent;display:block;margin:0 auto 2px;}
 .p span{display:block;font-size:10.5px;line-height:1.15;}
-.new img{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.18);}
-.new span{font-weight:700;color:#c0392b;}
+.accent img{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.18);}
+.accent span{font-weight:700;color:#c0392b;}
 .present{opacity:1;}
-.past{opacity:.45;filter:grayscale(70%);}
+.dim{opacity:.55;filter:grayscale(60%);}
 .count{font-size:13px;color:#777;margin-top:14px;text-align:center;}
 """
+
+
+# The fragment is dropped into a 1360px iframe and .p cells are 92px wide
+# with a 10px gap, so 13 fit on a line.  Left to itself flex-wrap fills each
+# line before starting the next, which is how a 15-person Emeritus section
+# ends up 13 + 2: one row running the full width of the slide and two
+# stragglers underneath.  Capping the grid's width at a balanced
+# people-per-row instead gives 8 + 7, which reads as one block.
+CELL = 92 + 10          # .p width + .grid column-gap
+ROW_MAX = 13            # how many of those fit across the iframe
+
+
+def grid_width(n):
+    """max-width that splits n cells into even rows, or None if one row does."""
+    if n <= ROW_MAX:
+        return None
+    rows = -(-n // ROW_MAX)          # ceil
+    per_row = -(-n // rows)          # ceil
+    return per_row * CELL
 
 
 def attrs(d, pred):
@@ -188,7 +236,7 @@ def load():
         d = yaml.safe_load(f.read_text())
         people[d["pid"]] = (f.stem, d)
 
-    earliest, ended, via, isdev = {}, {}, {}, {}
+    earliest, ended, via, swd_since = {}, {}, {}, {}
     for f in sorted((R / "XYZProject").glob("*.yaml")):
         proj = yaml.safe_load(f.read_text())
         for a in (proj.get("associated_with") or []):
@@ -202,9 +250,15 @@ def load():
             if f.stem == "site-root":
                 # marcrel:swd on the CON association says they were staff,
                 # which is what decides where a current-Emeritus person sits
-                # while they were still active
+                # while they were still active.  A person can hold several
+                # site-root associations, and the staff one need not be the
+                # first -- Andy Connolly contributed from 2014 and was hired
+                # in 2020 -- so keep WHEN it starts, not just whether it
+                # exists.  Undated means from the beginning.
                 if "marcrel:swd" in (a.get("roles") or []):
-                    isdev[pid] = True
+                    w = st or "0000"
+                    if pid not in swd_since or w < swd_since[pid]:
+                        swd_since[pid] = w
                 if not st:
                     # Deliberately undated on the site root: the founding
                     # director predates the website, so his association has
@@ -214,12 +268,14 @@ def load():
                     earliest[pid] = "0000"
                     via[pid] = "founding"
                 en = (a.get("ended") or {}).get("at_time")
-                # a person can have several site-root associations (a gap);
-                # only the LAST one ending means they are gone
+                # a person can have several site-root associations (a gap,
+                # or a contributor and a staff stretch side by side); they are
+                # gone only once every one of them has ended, and the date is
+                # the last of those ends
                 if en and not any(
                         (b.get("object") == pid and not b.get("ended"))
                         for b in (proj.get("associated_with") or [])):
-                    ended[pid] = en
+                    ended[pid] = max(en, ended.get(pid, ""))
 
     for pid, when in EARLIEST_OVERRIDE.items():
         if pid in people and (pid not in earliest or when < earliest[pid]):
@@ -237,37 +293,63 @@ def load():
             "started": earliest.get(pid),
             "ended": ended.get(pid),
             "via": via.get(pid),
-            "swd": isdev.get(pid, False),
+            "swd_since": swd_since.get(pid),
         })
     return rows
 
 
-def portraits_from_deck():
-    """name -> existing portrait path, read out of the deck itself.
+PORTRAIT_SOURCE = "con-whoweare.phtml"
+
+
+def portraits():
+    """name -> existing portrait path, from the shared whoweare fragment.
 
     The record store names portraits `persons/<slug>/portrait.ext`, but this
     repo already carries them under short hand-chosen names
     (pics/con-whoweare/yarik.jpg).  Reusing those avoids copying 33 more
-    binaries into a DataLad dataset to say the same thing, and keeps the
-    fragments consistent with the full acknowledgements slide.
+    binaries into a DataLad dataset to say the same thing.
+
+    Read from con-whoweare.phtml -- which tools/mk_whoweare.py generates from
+    the live whoweare page, and which names the downloaded files -- rather than
+    from a deck.  Decks now EMBED the fragments this script writes, so scraping
+    one for portraits would be circular.
 
     Paths get `../` because an iframe resolves relative to the FRAGMENT,
     which lives one directory down.
+
+    Returns two maps.  The first is by display name, scraped from the
+    fragment.  The second is by record slug, from whatever is actually in
+    pics/con-whoweare/, and covers anyone the whoweare page does not list --
+    Ben Dichter is acknowledged here and has never been on the site.  To add
+    such a person, drop pics/con-whoweare/<record-slug>.<ext> beside the
+    scraped ones; no code change needed.
     """
-    deck = (HERE / "2026-usrse-con-talk.html").read_text()
-    return {name: "../" + src for src, name in
-            re.findall(r'data-src="(pics/con-whoweare/[^"]+)" alt="([^"]+)"', deck)}
+    src = (HERE / PORTRAIT_SOURCE).read_text()
+    by_name = {name: "../" + p for p, name in
+               re.findall(r'data-src="(pics/con-whoweare/[^"]+)" alt="([^"]+)"', src)}
+    by_slug = {f.stem: "../" + f.relative_to(HERE).as_posix()
+               for f in sorted((HERE / "pics/con-whoweare").iterdir())
+               if f.suffix.lower() in (".jpg", ".jpeg", ".png")}
+    return by_name, by_slug
 
 
-def logo_or_text(name, src, h):
-    """A band entry.  Not everything has a mark -- Debian Med uses Debian's."""
-    if src:
-        return (f'<img src="../{src}" alt="{html.escape(name)}" '
-                f'title="{html.escape(name)}" style="height:{h}px"/>')
-    return f'<span class="chip" title="{html.escape(name)}">{html.escape(name)}</span>'
+def logo_or_text(name, src, h, url=None):
+    """A band entry.  Not everything has a mark -- Debian Med uses Debian's.
+
+    Everything is a link: people follow a deck afterwards and click the logos,
+    and the repo's slide rules require counts and marks to be navigable.
+    target=_top so a click inside the iframe navigates the whole page rather
+    than loading a site into an 880px box with no way back out.
+    """
+    n = html.escape(name)
+    inner = (f'<img src="../{src}" alt="{n}" title="{n}" style="height:{h}px"/>'
+             if src else f'<span class="chip" title="{n}">{n}</span>')
+    if not url:
+        return inner
+    return f'<a href="{html.escape(url)}" target="_top" title="{n}">{inner}</a>'
 
 
-def fragment(rows, era_end, era_start, label, sub, pics):
+def fragment(rows, era_end, era_start, label, sub, pics, by_slug, accent=True):
     """One era's slide: the full slide's sections, with only what exists yet.
 
     A section heading appears the moment something is listed under it and not
@@ -277,24 +359,34 @@ def fragment(rows, era_end, era_start, label, sub, pics):
     # Which section is each person in, as of this era?
     sections = {"Centroids": [], "Collaborators": [],
                 "Affiliated Faculty": [], "Emeritus": []}
-    n_new = 0
+    ringed = set(ACCENT.get(era_end[:4], ()))
+    n_accent = 0
     for r in rows:
         st = r["started"]
         if st is None or st > era_end:
             continue                       # not yet part of the story
         if r["ended"] and r["ended"] <= era_end:
-            sec, cls = "Emeritus", "past"
+            sec = "Emeritus"               # where they are filed, nothing more
         else:
             tier = r["tier"]
-            # The store records TODAY's tier.  Everyone currently Emeritus
-            # carries marcrel:swd on their CON association, i.e. they were
-            # staff -- so while still active they belong under Centroids.
+            # The store records TODAY's tier.  A current-Emeritus person
+            # counts as staff for the eras from their marcrel:swd association
+            # onwards, and as a contributor before it -- so someone who
+            # contributed for years before being hired is not retroactively
+            # made a Centroid.
+            swd = r["swd_since"]
             if tier == "Emeritus":
-                tier = "Centroids" if r["swd"] else "Collaborators"
+                tier = ("Centroids" if swd is not None and swd <= era_end
+                        else "Collaborators")
             sec = tier if tier in sections else "Collaborators"
-            cls = "new" if st >= era_start else "present"
-        if cls == "new":
-            n_new += 1
+        # Emphasis is decided for everyone alike, Emeritus included.
+        if not accent:
+            cls = "present"                # the final slide: no ring, no fade
+        elif st >= era_start or r["name"] in ringed:
+            cls = "accent"
+            n_accent += 1
+        else:
+            cls = "dim"
         sections[sec].append((cls, r))
     for v in sections.values():
         v.sort(key=lambda x: (x[1]["started"] or "", x[1]["name"]))
@@ -309,9 +401,11 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         shown_total += len(group)
         out.append('<div class="sec">')
         out.append(f'<span class="lbl">{html.escape(sec)}</span>')
-        out.append('<div class="grid">')
+        w = grid_width(len(group))
+        out.append(f'<div class="grid" style="max-width:{w}px;margin:0 auto">'
+                   if w else '<div class="grid">')
         for cls, r in group:
-            pic = pics.get(r["name"])
+            pic = pics.get(r["name"]) or by_slug.get(r["slug"])
             img = (f'<img src="{pic}" alt="{html.escape(r["name"])}"/>' if pic
                    else '<img alt=""/>')
             since = f' \u2014 since {r["started"]}' if r["started"] != "0000" else ""
@@ -329,8 +423,8 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append('<div class="sec">')
         out.append(f'<span class="lbl">{html.escape(band_label)}</span>')
         out.append('<div class="logos">')
-        for name, since, src, h in live:
-            out.append(logo_or_text(name, src, h))
+        for name, since, src, h, url in live:
+            out.append(logo_or_text(name, src, h, url))
         out.append('</div></div>')
 
     live_f = [x for x in FUNDERS if x[1] <= era_end]
@@ -338,12 +432,12 @@ def fragment(rows, era_end, era_start, label, sub, pics):
         out.append('<div class="sec">')
         out.append('<span class="lbl">Funders and in-kind support</span>')
         out.append('<div class="logos">')
-        for name, since, src, h in live_f:
-            out.append(logo_or_text(name, src, h))
+        for name, since, src, h, url in live_f:
+            out.append(logo_or_text(name, src, h, url))
         out.append('</div></div>')
 
     out.append('</body></html>')
-    return "\n".join(out), shown_total, n_new
+    return "\n".join(out), shown_total, n_accent
 
 
 def main():
@@ -352,15 +446,16 @@ def main():
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
     rows = load()
-    pics = portraits_from_deck()
-    missing = sorted({r["name"] for r in rows} - set(pics))
+    pics, by_slug = portraits()
+    missing = sorted(r["name"] for r in rows
+                     if r["name"] not in pics and r["slug"] not in by_slug)
     if missing:
         print(f"no portrait for {len(missing)}: {missing}", file=sys.stderr)
     prev = "0000"
-    print(f"{'era':12s} {'people':>7s} {'new':>4s}  file")
+    print(f"{'era':12s} {'people':>7s} {'ring':>4s}  file")
     for end, label, sub in ERAS:
         frag, n, n_new = fragment(rows, end + "-12-31", prev + "-01-01",
-                                  label, sub, pics)
+                                  label, sub, pics, by_slug)
         f = OUT / f"ack-{end}.html"
         if a.write:
             OUT.mkdir(parents=True, exist_ok=True)
@@ -369,14 +464,13 @@ def main():
               f"  ({len(frag)//1024}K)")
         prev = str(int(end) + 1)
 
-    # Same final state, but with nobody ringed as "new".  The ring means "new
-    # in this era", which only means anything inside the US-RSE deck's seven-era
-    # build-up; in a deck that just wants the acknowledgements once (the MIT
-    # STAMPED talk) it reads as an unexplained highlight.  era_start in the
-    # future => no row can be new.
+    # Same final state, with nobody ringed and nobody faded.  Both only mean
+    # something inside the US-RSE deck's seven-era build-up; in a deck that
+    # just wants the acknowledgements once (the MIT STAMPED talk) a ring reads
+    # as an unexplained highlight and a fade as a slight.
     last = ERAS[-1][0]
     frag, n, _ = fragment(rows, last + "-12-31", "9999-01-01",
-                          ERAS[-1][1], ERAS[-1][2], pics)
+                          ERAS[-1][1], ERAS[-1][2], pics, by_slug, accent=False)
     f = OUT / "ack-now.html"
     if a.write:
         f.write_text(frag)
