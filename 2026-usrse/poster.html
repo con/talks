@@ -78,6 +78,8 @@
     .editor-copy h2 { font-size: 61px; margin: 0 0 30px; }
     .editor-copy p { font-size: 40px; line-height: 1.4; margin: 0 0 27px; }
     .editor-copy .editor-caption { color: var(--muted); font-size: 32px; }
+    .workflow-example { display: grid; grid-template-columns: 1fr 214px; gap: 28px; align-items: center; border-top: 2px solid var(--rule); padding-top: 22px; }
+    .editor-copy .workflow-example p { font-size: 32px; line-height: 1.35; margin: 0; }
     .value-section { margin-top: 28px; }
     .value-section p { margin: 0 0 28px; font-size: var(--body-text); line-height: 1.4; }
     .local-value { display: grid; grid-template-columns: .75fr 1.25fr; gap: 30px; align-items: center; }
@@ -210,6 +212,10 @@
               <h2 id="editor-heading">Editing structured metadata</h2>
               <p>Describe people, projects and publications using a common data model. <strong>Forms guide contributions</strong> and validation helps keep records consistent.</p>
               <p class="editor-caption">The model generates the form, so contributors work with familiar fields while maintaining structured metadata.</p>
+              <div class="workflow-example">
+                <p>In ORINOCO-Lite, proposed edits become <strong>GitHub pull requests</strong> for maintainers to review. Explore a completed example.</p>
+                <a class="qr-badge" href="https://github.com/con/dev-centerforopenneuroscience.org/pull/24"><img src="orinoco-lite/assets/orinoco-qr-workflow.svg" alt="QR code for an ORINOCO-Lite GitHub review example">GitHub workflow</a>
+              </div>
             </div>
           </section>
         </div>
@@ -248,13 +254,12 @@
 
       <footer class="footer">
         <div>
-          <p class="snapshot"><strong>Reproducible CON snapshot · 13 October 2026</strong><br>
-            Tag <code>usrse-2026-10-13</code> in
-            <a href="https://github.com/ORINOCO-Lite/orinoco-lite-dev/tree/usrse-2026-10-13">package</a> ·
-            <a href="https://github.com/ORINOCO-Lite/orinoco-lite-template/tree/usrse-2026-10-13">template</a> ·
-            <a href="https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13">CON content</a> ·
-            <a href="https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13">website</a>.
-            Exact revisions and sources accompany the editable poster.</p>
+          <p class="snapshot"><strong>CON deployment snapshot · 13 October 2026</strong><br>
+            Tag <code>usrse-2026-10-13-r2</code> in
+            <a href="https://github.com/ORINOCO-Lite/orinoco-lite-dev/tree/usrse-2026-10-13-r2">package</a> ·
+            <a href="https://github.com/ORINOCO-Lite/orinoco-lite-template/tree/usrse-2026-10-13-r2">template</a> ·
+            <a href="https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13-r2">CON content</a> ·
+            <a href="https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13-r2">website</a>.</p>
           <p class="thanks">Thanks to Michael Hanke, Stephan Heunis, the ORINOCO and DataLad contributors, and the CON team. <br>
             OpenAI Codex assisted with source review, text, diagrams and layout. Poster: CC BY-SA 4.0; third-party screenshots and logos retain their respective notices.</p>
         </div>

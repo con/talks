@@ -4,7 +4,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["qrcode==8.2", "Pillow==11.3.0", "zxing-cpp==2.3.0"]
 # ///
-"""Generate the poster's five vector QR codes and verify their destinations.
+"""Generate the poster's six vector QR codes and verify their destinations.
 
 Run with `uv run 2026-usrse/orinoco-lite/make-logo-qrs.py --check-dir /tmp/con-qr-checks`.
 Requires Inkscape (only to measure the already outlined logo) and rsvg-convert
@@ -40,6 +40,7 @@ DESTINATIONS = {
         "#/channel/DataLad/video/oF98hdaph1k"
     ),
     "psychoinformatics": "https://www.psychoinformatics.de/",
+    "workflow": "https://github.com/con/dev-centerforopenneuroscience.org/pull/24",
 }
 ET.register_namespace("", SVG)
 
