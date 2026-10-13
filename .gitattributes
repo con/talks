@@ -4,3 +4,6 @@
 *.svg annex.largefiles=(largerthan=100K)
 # Preserve the storage rule for the original SVG in this branch's history.
 2026-usrse/orinoco-lite-poster.svg annex.largefiles=nothing
+# Preserve the original Git-stored logo in PR history; the relocated asset
+# under 2026-usrse/orinoco-lite/assets/ follows the normal SVG annex rule.
+pics/con-logo-outlined.svg annex.largefiles=nothing

@@ -45,10 +45,9 @@ Browser fit-to-window scaling is not a useful test of printed legibility.
 [PosterNerd recommends](https://www.posternerd.com/tutorials/customer-questions) at least 24 pt for text and 36 pt for headings.
 If reducing the body text, try 25.5 pt first and rebuild to check the resulting layout.
 
-The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention.
-Their registered download URLs on the existing CON Hub allow retrieval without Hub credentials or an additional Git remote, provided the Hub is reachable from your network.
-Downloads currently succeed over VPN but return HTTP 403 outside it, leaving GitHub's asset-availability check blocked.
-Passing that check requires publishing these assets to the existing public datasets mirror or making the Hub externally accessible.
+The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention. The [poster source assets](https://github.com/con/talks/releases/tag/usrse-2026-10-13-assets) have public download URLs registered with annex, so CI and readers can retrieve them without VPN access or credentials.
+That prerelease stores the current and earlier asset versions by their annex keys, with checksums and source notices; it is separate from the four deployment citation tags below.
+The existing CON Hub copies remain additional retrieval locations.
 With DataLad installed in your project environment, run from the repository root:
 
 ```bash
