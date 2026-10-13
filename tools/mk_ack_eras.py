@@ -305,9 +305,10 @@ def portraits():
     """name -> existing portrait path, from the shared whoweare fragment.
 
     The record store names portraits `persons/<slug>/portrait.ext`, but this
-    repo already carries them under short hand-chosen names
-    (pics/con-whoweare/yarik.jpg).  Reusing those avoids copying 33 more
-    binaries into a DataLad dataset to say the same thing.
+    repo already carries them under the whoweare page's own filenames, which
+    are the same slugs (pics/con-whoweare/yaroslav-halchenko.jpg).  Reusing
+    those avoids copying 35 more binaries into a DataLad dataset to say the
+    same thing.
 
     Read from con-whoweare.phtml -- which tools/mk_whoweare.py generates from
     the live whoweare page, and which names the downloaded files -- rather than
