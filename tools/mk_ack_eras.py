@@ -97,18 +97,25 @@ ACCENT = {
 }
 
 # Project logos, with the date each project enters the story.  Dates are the
-# project `started` in the record store; the band is the one the
-# acknowledgements selection puts it in.
+# project `started` in the record store.
+#
+# ONE band, not two.  It used to be split into "Worked on directly" and
+# "Large communities we take part in", which invited exactly the comparison
+# this slide is not making: BIDS is a larger community than PsychoPy, and
+# Debian is larger than either.  Size matters not here -- the slide is
+# thanking people and projects, not ranking them by reach.
+#
+# Rendered in date order, so the row grows by appending as the talk advances
+# rather than reshuffling.  Source order below is therefore free, and is
+# grouped by where each mark came from.
 BANDS = [
-    ("Worked on directly", [
+    ("Collaborating with(in)", [
         ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42, "https://www.datalad.org/"),
         ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58, "https://repronim.org/"),
         ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49, "https://dandiarchive.org/"),
         ("EMBER", "2024-09-16", "pics/con-projects/ember_logo.png", 58, "https://emberarchive.org/"),
         ("BIDS", "2016-01-01", "pics/bids-logo-wide.png", 42, "https://bids.neuroimaging.io/"),
         ("NWB", "2017-08-03", "pics/con-projects/nwb_logo.png", 30, "https://nwb.org/"),
-    ]),
-    ("Large communities we take part in", [
         # Debian is where the practice was learned and is still packaged into.
         # Its Open Use logo (the swirl without the word) is explicitly free
         # for anyone, unlike the Official Use one.
@@ -418,7 +425,8 @@ def fragment(rows, era_end, era_start, label, sub, pics, by_slug, accent=True):
         out.append('</div></div>')
 
     for band_label, items in BANDS:
-        live = [x for x in items if x[1] <= era_end]
+        live = sorted((x for x in items if x[1] <= era_end),
+                      key=lambda x: (x[1], x[0]))
         if not live:
             continue
         out.append('<div class="sec">')
