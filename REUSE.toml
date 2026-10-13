@@ -475,3 +475,10 @@ path = "pics/borrowed/psychoinformatics_logo.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2014-2016 Michael Hanke and Alex Waite"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# Lite deployment adaptation of Stephan Heunis's ORINOCO component artwork.
+[[annotations]]
+path = "pics/borrowed/orinoco-lite-components-poster.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 Stephan Heunis", "2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko"]
+SPDX-License-Identifier = "CC-BY-4.0"

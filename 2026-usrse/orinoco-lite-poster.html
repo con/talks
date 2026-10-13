@@ -47,23 +47,21 @@
     h2 { margin: 0 0 22px; font-size: 63px; line-height: 1.08; }
     .intro { font-size: 37px; line-height: 1.34; margin: 0 0 30px; }
     .column-head { height: 378px; }
-    .architecture-pair { height: 842px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
+    .architecture-pair { height: 1066px; margin-bottom: 28px; }
     figure { margin: 0; }
-    .architecture { padding: 19px; background: #edf1ea; border: 2px solid var(--rule); border-radius: 12px; }
-    .architecture .model { margin: 0 0 18px; text-align: center; font-size: 27px; line-height: 1.2; color: var(--green); }
-    .arch-node { border: 2px solid var(--rule); background: white; border-radius: 9px; padding: 20px 10px; min-height: 123px; text-align: center; }
-    .arch-node .role { display: block; font-size: 22px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 9px; }
-    .arch-node strong { display: block; font-size: 31px; line-height: 1.14; }
-    .arch-node.changed { background: #fff6e9; border-color: #c9a887; }
-    .arch-arrow { height: 48px; display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 24px; color: var(--green); }
-    .arch-arrow b { font-size: 39px; font-weight: 400; }
+    .component-art { height: 540px; }
+    .component-art img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .component-figure { margin-bottom: 24px; }
+    .website-evidence { display: grid; grid-template-columns: 370px 1fr; gap: 30px; align-items: start; }
+    .website-evidence .section-copy { height: auto; margin: 0 0 24px; }
     .figure { background: white; border: 2px solid var(--rule); border-radius: 12px; overflow: hidden; }
     .figure img { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .webshot { height: 720px; }
+    .webshot { height: 395px; }
     .webshot img { object-fit: contain; object-position: top center; }
     figcaption { margin: 17px 0 0; font-size: 29px; line-height: 1.3; color: var(--muted); }
     figcaption strong { color: var(--ink); }
-    .architecture-pair figcaption { font-size: 27px; }
+    .architecture-pair figcaption, .website-caption { font-size: 27px; line-height: 1.3; color: var(--muted); }
+    .website-caption { margin: 0; }
     .section-copy { height: 194px; font-size: var(--body-text); line-height: 1.35; margin: 0 0 30px; }
     h3 { margin: 0 0 21px; font-size: 44px; line-height: 1.13; }
     .technical { border-top: 5px solid var(--green); padding-top: 28px; margin-top: 2px; }
@@ -156,25 +154,18 @@
             <p class="intro">Developed by Michael Hanke and colleagues at <strong>Psychoinformatics, INM-7, Forschungszentrum Jülich</strong>, ORINOCO connects open tools for research information. A metadata service accepts submissions from people and software; curation tools turn them into a reusable collection.</p>
           </div>
           <div class="architecture-pair">
-            <figure>
-              <div class="architecture" aria-label="High-level ORINOCO roles: forms and tools submit to service inboxes; curation promotes changes to the accepted collection; ORINOCO tools produce a graph and views.">
-                <p class="model">Shared model: <strong>LinkML schemas</strong></p>
-                <div class="arch-node"><span class="role">Contributions</span><strong>Forms and source tools</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> submit records</div>
-                <div class="arch-node"><span class="role">Proposals</span><strong>Service inboxes</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> curators promote</div>
-                <div class="arch-node"><span class="role">Accepted metadata</span><strong>Service collection</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> build views</div>
-                <div class="arch-node"><span class="role">Reuse</span><strong>Linked graph and views</strong></div>
-              </div>
-              <figcaption>Dump Things holds the inboxes and collection. Curation connects them; details below.</figcaption>
+            <figure class="component-figure">
+              <div class="component-art"><img src="../pics/borrowed/orinoco-selfhost-components-poster.svg" alt="Original ORINOCO component illustration: a schema, SHACL Vue editor, Forgejo and Dump Things connect processing tools to catalog, website and report outputs."></div>
+              <figcaption><strong>ORINOCO components:</strong> a shared schema and editor, connected through Forgejo and Dump Things. Original artwork: Stephan Heunis, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
             </figure>
-            <figure>
+            <div class="website-evidence">
               <div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-overview-20261013.png" alt="The Psychoinformatics group homepage generated from connected research-information records."></div>
-              <figcaption><strong>The Psychoinformatics website</strong> is one view of this information.<br><a href="https://www.psychoinformatics.de/">psychoinformatics.de</a></figcaption>
-            </figure>
+              <div>
+                <p class="section-copy">A <strong>schema</strong> defines record types, fields and relationships, such as a person’s role in a project. The same definition generates editing forms and checks whether submitted records have the expected structure.</p>
+                <p class="website-caption"><strong>The Psychoinformatics website</strong> is one view of this information.<br><a href="https://www.psychoinformatics.de/">psychoinformatics.de</a></p>
+              </div>
+            </div>
           </div>
-          <p class="section-copy">A <strong>schema</strong> defines record types, fields and relationships, such as a person’s role in a project. The same definition generates editing forms and checks whether submitted records have the expected structure.</p>
           <section class="technical" aria-labelledby="service-flow-heading">
             <h3 id="service-flow-heading">How a change becomes reusable data</h3>
             <div class="inputs">
@@ -203,25 +194,18 @@
             <p class="intro">Developed and used by <strong>CON</strong>, ORINOCO Lite keeps ORINOCO’s schemas, editor and processing tools, while placing <strong>records in Git and review in GitHub pull requests</strong>. A reusable package and repository template bring these components together for a static website.</p>
           </div>
           <div class="architecture-pair">
-            <figure>
-              <div class="architecture" aria-label="High-level ORINOCO Lite roles: forms and tools propose pull requests; review and merge updates accepted YAML records in Git; the shared ORINOCO tools produce a graph and views.">
-                <p class="model">Shared model: <strong>LinkML schemas</strong></p>
-                <div class="arch-node"><span class="role">Contributions</span><strong>Forms and source tools</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> propose changes</div>
-                <div class="arch-node changed"><span class="role">Proposals</span><strong>GitHub pull requests</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> reviewers merge</div>
-                <div class="arch-node changed"><span class="role">Accepted metadata</span><strong>YAML files in Git</strong></div>
-                <div class="arch-arrow"><b aria-hidden="true">↓</b> build views</div>
-                <div class="arch-node"><span class="role">Reuse</span><strong>Linked graph and views</strong></div>
-              </div>
-              <figcaption>The highlighted components change; the model and reusable tools stay shared.</figcaption>
+            <figure class="component-figure">
+              <div class="component-art"><img src="../pics/borrowed/orinoco-lite-components-poster.svg" alt="ORINOCO Lite adaptation: the shared schema and SHACL Vue editor propose GitHub pull requests via the shared App. Reviewers merge changes into Git-backed YAML records; GitHub Actions runs ORINOCO tools to build reusable outputs."></div>
+              <figcaption><strong>The Lite adaptation:</strong> GitHub pull requests and Git records replace Forgejo and service storage; the schema, editor and reusable outputs stay shared. Adapted from Stephan Heunis, CC BY 4.0.</figcaption>
             </figure>
-            <figure>
+            <div class="website-evidence">
               <div class="figure webshot"><img src="../pics/borrowed/orinoco-con-home-overview-20261013.png" alt="The Center for Open Neuroscience development homepage generated with ORINOCO Lite."></div>
-              <figcaption><strong>The CON development website</strong> uses the GitHub deployment.<br><a href="https://dev.centerforopenneuroscience.org/">dev.centerforopenneuroscience.org</a></figcaption>
-            </figure>
+              <div>
+                <p class="section-copy">The repository becomes the group’s <strong>official metadata collection</strong>. Records are readable text files with a change history. GitHub Actions runs validation and publication, so the lab maintains its information without operating a metadata server.</p>
+                <p class="website-caption"><strong>The CON development website</strong> uses the GitHub deployment.<br><a href="https://dev.centerforopenneuroscience.org/">dev.centerforopenneuroscience.org</a></p>
+              </div>
+            </div>
           </div>
-          <p class="section-copy">The repository becomes the group’s <strong>official metadata collection</strong>. Records are readable text files with a change history. GitHub Actions runs validation and publication, so the lab maintains its information without operating a metadata server.</p>
           <section class="technical" aria-labelledby="lite-flow-heading">
             <h3 id="lite-flow-heading">How a change becomes reusable data</h3>
             <div class="inputs">

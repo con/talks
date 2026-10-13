@@ -96,10 +96,19 @@ The shared editor frame crops the screenshot at the bottom to show its form cont
 The refreshed CON homepage capture shows website revision [`d64e994`](https://github.com/con/dev-centerforopenneuroscience.org/commit/d64e99466b5bcb54bf19cb95301f90190f6ff5b2), built at `2026-10-13T14:33:14Z`, with the same tagged package revision `de4d13c`.
 It postdates the four citation tags above; those tags remain fixed.
 
-The earlier official ORINOCO diagram and TRR379 news-page screenshot remain in `pics/borrowed/` as reference assets, but are not displayed in this revision.
+The first column restores `../pics/borrowed/orinoco-selfhost-components-poster.svg`, the official ORINOCO component illustration.
 The diagram is Stephan Heunis's `selfhost_components_no_notes.svg`, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), from the [ORINOCO artwork repository](https://hub.psychoinformatics.de/orinoco/artwork).
 Its source revision is `a1a9a929e02526eaea489ad5817b1c89b259d669`; Inkscape 1.3.2 outlined its flowed text using Nanum Pen Script.
-The news-page screenshot is not an image of the personnel PDF.
+The second column uses `../pics/borrowed/orinoco-lite-components-poster.svg`, an adaptation by the poster authors under the same CC BY 4.0 terms.
+It keeps the original schema, SHACL Vue, processing and output artwork in place, substitutes GitHub pull requests and Git-backed YAML records for Forgejo and Dump Things, and adds the Lite change flow.
+The shared App is identified only on the editor-to-GitHub connection; it is outside the records-to-build path.
+The catalog, website and annual report are illustrative output types, not claims that CON has implemented each application.
+The earlier TRR379 news-page screenshot remains a reference asset and is not an image of the personnel PDF.
+
+The Lite adaptation is a self-contained SVG with editable text labels.
+Its reproducible source is `make-component-diagram.py`; run `python3 2026-usrse/make-component-diagram.py` from the repository root to regenerate it.
+The script preserves the original source illustration and never writes through an annex symlink.
+After changing it, use the repository's normal annex workflow to save the regenerated asset, then rebuild the poster.
 
 The CON logo is the repository's existing `../pics/con-logo_blue_big.svg`.
 The Dartmouth seal is displayed from `../pics/con-ccn-dartmouth-letterhead.svg` with an SVG view fragment; `object-fit: fill` preserves the cropped view instead of the letterhead's intrinsic aspect ratio.
@@ -126,8 +135,10 @@ The TRR379 reporting example is explicitly attributed to that upstream deploymen
 
 ## Architecture and reader-facing structure
 
-The two overview diagrams use the same roles and layout: contributions, proposals, accepted metadata and reusable views.
-Service inboxes and a curated collection are paired with GitHub pull requests and accepted YAML records.
+The overview illustrations share their component positions so the two deployments can be compared visually.
+The original service illustration appears unchanged; the Lite adaptation maps Forgejo to GitHub pull requests and service storage to YAML records in Git.
+Its arrows show proposals reaching pull requests, reviewers merging them into the accepted records, and Actions building reusable outputs from those records.
+The two illustrations span their columns, with the homepage screenshots and explanatory text paired immediately below.
 The shared editor appears in the third column, alongside the value of validation within a group and ontologies and identifiers across groups.
 The lower workflows describe the corresponding submission, review, acceptance and rendering stages.
 The third column closes with the common objective rather than a separate operational checklist.
@@ -144,7 +155,7 @@ Upstream uses `query-things` for selection and joining; the tagged Lite package 
 Both reuse `www-from-model` templates and graph generation, with Hugo rendering the site.
 
 The poster retains the accepted abstract's comparison and broader metadata-reuse objective.
-Its introductory text explains the use case before the component names, and the paired diagrams replace the earlier nonparallel flow charts and standalone upstream artwork.
+Its introductory text explains the use case before the component names, and the paired component artwork complements the detailed workflows below.
 The Git/submodule/git-annex guidance remains scoped to the current design: ordinary Git for records, pinned components, and optional Annex for large site-specific media.
 
 The poster follows the talks repository's CC BY-SA 4.0 license, with separate notices for third-party material.
