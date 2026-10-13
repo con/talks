@@ -10,3 +10,7 @@
 	path = reveal.js-mermaid-plugin
 	url = https://github.com/zjffun/reveal.js-mermaid-plugin
 	datalad-url = https://github.com/zjffun/reveal.js-mermaid-plugin
+[submodule "con-site-specific"]
+	path = sourcedata/con-site-specific
+	url = http://github.com/ORINOCO-Lite/con-site-specific
+	branch = enh-temporal-associations

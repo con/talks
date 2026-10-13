@@ -29,6 +29,9 @@ pics/borrowed/            — third-party images
 3rd-party/                — third-party PDFs cited in slides
 embed/                    — small HTML iframes referenced by some decks
 posters/                  — poster sources (separate flow)
+sourcedata/con-site-specific/ — submodule: the CON record store that
+                            tools/mk_ack_eras.py reads to build the
+                            acknowledgements grid (CON_RECORD_STORE overrides)
 2026-usrse/               — venue-specific drafts: proposal, BoF/poster templates,
                             lineage diagrams
 2026-ohbm-ossig/          — OHBM Open Science Room submission
