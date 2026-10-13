@@ -1,7 +1,7 @@
 # CON projects audit — what the US-RSE talk does *not* mention
 
 Source comparison: `gh api orgs/con/repos` (active, non-archived) **vs.**
-projects named in `2026-usrse-con-talk.html` and `talk-proposal-draft.md`.
+projects named in `2026-usrse-con-talk.html` and `2026-usrse-con-talk-abstract.md`.
 Also covers projects that *were* in older CON talks but dropped from the
 current US-RSE deck, plus a few key external/CON-external projects worth
 re-considering.

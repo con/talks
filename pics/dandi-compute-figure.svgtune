@@ -1,0 +1,18 @@
+# svgtune instructions extracting the panels of the DANDI Compute poster
+# (pics/dandi-compute-figure.svg, 1680x2421) for the zoom-in slides.
+# The poster has no layers, so panels are cut out by page box (user units).
+%file dandi-compute-figure.svg
+
+# overview row + "Inside DANDI Compute"
+%crop box=40,20,1600,1000
+%save orchestration
+
+%reset
+# "Inside the spike-sorting pipeline"
+%crop box=40,1058,1600,474
+%save pipeline
+
+%reset
+# "Inside Dandiset 001697" + "Published back to the archive"
+%crop box=40,1565,1600,745
+%save derivative

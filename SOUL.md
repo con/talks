@@ -37,6 +37,20 @@ Concretely, almost every talk in the corpus revisits some subset of:
   `git-annex`), common data standards (BIDS, NWB, HED, DICOM), common metadata
   (LinkML, concepts.datalad.org), common organizational layouts (BIDS, YODA,
   STAMPED).  Standards are the language across labs and across HI ↔ AI.
+- **Collaborate** — ad-hoc solo projects produce silos and fragile tools; only
+  collaboration widens the range of use cases enough to force genuine robustness
+  and generality. Every long-lived project in the CON portfolio is a sustained
+  multi-stakeholder effort: `PyMVPA` with Michael Hanke (two decades and
+  counting); `NeuroDebian` — itself embedded inside the even larger Debian
+  community, contributing through and alongside `Debian Med` and `Debian Science`
+  blends rather than standing apart; the principle is that specialized projects
+  (NeuroDebian, Debian Med) should live *within* broader communities, not breed
+  outside them as competing ecosystems; `DataLad` with Michael Hanke and the
+  Psychoinformatics Lab at FZJ; `DANDI` with Satra Ghosh, Kitware, Ben Dichter, and the NWB / DANDI
+  community; `BIDS` — a genuinely large-scale community standard now spanning
+  hundreds of contributors. Contributions need not be code: testing,
+  troubleshooting, and articulating new use cases are what turn a solo hack into
+  infrastructure others can depend on.
 - **Automate** — none of the above scales without it. Unit/integration CI on
   every PR; daily-tested `git-annex` against DataLad; `con/tinuous` archiving
   CI logs and artifacts before they expire; auto-rebuilt `ReproNim/containers`;
@@ -311,8 +325,12 @@ inventing new ones.
 
 ## 4. Resources (where things live)
 
-- **Logos & images**: `pics/` (232 files; see `ls pics/` and grep). All the
-  CON-flavored marks plus borrowed third-party assets in `pics/borrowed/`.
+- **Logos & images**: `pics/` (443 tracked files; see `ls pics/` and grep).
+  All the CON-flavored marks plus borrowed third-party assets in
+  `pics/borrowed/` — though that convention was applied inconsistently over
+  the years, so plenty of borrowed material sits in `pics/` root too. The
+  lists below are a *findability* index, not a provenance record: for who
+  owns what, read `REUSE.toml`.
 - **YODA artwork**: `pics/yoda*.png/svg`,
   `pics/yoda-principles-reordered.png`, `pics/principle-vcs.png`,
   `pics/principle-computeenv.png`, `pics/principle-structure.png`,
@@ -440,7 +458,16 @@ thumbnail, with the YouTube URL in a `<small>` underneath.
 ## 6. License and sharing
 
 - Repository is **CC-BY-SA** (`LICENSE`). Reuse and remix freely; share
-  alike.
+  alike — but that covers *what we authored*. Slides quote the world, and
+  the borrowed screenshots, figures, cartoons and logos are not ours to
+  relicense. Saying so plainly is the same instinct as §2's loud
+  acknowledgements and §5's citation blocks: credit is part of the work,
+  not paperwork bolted onto it.
+- **`REUSE.toml`** (+ `LICENSES/`) is the authoritative per-file record of
+  copyright and provenance — including for material whose origin could not
+  be reconstructed, which is marked unknown rather than quietly absorbed
+  under our license. Mechanics live under *"Not everything here is ours"*
+  in `README.md`; what to do when you add an asset lives in `CLAUDE.md`.
 - Live mirror:
   <https://datasets.datalad.org/centerforopenneuroscience/talks/>.
 - Sources: this repository (`git clone https://datasets.datalad.org/

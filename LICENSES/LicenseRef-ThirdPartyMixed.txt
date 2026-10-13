@@ -1,0 +1,48 @@
+Third-Party Material of Mixed or Undetermined Provenance
+========================================================
+
+This is NOT a license grant. It is a marker.
+
+Files annotated with `LicenseRef-ThirdPartyMixed` are third-party
+material that was collected into this talks repository over many years
+for use as illustrations inside presentation slides: screenshots of
+web pages and publications, figures from papers and posters, cartoons,
+photographs, and similar.
+
+For these files:
+
+  * The copyright is held by the respective original authors,
+    publishers or rights holders -- NOT by the maintainers of this
+    repository.
+
+    One exception, marked as such where it applies: a few files are our
+    own compositions built on top of borrowed pieces (a diagram whose
+    layers include third-party clipart, a figure embedding a borrowed
+    photograph).  There the annotation names us as holder of the
+    composition AND records undetermined third-party rights in the
+    embedded elements.  The whole still cannot be offered under this
+    repository's terms alone, which is why it carries this marker.
+
+  * They are NOT licensed under this repository's CC-BY-SA-4.0 terms.
+    The repository-wide license applies to the slides, diagrams, text
+    and other material authored here, and cannot and does not extend
+    to third-party works merely reproduced within them.
+
+  * Their individual provenance and licensing terms have not been
+    determined, and in many cases can no longer be reconstructed. The
+    `SPDX-FileCopyrightText` for these files is recorded as
+    `NOASSERTION` for exactly that reason: it asserts ignorance rather
+    than ownership.
+
+  * Their inclusion here is as quotation/illustration in an academic
+    presentation context. Reproducing them outside that context, or
+    redistributing them on the strength of this repository's license,
+    is NOT authorised by this repository. If you wish to reuse one of
+    these files, identify and contact the original rights holder.
+
+Where provenance IS known for a particular file or group of files, a
+*later* annotation block in `REUSE.toml` overrides this marker and
+records the actual holder and license.  Position in the file is what
+decides, not how narrow the pattern is: only the last matching block is
+ever consulted. Such corrections are welcome:
+please open an issue or a pull request.

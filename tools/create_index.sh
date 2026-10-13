@@ -14,11 +14,24 @@ cd "$REPO_ROOT"
 OUT="index.html"
 
 # Extract title from an HTML file: first <title>...</title>, fall back to filename.
+# For non-HTML files, fall back to the stem (filename without extension).
 extract_title() {
-    local f="$1" t
-    t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
-    if [ -z "$t" ]; then
-        t=$(basename "$f" .html)
+    local f="$1" t ext
+    ext="${f##*.}"
+    if [ "$ext" = "html" ]; then
+        t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
+        [ -z "$t" ] && t=$(basename "$f" .html)
+    else
+        # Non-HTML talk (e.g. .pdf/.pptx) — try companion README heading,
+        # fall back to filename stem.
+        local stem
+        stem=$(basename "$f")
+        stem="${stem%.*}"
+        t=""
+        if [ -f "${stem}/README.md" ]; then
+            t=$(sed -n 's/^# *//p' "${stem}/README.md" | head -n1)
+        fi
+        [ -z "$t" ] && t="$stem"
     fi
     # Strip leading/trailing whitespace
     echo "$t" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
@@ -34,10 +47,11 @@ html_escape() {
 }
 
 # Collect & sort talks (reverse: newest first)
-mapfile -t TALKS < <(ls -1 20*.html 2>/dev/null | sort -r)
+# Include .html decks and .pdf exports of non-reveal.js talks (e.g. Google Slides).
+mapfile -t TALKS < <(ls -1 20*.html 20*.pdf 2>/dev/null | sort -r)
 
 if [ "${#TALKS[@]}" -eq 0 ]; then
-    echo "No 20*.html talks found in $REPO_ROOT" >&2
+    echo "No 20*.html / 20*.pdf talks found in $REPO_ROOT" >&2
     exit 1
 fi
 
@@ -45,8 +59,11 @@ fi
 list_items=""
 prev_year=""
 for f in "${TALKS[@]}"; do
+    raw_title=$(extract_title "$f")
+    # Skip work-in-progress decks
+    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
     year="${f:0:4}"
-    title=$(extract_title "$f" | html_escape)
+    title=$(echo "$raw_title" | html_escape)
     name_escaped=$(echo "$f" | html_escape)
     if [ "$year" != "$prev_year" ]; then
         if [ -n "$prev_year" ]; then

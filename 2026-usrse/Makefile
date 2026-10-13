@@ -12,18 +12,18 @@
 #   make pdf              -- builds <name>.pdf for every *.md (needs a PDF engine)
 #   make html             -- explicit alias for the default
 #   make diagram          -- rebuilds the Orinoco metadata-flow figure
-#   make proposal         -- just talk-proposal-draft.html + talk-proposal-draft.pdf
+#   make proposal         -- just 2026-usrse-con-talk-abstract.html + 2026-usrse-con-talk-abstract.pdf
 #   make clean            -- remove generated *.html / *.pdf
 #
 # Per-file targets work too, e.g.:
-#   make talk-proposal-draft.html
-#   make talk-proposal-draft.pdf
+#   make 2026-usrse-con-talk-abstract.html
+#   make 2026-usrse-con-talk-abstract.pdf
 #   make projects-audit.html
 
 # Inputs
 MDS := $(wildcard *.md)
-HTMLS := talk-proposal-draft.html  # $(MDS:.md=.html)
-PDFS := talk-proposal-draft.pdf  # $(MDS:.md=.pdf)
+HTMLS := 2026-usrse-con-talk-abstract.html  # $(MDS:.md=.html)
+PDFS := 2026-usrse-con-talk-abstract.pdf  # $(MDS:.md=.pdf)
 
 # Pick a PDF engine that's actually on PATH.  First match wins.
 PDF_ENGINE := $(firstword $(foreach e,xelatex lualatex pdflatex wkhtmltopdf weasyprint, \
@@ -62,7 +62,7 @@ HTML_OPTS := --to html5 \
 # *name* (it does not auto-recognize a bare hex string).  Define the two
 # names in the preamble via header-includes, then refer to them normally.
 PDF_LATEX_OPTS := --to pdf \
-                  -V 'geometry=top=0.5in, bottom=0.5in, left=0.75in, right=0.75in' \
+                  -V 'geometry=top=0.5in, bottom=0.5in, left=0.65in, right=0.65in' \
                   -V fontsize=11pt \
                   -V colorlinks=true \
                   -V linkcolor=darkgreen \
@@ -87,7 +87,7 @@ pdf: $(PDFS)
 
 diagram: orinoco-metadata-flow.png
 
-proposal: talk-proposal-draft.html talk-proposal-draft.pdf
+proposal: 2026-usrse-con-talk-abstract.html 2026-usrse-con-talk-abstract.pdf
 
 orinoco-metadata-flow.png: orinoco-metadata-flow.mmd
 	$(MERMAID_CLI) -i "$<" -o "$@" -b white -w 1600 -s 2 -q

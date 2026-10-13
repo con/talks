@@ -1,7 +1,7 @@
 # con/duct poster — layout plan (proposed)
 
 Status: everything here is *proposed* until we hear the accepted-poster format from US-RSE (announced after acceptance, per the template).
-The abstract (`duct-poster-draft.md`) is the submission; this file is our head start on the artifact itself.
+The abstract (`duct-poster-abstract.md`) is the submission; this file is our head start on the artifact itself.
 
 ## Organizing idea
 

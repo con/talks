@@ -18,6 +18,12 @@ listed in the *Shelved (backdrawer)* section below the active inventory.
 Cross-references in the per-topic lookup point at the shelved path
 (`_backdrawer_/<TALK-ID>.html`).
 
+### `2026-mcgill-mechababs/slides.html` — *mechababs: STAMPED execution of BIDS Apps at scale*
+- **Venue / date**: McGill neuroscience group, 2026-08-11 (20 min + 10 min discussion).
+- **Not a reveal.js deck**: marp source `2026-mcgill-mechababs/slides.md`, built to a self-contained `slides.html` via `datalad run` (marp-cli 4.5.0; `datalad rerun` regenerates it). Lives in its own subdirectory, no root `<TALK-ID>.html`. Slide IDs below do not apply.
+- **Spine**: Why (so many datasets) / How (STAMPED, DataLad) / What (BABS, mechababs) / flow + provenance / gaps / BIDS Study + BEP 028 / nipoppy comparison.
+- **Reusable highlights**: BABS interface + mechababs config-layer split; output-structure and derivative-details slides; provenance-capture slide; BEP 028 "gaps we have already hit" list.
+
 ### `2026-usrse-con-talk.html` — *[WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON*  *(draft)*
 - **Venue / date**: US-RSE'26 (proposal-stage draft; title carries a `[WiP]` marker in the tab and on the title slide).
 - **Spine**: the five-verb spine (Reuse / Compose / Extend / Standardize / **Automate**) plus a "Reuse, in reverse" coda, an Automate section (with the *meta-automation* handoff), and an HI+AI close.
@@ -41,6 +47,57 @@ Cross-references in the per-topic lookup point at the shelved path
 - Notes: drafted in support of `2026-usrse/talk-proposal-draft.md`.
   Companion files in `2026-usrse/`. QR code TBD; uncomment the
   `data-src` line in the title slide once the live URL is published.
+
+### `2026-brainhack-containers-mashup.html` — *Containers: BrainHack 2026 Mashup*
+- **Venue / date**: BrainHack 2026, containers session.
+- **Spine**: pointer-pack to container-related talks and materials.
+- **Reusable highlights**:
+  - Title slide (per `SOUL.md` §3).
+  - "Containers — talks to mash up" markdown slide with links to:
+    fMRIPrep Bootcamp (Geneva 2024) containers day, QLS612 (McGill 2026)
+    containers lecture, BioCore CRG Singularity introduction, ReproNim
+    containers tutorial.
+- Notes: tiny deck (2 slides — title + pointer list); useful as a
+  quick-reference card rather than a standalone presentation.
+
+### `2026-nih-bids2.0.html` — *BIDS 2.0: the past, present, and (realistic) future of the Brain Imaging Data Structure*
+- **Venue / date**: NIMH Data Science & Sharing Team Lunch & Learn, 2026-06-02.
+- **Spine**: BIDS overview → deprecations in 1.x → inconsistencies →
+  modularity (study datasets, YODA, STAMPED) → how to get involved.
+- **Reusable highlights**:
+  - Title slide (per `SOUL.md` §3).
+  - Brief Bio + CON principles `r-stack` (borrowed from `2022-nih-compcore.html`).
+  - BIDS citation slide (Gorgolewski et al. 2016) + BIDS 10th birthday
+    card iframe (`pics/bids-10th-birthday-card.html`).
+  - BIDS Features table (modular composition, consistent folder structure,
+    expressive naming, standard formats, documented metadata, BIDS-apps,
+    PyBIDS/bids2table/snakebids).
+  - BIDS timeline SVG (`pics/borrowed/bids-timeline-2024.svg`) from
+    Poldrack et al. Imaging Neuroscience (2024).
+  - **Deprecations** deep-dive (NEW): field renames, semantic swaps,
+    MAY→MUST tightenings, deprecated suffixes screenshot, "drop the
+    shims" takeaway.
+  - **Inconsistencies** slide (NEW): `participants.tsv`→`subjects.tsv`,
+    singular column names, time units, `.json` dual-purpose, path-vs-URI.
+  - **Modularity**: BIDS study `DatasetType` (v1.10.1), nipoppy / Princeton /
+    YODA layout overlays, OpenNeuroStudies, YODA→STAMPED transition,
+    `pics/stamped-principles-webshot_20260602.png`.
+  - BIDS 2.0 card iframe (`pics/bids-2.0-card.html`).
+  - "How to get involved" pointers (project board, repos, BEP process,
+    Zotero bibliography).
+- Notes: companion materials in `2026-nih-bids2.0/` (INCF 2024 poster,
+  bibliography, deprecation notes, talk plan).
+
+### `2026-bbqs-stamped` — *Guidelines for Reproducible Research* (STAMPED)  *(Google Slides)*
+- **Venue / date**: BBQS (BRAIN Behavior Quantification and
+  Synchronization) virtual workshop, 2026-03-11.
+- **Presenters**: Cody Baker (Yaroslav Halchenko is just a co-author)
+- **Format**: Google Slides (not reveal.js). Archived as
+  `2026-bbqs-stamped.pptx` (editable) and `2026-bbqs-stamped.pdf`
+  (static). Original at
+  <https://docs.google.com/presentation/d/1yC412amV-j3BUfZ8Aq0aPEay93mnvmbo833BfNwuI_8/edit?usp=sharing>.
+- Notes: companion `2026-bbqs-stamped/README.md` documents the format
+  choice.
 
 ### `2026-ca-origami-retreat-aicoding.html` — *A few words of intro into AI assisted coding*
 - **Venue / date**: CA Origami Retreat 2026.
@@ -297,6 +354,8 @@ Use these as a fast "where do I steal a slide for X?" cheat sheet.
 
 ### Compose / small acquisition+compute units (HeuDiConv / ReproStim /
 ReproNim-containers / con/duct / ReproMan)
+- `2026-brainhack-containers-mashup.html` — pointer-pack to external
+  container talks (fMRIPrep Bootcamp, QLS612, BioCore CRG, ReproNim).
 - `2022-nih-compcore.html` § ReproIn / HeuDiConv / Beyond-ReproIn.
 - `2025-distribits-YODA.html` § "datalad-container", § "ReproNim/
   containers" walkthrough, § ReproMan reference.
@@ -308,12 +367,19 @@ ReproNim-containers / con/duct / ReproMan)
   `pics/webshot-con-duct.png`, `pics/screenshot-duct-*.png`,
   `pics/duct-mriqc-cerebra.png`, `pics/borrowed/reproin-logo.jpg`.
 
-### Extend / standards work / BIDS BEPs
+### Extend / standards work / BIDS BEPs / BIDS 2.0
+- `2026-nih-bids2.0.html` — **best BIDS 2.0 walkthrough**: deprecations
+  deep-dive, inconsistencies, modularity (study datasets), how to get
+  involved. BIDS Features table, timeline SVG, 10th-birthday card.
 - `2023-bids-dicom.html` § BIDS features, § BIDS-minder, § DICOMs-in-BIDS
   workflow, § "All standards are bad, but some are used".
 - `2022-nih-compcore.html` § Microscopy-BIDS citation.
 - *Asset*: `pics/BIDS-minder.svg`, `pics/bids-logo-wide.png`,
-  `pics/bids-yoda.png`, `pics/bep028-example1.png`.
+  `pics/bids-yoda.png`, `pics/bep028-example1.png`,
+  `pics/borrowed/bids-timeline-2024.svg`,
+  `pics/bids-10th-birthday-card.html`, `pics/bids-2.0-card.html`,
+  `pics/borrowed/bids-2-devel_issue57-agenda_20260602.png`,
+  `pics/bids-2.0-incf2024-webshottop.png`.
 
 ### Standardize / data archives / DANDI / OpenNeuro / federation
 - `2023-brain-dandi.html` (whole deck) — best DANDI walkthrough.
@@ -324,13 +390,18 @@ ReproNim-containers / con/duct / ReproMan)
   `pics/DANDI-{ecosystem,FAIR,users-*}.svg`,
   `pics/dandiarchive-webshots.png`, `pics/dandisets-healthstatus.png`.
 
-### YODA principles + "Look up you must not"
+### YODA principles + "Look up you must not" + STAMPED
 - `2025-distribits-YODA.html` and `2026-repronim-YODA-BIDS-webinar.html`
   — full YODA spine.
+- `2026-nih-bids2.0.html` § Modularity → YODA hierarchy with containers
+  slide + YODA→STAMPED transition
+  (`pics/stamped-principles-webshot_20260602.png`).
+- `2026-bbqs-stamped` (PDF/PPTX) — standalone STAMPED presentation.
 - *Asset*: `pics/yoda*.{png,svg}`, `pics/principle-{vcs,computeenv,
   structure}.png`, `pics/depends-on-untracked-file.png`,
   `pics/yoda-hierarchy-with-containers.png`,
-  `pics/yoda-do-not-look-up.png`, `pics/yoda-all-the-way-down.png`.
+  `pics/yoda-do-not-look-up.png`, `pics/yoda-all-the-way-down.png`,
+  `pics/stamped-principles-webshot_20260602.png`.
 
 ### Provenance / `datalad run` / `datalad rerun` / RUNCMD → BEP028
 - `2025-distribits-YODA.html` and `2026-repronim-YODA-BIDS-webinar.html`
@@ -476,6 +547,10 @@ ReproNim-containers / con/duct / ReproMan)
   once instead of pitching one.
 - *SOUL.md §1* names this as a recurring framing — read it before
   writing a talk that compares projects/properties along multiple axes.
+- `2026-bbqs-stamped` (PDF/PPTX) — standalone STAMPED presentation
+  co-presented with Cody Baker at the BBQS virtual workshop (2026-03-11).
+  Not reveal.js; use the Google Slides original or the `.pptx` export for
+  remixing.
 - Both STAMPED and SciOps now have entries in `SOUL.md` §5 (canonical
   citations), so any future deck can cite them with one-line consistency.
 
