@@ -32,9 +32,11 @@ async def build(channel: str | None, preview: Path | None) -> None:
           for (const img of document.images) {
             if (!img.complete || !img.naturalWidth) issues.push(`Missing image: ${img.getAttribute('src')}`);
           }
-          for (const el of document.querySelectorAll('.poster, .column, .masthead, .footer')) {
-            if (el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2)
-              issues.push(`Overflow: ${el.className}`);
+          for (const el of document.querySelectorAll('.poster, .column, .column-head, .masthead, .footer, .architecture, .arch-node, .input')) {
+            if (el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2) {
+              const label = el.querySelector('h2')?.innerText || el.className;
+              issues.push(`Overflow: ${label} (${el.scrollWidth}×${el.scrollHeight} in ${el.clientWidth}×${el.clientHeight}px)`);
+            }
           }
           if (document.querySelectorAll('h1').length !== 1) issues.push('Expected one poster title');
           return issues;

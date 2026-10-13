@@ -9,14 +9,15 @@ HTML replaces the September SVG as the maintained poster source; the earlier dra
 Open the HTML in a browser to view it, or edit it in any text editor.
 Text is ordinary HTML, colors and layout are in the opening `<style>` block, and images have descriptive filenames in `../pics/`.
 The browser's **Fit to window** and **Full size** buttons affect viewing only.
-The poster keeps the cream, green and navy palette, one title, and a centered CON logo.
+The poster keeps the cream, green and navy palette and one title.
+The centered CON logo is about twice the previous width, and each author has a separate line.
 
 HTML/CSS suits this layout because it combines text, screenshots, vector artwork and links without a slide framework.
 Marp would still require a custom poster layout; Beamer would be useful for a team that prefers LaTeX authoring.
 There is no build step just to open the HTML.
 
-The print canvas remains **48 inches wide by 36 inches high**.
-This is the existing draft size; confirm the conference's mounting specification before ordering a print.
+The print canvas is **44 inches wide by 44 inches high**, the size selected for fabric printing.
+The HTML and exported PDF use the same dimensions.
 
 From the repository root, install the browser once and export:
 
@@ -70,7 +71,8 @@ The selected [package checks](https://github.com/ORINOCO-Lite/orinoco-lite-dev/a
 All website screenshots were captured on **13 October 2026**.
 The poster uses the real pages and existing record values; no form submission was made for a screenshot.
 Website screenshots retain the sites' and third parties' notices, represented by the repository's existing `LicenseRef-ThirdPartyMixed` convention rather than a new blanket license claim.
-Display frames crop the website screenshots at the bottom; source files retain the captured viewports.
+Display frames crop the website screenshots and the shared editor at the bottom; source files retain the captured viewports.
+The editor crop shows its form controls and example record fields at a readable size.
 
 | Poster asset in `../pics/borrowed/` | Source and interpretation |
 | --- | --- |
@@ -78,29 +80,54 @@ Display frames crop the website screenshots at the bottom; source files retain t
 | `orinoco-con-home-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/); the tagged CON deployment. |
 | `orinoco-con-editor-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to the form. This is the shared editor as used at CON. |
 | `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); the graph container with all default record types selected. |
-| `orinoco-trr379-survey-20261013.png` | [TRR379's DFG survey announcement](https://www.trr379.de/news/2025-dfg-survey/); a public account of an upstream reporting deployment. It is a news-page screenshot, not an image of a personnel PDF. |
-| `orinoco-selfhost-components-poster.svg` | [ORINOCO's official artwork](https://hub.psychoinformatics.de/orinoco/artwork), `selfhost_components_no_notes.svg`; Stephan Heunis (2026), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). |
 
-The original ORINOCO diagram was last changed at artwork commit `a1a9a929e02526eaea489ad5817b1c89b259d669`.
-Its downloaded SHA256 was `5fc88059db6a4464dac5318f46f869673a96ef5dfaa8448f4c9200a6b5d2394a`, matching the upstream annex key.
-The [upstream README](https://hub.psychoinformatics.de/orinoco/artwork/src/commit/384047aa38179ac323aeabfaa617518544b942f3/README.md) provides authorship and licensing.
-Inkscape 1.3.2 converted its flowed text to paths using [Nanum Pen Script](https://github.com/google/fonts/tree/main/ofl/nanumpenscript), preserving the artwork and labels while making it render reliably in browsers.
-The original editable vector remains available upstream.
-The poster's visible caption discloses this adaptation.
+The earlier official ORINOCO diagram and TRR379 news-page screenshot remain in `pics/borrowed/` as reference assets, but are not displayed in this revision.
+The diagram is Stephan Heunis's `selfhost_components_no_notes.svg`, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), from the [ORINOCO artwork repository](https://hub.psychoinformatics.de/orinoco/artwork).
+Its source revision is `a1a9a929e02526eaea489ad5817b1c89b259d669`; Inkscape 1.3.2 outlined its flowed text using Nanum Pen Script.
+The news-page screenshot is not an image of the personnel PDF.
 
 The CON logo is the repository's existing `../pics/con-logo_blue_big.svg`.
-The four vector QR codes link to the ORINOCO hub, ORINOCO Lite organization, CON development site, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+The Dartmouth seal is displayed from `../pics/con-ccn-dartmouth-letterhead.svg` with an SVG view fragment; `object-fit: fill` preserves the cropped view instead of the letterhead's intrinsic aspect ratio.
+Psychological and Brain Sciences is credited as text beside the seal; the ReproNim mark is `../pics/borrowed/repronim_logo.svg`.
+These existing institutional marks retain their respective notices.
+The four vector QR codes embed the complete CON mark with a white pad, high error correction and a four-module quiet border.
+They link to the ORINOCO hub, ORINOCO Lite organization, CON development site, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
+
+Regenerate and check the logo QR codes with:
+
+```bash
+uv run 2026-usrse/make-logo-qrs.py --check-dir /tmp/con-qr-checks
+```
+
+The generator uses Inkscape and `rsvg-convert`, keeps the artwork vector-based, and verifies decoded destinations at screen and print sizes, including rotation and slight blur.
 
 The [Dump Things Service documentation](https://hub.psychoinformatics.de/orinoco/dump-things-service) supports the service explanation.
 The service separates incoming submissions from curated records; people and curation tools perform the review and promotion.
 The TRR379 reporting example is explicitly attributed to that upstream deployment.
 
-## Changes responding to PR #20
+## Architecture and reader-facing structure
 
-The revised poster pairs the two deployment workflows with website screenshots, uses ORINOCO's own curation graphic, shows the shared SHACL Vue form and CON graph, explains the metadata service, and links Heunis's talk with a QR code.
-The earlier bottom sections are replaced by these examples and concise operational guidance.
-The Git/submodule/git-annex guidance follows the tagged package's current design: records remain ordinary Git content, submodules select separately maintained components, optional Annex use is confined to site-specific media, and package distributions bundle required upstream rendering assets.
+The two overview diagrams use the same roles and layout: contributions, proposals, accepted metadata and reusable views.
+Service inboxes and a curated collection are paired with GitHub pull requests and accepted YAML records.
+The shared editor appears in the third column, alongside the value of validation within a group and ontologies and identifiers across groups.
+The lower workflows describe the corresponding submission, review, acceptance and rendering stages.
+The third column closes with the common objective rather than a separate operational checklist.
+
+The [tagged design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13/docs/project-design.md#metadata-change-flow) and its editing, review and authentication contracts support the Lite flow.
+“No services for your lab to deploy” refers to using GitHub and the shared curation App.
+The App provides authenticated GitHub operations for static editing and review pages; it is outside the build and public reading paths and stores no metadata.
+It can be self-hosted, but a downstream need not operate it.
+Transient build-time use of Dump Things is deliberately omitted from the high-level deployment comparison.
+
+Upstream curation occurs outside the storage service and may be performed by people or automation; the poster does not identify Forgejo as a universal review interface.
+The Psychoinformatics deployment's [update workflow](https://github.com/ORINOCO-Lite/www-from-model/blob/31d7b254c93a4a65613632fd6e1df71b32a20fd0/.forgejo/workflows/update-from-pool.yaml) and [publication workflow](https://github.com/ORINOCO-Lite/www-from-model/blob/31d7b254c93a4a65613632fd6e1df71b32a20fd0/.forgejo/workflows/deploy.yml) support the stated Forgejo role.
+Upstream uses `query-things` for selection and joining; the tagged Lite package implements that projection in its own code.
+Both reuse `www-from-model` templates and graph generation, with Hugo rendering the site.
+
+The poster retains the accepted abstract's comparison and broader metadata-reuse objective.
+Its introductory text explains the use case before the component names, and the paired diagrams replace the earlier nonparallel flow charts and standalone upstream artwork.
+The Git/submodule/git-annex guidance remains scoped to the current design: ordinary Git for records, pinned components, and optional Annex for large site-specific media.
 
 The poster follows the talks repository's CC BY-SA 4.0 license, with separate notices for third-party material.
 OpenAI Codex assisted with source review, text, diagrams and layout, as acknowledged on the poster.

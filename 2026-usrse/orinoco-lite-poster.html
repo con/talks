@@ -6,12 +6,11 @@
   <title>Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations</title>
   <meta name="description" content="US-RSE 2026 poster comparing ORINOCO service deployments with the GitHub-based ORINOCO Lite deployment at the Center for Open Neuroscience.">
   <style>
-    /* Edit the text below directly. All sizes use a 48 × 36 inch print canvas.
-       The screen wrapper scales the same canvas; printing removes the wrapper. */
+    /* Editable 44 × 44 inch poster. Screen and print share the same canvas. */
     :root {
       --paper: #f6f2e9; --ink: #193c4d; --green: #286857;
       --muted: #526c76; --rule: #cbd6ce; --tint: #e6eee5;
-      --warm: #b55c28; --canvas-width: 4608px; --canvas-height: 3456px;
+      --warm: #b55c28; --canvas-width: 4224px; --canvas-height: 4224px;
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: #d8ddd9; color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
@@ -22,68 +21,99 @@
     .screen-tools a { margin-left: auto; }
     #viewport { position: relative; margin: 0 auto 24px; }
     .poster { width: var(--canvas-width); height: var(--canvas-height); transform-origin: top left;
-      background: var(--paper); border-top: 24px solid var(--green); padding: 76px 96px 54px;
-      display: grid; grid-template-rows: 280px 196px 1fr 298px; gap: 40px; }
-    .masthead { display: grid; grid-template-columns: 1fr 440px 1fr; gap: 78px; align-items: center; }
-    .eyebrow { color: var(--green); font-size: 29px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 18px; }
-    h1 { margin: 0; font-size: 91px; line-height: 1.02; letter-spacing: -2px; }
-    h1 span { display: block; margin-top: 18px; font-size: 49px; font-weight: 400; letter-spacing: 0; line-height: 1.13; }
-    .con-logo { width: 440px; }
-    .authors { font-size: 40px; line-height: 1.32; justify-self: end; }
+      background: var(--paper); border-top: 24px solid var(--green); padding: 60px 88px 58px;
+      display: grid; grid-template-rows: 350px 286px 1fr 380px; gap: 36px; }
+    .masthead { display: grid; grid-template-columns: 1.15fr 840px 1fr; gap: 78px; align-items: center; }
+    .eyebrow { color: var(--green); font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 22px; }
+    h1 { margin: 0; font-size: 91px; line-height: 1.03; letter-spacing: -2px; }
+    h1 span { display: block; margin-top: 22px; font-size: 48px; font-weight: 400; letter-spacing: 0; line-height: 1.17; }
+    .con-logo { display: block; width: 840px; }
+    .authors { font-size: 43px; line-height: 1.25; justify-self: end; }
     .authors p { margin: 0; }
-    .authors .affiliation { font-size: 31px; margin-top: 20px; color: var(--muted); line-height: 1.3; }
-    .lead { background: var(--ink); color: white; margin: 0 -96px; padding: 36px 96px;
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 96px; align-items: center; }
-    .lead p { margin: 0; font-size: 43px; line-height: 1.3; }
-    .lead p + p { border-left: 3px solid #647d86; padding-left: 72px; font-size: 39px; }
-    .columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 54px; min-height: 0; }
+    .authors .name { display: block; }
+    .authors .affiliation { font-size: 30px; margin-top: 22px; color: var(--muted); line-height: 1.3; }
+    .lead { background: var(--ink); color: white; margin: 0 -88px; padding: 34px 88px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 76px; align-items: center; }
+    .lead p { margin: 0; font-size: 39px; line-height: 1.33; }
+    .lead .pitch { border-left: 3px solid #647d86; padding-left: 64px; }
+    .pitch strong { display: block; font-size: 45px; line-height: 1.2; margin-bottom: 18px; }
+    .pitch span { font-size: 35px; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 42px; min-height: 0; }
     .column { display: flex; flex-direction: column; min-height: 0; }
     .column > * { flex-shrink: 0; }
-    .column + .column { border-left: 2px solid var(--rule); padding-left: 52px; }
-    .section-label { margin: 0 0 12px; color: var(--green); font-size: 29px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
-    h2 { margin: 0 0 18px; font-size: 64px; line-height: 1.06; }
-    .intro { font-size: 37px; line-height: 1.32; margin: 0 0 26px; min-height: 150px; }
-    .flow { display: grid; grid-template-columns: 1fr 50px 1fr 50px 1fr; align-items: center; min-height: 177px; margin: 0 0 26px; }
-    .flow b { display: grid; align-content: center; border: 2px solid var(--rule); background: white; border-radius: 12px;
-      min-height: 144px; padding: 19px 13px; text-align: center; font-size: 33px; line-height: 1.13; }
-    .flow b small { display: block; font-size: 26px; font-weight: 400; margin-top: 10px; color: var(--muted); }
-    .flow .arrow { text-align: center; color: var(--green); font-size: 49px; }
+    .column + .column { border-left: 2px solid var(--rule); padding-left: 40px; }
+    .section-label { margin: 0 0 14px; color: var(--green); font-size: 28px; letter-spacing: 1.7px; text-transform: uppercase; font-weight: 700; }
+    h2 { margin: 0 0 22px; font-size: 63px; line-height: 1.08; }
+    .intro { font-size: 37px; line-height: 1.34; margin: 0 0 30px; }
+    .column-head { height: 378px; }
+    .architecture-pair { height: 842px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
     figure { margin: 0; }
-    .figure { background: white; border: 2px solid var(--rule); border-radius: 13px; overflow: hidden; }
+    .architecture { padding: 19px; background: #edf1ea; border: 2px solid var(--rule); border-radius: 12px; }
+    .architecture .model { margin: 0 0 18px; text-align: center; font-size: 27px; line-height: 1.2; color: var(--green); }
+    .arch-node { border: 2px solid var(--rule); background: white; border-radius: 9px; padding: 20px 10px; min-height: 123px; text-align: center; }
+    .arch-node .role { display: block; font-size: 22px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 9px; }
+    .arch-node strong { display: block; font-size: 31px; line-height: 1.14; }
+    .arch-node.changed { background: #fff6e9; border-color: #c9a887; }
+    .arch-arrow { height: 48px; display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 24px; color: var(--green); }
+    .arch-arrow b { font-size: 39px; font-weight: 400; }
+    .figure { background: white; border: 2px solid var(--rule); border-radius: 12px; overflow: hidden; }
     .figure img { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .artwork { height: 700px; padding: 18px; }
-    .webshot { height: 640px; }
-    .webshot img, .survey img { object-fit: cover; object-position: top; }
-    .editor { height: 700px; padding: 4px; }
-    .graph { height: 850px; padding: 12px; }
-    .survey { height: 450px; }
-    figcaption { margin: 18px 0 30px; font-size: 31px; line-height: 1.25; color: var(--muted); }
+    .webshot { height: 720px; }
+    .webshot img { object-fit: cover; object-position: top left; }
+    figcaption { margin: 17px 0 0; font-size: 29px; line-height: 1.3; color: var(--muted); }
     figcaption strong { color: var(--ink); }
-    .caption-credit { font-size: 23px; display: block; margin-top: 9px; }
-    .callout { margin-top: auto; border-top: 8px solid var(--green); background: var(--tint); padding: 27px 30px; font-size: 35px; line-height: 1.27; }
-    .callout h3 { font-size: 39px; margin: 0 0 12px; }
+    .architecture-pair figcaption { font-size: 27px; }
+    .section-copy { height: 194px; font-size: 36px; line-height: 1.35; margin: 0 0 30px; }
+    h3 { margin: 0 0 21px; font-size: 44px; line-height: 1.13; }
+    .technical { border-top: 5px solid var(--green); padding-top: 28px; margin-top: 2px; }
+    .technical .section-copy { font-size: 35px; }
+    .inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 16px; }
+    .input { border: 2px solid var(--rule); border-radius: 10px; padding: 20px; background: white; font-size: 29px; line-height: 1.3; }
+    .input strong { display: block; font-size: 32px; margin-bottom: 9px; }
+    .converge { text-align: center; color: var(--green); font-size: 28px; margin: 0 0 18px; }
+    .steps { padding: 0; margin: 0; list-style: none; counter-reset: step; }
+    .steps li { position: relative; padding: 0 0 23px 70px; counter-increment: step; font-size: 34px; line-height: 1.34; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 2px; background: var(--green); color: white; width: 46px; height: 46px; border-radius: 50%; text-align: center; font-size: 28px; line-height: 46px; }
+    .steps li:not(:last-child)::after { content: ''; position: absolute; left: 22px; top: 52px; bottom: 7px; width: 2px; background: var(--rule); }
+    .steps strong { display: block; font-size: 36px; margin-bottom: 6px; }
+    .component { font-family: monospace; font-size: .88em; }
+    .callout { margin-top: auto; border-top: 7px solid var(--green); background: var(--tint); padding: 28px 30px; font-size: 35px; line-height: 1.34; }
+    .callout h3 { font-size: 40px; margin-bottom: 13px; }
     .callout p { margin: 0; }
-    .callout small { display: block; font-size: 28px; margin-top: 12px; }
-    .outcomes h3 { font-size: 42px; margin: 4px 0 18px; }
-    .outcomes .intro { min-height: 150px; }
-    .outcomes .reuse-text { font-size: 36px; line-height: 1.32; margin: 0 0 24px; }
-    .outcomes .graph-caption { margin-bottom: 30px; }
+    .callout p + p { margin-top: 18px; }
+    .callout small { display: block; font-size: 28px; margin-top: 18px; }
+    .editor { height: 660px; }
+    .editor img { object-fit: cover; object-position: top; }
+    .shared-form { margin-bottom: 22px; }
+    .value-section { margin-top: 18px; }
+    .value-section p { margin: 0 0 24px; font-size: 36px; line-height: 1.35; }
+    .graph { height: 360px; }
+    .graph img { object-fit: contain; }
+    .graph-caption { font-size: 27px; margin-bottom: 28px; }
+    .global-example { border-left: 6px solid var(--green); padding: 7px 0 7px 24px; font-size: 33px; line-height: 1.3; margin-bottom: 20px; }
+    .report-example { font-size: 33px; line-height: 1.34; padding: 24px 0; border-top: 2px solid var(--rule); }
     .outcomes .callout { background: #f0e4d5; border-color: var(--warm); }
-    .footer { border-top: 3px solid var(--rule); padding-top: 28px; display: grid;
-      grid-template-columns: 1.55fr 1fr; gap: 60px; }
-    .footer p { margin: 0 0 13px; font-size: 27px; line-height: 1.27; }
-    .footer .thanks { color: var(--muted); font-size: 25px; }
-    .snapshot { font-size: 28px; }
+    .footer { border-top: 3px solid var(--rule); padding-top: 28px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 70px; }
+    .footer p { margin: 0 0 16px; font-size: 26px; line-height: 1.3; }
+    .footer .thanks { color: var(--muted); font-size: 24px; }
     .snapshot strong { color: var(--green); }
     .snapshot a { white-space: nowrap; }
-    .qr-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
-    .qr-links a { display: flex; align-items: center; flex-direction: column; text-decoration: none; font-size: 27px; font-weight: 700; text-align: center; gap: 12px; }
-    .qr-links img { width: 180px; height: 180px; background: white; }
-    @page { size: 48in 36in; margin: 0; }
+    .footer-right { display: flex; flex-direction: column; gap: 22px; }
+    .qr-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .qr-links a { display: flex; align-items: center; flex-direction: column; text-decoration: none; font-size: 26px; font-weight: 700; text-align: center; gap: 11px; }
+    .qr-links img { width: 210px; height: 210px; background: white; }
+    .partners { display: flex; align-items: center; gap: 60px; height: 122px; margin-top: 15px; }
+    .partners img { max-height: 120px; max-width: 440px; object-fit: contain; }
+    .partners .repronim { width: 118px; height: 118px; }
+    .partners .dartmouth { width: 105px; height: 112px; object-fit: fill; }
+    .partner-affiliation { display: flex; gap: 22px; align-items: center; font-size: 28px; line-height: 1.3; color: #00693e; }
+    .partner-affiliation strong { display: block; font-size: 33px; }
+    .partners .pbs { max-width: 470px; }
+    @page { size: 44in 44in; margin: 0; }
     @media print {
-      html, body { width: 48in; height: 36in; background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      html, body { width: 44in; height: 44in; background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       .screen-tools { display: none; }
-      #viewport { width: 48in !important; height: 36in !important; margin: 0; }
+      #viewport { width: 44in !important; height: 44in !important; margin: 0; }
       .poster { transform: none !important; break-inside: avoid; }
     }
   </style>
@@ -104,85 +134,140 @@
         </div>
         <img class="con-logo" src="../pics/con-logo_blue_big.svg" alt="Center for Open Neuroscience">
         <div class="authors">
-          <p><strong>John Lee · Isaac To<br>Yaroslav O. Halchenko</strong></p>
+          <p><strong><span class="name">John Lee</span><span class="name">Isaac To</span><span class="name">Yaroslav O. Halchenko</span></strong></p>
           <p class="affiliation">Center for Open Neuroscience<br>Psychological and Brain Sciences<br>Dartmouth College</p>
         </div>
       </header>
 
       <section class="lead" aria-label="Primary takeaway">
-        <p>We compare two ways to deploy <strong>ORINOCO</strong>, a system for collaboratively managing and reusing structured research metadata.</p>
-        <p>Dedicated services or GitHub pull requests: <strong>curate people, projects and publications together, then reuse their relationships across lab operations.</strong></p>
+        <p>Who works on which project, and what has it produced? Labs repeatedly assemble these facts for websites, grants and reports. <strong>ORINOCO makes them a shared collection of structured, connected records</strong> that people, software and AI tools can use.</p>
+        <p class="pitch"><strong>Deploy with dedicated services, or use our GitHub-based model with no services for your lab to deploy.</strong><span>We compare two ways to run the same metadata approach: the service deployment at Psychoinformatics and ORINOCO Lite at the Center for Open Neuroscience (CON).</span></p>
       </section>
 
       <div class="columns">
         <section class="column" aria-labelledby="service-heading">
-          <p class="section-label">Deployment 1 · Dedicated services</p>
-          <h2 id="service-heading">ORINOCO</h2>
-          <p class="intro">Developed by Michael Hanke and colleagues in the <strong>Psychoinformatics group, INM-7, Forschungszentrum Jülich.</strong> Shared LinkML schemas connect records and drive forms and validation.</p>
-          <div class="flow" aria-label="Contributors submit records to a service inbox; curators approve them into a collection.">
-            <b>Contributors<small>submit records</small></b><span class="arrow" aria-hidden="true">→</span>
-            <b>Service inbox<small>curators review</small></b><span class="arrow" aria-hidden="true">→</span>
-            <b>Collection<small>query and reuse</small></b>
+          <div class="column-head">
+            <p class="section-label">1 · Dedicated services</p>
+            <h2 id="service-heading">ORINOCO</h2>
+            <p class="intro">Developed by Michael Hanke and colleagues at <strong>Psychoinformatics, INM-7, Forschungszentrum Jülich</strong>, ORINOCO connects open tools for research information. A metadata service accepts submissions from people and software; curation tools turn them into a reusable collection.</p>
           </div>
-          <figure>
-            <div class="figure artwork"><img src="../pics/borrowed/orinoco-selfhost-components-poster.svg" alt="ORINOCO's own diagram: a schema connects SHACL Vue forms, Forgejo curation and the Dump Things service to catalogs, websites and reports."></div>
-            <figcaption><strong>ORINOCO’s metadata-curation components.</strong> A common model connects editing, review and reuse.
-              <span class="caption-credit">Artwork: Stephan Heunis (2026), <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Text outlined for display. <a href="https://hub.psychoinformatics.de/orinoco/artwork">Source</a>.</span>
-            </figcaption>
-          </figure>
-          <figure>
-            <div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-20261013.png" alt="The Psychoinformatics group homepage, showing its research-group website produced from linked metadata."></div>
-            <figcaption><strong>A website built from linked records.</strong><br><a href="https://www.psychoinformatics.de/">psychoinformatics.de</a></figcaption>
-          </figure>
+          <div class="architecture-pair">
+            <figure>
+              <div class="architecture" aria-label="High-level ORINOCO roles: forms and tools submit to service inboxes; curation promotes changes to the accepted collection; ORINOCO tools produce a graph and views.">
+                <p class="model">Shared model: <strong>LinkML schemas</strong></p>
+                <div class="arch-node"><span class="role">Contributions</span><strong>Forms and source tools</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> submit records</div>
+                <div class="arch-node"><span class="role">Proposals</span><strong>Service inboxes</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> curators promote</div>
+                <div class="arch-node"><span class="role">Accepted metadata</span><strong>Service collection</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> build views</div>
+                <div class="arch-node"><span class="role">Reuse</span><strong>Linked graph and views</strong></div>
+              </div>
+              <figcaption>Dump Things holds the inboxes and collection. Curation connects them; details below.</figcaption>
+            </figure>
+            <figure>
+              <div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-20261013.png" alt="The Psychoinformatics group homepage generated from connected research-information records."></div>
+              <figcaption><strong>The Psychoinformatics website</strong> is one view of this information.<br><a href="https://www.psychoinformatics.de/">psychoinformatics.de</a></figcaption>
+            </figure>
+          </div>
+          <p class="section-copy">A <strong>schema</strong> defines record types, fields and relationships, such as a person’s role in a project. The same definition generates editing forms and checks whether submitted records have the expected structure.</p>
+          <section class="technical" aria-labelledby="service-flow-heading">
+            <h3 id="service-flow-heading">How a change becomes reusable data</h3>
+            <div class="inputs">
+              <div class="input"><strong>A person edits</strong>SHACL Vue presents a form derived from the schema.</div>
+              <div class="input"><strong>A tool submits</strong>An automated process prepares structured records.</div>
+            </div>
+            <p class="converge">Both submit records ↓</p>
+            <ol class="steps">
+              <li><strong>Validate and stage</strong>The Dump Things Service checks incoming records against the schema and holds submissions separately from the curated collection.</li>
+              <li><strong>Review the submission</strong>Curators inspect, modify, accept or reject submissions using tools outside the storage service. Curation can be performed by people or automated processes.</li>
+              <li><strong>Update the collection</strong>Accepted records are promoted into the service’s curated collection, where identifiers connect people, projects, publications and other entities.</li>
+              <li><strong>Query and present</strong><span class="component">query-things</span> selects and joins records. <span class="component">www-from-model</span> supplies page templates and the graph generator; Hugo renders the website. Other consumers can generate reports or catalogs.</li>
+            </ol>
+          </section>
           <aside class="callout">
-            <h3>What is the Dump Things Service?</h3>
-            <p>A metadata API that validates incoming records, stages submissions for review, and serves curated records for reuse.</p>
-            <small>Operating choice: maintain the service, its storage and access controls.</small>
+            <h3>Services connect the tools</h3>
+            <p>At Psychoinformatics, <strong>Forgejo</strong> provides identity and access integration and runs website update and publication workflows. <strong>Dump Things</strong> provides the metadata API and storage. Lab-in-a-Box deploys these components alongside other lab services.</p>
+            <small>ORINOCO: Organized Research Information: Ontology-mapping, Curation, Orchestration.</small>
           </aside>
         </section>
 
         <section class="column" aria-labelledby="lite-heading">
-          <p class="section-label">Deployment 2 · GitHub collaboration</p>
-          <h2 id="lite-heading">ORINOCO Lite at CON</h2>
-          <p class="intro">We retain ORINOCO’s schemas and processing tools, adapting their operation to <strong>YAML records in Git, pull-request review and automated website builds.</strong></p>
-          <div class="flow" aria-label="Contributors propose edits in pull requests; people review changes; GitHub Actions validates and rebuilds the website after merge.">
-            <b>Pull requests<small>people review</small></b><span class="arrow" aria-hidden="true">→</span>
-            <b>YAML in Git<small>merge records</small></b><span class="arrow" aria-hidden="true">→</span>
-            <b>Actions<small>validate + build</small></b>
+          <div class="column-head">
+            <p class="section-label">2 · GitHub-based deployment</p>
+            <h2 id="lite-heading">ORINOCO Lite at CON</h2>
+            <p class="intro">Lite keeps ORINOCO’s schemas, editor and processing tools, while placing <strong>records in Git and review in GitHub pull requests</strong>. A reusable package and repository template bring these components together for a static website.</p>
           </div>
-          <figure>
-            <div class="figure editor"><img src="../pics/borrowed/orinoco-con-editor-20261013.png" alt="SHACL Vue's Project form displaying the identifier, title and description of CON's DataLad project record."></div>
-            <figcaption><strong>Shared, schema-driven forms.</strong> SHACL Vue edits a CON project record. A GitHub App connects signed-in edits to pull requests.</figcaption>
-          </figure>
-          <figure>
-            <div class="figure webshot"><img src="../pics/borrowed/orinoco-con-home-20261013.png" alt="The CON development homepage, displaying the center's open-science mission and principles with research-information navigation."></div>
-            <figcaption><strong>CON’s development website.</strong><br><a href="https://dev.centerforopenneuroscience.org/">dev.centerforopenneuroscience.org</a></figcaption>
-          </figure>
+          <div class="architecture-pair">
+            <figure>
+              <div class="architecture" aria-label="High-level ORINOCO Lite roles: forms and tools propose pull requests; review and merge updates accepted YAML records in Git; the shared ORINOCO tools produce a graph and views.">
+                <p class="model">Shared model: <strong>LinkML schemas</strong></p>
+                <div class="arch-node"><span class="role">Contributions</span><strong>Forms and source tools</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> propose changes</div>
+                <div class="arch-node changed"><span class="role">Proposals</span><strong>GitHub pull requests</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> reviewers merge</div>
+                <div class="arch-node changed"><span class="role">Accepted metadata</span><strong>YAML files in Git</strong></div>
+                <div class="arch-arrow"><b aria-hidden="true">↓</b> build views</div>
+                <div class="arch-node"><span class="role">Reuse</span><strong>Linked graph and views</strong></div>
+              </div>
+              <figcaption>The highlighted components change; the model and reusable tools stay shared.</figcaption>
+            </figure>
+            <figure>
+              <div class="figure webshot"><img src="../pics/borrowed/orinoco-con-home-20261013.png" alt="The Center for Open Neuroscience development homepage generated with ORINOCO Lite."></div>
+              <figcaption><strong>The CON development website</strong> uses the GitHub deployment.<br><a href="https://dev.centerforopenneuroscience.org/">dev.centerforopenneuroscience.org</a></figcaption>
+            </figure>
+          </div>
+          <p class="section-copy">The repository becomes the group’s <strong>official metadata collection</strong>. Records are readable text files with a change history. GitHub Actions runs validation and publication, so the lab maintains its information without operating a metadata server.</p>
+          <section class="technical" aria-labelledby="lite-flow-heading">
+            <h3 id="lite-flow-heading">How a change becomes reusable data</h3>
+            <div class="inputs">
+              <div class="input"><strong>A person edits</strong>The static <span class="component">/edit/</span> page opens a pull request from a SHACL Vue form.</div>
+              <div class="input"><strong>A tool proposes</strong>An adapter workflow opens a pull request; <span class="component">/review/</span> records which proposals to keep.</div>
+            </div>
+            <p class="converge">Both produce a pull request ↓</p>
+            <ol class="steps">
+              <li><strong>Validate and stage</strong>GitHub Actions converts the submitted edits or selected proposals into schema-validated metadata changes in the pull request.</li>
+              <li><strong>Review the changes</strong>GitHub shows the proposed record changes for discussion and approval. Adapters can draw on existing sources, such as the lab’s Zotero publication library.</li>
+              <li><strong>Update the collection</strong>Merging the pull request updates the YAML records on the repository’s default branch. Git retains the accepted changes and their attribution.</li>
+              <li><strong>Query and present</strong>Actions selects and joins records using the same <span class="component">www-from-model</span> templates and graph generator. Hugo renders the site for GitHub Pages; the source records remain in Git.</li>
+            </ol>
+          </section>
           <aside class="callout">
-            <h3>AI proposes. People curate.</h3>
-            <p>Source adapters and AI can prepare changes; schemas constrain their structure, while reviewers decide identity, attribution and meaning.</p>
-            <small>Operating choice: maintain GitHub workflows, static hosting and the editing App.</small>
+            <h3>GitHub connects the tools</h3>
+            <p>A shared GitHub App signs users in and performs the GitHub operations needed by the browser editor and review page. It stores no metadata and is outside the build and public reading paths.</p>
+            <small>Lab-managed inputs: records, site content and configuration. Separately maintained components are pinned with submodules; large media can use git-annex.</small>
           </aside>
         </section>
 
         <section class="column outcomes" aria-labelledby="reuse-heading">
-          <p class="section-label">One collection · Multiple uses</p>
-          <h2 id="reuse-heading">Follow the relationships</h2>
-          <p class="intro">Shared identifiers link people to projects and research outputs. The same structured information supports <strong>discovery, public communication and reporting.</strong></p>
-          <figure>
-            <div class="figure graph"><img src="../pics/borrowed/orinoco-con-graph-20261013.png" alt="CON's graph explorer connects people, projects, publications, organizations, datasets and topics; DataLad, DANDI and CON are visible."></div>
-            <figcaption class="graph-caption"><strong>Explore the CON knowledge graph.</strong> Relationships also drive related-item lists and links between website pages.</figcaption>
+          <div class="column-head">
+            <p class="section-label">3 · Local use, global connections</p>
+            <h2 id="reuse-heading">Useful in the lab.<br>Connected beyond it.</h2>
+            <p class="intro">Both deployments serve the same purpose: maintain information where a group knows it best, and describe it in ways that other tools and organizations can understand.</p>
+          </div>
+          <figure class="shared-form">
+            <div class="figure editor"><img src="../pics/borrowed/orinoco-con-editor-20261013.png" alt="The SHACL Vue form used in both deployment patterns, shown here editing the DataLad project record at CON."></div>
+            <figcaption><strong>One schema-driven editor in both deployments.</strong> SHACL Vue turns the data model into forms, so contributors can edit structured records without writing YAML or learning semantic-web syntax.</figcaption>
           </figure>
-          <h3>Beyond the website: a funder report</h3>
-          <p class="reuse-text"><strong>TRR379 already uses this approach for its DFG annual survey.</strong> Its central metadata infrastructure gathers personnel information and generates the funder’s census PDF.</p>
-          <figure>
-            <div class="figure survey"><img src="../pics/borrowed/orinoco-trr379-survey-20261013.png" alt="TRR379's public article announcing its DFG annual survey and describing generation of the personnel-census PDF."></div>
-            <figcaption><a href="https://www.trr379.de/news/2025-dfg-survey/">TRR379’s DFG survey deployment</a> · An upstream example of reusing metadata for a second output.</figcaption>
-          </figure>
+          <section class="value-section">
+            <h3>Within a group: collect once, reuse</h3>
+            <p>Link people, projects, publications and datasets. Validation checks the structure; explicit relationships let websites, reports and queries reuse the same records instead of maintaining separate lists.</p>
+            <figure>
+              <div class="figure graph"><img src="../pics/borrowed/orinoco-con-graph-20261013.png" alt="CON’s knowledge graph connects people, organizations, projects, publications, datasets and topics."></div>
+              <figcaption class="graph-caption"><strong>CON’s graph explorer:</strong> the relationships behind pages, related-item lists and cross-links.</figcaption>
+            </figure>
+          </section>
+          <section class="value-section">
+            <h3>Across groups: shared meaning</h3>
+            <p><strong>Ontologies</strong> give concepts and relationships shared definitions. Mapping local records to these terms makes them linkable to independently maintained research information.</p>
+            <div class="global-example">ORCID identifies people; DOI identifies publications. schema.org supplies a shared term for names; W3C PROV supplies one for roles.</div>
+            <p>For AI-assisted work, explicit fields, identifiers and relationships provide context that tools can query, validate and update without having to infer the data model from scattered prose.</p>
+          </section>
+          <div class="report-example"><strong>Already beyond the website:</strong> the upstream <a href="https://www.trr379.de/news/2025-dfg-survey/">TRR379 deployment</a> uses its central metadata infrastructure to collect personnel information and generate a DFG annual-survey PDF.</div>
           <aside class="callout">
-            <h3>Keep the records reusable</h3>
-            <p>Keep structured records in Git. Pin separate components with submodules; opt into git-annex for large media in site-specific content.</p>
-            <small>Released packages bundle rendering assets; ordinary site builds need no upstream git-annex checkout.</small>
+            <h3>One vision, two operating models</h3>
+            <p><strong>Regardless of how it is deployed, ORINOCO connects a global approach to describing research with tools a small organization can use and maintain locally.</strong></p>
+            <p>A website is an immediate use; the enduring resource is structured knowledge, ready for new questions and applications.</p>
           </aside>
         </section>
       </div>
@@ -195,28 +280,39 @@
             <a href="https://github.com/ORINOCO-Lite/orinoco-lite-template/tree/usrse-2026-10-13">template</a> ·
             <a href="https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13">CON content</a> ·
             <a href="https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13">website</a>.
-            Exact revisions and image sources accompany the editable poster.</p>
-          <p class="thanks">Thanks to Michael Hanke, Stephan Heunis, the ORINOCO and DataLad contributors, and the CON team.<br>
-            OpenAI Codex assisted with source review, text, diagrams and layout. Poster: CC BY-SA 4.0; third-party artwork and screenshots retain their respective notices.</p>
+            Exact revisions and sources accompany the editable poster.</p>
+          <p>Architecture: <a href="https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13/docs/project-design.md">ORINOCO Lite design charter</a> · <a href="https://hub.psychoinformatics.de/orinoco/">ORINOCO tools and documentation</a>.</p>
+          <p class="thanks">Thanks to Michael Hanke, Stephan Heunis, the ORINOCO and DataLad contributors, and the CON team. <br>
+            OpenAI Codex assisted with source review, text, diagrams and layout. Poster: CC BY-SA 4.0; third-party screenshots and logos retain their respective notices.</p>
+          <div class="partners" aria-label="Affiliations and acknowledgments">
+            <div class="partner-affiliation"><img class="dartmouth" src="../pics/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"><span>Psychological and Brain Sciences<strong>Dartmouth College</strong></span></div>
+            <img class="repronim" src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
+          </div>
         </div>
-        <nav class="qr-links" aria-label="Explore the projects and examples">
-          <a href="https://hub.psychoinformatics.de/orinoco/"><img src="../pics/orinoco-qr-upstream.svg" alt="QR code for the ORINOCO hub">ORINOCO</a>
-          <a href="https://github.com/ORINOCO-Lite"><img src="../pics/orinoco-qr-lite.svg" alt="QR code for ORINOCO Lite on GitHub">ORINOCO Lite</a>
-          <a href="https://dev.centerforopenneuroscience.org/"><img src="../pics/orinoco-qr-con.svg" alt="QR code for the CON development website">Explore CON</a>
-          <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k"><img src="../pics/orinoco-qr-video.svg" alt="QR code for Stephan Heunis's Information management at INM-7 talk on ReproTube">Heunis · ReproTube</a>
-        </nav>
+        <div class="footer-right">
+          <nav class="qr-links" aria-label="Explore the projects and examples">
+            <a href="https://hub.psychoinformatics.de/orinoco/"><img src="../pics/orinoco-qr-upstream.svg" alt="QR code for the ORINOCO hub">ORINOCO</a>
+            <a href="https://github.com/ORINOCO-Lite"><img src="../pics/orinoco-qr-lite.svg" alt="QR code for ORINOCO Lite on GitHub">ORINOCO Lite</a>
+            <a href="https://dev.centerforopenneuroscience.org/"><img src="../pics/orinoco-qr-con.svg" alt="QR code for the CON development website">Explore CON</a>
+            <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k"><img src="../pics/orinoco-qr-video.svg" alt="QR code for Stephan Heunis’s Information management at INM-7 talk on ReproTube">Heunis · ReproTube</a>
+          </nav>
+
+        </div>
       </footer>
     </main>
   </div>
   <script>
-    // Fit affects screen viewing only; the print layout remains 48 × 36 inches.
+    // Read the canvas from CSS, so size edits remain consistent with screen fitting.
     let fitToWindow = true;
     function resizePoster() {
-      const scale = fitToWindow ? Math.min(1, (window.innerWidth - 32) / 4608) : 1;
+      const poster = document.querySelector('.poster');
+      const width = poster.offsetWidth;
+      const height = poster.offsetHeight;
+      const scale = fitToWindow ? Math.min(1, (window.innerWidth - 32) / width) : 1;
       const viewport = document.querySelector('#viewport');
-      viewport.style.width = `${4608 * scale}px`;
-      viewport.style.height = `${3456 * scale}px`;
-      document.querySelector('.poster').style.transform = `scale(${scale})`;
+      viewport.style.width = `${width * scale}px`;
+      viewport.style.height = `${height * scale}px`;
+      poster.style.transform = `scale(${scale})`;
     }
     document.querySelector('#fit').addEventListener('click', () => { fitToWindow = true; resizePoster(); });
     document.querySelector('#actual').addEventListener('click', () => { fitToWindow = false; resizePoster(); });
