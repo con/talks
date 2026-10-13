@@ -7,4 +7,4 @@ repos:
   rev: v0.9.1
   hooks:
   - id: snapper
-    files: ^2026-usrse/stamped-abcd-poster-draft\.md$
+    files: ^2026-usrse/(stamped-abcd-poster-draft|poster-notes)\.md$

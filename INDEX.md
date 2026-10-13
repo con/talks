@@ -12,6 +12,13 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Per-talk inventory
 
+### `2026-usrse/orinoco-lite-poster.html` — *Beyond the Lab Website*
+
+- US-RSE 2026 poster: service-based ORINOCO and GitHub-based ORINOCO Lite,
+  with actual websites, metadata editing, graph exploration and funder reporting.
+- Editable HTML/CSS, with PDF export through `2026-usrse/build-orinoco-poster.py`.
+- Sources, licensing and four tagged component revisions: `2026-usrse/poster-notes.md`.
+
 Shelved drafts and outlines that are not currently being prepared for a
 venue live under [`_backdrawer_/`](_backdrawer_/README.md) and are
 listed in the *Shelved (backdrawer)* section below the active inventory.

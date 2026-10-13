@@ -1,52 +1,104 @@
-# Orinoco Lite poster
+# ORINOCO Lite poster
 
-The editable source is [orinoco-lite-poster.svg](orinoco-lite-poster.svg).
-It preserves the title and presenter order of the [submitted abstract](orinoco-lite-poster-draft.md).
-The draft leads with the deployment comparison requested by the reviewers, followed by the GitHub curation design, observed results and next evaluation steps.
+The editable source is [orinoco-lite-poster.html](orinoco-lite-poster.html).
+It preserves the title, presenter order and comparison in the [accepted abstract](orinoco-lite-poster-draft.md).
+HTML replaces the September SVG as the maintained poster source; the earlier drawing remains in Git history.
 
-## Editing and export
+## Editing and rebuilding
 
-Open the SVG in Inkscape or another SVG editor.
-The title, comparison, diagram, results and footer have named layers.
-Text remains editable text, and the CON logo and QR code are embedded vectors with no linked image dependencies.
-The SVG is kept in ordinary Git so GitHub reviewers and a fresh clone can read the complete source without fetching Annex content.
+Open the HTML in a browser to view it, or edit it in any text editor.
+Text is ordinary HTML, colors and layout are in the opening `<style>` block, and images have descriptive filenames in `../pics/`.
+The browser's **Fit to window** and **Full size** buttons affect viewing only.
+The poster keeps the cream, green and navy palette, one title, and a centered CON logo.
 
-Use the text tool to revise text and adjust its line breaks.
-The font is Arial with Helvetica and generic sans-serif fallbacks; check the layout after font substitution or substantial text changes.
-The provisional canvas is **48 inches wide by 36 inches high**.
-This is a draft choice, not a verified conference mounting requirement; confirm the accepted-presenter instructions before printing.
+HTML/CSS suits this layout because it combines text, screenshots, vector artwork and links without a slide framework.
+Marp would still require a custom poster layout; Beamer would be useful for a team that prefers LaTeX authoring.
+There is no build step just to open the HTML.
 
-Export a PDF in the editor, or run from this directory:
+The print canvas remains **48 inches wide by 36 inches high**.
+This is the existing draft size; confirm the conference's mounting specification before ordering a print.
+
+From the repository root, install the browser once and export:
 
 ```bash
-rsvg-convert --format pdf --output orinoco-lite-poster.pdf \
-  orinoco-lite-poster.svg
+uv run --with playwright playwright install chromium
+uv run --with playwright python 2026-usrse/build-orinoco-poster.py
 ```
 
-The PDF is a generated preview and follows this directory's existing PDF ignore rule.
-The initial export was checked as one 48-by-36-inch page with searchable text and visually inspected for layout.
-The QR code points to the public Orinoco Lite development repository.
+An installed Google Chrome can be used instead, without the browser download:
 
-## Results and claim boundaries
+```bash
+uv run --with playwright python 2026-usrse/build-orinoco-poster.py --channel chrome
+```
 
-The approximately 390-word poster describes a development case study, using a **9 September 2026** snapshot:
+Alternatively, run `make poster` from this directory.
+The helper writes `orinoco-lite-poster.pdf`, checks for missing images and overflowing panels, and uses the HTML's exact print dimensions without browser headers or an additional title.
+Add `--preview /path/to/preview.png` for a screen preview.
+Generated PDFs follow the existing ignore rule.
 
-- The CON downstream at [commit `ee2e568`](https://github.com/con/dev-centerforopenneuroscience.org/commit/ee2e56839f5b3e0ffb42437a3918387b95ed2d75) selects package `0.3.0rc5` and template `v0.3.0rc3`.
-- Fresh frozen validation/build checks reported **224 canonical records** and **193 projected pages**.
-  These are counts of different artifacts, not a conversion ratio or a usability result.
-- Its [validation](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/34319183393) and [Pages deployment](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/34319183434) succeeded.
-- The operating comparison follows the [ORINOCO components](https://hub.psychoinformatics.de/orinoco), [metadata service](https://hub.psychoinformatics.de/orinoco/dump-things-service), and [Orinoco Lite design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/9417f90cb8989555cf71f41d9f982970c8402828/docs/project-design.md).
+The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention. On a fresh checkout, obtain them from the existing CON Hub or the talks mirror using the repository's [DataLad instructions](../README.md#dataladgit-annex).
+For example, with DataLad installed in your project environment, run from the repository root:
 
-The curation diagram describes the intended integrated workflow.
-At the snapshot, CON's automated source-import/review workflow was not yet wired into the default branch, and complete authenticated curation had not been exercised in this review.
-The poster marks CON integration and App hardening as ongoing work.
-It does not assert enforced GitHub branch protections or a completed security assessment of the private deployment configuration.
+```bash
+git remote add con-hub https://hub.centerforopenneuroscience.org/con/talks
+datalad get --source con-hub pics/borrowed/orinoco-*
+```
 
-Broader reuse is explicitly future work: the review did not demonstrate a CON report/CV workflow or measure editing time, error reduction, maintenance cost or independent adoption.
-Before finalizing the poster, update the snapshot if the release or dataset changes and review the text, acknowledgments and physical dimensions.
+Copying the HTML elsewhere also requires its referenced `pics/` assets.
 
-## Attribution
+## Tagged CON snapshot
 
-The embedded CON logo comes from [the existing vector artwork](../pics/con-logo_blue_big.svg).
-The poster follows the talks repository's CC BY-SA 4.0 license and acknowledges the ORINOCO and DataLad contributors named in the abstract.
-The footer discloses OpenAI Codex assistance with draft text, diagram and layout and retains the draft's author-review status.
+All four repositories have the annotated citation tag **`usrse-2026-10-13`**.
+These are the mutually selected revisions of the CON deployment, not four independently chosen versions.
+The dated tags retain the poster snapshot without changing package or template semantic versions.
+Each tag annotation records all four full revisions.
+
+| Component | Tagged source | Commit |
+| --- | --- | --- |
+| Package | [orinoco-lite-dev](https://github.com/ORINOCO-Lite/orinoco-lite-dev/tree/usrse-2026-10-13) | `de4d13c6ea67865b0c89990a58b7847b83e8f6ad` |
+| Template | [orinoco-lite-template](https://github.com/ORINOCO-Lite/orinoco-lite-template/tree/usrse-2026-10-13) | `1e44846e8d8e5d17f333138c2fbd9e54d57c7468` |
+| CON content | [con-site-specific](https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13) | `e61781ccd01f5ee5adbbf76eca2aa44463e2d276` |
+| Website | [dev-centerforopenneuroscience.org](https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13) | `c1b1e201faae7e8d7cd2a522cc2964f14db971d6` |
+
+The public CON footer matched the package and website revisions above, with build timestamp `2026-10-13T02:24:13Z`.
+The selected [package checks](https://github.com/ORINOCO-Lite/orinoco-lite-dev/actions/runs/38314624071), [template checks](https://github.com/ORINOCO-Lite/orinoco-lite-template/actions/runs/37829191024), [CON validation](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/38336534726), and [CON deployment](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/38336534673) passed.
+
+## Images, links and attribution
+
+All website screenshots were captured on **13 October 2026**.
+The poster uses the real pages and existing record values; no form submission was made for a screenshot.
+Website screenshots retain the sites' and third parties' notices, represented by the repository's existing `LicenseRef-ThirdPartyMixed` convention rather than a new blanket license claim.
+Display frames crop the website screenshots at the bottom; source files retain the captured viewports.
+
+| Poster asset in `../pics/borrowed/` | Source and interpretation |
+| --- | --- |
+| `orinoco-psychoinformatics-20261013.png` | [Psychoinformatics homepage](https://www.psychoinformatics.de/); an upstream metadata-derived website. |
+| `orinoco-con-home-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/); the tagged CON deployment. |
+| `orinoco-con-editor-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to the form. This is the shared editor as used at CON. |
+| `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); the graph container with all default record types selected. |
+| `orinoco-trr379-survey-20261013.png` | [TRR379's DFG survey announcement](https://www.trr379.de/news/2025-dfg-survey/); a public account of an upstream reporting deployment. It is a news-page screenshot, not an image of a personnel PDF. |
+| `orinoco-selfhost-components-poster.svg` | [ORINOCO's official artwork](https://hub.psychoinformatics.de/orinoco/artwork), `selfhost_components_no_notes.svg`; Stephan Heunis (2026), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). |
+
+The original ORINOCO diagram was last changed at artwork commit `a1a9a929e02526eaea489ad5817b1c89b259d669`.
+Its downloaded SHA256 was `5fc88059db6a4464dac5318f46f869673a96ef5dfaa8448f4c9200a6b5d2394a`, matching the upstream annex key.
+The [upstream README](https://hub.psychoinformatics.de/orinoco/artwork/src/commit/384047aa38179ac323aeabfaa617518544b942f3/README.md) provides authorship and licensing.
+Inkscape 1.3.2 converted its flowed text to paths using [Nanum Pen Script](https://github.com/google/fonts/tree/main/ofl/nanumpenscript), preserving the artwork and labels while making it render reliably in browsers.
+The original editable vector remains available upstream.
+The poster's visible caption discloses this adaptation.
+
+The CON logo is the repository's existing `../pics/con-logo_blue_big.svg`.
+The four vector QR codes link to the ORINOCO hub, ORINOCO Lite organization, CON development site, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
+
+The [Dump Things Service documentation](https://hub.psychoinformatics.de/orinoco/dump-things-service) supports the service explanation.
+The service separates incoming submissions from curated records; people and curation tools perform the review and promotion.
+The TRR379 reporting example is explicitly attributed to that upstream deployment.
+
+## Changes responding to PR #20
+
+The revised poster pairs the two deployment workflows with website screenshots, uses ORINOCO's own curation graphic, shows the shared SHACL Vue form and CON graph, explains the metadata service, and links Heunis's talk with a QR code.
+The earlier bottom sections are replaced by these examples and concise operational guidance.
+The Git/submodule/git-annex guidance follows the tagged package's current design: records remain ordinary Git content, submodules select separately maintained components, optional Annex use is confined to site-specific media, and package distributions bundle required upstream rendering assets.
+
+The poster follows the talks repository's CC BY-SA 4.0 license, with separate notices for third-party material.
+OpenAI Codex assisted with source review, text, diagrams and layout, as acknowledged on the poster.
