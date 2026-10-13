@@ -110,7 +110,7 @@ Its reproducible source is `make-component-diagram.py`; run `python3 2026-usrse/
 The script preserves the original source illustration and never writes through an annex symlink.
 After changing it, use the repository's normal annex workflow to save the regenerated asset, then rebuild the poster.
 
-The CON logo is the repository's existing `../pics/con-logo_blue_big.svg`.
+The CON logo is `../pics/con-logo-outlined.svg`, copied from the dev site's outlined logo so its lettering does not depend on installed fonts.
 The Dartmouth seal is displayed from `../pics/con-ccn-dartmouth-letterhead.svg` with an SVG view fragment; `object-fit: fill` preserves the cropped view instead of the letterhead's intrinsic aspect ratio.
 Psychological and Brain Sciences is credited as text beside the seal; the ReproNim mark is `../pics/borrowed/repronim_logo.svg`.
 These existing institutional marks retain their respective notices.
