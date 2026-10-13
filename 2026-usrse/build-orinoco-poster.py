@@ -32,7 +32,7 @@ async def build(channel: str | None, preview: Path | None, font_proof: bool = Fa
           for (const img of document.images) {
             if (!img.complete || !img.naturalWidth) issues.push(`Missing image: ${img.getAttribute('src')}`);
           }
-          for (const el of document.querySelectorAll('.poster, .column, .column-head, .masthead, .footer, .architecture-pair, .component-figure, .component-art, .website-evidence, .input')) {
+          for (const el of document.querySelectorAll('.poster, .columns, .comparison, .deployment, .outcomes, .column-head, .masthead, .footer, .component-figure, .component-art, .website-evidence, .shared-editor, .qr-badge')) {
             if (el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2) {
               const label = el.querySelector('h2')?.innerText || el.className;
               issues.push(`Overflow: ${label} (${el.scrollWidth}×${el.scrollHeight} in ${el.clientWidth}×${el.clientHeight}px)`);
@@ -65,9 +65,6 @@ async def build(channel: str | None, preview: Path | None, font_proof: bool = Fa
             body_pt = float(await page.locator('.graph-description').evaluate(
                 "el => parseFloat(getComputedStyle(el).fontSize)"
             )) * 0.75
-            workflow_pt = float(await page.locator('.steps li').first.evaluate(
-                "el => parseFloat(getComputedStyle(el).fontSize)"
-            )) * 0.75
             blocks = ''.join(
                 f'<section><h2>{size} pt{label}</h2>'
                 f'<p style="font-size:{size}pt">{sample}</p></section>'
@@ -98,7 +95,7 @@ async def build(channel: str | None, preview: Path | None, font_proof: bool = Fa
                 {blocks}
                 <div class="scale"></div><p class="note">This line should measure exactly 2 inches (50.8 mm).</p>
                 <p class="note">PosterNerd recommends at least 24 pt for text and 36 pt for headings.
-                Current main paragraphs are {body_pt:g} pt; workflow details are {workflow_pt:g} pt.
+                Current main paragraphs are {body_pt:g} pt.
                 Source: posternerd.com/tutorials/customer-questions</p>
                 </body></html>''')
             proof = source.with_name('orinoco-font-proof.pdf')

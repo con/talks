@@ -10,7 +10,7 @@
     :root {
       --paper: #f6f2e9; --ink: #193c4d; --green: #286857;
       --muted: #526c76; --rule: #cbd6ce; --tint: #e6eee5;
-      --body-text: 36px; --workflow-text: 34px;
+      --body-text: 36px; --con-blue: #87aade;
       --warm: #b55c28; --canvas-width: 4224px; --canvas-height: 4224px;
     }
     * { box-sizing: border-box; }
@@ -23,7 +23,7 @@
     #viewport { position: relative; margin: 0 auto 24px; }
     .poster { width: var(--canvas-width); height: var(--canvas-height); transform-origin: top left;
       background: var(--paper); border-top: 24px solid var(--green); padding: 60px 88px 58px;
-      display: grid; grid-template-rows: 350px 286px 1fr 380px; gap: 36px; }
+      display: grid; grid-template-rows: 350px 286px 1fr 280px; gap: 36px; }
     .masthead { display: grid; grid-template-columns: 1.15fr 840px 1fr; gap: 78px; align-items: center; }
     .eyebrow { color: var(--green); font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 22px; }
     h1 { margin: 0; font-size: 91px; line-height: 1.03; letter-spacing: -2px; }
@@ -39,78 +39,79 @@
     .lead .pitch { border-left: 3px solid #647d86; padding-left: 64px; }
     .pitch strong { display: block; font-size: 45px; line-height: 1.2; margin-bottom: 18px; }
     .pitch span { font-size: 35px; }
-    .columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 42px; min-height: 0; }
-    .column { display: flex; flex-direction: column; min-height: 0; }
-    .column > * { flex-shrink: 0; }
-    .column + .column { border-left: 2px solid var(--rule); padding-left: 40px; }
+    .columns { display: grid; grid-template-columns: 2fr 1fr; gap: 44px; min-height: 0; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 36px 42px; min-height: 0; }
+    .deployment { min-width: 0; }
+    .deployment + .deployment { border-left: 2px solid var(--rule); padding-left: 40px; }
+    .outcomes { border-left: 2px solid var(--rule); padding-left: 40px; display: flex; flex-direction: column; min-height: 0; }
+    .outcomes > * { flex-shrink: 0; }
     .section-label { margin: 0 0 14px; color: var(--green); font-size: 28px; letter-spacing: 1.7px; text-transform: uppercase; font-weight: 700; }
     h2 { margin: 0 0 22px; font-size: 63px; line-height: 1.08; }
-    .intro { font-size: 37px; line-height: 1.34; margin: 0 0 30px; }
-    .column-head { height: 378px; }
-    .architecture-pair { height: 1066px; margin-bottom: 28px; }
+    h3 { margin: 0 0 24px; font-size: 46px; line-height: 1.15; }
+    .intro { font-size: 37px; line-height: 1.34; margin: 0; }
+    .column-head { height: 350px; position: relative; }
+    .with-video h2, .with-video .intro { margin-right: 242px; }
+    .with-video .video-qr { position: absolute; top: 45px; right: 0; }
     figure { margin: 0; }
-    .component-art { height: 540px; }
+    .component-art { height: 550px; }
     .component-art img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .component-figure { margin-bottom: 24px; }
-    .website-evidence { display: grid; grid-template-columns: 370px 1fr; gap: 30px; align-items: start; }
-    .website-evidence .section-copy { height: auto; margin: 0 0 24px; }
+    .diagram-note { min-height: 238px; display: grid; grid-template-columns: 1fr 214px; gap: 32px; align-items: center; }
+    .component-figure { margin-bottom: 18px; }
+    figcaption { font-size: 29px; line-height: 1.35; color: var(--muted); }
+    figcaption strong { color: var(--ink); }
+    .art-credit { display: block; font-size: 25px; margin-top: 12px; }
+    .qr-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 214px; color: var(--ink); text-decoration: none; text-align: center; font-size: 26px; line-height: 1.15; font-weight: 700; }
+    .qr-badge img { width: 204px; height: 204px; display: block; background: white; border-radius: 7px; }
+    .site-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .figure { background: white; border: 2px solid var(--rule); border-radius: 12px; overflow: hidden; }
     .figure img { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .webshot { height: 395px; }
+    .webshot { height: 740px; }
     .webshot img { object-fit: contain; object-position: top center; }
-    figcaption { margin: 17px 0 0; font-size: 29px; line-height: 1.3; color: var(--muted); }
-    figcaption strong { color: var(--ink); }
-    .architecture-pair figcaption, .website-caption { font-size: 27px; line-height: 1.3; color: var(--muted); }
-    .website-caption { margin: 0; }
-    .section-copy { height: 194px; font-size: var(--body-text); line-height: 1.35; margin: 0 0 30px; }
-    h3 { margin: 0 0 21px; font-size: 44px; line-height: 1.13; }
-    .technical { border-top: 5px solid var(--green); padding-top: 28px; margin-top: 2px; }
-    .technical .section-copy { font-size: 35px; }
-    .inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 16px; }
-    .input { border: 2px solid var(--rule); border-radius: 10px; padding: 20px; background: white; font-size: 29px; line-height: 1.3; }
-    .input strong { display: block; font-size: 32px; margin-bottom: 9px; }
-    .converge { text-align: center; color: var(--green); font-size: 28px; margin: 0 0 18px; }
-    .steps { padding: 0; margin: 0; list-style: none; counter-reset: step; }
-    .steps li { position: relative; padding: 0 0 23px 70px; counter-increment: step; font-size: var(--workflow-text); line-height: 1.34; }
-    .steps li::before { content: counter(step); position: absolute; left: 0; top: 2px; background: var(--green); color: white; width: 46px; height: 46px; border-radius: 50%; text-align: center; font-size: 28px; line-height: 46px; }
-    .steps li:not(:last-child)::after { content: ''; position: absolute; left: 22px; top: 52px; bottom: 7px; width: 2px; background: var(--rule); }
-    .steps strong { display: block; font-size: 36px; margin-bottom: 6px; }
-    .component { font-family: monospace; font-size: .88em; }
-    .callout { margin-top: auto; border-top: 7px solid var(--green); background: var(--tint); padding: 28px 30px; font-size: 35px; line-height: 1.34; }
-    .callout h3 { font-size: 40px; margin-bottom: 13px; }
+    .site-pair figcaption { font-size: 28px; margin-top: 12px; }
+    .site-caption { display: grid; grid-template-columns: 1fr 214px; gap: 30px; align-items: center; min-height: 242px; }
+    .site-caption h3 { font-size: 39px; margin: 0 0 13px; }
+    .site-caption p { font-size: 30px; line-height: 1.35; margin: 0; color: var(--muted); }
+    .shared-editor { grid-column: 1 / -1; border-top: 6px solid var(--green); padding-top: 32px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 46px; align-items: center; min-height: 0; }
+    .editor { height: 730px; }
+    .editor img { object-fit: cover; object-position: top center; }
+    .shared-editor figcaption { margin-top: 14px; }
+    .editor-copy h2 { font-size: 61px; margin: 0 0 30px; }
+    .editor-copy p { font-size: 40px; line-height: 1.4; margin: 0 0 27px; }
+    .editor-copy .editor-caption { color: var(--muted); font-size: 32px; }
+    .value-section { margin-top: 28px; }
+    .value-section p { margin: 0 0 28px; font-size: var(--body-text); line-height: 1.4; }
+    .local-value { display: grid; grid-template-columns: .75fr 1.25fr; gap: 30px; align-items: center; }
+    .local-value .graph-description { margin: 0; }
+    .graph { height: 890px; background: transparent; border: 0; }
+    .graph img { object-fit: contain; }
+    .local-value figcaption { font-size: 27px; margin-top: 12px; }
+    .meaning { margin-top: 52px; border-top: 3px solid var(--rule); padding-top: 32px; }
+    .meaning h3 { font-size: 50px; }
+    .meaning p { font-size: 40px; }
+    .meaning .identifier-label { font-size: 28px; color: var(--muted); margin: 0; }
+    .identifiers { display: flex; gap: 22px; margin: 14px 0 36px; }
+    .identifier { flex: 1; border-left: 6px solid var(--green); padding: 8px 0 8px 25px; font-size: 30px; line-height: 1.3; }
+    .identifier strong { display: block; color: var(--green); font-size: 39px; }
+    .ai-copy { border-top: 3px solid var(--rule); padding-top: 32px; }
+    .report-example { font-size: 34px; line-height: 1.4; padding: 28px; background: var(--tint); margin-top: 32px; }
+    .report-example strong { display: block; font-size: 38px; margin-bottom: 15px; }
+    .callout { margin-top: auto; border-top: 7px solid var(--warm); background: #f0e4d5; padding: 32px; font-size: 37px; line-height: 1.4; }
+    .callout h3 { font-size: 42px; margin-bottom: 20px; }
     .callout p { margin: 0; }
     .callout p + p { margin-top: 18px; }
-    .callout small { display: block; font-size: 28px; margin-top: 18px; }
-    .editor { height: 660px; }
-    .editor img { object-fit: cover; object-position: top; }
-    .shared-form { margin-bottom: 22px; }
-    .value-section { margin-top: 18px; }
-    .value-section p { margin: 0 0 24px; font-size: var(--body-text); line-height: 1.35; }
-    .local-value { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
-    .local-value .graph-description { margin: 0; }
-    .graph { height: 560px; }
-    .graph img { object-fit: contain; }
-    .value-section .graph-caption { font-size: 27px; line-height: 1.3; color: var(--muted); margin: 22px 0 0; }
-    .global-example { border-left: 6px solid var(--green); padding: 7px 0 7px 24px; font-size: 33px; line-height: 1.3; margin-bottom: 20px; }
-    .report-example { font-size: 33px; line-height: 1.34; padding: 24px 0; border-top: 2px solid var(--rule); }
-    .outcomes .callout { background: #f0e4d5; border-color: var(--warm); }
-    .footer { border-top: 3px solid var(--rule); padding-top: 28px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 70px; }
-    .footer p { margin: 0 0 16px; font-size: 26px; line-height: 1.3; }
+    .footer { border-top: 3px solid var(--rule); padding-top: 28px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: center; }
+    .footer p { margin: 0 0 14px; font-size: 26px; line-height: 1.3; }
     .footer .thanks { color: var(--muted); font-size: 24px; }
     .snapshot strong { color: var(--green); }
     .snapshot a { white-space: nowrap; }
-    .footer-right { display: flex; flex-direction: column; gap: 22px; }
-    .qr-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-    .qr-links a { display: flex; align-items: center; flex-direction: column; text-decoration: none; font-size: 26px; font-weight: 700; text-align: center; gap: 11px; }
-    .qr-links img { width: 210px; height: 210px; background: white; }
-    .partners { display: flex; align-items: center; gap: 60px; height: 122px; margin-top: 15px; }
-    .partners img { max-height: 120px; max-width: 440px; object-fit: contain; }
-    .partners .repronim { width: 118px; height: 118px; }
-    .partners .dartmouth { width: 105px; height: 112px; object-fit: fill; }
+    .partners { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .partners img { max-height: 140px; max-width: 440px; object-fit: contain; }
+    .partners .repronim { width: 146px; height: 146px; }
+    .partners .dartmouth { width: 126px; height: 136px; object-fit: fill; }
     .partner-affiliation { display: flex; gap: 22px; align-items: center; font-size: 28px; line-height: 1.3; color: #00693e; }
     .partner-affiliation strong { display: block; font-size: 33px; }
     .partners .psychoinformatics { display: flex; align-items: center; gap: 20px; font-size: 29px; color: var(--ink); text-decoration: none; }
-    .partners .psychoinformatics img { width: 92px; height: 120px; }
+    .partners .psychoinformatics img { width: 108px; height: 140px; }
     @page { size: 44in 44in; margin: 0; }
     @media print {
       html, body { width: 44in; height: 44in; background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
@@ -147,115 +148,96 @@
       </section>
 
       <div class="columns">
-        <section class="column" aria-labelledby="service-heading">
-          <div class="column-head">
-            <p class="section-label">1 · Dedicated services</p>
-            <h2 id="service-heading">ORINOCO</h2>
-            <p class="intro">Developed by Michael Hanke and colleagues at <strong>Psychoinformatics, INM-7, Forschungszentrum Jülich</strong>, ORINOCO connects open tools for research information. A metadata service accepts submissions from people and software; curation tools turn them into a reusable collection.</p>
-          </div>
-          <div class="architecture-pair">
+        <div class="comparison">
+          <section class="deployment" aria-labelledby="service-heading">
+            <div class="column-head with-video">
+              <p class="section-label">1 · Dedicated services</p>
+              <h2 id="service-heading">ORINOCO</h2>
+              <a class="qr-badge video-qr" href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k"><img src="../pics/orinoco-qr-video.svg" alt="QR code for the ORINOCO video">ORINOCO video</a>
+              <p class="intro">Developed by Michael Hanke and colleagues at <strong>Psychoinformatics, INM-7, Forschungszentrum Jülich</strong>, ORINOCO brings together tools for maintaining connected research information using dedicated services.</p>
+            </div>
             <figure class="component-figure">
-              <div class="component-art"><img src="../pics/borrowed/orinoco-selfhost-components-poster.svg" alt="Original ORINOCO component illustration: a schema, SHACL Vue editor, Forgejo and Dump Things connect processing tools to catalog, website and report outputs."></div>
-              <figcaption><strong>ORINOCO components:</strong> a shared schema and editor, connected through Forgejo and Dump Things. Original artwork: Stephan Heunis, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+              <div class="component-art"><img src="../pics/borrowed/orinoco-selfhost-components-poster.svg" alt="ORINOCO components connect a shared data model and editor with services and tools for producing catalogs, websites and reports."></div>
+              <div class="diagram-note">
+                <figcaption><strong>A common model connects the tools.</strong> Edit, organize and reuse research information across applications.<span class="art-credit">Artwork: Stephan Heunis, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+                <a class="qr-badge" href="https://hub.psychoinformatics.de/orinoco/"><img src="../pics/orinoco-qr-upstream.svg" alt="QR code for the ORINOCO organization">ORINOCO</a>
+              </div>
             </figure>
             <div class="website-evidence">
-              <div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-overview-20261013.png" alt="The Psychoinformatics group homepage generated from connected research-information records."></div>
-              <div>
-                <p class="section-copy">A <strong>schema</strong> defines record types, fields and relationships, such as a person’s role in a project. The same definition generates editing forms and checks whether submitted records have the expected structure.</p>
-                <p class="website-caption"><strong>The Psychoinformatics website</strong> is one view of this information.<br><a href="https://www.psychoinformatics.de/">psychoinformatics.de</a></p>
+              <div class="site-pair">
+                <figure><div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-home-panel-20261013.png" alt="Psychoinformatics homepage with its graph and objectives."></div><figcaption>Homepage</figcaption></figure>
+                <figure><div class="figure webshot"><img src="../pics/borrowed/orinoco-psychoinformatics-persons-panel-20261013.png" alt="Psychoinformatics people directory."></div><figcaption>People</figcaption></figure>
+              </div>
+              <div class="site-caption">
+                <div><h3>Psychoinformatics</h3><p>Connected research information, presented as a group website.</p></div>
+                <a class="qr-badge" href="https://www.psychoinformatics.de/"><img src="../pics/orinoco-qr-psychoinformatics.svg" alt="QR code for the Psychoinformatics website">Visit the site</a>
               </div>
             </div>
-          </div>
-          <section class="technical" aria-labelledby="service-flow-heading">
-            <h3 id="service-flow-heading">How a change becomes reusable data</h3>
-            <div class="inputs">
-              <div class="input"><strong>A person edits</strong>SHACL Vue presents a form derived from the schema.</div>
-              <div class="input"><strong>A tool submits</strong>An automated process prepares structured records.</div>
-            </div>
-            <p class="converge">Both submit records ↓</p>
-            <ol class="steps">
-              <li><strong>Validate and stage</strong>The Dump Things Service checks incoming records against the schema and holds submissions separately from the curated collection.</li>
-              <li><strong>Review the submission</strong>Curators inspect, modify, accept or reject submissions using tools outside the storage service. Curation can be performed by people or automated processes.</li>
-              <li><strong>Update the collection</strong>Accepted records are promoted into the service’s curated collection, where identifiers connect people, projects, publications and other entities.</li>
-              <li><strong>Query and present</strong><span class="component">query-things</span> selects and joins records. <span class="component">www-from-model</span> supplies page templates and the graph generator; Hugo renders the website. Other consumers can generate reports or catalogs.</li>
-            </ol>
           </section>
-          <aside class="callout">
-            <h3>Services connect the tools</h3>
-            <p>For <strong>ORINOCO</strong>, developed and used by the <strong>Psychoinformatics group</strong>, Forgejo provides identity, access and website workflows. <strong>Dump Things</strong> supplies the metadata API and storage. Lab-in-a-Box deploys these components alongside other lab services.</p>
-            <small>ORINOCO: Organized Research Information: Ontology-mapping, Curation, Orchestration.</small>
-          </aside>
-        </section>
 
-        <section class="column" aria-labelledby="lite-heading">
-          <div class="column-head">
-            <p class="section-label">2 · GitHub-based deployment</p>
-            <h2 id="lite-heading">ORINOCO Lite at CON</h2>
-            <p class="intro">Developed and used by <strong>CON</strong>, ORINOCO Lite keeps ORINOCO’s schemas, editor and processing tools, while placing <strong>records in Git and review in GitHub pull requests</strong>. A reusable package and repository template bring these components together for a static website.</p>
-          </div>
-          <div class="architecture-pair">
+          <section class="deployment" aria-labelledby="lite-heading">
+            <div class="column-head">
+              <p class="section-label">2 · GitHub-based deployment</p>
+              <h2 id="lite-heading">ORINOCO Lite at CON</h2>
+              <p class="intro">Developed and used by <strong>CON</strong>, ORINOCO Lite brings the same approach to GitHub. Labs can edit, review and reuse their research information <strong>without deploying services</strong>.</p>
+            </div>
             <figure class="component-figure">
-              <div class="component-art"><img src="../pics/borrowed/orinoco-lite-components-poster.svg" alt="ORINOCO Lite adaptation: the shared schema and SHACL Vue editor propose GitHub pull requests via the shared App. Reviewers merge changes into Git-backed YAML records; GitHub Actions runs ORINOCO tools to build reusable outputs."></div>
-              <figcaption><strong>The Lite adaptation:</strong> GitHub pull requests and Git records replace Forgejo and service storage; the schema, editor and reusable outputs stay shared. Adapted from Stephan Heunis, CC BY 4.0.</figcaption>
+              <div class="component-art"><img src="../pics/borrowed/orinoco-lite-components-poster.svg" alt="ORINOCO Lite uses the shared model and editor with GitHub to manage records and generate reusable outputs."></div>
+              <div class="diagram-note">
+                <figcaption><strong>The same approach, through GitHub.</strong> The shared model and editing tools support another way to run ORINOCO.<span class="art-credit">Adapted from Stephan Heunis, CC BY 4.0.</span></figcaption>
+                <a class="qr-badge" href="https://github.com/ORINOCO-Lite"><img src="../pics/orinoco-qr-lite.svg" alt="QR code for the ORINOCO Lite organization">ORINOCO Lite</a>
+              </div>
             </figure>
             <div class="website-evidence">
-              <div class="figure webshot"><img src="../pics/borrowed/orinoco-con-home-overview-20261013.png" alt="The Center for Open Neuroscience development homepage generated with ORINOCO Lite."></div>
-              <div>
-                <p class="section-copy">The repository becomes the group’s <strong>official metadata collection</strong>. Records are readable text files with a change history. GitHub Actions runs validation and publication, so the lab maintains its information without operating a metadata server.</p>
-                <p class="website-caption"><strong>The CON development website</strong> uses the GitHub deployment.<br><a href="https://dev.centerforopenneuroscience.org/">dev.centerforopenneuroscience.org</a></p>
+              <div class="site-pair">
+                <figure><div class="figure webshot"><img src="../pics/borrowed/orinoco-con-home-panel-20261013.png" alt="CON homepage with its graph and objectives."></div><figcaption>Homepage</figcaption></figure>
+                <figure><div class="figure webshot"><img src="../pics/borrowed/orinoco-con-persons-panel-20261013.png" alt="CON people directory with Centroids and collaborators."></div><figcaption>People</figcaption></figure>
+              </div>
+              <div class="site-caption">
+                <div><h3>Center for Open Neuroscience</h3><p>The GitHub deployment, used for CON’s development website.</p></div>
+                <a class="qr-badge" href="https://dev.centerforopenneuroscience.org/"><img src="../pics/orinoco-qr-con.svg" alt="QR code for the CON development website">Visit the site</a>
               </div>
             </div>
-          </div>
-          <section class="technical" aria-labelledby="lite-flow-heading">
-            <h3 id="lite-flow-heading">How a change becomes reusable data</h3>
-            <div class="inputs">
-              <div class="input"><strong>A person edits</strong>The static <span class="component">/edit/</span> page opens a pull request from a SHACL Vue form.</div>
-              <div class="input"><strong>A tool proposes</strong>An adapter workflow opens a pull request; <span class="component">/review/</span> records which proposals to keep.</div>
-            </div>
-            <p class="converge">Both produce a pull request ↓</p>
-            <ol class="steps">
-              <li><strong>Validate and stage</strong>GitHub Actions converts the submitted edits or selected proposals into schema-validated metadata changes in the pull request.</li>
-              <li><strong>Review the changes</strong>GitHub shows the proposed record changes for discussion and approval. Adapters can draw on existing sources, such as the lab’s Zotero publication library.</li>
-              <li><strong>Update the collection</strong>Merging the pull request updates the YAML records on the repository’s default branch. Git retains the accepted changes and their attribution.</li>
-              <li><strong>Query and present</strong>Actions selects and joins records using the same <span class="component">www-from-model</span> templates and graph generator. Hugo renders the site for GitHub Pages; the source records remain in Git.</li>
-            </ol>
           </section>
-          <aside class="callout">
-            <h3>GitHub connects the tools</h3>
-            <p>For <strong>ORINOCO Lite</strong>, developed and used by <strong>CON</strong>, a shared GitHub App handles sign-in and GitHub operations for browser editing and review. It stores no metadata and is outside the build and public reading paths.</p>
-            <small>Lab-managed inputs: records, site content and configuration. Separately maintained components are pinned with submodules; large media can use git-annex.</small>
-          </aside>
-        </section>
 
-        <section class="column outcomes" aria-labelledby="reuse-heading">
+          <section class="shared-editor" aria-labelledby="editor-heading">
+            <figure>
+              <div class="figure editor"><img src="../pics/borrowed/orinoco-con-editor-landscape-20261013.png" alt="SHACL Vue editing a populated project record through a form."></div>
+              <figcaption><strong>SHACL Vue:</strong> one editor, used in both deployments.</figcaption>
+            </figure>
+            <div class="editor-copy">
+              <p class="section-label">Shared by both deployments</p>
+              <h2 id="editor-heading">A shared structure,<br>an approachable editor</h2>
+              <p>Describe people, projects and publications using a common data model. <strong>Forms guide contributions</strong> and validation helps keep records consistent.</p>
+              <p class="editor-caption">The model generates the form, so contributors work with familiar fields while maintaining structured metadata.</p>
+            </div>
+          </section>
+        </div>
+
+        <section class="outcomes" aria-labelledby="reuse-heading">
           <div class="column-head">
             <p class="section-label">3 · Local use, global connections</p>
             <h2 id="reuse-heading">Useful in the lab.<br>Connected beyond it.</h2>
-            <p class="intro">Both deployments serve the same purpose: maintain information where a group knows it best, and describe it in ways that other tools and organizations can understand.</p>
+            <p class="intro">Both deployments maintain information where a group knows it best, and describe it in ways that other tools and organizations can understand.</p>
           </div>
-          <figure class="shared-form">
-            <div class="figure editor"><img src="../pics/borrowed/orinoco-con-editor-20261013.png" alt="The SHACL Vue form used in both deployment patterns, shown here editing the DataLad project record at CON."></div>
-            <figcaption><strong>One schema-driven editor in both deployments.</strong> SHACL Vue turns the data model into forms, so contributors can edit structured records without writing YAML or learning semantic-web syntax.</figcaption>
-          </figure>
           <section class="value-section">
             <h3>Within a group: collect once, reuse</h3>
             <div class="local-value">
-              <div>
-                <p class="graph-description">Link people, projects, publications and datasets. Validation checks the structure; explicit relationships let websites, reports and queries reuse the same records instead of maintaining separate lists.</p>
-                <p class="graph-caption" id="graph-caption"><strong>CON’s graph explorer:</strong> the relationships behind pages, related-item lists and cross-links.</p>
-              </div>
-              <figure aria-describedby="graph-caption">
-                <div class="figure graph"><img src="../pics/borrowed/orinoco-con-graph-20261013.png" alt="CON’s knowledge graph connects people, organizations, projects, publications, datasets and topics."></div>
-              </figure>
+              <p class="graph-description">Connect people, projects, publications and datasets. Websites, reports and queries can draw on the same records and their relationships.</p>
+              <figure><div class="figure graph"><img src="../pics/borrowed/orinoco-con-graph-20261013.png" alt="CON’s graph of connected people, projects, publications, datasets and other research information."></div><figcaption>CON’s graph explorer</figcaption></figure>
             </div>
           </section>
-          <section class="value-section">
-            <h3>Across groups: shared meaning</h3>
-            <p><strong>Ontologies</strong> give concepts and relationships shared definitions. Mapping local records to these terms makes them linkable to independently maintained research information.</p>
-            <div class="global-example">ORCID identifies people; DOI identifies publications. schema.org supplies a shared term for names; W3C PROV supplies one for roles.</div>
-            <p>For AI-assisted work, explicit fields, identifiers and relationships provide context that tools can query, validate and update without having to infer the data model from scattered prose.</p>
+          <section class="value-section meaning">
+            <h3>Local knowledge,<br>shared meaning</h3>
+            <p><strong>Ontologies give records shared meanings</strong>, helping information maintained by individual groups connect across organizations and systems.</p>
+            <p class="identifier-label">Shared identifiers</p>
+            <div class="identifiers" aria-label="Examples of shared identifiers"><div class="identifier"><strong>ORCID</strong>identifies people</div><div class="identifier"><strong>DOI</strong>identifies publications</div></div>
           </section>
-          <div class="report-example"><strong>Already beyond the website:</strong> the upstream <a href="https://www.trr379.de/news/2025-dfg-survey/">TRR379 deployment</a> uses its central metadata infrastructure to collect personnel information and generate a DFG annual-survey PDF.</div>
+          <section class="value-section ai-copy">
+            <h3>Structured context for AI</h3>
+            <p>Explicit fields, identifiers and relationships give AI tools a clearer structure to work with: answering questions, checking records and proposing updates.</p>
+          </section>
+          <div class="report-example"><strong>Already beyond the website</strong>The upstream <a href="https://www.trr379.de/news/2025-dfg-survey/">TRR379 deployment</a> uses its central metadata infrastructure to collect personnel information and generate a DFG annual-survey PDF.</div>
           <aside class="callout">
             <h3>One vision, two operating models</h3>
             <p><strong>Regardless of how it is deployed, ORINOCO connects a global approach to describing research with tools a small organization can use and maintain locally.</strong></p>
@@ -273,24 +255,14 @@
             <a href="https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13">CON content</a> ·
             <a href="https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13">website</a>.
             Exact revisions and sources accompany the editable poster.</p>
-          <p>Architecture: <a href="https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13/docs/project-design.md">ORINOCO Lite design charter</a> · <a href="https://hub.psychoinformatics.de/orinoco/">ORINOCO tools and documentation</a>.</p>
           <p class="thanks">Thanks to Michael Hanke, Stephan Heunis, the ORINOCO and DataLad contributors, and the CON team. <br>
             OpenAI Codex assisted with source review, text, diagrams and layout. Poster: CC BY-SA 4.0; third-party screenshots and logos retain their respective notices.</p>
+        </div>
           <div class="partners" aria-label="Affiliations and acknowledgments">
             <div class="partner-affiliation"><img class="dartmouth" src="../pics/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"><span>Psychological and Brain Sciences<strong>Dartmouth College</strong></span></div>
             <img class="repronim" src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
             <a class="psychoinformatics" href="https://www.psychoinformatics.de/"><img src="../pics/borrowed/psychoinformatics_logo.svg" alt="Psychoinformatics group logo"><span>Psychoinformatics<br>group</span></a>
           </div>
-        </div>
-        <div class="footer-right">
-          <nav class="qr-links" aria-label="Explore the projects and examples">
-            <a href="https://hub.psychoinformatics.de/orinoco/"><img src="../pics/orinoco-qr-upstream.svg" alt="QR code for the ORINOCO hub">ORINOCO</a>
-            <a href="https://github.com/ORINOCO-Lite"><img src="../pics/orinoco-qr-lite.svg" alt="QR code for ORINOCO Lite on GitHub">ORINOCO Lite</a>
-            <a href="https://dev.centerforopenneuroscience.org/"><img src="../pics/orinoco-qr-con.svg" alt="QR code for the CON development website">Explore CON</a>
-            <a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k"><img src="../pics/orinoco-qr-video.svg" alt="QR code for Stephan Heunis’s Information management at INM-7 talk on ReproTube">ORINOCO video</a>
-          </nav>
-
-        </div>
       </footer>
     </main>
   </div>

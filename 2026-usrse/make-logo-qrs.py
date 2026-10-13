@@ -4,11 +4,11 @@
 # requires-python = ">=3.11"
 # dependencies = ["qrcode==8.2", "Pillow==11.3.0", "zxing-cpp==2.3.0"]
 # ///
-"""Generate the poster's four vector QR codes and verify their destinations.
+"""Generate the poster's five vector QR codes and verify their destinations.
 
 Run with `uv run 2026-usrse/make-logo-qrs.py --check-dir /tmp/con-qr-checks`.
-Requires Inkscape (for outlining the existing logo) and rsvg-convert (for
-independent rasterization). SVG assets are written to pics/; check images and
+Requires Inkscape (only to measure the already outlined logo) and rsvg-convert
+(for independent rasterization). SVG assets are written to pics/; check images and
 the JSON report stay in --check-dir, outside the repository by default.
 """
 
@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SVG = "http://www.w3.org/2000/svg"
 INK = "#193c4d"
 BORDER = 4  # Four completely clear modules on every side.
+LOGO_WIDTH_FRACTION = 0.42
 DESTINATIONS = {
     "upstream": "https://hub.psychoinformatics.de/orinoco/",
     "lite": "https://github.com/ORINOCO-Lite",
@@ -38,6 +39,7 @@ DESTINATIONS = {
         "https://datasets.datalad.org/repronim/ReproTube/web/"
         "#/channel/DataLad/video/oF98hdaph1k"
     ),
+    "psychoinformatics": "https://www.psychoinformatics.de/",
 }
 ET.register_namespace("", SVG)
 
@@ -48,22 +50,52 @@ def element(tag, attrs=None, text=None):
     return node
 
 
-def outline_logo(inkscape, output):
-    """Outline and crop the existing complete mark, including its subtitle."""
-    subprocess.run(
-        [inkscape, str(ROOT / "pics/con-logo_blue_big.svg"),
-         "--export-type=svg", "--export-plain-svg", "--export-text-to-path",
-         "--export-area-drawing", f"--export-filename={output}"],
-        check=True,
+def load_logo(inkscape):
+    """Reuse the corrected paths and original blue; never regenerate its type."""
+    source = ROOT / "pics/con-logo-outlined.svg"
+    original = ET.parse(source).getroot()
+    # The source retains hidden alternate artwork and wide canvas margins.
+    # Query the visible blue layer, then convert page-pixel bounds to its
+    # original SVG coordinates. Only our embedding viewport is cropped.
+    measured = subprocess.run(
+        [inkscape, str(source), "--query-id=layer1", "--query-x", "--query-y",
+         "--query-width", "--query-height"],
+        check=True, text=True, capture_output=True,
     )
-    logo = ET.parse(output).getroot()
-    assert not logo.findall(f".//{{{SVG}}}text"), "Logo must be outlined"
-    # Keep the original geometry. Only recolor its blue ink to the poster navy.
-    for node in logo.iter():
-        for key, value in list(node.attrib.items()):
-            for blue in ("#87aade", "#88aadd"):
-                value = value.replace(blue, INK)
-            node.set(key, value)
+    x, y, width, height = map(float, measured.stdout.split())
+    vx, vy, vw, vh = map(float, original.get("viewBox").split())
+    scale_x = vw / float(original.get("width"))
+    scale_y = vh / float(original.get("height"))
+    # A tiny margin absorbs rounding in Inkscape's reported bounds.
+    margin = 0.05
+    logo = element("svg", {"viewBox": (
+        f"{vx+x*scale_x-margin:.6f} {vy+y*scale_y-margin:.6f} "
+        f"{width*scale_x+2*margin:.6f} {height*scale_y+2*margin:.6f}"
+    )})
+
+    def visible_copy(node):
+        if not node.tag.startswith(f"{{{SVG}}}"):
+            return None
+        if node.tag in {f"{{{SVG}}}{tag}" for tag in ("metadata", "title", "desc")}:
+            return None
+        if "display:none" in node.get("style", "").replace(" ", ""):
+            return None
+        result = ET.Element(node.tag, {
+            key: value for key, value in node.attrib.items()
+            if not key.startswith("{")  # Drop editor-only namespaced metadata.
+        })
+        for child in node:
+            copied = visible_copy(child)
+            if copied is not None:
+                result.append(copied)
+        return result
+
+    for child in original:
+        copied = visible_copy(child)
+        if copied is not None:
+            logo.append(copied)
+    assert not logo.findall(f".//{{{SVG}}}text"), "Visible logo must be outlined"
+    assert not logo.findall(f".//{{{SVG}}}image"), "Logo must remain native vector"
     return logo
 
 
@@ -103,7 +135,7 @@ def write_qr(name, url, logo):
     root.append(element("path", {"d": "".join(runs), "fill": INK}))
 
     _, _, logo_vw, logo_vh = map(float, logo.get("viewBox").split())
-    logo_width = body_size * 0.30
+    logo_width = body_size * LOGO_WIDTH_FRACTION
     logo_height = logo_width * logo_vh / logo_vw
     padding = 1.0
     pad_width, pad_height = logo_width + 2 * padding, logo_height + 2 * padding
@@ -132,20 +164,25 @@ def write_qr(name, url, logo):
     assert not root.findall(f".//{{{SVG}}}image"), "Logo must remain native vector"
     destination = ROOT / f"pics/orinoco-qr-{name}.svg"
     ET.ElementTree(root).write(destination, encoding="utf-8", xml_declaration=True)
+    assert destination.stat().st_size < 100_000, "QR should remain a small SVG"
     return {
         "name": name, "url": url, "file": str(destination),
         "qr_version": qr.version, "error_correction": "H",
         "modules_including_border": size, "quiet_border_modules": BORDER,
+        "logo_source": "pics/con-logo-outlined.svg",
+        "logo_width_fraction_of_body": LOGO_WIDTH_FRACTION,
+        "file_bytes": destination.stat().st_size,
         "logo_pad_percent_of_body_area": round(100*pad_width*pad_height/body_size**2, 2),
     }
 
 
 def check_code(row, check_dir):
     checks = []
-    # 180 and 210 px cover the former and current poster CSS sizes.
+    # 200–220 px cover the planned poster CSS sizes; 144/180 retain earlier
+    # screen-size checks. These are raster checks, not physical-camera scans.
     # 177/266 px approximate 30/45 mm at
     # 150 dpi; 354/531 px approximate 30/45 mm at 300 dpi.
-    for pixels in (144, 177, 180, 210, 240, 266, 354, 531, 720):
+    for pixels in (144, 177, 180, 200, 210, 220, 240, 266, 354, 531, 720):
         raster = check_dir / f"qr-{row['name']}-{pixels}px.png"
         subprocess.run(["rsvg-convert", "-w", str(pixels), "-h", str(pixels),
                         "-o", str(raster), row["file"]], check=True)
@@ -153,6 +190,9 @@ def check_code(row, check_dir):
         variants = {"original": image, "rotated-90": image.transpose(Image.Transpose.ROTATE_90)}
         if pixels >= 177:
             variants["grayscale-softened"] = image.convert("L").filter(ImageFilter.GaussianBlur(0.35))
+            variants["rotated-13"] = image.rotate(
+                13, resample=Image.Resampling.BICUBIC, expand=True, fillcolor="white"
+            )
         for variant, candidate in variants.items():
             decoded = zxingcpp.read_barcodes(candidate)
             ok = len(decoded) == 1 and decoded[0].text == row["url"]
@@ -170,7 +210,7 @@ def main():
                         "/Applications/Inkscape.app/Contents/MacOS/inkscape")
     args = parser.parse_args()
     args.check_dir.mkdir(parents=True, exist_ok=True)
-    logo = outline_logo(args.inkscape, args.check_dir / "con-logo-outlined.svg")
+    logo = load_logo(args.inkscape)
     report = [write_qr(name, url, logo) for name, url in DESTINATIONS.items()]
     success = True
     for row in report:
@@ -180,7 +220,7 @@ def main():
               f"{sum(check['passed'] for check in row['checks'])}/"
               f"{len(row['checks'])} decoding checks passed")
     (args.check_dir / "decode-report.json").write_text(json.dumps(report, indent=2)+"\n")
-    overview = Image.new("RGB", (4*360, 400), "white")
+    overview = Image.new("RGB", (len(report)*360, 400), "white")
     draw = ImageDraw.Draw(overview)
     for i, row in enumerate(report):
         image = Image.open(args.check_dir / f"qr-{row['name']}-354px.png")

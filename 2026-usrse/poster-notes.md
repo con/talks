@@ -39,8 +39,8 @@ Generated PDFs follow the existing ignore rule.
 
 ### Comparing printed text sizes
 
-The opening CSS variables `--body-text` and `--workflow-text` control the main paragraphs and workflow details.
-At the fixed print size, one CSS pixel is 0.75 points: `36px` is 27 pt, `34px` is 25.5 pt, and `32px` is 24 pt. The current values remain 36px and 34px respectively; captions, labels, introductions and headings have their own sizes.
+The opening CSS variable `--body-text` controls the main paragraphs in the third column.
+At the fixed print size, one CSS pixel is 0.75 points: `36px` is 27 pt, `34px` is 25.5 pt, and `32px` is 24 pt. The current value remains 36px; captions, labels, introductions, editor copy and headings have their own sizes.
 
 Add `--font-proof` to the build command to also produce `orinoco-font-proof.pdf`, a US Letter comparison of 27, 25.5 and 24 pt in the poster's font and colors.
 Print it at **Actual size / 100%**, check the two-inch rule, and compare from the intended reading distance, around one metre.
@@ -82,19 +82,23 @@ The selected [package checks](https://github.com/ORINOCO-Lite/orinoco-lite-dev/a
 All website screenshots were captured on **13 October 2026**.
 The poster uses the real pages and existing record values; no form submission was made for a screenshot.
 Website screenshots retain the sites' and third parties' notices, represented by the repository's existing `LicenseRef-ThirdPartyMixed` convention rather than a new blanket license claim.
-The two homepage overviews use a 900 × 960 CSS-pixel viewport, 75% page zoom and device scale 2, yielding 1800 × 1920-pixel images.
-The centered pages retain their full content width and are displayed without additional cropping.
-The shared editor frame crops the screenshot at the bottom to show its form controls and example record fields at a readable size; its source retains the captured viewport.
+The four website panels use a 1000 × 1220 CSS-pixel viewport, 75% page zoom and device scale 2, yielding 2000 × 2440-pixel images.
+The pages retain their full content width; the CON people directory is scrolled to show both Centroids and Collaborators.
+The shared editor uses a 2440 × 1190-pixel landscape crop of the populated DataLad project, showing its description, dates and relationships.
+It was captured at 75% zoom from a 1600 × 1000 viewport, with the form pane scrolled 310 pixels and a 1220 × 595 crop at (285, 105), at device scale 2.
 
 | Poster asset in `../pics/borrowed/` | Source and interpretation |
 | --- | --- |
-| `orinoco-psychoinformatics-overview-20261013.png` | [Psychoinformatics homepage](https://www.psychoinformatics.de/); an upstream metadata-derived website. |
-| `orinoco-con-home-overview-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/); the live CON deployment captured at 14:55 UTC. |
-| `orinoco-con-editor-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to the form. This is the shared editor as used at CON. |
-| `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); the graph container with all default record types selected. |
+| `orinoco-psychoinformatics-home-panel-20261013.png` | [Psychoinformatics homepage](https://www.psychoinformatics.de/), including its graph and objectives. |
+| `orinoco-psychoinformatics-persons-panel-20261013.png` | [Psychoinformatics people directory](https://www.psychoinformatics.de/persons/). |
+| `orinoco-con-home-panel-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/), including its graph and objectives. |
+| `orinoco-con-persons-panel-20261013.png` | [CON people directory](https://dev.centerforopenneuroscience.org/persons/), showing Centroids and Collaborators. |
+| `orinoco-con-editor-landscape-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to its fields. This is the shared editor as used at CON. |
+| `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); the earlier graph capture with all default record types selected. |
 
-The refreshed CON homepage capture shows website revision [`d64e994`](https://github.com/con/dev-centerforopenneuroscience.org/commit/d64e99466b5bcb54bf19cb95301f90190f6ff5b2), built at `2026-10-13T14:33:14Z`, with the same tagged package revision `de4d13c`.
-It postdates the four citation tags above; those tags remain fixed.
+The four website panels and editor were captured between 20:34 and 20:37 UTC.
+The CON pages identify website revision [`fdf9b7f`](https://github.com/con/dev-centerforopenneuroscience.org/commit/fdf9b7fbc247ae95317146a657475d2bf379a9bf), package [`7c25a98`](https://github.com/ORINOCO-Lite/orinoco-lite-dev/commit/7c25a987d3557fd4e8428d92c687e7feca36255c) (`0.3.0+10.g7c25a98`), built at `2026-10-13T19:56:46Z`.
+These live examples postdate the four citation tags above; those tags remain fixed.
 
 The first column restores `../pics/borrowed/orinoco-selfhost-components-poster.svg`, the official ORINOCO component illustration.
 The diagram is Stephan Heunis's `selfhost_components_no_notes.svg`, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), from the [ORINOCO artwork repository](https://hub.psychoinformatics.de/orinoco/artwork).
@@ -117,8 +121,9 @@ These existing institutional marks retain their respective notices.
 The Psychoinformatics mark is `../pics/borrowed/psychoinformatics_logo.svg`, from the group's [official artwork](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/artwork/psychoinformatics.svg).
 Its [source copyright notice](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/content/pages/copyright.rst) credits Michael Hanke and Alex Waite, 2014–2016, under CC BY-SA 4.0.
 For this copy, Inkscape converted the original Passion One glyphs to paths so the logo does not depend on an installed font; its geometry and colors are preserved.
-The four vector QR codes embed the complete CON mark with a white pad, high error correction and a four-module quiet border.
-They link to the ORINOCO hub, ORINOCO Lite organization, CON development site, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+The five vector QR codes embed the outlined CON mark in its original blue at 42% of the code body width, with a white pad, navy modules, high error correction and a four-module quiet border.
+Organization links sit beside their component illustrations, website links beside their screenshot pairs, and the video link beside the ORINOCO heading.
+They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
 
 Regenerate and check the logo QR codes with:
@@ -129,34 +134,18 @@ uv run 2026-usrse/make-logo-qrs.py --check-dir /tmp/con-qr-checks
 
 The generator uses Inkscape and `rsvg-convert`, keeps the artwork vector-based, and verifies decoded destinations at screen and print sizes, including rotation and slight blur.
 
-The [Dump Things Service documentation](https://hub.psychoinformatics.de/orinoco/dump-things-service) supports the service explanation.
-The service separates incoming submissions from curated records; people and curation tools perform the review and promotion.
-The TRR379 reporting example is explicitly attributed to that upstream deployment.
+The [TRR379 reporting example](https://www.trr379.de/news/2025-dfg-survey/) is explicitly attributed to that upstream deployment.
 
-## Architecture and reader-facing structure
+## Reader-facing structure
 
-The overview illustrations share their component positions so the two deployments can be compared visually.
-The original service illustration appears unchanged; the Lite adaptation maps Forgejo to GitHub pull requests and service storage to YAML records in Git.
-Its arrows show proposals reaching pull requests, reviewers merging them into the accepted records, and Actions building reusable outputs from those records.
-The two illustrations span their columns, with the homepage screenshots and explanatory text paired immediately below.
-The shared editor appears in the third column, alongside the value of validation within a group and ontologies and identifiers across groups.
-The lower workflows describe the corresponding submission, review, acceptance and rendering stages.
-The third column closes with the common objective rather than a separate operational checklist.
-
-The [tagged design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13/docs/project-design.md#metadata-change-flow) and its editing, review and authentication contracts support the Lite flow.
-“No services for your lab to deploy” refers to using GitHub and the shared curation App.
-The App provides authenticated GitHub operations for static editing and review pages; it is outside the build and public reading paths and stores no metadata.
-It can be self-hosted, but a downstream need not operate it.
-Transient build-time use of Dump Things is deliberately omitted from the high-level deployment comparison.
-
-Upstream curation occurs outside the storage service and may be performed by people or automation; the poster does not identify Forgejo as a universal review interface.
-The Psychoinformatics deployment's [update workflow](https://github.com/ORINOCO-Lite/www-from-model/blob/31d7b254c93a4a65613632fd6e1df71b32a20fd0/.forgejo/workflows/update-from-pool.yaml) and [publication workflow](https://github.com/ORINOCO-Lite/www-from-model/blob/31d7b254c93a4a65613632fd6e1df71b32a20fd0/.forgejo/workflows/deploy.yml) support the stated Forgejo role.
-Upstream uses `query-things` for selection and joining; the tagged Lite package implements that projection in its own code.
-Both reuse `www-from-model` templates and graph generation, with Hugo rendering the site.
-
+The first two columns compare deployment choices through corresponding component illustrations, homepage and people-directory screenshots, and brief introductions.
+A shared editor spans both columns below them.
+The third column connects local reuse, shared meanings through ontologies, and structured context for AI, closing with the common ORINOCO vision.
 The poster retains the accepted abstract's comparison and broader metadata-reuse objective.
-Its introductory text explains the use case before the component names, and the paired component artwork complements the detailed workflows below.
-The Git/submodule/git-annex guidance remains scoped to the current design: ordinary Git for records, pinned components, and optional Annex for large site-specific media.
+
+The detailed workflow blocks and service explanations have been removed to keep the poster approachable.
+The component drawings retain their original technical labels as visual discussion aids.
+The Lite illustration follows the [tagged design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13/docs/project-design.md#metadata-change-flow).
 
 The poster follows the talks repository's CC BY-SA 4.0 license, with separate notices for third-party material.
 OpenAI Codex assisted with source review, text, diagrams and layout, as acknowledged on the poster.
