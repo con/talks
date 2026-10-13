@@ -23,6 +23,21 @@ in the given deck(s), so decks stay openable as a single file (no build
 step, no runtime include) while the fragment remains the single source to
 regenerate from.
 
+Two modes, and which one a deck wants depends on whether it has been given:
+
+  * LIVE -- the deck embeds the fragment that tools/mk_ack_eras.py writes,
+    in an <iframe>, and follows the roster as it changes.  2026-usrse-con-talk
+    and 2026-reproAI-MIT-STAMPED do this.  Costs single-file openability: the
+    deck needs its sibling directory alongside it.
+  * FROZEN -- the deck carries an injected snapshot and keeps it.  A delivered
+    talk belongs here; its acknowledgements are a record of who was thanked
+    that day, not a view that should quietly change afterwards.  Decks in this
+    mode should have their markers REMOVED once delivered, so a stray
+    --inject cannot rewrite them (2026-dhmc-ieeg, delivered 2026-10-09).
+
+con-whoweare.phtml itself stays load-bearing in both modes: tools/mk_ack_eras.py
+reads it for the name -> portrait mapping.
+
 Portraits are rendered through `object-fit: cover`, so non-square
 originals are centre-cropped rather than squashed, and are downscaled on
 the way in (--max-size, 0 to keep the originals).
