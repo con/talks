@@ -36,12 +36,12 @@ The helper writes `orinoco-lite-poster.pdf`, checks for missing images and overf
 Add `--preview /path/to/preview.png` for a screen preview.
 Generated PDFs follow the existing ignore rule.
 
-The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention. On a fresh checkout, obtain them from the existing CON Hub or the talks mirror using the repository's [DataLad instructions](../README.md#dataladgit-annex).
-For example, with DataLad installed in your project environment, run from the repository root:
+The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention.
+Their registered public download URLs on the existing CON Hub allow retrieval without Hub credentials or an additional Git remote.
+With DataLad installed in your project environment, run from the repository root:
 
 ```bash
-git remote add con-hub https://hub.centerforopenneuroscience.org/con/talks
-datalad get --source con-hub pics/borrowed/orinoco-*
+datalad get pics/borrowed/orinoco-*
 ```
 
 Copying the HTML elsewhere also requires its referenced `pics/` assets.
