@@ -37,6 +37,17 @@ The helper writes `orinoco-lite-poster.pdf`, checks for missing images and overf
 Add `--preview /path/to/preview.png` for a screen preview.
 Generated PDFs follow the existing ignore rule.
 
+### Comparing printed text sizes
+
+The opening CSS variables `--body-text` and `--workflow-text` control the main paragraphs and workflow details.
+At the fixed print size, one CSS pixel is 0.75 points: `36px` is 27 pt, `34px` is 25.5 pt, and `32px` is 24 pt. The current values remain 36px and 34px respectively; captions, labels, introductions and headings have their own sizes.
+
+Add `--font-proof` to the build command to also produce `orinoco-font-proof.pdf`, a US Letter comparison of 27, 25.5 and 24 pt in the poster's font and colors.
+Print it at **Actual size / 100%**, check the two-inch rule, and compare from the intended reading distance, around one metre.
+Browser fit-to-window scaling is not a useful test of printed legibility.
+[PosterNerd recommends](https://www.posternerd.com/tutorials/customer-questions) at least 24 pt for text and 36 pt for headings.
+If reducing the body text, try 25.5 pt first and rebuild to check the resulting layout.
+
 The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention.
 Their registered download URLs on the existing CON Hub allow retrieval without Hub credentials or an additional Git remote, provided the Hub is reachable from your network.
 Downloads currently succeed over VPN but return HTTP 403 outside it, leaving GitHub's asset-availability check blocked.
@@ -63,7 +74,7 @@ Each tag annotation records all four full revisions.
 | CON content | [con-site-specific](https://github.com/ORINOCO-Lite/con-site-specific/tree/usrse-2026-10-13) | `e61781ccd01f5ee5adbbf76eca2aa44463e2d276` |
 | Website | [dev-centerforopenneuroscience.org](https://github.com/con/dev-centerforopenneuroscience.org/tree/usrse-2026-10-13) | `c1b1e201faae7e8d7cd2a522cc2964f14db971d6` |
 
-The public CON footer matched the package and website revisions above, with build timestamp `2026-10-13T02:24:13Z`.
+When the citation tags were selected, the public CON footer matched the package and website revisions above, with build timestamp `2026-10-13T02:24:13Z`.
 The selected [package checks](https://github.com/ORINOCO-Lite/orinoco-lite-dev/actions/runs/38314624071), [template checks](https://github.com/ORINOCO-Lite/orinoco-lite-template/actions/runs/37829191024), [CON validation](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/38336534726), and [CON deployment](https://github.com/con/dev-centerforopenneuroscience.org/actions/runs/38336534673) passed.
 
 ## Images, links and attribution
@@ -71,15 +82,19 @@ The selected [package checks](https://github.com/ORINOCO-Lite/orinoco-lite-dev/a
 All website screenshots were captured on **13 October 2026**.
 The poster uses the real pages and existing record values; no form submission was made for a screenshot.
 Website screenshots retain the sites' and third parties' notices, represented by the repository's existing `LicenseRef-ThirdPartyMixed` convention rather than a new blanket license claim.
-Display frames crop the website screenshots and the shared editor at the bottom; source files retain the captured viewports.
-The editor crop shows its form controls and example record fields at a readable size.
+The two homepage overviews use a 900 × 960 CSS-pixel viewport, 75% page zoom and device scale 2, yielding 1800 × 1920-pixel images.
+The centered pages retain their full content width and are displayed without additional cropping.
+The shared editor frame crops the screenshot at the bottom to show its form controls and example record fields at a readable size; its source retains the captured viewport.
 
 | Poster asset in `../pics/borrowed/` | Source and interpretation |
 | --- | --- |
-| `orinoco-psychoinformatics-20261013.png` | [Psychoinformatics homepage](https://www.psychoinformatics.de/); an upstream metadata-derived website. |
-| `orinoco-con-home-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/); the tagged CON deployment. |
+| `orinoco-psychoinformatics-overview-20261013.png` | [Psychoinformatics homepage](https://www.psychoinformatics.de/); an upstream metadata-derived website. |
+| `orinoco-con-home-overview-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/); the live CON deployment captured at 14:55 UTC. |
 | `orinoco-con-editor-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to the form. This is the shared editor as used at CON. |
 | `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); the graph container with all default record types selected. |
+
+The refreshed CON homepage capture shows website revision [`d64e994`](https://github.com/con/dev-centerforopenneuroscience.org/commit/d64e99466b5bcb54bf19cb95301f90190f6ff5b2), built at `2026-10-13T14:33:14Z`, with the same tagged package revision `de4d13c`.
+It postdates the four citation tags above; those tags remain fixed.
 
 The earlier official ORINOCO diagram and TRR379 news-page screenshot remain in `pics/borrowed/` as reference assets, but are not displayed in this revision.
 The diagram is Stephan Heunis's `selfhost_components_no_notes.svg`, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), from the [ORINOCO artwork repository](https://hub.psychoinformatics.de/orinoco/artwork).
@@ -90,6 +105,9 @@ The CON logo is the repository's existing `../pics/con-logo_blue_big.svg`.
 The Dartmouth seal is displayed from `../pics/con-ccn-dartmouth-letterhead.svg` with an SVG view fragment; `object-fit: fill` preserves the cropped view instead of the letterhead's intrinsic aspect ratio.
 Psychological and Brain Sciences is credited as text beside the seal; the ReproNim mark is `../pics/borrowed/repronim_logo.svg`.
 These existing institutional marks retain their respective notices.
+The Psychoinformatics mark is `../pics/borrowed/psychoinformatics_logo.svg`, from the group's [official artwork](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/artwork/psychoinformatics.svg).
+Its [source copyright notice](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/content/pages/copyright.rst) credits Michael Hanke and Alex Waite, 2014–2016, under CC BY-SA 4.0.
+For this copy, Inkscape converted the original Passion One glyphs to paths so the logo does not depend on an installed font; its geometry and colors are preserved.
 The four vector QR codes embed the complete CON mark with a white pad, high error correction and a four-module quiet border.
 They link to the ORINOCO hub, ORINOCO Lite organization, CON development site, and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
