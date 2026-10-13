@@ -363,7 +363,7 @@ really is taken from each deck's own config rather than hardcoded.
 Do **not** commit the PDF — it is a derived artifact and the live HTML is
 the thing to share. Generate on demand for anyone wanting an offline copy.
 
-## 4e. Workshop cross-references
+## 4e. Workshop cross-references and co-presenter materials
 
 **Cross-references.** Six one-line pointers to the other talks in the
 session are embedded in the deck, each marked `<!-- workshop-xref -->`:
@@ -377,6 +377,22 @@ The full program, learning objectives, per-session mapping and spoken
 hand-off lines live in **`SCHEDULE.local.md`**, which is *not committed*
 (`*.local.md` is in `.gitignore`) because it holds other people's
 unpublished material.
+
+**Materials sync.** `Makefile` + `.docflow/config.yaml` in this
+directory set up a [docflow](https://github.com/con/docflow)-style
+rclone sync of the workshop's shared Drive folder
+(`gdrive:ReproNim/LLMs @ MIT: October 2026/`, via the pre-existing
+`gdrive:` remote) into `materials/`. Run `make probe` once first &mdash;
+if the folder resolves through "Shared with me" instead, the path and
+flags differ and `probe` says so.
+
+Everything under `materials/` is forced into git-annex by the local
+`.gitattributes` and tagged `distribution-restrictions=3rd-party`; both
+public siblings of this dataset already carry
+`wanted = (not metadata=distribution-restrictions=*)`, so `datalad push`
+will not copy that content out. `make check-publish` asserts it.
+**File names are public, the bytes are not** &mdash; the annex pointers
+reach github.com/con/talks like any other file, and that is accepted.
 
 ## 5. Links discipline
 

@@ -1,0 +1,6 @@
+# Third-party workshop materials synced from a shared Google Drive folder
+# (see Makefile).  Everything under materials/ goes into git-annex regardless
+# of file type, so that *content* distribution is gated by git-annex metadata
+# (distribution-restrictions=3rd-party) rather than by .gitignore -- we keep
+# the files, we just do not hand them out.
+materials/** annex.largefiles=anything

@@ -1,0 +1,28 @@
+# docflow configuration -- https://github.com/con/docflow
+#
+# Co-presenter materials for the MIT workshop deck
+# (../2026-reproAI-MIT-STAMPED.html).  Operated through the Makefile in
+# this directory -- start with `make probe`.
+
+project:
+  name: "Neuroimaging, Reproducibility and LLMs (MIT 2026) -- co-presenter materials"
+  type: "generic"
+  description: >
+    Slides and handouts from the other speakers at the ReproNim workshop
+    "Neuroimaging, Reproducibility and LLMs: Early promises and future
+    question" (MIT, 2026-10-16), synced read-only from the workshop's
+    shared Google Drive folder.  Third-party content: tracked in
+    git-annex and tagged distribution-restrictions=3rd-party so it is
+    never copied to the public siblings.  File names are public; the
+    bytes are not.
+
+sync:
+  google_drive:
+    enabled: true
+    # Uses the pre-existing `gdrive:` rclone remote.  If the folder turns
+    # out to live in "Shared with me", rclone needs --drive-shared-with-me
+    # and the path loses the ReproNim/ prefix -- `make probe` reports which.
+    remote: "gdrive:ReproNim/LLMs @ MIT: October 2026/"
+    local_path: "materials/"
+    patterns:
+      - "*"
