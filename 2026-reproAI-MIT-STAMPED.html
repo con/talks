@@ -67,7 +67,9 @@
     </table>
     </div>
 <small>
-  <strong>LLM Workshop &mdash; MIT &mdash; October 16<sup>th</sup>, 2026</strong><br/>
+  <strong><a href="https://www.eventbrite.com/e/neuroimaging-reproducibility-and-llms-early-promises-and-future-question-tickets-1999618019324" target="_blank">Neuroimaging, Reproducibility and LLMs:<br/>Early promises and future question</a></strong><br/>
+  a <a href="https://www.repronim.org/" target="_blank">ReproNim</a> workshop &mdash;
+  MIT Building 46, Cambridge MA &mdash; October 16<sup>th</sup>, 2026<br/>
   Live slides/<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/.git">Sources</a>:
   <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-reproAI-MIT-STAMPED.html#/">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-reproAI-MIT-STAMPED.html</a><br/>
 <br>
@@ -151,6 +153,14 @@
   <div style="margin-top:1em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.85em;">
 	Oscar showed <strong>how to build the harness</strong>.<br/>
 	This talk is about <strong>what the harness stands on</strong> &mdash; and how harnesses themselves become shareable.
+  </div>
+
+  <!-- workshop-xref -->
+  <div style="margin-top:0.6em;font-size:0.72em;color:#444;">
+	&hellip; and on <strong>today</strong>: <strong>Brent</strong> on the models themselves,
+	<strong>JB</strong> and <strong>Michelle</strong> on putting them to work &mdash; then
+	<strong>Johanna</strong> and <strong>Satra</strong> on the infrastructure underneath.
+	<em>This talk is the hinge between those two halves.</em>
   </div>
 
   <aside class="notes">
@@ -451,6 +461,12 @@
 	  AI did not only make <em>more things</em> actionable. It made <strong>automation on top of
 	  actionability cheap</strong> &mdash; which is the real multiplier.
 	</div>
+	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.4em;color:#1565c0;">
+	  &rarr; <strong>Michelle</strong> already showed you this middle row working. My claim is about
+	  <em>why</em> it works now and did not five years ago: the unit of automation stopped being a
+	  CLI and became a <em>described procedure</em>.
+	</p>
 	<aside class="notes">
 	  The escalation is the point: actionable -> automatable. Before, you
 	  automated only what already had a clean CLI. Now the unit of
@@ -501,6 +517,11 @@
 	  <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">paper source</a>
 	  (<a href="https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex" target="_blank"><code>main.tex</code></a>
 	  &mdash; small enough to paste into a context window, which is how we actually grade a study today).
+	</p>
+	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.3em;color:#1565c0;">
+	  &rarr; <strong>Johanna</strong> is up next with a concrete pattern for exactly this.
+	  My ask is that whatever such a workflow writes down about itself be gradeable by this table.
 	</p>
 	<aside class="notes">
 	  This is the recursive turn and it is worth saying out loud: the
@@ -592,6 +613,11 @@ commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
 	<p style="font-size:0.72em;margin-top:0.3em;">
 	  Example from the <a href="https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html" target="_blank">DataLad Handbook</a>.
 	  Found in the wild in <a href="https://github.com/datalad/datalad-usage-dashboard" target="_blank">~15% of indexed DataLad repositories on GitHub</a>.
+	</p>
+	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.2em;color:#1565c0;">
+	  &rarr; <strong>JB</strong>&rsquo;s analytical flexibility is an opportunity only if you can still say,
+	  a year later, <em>which</em> variant produced this figure. That sentence is the record above.
 	</p>
   </section>
 
@@ -831,6 +857,12 @@ $ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
 	  The harness is <em>itself</em> a research object. Which means it can be
 	  self-contained, tracked, modular, portable &mdash; <strong>or it can be a pile of prompts in your notes app.</strong>
 	</div>
+	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.45em;color:#1565c0;">
+	  &rarr; <strong>Brent</strong> set up the <em>Model</em> half this morning.
+	  <strong>Satra</strong> builds out the <em>Harness</em> half right after me, with knowledge
+	  graphs underneath it &mdash; treat this act as the setup for that talk.
+	</p>
   </section>
 
   <!-- ============ Two ladders: individual (AI coding) and team (SciOps) ============ -->
@@ -932,6 +964,11 @@ flowchart TD
 			<a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank">compound-engineering</a> &middot;
 			<a href="https://github.com/chrisfoulon/LAD" target="_blank">LAD</a>
 			(in use in <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank">dandi-cli</a>)
+		  </p>
+		  <!-- workshop-xref -->
+		  <p style="font-size:0.68em;margin-top:0.35em;color:#1565c0;">
+			&rarr; <strong>Johanna</strong>, next: a pattern that does stage&nbsp;5
+			<em>on purpose</em>, so each run leaves the workflow better than it found it.
 		  </p>
 		</td>
 	  </tr>
@@ -1305,12 +1342,14 @@ flowchart TD
      `python tools/mk_ack_eras.py --write` and both decks update.
      ================================================================= -->
 <section>
-
-<section>
   <h3 style="margin-bottom:0.1em;">Acknowledgements</h3>
   <iframe src="2026-usrse-con-talk/ack-now.html"
           style="width:1360px;height:880px;border:0;background:transparent;"
           scrolling="no"></iframe>
+  <aside class="notes">Shared with the US-RSE deck; generated by
+    tools/mk_ack_eras.py.  Brent McPherson and Oscar Esteban's slide credit are
+    parked in a comment just below in the source -- bring them back by adding
+    Brent to con-site-specific, and Oscar's where the borrowed slides are.</aside>
 </section>
 
 <!--
@@ -1324,7 +1363,6 @@ flowchart TD
 
 -->
 
-</section>
 
 
 <!-- Thank you -->

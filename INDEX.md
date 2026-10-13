@@ -19,7 +19,10 @@ Cross-references in the per-topic lookup point at the shelved path
 (`_backdrawer_/<TALK-ID>.html`).
 
 ### `2026-reproAI-MIT-STAMPED.html` — *STAMPED principles and their role in the age of AI-driven scientific software development*
-- **Venue / date**: LLM Workshop, MIT, 2026-10-16 (25 min + 5 min Q&A).
+- **Venue / date**: [*Neuroimaging, Reproducibility and LLMs: Early promises
+  and future question*](https://www.eventbrite.com/e/neuroimaging-reproducibility-and-llms-early-promises-and-future-question-tickets-1999618019324)
+  — a ReproNim workshop at MIT (Building 46, Cambridge MA), 2026-10-16,
+  09:30–13:00; my slot 11:10–11:40 (25 min + 5 min Q&A).
 - **Spine**: hybrid of the *Challenges → Solutions → Take-home* arc
   (`SOUL.md` §7.2) with the AI flavoring of §7.5. Five acts:
   Frame → *What changed* → STAMPED → *What makes it actionable* →

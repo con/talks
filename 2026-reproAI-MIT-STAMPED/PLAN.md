@@ -1,7 +1,10 @@
 # PLAN — `2026-reproAI-MIT-STAMPED.html`
 
-**Venue**: LLM workshop, MIT — **Friday, 2026-10-16**
-**Slot**: 25 min talk + 5 min Q&A
+**Venue**: [*Neuroimaging, Reproducibility and LLMs: Early promises and
+future question*](https://www.eventbrite.com/e/neuroimaging-reproducibility-and-llms-early-promises-and-future-question-tickets-1999618019324)
+— a ReproNim workshop, MIT Building 46, 43 Vassar Street, Cambridge MA —
+**Friday, 2026-10-16**, 09:30–13:00
+**Slot**: 11:10–11:40, 25 min talk + 5 min Q&A (first after the coffee break)
 **Title**: *STAMPED principles and their role in the age of AI-driven
 scientific software development*
 (Dave's original framing — "STAMPED and how coding is transformed and
@@ -360,6 +363,21 @@ really is taken from each deck's own config rather than hardcoded.
 Do **not** commit the PDF — it is a derived artifact and the live HTML is
 the thing to share. Generate on demand for anyone wanting an offline copy.
 
+## 4e. Workshop cross-references
+
+**Cross-references.** Six one-line pointers to the other talks in the
+session are embedded in the deck, each marked `<!-- workshop-xref -->`:
+program orientation on *Standing on two talks*, and one each on the
+actionability-escalation, skill-is-a-research-object, `datalad run`,
+`Agent = Model + Harness` and stage-5-loop slides. They carry first
+names and a few words of topic only &mdash; no times, no verbatim
+titles. `grep -n workshop-xref` to find or drop them.
+
+The full program, learning objectives, per-session mapping and spoken
+hand-off lines live in **`SCHEDULE.local.md`**, which is *not committed*
+(`*.local.md` is in `.gitignore`) because it holds other people's
+unpublished material.
+
 ## 5. Links discipline
 
 Per `~/.claude/CLAUDE.md` §Slides: every issue/PR/repo/paper reference
@@ -370,8 +388,12 @@ the first content-dense slide tells the audience counts are links.
 
 ## 6. Open TODOs before delivery
 
-- [ ] Confirm the workshop's official name for the title slide
-      (placeholder reads "LLM Workshop · MIT").
+- [ ] Skim the one co-presenter deck that was shared (link in
+      `SCHEDULE.local.md` §4) and align vocabulary &mdash; it is not
+      publicly readable, so it could not be checked automatically.
+- [ ] Re-read the `workshop-xref` lines once the running order is final;
+      three of them say "next" / "this morning" and would be wrong if
+      the order changes.
 - [ ] PR #265 may merge before Oct 16 — re-check its state and flip the
       slide's "open" badge if so.
 - [ ] Optional: webshot of `K-Dense-AI/scientific-agent-skills`
