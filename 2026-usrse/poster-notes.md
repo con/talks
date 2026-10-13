@@ -37,7 +37,9 @@ Add `--preview /path/to/preview.png` for a screen preview.
 Generated PDFs follow the existing ignore rule.
 
 The screenshots and large upstream SVG follow the repository's DataLad/git-annex convention.
-Their registered public download URLs on the existing CON Hub allow retrieval without Hub credentials or an additional Git remote.
+Their registered download URLs on the existing CON Hub allow retrieval without Hub credentials or an additional Git remote, provided the Hub is reachable from your network.
+Downloads currently succeed over VPN but return HTTP 403 outside it, leaving GitHub's asset-availability check blocked.
+Passing that check requires publishing these assets to the existing public datasets mirror or making the Hub externally accessible.
 With DataLad installed in your project environment, run from the repository root:
 
 ```bash
