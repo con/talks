@@ -14,9 +14,9 @@ SVG = "http://www.w3.org/2000/svg"
 XLINK = "http://www.w3.org/1999/xlink"
 ET.register_namespace("", SVG)
 ET.register_namespace("xlink", XLINK)
-ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "pics/borrowed/orinoco-selfhost-components-poster.svg"
-OUTPUT = ROOT / "pics/borrowed/orinoco-lite-components-poster.svg"
+ROOT = Path(__file__).resolve().parent
+SOURCE = ROOT / "assets/orinoco-selfhost-components-poster.svg"
+OUTPUT = ROOT / "assets/orinoco-lite-components-poster.svg"
 
 
 def main():

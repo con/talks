@@ -92,7 +92,7 @@ diagram: orinoco-metadata-flow.png
 # Or use POSTER_BROWSER_ARGS='--channel chrome' for installed Google Chrome.
 POSTER_BROWSER_ARGS ?=
 poster:
-	uv run --with playwright python build-orinoco-poster.py $(POSTER_BROWSER_ARGS)
+	uv run --with playwright python orinoco-lite/build-poster.py $(POSTER_BROWSER_ARGS)
 
 proposal: 2026-usrse-con-talk-abstract.html 2026-usrse-con-talk-abstract.pdf
 

@@ -1,6 +1,6 @@
 This is folder to collect ideas/drafts for submissions for https://us-rse.org/usrse26/ as described on https://us-rse.org/usrse26/participate/ .
 
-The Orinoco Lite poster is available as [editable HTML](orinoco-lite-poster.html), with [editing, PDF export and release notes](poster-notes.md).
+The Orinoco Lite poster is available as [editable poster](poster.html), with [editing, PDF export and release notes](orinoco-lite/README.md).
 Its [submitted abstract](orinoco-lite-poster-draft.md) remains alongside it.
 
 ### Meeting theme etc

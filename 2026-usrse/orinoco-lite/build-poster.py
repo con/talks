@@ -5,7 +5,7 @@
 
 From the repository root:
     uv run --with playwright playwright install chromium  # once
-    uv run --with playwright python 2026-usrse/build-orinoco-poster.py
+    uv run --with playwright python 2026-usrse/orinoco-lite/build-poster.py
 
 Use --channel chrome to use an installed Google Chrome instead.
 """
@@ -20,8 +20,8 @@ from playwright.async_api import async_playwright
 
 
 async def build(channel: str | None, preview: Path | None, font_proof: bool = False) -> None:
-    source = Path(__file__).with_name("orinoco-lite-poster.html")
-    output = source.with_suffix(".pdf")
+    source = Path(__file__).resolve().parent.parent / "poster.html"
+    output = Path(__file__).with_name("poster.pdf")
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(channel=channel)
         page = await browser.new_page(viewport={"width": 1640, "height": 1300})
@@ -98,7 +98,7 @@ async def build(channel: str | None, preview: Path | None, font_proof: bool = Fa
                 Current main paragraphs are {body_pt:g} pt.
                 Source: posternerd.com/tutorials/customer-questions</p>
                 </body></html>''')
-            proof = source.with_name('orinoco-font-proof.pdf')
+            proof = Path(__file__).with_name('font-proof.pdf')
             await page.pdf(path=str(proof), print_background=True, prefer_css_page_size=True,
                            display_header_footer=False)
             print(f"Created {proof}")

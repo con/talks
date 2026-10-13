@@ -6,9 +6,9 @@
 # ///
 """Generate the poster's five vector QR codes and verify their destinations.
 
-Run with `uv run 2026-usrse/make-logo-qrs.py --check-dir /tmp/con-qr-checks`.
+Run with `uv run 2026-usrse/orinoco-lite/make-logo-qrs.py --check-dir /tmp/con-qr-checks`.
 Requires Inkscape (only to measure the already outlined logo) and rsvg-convert
-(for independent rasterization). SVG assets are written to pics/; check images and
+(for independent rasterization). SVG assets are written to assets/; check images and
 the JSON report stay in --check-dir, outside the repository by default.
 """
 
@@ -26,7 +26,7 @@ import qrcode
 import zxingcpp
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parent
 SVG = "http://www.w3.org/2000/svg"
 INK = "#193c4d"
 BORDER = 4  # Four completely clear modules on every side.
@@ -52,7 +52,7 @@ def element(tag, attrs=None, text=None):
 
 def load_logo(inkscape):
     """Reuse the corrected paths and original blue; never regenerate its type."""
-    source = ROOT / "pics/con-logo-outlined.svg"
+    source = ROOT / "assets/con-logo-outlined.svg"
     original = ET.parse(source).getroot()
     # The source retains hidden alternate artwork and wide canvas margins.
     # Query the visible blue layer, then convert page-pixel bounds to its
@@ -162,14 +162,14 @@ def write_qr(name, url, logo):
     root.append(logo_box)
     assert not root.findall(f".//{{{SVG}}}text")
     assert not root.findall(f".//{{{SVG}}}image"), "Logo must remain native vector"
-    destination = ROOT / f"pics/orinoco-qr-{name}.svg"
+    destination = ROOT / f"assets/orinoco-qr-{name}.svg"
     ET.ElementTree(root).write(destination, encoding="utf-8", xml_declaration=True)
     assert destination.stat().st_size < 100_000, "QR should remain a small SVG"
     return {
         "name": name, "url": url, "file": str(destination),
         "qr_version": qr.version, "error_correction": "H",
         "modules_including_border": size, "quiet_border_modules": BORDER,
-        "logo_source": "pics/con-logo-outlined.svg",
+        "logo_source": "assets/con-logo-outlined.svg",
         "logo_width_fraction_of_body": LOGO_WIDTH_FRACTION,
         "file_bytes": destination.stat().st_size,
         "logo_pad_percent_of_body_area": round(100*pad_width*pad_height/body_size**2, 2),

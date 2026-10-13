@@ -458,27 +458,42 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # Poster authorship and original upstream artwork, with text outlined for display.
 [[annotations]]
-path = ["2026-usrse/orinoco-lite-poster.html", "2026-usrse/poster-notes.md", "pics/orinoco-qr-*.svg"]
+path = ["2026-usrse/poster.html", "2026-usrse/orinoco-lite/README.md", "2026-usrse/orinoco-lite/assets/orinoco-qr-*.svg"]
 precedence = "closest"
 SPDX-FileCopyrightText = ["2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko"]
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
-path = "pics/borrowed/orinoco-selfhost-components-poster.svg"
+path = "2026-usrse/orinoco-lite/assets/orinoco-selfhost-components-poster.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Stephan Heunis"
 SPDX-License-Identifier = "CC-BY-4.0"
 
-# Official group mark; source and text-to-path adaptation in poster-notes.md.
+# Official group mark; source and text-to-path adaptation in 2026-usrse/orinoco-lite/README.md.
 [[annotations]]
-path = "pics/borrowed/psychoinformatics_logo.svg"
+path = "2026-usrse/orinoco-lite/assets/psychoinformatics_logo.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2014-2016 Michael Hanke and Alex Waite"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # Lite deployment adaptation of Stephan Heunis's ORINOCO component artwork.
 [[annotations]]
-path = "pics/borrowed/orinoco-lite-components-poster.svg"
+path = "2026-usrse/orinoco-lite/assets/orinoco-lite-components-poster.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = ["2026 Stephan Heunis", "2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko"]
 SPDX-License-Identifier = "CC-BY-4.0"
+
+# Relocated poster screenshots retain the third-party notices applied to
+# their original pics/borrowed/ locations.
+[[annotations]]
+path = "2026-usrse/orinoco-lite/assets/orinoco-*.png"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Copy of the shared ReproNim logo, with the same third-party logo notice.
+[[annotations]]
+path = "2026-usrse/orinoco-lite/assets/repronim_logo.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
