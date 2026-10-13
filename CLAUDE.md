@@ -31,7 +31,12 @@ embed/                    — small HTML iframes referenced by some decks
 posters/                  — poster sources (separate flow)
 sourcedata/con-site-specific/ — submodule: the CON record store that
                             tools/mk_ack_eras.py reads to build the
-                            acknowledgements grid (CON_RECORD_STORE overrides)
+                            acknowledgements grid (CON_RECORD_STORE overrides).
+                            Editing records there: read its
+                            docs/metadata-curation.md first, and run
+                            tools/validate_records.py before committing —
+                            every date needs an evidence assertion under
+                            sources/curation-evidence/ or the gate fails.
 2026-usrse/               — venue-specific drafts: proposal, BoF/poster templates,
                             lineage diagrams
 2026-ohbm-ossig/          — OHBM Open Science Room submission
