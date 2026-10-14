@@ -497,3 +497,80 @@ path = "2026-usrse/orinoco-lite/assets/repronim_logo.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+# STAMPED final poster source and non-transcript verification reports.
+# No blanket grant is made over logs or the institutional artwork below.
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/index.html",
+    "2026-usrse/stamped-ai-study/*.css",
+    "2026-usrse/stamped-ai-study/*.md",
+    "2026-usrse/stamped-ai-study/*.json",
+    "2026-usrse/stamped-ai-study/.gitattributes",
+    "2026-usrse/stamped-ai-study/.gitignore",
+    "2026-usrse/stamped-ai-study/exports/*.json",
+    "2026-usrse/stamped-ai-study/exports/qr-source/decode-report.json",
+    "2026-usrse/stamped-ai-study/assets/stamped-qr-*.svg",
+    "2026-usrse/stamped-ai-study/exports/pdf-qr-*.png",
+    "2026-usrse/stamped-ai-study/exports/qr-source/*.png",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# Reference layout from con/talks PR 20, pinned in source-manifest.json.
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/template.css"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko", "2026 Center for Open Neuroscience"]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/build-poster.cjs",
+    "2026-usrse/stamped-ai-study/make-logo-qrs.py",
+    "2026-usrse/stamped-ai-study/update-results.py",
+    "2026-usrse/stamped-ai-study/verify-links.py",
+    "2026-usrse/stamped-ai-study/verify-pdf.py",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Exact repository-authored CON mark; no redrawing or new ownership claim.
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/assets/con-logo-outlined.svg"
+precedence = "closest"
+SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/assets/con-ccn-dartmouth-letterhead.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Dartmouth College (institutional artwork)"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/assets/repronim_logo.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+# CC-BY-SA covers the poster composition, not its embedded institutional marks.
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf",
+    "2026-usrse/stamped-ai-study/exports/html-fullsize.png",
+    "2026-usrse/stamped-ai-study/exports/pdf-fullsize.png",
+    "2026-usrse/stamped-ai-study/exports/pdf-preview.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "Dartmouth College (institutional artwork)", "NOASSERTION"]
+SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyLogo"
+
+# Raw quoted records remain on publication hold. This marker grants no rights.
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/logs/duct/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"

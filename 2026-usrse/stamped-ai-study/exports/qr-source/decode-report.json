@@ -1,0 +1,1406 @@
+[
+  {
+    "name": "poster",
+    "url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+    "file": "/Users/johnlee/code/CON/stamped-ai-research/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-poster.svg",
+    "qr_version": 9,
+    "error_correction": "H",
+    "modules_including_border": 61,
+    "quiet_border_modules": 4,
+    "logo_source": "assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 72489,
+    "logo_pad_percent_of_body_area": 10.92,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "study",
+    "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+    "file": "/Users/johnlee/code/CON/stamped-ai-research/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-study.svg",
+    "qr_version": 9,
+    "error_correction": "H",
+    "modules_including_border": 61,
+    "quiet_border_modules": 4,
+    "logo_source": "assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 73018,
+    "logo_pad_percent_of_body_area": 10.92,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "skills",
+    "url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+    "file": "/Users/johnlee/code/CON/stamped-ai-research/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-skills.svg",
+    "qr_version": 7,
+    "error_correction": "H",
+    "modules_including_border": 53,
+    "quiet_border_modules": 4,
+    "logo_source": "assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 69859,
+    "logo_pad_percent_of_body_area": 11.39,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "con",
+    "url": "https://dev.centerforopenneuroscience.org/",
+    "file": "/Users/johnlee/code/CON/stamped-ai-research/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-con.svg",
+    "qr_version": 5,
+    "error_correction": "H",
+    "modules_including_border": 45,
+    "quiet_border_modules": 4,
+    "logo_source": "assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 67605,
+    "logo_pad_percent_of_body_area": 12.08,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      }
+    ]
+  }
+]

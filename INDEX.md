@@ -12,6 +12,13 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Per-talk inventory
 
+### `2026-usrse/stamped-ai-study/index.html` — *STAMPED in Practice*
+
+- US-RSE 2026 poster: three paired public-data analysis tasks and their research records.
+- Separate data checks, command replay, and screening results; the skills arm's stage 03 screening failure remains explicit.
+  ABCD reproduction was not performed.
+- Editable HTML/CSS, final PDF, checked retrieval, and licensing: [`2026-usrse/stamped-ai-study/README.md`](2026-usrse/stamped-ai-study/README.md).
+
 ### `2026-usrse/orinoco-lite_poster.html` — *Beyond the Lab Website*
 
 - US-RSE 2026 poster: service-based ORINOCO and GitHub-based ORINOCO Lite,

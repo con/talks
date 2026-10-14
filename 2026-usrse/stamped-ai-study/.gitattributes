@@ -1,0 +1,6 @@
+# Module-scoped equivalent for its binary types; works without MagicMime.
+# Text sources remain in Git. Large SVGs retain the repository threshold.
+* annex.largefiles=((include=*.png)or(include=*.pdf)or(include=*.jpg)or(include=*.jpeg)or(include=*.gif)or(include=*.webp)or(include=*.woff)or(include=*.woff2)or(include=*.ttf)or(include=*.otf)or(include=*.zip)or(include=*.gz)or(include=*.xz)or(include=*.zst)or(include=*.mp4)or(include=*.webm)or(include=*.bin))
+*.svg annex.largefiles=(largerthan=100K)
+# Held locally pending separate coordinator review and publication approval.
+logs/duct/** annex.largefiles=((largerthan=100K)or(include=*.png)or(include=*.pdf)or(include=*.zip)or(include=*.gz)or(include=*.xz)or(include=*.zst)or(include=*.bin))
