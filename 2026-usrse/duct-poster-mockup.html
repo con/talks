@@ -27,7 +27,9 @@
   header h1 code { font-family: var(--mono); color: var(--accent); }
   header h1 .duct-logo { height: 64px; vertical-align: middle; margin: 0 6px 0 2px; }
   header .affil { margin: 4px 0 0; font-size: 18px; color: var(--muted); }
-  header .qrs { display: flex; gap: 12px; }
+  header .qrs { display: flex; gap: 16px; }
+  header .qrs figure { margin: 0; text-align: center; font-size: 12px; color: var(--muted); }
+  header .qrs img { display: block; width: 92px; height: 92px; margin-bottom: 3px; }
   .qr { width: 90px; height: 90px; border: 2px dashed var(--rule); display: grid; place-items: center; font-size: 11px; color: var(--muted); text-align: center; }
 
   main { display: grid; grid-template-columns: 1fr 1.55fr 1fr; gap: 14px; min-height: 0; }
@@ -114,7 +116,10 @@
     <img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience">
     <img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
   </div>
-  <div class="qrs"><div class="qr">QR<br>github.com/con/duct</div><div class="qr">QR<br>Zenodo entry</div></div>
+  <div class="qrs">
+    <figure><img src="duct-poster-assets/qr/qr-github-con-duct.svg" alt="QR: https://github.com/con/duct">code</figure>
+    <figure><img src="duct-poster-assets/qr/qr-zenodo-abstract.svg" alt="QR: https://doi.org/10.5281/zenodo.22833931">abstract</figure>
+  </div>
 </header>
 
 <main>
