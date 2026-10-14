@@ -41,6 +41,7 @@
   section h2 + h3 { margin-top: 4px; padding-top: 0; border-top: 0; }
   .lede { font-weight: 700; }
   section.intro { background: #f5f3ee; }
+  section.intro code { white-space: nowrap; }
   section.search { padding-left: 6px; padding-right: 6px; }
   section.search .q { background: #f5f3ee; border-radius: 6px; padding: 6px 0 0; margin-bottom: 8px; overflow: hidden; }
   section.search .q pre { margin: 0; }
@@ -191,7 +192,7 @@ logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
 <div class="col">
   <section class="intro">
     <h2>What is <code>con-duct</code>?</h2>
-    <p><code>con-duct</code> is a lightweight command-line wrapper that records what a command printed and the resources it used, for any command, with no code changes. Its companion commands let people and agents find those records later, query them, and plot them.</p>
+    <p><code>con-duct</code> is a lightweight command-line wrapper that records what a command printed and the resources it used, for any command, with no code changes. Wrap a command with <code>duct &lt;cmd&gt;</code>, short for <code>con-duct run &lt;cmd&gt;</code>; companion commands such as <code>con-duct ls</code> and <code>con-duct plot</code> let people and agents find those records later, query them, and plot them.</p>
   </section>
 
   <section>
