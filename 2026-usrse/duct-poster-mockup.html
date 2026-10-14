@@ -32,11 +32,13 @@
   header .qrs img { display: block; width: 92px; height: 92px; margin-bottom: 3px; }
   .qr { width: 90px; height: 90px; border: 2px dashed var(--rule); display: grid; place-items: center; font-size: 11px; color: var(--muted); text-align: center; }
 
-  main { display: grid; grid-template-columns: 1fr 1.55fr 1fr; gap: 14px; min-height: 0; }
+  main { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.55fr) minmax(0,1fr); gap: 14px; min-height: 0; }
   .col { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
   section { border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; position: relative; min-height: 0; overflow: hidden; }
   section > h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
-  section > h2 .tag { font: 600 11px/1 var(--mono); color: #fff; background: var(--accent); border-radius: 3px; padding: 3px 5px; margin-right: 6px; vertical-align: middle; }
+  section h3 { margin: 12px 0 4px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 17px; color: var(--accent); }
+  section h2 + h3 { margin-top: 4px; padding-top: 0; border-top: 0; }
+  .lede { font-weight: 700; }
   section p, section li { font-size: 14px; line-height: 1.32; margin: 4px 0; }
   .grow { flex: 1; }
   pre, code { font-family: var(--mono); }
@@ -47,7 +49,6 @@
   .vis b { color: var(--ink); }
   .caption { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .callout { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 6px 10px; font-size: 14px; margin: 6px 0; }
-  .honest { background: var(--warn-bg); }
   table { border-collapse: collapse; font-size: 13px; width: 100%; }
   th, td { border-bottom: 1px solid var(--rule); padding: 3px 6px; text-align: left; }
   th { color: var(--muted); font-weight: 600; }
@@ -62,6 +63,8 @@
   /* mechanism diagram */
   .flow { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; margin: 8px 0; }
   .flow .box { border: 1.5px solid var(--ink); border-radius: 4px; padding: 6px 8px; background: #fff; }
+  .flow .outs { display: flex; flex-direction: column; gap: 6px; }
+  .flow .term { border: 1.5px dashed var(--muted); border-radius: 4px; padding: 3px 6px; font-size: 11.5px; color: var(--muted); }
   .flow .files { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
   .flow .files span { border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; padding: 2px 5px; font-size: 11.5px; }
   .flow .arrow { font-size: 20px; color: var(--muted); }
@@ -79,13 +82,7 @@
   .chat .a { background: var(--accent-bg); }
   .chat .who { font: 600 10.5px/1 var(--mono); color: var(--muted); margin-bottom: 3px; }
 
-  /* timeline svg */
-  svg text { font-family: system-ui, sans-serif; }
-  svg .cause { font-size: 14px; fill: var(--ink); }
-  svg .dur { font-size: 12px; fill: var(--muted); font-family: var(--mono); }
-  svg .h { font-size: 14px; font-weight: 700; fill: var(--ink); }
-
-  footer { display: grid; grid-template-columns: 1.2fr 1fr .8fr; gap: 14px; min-height: 0; }
+  footer { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; min-height: 0; }
   footer section { padding: 10px 14px; }
   footer p, footer li { font-size: 12.5px; }
   footer ul { margin: 2px 0 0 16px; padding: 0; }
@@ -101,7 +98,7 @@
 </style>
 </head>
 <body>
-<div class="draft">DRAFT MOCKUP · 42×36 in landscape · S-numbers refer to duct-poster-strawmen.md</div>
+<div class="draft">DRAFT MOCKUP · 42×36 in landscape</div>
 <div id="stage">
 <div id="poster">
 
@@ -126,95 +123,39 @@
 <!-- ============ LEFT ============ -->
 <div class="col">
   <section>
-    <h2><span class="tag">S1</span>Output nobody kept</h2>
-    <p>Humans and agents now run commands side by side. The terminal output is the evidence, and it is either <b>bloating an agent's context window</b> or <b>gone past the scrollback</b>.</p>
-    <div class="budget"><div class="win"></div><span class="l1">what the agent saw</span><span class="l2">what one <code>nebari deploy</code> printed: 3,227 lines</span></div>
-    <p style="margin-top:34px">Wrap it: <code>duct &lt;cmd&gt;</code> instead of <code>&lt;cmd&gt;</code>. The command runs unchanged and leaves four files.</p>
-    <div class="flow">
-      <div class="box">$ duct nebari deploy …</div><span class="arrow">→</span>
-      <div class="box">duct</div><span class="arrow">→</span>
-      <div class="files"><span>stdout</span><span>stderr</span><span>info.json</span><span>usage.jsonl</span></div>
-    </div>
-    <div class="callout"><b>Scope.</b> Cheap one-offs do not need this; agents are good at those. duct earns its keep when execution is <b>expensive, slow, or dangerous</b>, where “just try again” is not an option and every attempt should be reviewable.</div>
+    <h2>Try it</h2>
+    <pre style="white-space:pre-wrap;font-size:11.5px">$ pip install con-duct      <span class="c"># or conda</span>
+$ duct bash -c 'echo "hello world" && sleep 2'
+<span class="c">2026-10-14T13:47:50-0500 [INFO    ] con-duct: duct 0.23.0 is executing 'bash -c echo "hello world" && sleep 2'...
+2026-10-14T13:47:50-0500 [INFO    ] con-duct: Log files will be written to .duct/logs/2026.10.14T13.47.50-1205327_</span>
+<b>hello world</b>
+<span class="c">2026-10-14T13:47:52-0500 [INFO    ] con-duct: Summary:</span>
+Exit Code: <span class="ok">0</span>
+Command: bash -c echo "hello world" && sleep 2
+Log files location: .duct/logs/2026.10.14T13.47.50-1205327_
+Wall Clock Time: 2.002 sec
+Memory Peak Usage (RSS): 2.4 MB
+Memory Average Usage (RSS): 2.4 MB
+Memory Peak Percentage: 0.00%
+Memory Average Percentage: 0.00%
+CPU Peak Usage: 0.00%
+Average CPU Usage: 0.00%</pre>
   </section>
 
   <section>
-    <h2><span class="tag">S6</span>Where it sits</h2>
-    <table class="pos">
-      <tr><th></th><th><code>tee</code></th><th>GNU <code>time</code></th><th class="duct">duct</th><th>workflow managers<br><small>Snakemake, Nextflow</small></th><th>experiment trackers<br><small>MLflow, W&amp;B</small></th></tr>
-      <tr><td>wrap any command, no code changes</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td><td class="c">✗ <small>rewrite as a workflow</small></td><td class="c">✗ <small>add logging calls to your code</small></td></tr>
-      <tr><td>works anywhere, no scheduler</td><td class="c">✓</td><td class="c">◐ <small>GNU only</small></td><td class="c">◐ <small>Linux, macOS</small></td><td class="c">✓</td><td class="c">✓</td></tr>
-      <tr><td>stdout/stderr kept</td><td class="c">✓ <small>merged</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ <small>per task</small></td><td class="c">◐</td></tr>
-      <tr><td>exit code, invocation, environment</td><td class="c">✗</td><td class="c">◐ <small>exit code</small></td><td class="c">✓</td><td class="c">✓</td><td class="c">◐</td></tr>
-      <tr><td>peak memory, CPU, whole tree</td><td class="c">✗</td><td class="c">◐ <small>one process</small></td><td class="c">✓ <small>sampled</small></td><td class="c">✓</td><td class="c">◐</td></tr>
-      <tr><td>time series, not just a peak</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td class="c">◐</td><td class="c">◐</td></tr>
-      <tr><td>queryable across runs</td><td class="c">✗ <small>grep</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">◐ <small>trace file</small></td><td class="c">★</td></tr>
-    </table>
-    <p class="caption">✓ yes · ◐ partial · ✗ no · ★ richer than duct. Same one-word change: <code>tee</code> keeps the words, <code>time</code> one number, duct both and the rest.</p>
-    <p class="caption"><b>When the others are better:</b> many steps with declared inputs and outputs (a workflow manager knows the graph, reruns only what changed); comparing runs by parameters and metrics (a tracker keeps them with the artifacts, side by side).</p>
-  </section>
-
-  <section>
-    <h2><span class="tag">S7</span>Adopted inside tools</h2>
-    <p>Tools wrap their own runs so users get records without asking, and one <code>con-duct ls</code> spans all of them.</p>
-    <div class="vis"><b>logo row:</b> ReproNim/containers · ReproStim · babs (PennLINC/babs#413, draft) · external: MRIQC logs at cerebra.fz-juelich.de</div>
-    <p><b>What it took:</b> a hard dependency on <code>con-duct</code> and a choice of output prefix so the record sits next to the result. No API; the wrapped command is unchanged.</p>
-    <pre>&lt;output dir&gt;/logs/&lt;sub&gt;/acq-{datetime}+&lt;arrayid&gt;_&lt;taskid&gt;_   <span class="c"># babs</span></pre>
-  </section>
-</div>
-
-<!-- ============ CENTER ============ -->
-<div class="col">
-  <section>
-    <h2><span class="tag">S3</span>An agent reads a human's records and acts: the k8s upgrade</h2>
-    <p>A Kubernetes 1.33 upgrade on AWS with many components we do not own. <b>Day 1, staging:</b> 9 deploys, 8 failures, each root-caused with an agent reading the duct record, until a runbook existed. <b>Day 2, production:</b> 10 deploys, 9 failures, most already predicted by the runbook. Every run: <code>datalad run "duct -p logs/… nebari deploy …"</code>.</p>
-    <svg viewBox="0 0 900 500" width="100%">
-      <text x="10" y="18" class="h">staging · 2026-03-26</text>
-      <text x="460" y="18" class="h">production · 2026-03-27</text>
-      <!-- scale: 2400 s = 150 px -->
-      <g id="stg" transform="translate(10,30)"></g>
-      <g id="prd" transform="translate(460,30)"></g>
-    </svg>
-    <p class="caption">Bar length = wall clock time (from <code>info.json</code>); red = nonzero exit, green = success. Cause text from the diagnosis note committed beside each record. Deploy wall time: 1.8 h + 1.5 h. Records on disk: 2.3 MB.</p>
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:12px;margin-top:6px">
-      <div>
-        <div class="callout"><b>Clean boundary.</b> The deployment repo is full of secrets. The agent got the <code>logs/</code> directory and the nebari source, never the repo: everything the command printed, none of the credentials that produced it.</div>
-        <pre>$ con-duct ls \
-    -e "exit_code != 0 and wall_clock_time > 600"
-<span class="c"># 6 deploys burned &gt;10 min, then failed</span></pre>
-      </div>
-      <div class="chat">
-        <div class="who" style="margin-bottom:4px">simulated: mirrors the real session, condensed</div>
-        <div class="u"><div class="who">user</div>deploy 09 failed, look at the log</div>
-        <div class="a"><div class="who">agent</div><code>con-duct ls -e "'09_deploy' in prefix"</code> → exit 1, 285 s.<br>stderr tail: nebari-bot creation 503 after 10 attempts. Keycloak pod pending 50 min; main container waiting on image pull secret <code>extcrcreds</code>, which a later stage creates.<br><b>Recommend:</b> re-run. The secret exists on the second pass.</div>
-      </div>
+    <h2>You drive, the agent reads the record</h2>
+    <p class="lede">Stay in charge, without copy/pasting terminal output into a chat.</p>
+    <p>You run the commands. When one fails, the agent reads the record instead of your scrollback.</p>
+    <pre>$ duct singularity run …</pre>
+    <div class="chat">
+      <div class="who" style="margin-bottom:4px">simulated</div>
+      <div class="u"><div class="who">user</div>it didn't work</div>
+      <div class="a"><div class="who">claude</div>I used <code>con-duct ls</code> to find the run you mean. The exit code was 1 after 38 min, the problem was ...</div>
     </div>
   </section>
 
-  <section class="grow">
-    <h2><span class="tag">S11</span>What one record looks like: <code>con-duct plot</code></h2>
-    <pre>$ con-duct plot acq-2026.09.09T00.09.47+64119356_1_info.json \
-    -o plot.png --cpu ps-cpu-timepoint</pre>
-    <img src="duct-poster-assets/fmriprep-ds000001-sub-01-plot.png" alt="con-duct plot of one fMRIPrep run" style="max-height:420px; width:auto; max-width:100%; display:block; margin:6px auto 2px;">
-    <p class="caption">One c5 record, unedited: fMRIPrep 25.2.5 minimal, ds000001 sub-01, run by babs under SLURM (8 CPUs, 40 GB). Wall 5.0 h, peak RSS 5.9 GB, exit 0. CPU is the time-point estimate (<code>--cpu ps-cpu-timepoint</code>).</p>
-  </section>
-</div>
-
-<!-- ============ RIGHT ============ -->
-<div class="col">
   <section>
-    <h2><span class="tag">S2</span>An agent captures its own runs, chooses later what enters context</h2>
-    <p>On our cluster every job's app call is duct-wrapped (by babs; whether the agent types <code>duct</code> or the tool has it built in is a surface difference). 28 datasets × 2 apps = 56 records. Later: “which cells failed, and why?”</p>
-    <pre>$ con-duct ls -e "exit_code != 0" -F command exit_code wall_clock_time
-mriqc     ds002685   <span class="bad">1</span>    7 min
-fmriprep  ds002685   <span class="bad">1</span>   12 min
-mriqc     ds004884   <span class="bad">1</span>   29 min
-mriqc     ds005752   <span class="bad">1</span>   18 min   <span class="c">← numbers TBC from typhon</span></pre>
-    <div class="callout">Records on disk: <b>56</b>. Read into context: <b>4 stderr tails</b>. Nothing re-run.</div>
-  </section>
-
-  <section>
-    <h2><span class="tag">S4</span>A human audits the agent: bug replication</h2>
+    <h2>The agent drives, you read the summary</h2>
     <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
     <pre>$ duct -p logs/1_ -m "1: reproduce user's bug"                      ./repro.sh
 $ duct -p logs/2_ -m "2: simplified reproducer to test hypothesis"  ./repro.sh
@@ -228,18 +169,134 @@ logs/3_  3: verify fix                                <span class="ok">0</span><
   </section>
 
   <section class="grow">
-    <h2><span class="tag">S5</span>Second act: the record as provenance</h2>
-    <p><b>DataLad.</b> <code>datalad run "duct &lt;cmd&gt;"</code> commits command, logs, and the resulting diff together:</p>
-    <div class="vis" style="height:44px"><b>[DATALAD RUNCMD]</b> excerpt from a real non-nebari <code>datalad run "duct …"</code> (TBD; or one sentence, no excerpt)</div>
-    <p><b>HPC.</b> fMRIPrep minimal on 26 datasets: wall 3.7–8.2 h, peak RSS median 12.5 GiB, tail to 39.4 GiB; the 40 G grant fit 25 of 26. The outlier (64 BOLD runs) timed out at 24 h, OOM'd at 40 G, finished at 80 G in 43 h, duct peak 52.9 GB.</p>
-    <p class="caption">Caveat: sacct MaxRSS sits 5–8 GB above duct's peak on the same jobs (page cache under cgroup v2).</p>
+    <h2>Plot resource usage</h2>
+    <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
+    <img src="duct-poster-assets/fmriprep-ds000001-sub-01-plot.png" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:300px;display:block;margin:0 auto">
+  </section>
+</div>
+
+<!-- ============ CENTER ============ -->
+<div class="col">
+  <section class="grow">
+    <h2>What is <code>con-duct</code>?</h2>
+    <p><code>con-duct</code> is a lightweight command-line wrapper that records what a command printed and the resources it used, for any command, with no code changes. Its companion commands let people and agents find those records later, query them, and plot them.</p>
+
+    <h3>Capture now, ask questions later</h3>
+    <p>Wrap it: <code>duct &lt;cmd&gt;</code> instead of <code>&lt;cmd&gt;</code>. The command runs unchanged, its output still reaches your terminal (like <code>tee</code>), and it leaves four files.</p>
+    <div class="flow">
+      <div class="box">$ duct my-fancy-command-or-script</div><span class="arrow">→</span>
+      <div class="outs">
+        <div class="term">your terminal, as before</div>
+        <div class="files"><span>stdout</span><span>stderr</span><span>info.json</span><span>usage.jsonl</span></div>
+      </div>
+    </div>
+    <ul>
+      <li><code>stdout</code>, <code>stderr</code>: everything the command printed, in full.</li>
+      <li><code>info.json</code>: run metadata and summary, e.g. command, exit code, wall time, peak memory and CPU.</li>
+      <li><code>usage.jsonl</code>: resource use over time, one line per report: memory and CPU for each process in the tree, and their totals.</li>
+    </ul>
+    <p><b>Resource usage is recorded too.</b> duct samples the whole process tree every second and writes a report every minute: peak and average memory and CPU, per process and in total.</p>
+    <p><b>Record everything, read it later if helpful.</b> Humans and agents now run commands side by side. Without a record, the terminal output is either <b>bloating an agent's context window</b> or <b>gone past the scrollback</b>.</p>
+    <div class="budget"><div class="win"></div><span class="l1">Active Context</span><span class="l2">Available Context</span></div>
+    <div style="height:30px"></div>
+    <div class="callout">duct becomes especially valuable when execution is <b>expensive, slow, or dangerous</b>, where “just try again” is not an option and every attempt should be reviewable.</div>
+
+    <h3>Search and retrieve duct records</h3>
+    <p>Every record is a small JSON file. <code>con-duct ls</code> reads them all and answers questions across runs, machines, and months, for you or for an agent.</p>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+      <div>
+        <p>Which jobs failed, and how long did they burn first?</p>
+        <pre>$ con-duct ls -e "exit_code != 0" \
+    -F command exit_code wall_clock_time
+mriqc     ds002685   <span class="bad">1</span>    7 min
+fmriprep  ds002685   <span class="bad">1</span>   12 min
+mriqc     ds004884   <span class="bad">1</span>   29 min
+mriqc     ds005752   <span class="bad">1</span>   18 min   <span class="c">← TBC</span></pre>
+        <p class="caption">28 datasets × 2 apps = 56 records on our cluster. Read into context: 4 stderr tails. Nothing re-run.</p>
+      </div>
+      <div>
+        <p>Which runs needed more than 32 GB, and where?</p>
+        <pre>$ con-duct ls -e "peak_rss > 32e9" \
+    -F hostname peak_rss wall_clock_time
+<span class="c">← example TBD</span></pre>
+        <p>Structured output for scripts and agents:</p>
+        <pre>$ con-duct ls -f json logs/ | jq …</pre>
+      </div>
+    </div>
+    <ul>
+      <li>Filter with any Python expression over the 40+ fields (<code>-e</code>); pick columns (<code>-F</code>); sort by any field (<code>--sort-by</code>).</li>
+      <li>Output as a table, JSON, or YAML (<code>-f</code>).</li>
+      <li>No database: point it at directories, or let it find records by your output prefix.</li>
+    </ul>
+    <div class="vis"><b>graphic idea:</b> fan-in. Left: record folders from different places (laptop, cluster jobs, CI, an agent's session), each a stack of the four files. Arrows converge on one <code>con-duct ls -e …</code> funnel. Right: a short table of only the matching rows, one row highlighted with its stderr tail pulled out beside it.</div>
+
+  </section>
+</div>
+
+<!-- ============ RIGHT ============ -->
+<div class="col">
+  <section>
+    <h2>DataLad and provenance <img src="../pics/datalad_logo_wide.svg" alt="DataLad" style="height:30px;vertical-align:middle;float:right"></h2>
+    <p><code>datalad run "duct &lt;cmd&gt;"</code> commits the command, the duct record, and the resulting diff together:</p>
+    <pre style="white-space:pre-wrap;font-size:11.5px">$ datalad run -m "Say hello" "duct bash -c 'echo hello world > hello.txt'"
+$ git show --name-only
+<span class="c">commit fae1995dc37fa7925e04bbf1eca5b3cc62332ef9
+Author: Austin Macdonald &lt;austin@dartmouth.edu&gt;
+Date:   Wed Oct 14 13:50:38 2026 -0500</span>
+
+    [DATALAD RUNCMD] Say hello
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "duct bash -c 'echo hello world > hello.txt'",
+     "dsid": "3329b331-5517-4336-abe3-f335ab4ef64c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+<b>.duct/logs/2026.10.14T13.50.38-1207637_info.json
+.duct/logs/2026.10.14T13.50.38-1207637_stderr
+.duct/logs/2026.10.14T13.50.38-1207637_stdout
+.duct/logs/2026.10.14T13.50.38-1207637_usage.jsonl
+hello.txt</b></pre>
+  </section>
+
+  <section>
+    <h2>Adopted inside tools</h2>
+    <p>Tools wrap their own runs so users get records without asking.</p>
+    <ul>
+      <li><b>BABS</b> <span class="caption">github.com/PennLINC/babs</span><br>Wraps every BIDS App job on SLURM and copies the record next to each subject's results. <i>Why:</i> per-subject peak memory and wall time to size the next batch; the app's stdout and stderr, with its warnings and other internals, for inspecting any job later.</li>
+      <li><b>ReproNim/containers</b> <span class="caption">github.com/ReproNim/containers</span><br><code>REPRONIM_USE_DUCT=1</code> wraps each Singularity container run, e.g. under <code>datalad containers-run</code>. <i>Why:</i> a resource record for every containerized app run, saved with its results.</li>
+      <li><b>ReproStim</b> <span class="caption">github.com/ReproNim/reprostim</span><br>The video-capture app wraps each <code>ffmpeg</code> recording (on in the default config); the record sits next to the video. <i>Why:</i> resource use for long, unattended capture sessions.</li>
+    </ul>
+  </section>
+
+  <section class="grow">
+    <h2>Comparison to Related Tools</h2>
+    <table class="pos">
+      <tr><th></th><th><code>tee</code></th><th>GNU <code>time</code></th><th class="duct">duct</th><th>workflow managers<br><small>Snakemake, Nextflow</small></th><th>experiment trackers<br><small>MLflow, W&amp;B</small></th></tr>
+      <tr><td>wrap any command, no code changes</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td><td class="c">✗ <small>rewrite as a workflow</small></td><td class="c">✗ <small>add logging calls to your code</small></td></tr>
+      <tr><td>works anywhere, no scheduler</td><td class="c">✓</td><td class="c">◐ <small>GNU only</small></td><td class="c">◐ <small>Linux, macOS</small></td><td class="c">✓</td><td class="c">✓</td></tr>
+      <tr><td>stdout/stderr kept</td><td class="c">✓ <small>merged</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ <small>per task</small></td><td class="c">◐</td></tr>
+      <tr><td>exit code, invocation, environment</td><td class="c">✗</td><td class="c">◐ <small>exit code</small></td><td class="c">✓</td><td class="c">✓</td><td class="c">◐</td></tr>
+      <tr><td>peak memory, CPU, whole tree</td><td class="c">✗</td><td class="c">◐ <small>one process</small></td><td class="c">✓ <small>sampled</small></td><td class="c">✓</td><td class="c">◐</td></tr>
+      <tr><td>time series, not just a peak</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td class="c">◐</td><td class="c">◐</td></tr>
+      <tr><td>queryable across runs</td><td class="c">✗ <small>grep</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">◐ <small>trace file</small></td><td class="c">★</td></tr>
+    </table>
+    <p class="caption">✓ yes · ◐ partial · ✗ no · ★ richer than duct. Same one-word change: <code>tee</code> keeps the words, <code>time</code> one number, duct both and the rest.</p>
+    <p class="caption"><b>When the others are better:</b> many steps with declared inputs and outputs (a workflow manager knows the graph, reruns only what changed); comparing runs by parameters and metrics (a tracker keeps them with the artifacts, side by side).</p>
   </section>
 </div>
 </main>
 
 <footer>
   <section>
-    <h2><span class="tag">S8</span>Overhead, measured: duct wrapped around duct</h2>
+    <h2>Overhead</h2>
     <table>
       <tr><th>pids monitored</th><th>duct CPU, % of one core</th><th>duct RSS</th><th>record bytes / report</th></tr>
       <tr><td>1</td><td class="n">1.6 ± 0.2</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
@@ -248,8 +305,8 @@ logs/3_  3: verify fix                                <span class="ok">0</span><
     </table>
     <p class="caption">Outer <code>duct</code> watching an inner <code>duct</code> that watches N idle processes, 5 min per phase, 1 s sampling. CPU is the python process as the outer duct saw it (phase mean; ± is the <code>ps</code> rounding bound), flat to 16 pids, about 2 % at 64 and 256: consistent with a slow rise, not a measured slope. Whole run by <code>time -v</code>, including duct's own <code>ps</code> calls: <b>3.3 % of one core</b>; duct's sampler misses those few-ms children itself. Laptop i7-1280P, hybrid cores. Records: <code>datalad run</code> in <code>~/datasets/duct-in-duct</code>.</p>
   </section>
-  <section class="honest">
-    <h2><span class="tag">S9</span>Honesty box</h2>
+  <section>
+    <h2>Limitations</h2>
     <ul>
       <li>Output is written to disk: do not wrap commands that print secrets.</li>
       <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
@@ -258,57 +315,12 @@ logs/3_  3: verify fix                                <span class="ok">0</span><
       <li>Resource peaks paid off on SLURM; for agentic work the value has been the logs and <code>con-duct ls</code>. Wrap the runs you cannot afford to repeat.</li>
     </ul>
   </section>
-  <section>
-    <h2><span class="tag">S10</span>Try it</h2>
-    <pre>pip install con-duct      <span class="c"># or conda-forge</span>
-duct &lt;your command&gt;
-con-duct ls</pre>
-    <p>Live demo at the poster: <code>con-duct ls</code> over the real records above.</p>
-    <div class="vis" style="display:inline-block;width:70px;height:40px;padding:4px">QR</div>
-  </section>
 </footer>
 
 </div>
 </div>
 
 <script>
-  // ---- nebari timeline, from con-duct ls on 2026-09-15 (wall_clock_time in s, exit code) ----
-  const staging = [
-    [1954,1,"helm keycloak-postgres timed out"],
-    [636,1,"same; pods unschedulable, single node"],
-    [968,1,"EBS PV zone affinity after node replace; CSI no creds"],
-    [78,1,"addon update 403 (my manual IRSA fix caused it)"],
-    [1274,1,"nebari bug from upstream PR: CSI driver perms"],
-    [577,1,"keycloak postgres secret mismatch (debug drift)"],
-    [194,1,"keycloak realm not found"],
-    [263,1,"same; tofu state rm → runbook"],
-    [523,0,"success"],
-  ];
-  const production = [
-    [2315,1,"EBS CSI addon update deadlock, 20 min timeout"],
-    [456,1,"traefik pending: PVs in one AZ, node in another"],
-    [165,1,"AZ reorder had no effect (ignore_changes)"],
-    [1042,1,"tofu state swap → subnet recreate hung; ctrl-C"],
-    [625,1,"load balancer gone after ELB delete"],
-    [285,1,"keycloak 503: missing image pull secret"],
-    [161,1,"keycloak 503: postgres PV pinned to old AZ"],
-    [127,1,"realm not found — predicted by runbook"],
-    [307,0,"success"],
-  ];
-  const PX = 150/2400, ROW = 50;
-  function draw(id, rows) {
-    const g = document.getElementById(id); let y = 0, s = "";
-    rows.forEach(([w, ex, cause], i) => {
-      const len = Math.max(4, w*PX), color = ex ? "var(--fail)" : "var(--ok)";
-      s += `<rect x="0" y="${y}" width="${len}" height="14" rx="2" fill="${color}"/>`;
-      s += `<text x="${len+6}" y="${y+12}" class="dur">${Math.round(w/60)} min</text>`;
-      s += `<text x="0" y="${y+30}" class="cause">${i+1}. ${cause}</text>`;
-      y += ROW;
-    });
-    g.innerHTML = s;
-  }
-  draw("stg", staging); draw("prd", production);
-
   // ---- fit poster to window ----
   function fit() {
     const poster = document.getElementById("poster");
