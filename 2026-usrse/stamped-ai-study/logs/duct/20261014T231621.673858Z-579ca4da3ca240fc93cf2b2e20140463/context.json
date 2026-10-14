@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "session_id": "01a13c63-5435-7703-8d6d-d8c3d67741dd",
+  "task_id": null,
+  "project_id": "talks-6859a3cedcb3afeb",
+  "project_root": "/Users/johnlee/code/CON/stamped-ai-research/talks",
+  "working_directory": "/Users/johnlee/code/CON/stamped-ai-research/talks",
+  "started_at": "2026-10-14T23:16:21.673858+00:00",
+  "git_commit": "39db269ae24d7a1bf5b3a873f6780c56046a70b0",
+  "git_dirty": true,
+  "duct_executable": "/Users/johnlee/.local/bin/duct"
+}

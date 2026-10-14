@@ -1,0 +1,27 @@
+/Users/johnlee/code/CON/stamped-ai-research/talks/2026-usrse/stamped-ai-study/stamped-ai-poster-initial.svg
+Source copy matches: stamped-ai-poster-initial.svg
+Source copy matches: build_initial_poster.py
+Source copy matches: stamped-ai-poster-initial-preview.png
+Rendered preview: /var/folders/dh/6x04w9891gx_4x1t649nc42w0000gn/T/stamped-ai-study-proof-a21vfzgj/preview.png
+Exact preview pixel match: False
+SVG XML, 44 × 44 inch size, editable text, and exact regeneration: valid
+CairoSVG version: 2.8.2
+Rendered preview dimensions: 1584 × 1584; inspect local font differences visually
+SVG SHA-256: 7a6690e14a67407e983ef17bd8834933d54e997e55be44163664b409d02cfd49
+[INFO] Installing environment for https://github.com/fsfe/reuse-tool.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+An unexpected error has occurred: CalledProcessError: command: ('/Users/johnlee/.cache/pre-commit/repos_cweq2c/py_env-python3.9/bin/python', '-mpip', 'install', '.', '.[charset-normalizer,chardet]')
+return code: 1
+stdout:
+    Processing ./.
+      Installing build dependencies: started
+      Installing build dependencies: finished with status 'done'
+      Getting requirements to build wheel: started
+      Getting requirements to build wheel: finished with status 'done'
+      Preparing metadata (pyproject.toml): started
+      Preparing metadata (pyproject.toml): finished with status 'done'
+    INFO: pip is looking at multiple versions of reuse to determine which version is compatible with other requirements. This could take a while.
+stderr:
+    ERROR: Package 'reuse' requires a different Python: 3.9.18 not in '>=3.10'
+Check the log at /Users/johnlee/.cache/pre-commit/pre-commit.log

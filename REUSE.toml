@@ -568,9 +568,16 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "Dartmouth College (institutional artwork)", "NOASSERTION"]
 SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyLogo"
 
-# Raw quoted records remain on publication hold. This marker grants no rights.
+# Quoted records preserve third-party rights; availability is inventoried separately.
 [[annotations]]
 path = "2026-usrse/stamped-ai-study/logs/duct/**"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+# Authored post-stop record inventories; no license grant over quoted payloads.
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/logs/duct-manifest.json", "2026-usrse/stamped-ai-study/logs/withheld-payloads.json"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

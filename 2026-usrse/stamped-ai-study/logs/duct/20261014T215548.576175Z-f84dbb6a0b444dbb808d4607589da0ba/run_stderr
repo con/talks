@@ -1,0 +1,18 @@
+Installed 9 packages in 13ms
+Traceback (most recent call last):
+  File "/tmp/validate-stamped-ai-study-01a13c63.py", line 8, in <module>
+    import cairosvg
+  File "/Users/johnlee/.cache/uv/archive-v0/QCx8Cg4Hj-9ovlXo/lib/python3.9/site-packages/cairosvg/__init__.py", line 25, in <module>
+    from . import surface  # noqa isort:skip
+  File "/Users/johnlee/.cache/uv/archive-v0/QCx8Cg4Hj-9ovlXo/lib/python3.9/site-packages/cairosvg/surface.py", line 9, in <module>
+    import cairocffi as cairo
+  File "/Users/johnlee/.cache/uv/archive-v0/QCx8Cg4Hj-9ovlXo/lib/python3.9/site-packages/cairocffi/__init__.py", line 60, in <module>
+    cairo = dlopen(
+  File "/Users/johnlee/.cache/uv/archive-v0/QCx8Cg4Hj-9ovlXo/lib/python3.9/site-packages/cairocffi/__init__.py", line 57, in dlopen
+    raise OSError(error_message)  # pragma: no cover
+OSError: no library called "cairo-2" was found
+no library called "cairo" was found
+no library called "libcairo-2" was found
+cannot load library 'libcairo.so.2': dlopen(libcairo.so.2, 0x0002): tried: 'libcairo.so.2' (no such file), '/System/Volumes/Preboot/Cryptexes/OSlibcairo.so.2' (no such file), '/Users/johnlee/mambaforge/bin/../lib/libcairo.so.2' (no such file), '/usr/lib/libcairo.so.2' (no such file, not in dyld cache), 'libcairo.so.2' (no such file).  Additionally, ctypes.util.find_library() did not manage to locate a library called 'libcairo.so.2'
+cannot load library 'libcairo.2.dylib': dlopen(libcairo.2.dylib, 0x0002): tried: 'libcairo.2.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OSlibcairo.2.dylib' (no such file), '/Users/johnlee/mambaforge/bin/../lib/libcairo.2.dylib' (no such file), '/usr/lib/libcairo.2.dylib' (no such file, not in dyld cache), 'libcairo.2.dylib' (no such file).  Additionally, ctypes.util.find_library() did not manage to locate a library called 'libcairo.2.dylib'
+cannot load library 'libcairo-2.dll': dlopen(libcairo-2.dll, 0x0002): tried: 'libcairo-2.dll' (no such file), '/System/Volumes/Preboot/Cryptexes/OSlibcairo-2.dll' (no such file), '/Users/johnlee/mambaforge/bin/../lib/libcairo-2.dll' (no such file), '/usr/lib/libcairo-2.dll' (no such file, not in dyld cache), 'libcairo-2.dll' (no such file).  Additionally, ctypes.util.find_library() did not manage to locate a library called 'libcairo-2.dll'

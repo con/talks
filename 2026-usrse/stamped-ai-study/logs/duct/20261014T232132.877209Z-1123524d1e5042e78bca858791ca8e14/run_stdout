@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-10-14T23:21:34.417829+00:00",
+  "authentication": "none",
+  "method": "full anonymous GET, exact byte count and SHA256; no local object reuse",
+  "items": [
+    {
+      "path": "exports/stamped-ai-poster.pdf",
+      "local_sha256": "ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d",
+      "local_bytes": 694949,
+      "key": "MD5E-s694949--7de393e12e04e7a63f89db7c5334b360.pdf",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s694949--7de393e12e04e7a63f89db7c5334b360.pdf",
+      "http_status": 200,
+      "remote_bytes": 694949,
+      "remote_sha256": "ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d",
+      "status": "passed"
+    },
+    {
+      "path": "assets/con-logo-outlined.svg",
+      "local_sha256": "076adc1bf4e2d9dba5983e22f753f562a7408c8a3393adea281c5478f64f7ee1",
+      "local_bytes": 125811,
+      "key": "MD5E-s125811--5429db5139ba49cc5a94dceb1532abe0.svg",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s125811--5429db5139ba49cc5a94dceb1532abe0.svg",
+      "http_status": 200,
+      "remote_bytes": 125811,
+      "remote_sha256": "076adc1bf4e2d9dba5983e22f753f562a7408c8a3393adea281c5478f64f7ee1",
+      "status": "passed"
+    },
+    {
+      "path": "assets/con-ccn-dartmouth-letterhead.svg",
+      "local_sha256": "69dfcc6cd70367b7a03b19982589ac7d2180fdf6723bbb17ae2361c6c356d625",
+      "local_bytes": 379034,
+      "key": "MD5E-s379034--be7ae71a14ff2301bb0cf1cde08457e9.svg",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s379034--be7ae71a14ff2301bb0cf1cde08457e9.svg",
+      "http_status": 200,
+      "remote_bytes": 379034,
+      "remote_sha256": "69dfcc6cd70367b7a03b19982589ac7d2180fdf6723bbb17ae2361c6c356d625",
+      "status": "passed"
+    },
+    {
+      "path": "assets/repronim_logo.svg",
+      "local_sha256": "0e1101fa2dca811587d0ad4caa040961da5156e11b9b23f64f29ca3463d84870",
+      "local_bytes": 33939,
+      "status": "ordinary_git_or_not_annexed"
+    }
+  ],
+  "scope": "Cleared final PDF and institutional assets only. Raw log payloads intentionally not fetched or published."
+}

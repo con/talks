@@ -1,0 +1,11 @@
+2026-usrse/stamped-ai-study/README.md:9:long: The seven-property table distinguishes implementation examples from **PENDING** evidence, effort, failures, tradeoffs, and gaps.
+2026-usrse/stamped-ai-study/README.md:10:long: The study question, dataset, sample size, and metric also remain pending; no general benefit from skills is demonstrated.
+2026-usrse/stamped-ai-study/README.md:12:long: Author order provisionally follows the conference program: John A. Lee, Austin Macdonald, Cody C. Baker, and Yaroslav O. Halchenko.
+2026-usrse/stamped-ai-study/README.md:14:long: The descriptive subtitle is provisional; the submitted title remains in the [accepted abstract](../stamped-abcd-poster-draft.md).
+2026-usrse/stamped-ai-study/README.md:18:long: Edit [build_initial_poster.py](build_initial_poster.py) to change the content or layout reproducibly, then regenerate the SVG.
+WARN `--no-project` was provided, but no project was found
+  × No solution found when resolving `--with` dependencies:
+  ╰─▶ Because cairosvg was not found in the cache and you require cairosvg, we
+      can conclude that your requirements are unsatisfiable.
+
+hint: Packages were unavailable because the network was disabled. When the network is disabled, registry packages may only be read from the cache.

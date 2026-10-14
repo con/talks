@@ -1,0 +1,2 @@
+Error: HTML layout or asset audit failed; inspect html-audit.json.
+    at /Users/johnlee/code/CON/stamped-ai-research/research/poster-context/html-adaptation/build-poster.cjs:93:13

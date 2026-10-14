@@ -1,0 +1,10 @@
+{
+  "local_links": 42,
+  "missing": [],
+  "source_hashes": 15,
+  "changed": [],
+  "stage03_screening": {
+    "baseline": "passed",
+    "treatment": "failed"
+  }
+}

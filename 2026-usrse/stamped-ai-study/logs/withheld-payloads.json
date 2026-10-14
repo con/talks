@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "curated_at": "2026-10-14T23:35:31.984646+00:00",
+  "scope": "Payload availability, separate from committed annex pointers. No raw payload upload or URL registration performed by this curation.",
+  "items": [
+    {
+      "path": "logs/duct/20261014T215346.281482Z-3fe93475e08641d5aca692d93909edf2/run_stdout",
+      "annex_key": "MD5E-s238147--941a8d8fc93ba98dfd371d41e2523151",
+      "bytes": 238147,
+      "sha256": "bd7ae277c2f42d4e0feb3703c6d23020f76b6703ed6e6e526c97f488adb111dd",
+      "local_payload_retained": true,
+      "publication_state": "private_payload_withheld",
+      "public_url_registered_by_curation": false,
+      "upload_attempted_by_curation": false,
+      "reason": "Contains private user-level guidance; preserve complete bytes locally without public upload."
+    },
+    {
+      "path": "logs/duct/20261014T231621.673858Z-579ca4da3ca240fc93cf2b2e20140463/run_stdout",
+      "annex_key": "MD5E-s131375--33685bb75e690b9492a69ff69f6fc893",
+      "bytes": 131375,
+      "sha256": "51614005efaad9d682ae28dac768947a8aca578c6cf0b58518790df36ae22f56",
+      "local_payload_retained": true,
+      "publication_state": "cleared_payload_local_upload_pending",
+      "public_url_registered_by_curation": false,
+      "upload_attempted_by_curation": false,
+      "reason": "Targeted privacy-marker review passed; payload remains local because authenticated upload access expired."
+    },
+    {
+      "path": "logs/duct/20261014T231943.198651Z-d7342d0e671f4524bed0ee3fa45c532b/run_stdout",
+      "annex_key": "MD5E-s182384--4ee7670b7f430e4a1c8b0929ab063a1c",
+      "bytes": 182384,
+      "sha256": "a1a76fa010e352d8a09b3f69447c1207996b505098a1fcf568728d8ce518f576",
+      "local_payload_retained": true,
+      "publication_state": "cleared_payload_local_upload_pending",
+      "public_url_registered_by_curation": false,
+      "upload_attempted_by_curation": false,
+      "reason": "Targeted privacy-marker review passed; payload remains local because authenticated upload access expired."
+    }
+  ]
+}

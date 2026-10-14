@@ -102,10 +102,27 @@ Those marks are not offered under a new CC grant; the PDF and its full-poster re
 See [REUSE.toml](../../REUSE.toml) and the existing [institutional-mark notice](../../LICENSES/LicenseRef-ThirdPartyLogo.txt).
 REUSE skips annex symlinks, so asset hashes and these specific annotations supplement lint.
 
-Raw logs and native transcripts remain withheld pending separate coordinator review and publication authorization.
-Local captures are preserved; this handoff does not claim a complete public log archive or independently worker-produced infrastructure.
-The running final delivery capture is incomplete until the worker stops and will be curated separately afterward.
-No blanket license is granted over quoted raw records.
+## Completed execution records
+
+[The source-to-copy manifest](logs/duct-manifest.json) inventories **35 completed captures and 175 files**, including 31 empty files: metadata, stdout/stderr, resource samples, and execution summaries.
+Copied bytes match the central originals, which remain retained.
+This archive is coordinator curation after the workers stopped; it is not evidence of independent experimental-worker record keeping.
+
+The code commit includes 172 small record payloads and three annex pointers.
+[The payload inventory](logs/withheld-payloads.json) distinguishes one private stdout payload, retained completely locally and withheld from public upload, from two cleared large stdout payloads that remain local because authenticated upload access expired.
+Neither a committed pointer nor a successful poster download establishes access to these three log payloads.
+The final delivery and post-stop verification captures are complete; no running capture is represented as complete.
+
+Original POSIX modes are recorded per file.
+Local regular copies preserve them; git-annex normally removes write permissions from locked payloads.
+Git records executable status rather than every POSIX permission bit.
+Missing measurements are not fabricated.
+Raw records can quote third-party material; `LicenseRef-ThirdPartyMixed` and `NOASSERTION` preserve that distinction without granting a new blanket license.
+
+The latest native checkpoints also remain local under the separate transcript-publication hold.
+The earlier verified setup gates remain the evidence for capture before work began.
+No later hosted-checkpoint pass is claimed.
+Use the selected public core retrieval commands above; a whole-module retrieval includes unavailable or withheld payloads.
 
 ## Superseded initial layout
 

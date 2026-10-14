@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/validate-stamped-ai-study-01a13c63.py", line 34, in <module>
+    assert rendered.convert("RGBA").tobytes() == supplied.convert("RGBA").tobytes(), "Rendered preview differs from supplied preview"
+AssertionError: Rendered preview differs from supplied preview
