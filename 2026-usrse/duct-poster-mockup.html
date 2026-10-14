@@ -60,6 +60,7 @@
   th, td { border-bottom: 1px solid var(--rule); padding: 3px 6px; text-align: left; }
   th { color: var(--muted); font-weight: 600; }
   td.n { text-align: right; font-family: var(--mono); }
+  th.n { text-align: right; }
   table.pos { font-size: 12px; }
   table.pos th, table.pos td { padding: 2px 4px; line-height: 1.15; }
   table.pos td.c { text-align: center; }
@@ -163,14 +164,14 @@ Average CPU Usage: 0.00%</pre>
   <section>
     <h2>The agent drives, you read the summary</h2>
     <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
-    <pre>$ duct -p logs/1_ -m "1: reproduce user's bug"                      ./repro.sh
-$ duct -p logs/2_ -m "2: simplified reproducer to test hypothesis"  ./repro.sh
-$ duct -p logs/3_ -m "3: verify fix"                                ./repro.sh</pre>
+    <pre>$ duct -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
+$ duct -p logs/2_ -m "2: test hypothesis"       ./repro.sh
+$ duct -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
     <p>The agent reports “fixed”. You do not take its word:</p>
     <pre>$ con-duct ls -F prefix message exit_code logs/*info.json
-logs/1_  1: reproduce user's bug                      <span class="bad">1</span>
-logs/2_  2: simplified reproducer to test hypothesis  <span class="bad">1</span>
-logs/3_  3: verify fix                                <span class="ok">0</span></pre>  </section>
+logs/1_  1: reproduce user's bug  <span class="bad">1</span>
+logs/2_  2: test hypothesis       <span class="bad">1</span>
+logs/3_  3: verify fix            <span class="ok">0</span></pre>  </section>
 
   <section class="grow">
     <h2>Plot resource usage</h2>
@@ -336,10 +337,10 @@ hello.txt</b></pre>
   <section>
     <h2>Overhead</h2>
     <table>
-      <tr><th>pids monitored</th><th>duct CPU, % of one core</th><th>duct RSS</th><th>record bytes / report</th></tr>
-      <tr><td>1</td><td class="n">1.6 ± 0.2</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
-      <tr><td>16</td><td class="n">1.6 ± 0.5</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
-      <tr><td>256</td><td class="n">2.2 ± 0.9</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
+      <tr><th class="n">pids monitored</th><th class="n">duct CPU, % of one core</th><th class="n">duct RSS</th><th class="n">record bytes / report</th></tr>
+      <tr><td class="n">1</td><td class="n">1.6 ± 0.2</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
+      <tr><td class="n">16</td><td class="n">1.6 ± 0.5</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
+      <tr><td class="n">256</td><td class="n">2.2 ± 0.9</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
     </table>
     <p class="caption">Outer <code>duct</code> watching an inner <code>duct</code> that watches N idle processes, 5 min per phase, 1 s sampling. CPU is the python process as the outer duct saw it (phase mean; ± is the <code>ps</code> rounding bound), flat to 16 pids, about 2 % at 64 and 256: consistent with a slow rise, not a measured slope. Whole run by <code>time -v</code>, including duct's own <code>ps</code> calls: <b>3.3 % of one core</b>; duct's sampler misses those few-ms children itself. Laptop i7-1280P, hybrid cores. Records: <code>datalad run</code> in <code>~/datasets/duct-in-duct</code>.</p>
   </section>
