@@ -29,7 +29,8 @@
     h1 { margin: 0; font-size: 91px; line-height: 1.03; letter-spacing: -2px; }
     h1 span { display: block; margin-top: 22px; font-size: 48px; font-weight: 400; letter-spacing: 0; line-height: 1.17; }
     .con-logo { display: block; width: 840px; }
-    .authors { font-size: 43px; line-height: 1.25; justify-self: end; }
+    .author-panel { display: flex; align-items: center; gap: 52px; justify-self: end; }
+    .authors { font-size: 43px; line-height: 1.25; }
     .authors p { margin: 0; }
     .authors .name { display: block; }
     .authors .affiliation { font-size: 30px; margin-top: 22px; color: var(--muted); line-height: 1.3; }
@@ -53,6 +54,7 @@
     .with-video h2, .with-video .intro { margin-right: 242px; }
     .with-video .video-qr { position: absolute; top: 45px; right: 0; }
     figure { margin: 0; }
+    .image-link { display: block; }
     .component-art { height: 550px; }
     .component-art img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .diagram-note { min-height: 238px; display: grid; grid-template-columns: 1fr 214px; gap: 32px; align-items: center; }
@@ -84,6 +86,7 @@
     .value-section p { margin: 0 0 28px; font-size: var(--body-text); line-height: 1.4; }
     .local-value { display: grid; grid-template-columns: .75fr 1.25fr; gap: 30px; align-items: center; }
     .local-value .graph-description { margin: 0; }
+    .graph-copy .qr-badge { margin-top: 30px; }
     .graph { height: 890px; background: transparent; border: 0; }
     .graph img { object-fit: contain; }
     .local-value figcaption { font-size: 27px; margin-top: 12px; }
@@ -116,6 +119,7 @@
     .partners .dartmouth { width: 126px; height: 136px; object-fit: fill; }
     .partner-affiliation { display: flex; gap: 22px; align-items: center; font-size: 28px; line-height: 1.3; color: #00693e; }
     .partner-affiliation strong { display: block; font-size: 33px; }
+    .partner-affiliation a { text-decoration: none; }
     .partners .psychoinformatics { display: flex; align-items: center; gap: 20px; font-size: 29px; color: var(--ink); text-decoration: none; }
     .partners .psychoinformatics img { width: 108px; height: 140px; }
     @page { size: 44in 44in; margin: 0; }
@@ -141,10 +145,13 @@
           <p class="eyebrow">ORINOCO / ORINOCO Lite · US-RSE 2026</p>
           <h1>Beyond the Lab Website<span>Reusing Structured Research Metadata<br>Across Lab Operations</span></h1>
         </div>
-        <img class="con-logo" src="orinoco-lite/assets/con-logo-outlined.svg" alt="Center for Open Neuroscience">
-        <div class="authors">
-          <p><strong><span class="name">John Lee</span><span class="name">Isaac To</span><span class="name">Yaroslav O. Halchenko</span></strong></p>
-          <p class="affiliation">Center for Open Neuroscience<br>Psychological and Brain Sciences<br>Dartmouth College</p>
+        <a class="image-link" href="https://dev.centerforopenneuroscience.org/"><img class="con-logo" src="orinoco-lite/assets/con-logo-outlined.svg" alt="Center for Open Neuroscience"></a>
+        <div class="author-panel">
+          <div class="authors">
+            <p><strong><span class="name">John Lee</span><span class="name">Isaac To</span><span class="name">Yaroslav O. Halchenko</span></strong></p>
+            <p class="affiliation">Center for Open Neuroscience<br>Psychological and Brain Sciences<br>Dartmouth College</p>
+          </div>
+          <a class="qr-badge" href="https://zenodo.org/records/22834596"><img src="orinoco-lite/assets/orinoco-qr-poster.svg" alt="QR code for the poster on Zenodo">View this poster</a>
         </div>
       </header>
 
@@ -163,7 +170,7 @@
               <p class="intro">Developed by Michael Hanke and colleagues at <strong>Psychoinformatics, INM-7, Forschungszentrum Jülich</strong>, ORINOCO brings together tools for maintaining connected research information using dedicated services.</p>
             </div>
             <figure class="component-figure">
-              <div class="component-art"><img src="orinoco-lite/assets/orinoco-selfhost-components-poster.svg" alt="ORINOCO components connect a shared data model and editor with services and tools for producing catalogs, websites and reports."></div>
+              <a class="component-art image-link" href="https://hub.psychoinformatics.de/orinoco/"><img src="orinoco-lite/assets/orinoco-selfhost-components-poster.svg" alt="ORINOCO components connect a shared data model and editor with services and tools for producing catalogs, websites and reports."></a>
               <div class="diagram-note">
                 <figcaption><strong>ORINOCO components.</strong> A common data model supports editing and reuse across applications.<span class="art-credit">Artwork: Stephan Heunis, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
                 <a class="qr-badge" href="https://hub.psychoinformatics.de/orinoco/"><img src="orinoco-lite/assets/orinoco-qr-upstream.svg" alt="QR code for the ORINOCO organization">ORINOCO</a>
@@ -171,8 +178,8 @@
             </figure>
             <div class="website-evidence">
               <div class="site-pair">
-                <figure><div class="figure webshot"><img src="orinoco-lite/assets/orinoco-psychoinformatics-home-panel-20261013.png" alt="Psychoinformatics homepage with its graph and objectives."></div><figcaption>Homepage</figcaption></figure>
-                <figure><div class="figure webshot"><img src="orinoco-lite/assets/orinoco-psychoinformatics-persons-panel-20261013.png" alt="Psychoinformatics people directory."></div><figcaption>People</figcaption></figure>
+                <figure><a class="figure webshot image-link" href="https://www.psychoinformatics.de/"><img src="orinoco-lite/assets/orinoco-psychoinformatics-home-panel-20261013.png" alt="Psychoinformatics homepage with its graph and objectives."></a><figcaption>Homepage</figcaption></figure>
+                <figure><a class="figure webshot image-link" href="https://www.psychoinformatics.de/persons/"><img src="orinoco-lite/assets/orinoco-psychoinformatics-persons-panel-20261013.png" alt="Psychoinformatics people directory."></a><figcaption>People</figcaption></figure>
               </div>
               <div class="site-caption">
                 <div><h3>Psychoinformatics</h3><p>Connected research information, presented as a group website.</p></div>
@@ -188,7 +195,7 @@
               <p class="intro">Developed and used by <strong>CON</strong>, ORINOCO Lite brings the same approach to GitHub. Labs can edit, review and reuse their research information <strong>without deploying services</strong>.</p>
             </div>
             <figure class="component-figure">
-              <div class="component-art"><img src="orinoco-lite/assets/orinoco-lite-components-poster.svg" alt="ORINOCO Lite uses the shared model and editor with GitHub to manage records and generate reusable outputs."></div>
+              <a class="component-art image-link" href="https://github.com/ORINOCO-Lite"><img src="orinoco-lite/assets/orinoco-lite-components-poster.svg" alt="ORINOCO Lite uses the shared model and editor with GitHub to manage records and generate reusable outputs."></a>
               <div class="diagram-note">
                 <figcaption><strong>ORINOCO-Lite components.</strong> The model and editor are shared; GitHub manages changes and accepted records.<span class="art-credit">Adapted from Stephan Heunis, CC BY 4.0.</span></figcaption>
                 <a class="qr-badge" href="https://github.com/ORINOCO-Lite"><img src="orinoco-lite/assets/orinoco-qr-lite.svg" alt="QR code for the ORINOCO Lite organization">ORINOCO Lite</a>
@@ -196,8 +203,8 @@
             </figure>
             <div class="website-evidence">
               <div class="site-pair">
-                <figure><div class="figure webshot"><img src="orinoco-lite/assets/orinoco-con-home-panel-20261013.png" alt="CON homepage with its graph and objectives."></div><figcaption>Homepage</figcaption></figure>
-                <figure><div class="figure webshot"><img src="orinoco-lite/assets/orinoco-con-persons-panel-20261013.png" alt="CON people directory with Centroids and collaborators."></div><figcaption>People</figcaption></figure>
+                <figure><a class="figure webshot image-link" href="https://dev.centerforopenneuroscience.org/"><img src="orinoco-lite/assets/orinoco-con-home-panel-20261013.png" alt="CON homepage with its graph and objectives."></a><figcaption>Homepage</figcaption></figure>
+                <figure><a class="figure webshot image-link" href="https://dev.centerforopenneuroscience.org/persons/"><img src="orinoco-lite/assets/orinoco-con-persons-panel-20261013.png" alt="CON people directory with Centroids and collaborators."></a><figcaption>People</figcaption></figure>
               </div>
               <div class="site-caption">
                 <div><h3>Center for Open Neuroscience</h3><p>The GitHub deployment, used for CON’s development website.</p></div>
@@ -208,7 +215,7 @@
 
           <section class="shared-editor" aria-labelledby="editor-heading">
             <figure>
-              <div class="figure editor"><img src="orinoco-lite/assets/orinoco-con-editor-typed-20261014.png" alt="SHACL Vue showing a Person record linked to a project and a typed role selector with Author, Co-author, Contributor and Creator choices."></div>
+              <a class="figure editor image-link" href="https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=dlthings%3AThing&amp;pid=xyzrins%3A.&amp;edit=true"><img src="orinoco-lite/assets/orinoco-con-editor-typed-20261014.png" alt="SHACL Vue showing a Person record linked to a project and a typed role selector with Author, Co-author, Contributor and Creator choices."></a>
               <figcaption><strong>SHACL Vue:</strong> editing a person’s project association with typed record and role selectors.</figcaption>
             </figure>
             <div class="editor-copy">
@@ -233,8 +240,11 @@
           <section class="value-section">
             <h3>Websites, reports and queries</h3>
             <div class="local-value">
-              <p class="graph-description">Connect people, projects, publications and datasets. Websites, reports and queries can draw on the same records and their relationships.</p>
-              <figure><div class="figure graph"><img src="orinoco-lite/assets/orinoco-con-graph-20261013.png" alt="CON’s graph of connected people, projects, publications, datasets and other research information."></div><figcaption>CON’s graph explorer</figcaption></figure>
+              <div class="graph-copy">
+                <p class="graph-description">Connect people, projects, publications and datasets. Websites, reports and queries can draw on the same records and their relationships.</p>
+                <a class="qr-badge" href="https://dev.centerforopenneuroscience.org/explore/"><img src="orinoco-lite/assets/orinoco-qr-graph.svg" alt="QR code for CON’s graph explorer">Explore the graph</a>
+              </div>
+              <figure><a class="figure graph image-link" href="https://dev.centerforopenneuroscience.org/explore/"><img src="orinoco-lite/assets/orinoco-con-graph-20261013.png" alt="CON’s graph of connected people, projects, publications, datasets and other research information."></a><figcaption>CON’s graph explorer</figcaption></figure>
             </div>
           </section>
           <section class="value-section meaning">
@@ -287,8 +297,8 @@
             OpenAI Codex assisted with source review, text, diagrams and layout. Poster: CC BY-SA 4.0; third-party screenshots and logos retain their respective notices.</p>
         </div>
           <div class="partners" aria-label="Affiliations and acknowledgments">
-            <div class="partner-affiliation"><img class="dartmouth" src="orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"><span>Psychological and Brain Sciences<strong>Dartmouth College</strong></span></div>
-            <img class="repronim" src="orinoco-lite/assets/repronim_logo.svg" alt="ReproNim">
+            <div class="partner-affiliation"><a class="image-link" href="https://home.dartmouth.edu/"><img class="dartmouth" src="orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"></a><span><a href="https://pbs.dartmouth.edu/">Psychological and Brain Sciences</a><strong><a href="https://home.dartmouth.edu/">Dartmouth College</a></strong></span></div>
+            <a class="image-link" href="https://www.repronim.org/"><img class="repronim" src="orinoco-lite/assets/repronim_logo.svg" alt="ReproNim"></a>
             <a class="psychoinformatics" href="https://www.psychoinformatics.de/"><img src="orinoco-lite/assets/psychoinformatics_logo.svg" alt="Psychoinformatics group logo"><span>Psychoinformatics<br>group</span></a>
           </div>
       </footer>

@@ -127,10 +127,15 @@ The Dartmouth and ReproNim assets are copies of the repository’s shared origin
 The Psychoinformatics mark is `assets/psychoinformatics_logo.svg`, from the group's [official artwork](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/artwork/psychoinformatics.svg).
 Its [source copyright notice](https://hub.psychoinformatics.de/www/www.psychoinformatics.de/src/commit/810dfbc307471ed4bbc8cba0c9609f14aa7b5327/content/pages/copyright.rst) credits Michael Hanke and Alex Waite, 2014–2016, under CC BY-SA 4.0.
 For this copy, Inkscape converted the original Passion One glyphs to paths so the logo does not depend on an installed font; its geometry and colors are preserved.
-The six vector QR codes embed the outlined CON mark in its original blue at 42% of the code body width, with a white pad, navy modules, high error correction and a four-module quiet border.
+The eight vector QR codes embed the outlined CON mark in its original blue at 42% of the code body width, with a white pad, navy modules, high error correction and a four-module quiet border.
 Organization links sit beside their component illustrations, website links beside their screenshot pairs, the video link beside the ORINOCO heading, and the GitHub workflow link beside the editor.
-They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [editor-generated pull requests](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+The graph-explorer QR sits beside its description, and the online-poster QR sits beside the authors in the top bar.
+They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [CON’s graph explorer](https://dev.centerforopenneuroscience.org/explore/), the [poster on Zenodo](https://zenodo.org/records/22834596), [editor-generated pull requests](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
+
+Every screenshot is also a direct link to the page it depicts.
+The component illustrations link to their respective projects, and the CON, Dartmouth, Psychological and Brain Sciences, ReproNim and Psychoinformatics marks or labels link to their websites.
+These links are available in the HTML and exported PDF.
 
 Regenerate and check the logo QR codes with:
 
