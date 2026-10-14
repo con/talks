@@ -170,9 +170,9 @@ Average CPU Usage: 0.00%</pre>
   <section>
     <h2>The agent drives, you read the summary</h2>
     <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
-    <pre>$ duct -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
-$ duct -p logs/2_ -m "2: test hypothesis"       ./repro.sh
-$ duct -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
+    <pre>$ duct --fail-time 0 -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
+$ duct --fail-time 0 -p logs/2_ -m "2: test hypothesis"       ./repro.sh
+$ duct --fail-time 0 -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
     <p>The agent reports “fixed”. You do not take its word:</p>
     <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
 <b>PREFIX  MESSAGE                 EXIT_CODE</b>
