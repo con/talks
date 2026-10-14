@@ -354,7 +354,7 @@ hello.txt</b></pre>
     <ul>
       <li>Linux and macOS only.</li>
       <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
-      <li>Output is written to disk: do not wrap commands that print secrets.</li>
+      <li>Output is written to disk; for commands that print secrets, skip it with <code>-c none</code>.</li>
       <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
       <li>CPU statistics come from <code>ps</code>, whose %CPU is averaged over each process's lifetime rather than its current use; <code>con-duct plot --cpu ps-cpu-timepoint</code> estimates current use from consecutive samples.</li>
     </ul>
