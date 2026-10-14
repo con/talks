@@ -173,7 +173,7 @@ Average CPU Usage: 0.00%</pre>
     <pre>$ duct --f-t 0 -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
 $ duct --f-t 0 -p logs/2_ -m "2: test hypothesis"       ./repro.sh
 $ duct --f-t 0 -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
-    <p>The agent reports “fixed”. You do not take its word:</p>
+    <p>The agent reports “fixed”. The evidence in the logs:</p>
     <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
 <b>PREFIX  MESSAGE                 EXIT_CODE</b>
 logs/1_ 1: reproduce user's bug <span class="bad">1</span>
