@@ -1,6 +1,6 @@
 # ORINOCO Lite poster
 
-The editable source is [../poster.html](../poster.html).
+The editable source is [../orinoco-lite_poster.html](../orinoco-lite_poster.html).
 It preserves the title, presenter order and comparison in the [accepted abstract](../orinoco-lite-poster-draft.md).
 
 ## Editing and rebuilding
@@ -46,7 +46,7 @@ Browser fit-to-window scaling is not a useful test of printed legibility.
 If reducing the body text, try 25.5 pt first and rebuild to check the resulting layout.
 
 The screenshots and large SVGs follow the repository's DataLad/git-annex convention. The [refreshed poster source assets](https://github.com/con/talks/releases/tag/usrse-2026-10-13-r2-assets) have public download URLs registered with annex, so CI and readers can retrieve them without VPN access or credentials.
-That prerelease stores the six current captures and two component illustrations by their annex keys, with checksums and source notices.
+That prerelease stores the 13 October captures, the updated 14 October editor view, and two component illustrations by their annex keys, with checksums and source notices.
 The [earlier asset release](https://github.com/con/talks/releases/tag/usrse-2026-10-13-assets) preserves previous versions; the existing CON Hub copies remain additional retrieval locations.
 These asset releases are separate from the four deployment citation tags below.
 With DataLad installed in your project environment, run from the repository root:
@@ -55,7 +55,7 @@ With DataLad installed in your project environment, run from the repository root
 datalad get 2026-usrse/orinoco-lite/assets/
 ```
 
-Keep `poster.html` beside its `orinoco-lite/` support directory when copying the poster elsewhere.
+Keep `orinoco-lite_poster.html` beside its `orinoco-lite/` support directory when copying the poster elsewhere.
 
 ## Tagged CON snapshot
 
@@ -80,13 +80,15 @@ The selected [package engineering checks](https://github.com/ORINOCO-Lite/orinoc
 
 ## Images, links and attribution
 
-All website screenshots were captured on **13 October 2026**.
+The website and graph screenshots were captured on **13 October 2026**; the editor view was updated on **14 October 2026**.
 The poster uses the real pages and existing record values; no form submission was made for a screenshot.
 Website screenshots retain the sites' and third parties' notices, represented by the repository's existing `LicenseRef-ThirdPartyMixed` convention rather than a new blanket license claim.
 The four website panels use a 1000 × 1220 CSS-pixel viewport, 75% page zoom and device scale 2, yielding 2000 × 2440-pixel images.
 The pages retain their full content width and start at the top; the CON people directory shows both Centroids and Collaborators.
-The shared editor uses a 2440 × 1190-pixel landscape crop of the populated DataLad project, showing its description, dates and relationships.
-It was captured at 75% zoom from a 1600 × 1000 viewport, with the form pane scrolled 310 pixels and a 1220 × 595 crop at (285, 105), at device scale 2.
+The shared editor uses a 1440 × 730-pixel crop of Horea-Ioan Ioanas’s existing association with CON’s project record.
+It shows the Person record type and an open role picker with controlled vocabulary choices.
+It was captured on 14 October at 13:15:07 UTC, at 80% zoom from a 1600 × 1100 viewport, with a 720 × 365 crop at (680, 450), at device scale 2.
+Only the existing association form and its role picker were opened; no selections or record values were changed.
 
 | Poster asset in `assets/` | Source and interpretation |
 | --- | --- |
@@ -94,10 +96,11 @@ It was captured at 75% zoom from a 1600 × 1000 viewport, with the form pane scr
 | `orinoco-psychoinformatics-persons-panel-20261013.png` | [Psychoinformatics people directory](https://www.psychoinformatics.de/persons/). |
 | `orinoco-con-home-panel-20261013.png` | [CON development homepage](https://dev.centerforopenneuroscience.org/), including its graph and objectives. |
 | `orinoco-con-persons-panel-20261013.png` | [CON people directory](https://dev.centerforopenneuroscience.org/persons/), showing Centroids and Collaborators. |
-| `orinoco-con-editor-landscape-20261013.png` | [CON's SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=xyzri%3AXYZProject&pid=https%3A%2F%2Fconcepts.datalad.org%2Fs%2Fdemo-research-information%2Fns%2Fprojects%2Fdatalad&edit=true); the populated DataLad record, cropped to its fields. This is the shared editor as used at CON. |
+| `orinoco-con-editor-typed-20261014.png` | [CON’s SHACL Vue project editor](https://dev.centerforopenneuroscience.org/edit/?sh%3ANodeShape=dlthings%3AThing&pid=xyzrins%3A.&edit=true); the Person record type and controlled role choices in an existing project association. This is the shared editor as used at CON. |
 | `orinoco-con-graph-20261013.png` | [CON graph explorer](https://dev.centerforopenneuroscience.org/explore/); all default record types selected. |
 
-All six images were refreshed between 23:49:29 and 23:50:59 UTC for this snapshot.
+The 13 October captures were taken between 23:49:29 and 23:50:59 UTC for this snapshot.
+The updated editor view was checked against the same deployed website and package revisions.
 The graph image is a 1312 × 1300-pixel capture of the live graph with its default record types.
 The CON pages identify website revision [`f54d790`](https://github.com/con/dev-centerforopenneuroscience.org/commit/f54d790c4ad7924684857e2733eb6af19b544e98), package [`94c3178`](https://github.com/ORINOCO-Lite/orinoco-lite-dev/commit/94c3178f830d54f483b6a0e99c8a286f5f0aa5b7) (`0.3.0+12.g94c3178`), built at `2026-10-13T23:37:53Z`.
 The CON captures match the four citation tags above.
@@ -126,7 +129,7 @@ Its [source copyright notice](https://hub.psychoinformatics.de/www/www.psychoinf
 For this copy, Inkscape converted the original Passion One glyphs to paths so the logo does not depend on an installed font; its geometry and colors are preserved.
 The six vector QR codes embed the outlined CON mark in its original blue at 42% of the code body width, with a white pad, navy modules, high error correction and a four-module quiet border.
 Organization links sit beside their component illustrations, website links beside their screenshot pairs, the video link beside the ORINOCO heading, and the GitHub workflow link beside the editor.
-They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [the completed GitHub workflow example](https://github.com/con/dev-centerforopenneuroscience.org/pull/24), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [editor-generated pull requests](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
 
 Regenerate and check the logo QR codes with:
@@ -149,12 +152,23 @@ The poster retains the accepted abstract's comparison and broader metadata-reuse
 The component drawings retain their original technical labels as visual discussion aids.
 The Lite illustration follows the [tagged design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/usrse-2026-10-13-r2/docs/project-design.md#metadata-change-flow).
 
-## GitHub workflow example
+## GitHub workflow examples
 
-The editor section links to [website PR #24](https://github.com/con/dev-centerforopenneuroscience.org/pull/24), a completed proposal from the SHACL Vue editor.
-Its companion [CON metadata PR #18](https://github.com/ORINOCO-Lite/con-site-specific/pull/18) contains the proposed records; the website proposal points to that content revision.
-The pair provides a public example of editing, automated validation and acceptance through GitHub.
-The poster keeps this explanation brief and links to the actual review history.
+The editor section and QR code link to [all website pull requests from SHACL Vue](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-).
+The search matches branches beginning with `curation/shacl-vue-` and includes open and closed proposals, so readers can follow the workflow as it improves.
+[Website PR #24](https://github.com/con/dev-centerforopenneuroscience.org/pull/24) and its companion [CON metadata PR #18](https://github.com/ORINOCO-Lite/con-site-specific/pull/18) remain one completed example.
+
+## Connections through global identifiers
+
+The diagram compares CON’s records with independently published JOSS metadata for the DataLad paper.
+[CON’s Yaroslav Halchenko record](https://github.com/ORINOCO-Lite/con-site-specific/blob/2ab2f87fb08f094a5049d57c44d2dbd78cbe3147/metadata/records/XYZPerson/yaroslav-halchenko.yaml) contains ORCID `0000-0003-3456-2493`.
+[CON’s DataLad publication record](https://github.com/ORINOCO-Lite/con-site-specific/blob/2ab2f87fb08f094a5049d57c44d2dbd78cbe3147/metadata/records/XYZPublication/datalad-joss-2021.yaml) identifies the paper by DOI `10.21105/joss.03262` and credits Yaroslav with the MARC author role, `marcrel:aut`.
+The [JOSS publisher record](https://joss.theoj.org/papers/10.21105/joss.03262) independently lists the same DOI and author ORCID; this was checked on 14 October 2026.
+
+Solid arrows show the author relationship within each collection; dashed lines show where the shared external identifiers permit matching across collections.
+The diagram illustrates matching opportunities supported by actual records, not an implemented automatic graph merge or a live query to JOSS.
+ORCID and DOI identify entities; MARC describes the meaning of CON’s author role.
+The publisher is not asserted to use MARC internally.
 
 The poster follows the talks repository's CC BY-SA 4.0 license, with separate notices for third-party material.
 OpenAI Codex assisted with source review, text, diagrams and layout, as acknowledged on the poster.

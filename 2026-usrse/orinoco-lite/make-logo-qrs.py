@@ -40,7 +40,7 @@ DESTINATIONS = {
         "#/channel/DataLad/video/oF98hdaph1k"
     ),
     "psychoinformatics": "https://www.psychoinformatics.de/",
-    "workflow": "https://github.com/con/dev-centerforopenneuroscience.org/pull/24",
+    "workflow": "https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-",
 }
 ET.register_namespace("", SVG)
 

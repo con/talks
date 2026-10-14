@@ -20,7 +20,7 @@ from playwright.async_api import async_playwright
 
 
 async def build(channel: str | None, preview: Path | None, font_proof: bool = False) -> None:
-    source = Path(__file__).resolve().parent.parent / "poster.html"
+    source = Path(__file__).resolve().parent.parent / "orinoco-lite_poster.html"
     output = Path(__file__).with_name("poster.pdf")
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(channel=channel)

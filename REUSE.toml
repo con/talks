@@ -458,7 +458,7 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # Poster authorship and original upstream artwork, with text outlined for display.
 [[annotations]]
-path = ["2026-usrse/poster.html", "2026-usrse/orinoco-lite/README.md", "2026-usrse/orinoco-lite/assets/orinoco-qr-*.svg"]
+path = ["2026-usrse/orinoco-lite_poster.html", "2026-usrse/orinoco-lite/README.md", "2026-usrse/orinoco-lite/assets/orinoco-qr-*.svg"]
 precedence = "closest"
 SPDX-FileCopyrightText = ["2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko"]
 SPDX-License-Identifier = "CC-BY-SA-4.0"

@@ -12,7 +12,7 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Per-talk inventory
 
-### `2026-usrse/poster.html` — *Beyond the Lab Website*
+### `2026-usrse/orinoco-lite_poster.html` — *Beyond the Lab Website*
 
 - US-RSE 2026 poster: service-based ORINOCO and GitHub-based ORINOCO Lite,
   with actual websites, metadata editing, graph exploration and funder reporting.
