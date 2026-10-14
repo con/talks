@@ -44,10 +44,10 @@
   section.intro p { font-size: 17px; line-height: 1.35; }
   :not(pre) > code { white-space: nowrap; }
   section.search { padding-left: 6px; padding-right: 6px; }
-  section.search .q { background: #f5f3ee; border-radius: 6px; padding: 6px 0 0; margin-bottom: 8px; overflow: hidden; }
+  section.search .q { background: #f5f3ee; border-radius: 6px; padding: 4px 0 0; margin-bottom: 5px; overflow: hidden; }
   section.search .q pre { margin: 0; }
-  section.search .q p { font-size: 15.5px; font-weight: 600; margin: 0 0 4px 8px; }
-  section.search pre { font-size: 13px; padding: 8px 6px 8px 8px; background: #ffffff; }
+  section.search .q p { font-size: 15.5px; font-weight: 600; margin: 0 0 2px 8px; }
+  section.search pre { font-size: 13px; padding: 5px 6px 5px 8px; background: #ffffff; }
   header.dc-header { display: block; position: relative; overflow: hidden; border: 0; padding: 0; }
   header.dc-header > .dc-art { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
   .dc-graphic { position: relative; width: 100%; aspect-ratio: 1600 / 1400; overflow: hidden; margin-top: -16px; }
@@ -239,44 +239,23 @@ logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
   <section class="grow search">
     <h2>Search is a Python expression</h2>
     <p>Filter on any of 40+ fields with <code>-e</code>, combine them, do arithmetic, match with regular expressions; sort on any field with <code>--sort-by</code>.</p>
-    <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8px">
-      <div>
-        <div class="q"><p>Biggest memory first:</p>
-        <pre>$ con-duct ls runs/* --colors \
-    -F exit_code peak_rss wall_clock_time \
-    --sort-by peak_rss --reverse
-<b>PREFIX                  EXIT_CODE PEAK_RSS WALL_CLOCK_TIME</b>
-runs/s5cmd_             <span class="bad">137</span>       <span class="g">64.5 GB</span>  26657.861 sec
-runs/fmriprep-ds002785_ <span class="ok">0</span>         <span class="g">25.7 GB</span>  29352.951 sec
-runs/fmriprep-ds000030_ <span class="ok">0</span>         <span class="g">16.9 GB</span>  18809.983 sec
-runs/mriqc_             <span class="ok">0</span>         <span class="g">11.5 GB</span>  61324.997 sec
-runs/demo_              <span class="ok">0</span>         <span class="g">1.5 GB</span>   4500.863 sec
-runs/loop-a_            <span class="ok">0</span>         <span class="g">6.1 MB</span>   6.092 sec
-runs/loop-b_            <span class="ok">0</span>         <span class="g">6.1 MB</span>   6.061 sec</pre></div>
-        <div class="q"><p>What failed?</p>
-        <pre>$ con-duct ls runs/* --colors -e "exit_code != 0" \
-    -F exit_code wall_clock_time
+    <div class="q"><p>What failed?</p>
+    <pre>$ con-duct ls runs/* --colors -e "exit_code != 0" -F exit_code wall_clock_time
 <b>PREFIX      EXIT_CODE WALL_CLOCK_TIME</b>
 runs/s5cmd_ <span class="bad">137</span>       26657.861 sec</pre></div>
-      </div>
-      <div>
-        <div class="q"><p>Over 10 GB <i>and</i> over five hours:</p>
-        <pre>$ con-duct ls runs/* --colors \
-    -F peak_rss wall_clock_time \
-    -e "peak_rss > 10e9 and wall_clock_time > 5*3600"
+    <div class="q"><p>Over 10 GB <i>and</i> over five hours:</p>
+    <pre>$ con-duct ls runs/* --colors -F peak_rss wall_clock_time -e "peak_rss > 10e9 and wall_clock_time > 5*3600"
 <b>PREFIX                  PEAK_RSS WALL_CLOCK_TIME</b>
 runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>  18809.983 sec
 runs/fmriprep-ds002785_ <span class="g">25.7 GB</span>  29352.951 sec
 runs/mriqc_             <span class="g">11.5 GB</span>  61324.997 sec
 runs/s5cmd_             <span class="g">64.5 GB</span>  26657.861 sec</pre></div>
-        <div class="q"><p>Regular expressions on any text field:</p>
-        <pre>$ con-duct ls runs/* --colors \
-    -e "re.search('fmriprep', command)" -F peak_rss
+    <div class="q"><p>Regular expressions on any text field:</p>
+    <pre>$ con-duct ls runs/* --colors -e "re.search('fmriprep', command)" -F peak_rss
 <b>PREFIX                  PEAK_RSS</b>
 runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>
 runs/fmriprep-ds002785_ <span class="g">25.7 GB</span></pre></div>
-      </div>
-    </div>  </section>
+  </section>
 </div>
 
 <!-- ============ RIGHT ============ -->
