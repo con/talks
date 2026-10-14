@@ -352,7 +352,7 @@ hello.txt</b></pre>
   <section>
     <h2>Limitations</h2>
     <ul>
-      <li>POSIX only.</li>
+      <li>Linux and macOS only.</li>
       <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
       <li>Output is written to disk: do not wrap commands that print secrets.</li>
       <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
