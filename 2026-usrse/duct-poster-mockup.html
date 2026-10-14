@@ -41,6 +41,11 @@
   section h2 + h3 { margin-top: 4px; padding-top: 0; border-top: 0; }
   .lede { font-weight: 700; }
   section.intro { background: #f5f3ee; }
+  section.search { padding-left: 6px; padding-right: 6px; }
+  section.search .q { background: #f5f3ee; border-radius: 6px; padding: 6px 0 0; margin-bottom: 8px; overflow: hidden; }
+  section.search .q pre { margin: 0; }
+  section.search .q p { font-size: 15.5px; font-weight: 600; margin: 0 0 4px 8px; }
+  section.search pre { font-size: 13px; padding: 8px 6px 8px 8px; background: #ffffff; }
   header.dc-header { display: block; position: relative; overflow: hidden; border: 0; padding: 0; }
   header.dc-header > .dc-art { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
   .dc-graphic { position: relative; width: 100%; aspect-ratio: 1600 / 1400; overflow: hidden; margin-top: 8px; }
@@ -64,6 +69,7 @@
   table.pos { font-size: 12px; }
   table.pos th, table.pos td { padding: 2px 4px; line-height: 1.15; }
   table.pos td.c { text-align: center; }
+  svg.half { width: 0.85em; height: 0.85em; vertical-align: -0.1em; }
   table.pos td.c small, table.pos th small { display: block; font-size: 9.5px; color: var(--muted); font-weight: 400; }
   table.pos th.duct { color: var(--accent); }
   table.pos + .caption, table.pos ~ .caption { font-size: 11px; margin-top: 3px; }
@@ -168,15 +174,16 @@ Average CPU Usage: 0.00%</pre>
 $ duct -p logs/2_ -m "2: test hypothesis"       ./repro.sh
 $ duct -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
     <p>The agent reports “fixed”. You do not take its word:</p>
-    <pre>$ con-duct ls -F prefix message exit_code logs/*info.json
-logs/1_  1: reproduce user's bug  <span class="bad">1</span>
-logs/2_  2: test hypothesis       <span class="bad">1</span>
-logs/3_  3: verify fix            <span class="ok">0</span></pre>  </section>
+    <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
+<b>PREFIX  MESSAGE                 EXIT_CODE</b>
+logs/1_ 1: reproduce user's bug <span class="bad">1</span>
+logs/2_ 2: test hypothesis      <span class="bad">1</span>
+logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
 
   <section class="grow">
     <h2>Plot resource usage</h2>
     <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
-    <img src="duct-poster-assets/fmriprep-ds000001-sub-01-plot.png" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:300px;display:block;margin:0 auto">
+    <img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:300px;display:block;margin:0 auto">
   </section>
 </div>
 
@@ -228,12 +235,12 @@ logs/3_  3: verify fix            <span class="ok">0</span></pre>  </section>
     </div></div>
   </section>
 
-  <section class="grow">
+  <section class="grow search">
     <h2>Search is a Python expression</h2>
     <p>Filter on any of 40+ fields with <code>-e</code>, combine them, do arithmetic, match with regular expressions; sort on any field with <code>--sort-by</code>.</p>
-    <div style="display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:12px">
+    <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8px">
       <div>
-        <p>Biggest memory first:</p>
+        <div class="q"><p>Biggest memory first:</p>
         <pre>$ con-duct ls runs/* --colors \
     -F exit_code peak_rss wall_clock_time \
     --sort-by peak_rss --reverse
@@ -244,15 +251,15 @@ runs/fmriprep-ds000030_ <span class="ok">0</span>         <span class="g">16.9 G
 runs/mriqc_             <span class="ok">0</span>         <span class="g">11.5 GB</span>  61324.997 sec
 runs/demo_              <span class="ok">0</span>         <span class="g">1.5 GB</span>   4500.863 sec
 runs/loop-a_            <span class="ok">0</span>         <span class="g">6.1 MB</span>   6.092 sec
-runs/loop-b_            <span class="ok">0</span>         <span class="g">6.1 MB</span>   6.061 sec</pre>
-        <p>What failed?</p>
+runs/loop-b_            <span class="ok">0</span>         <span class="g">6.1 MB</span>   6.061 sec</pre></div>
+        <div class="q"><p>What failed?</p>
         <pre>$ con-duct ls runs/* --colors -e "exit_code != 0" \
     -F exit_code wall_clock_time
 <b>PREFIX      EXIT_CODE WALL_CLOCK_TIME</b>
-runs/s5cmd_ <span class="bad">137</span>       26657.861 sec</pre>
+runs/s5cmd_ <span class="bad">137</span>       26657.861 sec</pre></div>
       </div>
       <div>
-        <p>Over 10 GB <i>and</i> over five hours:</p>
+        <div class="q"><p>Over 10 GB <i>and</i> over five hours:</p>
         <pre>$ con-duct ls runs/* --colors \
     -F peak_rss wall_clock_time \
     -e "peak_rss > 10e9 and wall_clock_time > 5*3600"
@@ -260,17 +267,15 @@ runs/s5cmd_ <span class="bad">137</span>       26657.861 sec</pre>
 runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>  18809.983 sec
 runs/fmriprep-ds002785_ <span class="g">25.7 GB</span>  29352.951 sec
 runs/mriqc_             <span class="g">11.5 GB</span>  61324.997 sec
-runs/s5cmd_             <span class="g">64.5 GB</span>  26657.861 sec</pre>
-        <p>Regular expressions on any text field:</p>
+runs/s5cmd_             <span class="g">64.5 GB</span>  26657.861 sec</pre></div>
+        <div class="q"><p>Regular expressions on any text field:</p>
         <pre>$ con-duct ls runs/* --colors \
     -e "re.search('fmriprep', command)" -F peak_rss
 <b>PREFIX                  PEAK_RSS</b>
 runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>
-runs/fmriprep-ds002785_ <span class="g">25.7 GB</span></pre>
+runs/fmriprep-ds002785_ <span class="g">25.7 GB</span></pre></div>
       </div>
-    </div>
-    <p class="caption">Real output over 7 records from con/duct-gallery (fMRIPrep, MRIQC, s5cmd, demos), copied into <code>runs/</code> under short names; con-duct 0.23.0 with pyout, coloured as <code>--colors</code> draws it. For scripts and agents, <code>-f json</code> or <code>-f yaml</code>.</p>
-  </section>
+    </div>  </section>
 </div>
 
 <!-- ============ RIGHT ============ -->
@@ -321,14 +326,14 @@ hello.txt</b></pre>
     <table class="pos">
       <tr><th></th><th><code>tee</code></th><th>GNU <code>time</code></th><th class="duct">duct</th><th>workflow managers<br><small>Snakemake, Nextflow</small></th><th>experiment trackers<br><small>MLflow, W&amp;B</small></th></tr>
       <tr><td>wrap any command, no code changes</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td><td class="c">✗ <small>rewrite as a workflow</small></td><td class="c">✗ <small>add logging calls to your code</small></td></tr>
-      <tr><td>works anywhere, no scheduler</td><td class="c">✓</td><td class="c">◐ <small>GNU only</small></td><td class="c">◐ <small>Linux, macOS</small></td><td class="c">✓</td><td class="c">✓</td></tr>
-      <tr><td>stdout/stderr kept</td><td class="c">✓ <small>merged</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ <small>per task</small></td><td class="c">◐</td></tr>
-      <tr><td>exit code, invocation, environment</td><td class="c">✗</td><td class="c">◐ <small>exit code</small></td><td class="c">✓</td><td class="c">✓</td><td class="c">◐</td></tr>
-      <tr><td>peak memory, CPU, whole tree</td><td class="c">✗</td><td class="c">◐ <small>one process</small></td><td class="c">✓ <small>sampled</small></td><td class="c">✓</td><td class="c">◐</td></tr>
-      <tr><td>time series, not just a peak</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td class="c">◐</td><td class="c">◐</td></tr>
-      <tr><td>queryable across runs</td><td class="c">✗ <small>grep</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">◐ <small>trace file</small></td><td class="c">★</td></tr>
+      <tr><td>works anywhere, no scheduler</td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> <small>GNU only</small></td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> <small>Linux, macOS</small></td><td class="c">✓</td><td class="c">✓</td></tr>
+      <tr><td>stdout/stderr kept</td><td class="c">✓ <small>merged</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ <small>per task</small></td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>exit code, invocation, environment</td><td class="c">✗</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> <small>exit code</small></td><td class="c">✓</td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>peak memory, CPU, whole tree</td><td class="c">✗</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> <small>one process</small></td><td class="c">✓ <small>sampled</small></td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>time series, not just a peak</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>queryable across runs</td><td class="c">✗ <small>grep</small></td><td class="c">✗</td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> <small>trace file</small></td><td class="c">★</td></tr>
     </table>
-    <p class="caption">✓ yes · ◐ partial · ✗ no · ★ richer than duct. Same one-word change: <code>tee</code> keeps the words, <code>time</code> one number, duct both and the rest.</p>
+    <p class="caption">✓ yes · <svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> partial · ✗ no · ★ richer than duct. Same one-word change: <code>tee</code> keeps the words, <code>time</code> one number, duct both and the rest.</p>
     <p class="caption"><b>When the others are better:</b> many steps with declared inputs and outputs (a workflow manager knows the graph, reruns only what changed); comparing runs by parameters and metrics (a tracker keeps them with the artifacts, side by side).</p>  </section>
 </div>
 </main>
@@ -342,12 +347,13 @@ hello.txt</b></pre>
       <tr><td class="n">16</td><td class="n">1.6 ± 0.5</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
       <tr><td class="n">256</td><td class="n">2.2 ± 0.9</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
     </table>
-    <p class="caption">Outer <code>duct</code> watching an inner <code>duct</code> that watches N idle processes, 5 min per phase, 1 s sampling. CPU is the python process as the outer duct saw it (phase mean; ± is the <code>ps</code> rounding bound), flat to 16 pids, about 2 % at 64 and 256: consistent with a slow rise, not a measured slope. Whole run by <code>time -v</code>, including duct's own <code>ps</code> calls: <b>3.3 % of one core</b>; duct's sampler misses those few-ms children itself. Laptop i7-1280P, hybrid cores. Records: <code>datalad run</code> in <code>~/datasets/duct-in-duct</code>.</p>
+    <p class="caption">Outer <code>duct</code> watching an inner <code>duct</code> that watches N idle processes, 5 min per phase, 1 s sampling. CPU is the python process as the outer duct saw it (phase mean; ± is the <code>ps</code> rounding bound), flat to 16 pids, about 2 % at 64 and 256: consistent with a slow rise, not a measured slope. Whole run by <code>time -v</code>, including duct's own <code>ps</code> calls: <b>3.3 % of one core</b>; duct's sampler misses those few-ms children itself. Laptop i7-1280P, hybrid cores.</p>
   </section>
   <section>
     <h2>Limitations</h2>
     <ul>
       <li>POSIX only.</li>
+      <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
       <li>Output is written to disk: do not wrap commands that print secrets.</li>
       <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
       <li>CPU statistics come from <code>ps</code>, whose %CPU is averaged over each process's lifetime rather than its current use; <code>con-duct plot --cpu ps-cpu-timepoint</code> estimates current use from consecutive samples.</li>
