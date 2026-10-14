@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>con-duct poster mockup (draft)</title>
+<style>
+  :root {
+    --ink: #1c1c1c; --muted: #5a5a5a; --rule: #d6d6d6;
+    --accent: #1f6f8b; --accent-bg: #e9f3f7;
+    --fail: #c0392b; --ok: #2e8b57; --warn-bg: #fff6df;
+    --mono: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  html, body { margin: 0; background: #888; color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  #stage { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  /* 42in x 36in (7:6) at ~51.4 px/in = 2158 x 1850; print zooms it to the page (see @media print) */
+  #poster { position: absolute; left: 50%; top: 50%; width: 2158px; height: 1850px; background: #fff;
+            transform-origin: center center; box-shadow: 0 0 40px rgba(0,0,0,.5);
+            display: grid; grid-template-rows: 120px 1fr 250px; gap: 14px; padding: 22px; box-sizing: border-box; }
+  .draft { position: fixed; top: 8px; left: 8px; z-index: 9; background: #ffd400; color: #000; font: 700 12px/1 var(--mono); padding: 6px 8px; border-radius: 3px; }
+
+  header { display: grid; grid-template-columns: auto 1fr auto auto; gap: 20px; align-items: center; border-bottom: 3px solid var(--accent); padding-bottom: 8px; }
+  header .authors { margin: 0; padding-right: 20px; border-right: 2px solid var(--rule); font-size: 19px; line-height: 1.3; color: var(--muted); }
+  header .orgs { display: flex; gap: 22px; align-items: center; }
+  header .orgs img { height: 90px; }
+  header .orgs img.wide { height: 64px; }
+  header h1 { margin: 0; font-size: 44px; letter-spacing: -.5px; }
+  header h1 code { font-family: var(--mono); color: var(--accent); }
+  header h1 .duct-logo { height: 64px; vertical-align: middle; margin: 0 6px 0 2px; }
+  header .affil { margin: 4px 0 0; font-size: 18px; color: var(--muted); }
+  header .qrs { display: flex; gap: 12px; }
+  .qr { width: 90px; height: 90px; border: 2px dashed var(--rule); display: grid; place-items: center; font-size: 11px; color: var(--muted); text-align: center; }
+
+  main { display: grid; grid-template-columns: 1fr 1.55fr 1fr; gap: 14px; min-height: 0; }
+  .col { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+  section { border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; position: relative; min-height: 0; overflow: hidden; }
+  section > h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
+  section > h2 .tag { font: 600 11px/1 var(--mono); color: #fff; background: var(--accent); border-radius: 3px; padding: 3px 5px; margin-right: 6px; vertical-align: middle; }
+  section p, section li { font-size: 14px; line-height: 1.32; margin: 4px 0; }
+  .grow { flex: 1; }
+  pre, code { font-family: var(--mono); }
+  pre { min-width: 0; background: #f4f4f4; border-left: 3px solid var(--accent); padding: 8px 10px; font-size: 12.5px; line-height: 1.4; margin: 6px 0; overflow: hidden; white-space: pre; }
+  pre .c { color: var(--muted); }
+  pre .ok { color: var(--ok); font-weight: 600; } pre .bad { color: var(--fail); font-weight: 600; }
+  .vis { border: 2px dashed #bbb; background: #fafafa; color: var(--muted); font-size: 12px; padding: 8px; border-radius: 4px; margin: 6px 0; }
+  .vis b { color: var(--ink); }
+  .caption { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .callout { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 6px 10px; font-size: 14px; margin: 6px 0; }
+  .honest { background: var(--warn-bg); }
+  table { border-collapse: collapse; font-size: 13px; width: 100%; }
+  th, td { border-bottom: 1px solid var(--rule); padding: 3px 6px; text-align: left; }
+  th { color: var(--muted); font-weight: 600; }
+  td.n { text-align: right; font-family: var(--mono); }
+  table.pos { font-size: 12px; }
+  table.pos th, table.pos td { padding: 2px 4px; line-height: 1.15; }
+  table.pos td.c { text-align: center; }
+  table.pos td.c small, table.pos th small { display: block; font-size: 9.5px; color: var(--muted); font-weight: 400; }
+  table.pos th.duct { color: var(--accent); }
+  table.pos + .caption, table.pos ~ .caption { font-size: 11px; margin-top: 3px; }
+
+  /* mechanism diagram */
+  .flow { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; margin: 8px 0; }
+  .flow .box { border: 1.5px solid var(--ink); border-radius: 4px; padding: 6px 8px; background: #fff; }
+  .flow .files { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .flow .files span { border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; padding: 2px 5px; font-size: 11.5px; }
+  .flow .arrow { font-size: 20px; color: var(--muted); }
+
+  /* context budget bar */
+  .budget { position: relative; height: 26px; background: repeating-linear-gradient(90deg, #ddd 0 6px, #e9e9e9 6px 12px); border-radius: 3px; margin: 6px 0 2px; }
+  .budget .win { position: absolute; left: 0; top: 0; bottom: 0; width: 9%; background: var(--accent); border-radius: 3px 0 0 3px; }
+  .budget .l1 { position: absolute; left: 0; top: 30px; font-size: 11.5px; color: var(--accent); }
+  .budget .l2 { position: absolute; right: 0; top: 30px; font-size: 11.5px; color: var(--muted); }
+
+  /* chat */
+  .chat { font-size: 13px; }
+  .chat .u, .chat .a { border-radius: 8px; padding: 6px 10px; margin: 5px 0; }
+  .chat .u { background: #eee; margin-left: auto; }
+  .chat .a { background: var(--accent-bg); }
+  .chat .who { font: 600 10.5px/1 var(--mono); color: var(--muted); margin-bottom: 3px; }
+
+  /* timeline svg */
+  svg text { font-family: system-ui, sans-serif; }
+  svg .cause { font-size: 14px; fill: var(--ink); }
+  svg .dur { font-size: 12px; fill: var(--muted); font-family: var(--mono); }
+  svg .h { font-size: 14px; font-weight: 700; fill: var(--ink); }
+
+  footer { display: grid; grid-template-columns: 1.2fr 1fr .8fr; gap: 14px; min-height: 0; }
+  footer section { padding: 10px 14px; }
+  footer p, footer li { font-size: 12.5px; }
+  footer ul { margin: 2px 0 0 16px; padding: 0; }
+
+  /* Print: one 42in x 36in page. 42in = 4032 CSS px, so zoom = 4032 / 2158 */
+  @page { size: 42in 36in; margin: 0; }
+  @media print {
+    html, body { background: #fff; height: 36in; overflow: hidden; }
+    .draft { display: none; }
+    #stage { width: auto; height: 36in; overflow: hidden; }
+    #poster { position: static; transform: none !important; box-shadow: none; zoom: 1.86839; }
+  }
+</style>
+</head>
+<body>
+<div class="draft">DRAFT MOCKUP · 42×36 in landscape · S-numbers refer to duct-poster-strawmen.md</div>
+<div id="stage">
+<div id="poster">
+
+<header>
+  <p class="authors">Austin Macdonald<br>Cody C. Baker<br>John A. Lee<br>Yaroslav O. Halchenko</p>
+  <div>
+    <h1>Agent-friendly Provenance Capture with <img class="duct-logo" src="duct-poster-assets/logos/duct_logo.svg" alt=""><code>con-duct</code></h1>
+    <p class="affil">Center for Open Neuroscience, Dartmouth College &nbsp;·&nbsp; <span style="font-family:var(--mono)">RRID:SCR_025436</span></p>
+  </div>
+  <div class="orgs">
+    <img src="duct-poster-assets/logos/D-Pine_RGB.svg" alt="Dartmouth">
+    <img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience">
+    <img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
+  </div>
+  <div class="qrs"><div class="qr">QR<br>github.com/con/duct</div><div class="qr">QR<br>Zenodo entry</div></div>
+</header>
+
+<main>
+<!-- ============ LEFT ============ -->
+<div class="col">
+  <section>
+    <h2><span class="tag">S1</span>Output nobody kept</h2>
+    <p>Humans and agents now run commands side by side. The terminal output is the evidence, and it is either <b>bloating an agent's context window</b> or <b>gone past the scrollback</b>.</p>
+    <div class="budget"><div class="win"></div><span class="l1">what the agent saw</span><span class="l2">what one <code>nebari deploy</code> printed: 3,227 lines</span></div>
+    <p style="margin-top:34px">Wrap it: <code>duct &lt;cmd&gt;</code> instead of <code>&lt;cmd&gt;</code>. The command runs unchanged and leaves four files.</p>
+    <div class="flow">
+      <div class="box">$ duct nebari deploy …</div><span class="arrow">→</span>
+      <div class="box">duct</div><span class="arrow">→</span>
+      <div class="files"><span>stdout</span><span>stderr</span><span>info.json</span><span>usage.jsonl</span></div>
+    </div>
+    <div class="callout"><b>Scope.</b> Cheap one-offs do not need this; agents are good at those. duct earns its keep when execution is <b>expensive, slow, or dangerous</b>, where “just try again” is not an option and every attempt should be reviewable.</div>
+  </section>
+
+  <section>
+    <h2><span class="tag">S6</span>Where it sits</h2>
+    <table class="pos">
+      <tr><th></th><th><code>tee</code></th><th>GNU <code>time</code></th><th class="duct">duct</th><th>workflow managers<br><small>Snakemake, Nextflow</small></th><th>experiment trackers<br><small>MLflow, W&amp;B</small></th></tr>
+      <tr><td>wrap any command, no code changes</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td><td class="c">✗ <small>rewrite as a workflow</small></td><td class="c">✗ <small>add logging calls to your code</small></td></tr>
+      <tr><td>works anywhere, no scheduler</td><td class="c">✓</td><td class="c">◐ <small>GNU only</small></td><td class="c">◐ <small>Linux, macOS</small></td><td class="c">✓</td><td class="c">✓</td></tr>
+      <tr><td>stdout/stderr kept</td><td class="c">✓ <small>merged</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ <small>per task</small></td><td class="c">◐</td></tr>
+      <tr><td>exit code, invocation, environment</td><td class="c">✗</td><td class="c">◐ <small>exit code</small></td><td class="c">✓</td><td class="c">✓</td><td class="c">◐</td></tr>
+      <tr><td>peak memory, CPU, whole tree</td><td class="c">✗</td><td class="c">◐ <small>one process</small></td><td class="c">✓ <small>sampled</small></td><td class="c">✓</td><td class="c">◐</td></tr>
+      <tr><td>time series, not just a peak</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td class="c">◐</td><td class="c">◐</td></tr>
+      <tr><td>queryable across runs</td><td class="c">✗ <small>grep</small></td><td class="c">✗</td><td class="c">✓</td><td class="c">◐ <small>trace file</small></td><td class="c">★</td></tr>
+    </table>
+    <p class="caption">✓ yes · ◐ partial · ✗ no · ★ richer than duct. Same one-word change: <code>tee</code> keeps the words, <code>time</code> one number, duct both and the rest.</p>
+    <p class="caption"><b>When the others are better:</b> many steps with declared inputs and outputs (a workflow manager knows the graph, reruns only what changed); comparing runs by parameters and metrics (a tracker keeps them with the artifacts, side by side).</p>
+  </section>
+
+  <section>
+    <h2><span class="tag">S7</span>Adopted inside tools</h2>
+    <p>Tools wrap their own runs so users get records without asking, and one <code>con-duct ls</code> spans all of them.</p>
+    <div class="vis"><b>logo row:</b> ReproNim/containers · ReproStim · babs (PennLINC/babs#413, draft) · external: MRIQC logs at cerebra.fz-juelich.de</div>
+    <p><b>What it took:</b> a hard dependency on <code>con-duct</code> and a choice of output prefix so the record sits next to the result. No API; the wrapped command is unchanged.</p>
+    <pre>&lt;output dir&gt;/logs/&lt;sub&gt;/acq-{datetime}+&lt;arrayid&gt;_&lt;taskid&gt;_   <span class="c"># babs</span></pre>
+  </section>
+</div>
+
+<!-- ============ CENTER ============ -->
+<div class="col">
+  <section>
+    <h2><span class="tag">S3</span>An agent reads a human's records and acts: the k8s upgrade</h2>
+    <p>A Kubernetes 1.33 upgrade on AWS with many components we do not own. <b>Day 1, staging:</b> 9 deploys, 8 failures, each root-caused with an agent reading the duct record, until a runbook existed. <b>Day 2, production:</b> 10 deploys, 9 failures, most already predicted by the runbook. Every run: <code>datalad run "duct -p logs/… nebari deploy …"</code>.</p>
+    <svg viewBox="0 0 900 500" width="100%">
+      <text x="10" y="18" class="h">staging · 2026-03-26</text>
+      <text x="460" y="18" class="h">production · 2026-03-27</text>
+      <!-- scale: 2400 s = 150 px -->
+      <g id="stg" transform="translate(10,30)"></g>
+      <g id="prd" transform="translate(460,30)"></g>
+    </svg>
+    <p class="caption">Bar length = wall clock time (from <code>info.json</code>); red = nonzero exit, green = success. Cause text from the diagnosis note committed beside each record. Deploy wall time: 1.8 h + 1.5 h. Records on disk: 2.3 MB.</p>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:12px;margin-top:6px">
+      <div>
+        <div class="callout"><b>Clean boundary.</b> The deployment repo is full of secrets. The agent got the <code>logs/</code> directory and the nebari source, never the repo: everything the command printed, none of the credentials that produced it.</div>
+        <pre>$ con-duct ls \
+    -e "exit_code != 0 and wall_clock_time > 600"
+<span class="c"># 6 deploys burned &gt;10 min, then failed</span></pre>
+      </div>
+      <div class="chat">
+        <div class="who" style="margin-bottom:4px">simulated: mirrors the real session, condensed</div>
+        <div class="u"><div class="who">user</div>deploy 09 failed, look at the log</div>
+        <div class="a"><div class="who">agent</div><code>con-duct ls -e "'09_deploy' in prefix"</code> → exit 1, 285 s.<br>stderr tail: nebari-bot creation 503 after 10 attempts. Keycloak pod pending 50 min; main container waiting on image pull secret <code>extcrcreds</code>, which a later stage creates.<br><b>Recommend:</b> re-run. The secret exists on the second pass.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grow">
+    <h2><span class="tag">S11</span>What one record looks like: <code>con-duct plot</code></h2>
+    <pre>$ con-duct plot acq-2026.09.09T00.09.47+64119356_1_info.json \
+    -o plot.png --cpu ps-cpu-timepoint</pre>
+    <img src="duct-poster-assets/fmriprep-ds000001-sub-01-plot.png" alt="con-duct plot of one fMRIPrep run" style="max-height:420px; width:auto; max-width:100%; display:block; margin:6px auto 2px;">
+    <p class="caption">One c5 record, unedited: fMRIPrep 25.2.5 minimal, ds000001 sub-01, run by babs under SLURM (8 CPUs, 40 GB). Wall 5.0 h, peak RSS 5.9 GB, exit 0. CPU is the time-point estimate (<code>--cpu ps-cpu-timepoint</code>).</p>
+  </section>
+</div>
+
+<!-- ============ RIGHT ============ -->
+<div class="col">
+  <section>
+    <h2><span class="tag">S2</span>An agent captures its own runs, chooses later what enters context</h2>
+    <p>On our cluster every job's app call is duct-wrapped (by babs; whether the agent types <code>duct</code> or the tool has it built in is a surface difference). 28 datasets × 2 apps = 56 records. Later: “which cells failed, and why?”</p>
+    <pre>$ con-duct ls -e "exit_code != 0" -F command exit_code wall_clock_time
+mriqc     ds002685   <span class="bad">1</span>    7 min
+fmriprep  ds002685   <span class="bad">1</span>   12 min
+mriqc     ds004884   <span class="bad">1</span>   29 min
+mriqc     ds005752   <span class="bad">1</span>   18 min   <span class="c">← numbers TBC from typhon</span></pre>
+    <div class="callout">Records on disk: <b>56</b>. Read into context: <b>4 stderr tails</b>. Nothing re-run.</div>
+  </section>
+
+  <section>
+    <h2><span class="tag">S4</span>A human audits the agent: bug replication</h2>
+    <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
+    <pre>$ duct -p logs/1_ -m "1: reproduce user's bug"                      ./repro.sh
+$ duct -p logs/2_ -m "2: simplified reproducer to test hypothesis"  ./repro.sh
+$ duct -p logs/3_ -m "3: verify fix"                                ./repro.sh</pre>
+    <p>The agent reports “fixed”. You do not take its word:</p>
+    <pre>$ con-duct ls -F prefix message exit_code logs/*info.json
+logs/1_  1: reproduce user's bug                      <span class="bad">1</span>
+logs/2_  2: simplified reproducer to test hypothesis  <span class="bad">1</span>
+logs/3_  3: verify fix                                <span class="ok">0</span></pre>
+    <p class="caption">Each row has the exact command and full stderr behind it. Auditing is reading three tagged records, not scrolling a transcript. (simulated; to be staged on a real duct bug)</p>
+  </section>
+
+  <section class="grow">
+    <h2><span class="tag">S5</span>Second act: the record as provenance</h2>
+    <p><b>DataLad.</b> <code>datalad run "duct &lt;cmd&gt;"</code> commits command, logs, and the resulting diff together:</p>
+    <div class="vis" style="height:44px"><b>[DATALAD RUNCMD]</b> excerpt from a real non-nebari <code>datalad run "duct …"</code> (TBD; or one sentence, no excerpt)</div>
+    <p><b>HPC.</b> fMRIPrep minimal on 26 datasets: wall 3.7–8.2 h, peak RSS median 12.5 GiB, tail to 39.4 GiB; the 40 G grant fit 25 of 26. The outlier (64 BOLD runs) timed out at 24 h, OOM'd at 40 G, finished at 80 G in 43 h, duct peak 52.9 GB.</p>
+    <p class="caption">Caveat: sacct MaxRSS sits 5–8 GB above duct's peak on the same jobs (page cache under cgroup v2).</p>
+  </section>
+</div>
+</main>
+
+<footer>
+  <section>
+    <h2><span class="tag">S8</span>Overhead, measured: duct wrapped around duct</h2>
+    <table>
+      <tr><th>pids monitored</th><th>duct CPU, % of one core</th><th>duct RSS</th><th>record bytes / report</th></tr>
+      <tr><td>1</td><td class="n">1.6 ± 0.2</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
+      <tr><td>16</td><td class="n">1.6 ± 0.5</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
+      <tr><td>256</td><td class="n">2.2 ± 0.9</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
+    </table>
+    <p class="caption">Outer <code>duct</code> watching an inner <code>duct</code> that watches N idle processes, 5 min per phase, 1 s sampling. CPU is the python process as the outer duct saw it (phase mean; ± is the <code>ps</code> rounding bound), flat to 16 pids, about 2 % at 64 and 256: consistent with a slow rise, not a measured slope. Whole run by <code>time -v</code>, including duct's own <code>ps</code> calls: <b>3.3 % of one core</b>; duct's sampler misses those few-ms children itself. Laptop i7-1280P, hybrid cores. Records: <code>datalad run</code> in <code>~/datasets/duct-in-duct</code>.</p>
+  </section>
+  <section class="honest">
+    <h2><span class="tag">S9</span>Honesty box</h2>
+    <ul>
+      <li>Output is written to disk: do not wrap commands that print secrets.</li>
+      <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
+      <li>Sub-second commands leave four files and no samples. POSIX only; <code>ps</code> numbers are approximate; cgroup measurement in progress (con/duct#438).</li>
+      <li>A process that lives a few ms is invisible to a 1 s sampler, duct's own <code>ps</code> included: the overhead panel's <code>time -v</code> total is nearly twice what duct saw of itself.</li>
+      <li>Resource peaks paid off on SLURM; for agentic work the value has been the logs and <code>con-duct ls</code>. Wrap the runs you cannot afford to repeat.</li>
+    </ul>
+  </section>
+  <section>
+    <h2><span class="tag">S10</span>Try it</h2>
+    <pre>pip install con-duct      <span class="c"># or conda-forge</span>
+duct &lt;your command&gt;
+con-duct ls</pre>
+    <p>Live demo at the poster: <code>con-duct ls</code> over the real records above.</p>
+    <div class="vis" style="display:inline-block;width:70px;height:40px;padding:4px">QR</div>
+  </section>
+</footer>
+
+</div>
+</div>
+
+<script>
+  // ---- nebari timeline, from con-duct ls on 2026-09-15 (wall_clock_time in s, exit code) ----
+  const staging = [
+    [1954,1,"helm keycloak-postgres timed out"],
+    [636,1,"same; pods unschedulable, single node"],
+    [968,1,"EBS PV zone affinity after node replace; CSI no creds"],
+    [78,1,"addon update 403 (my manual IRSA fix caused it)"],
+    [1274,1,"nebari bug from upstream PR: CSI driver perms"],
+    [577,1,"keycloak postgres secret mismatch (debug drift)"],
+    [194,1,"keycloak realm not found"],
+    [263,1,"same; tofu state rm → runbook"],
+    [523,0,"success"],
+  ];
+  const production = [
+    [2315,1,"EBS CSI addon update deadlock, 20 min timeout"],
+    [456,1,"traefik pending: PVs in one AZ, node in another"],
+    [165,1,"AZ reorder had no effect (ignore_changes)"],
+    [1042,1,"tofu state swap → subnet recreate hung; ctrl-C"],
+    [625,1,"load balancer gone after ELB delete"],
+    [285,1,"keycloak 503: missing image pull secret"],
+    [161,1,"keycloak 503: postgres PV pinned to old AZ"],
+    [127,1,"realm not found — predicted by runbook"],
+    [307,0,"success"],
+  ];
+  const PX = 150/2400, ROW = 50;
+  function draw(id, rows) {
+    const g = document.getElementById(id); let y = 0, s = "";
+    rows.forEach(([w, ex, cause], i) => {
+      const len = Math.max(4, w*PX), color = ex ? "var(--fail)" : "var(--ok)";
+      s += `<rect x="0" y="${y}" width="${len}" height="14" rx="2" fill="${color}"/>`;
+      s += `<text x="${len+6}" y="${y+12}" class="dur">${Math.round(w/60)} min</text>`;
+      s += `<text x="0" y="${y+30}" class="cause">${i+1}. ${cause}</text>`;
+      y += ROW;
+    });
+    g.innerHTML = s;
+  }
+  draw("stg", staging); draw("prd", production);
+
+  // ---- fit poster to window ----
+  function fit() {
+    const poster = document.getElementById("poster");
+    const s = Math.min(window.innerWidth/poster.offsetWidth, window.innerHeight/poster.offsetHeight) * 0.98;
+    poster.style.transform = `translate(-50%,-50%) scale(${s})`;
+  }
+  window.addEventListener("resize", fit); fit();
+</script>
+</body>
+</html>
