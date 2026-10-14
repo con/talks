@@ -1,0 +1,11 @@
+{
+  "test": "Fresh public clone retrieval",
+  "result": "failed",
+  "annex_payloads_present": 0,
+  "diagnostic_get_exit_code": 1,
+  "diagnostic": {
+    "category": "dataset-selection",
+    "cause": "DataLad selected the working dataset instead of the fresh clone because -d was omitted. No annex payload was fetched."
+  },
+  "scope": "Verification invocation failure; not a scientific trial result."
+}

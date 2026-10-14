@@ -39,6 +39,8 @@ pixi run --manifest-path /path/to/environment/pixi.toml datalad get \
 ```
 
 [public-retrieval.json](exports/public-retrieval.json) records fresh anonymous full-byte downloads, byte lengths, and SHA-256 checks.
+A [fresh network clone](exports/fresh-retrieval.json) retrieved all 54 available annex objects through DataLad with credentials disabled and an initially empty object store; every byte length and SHA-256 matched, and all three institutional assets matched their source hashes.
+All [14 printed destinations](exports/link-audit.json) also passed anonymous HTTP checks after the delivery branch was pushed.
 The PDF is **694,949 bytes**, SHA-256 `ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d`.
 Public URLs are registered only after the downloaded bytes match.
 The superseded initial PNG is retrievable from its pinned earlier Git commit.

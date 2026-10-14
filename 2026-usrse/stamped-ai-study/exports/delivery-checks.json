@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-14T23:30:50.504446+00:00",
+  "source_commit": "d1f3cdeca9ad820cb93047252c80a33afa3d518a",
+  "page_inches": [
+    44,
+    44
+  ],
+  "minimum_css_px": 32,
+  "minimum_pdf_pt": 24.0,
+  "pdf_link_annotations": 17,
+  "public_destinations_passed": 14,
+  "actual_pdf_qrs_upright_and_rotated_passed": 4,
+  "source_qr_checks_passed": 168,
+  "anonymous_full_byte_objects_passed": 54,
+  "anonymous_full_byte_objects_tested": 56,
+  "fresh_clone_objects_passed": 54,
+  "institutional_source_hashes_preserved": true,
+  "poster_scientific_and_build_sources_unchanged": true,
+  "visual_review": "Agent review only; hashes in agent-visual-review.json. No claim of human review.",
+  "reuse": "Pinned 6.2.0 lint passed; specific institutional exceptions recorded because annex symlinks are skipped by lint.",
+  "snapper": "Scoped configured hook passed.",
+  "storage": "56 binary/large-SVG entries use annex. Module-scoped expressions pass routine annex add without MagicMime. Superseded initial PNG bytes preserved.",
+  "known_source_whitespace": "The supplied template.css ends with whitespace; retained byte-for-byte with its handoff hash.",
+  "upload_blockers": [
+    "exports/qr-source/qr-skills-210px.png",
+    "exports/qr-source/qr-study-177px.png"
+  ],
+  "authentication_blocker": "Agent Vault locked; no unlock, bypass, or further authenticated upload attempted after the hold.",
+  "publication_hold": "Raw logs and native transcripts excluded from source commits and uploads; automatic checkpoint pushes disabled locally. Checkpoint destination unchanged.",
+  "capture": "The running outer capture is incomplete until stop. Coordinator will curate final delivery/verification captures separately; no recursive collection was performed."
+}
