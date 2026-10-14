@@ -36,7 +36,7 @@ DESTINATIONS = {
     "lite": "https://github.com/ORINOCO-Lite",
     "con": "https://dev.centerforopenneuroscience.org/",
     "graph": "https://dev.centerforopenneuroscience.org/explore/",
-    "poster": "https://zenodo.org/records/22834596",
+    "poster": "https://doi.org/10.5281/zenodo.22834595",
     "video": (
         "https://datasets.datalad.org/repronim/ReproTube/web/"
         "#/channel/DataLad/video/oF98hdaph1k"

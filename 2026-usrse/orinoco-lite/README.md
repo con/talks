@@ -130,7 +130,8 @@ For this copy, Inkscape converted the original Passion One glyphs to paths so th
 The eight vector QR codes embed the outlined CON mark in its original blue at 42% of the code body width, with a white pad, navy modules, high error correction and a four-module quiet border.
 Organization links sit beside their component illustrations, website links beside their screenshot pairs, the video link beside the ORINOCO heading, and the GitHub workflow link beside the editor.
 The graph-explorer QR sits beside its description, and the online-poster QR sits beside the authors in the top bar.
-They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [CON’s graph explorer](https://dev.centerforopenneuroscience.org/explore/), the [poster on Zenodo](https://zenodo.org/records/22834596), [editor-generated pull requests](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+They link to the ORINOCO hub, ORINOCO Lite organization, both group websites, [CON’s graph explorer](https://dev.centerforopenneuroscience.org/explore/), the [poster on Zenodo](https://doi.org/10.5281/zenodo.22834595), [editor-generated pull requests](https://github.com/con/dev-centerforopenneuroscience.org/pulls?q=is%3Apr+head%3Acuration%2Fshacl-vue-), and [Stephan Heunis's ReproTube recording](https://datasets.datalad.org/repronim/ReproTube/web/#/channel/DataLad/video/oF98hdaph1k).
+The poster link uses Zenodo’s all-versions DOI so it follows the latest published version.
 The recording is *Information Management at the INM-7*, presented at Distribits on 24 October 2025.
 
 Every screenshot is also a direct link to the page it depicts.
