@@ -169,6 +169,15 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
+# The con-duct logo: an Inkscape bitmap trace of the image in the duct blog
+# post, adopted in con/duct#207. Who made that source image is not recorded,
+# so the trace cannot be offered under our terms alone.
+[[annotations]]
+path = "2026-usrse/duct-poster-assets/logos/duct_logo.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
 
 # === 3. Third-party logos and trademarks ===================================
 
@@ -210,6 +219,9 @@ path = [
     "pics/openneuro.svg",
     "pics/repronim-logo-vertical.svg",
     "pics/twitter.png",
+    # Dartmouth's D-Pine, converted from the EPS in Dartmouth's brand kit for
+    # the US-RSE'26 duct poster. Dartmouth's guidelines forbid altering it.
+    "2026-usrse/duct-poster-assets/logos/D-Pine_*.svg",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
