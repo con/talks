@@ -9,9 +9,9 @@
     --ink: #1c1c1c; --muted: #5a5a5a; --rule: #d6d6d6;
     --accent: #1f6f8b; --accent-bg: #e9f3f7;
     --fail: #c0392b; --ok: #2e8b57; --warn-bg: #fff6df;
-    --mono: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   }
-  html, body { margin: 0; background: #888; color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  html, body { margin: 0; background: #888; color: var(--ink); font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
   #stage { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
   /* 42in x 36in (7:6) at ~51.4 px/in = 2158 x 1850; print zooms it to the page (see @media print) */
   #poster { position: absolute; left: 50%; top: 50%; width: 2158px; height: 1850px; background: #fff;
@@ -41,7 +41,7 @@
   section h2 + h3 { margin-top: 4px; padding-top: 0; border-top: 0; }
   .lede { font-weight: 700; }
   section.intro { background: #f5f3ee; }
-  section.intro code { white-space: nowrap; }
+  :not(pre) > code { white-space: nowrap; }
   section.search { padding-left: 6px; padding-right: 6px; }
   section.search .q { background: #f5f3ee; border-radius: 6px; padding: 6px 0 0; margin-bottom: 8px; overflow: hidden; }
   section.search .q pre { margin: 0; }
