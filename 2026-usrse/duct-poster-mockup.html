@@ -323,11 +323,11 @@ hello.txt</b></pre>
     <p class="lede">About 2–3 % of one core and 37 MB of memory, watching 1 to 256 processes.</p>
     <table>
       <tr><th class="n">pids monitored</th><th class="n">duct CPU, % of one core</th><th class="n">duct RSS</th><th class="n">log written per report</th></tr>
-      <tr><td class="n">1</td><td class="n">1.6 ± 0.2</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
-      <tr><td class="n">16</td><td class="n">1.6 ± 0.5</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
-      <tr><td class="n">256</td><td class="n">2.2 ± 0.9</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
+      <tr><td class="n">1</td><td class="n">1.6</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
+      <tr><td class="n">16</td><td class="n">1.6</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
+      <tr><td class="n">256</td><td class="n">2.2</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
     </table>
-    <p class="caption">Measured by running <code>duct</code> under <code>duct</code> on a laptop (i7-1280P): N idle processes, 5 min each, 1 s sampling. The table is duct's python process (± is the <code>ps</code> rounding bound); the whole run, its own <code>ps</code> calls included, was 3.3 % of one core. The rise past 16 processes is consistent with a slow increase, not a measured slope.</p>
+    <p class="caption">Measured by running <code>duct</code> under <code>duct</code> on a laptop (i7-1280P): N idle processes, 5 min each, 1 s sampling. The table is duct's python process; the whole run, its own <code>ps</code> calls included, was 3.3 % of one core. The rise past 16 processes is consistent with a slow increase, not a measured slope.</p>
   </section>
   <section>
     <h2>Limitations</h2>
