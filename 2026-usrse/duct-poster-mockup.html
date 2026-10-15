@@ -236,7 +236,7 @@ Average CPU Usage: 0.00%</pre>
     <p>Later, ask your agent; it reads the duct records itself.</p>
     <div class="chat">
       <div class="u"><div class="who">user:</div><div>my container run failed, why?</div></div>
-      <div class="a"><div class="who">claude:</div><div><span class="tool">$ con-duct ls -e "exit_code != 0"</span><span class="tool">$ tail &lt;prefix&gt;_stderr</span>Your <code>mycontainer.sif</code> run exited 1 after 38 min; the error is at the end of its stderr.</div></div>
+      <div class="a"><div class="who">claude:</div><div><span class="tool">$ con-duct ls -e "exit_code != 0"</span><span class="tool">$ tail &lt;prefix&gt;_stderr</span>Your <code>mycontainer.sif</code> run exited 1 after 38 min. I found the problem, and the solution is clear: we need to ...</div></div>
     </div>
   </section>
 
