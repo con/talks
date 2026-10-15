@@ -241,9 +241,9 @@ logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
     <h2>Search is a Python expression</h2>
     <p>Filter on any of 40+ fields with <code>-e</code>, combine them, do arithmetic, match with regular expressions; sort on any field with <code>--sort-by</code>.</p>
     <div class="q"><p>What failed?</p>
-    <pre>$ con-duct ls runs/* --colors -e "exit_code != 0" -F exit_code wall_clock_time
-<b>PREFIX      EXIT_CODE WALL_CLOCK_TIME</b>
-runs/s5cmd_ <span class="bad">137</span>       26657.861 sec</pre></div>
+    <pre>$ con-duct ls runs/* --colors -e "exit_code != 0"
+<b>PREFIX      COMMAND                                                         EXIT_CODE WALL_CLOCK_TIME PEAK_RSS</b>
+runs/s5cmd_ ../s5cmd/s5cmd --dry-run sync s3://dandiarchive/* dandiarchive/ <span class="bad">137</span>       26657.861 sec   <span class="g">64.5 GB</span></pre></div>
     <div class="q"><p>Over 10 GB <i>and</i> over five hours:</p>
     <pre>$ con-duct ls runs/* --colors -F peak_rss wall_clock_time -e "peak_rss > 10e9 and wall_clock_time > 5*3600"
 <b>PREFIX                  PEAK_RSS WALL_CLOCK_TIME</b>
