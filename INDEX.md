@@ -532,6 +532,11 @@ Cross-references in the per-topic lookup point at the shelved path
 
 ## Posters
 
+### `2026-usrse/stamped-ai-study/index.html` — *STAMPED in Practice*
+
+- Discussion placeholder: [editable poster, PDF and notes](2026-usrse/stamped-ai-study/README.md).
+
+
 Posters are not reveal.js decks and have no slide IDs. HTML posters
 live in their venue directory; `tools/create_index.sh` lists them (with
 a *poster* tag) on `index.html` from its hand-maintained `LISTED` array —
