@@ -169,7 +169,6 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
-
 # === 3. Third-party logos and trademarks ===================================
 
 # Funder, institution and collaborating-project marks, reproduced for
@@ -210,6 +209,9 @@ path = [
     "pics/openneuro.svg",
     "pics/repronim-logo-vertical.svg",
     "pics/twitter.png",
+    # Dartmouth's D-Pine, converted from the EPS in Dartmouth's brand kit for
+    # the US-RSE'26 duct poster. Dartmouth's guidelines forbid altering it.
+    "2026-usrse/duct-poster-assets/logos/D-Pine_*.svg",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"

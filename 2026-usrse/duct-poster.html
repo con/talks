@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent-friendly Provenance Capture with con-duct</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;600;700&amp;display=swap">
+<style>
+  :root {
+    --ink: #1c1c1c; --muted: #5a5a5a; --rule: #d6d6d6;
+    --accent: #1f6f8b; --accent-bg: #e9f3f7;
+    --fail: #c0392b; --ok: #2e8b57; --warn-bg: #fff6df;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  html, body { margin: 0; background: #888; color: var(--ink); font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  #stage { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  /* 42in x 36in (7:6) at ~51.4 px/in = 2158 x 1850; print zooms it to the page (see @media print) */
+  #poster { position: absolute; left: 50%; top: 50%; width: 2158px; height: 1850px; background: #fff;
+            transform-origin: center center; box-shadow: 0 0 40px rgba(0,0,0,.5);
+            display: grid; grid-template-rows: 124px 1fr 250px; gap: 14px; padding: 22px; box-sizing: border-box; }
+
+  header { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; border-bottom: 3px solid var(--accent); padding-bottom: 8px; }
+  header .authors { margin: 0; padding-right: 20px; border-right: 2px solid var(--rule); font-size: 19px; line-height: 1.3; color: var(--muted); }
+  footer .orgs { display: flex; gap: 36px; align-items: center; justify-content: center; }
+  footer .orgs img { height: 130px; }
+  footer .orgs img.wide { height: 92px; }
+  header h1 { margin: 0; font-size: 44px; letter-spacing: -.5px; }
+  header h1 code { font-family: var(--mono); color: var(--accent); }
+  header h1 .duct-logo { height: 64px; vertical-align: middle; margin: 0 6px 0 2px; }
+  header .affil { margin: 4px 0 0; font-size: 18px; color: var(--muted); }
+  header .qrs { display: flex; gap: 16px; }
+  header .qrs figure { margin: 0; text-align: center; font-size: 13px; color: var(--muted); }
+  header .qrs img { display: block; width: 92px; height: 92px; margin-bottom: 3px; }
+  .qr { width: 90px; height: 90px; border: 2px dashed var(--rule); display: grid; place-items: center; font-size: 13px; color: var(--muted); text-align: center; }
+
+  main { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,1fr) minmax(0,1fr); gap: 14px; min-height: 0; }
+  .col { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+  section { border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; position: relative; min-height: 0; overflow: hidden; }
+  section > h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
+  section h3 { margin: 12px 0 4px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 17px; color: var(--accent); }
+  section h2 + h3 { margin-top: 4px; padding-top: 0; border-top: 0; }
+  .lede { font-weight: 700; }
+  section.intro { background: var(--accent-bg); border-color: var(--accent); }
+  section.intro > h2.slogan { margin: -12px -14px 10px; padding: 12px 14px; background: var(--accent); color: #fff; font-size: 34px; line-height: 1.15; }
+  section.intro p { font-size: 17px; line-height: 1.35; margin: 0; }
+  :not(pre) > code { white-space: nowrap; }
+  a { color: inherit; text-decoration: none; }
+  section.search { padding-left: 6px; padding-right: 6px; }
+  section.search > p { font-size: 17px; line-height: 1.35; }
+  section.search .q { background: #f5f3ee; border-radius: 6px; padding: 4px 0 0; margin-bottom: 5px; overflow: hidden; }
+  section.search .q pre { margin: 0; }
+  section.search .q p { font-size: 15.5px; font-weight: 600; margin: 0 0 2px 8px; }
+  section.search pre { font-size: 13px; padding: 5px 6px 5px 8px; background: #ffffff; }
+  header.dc-header { display: block; position: relative; overflow: hidden; border: 0; padding: 0; }
+  header.dc-header > .dc-art { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  .dc-graphic { position: relative; width: 100%; aspect-ratio: 1600 / 1296; overflow: hidden; margin-top: -16px; }
+  .dc-graphic > .dc-art { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  section p, section li { font-size: 14px; line-height: 1.32; margin: 4px 0; }
+  .grow { flex: 1; }
+  pre, code { font-family: var(--mono); }
+  pre { min-width: 0; background: #f4f4f4; border-left: 3px solid var(--accent); padding: 8px 10px; font-size: 13px; line-height: 1.4; margin: 6px 0; overflow: hidden; white-space: pre; }
+  pre .c { color: var(--muted); }
+  pre .ok { color: var(--ok); font-weight: 600; } pre .bad { color: var(--fail); font-weight: 600; }
+  pre .g { color: var(--ok); }
+  .vis { border: 2px dashed #bbb; background: #fafafa; color: var(--muted); font-size: 13px; padding: 8px; border-radius: 4px; margin: 6px 0; }
+  .vis b { color: var(--ink); }
+  .caption { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .callout { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 6px 10px; font-size: 14px; margin: 6px 0; }
+  table { border-collapse: collapse; font-size: 13px; width: 100%; }
+  th, td { border-bottom: 1px solid var(--rule); padding: 3px 6px; text-align: left; }
+  th { color: var(--muted); font-weight: 600; }
+  td.n { text-align: right; font-family: var(--mono); }
+  th.n { text-align: right; }
+  table.pos { font-size: 14.5px; width: 100%; table-layout: fixed; }
+  table.pos col.lbl { width: 30%; }
+  table.pos th, table.pos td { padding: 2px 4px; line-height: 1.15; }
+  table.pos th { text-align: center; vertical-align: bottom; }
+  table.pos td.c { text-align: center; }
+  svg.dot { width: 0.85em; height: 0.85em; vertical-align: -0.1em; }
+  svg.dot.yes { color: #2e8b57; }
+  svg.dot.part { color: #d08c00; }
+  svg.dot.no { color: #a0a0a0; }
+  table.pos td.c small, table.pos th small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; }
+  table.pos th.duct { color: var(--accent); }
+  table.pos + .caption, table.pos ~ .caption { font-size: 14px; margin-top: 3px; }
+
+  /* mechanism diagram */
+  .flow { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; margin: 8px 0; }
+  .flow .box { border: 1.5px solid var(--ink); border-radius: 4px; padding: 6px 8px; background: #fff; }
+  .flow .outs { display: flex; flex-direction: column; gap: 6px; }
+  .flow .term { border: 1.5px dashed var(--muted); border-radius: 4px; padding: 3px 6px; font-size: 13px; color: var(--muted); }
+  .flow .files { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .flow .files span { border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; padding: 2px 5px; font-size: 13px; }
+  .flow .arrow { font-size: 20px; color: var(--muted); }
+
+  /* context budget bar */
+  .budget { position: relative; height: 26px; background: repeating-linear-gradient(90deg, #ddd 0 6px, #e9e9e9 6px 12px); border-radius: 3px; margin: 6px 0 2px; }
+  .budget .win { position: absolute; left: 0; top: 0; bottom: 0; width: 9%; background: var(--accent); border-radius: 3px 0 0 3px; }
+  .budget .l1 { position: absolute; left: 0; top: 30px; font-size: 13px; color: var(--accent); }
+  .budget .l2 { position: absolute; right: 0; top: 30px; font-size: 13px; color: var(--muted); }
+
+  /* chat */
+  .chat { font-size: 13px; }
+  .chat .u, .chat .a { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; border-radius: 8px; padding: 6px 10px; margin: 5px 0; }
+  .chat .u { background: #eee; margin-left: auto; }
+  .chat .a { background: var(--accent-bg); }
+  .chat .who { font: 600 13px/1.4 var(--mono); color: var(--muted); }
+  .chat .tool { display: block; font-family: var(--mono); color: var(--muted); }
+
+  footer { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr); gap: 14px; min-height: 0; }
+  footer section { padding: 10px 14px; }
+  footer .footcol { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+  footer .orgcol { justify-content: center; gap: 12px; }
+  footer .ai-note, footer .funding { margin: 0 4px; font-size: 13px; color: var(--muted); text-align: center; }
+  footer p, footer li { font-size: 13px; }
+  footer ul { margin: 2px 0 0 16px; padding: 0; }
+
+  /* Print: one 42in x 36in page. 42in = 4032 CSS px, so zoom = 4032 / 2158 */
+  @page { size: 42in 36in; margin: 0; }
+  @media print {
+    html, body { background: #fff; height: 36in; overflow: hidden; }
+    #stage { width: auto; height: 36in; overflow: hidden; }
+    #poster { position: static; transform: none !important; box-shadow: none; zoom: 1.86839; }
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+<div id="poster">
+
+<!-- Header made with Claude Design (canvas "duct poster: Capture now graphic", artboard "Poster header"), pasted as static markup: 3950x232 design px, scaled to the poster width by the script below; asset links point at the local files -->
+<header class="dc-header"><div class="dc-art">
+<div style="width: 3950px; height: 232px; box-sizing: border-box; padding: 0 56px; display: flex; align-items: center; gap: 56px; background: #174f63; border-radius: 18px; font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #ffffff">
+<div style="flex: none; padding-right: 48px; border-right: 2px solid #5d8ea1; font-size: 30px; line-height: 40px; color: #d8e7ee">Austin Macdonald<br>Cody C. Baker<br>John A. Lee<br>Yaroslav O. Halchenko</div>
+<div style="flex: none; width: 176px; height: 176px; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 22px"><a href="https://github.com/con/duct"><img src="duct-poster-assets/logos/duct_logo.svg" alt="con-duct logo" style="width: 144px; height: auto; display: block"></a></div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<h1 style="margin: 0; font-size: 92px; line-height: 104px; font-weight: 700; letter-spacing: -1px; color: #ffffff">Agent-friendly Provenance Capture with <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 600; color: #9fd8ea">con-duct</span></h1>
+<p style="margin: 0; font-size: 32px; line-height: 40px; color: #d8e7ee"><a href="https://centerforopenneuroscience.org">Center for Open Neuroscience</a>, <a href="https://pbs.dartmouth.edu">Psychological and Brain Sciences</a>, <a href="https://home.dartmouth.edu">Dartmouth College</a> &nbsp;·&nbsp; <a href="https://scicrunch.org/resolver/RRID:SCR_025436" style="font-family: 'IBM Plex Mono', ui-monospace, monospace">RRID:SCR_025436</a></p>
+</div>
+<div style="flex: none; display: flex; gap: 24px">
+<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><a href="https://github.com/con/duct"><img src="duct-poster-assets/qr/qr-github-con-duct.svg" alt="QR code: https://github.com/con/duct" style="width: 148px; height: 148px; display: block"></a><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">code</span></div>
+<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><a href="https://doi.org/10.5281/zenodo.22833931"><img src="duct-poster-assets/qr/qr-zenodo-abstract.svg" alt="QR code: https://doi.org/10.5281/zenodo.22833931" style="width: 148px; height: 148px; display: block"></a><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">abstract</span></div>
+</div>
+</div>
+</div></header>
+
+<main>
+<!-- ============ LEFT (wide) ============ -->
+<div class="col">
+  <section class="intro">
+    <h2 class="slogan">Record everything now, ask questions later!</h2>
+    <p><code>con-duct</code> wraps any command, with no code changes, and records stdout, stderr, and resource statistics. Run <code>duct &lt;cmd&gt;</code> (short for <code>con-duct run &lt;cmd&gt;</code>). Later, you or your agent can find, query, and plot those records with <code>con-duct ls</code> and <code>con-duct plot</code>. Lightweight and open source (MIT).</p>
+  </section>
+
+  <section>
+    <!-- Made with Claude Design (canvas "duct poster: Capture now graphic"), pasted as static markup: 1600x1400 design px, scaled to the column width by the script below -->
+    <div class="dc-graphic"><div class="dc-art">
+<div style="position: relative; width: 1600px; height: 1400px; background: transparent; font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #1c1c1c; overflow: hidden">
+<div style="position: absolute; left: 880px; top: 336px; width: 656px; height: 276px; box-sizing: border-box; background: #e9f3f7; border: 2px solid #1f6f8b; border-radius: 14px"></div>
+<svg width="71" height="8" viewBox="0 0 71 8" preserveAspectRatio="none" style="position: absolute; left: 264px; top: 316px; width: 71px; height: 8px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-1" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 65 4" marker-end="url(#dc-arrow-head-filled-1)"></path></svg>
+<svg width="80" height="8" viewBox="0 0 80 8" preserveAspectRatio="none" style="position: absolute; left: 720px; top: 316px; width: 80px; height: 8px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 80 4"></path></svg>
+<svg width="8" height="232" viewBox="0 0 8 232" preserveAspectRatio="none" style="position: absolute; left: 796px; top: 224px; width: 8px; height: 232px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 232"></path></svg>
+<svg width="79" height="8" viewBox="0 0 79 8" preserveAspectRatio="none" style="position: absolute; left: 800px; top: 220px; width: 79px; height: 8px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-2" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 73 4" marker-end="url(#dc-arrow-head-filled-2)"></path></svg>
+<svg width="79" height="8" viewBox="0 0 79 8" preserveAspectRatio="none" style="position: absolute; left: 800px; top: 452px; width: 79px; height: 8px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-3" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 73 4" marker-end="url(#dc-arrow-head-filled-3)"></path></svg>
+<svg width="8" height="172" viewBox="0 0 8 172" preserveAspectRatio="none" style="position: absolute; left: 1204px; top: 612px; width: 8px; height: 172px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 172"></path></svg>
+<svg width="1000" height="8" viewBox="0 0 1000 8" preserveAspectRatio="none" style="position: absolute; left: 300px; top: 780px; width: 1000px; height: 8px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 1000 4"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 296px; top: 784px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-4" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-4)"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 796px; top: 784px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-5" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-5)"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 1296px; top: 784px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-6" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-6)"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 296px; top: 968px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-7" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-7)"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 796px; top: 968px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-8" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-8)"></path></svg>
+<svg width="8" height="63" viewBox="0 0 8 63" preserveAspectRatio="none" style="position: absolute; left: 1296px; top: 968px; width: 8px; height: 63px; overflow: visible; fill: none; stroke: #5a5a5a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-9" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5a5a5a" stroke="none" style="stroke: none; fill: #5a5a5a; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 57" marker-end="url(#dc-arrow-head-filled-9)"></path></svg>
+<div style="position: absolute; left: 64px; top: 40px; font-size: 44px; line-height: 56px; font-weight: 700; color: #1f6f8b">Capture is easy</div>
+<div style="position: absolute; left: 64px; top: 104px; width: 1400px; font-size: 26px; line-height: 34px; color: #1c1c1c">Wrap any command. It runs unchanged, prints as usual, and leaves four files.</div>
+<div style="position: absolute; left: 64px; top: 220px; width: 200px; height: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 24px; line-height: 24px; color: #5a5a5a"><svg width="168" height="120" viewBox="0 0 168 120" aria-hidden="true" style="fill: none; stroke: #1c1c1c; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round"><circle cx="44" cy="28" r="16"></circle><path d="M44 44 L44 82 M44 56 L22 72 M44 56 L66 68 M44 82 L28 112 M44 82 L60 112"></path><rect x="100" y="22" width="48" height="38" rx="8"></rect><path d="M124 22 L124 10"></path><circle cx="124" cy="7" r="3"></circle><circle cx="114" cy="40" r="3"></circle><circle cx="134" cy="40" r="3"></circle><rect x="104" y="66" width="40" height="34" rx="6"></rect><path d="M112 100 L112 114 M136 100 L136 114 M104 76 L92 88 M144 76 L156 88"></path></svg><span>you, or your agent</span></div>
+<div style="position: absolute; left: 336px; top: 276px; width: 384px; height: 88px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 2px solid #1c1c1c; border-radius: 10px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 26px; font-weight: 600">$ duct &lt;command&gt;</div>
+<div style="position: absolute; left: 336px; top: 388px; width: 384px; height: 88px; box-sizing: border-box; display: flex; align-items: flex-start; gap: 12px; font-size: 24px; line-height: 26px; color: #5a5a5a"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" style="flex: none; fill: none; stroke: #1f6f8b; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><circle cx="16" cy="16" r="13"></circle><path d="M16 8 L16 16 L22 20"></path></svg><span>and samples memory and CPU of the whole process tree, every second</span></div>
+<div style="position: absolute; left: 880px; top: 176px; width: 360px; height: 96px; box-sizing: border-box; padding: 8px 20px; display: flex; align-items: center; gap: 16px; background: #ffffff; border: 2px dashed #5a5a5a; border-radius: 10px; font-size: 24px; line-height: 28px; color: #1c1c1c"><svg width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" style="flex: none; fill: none; stroke: #1c1c1c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="2" width="52" height="40" rx="6"></rect><path d="M12 16 L20 22 L12 28 M26 30 L38 30"></path></svg><span>your terminal,<br>as before</span></div>
+<div style="position: absolute; left: 904px; top: 344px; width: 360px; height: 40px; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; color: #1f6f8b"><svg width="36" height="28" viewBox="0 0 36 28" aria-hidden="true" style="flex: none; fill: none; stroke: #1f6f8b; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><path d="M2 6 Q2 2 6 2 L14 2 L18 7 L30 7 Q34 7 34 11 L34 22 Q34 26 30 26 L6 26 Q2 26 2 22 Z"></path></svg><span>one record per run</span></div>
+<div style="position: absolute; left: 904px; top: 388px; width: 296px; height: 100px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: #ffffff; border: 2px solid #1f6f8b; border-radius: 8px"><span style="font-size: 24px; line-height: 24px; color: #5a5a5a"><b style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px; line-height: 30px; color: #1c1c1c">stdout</b><br>everything it printed</span></div>
+<div style="position: absolute; left: 1216px; top: 388px; width: 296px; height: 100px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: #ffffff; border: 2px solid #1f6f8b; border-radius: 8px"><span style="font-size: 24px; line-height: 24px; color: #5a5a5a"><b style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px; line-height: 30px; color: #1c1c1c">stderr</b><br>every warning and error</span></div>
+<div style="position: absolute; left: 904px; top: 500px; width: 296px; height: 100px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: #ffffff; border: 2px solid #1f6f8b; border-radius: 8px"><span style="font-size: 24px; line-height: 24px; color: #5a5a5a"><b style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px; line-height: 30px; color: #1c1c1c">info.json</b><br>command, exit code, peaks</span></div>
+<div style="position: absolute; left: 1216px; top: 500px; width: 296px; height: 100px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: #ffffff; border: 2px solid #1f6f8b; border-radius: 8px"><span style="font-size: 24px; line-height: 24px; color: #5a5a5a"><b style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px; line-height: 30px; color: #1c1c1c">usage.jsonl</b><br>memory and CPU over time</span></div>
+<div style="position: absolute; left: 64px; top: 680px; width: 1000px; font-size: 44px; line-height: 56px; font-weight: 700; color: #1f6f8b">Questions later (Human or Agent)</div>
+<div style="position: absolute; left: 64px; top: 848px; width: 472px; height: 120px; box-sizing: border-box; padding: 12px 10px; display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; border: 2px solid #1c1c1c; border-radius: 10px"><span style="font-size: 24px; line-height: 32px"><b>Which runs failed?</b><br><code style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px">con-duct ls -e "exit_code != 0"</code></span></div>
+<div style="position: absolute; left: 564px; top: 848px; width: 472px; height: 120px; box-sizing: border-box; padding: 12px 10px; display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; border: 2px solid #1c1c1c; border-radius: 10px"><span style="font-size: 24px; line-height: 32px"><b>Why did it fail?</b><br><code style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px">tail &lt;prefix&gt;_stderr</code></span></div>
+<div style="position: absolute; left: 1064px; top: 848px; width: 472px; height: 120px; box-sizing: border-box; padding: 12px 10px; display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; border: 2px solid #1c1c1c; border-radius: 10px"><span style="font-size: 24px; line-height: 32px"><b>How much did it need?</b><br><code style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 24px">con-duct plot &lt;prefix&gt;info.json</code></span></div>
+<div style="position: absolute; left: 64px; top: 1032px; width: 472px; height: 240px; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; background: #e9f3f7; border-radius: 10px; font-size: 24px; line-height: 26px; color: #1c1c1c"><svg width="300" height="140" viewBox="0 0 300 140" aria-hidden="true" style="fill: none; stroke: #1c1c1c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="2" width="296" height="136" rx="8" fill="#ffffff"></rect><rect x="2" y="2" width="296" height="30" rx="8" fill="#d6e6ed"></rect><path d="M2 60 L298 60 M2 88 L298 88 M2 112 L298 112 M210 2 L210 138"></path><path d="M20 46 L170 46 M20 74 L150 74 M20 100 L180 100 M20 126 L140 126" style="stroke: #8a8a8a"></path><path d="M248 40 L248 52 M248 68 L248 80 M248 94 L248 106 M248 120 L248 132" style="stroke: #c0392b; stroke-width: 4"></path></svg><span>a table of just the matching runs</span></div>
+<div style="position: absolute; left: 564px; top: 1032px; width: 472px; height: 240px; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; background: #e9f3f7; border-radius: 10px; font-size: 24px; line-height: 26px; color: #1c1c1c"><svg width="300" height="140" viewBox="0 0 300 140" aria-hidden="true" style="fill: none; stroke: #8a8a8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="2" width="220" height="136" rx="8" fill="#ffffff" style="stroke: #1c1c1c"></rect><path d="M20 22 L190 22 M20 40 L160 40 M20 58 L200 58 M20 76 L150 76 M20 112 L170 112 M20 130 L120 130"></path><rect x="14" y="86" width="196" height="18" rx="4" fill="#f6d5d1" style="stroke: none"></rect><path d="M20 95 L196 95" style="stroke: #c0392b; stroke-width: 4"></path><circle cx="244" cy="80" r="26" style="stroke: #1c1c1c; stroke-width: 4"></circle><path d="M263 99 L292 128" style="stroke: #1c1c1c; stroke-width: 6"></path></svg><span>just the lines that matter, so the agent's context stays small</span></div>
+<div style="position: absolute; left: 1064px; top: 1032px; width: 472px; height: 240px; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; background: #e9f3f7; border-radius: 10px; font-size: 24px; line-height: 26px; color: #1c1c1c"><svg width="300" height="140" viewBox="0 0 300 140" aria-hidden="true" style="fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round"><rect x="2" y="2" width="296" height="136" rx="8" fill="#ffffff" style="stroke: #1c1c1c; stroke-width: 3"></rect><path d="M24 20 L24 120 L280 120" style="stroke: #1c1c1c; stroke-width: 3"></path><path d="M30 110 L60 90 L90 96 L120 60 L150 66 L180 40 L210 48 L240 30 L270 36" style="stroke: #1f6f8b"></path><path d="M30 112 L60 70 L90 104 L120 50 L150 100 L180 58 L210 106 L240 64 L270 110" style="stroke: #e07b28"></path></svg><span>memory and CPU over time, for any run</span></div>
+</div>
+    </div></div>
+  </section>
+
+  <section class="grow search">
+    <h2>Search is a Python expression</h2>
+    <p>Filter on any of 40+ fields with <code>-e</code>, combine them, do arithmetic, match with regular expressions; sort on any field with <code>--sort-by</code>.</p>
+    <div class="q"><p>What failed?</p>
+    <pre>$ con-duct ls runs/* --colors -e "exit_code != 0"
+<b>PREFIX      COMMAND                                                         EXIT_CODE WALL_CLOCK_TIME PEAK_RSS</b>
+runs/s5cmd_ ../s5cmd/s5cmd --dry-run sync s3://dandiarchive/* dandiarchive/ <span class="bad">137</span>       26657.861 sec   <span class="g">64.5 GB</span></pre></div>
+    <div class="q"><p>Over 10 GB <i>and</i> over five hours:</p>
+    <pre>$ con-duct ls runs/* --colors -F peak_rss wall_clock_time -e "peak_rss > 10e9 and wall_clock_time > 5*3600"
+<b>PREFIX                  PEAK_RSS WALL_CLOCK_TIME</b>
+runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>  18809.983 sec
+runs/fmriprep-ds002785_ <span class="g">25.7 GB</span>  29352.951 sec
+runs/mriqc_             <span class="g">11.5 GB</span>  61324.997 sec
+runs/s5cmd_             <span class="g">64.5 GB</span>  26657.861 sec</pre></div>
+    <div class="q"><p>Regular expressions on any text field:</p>
+    <pre>$ con-duct ls runs/* --colors -e "re.search('fmriprep', command)" -F peak_rss
+<b>PREFIX                  PEAK_RSS</b>
+runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>
+runs/fmriprep-ds002785_ <span class="g">25.7 GB</span></pre></div>
+  </section>
+</div>
+
+<!-- ============ CENTER ============ -->
+<div class="col">
+  <section>
+    <h2>Try it</h2>
+    <pre style="white-space:pre-wrap;font-size:13px">$ pip install 'con-duct[all]'   <span class="c"># or conda</span>
+$ duct sleep 2
+<span class="c">2026-09-30T16:03:21-0500 [INFO    ] con-duct: duct 0.23.0 is executing 'sleep 2'...
+2026-09-30T16:03:21-0500 [INFO    ] con-duct: Log files will be written to .duct/logs/2026.09.30T16.03.21-8486_
+2026-09-30T16:03:23-0500 [INFO    ] con-duct: Summary:</span>
+Exit Code: <span class="ok">0</span>
+Command: sleep 2
+Log files location: .duct/logs/2026.09.30T16.03.21-8486_
+Wall Clock Time: 2.002 sec
+Memory Peak Usage (RSS): 2.2 MB
+Memory Average Usage (RSS): 2.2 MB
+Memory Peak Percentage: 0.00%
+Memory Average Percentage: 0.00%
+CPU Peak Usage: 0.00%
+Average CPU Usage: 0.00%</pre>
+  </section>
+
+  <section>
+    <h2>You drive, the agent reads the records directly</h2>
+    <pre>$ duct singularity run mycontainer.sif</pre>
+    <p>Later, ask your agent; it reads the duct records itself.</p>
+    <div class="chat">
+      <div class="u"><div class="who">user:</div><div>my container run failed, why?</div></div>
+      <div class="a"><div class="who">claude:</div><div><span class="tool">$ con-duct ls -e "exit_code != 0"</span><span class="tool">$ tail &lt;prefix&gt;_stderr</span>Your <code>mycontainer.sif</code> run exited 1 after 38 min. I found the problem, and the solution is clear: we need to ...</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The agent drives, you read the summary</h2>
+    <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
+    <pre>$ duct --f-t 0 -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
+$ duct --f-t 0 -p logs/2_ -m "2: test hypothesis"       ./repro.sh
+$ duct --f-t 0 -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
+    <p>The agent reports “fixed”. The evidence in the logs:</p>
+    <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
+<b>PREFIX  MESSAGE                 EXIT_CODE</b>
+logs/1_ 1: reproduce user's bug <span class="bad">1</span>
+logs/2_ 2: test hypothesis      <span class="bad">1</span>
+logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
+
+  <section class="grow">
+    <h2>Plot resource usage</h2>
+    <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
+    <a href="https://github.com/con/duct-gallery#fmriprep-on-1-subject-of-ds002785"><img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:360px;display:block;margin:0 auto"></a>
+  </section>
+</div>
+
+<!-- ============ RIGHT ============ -->
+<div class="col">
+  <section>
+    <h2><a href="https://www.datalad.org">DataLad</a> and provenance <a href="https://www.datalad.org"><img src="../pics/datalad_logo_wide.svg" alt="DataLad" style="height:30px;vertical-align:middle;float:right"></a></h2>
+    <p><code>datalad run "duct &lt;cmd&gt;"</code> commits the command, the duct record, and the resulting diff together:</p>
+    <pre style="white-space:pre-wrap;font-size:13px">$ datalad run "duct bash -c 'echo hello > hello.txt'"
+$ git show --name-only
+<span class="c">commit cbc27e2dc593ac90da0dfb87e8f941e52ad0906a
+Author: Austin Macdonald &lt;austin@dartmouth.edu&gt;
+Date:   Wed Sep 30 16:12:52 2026 -0500</span>
+
+    [DATALAD RUNCMD] duct bash -c 'echo hello &gt; hello.txt'
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "duct bash -c 'echo hello &gt; hello.txt'",
+     "dsid": "a4b98bfd-4329-4253-bc16-738eaee5f995",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+<b>.duct/logs/2026.09.30T16.12.52-13909_info.json
+.duct/logs/2026.09.30T16.12.52-13909_stderr
+.duct/logs/2026.09.30T16.12.52-13909_stdout
+.duct/logs/2026.09.30T16.12.52-13909_usage.jsonl
+hello.txt</b></pre>
+  </section>
+
+  <section>
+    <h2>Adopted inside tools</h2>
+    <p>Tools wrap their own runs so users get records without asking.</p>
+    <ul>
+      <li><a href="https://github.com/PennLINC/babs"><b>BABS</b> <span class="caption">github.com/PennLINC/babs</span></a><br>Wraps every BIDS App job on SLURM and copies the record next to each subject's results. <i>Why:</i> per-subject peak memory and wall time to size the next batch; the app's stdout and stderr, with its warnings and other internals, for inspecting any job later.</li>
+      <li><a href="https://github.com/ReproNim/containers"><b>ReproNim/containers</b> <span class="caption">github.com/ReproNim/containers</span></a><br><code>REPRONIM_USE_DUCT=1</code> wraps each <a href="https://apptainer.org">Singularity</a> container run, e.g. under <code>datalad containers-run</code>. <i>Why:</i> a resource record for every containerized app run, saved with its results.</li>
+      <li><a href="https://github.com/ReproNim/reprostim"><b>ReproStim</b> <span class="caption">github.com/ReproNim/reprostim</span></a><br>The video-capture app wraps each <code>ffmpeg</code> recording (on in the default config); the record sits next to the video. <i>Why:</i> resource use for long, unattended capture sessions.</li>
+    </ul>
+  </section>
+
+  <section class="grow">
+    <h2>Comparison to related tools</h2>
+    <table class="pos">
+      <colgroup><col class="lbl"><col><col><col><col><col></colgroup>
+      <tr><th></th><th><a href="https://www.gnu.org/software/coreutils/manual/html_node/tee-invocation.html"><code>tee</code></a></th><th><a href="https://www.gnu.org/software/time/">GNU <code>time</code></a></th><th class="duct">duct</th><th>workflow managers<br><small><a href="https://snakemake.github.io">Snakemake</a>, <a href="https://www.nextflow.io">Nextflow</a></small></th><th>experiment trackers<br><small><a href="https://mlflow.org">MLflow</a>, <a href="https://wandb.ai">W&amp;B</a></small></th></tr>
+      <tr><td>wrap any command, no code changes</td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td></tr>
+      <tr><td>works anywhere</td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td></tr>
+      <tr><td>stdout/stderr kept</td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>exit code, invocation, environment</td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>peak memory, CPU, whole tree</td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>time series, not just a peak</td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
+      <tr><td>queryable across runs</td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td><td class="c"><svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg></td></tr>
+    </table>
+    <p class="caption"><svg class="dot yes" viewBox="0 0 10 10" aria-label="yes"><circle cx="5" cy="5" r="4.2" fill="currentColor" stroke="currentColor" stroke-width="1.2"/></svg> yes · <svg class="dot part" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg> partial · <svg class="dot no" viewBox="0 0 10 10" aria-label="no"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> no.</p>
+    <p class="caption"><b>When the others are better:</b> many steps with declared inputs and outputs (a workflow manager knows the graph, reruns only what changed); comparing runs by parameters and metrics (a tracker keeps them with the artifacts, side by side).</p>  </section>
+</div>
+</main>
+
+<footer>
+  <section>
+    <h2>Overhead</h2>
+    <p class="lede">About 2–3 % of one core and 37 MB of memory, watching 1 to 256 processes.</p>
+    <table>
+      <tr><th class="n">pids monitored</th><th class="n">duct CPU, % of one core</th><th class="n">duct RSS</th><th class="n">log written per report</th></tr>
+      <tr><td class="n">1</td><td class="n">1.6</td><td class="n">37 MB</td><td class="n">0.6 KB</td></tr>
+      <tr><td class="n">16</td><td class="n">1.6</td><td class="n">37 MB</td><td class="n">3.4 KB</td></tr>
+      <tr><td class="n">256</td><td class="n">2.2</td><td class="n">38 MB</td><td class="n">48 KB</td></tr>
+    </table>
+    <p class="caption">Measured by running <code>duct</code> under <code>duct</code> on a laptop (i7-1280P): N idle processes, 5 min each, 1 s sampling. The table is duct's python process; the whole run, its own <code>ps</code> calls included, was 3.3 % of one core. The rise past 16 processes is consistent with a slow increase, not a measured slope.</p>
+  </section>
+  <div class="footcol">
+  <section>
+    <h2>Limitations</h2>
+    <ul>
+      <li>GNU/Linux and macOS only.</li>
+      <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
+      <li>Output is written to disk; for commands that print secrets, skip it with <code>-c none</code>.</li>
+      <li>Programs that check <code>isatty()</code> take their non-interactive path (<a href="https://github.com/con/duct#my-command-behaves-differently-under-duct-eg-goaccess-fails-progress-bars-look-off">README has workarounds</a>).</li>
+      <li>CPU statistics come from <code>ps</code>, whose %CPU is averaged over each process's lifetime rather than its current use; <code>con-duct plot --cpu ps-cpu-timepoint</code> estimates current use from consecutive samples.</li>
+    </ul>
+  </section>
+  </div>
+  <div class="footcol orgcol">
+  <div class="orgs">
+    <a href="https://home.dartmouth.edu"><img src="duct-poster-assets/logos/D-Pine_RGB.svg" alt="Dartmouth"></a>
+    <a href="https://centerforopenneuroscience.org"><img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience"></a>
+    <a href="https://www.repronim.org"><img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim"></a>
+  </div>
+  <div>
+    <p class="funding">Supported by NIH NIBIB P41 EB019936 (ReproNim).</p>
+    <p class="ai-note">Built with Anthropic's Claude Code (Claude Opus 5.5) and Claude Design.</p>
+  </div>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script>
+  // ---- scale the Claude Design graphic (1600 px wide) to its column ----
+  document.querySelectorAll(".dc-graphic").forEach(g => {
+    g.firstElementChild.style.transform = `scale(${g.clientWidth / 1600})`;
+  });
+  // ---- same for the Claude Design header (3950 px wide) ----
+  document.querySelectorAll(".dc-header").forEach(h => {
+    h.firstElementChild.style.transform = `scale(${h.clientWidth / 3950})`;
+  });
+
+  // ---- fit poster to window ----
+  function fit() {
+    const poster = document.getElementById("poster");
+    const s = Math.min(window.innerWidth/poster.offsetWidth, window.innerHeight/poster.offsetHeight) * 0.98;
+    poster.style.transform = `translate(-50%,-50%) scale(${s})`;
+  }
+  window.addEventListener("resize", fit); fit();
+</script>
+</body>
+</html>
