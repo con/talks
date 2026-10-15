@@ -344,7 +344,7 @@ hello.txt</b></pre>
   <section>
     <h2>Limitations</h2>
     <ul>
-      <li>Linux and macOS only.</li>
+      <li>GNU/Linux and macOS only.</li>
       <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
       <li>Output is written to disk; for commands that print secrets, skip it with <code>-c none</code>.</li>
       <li>Programs that check <code>isatty()</code> take their non-interactive path (<a href="https://github.com/con/duct#my-command-behaves-differently-under-duct-eg-goaccess-fails-progress-bars-look-off">README has workarounds</a>).</li>
