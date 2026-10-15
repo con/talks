@@ -6,3 +6,29 @@
 .reveal pre code {
 	max-height: 80%;
 }
+
+/* ------------------------------------------------------------------
+   Callout boxes.  These were inline style="..." attributes repeated on
+   every slide; as classes they can be written from Markdown slides,
+   which is the whole reason they exist here.  Same rendering as the
+   inline version they replace -- text-align is deliberately left alone
+   so they keep inheriting reveal's centering.
+   ------------------------------------------------------------------ */
+.reveal .callout,
+.reveal .callout-blue,
+.reveal .callout-indigo {
+	margin-top: 0.7em;
+	padding: 0.7em;
+	font-size: 0.85em;
+}
+.reveal .callout        { background-color: #fffacd; border-left: 4px solid #f90; }
+.reveal .callout-blue   { background-color: #e3f2fd; border-left: 4px solid #1976d2; }
+.reveal .callout-indigo { background-color: #e8eaf6; border-left: 4px solid #3f51b5; }
+
+/* Markdown slides lose the per-table inline styling the HTML ones carry;
+   this keeps the header band and zebra striping the decks already use. */
+.reveal .md-table { font-size: 0.75em; }
+.reveal .md-table table { font-size: 1em; width: 99%; margin: auto; }
+.reveal .md-table th { background-color: #e8eaf6; text-align: left; padding: 0.35em; }
+.reveal .md-table td { text-align: left; padding: 0.35em; }
+.reveal .md-table tbody tr:nth-child(even) { background-color: #fafafa; }
