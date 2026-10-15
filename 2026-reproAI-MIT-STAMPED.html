@@ -113,10 +113,11 @@
     <p style="font-size:0.8em; font-style:italic; color:#555; margin-top:0.3em;">
       I am here to argue that the boring infrastructure work we have been doing for 20 years<br/>
       is <em>exactly</em> what decides whether agents help you or hurt you.
+	  <br/>We are just giving some of the aspects new names.
     </p>
   </div>
   <p style="font-size:0.7em;margin-top:0.6em;color:#555;">
-	<strong>Counts and names on these slides are links</strong> &mdash; follow along, click through later.
+	<strong>Many names on the slides are links</strong> &mdash; follow along, click through later.
   </p>
 </section>
 
@@ -554,24 +555,12 @@ That is a STAMPED review in all but name.
 
   <section>
 	<h3>Standards are the grammar &mdash; <a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a> as the worked example</h3>
-	<a href="https://bids-standard.github.io/" target="_blank"><img data-src="pics/BIDS-minder.svg" style="max-height:360px;"/></a>
+	<a href="https://bids-standard.github.io/" target="_blank"><img data-src="pics/BIDS-minder.svg" style="max-height:620px;"/></a>
 	<div style="margin-top:0.4em;font-size:0.76em;">
 	  11 modalities &middot; <a href="https://bids.neuroimaging.io/extensions/beps.html" target="_blank">25 active BEPs</a> &middot;
-	  a <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank">machine-readable schema</a> &middot;
+	  a <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank"><b>machine-readable schema</b></a> &middot;
 	  a <a href="https://github.com/bids-standard/bids-validator" target="_blank">validator</a> &middot;
-	  <a href="https://bids-apps.neuroimaging.io/" target="_blank">BIDS-Apps</a> with one calling convention
-	</div>
-	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.82em;">
-	  The schema is the part that matters here: the standard is not prose an agent reads,
-	  it is <strong>data an agent queries</strong>. And the validator is the type-checker that
-	  turns a confident wrong answer into a failing build.
-	</div>
-	<div style="margin-top:0.5em; padding:0.7em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.86em;">
-	  <strong>But a layout only tells you <em>what</em> the files are.</strong>
-	  It says nothing about <em>how they came to be</em>, or <em>what it cost</em> to make them.
-	  Standard &rarr; <code>datalad&nbsp;run</code> &rarr; <code>duct</code>:
-	  <strong>what it is &rarr; how it was made &rarr; what it took.</strong>
-	  Three layers, and an agent needs all three.
+	  turnkey <a href="https://bids-apps.neuroimaging.io/" target="_blank">BIDS-Apps</a>
 	</div>
 	<aside class="notes">
 	  SKIP CANDIDATE if running long &mdash; the "agent has to guess"
@@ -584,6 +573,11 @@ That is a STAMPED review in all but name.
 		<em>The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments.</em>
 		Scientific Data 3:160044, 2016.</a>
 	</p>
+  </section>
+
+  <section>
+	  <h3>But a layout only tells you <em>what</em> &nbsp; the files are.</h3>
+	  <p>It says nothing about <em>how they came to be</em>, or <em>what it cost</em> to make them.</p>
   </section>
 
   <section>
@@ -617,19 +611,26 @@ commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
 	</ul>
 	<p style="font-size:0.72em;margin-top:0.3em;">
 	  Example from the <a href="https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html" target="_blank">DataLad Handbook</a>.
-	  Found in the wild in <a href="https://github.com/datalad/datalad-usage-dashboard" target="_blank">~15% of indexed DataLad repositories on GitHub</a>.
+	  Found in the wild
+	  in <a href="https://github.com/datalad/datalad-usage-dashboard"
+	  target="_blank">~15% of indexed DataLad repositories on
+		GitHub</a>.<br>
 	</p>
-	<!-- workshop-xref -->
+	<aside class="notes">
+	  	<!-- workshop-xref -->
 	<p style="font-size:0.68em;margin-top:0.2em;color:#1565c0;">
 	  &rarr; <strong>JB</strong>&rsquo;s analytical flexibility is an opportunity only if you can still say,
 	  a year later, <em>which</em> variant produced this figure. That sentence is the record above.
 	</p>
+
+	</aside>
+	
   </section>
 
   <section data-markdown><textarea data-template>
 ### Provenance does not care who wrote the code
 
-Agent-written or hand-written, the `[DATALAD RUNCMD]` record is the same shape.
+Agent-written or human-crafted, <br>the `[DATALAD RUNCMD]` record is the same shape.
 <!-- .element: style="font-size:1.4em;margin-top:1.2em;" -->
 
 The tests do not know the code was AI-generated either.
@@ -659,7 +660,7 @@ argument; this one is the screenshot that sells it.
   </textarea></section>
 
   <section>
-	<h3>&hellip; and <em>that log is</em> the provenance you need later</h3>
+	<h3>&hellip; and <em>that log is</em> &nbsp; the provenance you need later</h3>
 	<table style="width:100%;font-size:0.72em;margin-top:0.3em;">
 	  <tr style="vertical-align:top;">
 		<td style="width:44%;padding-right:0.8em;vertical-align:top;">
@@ -670,9 +671,11 @@ argument; this one is the screenshot that sells it.
 		  <strong style="display:block;margin-top:0.5em;">&ldquo;What did it print before it died?&rdquo;</strong>
 		  <ul style="margin-top:0.2em;"><li>Captured, versioned, next to the outputs.</li></ul>
 		</td>
-		<td style="width:56%;padding-left:0.8em;border-left:2px solid #666;text-align:center;vertical-align:top;">
-		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#mriqc-processing-on-a-single-subjectsession" target="_blank"><img data-src="pics/duct-mriqc-cerebra.png" style="max-width:100%;max-height:360px;"/></a>
-		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/" target="_blank"><code>con-duct plot</code></a> &mdash; MRIQC on one subject/session</p>
+		<td style="width:56%;padding-left:0.8em;border-left:2px solid
+				   #666;text-align:center;vertical-align:top;">
+		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#fmriprep-on-1-subject-of-ds002785"><img data-src="pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg"/></a>
+		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/"
+		  target="_blank"><code>con-duct plot</code></a> &mdash; Who can guess this monster?</p>
 		</td>
 	  </tr>
 	</table>
@@ -894,17 +897,17 @@ $ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
 	  covers what is checkable and the rest still bites you.
 	</aside>
 
-	<!-- workshop-xref -->
+	<!-- workshop-xref 
 	<p style="font-size:0.68em;margin-top:0.45em;color:#1565c0;">
 	  &rarr; <strong>Brent</strong> set up the <em>Model</em> half this morning.
 	  <strong>Satra</strong> builds out the <em>Harness</em> half right after me, with knowledge
 	  graphs underneath it &mdash; treat this act as the setup for that talk.
-	</p>
+	</p> -->
   </section>
 
   <!-- ============ Two ladders: individual (AI coding) and team (SciOps) ============ -->
   <section>
-	<h3>Where are <em>you</em> on the ladder?</h3>
+	<h3>Where are <em>you</em>&nbsp; on the ladder?</h3>
 	<table style="width:100%;margin-top:0.3em;"><tr style="vertical-align:top;"><td style="width:29%;padding-right:0.7em;vertical-align:top;">
 	  <a href="https://www.youtube.com/watch?v=6W_-YWHKwZ4" target="_blank"><img data-src="pics/borrowed/ai-ladder-skills.png" style="max-width:100%;"/></a>
 	  <p style="font-size:0.62em;margin-top:0.3em;color:#555;">
@@ -1002,11 +1005,12 @@ flowchart TD
 			<a href="https://github.com/chrisfoulon/LAD" target="_blank">LAD</a>
 			(in use in <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank">dandi-cli</a>)
 		  </p>
-		  <!-- workshop-xref -->
+		  <!-- workshop-xref 
 		  <p style="font-size:0.68em;margin-top:0.35em;color:#1565c0;">
 			&rarr; <strong>Johanna</strong>, next: a pattern that does stage&nbsp;5
 			<em>on purpose</em>, so each run leaves the workflow better than it found it.
 		  </p>
+		  -->
 		</td>
 	  </tr>
 	</table>
@@ -1018,7 +1022,7 @@ flowchart TD
   </section>
 
   <section>
-	<h3>That was the <em>individual</em> ladder. Here is the <em>team</em> one.</h3>
+	<h3>That was the <em>individual</em> ladder. Here is the <em>team</em>&nbsp; one.</h3>
 	<a href="https://arxiv.org/abs/2401.00077" target="_blank"><img data-src="pics/borrowed/neuro-sciops-fig.svg" style="max-width:92%;"/></a>
 	<p style="font-size:0.68em;margin-top:0.3em;">
 	  <strong>Figure reproduced from:</strong>
@@ -1030,8 +1034,7 @@ flowchart TD
 	<div style="margin-top:0.35em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
 	  The preprint names <strong>BIDS, NWB, DataLad/git-annex, DANDI and brainlife.io</strong> as its own
 	  Level-3 exemplars &mdash; and reserves <strong>Level 5 (AI + human in the loop)</strong> for the top.
-	  <br/><strong>L5 presupposes L3 underneath it.</strong> You do not get closed-loop discovery
-	  on top of <code>study_final2/</code>.
+	  <!-- <br/><strong>L5 presupposes L3 underneath it.</strong> You do not get closed-loop discovery on top of <code>study_final2/</code>. -->
 	</div>
 	<aside class="notes">
 	  Two ladders, one climb: the AI-coding ladder is personal maturity,
@@ -1077,7 +1080,7 @@ or watch AI recreate the silo problem at machine speed.
 
 | Contribution | Who | What it carries |
 | ------------ | --- | --------------- |
-| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; all [25 BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://heudiconv.repronim.org/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
+| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; [BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://heudiconv.repronim.org/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
 | [`skills/datalad`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad)<br/>[PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227) &mdash; merged | Dylan Pulver,<br/>*with our upstream review* | Clone/`get` semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot; **`datalad run` / `rerun` / `containers-run` as the provenance spine** &middot; publishing to siblings &middot; STAMPED landed in [`references/provenance.md`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md) on our suggestion |
 | [PR #265](https://github.com/K-Dense-AI/scientific-agent-skills/pull/265) &mdash; *open* | Brent McPherson<br/>(McGill) | **Maps all seven STAMPED properties onto concrete DataLad commands**, plus a *read-only evidence probe* per property (`datalad subdatasets -r` for S/M, `git log --grep '[DATALAD RUNCMD]'` for T, `datalad rerun --report` for A, `datalad siblings` for D&hellip;) |
 | [issue #217](https://github.com/K-Dense-AI/scientific-agent-skills/issues/217) &mdash; closed | **ours** (CON) | &ldquo;Should STAMPED be its own skill?&rdquo; &mdash; and the still-open question underneath: **where should domain skills live?** An upstream monorepo, or the project&rsquo;s own repo, with discovery on top? |
@@ -1090,20 +1093,19 @@ now happening to harnesses.*
 <!-- .element: style="font-size:0.72em;margin-top:0.4em;color:#555;" -->
   </textarea></section>
 
-  <section data-markdown><textarea data-template>
+  <section data-markdown data-separator="^\n----\n"><textarea data-template>
 ### And domain-agnostic ones: [con/skills](https://github.com/con/skills/)
 
 <div class="md-table">
 
 | Skill | What it automates |
 | ----- | ----------------- |
-| [introduce-reuse-compliance](https://github.com/con/skills/tree/master/introduce-reuse-compliance) | SPDX / [REUSE](https://reuse.software/) licensing metadata &mdash; including for BIDS datasets |
-| [credit-contributions](https://github.com/con/skills/tree/master/credit-contributions) | [CRediT](https://credit.niso.org/) author-contribution statements from git history |
-| [tinuous-analyzer](https://github.com/con/skills/tree/master/tinuous-analyzer) | CI-failure investigation across archived [con/tinuous](https://github.com/con/tinuous) logs |
-| [bisect-and-patch-git-annex](https://github.com/con/skills/tree/master/bisect-and-patch-git-annex) | Bisect a `git-annex` regression from CI logs and produce a red/green PR |
-| [issue-triage](https://github.com/con/skills/tree/master/issue-triage) &middot; [pr-feedback-review](https://github.com/con/skills/tree/master/pr-feedback-review) | Triage and review work, cross-referenced against the codebase |
-| [introduce-codespell](https://github.com/con/skills/tree/master/introduce-codespell) &middot; [introduce-intuit-auto](https://github.com/con/skills/tree/master/introduce-intuit-auto) | Bootstrap spell-checking / automated releases into any project |
-
+| [introduce-reuse-compliance](https://github.com/con/skills/tree/master/skills/introduce-reuse-compliance) | SPDX / [REUSE](https://reuse.software/) licensing metadata &mdash; including for BIDS datasets |
+| [credit-contributions](https://github.com/con/skills/tree/master/skills/credit-contributions) | [CRediT](https://credit.niso.org/) author-contribution statements from git history |
+| [tinuous-analyzer](https://github.com/con/skills/tree/master/skills/tinuous-analyzer) | CI-failure investigation across archived [con/tinuous](https://github.com/con/tinuous) logs |
+| [bisect-and-patch-git-annex](https://github.com/con/skills/tree/master/skills/bisect-and-patch-git-annex) | Bisect a `git-annex` regression from CI logs and produce a red/green PR |
+| [issue-triage](https://github.com/con/skills/tree/master/skills/issue-triage) &middot; [pr-feedback-review](https://github.com/con/skills/tree/master/skills/pr-feedback-review) | Triage and review work, cross-referenced against the codebase |
+|  [introduce-intuit-auto](https://github.com/con/skills/tree/master/skills/introduce-intuit-auto) &middot; [**introduce-codespell**](https://github.com/con/skills/tree/master/skills/introduce-codespell) | Bootstrap spell-checking / automated releases into any project |
 </div>
 
 <div class="callout-indigo" style="font-size:0.8em;">
@@ -1112,9 +1114,16 @@ Writing it down as a skill is how the <em>n</em>-th time gets cheaper &mdash; fo
 and for whoever clones the repo.
 </div>
 
-Deeper dive on the workflow around these:
+----
+
+### Goal: Distill the best operation practices for Humans and AI
+
+![](pics/borrowed/notebooklm-stamped-glassbox-20261008-p3.png)
+
+
+<!-- Deeper dive on the workflow around these:
 ["A few words of intro into AI assisted coding"](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/)
-(CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.
+(CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.-->
 <!-- .element: style="font-size:0.74em;margin-top:0.4em;" -->
   </textarea></section>
 
@@ -1148,7 +1157,7 @@ Deeper dive on the workflow around these:
 			<li>Automated gates <em>before</em> human eyes; humans review intent and architecture</li>
 		  </ul>
 		  <div style="margin-top:0.4em;padding:0.5em;background-color:#e3f2fd;border-left:4px solid #1976d2;">
-			Only <em>then</em> are large autonomous batches defensible.
+			Only <em>then</em> are large autonomous batches could potentially be trusted.
 		  </div>
 		</td>
 		<td style="width:50%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
@@ -1174,8 +1183,9 @@ Deeper dive on the workflow around these:
 	  <strong>M</strong>odular units: the same STAMPED properties, again.
 	</div>
 	<p style="font-size:0.68em;margin-top:0.4em;font-style:italic;color:#555;">
-	  &ldquo;Well, less is more&rdquo; &mdash; Robert Browning, <em>Andrea del Sarto</em>, 1855;
-	  later the motto of Mies van der Rohe, who credited his mentor Peter Behrens rather than claiming it.
+	  &ldquo;Well, less is more&rdquo; &mdash; Robert Browning, <em>Andrea del Sarto</em>, 1855
+	  <!-- 
+	  later the motto of Mies van der Rohe, who credited his mentor Peter Behrens rather than claiming it. -->
 	</p>
 	<aside class="notes">
 	  This is the slide to slow down on. The claim is not "AI bad" — it
@@ -1198,8 +1208,6 @@ Deeper dive on the workflow around these:
 | [**METR RCT**](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), 2025 | 16 experienced OSS developers, 246 real issues, *on repos they already maintained*: **19% slower** with AI tools &mdash; while estimating they had been **20% faster**. The perception gap is the hazard, not the tooling. *(METR now labels this historical &mdash; tools moved on. The gap is the durable lesson.)* |
 | [**Addy Osmani**](https://addyo.substack.com/p/code-review-in-the-age-of-ai) | &ldquo;Proof over vibes.&rdquo; Verification, not authoring, is the bottleneck; *break agent output into digestible commits*; no PR without tests or a demo; humans stay non-negotiable for security and architecture. |
 | [**Simon Willison**](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)<br/><small>[&#9654; Pragmatic Summit talk](https://www.youtube.com/watch?v=owmJyKVu5f8)<br/>[&#9654; Lenny&rsquo;s Podcast](https://youtu.be/wc8FBhQtdsA)</small> | &ldquo;*Your job is to deliver code you have proven to work.*&rdquo; The skill is instructing *and then confidently verifying*; a model cannot take accountability, you can. And on regime B specifically &mdash; even *with* tests, he reports that &ldquo;*I haven&rsquo;t used it yet*&rdquo; still undermines his confidence in a change. **Trying it by hand is not superstition.** |
-| [**Faros telemetry**](https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025) (~22k devs) | PR size **+51%**, median time in review **+441%**, incidents per PR **+243%**. Big agent diffs do not get reviewed &mdash; they get waved through. |
-
 </div>
 
 <div class="callout">
@@ -1240,10 +1248,10 @@ humans retain full responsibility; AI use is disclosed <em>inside the artifact</
 
 Catalog of declared OSS stances:
 [melissawm/open-source-ai-contribution-policies](https://github.com/melissawm/open-source-ai-contribution-policies).
-&mdash; Note what the row-4 exemplars *are*: **harnesses**.
+<!-- &mdash; Note what the row-4 exemplars *are*: **harnesses**.
 [Brain Researcher](https://brain-researcher.com/) constrains the agent to
 acceptable analyses and required validations rather than trusting it &mdash;
-autonomy is bought with *structure*, not with a bigger model.
+autonomy is bought with *structure*, not with a bigger model. -->
 <!-- .element: style="font-size:0.7em;margin-top:0.25em;font-style:italic;" -->
   </textarea></section>
 
@@ -1258,24 +1266,19 @@ autonomy is bought with *structure*, not with a bigger model.
 2. **Record one command.** Wrap your next analysis step in
    [`datalad run`](https://docs.datalad.org/en/stable/generated/man/datalad-run.html)
    &mdash; or at minimum in [`duct`](https://github.com/con/duct).
-   A provenance record you did not have to remember to write.
+   Encode that in your "AI harness".
 3. **Grade one thing against STAMPED.** [checklist.stamped-principles.org](https://checklist.stamped-principles.org/),
    fifteen minutes, and you will know which property is your weakest.
 4. **Write down your harness.** An [`AGENTS.md`](https://agents.md/) in the repo beats a prompt
    in your notes app. Declare your AI policy there while you are at it.
 5. **Size the work to the loop you actually have.** Until the project self-checks, keep
    AI-assisted items small, reviewable, and tried by your own hand &mdash; and say so out loud,
-   so nobody mistakes regime B for regime A.
-6. **Push one skill upstream.** The next person who needs your procedure should `clone` it,
-   not re-derive it. [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills),
-   [con/skills](https://github.com/con/skills), or your own repo &mdash; but *somewhere public*.
+so nobody mistakes regime B for regime A.
+6. **Try one of our [con/skills](https://github.com/con/skills/)** E.g., good practice/low commitment ones like [**introduce-codespell**](https://github.com/con/skills/tree/master/skills/introduce-codespell).
+7. **Push one skill upstream.** To [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills), [con/skills](https://github.com/con/skills) to benefit from established CI and QA, or your own repo &mdash; but *somewhere public*.
 
 </div>
 
-<div class="callout" style="font-size:0.95em;margin-top:0.9em;">
-Standards and provenance were always the right answer.
-<strong>AI did not change the answer &mdash; it changed the deadline.</strong>
-</div>
   </textarea></section>
 
 </section>
