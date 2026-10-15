@@ -539,24 +539,7 @@ precedence = "closest"
 SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
 SPDX-License-Identifier = "Apache-2.0"
 
-# Exact repository-authored CON mark; no redrawing or new ownership claim.
-[[annotations]]
-path = "2026-usrse/stamped-ai-study/assets/con-logo-outlined.svg"
-precedence = "closest"
-SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
-SPDX-License-Identifier = "CC-BY-SA-4.0"
-
-[[annotations]]
-path = "2026-usrse/stamped-ai-study/assets/con-ccn-dartmouth-letterhead.svg"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "Dartmouth College (institutional artwork)"
-SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
-
-[[annotations]]
-path = "2026-usrse/stamped-ai-study/assets/repronim_logo.svg"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "NOASSERTION"
-SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+# Shared institutional artwork and CON QR retain the existing PR 20 annotations.
 
 # CC-BY-SA covers the poster composition, not its embedded institutional marks.
 [[annotations]]

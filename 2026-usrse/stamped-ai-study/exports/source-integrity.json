@@ -137,5 +137,6 @@
       "bytes": 4891,
       "matches_handoff": true
     }
-  ]
+  ],
+  "scope": "Historical initial handoff record; entries preserve their original paths and hashes. Current shared asset references and storage are verified in asset-reuse.json."
 }
