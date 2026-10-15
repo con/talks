@@ -758,59 +758,81 @@ derivatives/
   </section>
 
   <section>
-	<h3>So I tried to <code>rerun</code> it. Live, on this laptop.</h3>
+	<h3>So I tried to <code>rerun</code> it &mdash; fresh clone, two months later</h3>
 	<table style="width:100%;font-size:0.74em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
 	  <td style="width:53%;padding-right:0.8em;vertical-align:top;">
-<pre style="font-size:0.66em;"><code data-noescape>$ datalad clone .../compression-comparisons-t261-study
-$ datalad get code/compression-comparisons-tools
-  <span style="color:#ef9a9a">✗ fatal: repository not found</span>
+<pre style="font-size:0.62em;"><code data-noescape>$ datalad clone <span style="color:#8bc34a">https://github.com/dandi/\
+    compression-comparisons-t261-study</span>
+$ datalad get -n code/compression-comparisons-tools
+  <span style="color:#8bc34a">✓ submodule URL fixed &mdash; it just works now</span>
 
-$ # .gitmodules says:  url = ../..
-$ #  → resolves to https://github.com/ (not a repo)
-$ # fine on the author's disk; breaks for a cloner
+$ <span style="color:#ef9a9a"># no image to pull: the env is prose in README.md</span>
+$ uv venv envs/compbench
+$ uv pip install --python envs/compbench/bin/python \
+    './code/compression-comparisons-tools[ephys,..]' \
+    wavpack-numcodecs flac-numcodecs
+  <span style="color:#ef9a9a">✗ not all of it built &mdash; enough for this cell</span>
 
-$ git clone .../dandi/compression-comparisons \
-     code/compression-comparisons-tools <span style="color:#8bc34a"># by hand</span>
-$ uv venv envs/compbench &amp;&amp; uv pip install ...
-
-$ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
+$ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cfa</span>
   run(ok): ... [duct --clobber --output-prefix ..]
-  <span style="color:#8bc34a">Wall Clock Time: 0.549 sec   RSS peak: 7.8 MB</span></code></pre>
+  <span style="color:#8bc34a">Wall Clock Time: 2.465 sec   RSS peak: 142 MB</span></code></pre>
+		<p style="font-size:0.8em;margin-top:0.5em;">
+		  &hellip;against <code>0.51&nbsp;s / 9&nbsp;MB</code> originally &mdash; but
+		  <a href="https://github.com/con/duct" target="_blank"><code>duct</code></a> went
+		  <strong>0.21&nbsp;&rarr;&nbsp;0.23</strong> in between: the old record caught
+		  <strong>one</strong> sample, the new one three. A cost trace is only as good as its
+		  sampling rate &mdash; which is why the raw <code>duct-usage.jsonl</code> is committed
+		  next to the summary, and why the <em>record of the record</em> matters too.
+		</p>
 	  </td>
 	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
 		<strong>Did the science come back?</strong>
-		<table style="width:100%;font-size:0.85em;margin-top:0.3em;">
+		<table style="width:100%;font-size:0.82em;margin-top:0.3em;">
 		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
-		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.51429112246829 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.5142911224682944 <strong style="color:#2e7d32;">same</strong></td></tr>
 		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
-		  <tr><td style="padding:0.2em;"><code>rmse</code></td><td style="padding:0.2em;">0.0 <strong style="color:#2e7d32;">same</strong></td></tr>
-		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>round_trip_ok</code></td><td style="padding:0.2em;">true <strong style="color:#2e7d32;">same</strong></td></tr>
-		  <tr><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.609486021761 <strong style="color:#2e7d32;">same</strong></td></tr>
-		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">differ &mdash; <em>as they must</em></td></tr>
-		  <tr><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">kernel 6.12&rarr;7.1,<br/>python 3.13.15&rarr;3.13.5</td></tr>
+		  <tr><td style="padding:0.2em;"><code>rmse</code> &middot; <code>round_trip_ok</code></td><td style="padding:0.2em;">0.0 &middot; true <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.6094860217612 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">~20% slower &mdash; <em>as they must</em></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">same kernel 6.12.57,<br/>python 3.13.15&rarr;<strong>3.13.5</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>duct-info</code></td><td style="padding:0.2em;">host <code>327bc591&hellip;</code>&rarr;<code>typhon</code>:<br/>the original ran in a container<br/>the record never named</td></tr>
 		</table>
-		<p style="font-size:0.92em;margin-top:0.4em;">
-		  Different machine, different kernel, six weeks later &mdash;
-		  <strong>every scientific number came back bit-for-bit.</strong>
-		  Only timings and the environment record moved.
+		<p style="font-size:0.9em;margin-top:0.4em;">
+		  A hand-rebuilt environment, a <strong>different Python</strong>, no container &mdash;
+		  and <strong>every scientific number came back bit-for-bit.</strong>
+		  Only timings moved.
 		</p>
 	  </td>
 	</tr></table>
 
-	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.82em;">
-	  <strong>And the checklist earned its keep:</strong> the one thing that broke was
-	  <strong>D</strong>istributable &mdash; a relative submodule URL that resolved only on
-	  the author&rsquo;s own disk. <strong>S</strong>, <strong>T</strong>, <strong>A</strong> and
-	  <strong>M</strong> all held. You do not find that by reading your own repo;
-	  you find it by <em>being someone else</em>.
+	<div style="margin-top:0.4em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  <strong>Last pass broke on <span style="color:#283593;">D</span>istributable</strong> &mdash; a relative submodule URL
+	  that resolved only on the author&rsquo;s disk. <a href="https://github.com/dandi/compression-comparisons-t261-study/commit/58d0fd38" target="_blank">One-line fix</a>, and this clone just worked.
+	  <strong>This pass broke on <span style="color:#ef6c00;">P</span>ortable</strong>: there is no image, so the environment
+	  had to be rebuilt by hand out of the README &mdash; and not all of it built.
+	  <strong>S</strong>, <strong>T</strong>, <strong>A</strong>, <strong>M</strong>, <strong>D</strong> held.
+	  Each pass finds the next weakest letter &mdash; that is what the checklist is <em>for</em>.
 	</div>
 	<aside class="notes">
 	  Be honest and specific here: I did not reproduce the 17-hour cells.
 	  I picked the 0.5-second synthetic smoke cell, because the record
 	  told me exactly which cells were cheap — that is itself the
-	  argument for duct. And report the bug as a finding, not a gotcha:
-	  it is fixable in one line (../compression-comparisons) and it is
-	  exactly what a STAMPED pass is for.
+	  argument for duct.
+
+	  The submodule bug from the last pass is fixed, so the clone is boring
+	  now — good. The interesting failure this time is the environment: the
+	  record says what ran and what it cost, but not what it ran *in*. The
+	  original was in a container (hostname is a container id, user null)
+	  and nothing in the dataset names the image. So I read the README and
+	  rebuilt the venv with uv, and some of the extras would not build.
+
+	  The payoff line: a different Python patch, a different environment,
+	  and the numbers are still bit-identical — that is what being Tracked
+	  and Actionable buys you. And duct 0.21 to 0.23 is worth one sentence:
+	  the old record caught a single sample and reported 9 MB peak RSS; the
+	  new one sampled three times and saw 142 MB. The resource trace is only
+	  as good as its sampling — which is also why we keep the raw
+	  duct-usage.jsonl next to the summary.
 	</aside>
   </section>
 
