@@ -104,7 +104,8 @@
   footer { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr); gap: 14px; min-height: 0; }
   footer section { padding: 10px 14px; }
   footer .footcol { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
-  footer .ai-note { margin: 0 4px; font-size: 13px; color: var(--muted); }
+  footer .orgcol { justify-content: center; gap: 12px; }
+  footer .ai-note { margin: 0 4px; font-size: 13px; color: var(--muted); text-align: center; }
   footer p, footer li { font-size: 13px; }
   footer ul { margin: 2px 0 0 16px; padding: 0; }
 
@@ -343,12 +344,14 @@ hello.txt</b></pre>
       <li>CPU statistics come from <code>ps</code>, whose %CPU is averaged over each process's lifetime rather than its current use; <code>con-duct plot --cpu ps-cpu-timepoint</code> estimates current use from consecutive samples.</li>
     </ul>
   </section>
-  <p class="ai-note">Built with Anthropic's Claude Code (Claude Opus 5.5) and Claude Design.</p>
   </div>
+  <div class="footcol orgcol">
   <div class="orgs">
     <img src="duct-poster-assets/logos/D-Pine_RGB.svg" alt="Dartmouth">
     <img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience">
     <img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
+  </div>
+  <p class="ai-note">Built with Anthropic's Claude Code (Claude Opus 5.5) and Claude Design.</p>
   </div>
 </footer>
 
