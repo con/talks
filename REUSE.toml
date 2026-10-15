@@ -169,16 +169,6 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
-# The con-duct logo: an Inkscape bitmap trace of the image in the duct blog
-# post, adopted in con/duct#207. Who made that source image is not recorded,
-# so the trace cannot be offered under our terms alone.
-[[annotations]]
-path = "2026-usrse/duct-poster-assets/logos/duct_logo.svg"
-precedence = "aggregate"
-SPDX-FileCopyrightText = "NOASSERTION"
-SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
-
-
 # === 3. Third-party logos and trademarks ===================================
 
 # Funder, institution and collaborating-project marks, reproduced for
