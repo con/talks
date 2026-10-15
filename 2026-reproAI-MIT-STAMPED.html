@@ -335,7 +335,7 @@
 	  <tr>
 		<td style="padding:0.35em;"><strong>A</strong>ctionable</td>
 		<td style="padding:0.35em;">Executable &amp; documented workflows</td>
-		<td style="padding:0.35em;"><strong>The load-bearing one.</strong> A command it can run, not a paragraph it must interpret.</td>
+		<td style="padding:0.35em;">A command it can run, not a paragraph it must <em>read</em>.</td>
 	  </tr>
 	  <tr style="background-color:#fafafa;">
 		<td style="padding:0.35em;"><strong>M</strong>odular</td>
@@ -345,25 +345,27 @@
 	  <tr>
 		<td style="padding:0.35em;"><strong>P</strong>ortable</td>
 		<td style="padding:0.35em;">Runs anywhere with explicit specs</td>
-		<td style="padding:0.35em;">The agent&rsquo;s sandbox is not your laptop. If it only runs on your laptop, it does not run.</td>
+		<td style="padding:0.35em;">If it only runs on your laptop, it is not actionable.</td>
 	  </tr>
 	  <tr style="background-color:#fafafa;">
 		<td style="padding:0.35em;"><strong>E</strong>phemeral</td>
 		<td style="padding:0.35em;">Transient compute environment</td>
-		<td style="padding:0.35em;">Throw-away containers &mdash; exactly how agents already work. No accreted state to corrupt.</td>
+		<td style="padding:0.35em;">Throw-away sandbox environments is
+		exactly how you already should use agents!<br/> No accreted <em>my precious</em> to corrupt.</td>
 	  </tr>
 	  <tr>
 		<td style="padding:0.35em;"><strong>D</strong>istributable</td>
 		<td style="padding:0.35em;">Shareable, persistent, retrievable</td>
-		<td style="padding:0.35em;">It can <code>get</code> the inputs itself instead of asking you for a Dropbox link.</td>
+		<td style="padding:0.35em;">It can <em>transplant</em> it to
+		another location (e.g., HPC), without shipping the entire drive.</td>
 	  </tr>
 	</table>
 	<p style="font-size:0.72em;margin-top:0.6em;">
 	  <a href="https://doi.org/10.31222/osf.io/f3h82_v1" target="_blank">
 		A. Macdonald, C. Baker, I. To, <b>Y. O. Halchenko</b>.
 		<em>STAMPED: principles for reproducible research objects.</em>
-		Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1</a>
-	  &nbsp;&middot;&nbsp;
+		<br/>Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1</a>
+	  &nbsp;&middot;&nbsp;<br/>
 	  sources: <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">stamped-principles/stamped-paper</a>
 	  &nbsp;&middot;&nbsp;
 	  <a href="https://paper.stamped-principles.org" target="_blank">paper.stamped-principles.org</a>
@@ -383,20 +385,24 @@
 	  <ul>
 		<li><strong>What is this?</strong> &rarr; a declared standard (<a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a>, <a href="https://www.nwb.org/" target="_blank">NWB</a>), not a README paragraph</li>
 		<li><strong>How do I run it?</strong> &rarr; a recorded command, not &ldquo;see Methods&rdquo;</li>
-		<li><strong>Did I get it right?</strong> &rarr; a validator exit code, not a reviewer&rsquo;s opinion</li>
+		<li><strong>Did I get it right?</strong> &rarr; a validator exit code, not a reviewer&rsquo;s <em>opinion</em></li>
 	  </ul>
 	</div>
+  </section>
+  
+  <section>
+	  <h3>Standards make Actionability cheap!</h3>
+	  <p>You do not negotiate the layout per project &mdash; you inherit it.</p>
+	  <h3>You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them
+	  all</h3> is a convenience for humans, <br> for an agent - the difference between acting and hallucinating.
+  </section>
 
-	<div style="margin-top:1em; padding:1em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.9em;">
-	  <strong>And standards are what make Actionability cheap.</strong>
-	  You do not negotiate the layout per project &mdash; you inherit it.<br/>
-	  <em>&ldquo;You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all&rdquo;</em> was a convenience for humans.
-	  For a model that would otherwise have to <em>infer</em> the layout, it is the difference between acting and hallucinating.
-	</div>
-
+	<!-- TMI
+	<h3>
+	  All standards are &lsquo;bad&rsquo;, but some are used.
+	</h3>
 	<p style="font-size:0.78em;margin-top:0.7em;font-style:italic;color:#555;">
-	  &ldquo;All standards are &lsquo;bad&rsquo;, but some are used.&rdquo; &mdash; D. Clunie, MICCAI 2017.
-	  A used standard beats a correct one &mdash; and now it has a second constituency.
+	  A standard which is used beats a correct one &mdash; and now it has a second constituency.
 	</p>
 	<aside class="notes">
 	  This is the slide Dave's title was pointing at. Say it plainly:
@@ -404,6 +410,7 @@
 	  non-human collaborator participate without going wild.
 	  Then: but "actionable" did not stay still — next slide.
 	</aside>
+	-->
   </section>
 
   <section>
