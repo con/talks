@@ -44,6 +44,7 @@
   section.intro > h2.slogan { margin: -12px -14px 10px; padding: 12px 14px; background: var(--accent); color: #fff; font-size: 34px; line-height: 1.15; }
   section.intro p { font-size: 17px; line-height: 1.35; margin: 0; }
   :not(pre) > code { white-space: nowrap; }
+  a { color: inherit; text-decoration: none; }
   section.search { padding-left: 6px; padding-right: 6px; }
   section.search > p { font-size: 17px; line-height: 1.35; }
   section.search .q { background: #f5f3ee; border-radius: 6px; padding: 4px 0 0; margin-bottom: 5px; overflow: hidden; }
@@ -128,14 +129,14 @@
 <header class="dc-header"><div class="dc-art">
 <div style="width: 3950px; height: 232px; box-sizing: border-box; padding: 0 56px; display: flex; align-items: center; gap: 56px; background: #174f63; border-radius: 18px; font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #ffffff">
 <div style="flex: none; padding-right: 48px; border-right: 2px solid #5d8ea1; font-size: 30px; line-height: 40px; color: #d8e7ee">Austin Macdonald<br>Cody C. Baker<br>John A. Lee<br>Yaroslav O. Halchenko</div>
-<div style="flex: none; width: 176px; height: 176px; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 22px"><img src="duct-poster-assets/logos/duct_logo.svg" alt="con-duct logo" style="width: 144px; height: auto; display: block"></div>
+<div style="flex: none; width: 176px; height: 176px; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 22px"><a href="https://github.com/con/duct"><img src="duct-poster-assets/logos/duct_logo.svg" alt="con-duct logo" style="width: 144px; height: auto; display: block"></a></div>
 <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 <h1 style="margin: 0; font-size: 92px; line-height: 104px; font-weight: 700; letter-spacing: -1px; color: #ffffff">Agent-friendly Provenance Capture with <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 600; color: #9fd8ea">con-duct</span></h1>
-<p style="margin: 0; font-size: 32px; line-height: 40px; color: #d8e7ee">Center for Open Neuroscience, Psychological and Brain Sciences, Dartmouth College &nbsp;·&nbsp; <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace">RRID:SCR_025436</span></p>
+<p style="margin: 0; font-size: 32px; line-height: 40px; color: #d8e7ee"><a href="https://centerforopenneuroscience.org">Center for Open Neuroscience</a>, <a href="https://pbs.dartmouth.edu">Psychological and Brain Sciences</a>, <a href="https://home.dartmouth.edu">Dartmouth College</a> &nbsp;·&nbsp; <a href="https://scicrunch.org/resolver/RRID:SCR_025436" style="font-family: 'IBM Plex Mono', ui-monospace, monospace">RRID:SCR_025436</a></p>
 </div>
 <div style="flex: none; display: flex; gap: 24px">
-<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><img src="duct-poster-assets/qr/qr-github-con-duct.svg" alt="QR code: https://github.com/con/duct" style="width: 148px; height: 148px; display: block"><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">code</span></div>
-<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><img src="duct-poster-assets/qr/qr-zenodo-abstract.svg" alt="QR code: https://doi.org/10.5281/zenodo.22833931" style="width: 148px; height: 148px; display: block"><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">abstract</span></div>
+<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><a href="https://github.com/con/duct"><img src="duct-poster-assets/qr/qr-github-con-duct.svg" alt="QR code: https://github.com/con/duct" style="width: 148px; height: 148px; display: block"></a><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">code</span></div>
+<div style="width: 192px; height: 196px; box-sizing: border-box; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #ffffff; border-radius: 16px"><a href="https://doi.org/10.5281/zenodo.22833931"><img src="duct-poster-assets/qr/qr-zenodo-abstract.svg" alt="QR code: https://doi.org/10.5281/zenodo.22833931" style="width: 148px; height: 148px; display: block"></a><span style="font-size: 25px; line-height: 26px; font-weight: 600; color: #174f63">abstract</span></div>
 </div>
 </div>
 </div></header>
@@ -257,14 +258,14 @@ logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
   <section class="grow">
     <h2>Plot resource usage</h2>
     <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
-    <img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:360px;display:block;margin:0 auto">
+    <a href="https://github.com/con/duct-gallery#fmriprep-on-1-subject-of-ds002785"><img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:360px;display:block;margin:0 auto"></a>
   </section>
 </div>
 
 <!-- ============ RIGHT ============ -->
 <div class="col">
   <section>
-    <h2>DataLad and provenance <img src="../pics/datalad_logo_wide.svg" alt="DataLad" style="height:30px;vertical-align:middle;float:right"></h2>
+    <h2><a href="https://www.datalad.org">DataLad</a> and provenance <a href="https://www.datalad.org"><img src="../pics/datalad_logo_wide.svg" alt="DataLad" style="height:30px;vertical-align:middle;float:right"></a></h2>
     <p><code>datalad run "duct &lt;cmd&gt;"</code> commits the command, the duct record, and the resulting diff together:</p>
     <pre style="white-space:pre-wrap;font-size:13px">$ datalad run "duct bash -c 'echo hello > hello.txt'"
 $ git show --name-only
@@ -298,16 +299,16 @@ hello.txt</b></pre>
     <h2>Adopted inside tools</h2>
     <p>Tools wrap their own runs so users get records without asking.</p>
     <ul>
-      <li><b>BABS</b> <span class="caption">github.com/PennLINC/babs</span><br>Wraps every BIDS App job on SLURM and copies the record next to each subject's results. <i>Why:</i> per-subject peak memory and wall time to size the next batch; the app's stdout and stderr, with its warnings and other internals, for inspecting any job later.</li>
-      <li><b>ReproNim/containers</b> <span class="caption">github.com/ReproNim/containers</span><br><code>REPRONIM_USE_DUCT=1</code> wraps each Singularity container run, e.g. under <code>datalad containers-run</code>. <i>Why:</i> a resource record for every containerized app run, saved with its results.</li>
-      <li><b>ReproStim</b> <span class="caption">github.com/ReproNim/reprostim</span><br>The video-capture app wraps each <code>ffmpeg</code> recording (on in the default config); the record sits next to the video. <i>Why:</i> resource use for long, unattended capture sessions.</li>
+      <li><a href="https://github.com/PennLINC/babs"><b>BABS</b> <span class="caption">github.com/PennLINC/babs</span></a><br>Wraps every BIDS App job on SLURM and copies the record next to each subject's results. <i>Why:</i> per-subject peak memory and wall time to size the next batch; the app's stdout and stderr, with its warnings and other internals, for inspecting any job later.</li>
+      <li><a href="https://github.com/ReproNim/containers"><b>ReproNim/containers</b> <span class="caption">github.com/ReproNim/containers</span></a><br><code>REPRONIM_USE_DUCT=1</code> wraps each <a href="https://apptainer.org">Singularity</a> container run, e.g. under <code>datalad containers-run</code>. <i>Why:</i> a resource record for every containerized app run, saved with its results.</li>
+      <li><a href="https://github.com/ReproNim/reprostim"><b>ReproStim</b> <span class="caption">github.com/ReproNim/reprostim</span></a><br>The video-capture app wraps each <code>ffmpeg</code> recording (on in the default config); the record sits next to the video. <i>Why:</i> resource use for long, unattended capture sessions.</li>
     </ul>
   </section>
 
   <section class="grow">
     <h2>Comparison to related tools</h2>
     <table class="pos">
-      <tr><th></th><th><code>tee</code></th><th>GNU <code>time</code></th><th class="duct">duct</th><th>workflow managers<br><small>Snakemake, Nextflow</small></th><th>experiment trackers<br><small>MLflow, W&amp;B</small></th></tr>
+      <tr><th></th><th><a href="https://www.gnu.org/software/coreutils/manual/html_node/tee-invocation.html"><code>tee</code></a></th><th><a href="https://www.gnu.org/software/time/">GNU <code>time</code></a></th><th class="duct">duct</th><th>workflow managers<br><small><a href="https://snakemake.github.io">Snakemake</a>, <a href="https://www.nextflow.io">Nextflow</a></small></th><th>experiment trackers<br><small><a href="https://mlflow.org">MLflow</a>, <a href="https://wandb.ai">W&amp;B</a></small></th></tr>
       <tr><td>wrap any command, no code changes</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td><td class="c">✗ </td><td class="c">✗ </td></tr>
       <tr><td>works anywhere</td><td class="c">✓</td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td><td class="c">✓</td><td class="c">✓</td></tr>
       <tr><td>stdout/stderr kept</td><td class="c">✓ </td><td class="c">✗</td><td class="c">✓</td><td class="c">✓ </td><td class="c"><svg class="half" viewBox="0 0 10 10" aria-label="partial"><circle cx="5" cy="5" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 0.8 A4.2 4.2 0 0 0 5 9.2 Z" fill="currentColor"/></svg></td></tr>
@@ -340,16 +341,16 @@ hello.txt</b></pre>
       <li>Linux and macOS only.</li>
       <li>On macOS, <code>ps</code> cannot filter by session, so each sample scans every process on the machine: more overhead than on Linux.</li>
       <li>Output is written to disk; for commands that print secrets, skip it with <code>-c none</code>.</li>
-      <li>Programs that check <code>isatty()</code> take their non-interactive path (README has workarounds).</li>
+      <li>Programs that check <code>isatty()</code> take their non-interactive path (<a href="https://github.com/con/duct#my-command-behaves-differently-under-duct-eg-goaccess-fails-progress-bars-look-off">README has workarounds</a>).</li>
       <li>CPU statistics come from <code>ps</code>, whose %CPU is averaged over each process's lifetime rather than its current use; <code>con-duct plot --cpu ps-cpu-timepoint</code> estimates current use from consecutive samples.</li>
     </ul>
   </section>
   </div>
   <div class="footcol orgcol">
   <div class="orgs">
-    <img src="duct-poster-assets/logos/D-Pine_RGB.svg" alt="Dartmouth">
-    <img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience">
-    <img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim">
+    <a href="https://home.dartmouth.edu"><img src="duct-poster-assets/logos/D-Pine_RGB.svg" alt="Dartmouth"></a>
+    <a href="https://centerforopenneuroscience.org"><img class="wide" src="duct-poster-assets/logos/con_logo_blue_big_tight.svg" alt="Center for Open Neuroscience"></a>
+    <a href="https://www.repronim.org"><img src="../pics/borrowed/repronim_logo.svg" alt="ReproNim"></a>
   </div>
   <div>
     <p class="funding">Supported by NIH NIBIB P41 EB019936 (ReproNim).</p>
