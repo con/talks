@@ -178,10 +178,10 @@
      ================================================================= -->
 <section data-transition="slide">
 
-  <section data-background="black">
-	<h2 style="color:white;">It&rsquo;s 2026. Agents write the code.</h2>
-	<aside class="notes">Short beat. Do not argue with it. Move on.</aside>
-  </section>
+  <section data-background="black" data-markdown><textarea data-template>
+## <span style="color:white;">It&rsquo;s 2026. Agents write the code.</span>
+<aside class="notes">Short beat. Do not argue with it. Move on.</aside>
+  </textarea></section>
 
   <section>
 	<h3>So the bottleneck moved</h3>
@@ -305,97 +305,69 @@
      ================================================================= -->
 <section data-transition="slide">
 
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:96%;max-width:1300px;"/></a>
-	<h3 class="fragment" style="margin-top:0.6em;">Seven properties a research object should have &mdash;<br/>whoever, <em>or whatever</em>, picks it up next.</h3>
-	<aside class="notes">
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)" data-markdown><textarea data-template>
+<a href="https://stamped-principles.org/"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:96%;max-width:1300px;"/></a>
+
+### Seven properties a research object should have &mdash;<br/>whoever, *or whatever*, picks it up next.
+<!-- .element: class="fragment" style="margin-top:0.6em;" -->
+<aside class="notes">
 	  Let the banner sit for a beat before advancing the fragment.
 	  Banner art is the STAMPED project's own (stamped-principles.org).
 	</aside>
-  </section>
+  </textarea></section>
 
-  <section>
-	<h3>STAMPED in one table</h3>
-	<table style="font-size:0.8em;width:97%;margin:auto;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.35em;width:17%;">Property</th>
-		<th style="text-align:left;padding:0.35em;width:30%;">In one line</th>
-		<th style="text-align:left;padding:0.35em;">What it buys an <em>agent</em></th>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>S</strong>elf-contained</td>
-		<td style="padding:0.35em;">Everything under one boundary</td>
-		<td style="padding:0.35em;">A bounded context window. Nothing it needs is &ldquo;on Bob&rsquo;s laptop&rdquo;.</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>T</strong>racked</td>
-		<td style="padding:0.35em;">Version control &amp; provenance</td>
-		<td style="padding:0.35em;">A diff to review, and a record of <em>who/what</em> produced each change &mdash; including the agent.</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>A</strong>ctionable</td>
-		<td style="padding:0.35em;">Executable &amp; documented workflows</td>
-		<td style="padding:0.35em;">A command it can run, not a paragraph it must <em>read</em>.</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>M</strong>odular</td>
-		<td style="padding:0.35em;">Independent &amp; composable modules</td>
-		<td style="padding:0.35em;">A unit small enough to reason about, swap, and verify in isolation.</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>P</strong>ortable</td>
-		<td style="padding:0.35em;">Runs anywhere with explicit specs</td>
-		<td style="padding:0.35em;">If it only runs on your laptop, it is not actionable.</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>E</strong>phemeral</td>
-		<td style="padding:0.35em;">Transient compute environment</td>
-		<td style="padding:0.35em;">Throw-away sandbox environments is
-		exactly how you already should use agents!<br/> No accreted <em>my precious</em> to corrupt.</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>D</strong>istributable</td>
-		<td style="padding:0.35em;">Shareable, persistent, retrievable</td>
-		<td style="padding:0.35em;">It can <em>transplant</em> it to
-		another location (e.g., HPC), without shipping the entire drive.</td>
-	  </tr>
-	</table>
-	<p style="font-size:0.72em;margin-top:0.6em;">
-	  <a href="https://doi.org/10.31222/osf.io/f3h82_v1" target="_blank">
-		A. Macdonald, C. Baker, I. To, <b>Y. O. Halchenko</b>.
-		<em>STAMPED: principles for reproducible research objects.</em>
-		<br/>Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1</a>
-	  &nbsp;&middot;&nbsp;<br/>
-	  sources: <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">stamped-principles/stamped-paper</a>
-	  &nbsp;&middot;&nbsp;
-	  <a href="https://paper.stamped-principles.org" target="_blank">paper.stamped-principles.org</a>
-	</p>
-	<aside class="notes">
-	  Do not read the table. Say: seven properties, each a spectrum not
-	  a pass/fail gate, each with MUST/SHOULD/MAY requirements under it.
-	  Then jump straight to the third column as the reason this audience
-	  should care.
-	</aside>
-  </section>
+  <section data-markdown><textarea data-template>
+### STAMPED in one table
 
-  <section>
-	<h3><strong>A</strong>ctionability is the one that agents live or die on</h3>
-	<div style="font-size:0.9em;margin-top:0.8em;">
-	  <p>An actionable object answers, <em>without a human in the loop</em>:</p>
-	  <ul>
-		<li><strong>What is this?</strong> &rarr; a declared standard (<a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a>, <a href="https://www.nwb.org/" target="_blank">NWB</a>), not a README paragraph</li>
-		<li><strong>How do I run it?</strong> &rarr; a recorded command, not &ldquo;see Methods&rdquo;</li>
-		<li><strong>Did I get it right?</strong> &rarr; a validator exit code, not a reviewer&rsquo;s <em>opinion</em></li>
-	  </ul>
-	</div>
-  </section>
+<div class="md-table" style="font-size:0.8em;">
+
+| Property | In one line | What it buys an *agent* |
+| -------- | ----------- | ----------------------- |
+| **S**elf-contained | Everything under one boundary | A bounded context window. Nothing it needs is &ldquo;on Bob&rsquo;s laptop&rdquo;. |
+| **T**racked | Version control &amp; provenance | A diff to review, and a record of *who/what* produced each change &mdash; including the agent. |
+| **A**ctionable | Executable &amp; documented workflows | A command it can run, not a paragraph it must *read*. |
+| **M**odular | Independent &amp; composable modules | A unit small enough to reason about, swap, and verify in isolation. |
+| **P**ortable | Runs anywhere with explicit specs | If it only runs on your laptop, it is not actionable. |
+| **E**phemeral | Transient compute environment | Throw-away sandbox environments is exactly how you already should use agents!<br/> No accreted *my precious* to corrupt. |
+| **D**istributable | Shareable, persistent, retrievable | It can *transplant* it to another location (e.g., HPC), without shipping the entire drive. |
+
+</div>
+
+[A. Macdonald, C. Baker, I. To, **Y. O. Halchenko**.
+*STAMPED: principles for reproducible research objects.*
+Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1](https://doi.org/10.31222/osf.io/f3h82_v1)<br/>
+sources: [stamped-principles/stamped-paper](https://github.com/stamped-principles/stamped-paper)
+&middot; [paper.stamped-principles.org](https://paper.stamped-principles.org)
+<!-- .element: style="font-size:0.72em;margin-top:0.6em;" -->
+
+<aside class="notes">
+Do not read the table. Say: seven properties, each a spectrum not
+a pass/fail gate, each with MUST/SHOULD/MAY requirements under it.
+Then jump straight to the third column as the reason this audience
+should care.
+</aside>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+### **A**ctionability is the one that agents live or die on
+
+An actionable object answers, *without a human in the loop*:
+
+- **What is this?** &rarr; a declared standard ([BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/)), not a README paragraph
+- **How do I run it?** &rarr; a recorded command, not &ldquo;see Methods&rdquo;
+- **Did I get it right?** &rarr; a validator exit code, not a reviewer&rsquo;s *opinion*
+  </textarea></section>
   
-  <section>
-	  <h3>Standards make Actionability cheap!</h3>
-	  <p>You do not negotiate the layout per project &mdash; you inherit it.</p>
-	  <h3>You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them
-	  all</h3> is a convenience for humans, <br> for an agent - the difference between acting and hallucinating.
-  </section>
+  <section data-markdown><textarea data-template>
+### Standards make Actionability cheap!
+
+You do not negotiate the layout per project &mdash; you inherit it.
+
+> &ldquo;You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all&rdquo;
+
+&hellip; is a convenience for humans. For an agent it is the difference
+between **acting** and **hallucinating**.
+  </textarea></section>
 
 	<!-- TMI
 	<h3>
@@ -484,63 +456,57 @@
 	</aside>
   </section>
 
-  <section>
-	<h3>So grade <em>them</em> too: a skill is a research object</h3>
-	<p style="font-size:0.85em;margin-top:-0.2em;">
-	  A skill that only runs in your repo, on your paths, undocumented and unversioned,
-	  is a <strong>silo with a friendlier interface</strong>.
-	</p>
-	<table style="width:99%;margin:auto;font-size:0.72em;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.3em;width:16%;">Property</th>
-		<th style="text-align:left;padding:0.3em;">&hellip; applied to a skill or an automation</th>
-	  </tr>
-	  <tr><td style="padding:0.3em;"><strong>S</strong>elf-contained</td>
-		  <td style="padding:0.3em;">Carries its own references and scripts. Not &ldquo;see our internal wiki&rdquo;.</td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>T</strong>racked</td>
-		  <td style="padding:0.3em;">In git, with a <code>metadata.version</code> and a history &mdash; so a change to the procedure is reviewable.</td></tr>
-	  <tr><td style="padding:0.3em;"><strong>A</strong>ctionable</td>
-		  <td style="padding:0.3em;">Runnable commands and scripts, not only prose. <em>Recursive, and the point.</em></td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>M</strong>odular</td>
-		  <td style="padding:0.3em;">One skill, one job. Composable with the others instead of a mega-prompt.</td></tr>
-	  <tr><td style="padding:0.3em;"><strong>P</strong>ortable</td>
-		  <td style="padding:0.3em;">No hardcoded paths, no &ldquo;works on our cluster&rdquo;. Declares its dependencies and versions.</td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>E</strong>phemeral</td>
-		  <td style="padding:0.3em;">Runs in a fresh sandbox. No accreted state it silently depends on.</td></tr>
-	  <tr><td style="padding:0.3em;"><strong>D</strong>istributable</td>
-		  <td style="padding:0.3em;">Published where someone else can find and install it &mdash; not pasted into chat.</td></tr>
-	</table>
+  <section data-markdown><textarea data-template>
+### So grade *them* too: a skill is a research object
 
-	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
-	  <strong>Good automation and good skills pass the STAMPED checklist.</strong>
-	  That is not a purity test &mdash; it is precisely what makes them reusable
-	  <em>beyond the person who wrote them</em>.
-	</div>
+A skill that only runs in your repo, on your paths, undocumented and unversioned,
+is a **silo with a friendlier interface**.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
 
-	<p style="font-size:0.72em;margin-top:0.5em;">
-	  Walk it yourself: <a href="https://checklist.stamped-principles.org/" target="_blank">checklist.stamped-principles.org</a>
-	  (MUST / SHOULD / MAY, item by item) &middot;
-	  <a href="https://examples.stamped-principles.org/" target="_blank">examples</a> &middot;
-	  <a href="https://stamped-principles.org/" target="_blank">principles</a> &middot;
-	  <a href="https://github.com/stamped-principles/stamped-paper" target="_blank">paper source</a>
-	  (<a href="https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex" target="_blank"><code>main.tex</code></a>
-	  &mdash; small enough to paste into a context window, which is how we actually grade a study today).
-	</p>
-	<!-- workshop-xref -->
-	<p style="font-size:0.68em;margin-top:0.3em;color:#1565c0;">
-	  &rarr; <strong>Johanna</strong> is up next with a concrete pattern for exactly this.
-	  My ask is that whatever such a workflow writes down about itself be gradeable by this table.
-	</p>
-	<aside class="notes">
-	  This is the recursive turn and it is worth saying out loud: the
-	  principles we wrote for datasets and analyses apply, unchanged, to
-	  the skills and automations we are now writing. A skill is just
-	  another research object. And the upstream skills repo already
-	  enforces a version of this — frontmatter validation, structure
-	  checks, test suites for skills that ship scripts, link checking.
-	  That is a STAMPED review in all but name.
-	</aside>
-  </section>
+<div class="md-table" style="font-size:0.68em;">
+
+| Property | &hellip; applied to a skill or an automation |
+| -------- | -------------------------------------------- |
+| **S**elf-contained | Carries its own references and scripts. Not &ldquo;see our internal wiki&rdquo;. |
+| **T**racked | In git, with a `metadata.version` and a history &mdash; so a change to the procedure is reviewable. |
+| **A**ctionable | Runnable commands and scripts, not only prose. *Recursive, and the point.* |
+| **M**odular | One skill, one job. Composable with the others instead of a mega-prompt. |
+| **P**ortable | No hardcoded paths, no &ldquo;works on our cluster&rdquo;. Declares its dependencies and versions. |
+| **E**phemeral | Runs in a fresh sandbox. No accreted state it silently depends on. |
+| **D**istributable | Published where someone else can find and install it &mdash; not pasted into chat. |
+
+</div>
+
+<div class="callout">
+<strong>Good automation and good skills pass the STAMPED checklist.</strong>
+That is not a purity test &mdash; it is precisely what makes them reusable
+<em>beyond the person who wrote them</em>.
+</div>
+
+Walk it yourself: [checklist.stamped-principles.org](https://checklist.stamped-principles.org/)
+(MUST / SHOULD / MAY, item by item) &middot;
+[examples](https://examples.stamped-principles.org/) &middot;
+[principles](https://stamped-principles.org/) &middot;
+[paper source](https://github.com/stamped-principles/stamped-paper)
+([`main.tex`](https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex)
+&mdash; small enough to paste into a context window, which is how we actually grade a study today).
+<!-- .element: style="font-size:0.72em;margin-top:0.5em;" -->
+
+<!-- workshop-xref -->
+&rarr; **Johanna** is up next with a concrete pattern for exactly this.
+My ask is that whatever such a workflow writes down about itself be gradeable by this table.
+<!-- .element: style="font-size:0.68em;margin-top:0.3em;color:#1565c0;" -->
+
+<aside class="notes">
+This is the recursive turn and it is worth saying out loud: the
+principles we wrote for datasets and analyses apply, unchanged, to
+the skills and automations we are now writing. A skill is just
+another research object. And the upstream skills repo already
+enforces a version of this -- frontmatter validation, structure
+checks, test suites for skills that ship scripts, link checking.
+That is a STAMPED review in all but name.
+</aside>
+  </textarea></section>
 
 </section>
 
@@ -550,10 +516,12 @@
      ================================================================= -->
 <section data-transition="slide">
 
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2>What we built to make this real</h2>
-	<h3 class="fragment">Twenty years of it, in neuroimaging, before anyone said &ldquo;agent&rdquo;.</h3>
-  </section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)" data-markdown><textarea data-template>
+## What we built to make this real
+
+### Twenty years of it, in neuroimaging, before anyone said &ldquo;agent&rdquo;.
+<!-- .element: class="fragment" -->
+  </textarea></section>
 
   <!-- The whole of Act III in one picture, before we walk its pieces. -->
   <section>
@@ -650,34 +618,37 @@ commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
 	</p>
   </section>
 
-  <section>
-	<h3>Provenance does not care who wrote the code</h3>
-	<p style="font-size:1.4em;margin-top:1.2em;">
-	  Agent-written or hand-written, the <code>[DATALAD RUNCMD]</code> record is the same shape.
-	</p>
-	<p style="font-size:1.2em;margin-top:1em;">
-	  The tests do not know the code was AI-generated either.
-	</p>
-	<div style="margin-top:1.2em; padding:0.9em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.95em;">
-	  This is why <strong>Tracking</strong> is the principle that makes AI disclosure
-	  <em>mechanical</em> instead of aspirational &mdash; and we will come back to that at the end.
-	</div>
-	<aside class="notes">Hold here. This is take-home line #1.</aside>
-  </section>
+  <section data-markdown><textarea data-template>
+### Provenance does not care who wrote the code
 
-  <section>
-	<h3>The missing piece: <a href="https://github.com/con/duct" target="_blank">con/duct</a></h3>
-	<a href="https://github.com/con/duct" target="_blank"><img data-src="pics/webshot-con-duct.png" style="max-height:560px;"/></a>
-	<div style="margin-top:0.5em;font-size:0.88em;">
-	  Wrap <em>any</em> command. It records, next to the outputs:
-	  wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
-	  <code>stdout</code>/<code>stderr</code> &mdash; as plain, self-contained files.
-	</div>
-	<aside class="notes">
-	  SKIP CANDIDATE if running long &mdash; the next slide carries the
-	  argument; this one is the screenshot that sells it.
-	</aside>
-  </section>
+Agent-written or hand-written, the `[DATALAD RUNCMD]` record is the same shape.
+<!-- .element: style="font-size:1.4em;margin-top:1.2em;" -->
+
+The tests do not know the code was AI-generated either.
+<!-- .element: style="font-size:1.2em;margin-top:1em;" -->
+
+<div class="callout-indigo" style="font-size:0.95em;margin-top:1.2em;">
+This is why <strong>Tracking</strong> is the principle that makes AI disclosure
+<em>mechanical</em> instead of aspirational &mdash; and we will come back to that at the end.
+</div>
+<aside class="notes">Hold here. This is take-home line #1.</aside>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+### The missing piece: [con/duct](https://github.com/con/duct)
+
+<a href="https://github.com/con/duct"><img data-src="pics/webshot-con-duct.png" style="max-height:560px;"/></a>
+
+Wrap *any* command. It records, next to the outputs:
+wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
+`stdout`/`stderr` &mdash; as plain, self-contained files.
+<!-- .element: style="font-size:0.88em;margin-top:0.5em;" -->
+
+<aside class="notes">
+SKIP CANDIDATE if running long &mdash; the next slide carries the
+argument; this one is the screenshot that sells it.
+</aside>
+  </textarea></section>
 
   <section>
 	<h3>&hellip; and <em>that log is</em> the provenance you need later</h3>
@@ -840,10 +811,12 @@ $ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
      ================================================================= -->
 <section data-transition="slide">
 
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2>So what do we build <em>next</em>?</h2>
-	<h3 class="fragment">Not more code. <strong>Harnesses and skills.</strong></h3>
-  </section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)" data-markdown><textarea data-template>
+## So what do we build *next*?
+
+### Not more code. **Harnesses and skills.**
+<!-- .element: class="fragment" -->
+  </textarea></section>
 
   <section>
 	<h3>Agent = Model + <span style="color:#d84315;">Harness</span></h3>
@@ -1060,115 +1033,82 @@ flowchart TD
 	</aside>
   </section>
 
-  <section>
-	<h3>Right now, everyone is rebuilding the same private harness</h3>
-	<p style="font-size:1.15em;margin-top:1em;">
-	  A hundred labs, each writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
-	  None of them shared. None of them versioned. None of them tested.
-	</p>
-	<p style="font-size:1.15em;margin-top:1em;">
-	  We have seen this failure mode before. It was called<br/>
-	  <em>&ldquo;every lab has its own analysis scripts&rdquo;</em>, and we fixed it with standards and packages.
-	</p>
-	<div style="margin-top:1.2em; padding:0.9em; background-color:#fffacd; border-left:4px solid #f90; font-size:1.0em;">
-	  <strong>Skills are the new reusable module.</strong>
-	  Apply <strong>M</strong>odularity and <strong>D</strong>istributability to the harness,
-	  or watch AI recreate the silo problem at machine speed.
-	</div>
-	<aside class="notes">
+  <section data-markdown><textarea data-template>
+### Right now, everyone is rebuilding the same private harness
+
+A hundred labs, each writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
+None of them shared. None of them versioned. None of them tested.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+We have seen this failure mode before. It was called<br/>
+*&ldquo;every lab has its own analysis scripts&rdquo;*, and we fixed it with standards and packages.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+<div class="callout" style="font-size:1.0em;margin-top:1.2em;">
+<strong>Skills are the new reusable module.</strong>
+Apply <strong>M</strong>odularity and <strong>D</strong>istributability to the harness,
+or watch AI recreate the silo problem at machine speed.
+</div>
+<aside class="notes">
 	  This is the "ask" of the talk, stated before the evidence.
 	  Then show that we are already doing it, upstream, in public.
 	  SKIP CANDIDATE if running long &mdash; it can be delivered verbally
 	  as the lead-in to the contributions table.
 	</aside>
-  </section>
+  </textarea></section>
 
-  <section>
-	<h3>We are already doing this &mdash; upstream, in public</h3>
-	<p style="font-size:0.85em;margin-top:-0.2em;">
-	  <a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank">K-Dense-AI/scientific-agent-skills</a>
-	  &mdash; <a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills" target="_blank">177 scientific skills</a>,
-	  <a href="https://code.claude.com/docs/en/skills" target="_blank">Agent Skills</a> spec, MIT-licensed, scanned and reviewed.
-	</p>
-	<table style="width:99%;margin:auto;font-size:0.68em;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.3em;width:20%;">Contribution</th>
-		<th style="text-align:left;padding:0.35em;width:17%;">Who</th>
-		<th style="text-align:left;padding:0.35em;">What it carries</th>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids" target="_blank"><code>skills/bids</code></a><br/>
-		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/125" target="_blank">PR #125</a> &mdash; merged</td>
-		<td style="padding:0.35em;"><strong>ours</strong> (CON)</td>
-		<td style="padding:0.35em;">Entity grammar &amp; 35 entities &middot; the
-		  <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank">machine-readable schema</a> shipped as a reference &middot;
-		  all <a href="https://bids.neuroimaging.io/extensions/beps.html" target="_blank">25 BEPs</a> &middot;
-		  <a href="https://heudiconv.repronim.org/" target="_blank">HeuDiConv</a>/<a href="https://reproin.repronim.org/" target="_blank">ReproIn</a>/dcm2bids/BIDScoin conversion paths &middot;
-		  validation &middot; derivatives &amp; BIDS-Apps</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad" target="_blank"><code>skills/datalad</code></a><br/>
-		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/227" target="_blank">PR #227</a> &mdash; merged</td>
-		<td style="padding:0.35em;">Dylan Pulver,<br/><em>with our upstream review</em></td>
-		<td style="padding:0.35em;">Clone/<code>get</code> semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot;
-		  <strong><code>datalad run</code> / <code>rerun</code> / <code>containers-run</code> as the provenance spine</strong> &middot;
-		  publishing to siblings &middot; STAMPED landed in
-		  <a href="https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md" target="_blank"><code>references/provenance.md</code></a> on our suggestion</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/pull/265" target="_blank">PR #265</a> &mdash; <em>open</em></td>
-		<td style="padding:0.35em;">Brent McPherson<br/>(McGill)</td>
-		<td style="padding:0.35em;"><strong>Maps all seven STAMPED properties onto concrete DataLad commands</strong>,
-		  plus a <em>read-only evidence probe</em> per property
-		  (<code>datalad subdatasets -r</code> for S/M, <code>git log --grep '[DATALAD RUNCMD]'</code> for T,
-		  <code>datalad rerun --report</code> for A, <code>datalad siblings</code> for D&hellip;)</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><a href="https://github.com/K-Dense-AI/scientific-agent-skills/issues/217" target="_blank">issue #217</a> &mdash; closed</td>
-		<td style="padding:0.35em;"><strong>ours</strong> (CON)</td>
-		<td style="padding:0.35em;">&ldquo;Should STAMPED be its own skill?&rdquo; &mdash; and the still-open question underneath:
-		  <strong>where should domain skills live?</strong> An upstream monorepo, or the project&rsquo;s own repo, with discovery on top?</td>
-	  </tr>
-	</table>
-	<p style="font-size:0.72em;margin-top:0.4em;font-style:italic;color:#555;">
-	  Note the shape: a community member wrote the DataLad skill, we reviewed it, and a third party
-	  then extended it with STAMPED. That is <em>exactly</em> how a standard spreads &mdash; and it is
-	  now happening to harnesses.
-	</p>
-  </section>
+  <section data-markdown><textarea data-template>
+### We are already doing this &mdash; upstream, in public
 
-  <section>
-	<h3>And domain-agnostic ones: <a href="https://github.com/con/skills/" target="_blank">con/skills</a></h3>
-	<table style="width:94%;margin:auto;font-size:0.74em;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.35em;width:38%;">Skill</th>
-		<th style="text-align:left;padding:0.35em;">What it automates</th>
-	  </tr>
-	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/introduce-reuse-compliance" target="_blank">introduce-reuse-compliance</a></td>
-		  <td style="padding:0.35em;">SPDX / <a href="https://reuse.software/" target="_blank">REUSE</a> licensing metadata &mdash; including for BIDS datasets</td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/credit-contributions" target="_blank">credit-contributions</a></td>
-		  <td style="padding:0.35em;"><a href="https://credit.niso.org/" target="_blank">CRediT</a> author-contribution statements from git history</td></tr>
-	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/tinuous-analyzer" target="_blank">tinuous-analyzer</a></td>
-		  <td style="padding:0.35em;">CI-failure investigation across archived <a href="https://github.com/con/tinuous" target="_blank">con/tinuous</a> logs</td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/bisect-and-patch-git-annex" target="_blank">bisect-and-patch-git-annex</a></td>
-		  <td style="padding:0.35em;">Bisect a <code>git-annex</code> regression from CI logs and produce a red/green PR</td></tr>
-	  <tr><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/issue-triage" target="_blank">issue-triage</a> &middot; <a href="https://github.com/con/skills/tree/master/pr-feedback-review" target="_blank">pr-feedback-review</a></td>
-		  <td style="padding:0.35em;">Triage and review work, cross-referenced against the codebase</td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.35em;"><a href="https://github.com/con/skills/tree/master/introduce-codespell" target="_blank">introduce-codespell</a> &middot; <a href="https://github.com/con/skills/tree/master/introduce-intuit-auto" target="_blank">introduce-intuit-auto</a></td>
-		  <td style="padding:0.35em;">Bootstrap spell-checking / automated releases into any project</td></tr>
-	</table>
+[K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
+&mdash; [177 scientific skills](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills),
+[Agent Skills](https://code.claude.com/docs/en/skills) spec, MIT-licensed, scanned and reviewed.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
 
-	<div style="margin-top:0.7em; padding:0.7em; background-color:#e8eaf6; border-left:4px solid #3f51b5; font-size:0.8em;">
-	  Each of these started as a thing we did by hand three times and got tired of.
-	  Writing it down as a skill is how the <em>n</em>-th time gets cheaper &mdash; for us,
-	  and for whoever clones the repo.
-	</div>
-	<p style="font-size:0.74em;margin-top:0.4em;">
-	  Deeper dive on the workflow around these:
-	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/" target="_blank">&ldquo;A few words of intro into AI assisted coding&rdquo;</a>
-	  (CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.
-	</p>
-  </section>
+<div class="md-table" style="font-size:0.68em;">
+
+| Contribution | Who | What it carries |
+| ------------ | --- | --------------- |
+| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; all [25 BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://heudiconv.repronim.org/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
+| [`skills/datalad`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad)<br/>[PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227) &mdash; merged | Dylan Pulver,<br/>*with our upstream review* | Clone/`get` semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot; **`datalad run` / `rerun` / `containers-run` as the provenance spine** &middot; publishing to siblings &middot; STAMPED landed in [`references/provenance.md`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md) on our suggestion |
+| [PR #265](https://github.com/K-Dense-AI/scientific-agent-skills/pull/265) &mdash; *open* | Brent McPherson<br/>(McGill) | **Maps all seven STAMPED properties onto concrete DataLad commands**, plus a *read-only evidence probe* per property (`datalad subdatasets -r` for S/M, `git log --grep '[DATALAD RUNCMD]'` for T, `datalad rerun --report` for A, `datalad siblings` for D&hellip;) |
+| [issue #217](https://github.com/K-Dense-AI/scientific-agent-skills/issues/217) &mdash; closed | **ours** (CON) | &ldquo;Should STAMPED be its own skill?&rdquo; &mdash; and the still-open question underneath: **where should domain skills live?** An upstream monorepo, or the project&rsquo;s own repo, with discovery on top? |
+
+</div>
+
+*Note the shape: a community member wrote the DataLad skill, we reviewed it, and a third party
+then extended it with STAMPED. That is exactly how a standard spreads &mdash; and it is
+now happening to harnesses.*
+<!-- .element: style="font-size:0.72em;margin-top:0.4em;color:#555;" -->
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+### And domain-agnostic ones: [con/skills](https://github.com/con/skills/)
+
+<div class="md-table">
+
+| Skill | What it automates |
+| ----- | ----------------- |
+| [introduce-reuse-compliance](https://github.com/con/skills/tree/master/introduce-reuse-compliance) | SPDX / [REUSE](https://reuse.software/) licensing metadata &mdash; including for BIDS datasets |
+| [credit-contributions](https://github.com/con/skills/tree/master/credit-contributions) | [CRediT](https://credit.niso.org/) author-contribution statements from git history |
+| [tinuous-analyzer](https://github.com/con/skills/tree/master/tinuous-analyzer) | CI-failure investigation across archived [con/tinuous](https://github.com/con/tinuous) logs |
+| [bisect-and-patch-git-annex](https://github.com/con/skills/tree/master/bisect-and-patch-git-annex) | Bisect a `git-annex` regression from CI logs and produce a red/green PR |
+| [issue-triage](https://github.com/con/skills/tree/master/issue-triage) &middot; [pr-feedback-review](https://github.com/con/skills/tree/master/pr-feedback-review) | Triage and review work, cross-referenced against the codebase |
+| [introduce-codespell](https://github.com/con/skills/tree/master/introduce-codespell) &middot; [introduce-intuit-auto](https://github.com/con/skills/tree/master/introduce-intuit-auto) | Bootstrap spell-checking / automated releases into any project |
+
+</div>
+
+<div class="callout-indigo" style="font-size:0.8em;">
+Each of these started as a thing we did by hand three times and got tired of.
+Writing it down as a skill is how the <em>n</em>-th time gets cheaper &mdash; for us,
+and for whoever clones the repo.
+</div>
+
+Deeper dive on the workflow around these:
+["A few words of intro into AI assisted coding"](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/)
+(CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.
+<!-- .element: style="font-size:0.74em;margin-top:0.4em;" -->
+  </textarea></section>
 
 </section>
 
@@ -1239,154 +1179,96 @@ flowchart TD
 	</aside>
   </section>
 
-  <section>
-	<h3>We are not the only ones saying this</h3>
-	<table style="width:99%;margin:auto;font-size:0.70em;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.3em;width:23%;">Source</th>
-		<th style="text-align:left;padding:0.3em;">What it found / argues</th>
-	  </tr>
-	  <tr>
-		<td style="padding:0.3em;"><a href="https://dora.dev/insights/balancing-ai-tensions/" target="_blank"><strong>DORA 2025</strong></a>
-		  (Google Cloud)</td>
-		<td style="padding:0.3em;">Higher AI adoption raises throughput <em>and</em> <strong>delivery instability</strong>.
-		  Their prescription is literally regime A+B:
-		  &ldquo;<em>working in small batches is a critical countermeasure to the risks of AI-assisted
-		  development</em>&rdquo;, plus test automation and fast feedback &mdash; because
-		  &ldquo;<em>verification is a fundamentally different cognitive task than creation</em>&rdquo;.</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.3em;"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank"><strong>METR RCT</strong></a>, 2025</td>
-		<td style="padding:0.3em;">16 experienced OSS developers, 246 real issues, <em>on repos they already maintained</em>:
-		  <strong>19% slower</strong> with AI tools &mdash; while estimating they had been <strong>20% faster</strong>.
-		  The perception gap is the hazard, not the tooling.
-		  <em>(METR now labels this historical &mdash; tools moved on. The gap is the durable lesson.)</em></td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.3em;"><a href="https://addyo.substack.com/p/code-review-in-the-age-of-ai" target="_blank"><strong>Addy Osmani</strong></a></td>
-		<td style="padding:0.3em;">&ldquo;Proof over vibes.&rdquo; Verification, not authoring, is the bottleneck;
-		  <em>break agent output into digestible commits</em>; no PR without tests or a demo;
-		  humans stay non-negotiable for security and architecture.</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.3em;"><a href="https://simonwillison.net/2025/Dec/18/code-proven-to-work/" target="_blank"><strong>Simon Willison</strong></a><br/>
-		  <small><a href="https://www.youtube.com/watch?v=owmJyKVu5f8" target="_blank">&#9654; Pragmatic Summit talk</a><br/>
-		  <a href="https://youtu.be/wc8FBhQtdsA" target="_blank">&#9654; Lenny&rsquo;s Podcast</a></small></td>
-		<td style="padding:0.3em;">&ldquo;<em>Your job is to deliver code you have proven to work.</em>&rdquo;
-		  The skill is instructing <em>and then confidently verifying</em>; a model cannot take accountability, you can.
-		  And on regime B specifically &mdash; even <em>with</em> tests, he reports that
-		  &ldquo;<em>I haven&rsquo;t used it yet</em>&rdquo; still undermines his confidence in a change.
-		  <strong>Trying it by hand is not superstition.</strong></td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.3em;"><a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025" target="_blank"><strong>Faros telemetry</strong></a>
-		  (~22k devs)</td>
-		<td style="padding:0.3em;">PR size <strong>+51%</strong>, median time in review <strong>+441%</strong>,
-		  incidents per PR <strong>+243%</strong>. Big agent diffs do not get reviewed &mdash; they get waved through.</td>
-	  </tr>
-	</table>
+  <section data-markdown><textarea data-template>
+### We are not the only ones saying this
 
-	<div style="margin-top:0.6em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
-	  Converging, from very different vantage points:
-	  <strong>the safe size of an AI-assisted work item is set by the strength of your verification loop.</strong>
-	  Build the loop, or keep the items small. Preferably both.
-	</div>
-	<aside class="notes">
-	  SKIP CANDIDATE if running long &mdash; these are the receipts for the
-	  previous slide and are ideal to hold back for Q&amp;A instead.
-	</aside>
-  </section>
+<div class="md-table" style="font-size:0.67em;">
 
-  <section>
-	<h3>HI &harr; AI &mdash; every project picks its own policy</h3>
-	<p style="font-size:0.7em;margin-top:-0.35em;margin-bottom:0.2em;color:#555;">
-	  Rows 1&ndash;2 live in <strong>regime B</strong>; rows 3&ndash;4 are only honest once
-	  <strong>regime A</strong> is actually built.
-	</p>
-	<table style="font-size:0.63em;width:99%;margin:auto;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.28em;width:22%;">Stance</th>
-		<th style="text-align:left;padding:0.35em;width:26%;">OSS exemplars</th>
-		<th style="text-align:left;padding:0.35em;width:28%;">CON / adjacent example</th>
-		<th style="text-align:left;padding:0.35em;">Leans on</th>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>Reject</strong> AI-generated content</td>
-		<td style="padding:0.35em;"><a href="https://ziglang.org/" target="_blank">Zig</a>, <a href="https://krita.org/" target="_blank">Krita</a>, Clojure, QEMU</td>
-		<td style="padding:0.35em;"><a href="https://git-annex.branchable.com/contribute/" target="_blank"><strong>git-annex</strong></a> upstream &mdash; pure-HI commits</td>
-		<td style="padding:0.35em;">AI stays ephemeral; never enters the tracked artifact</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>Accept with disclosure</strong></td>
-		<td style="padding:0.35em;"><a href="https://numpy.org/" target="_blank">NumPy</a>, <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>, Linux kernel, Django</td>
-		<td style="padding:0.35em;"><a href="https://datalad.org/" target="_blank"><strong>DataLad</strong></a>, <a href="https://dandiarchive.org/" target="_blank"><strong>DANDI</strong></a> &mdash;
-		  <code>Co-Authored-By: Claude&hellip;</code> trailers, <code>@pytest.mark.ai_generated</code></td>
-		<td style="padding:0.35em;"><strong>T</strong>racking &mdash; provenance is non-negotiable</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>Spec-driven AI-generated</strong><br/>(HI specs, AI writes, HI reviews)</td>
-		<td style="padding:0.35em;">Common in practice; rarely a <em>declared</em> policy</td>
-		<td style="padding:0.35em;"><a href="https://github.com/con/annextube" target="_blank"><strong>AnnexTube</strong></a>,
-		  <a href="https://github.com/con/citations-collector" target="_blank"><strong>citations-collector</strong></a>,
-		  parts of <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank"><strong>dandi-cli</strong></a></td>
-		<td style="padding:0.35em;"><strong>T</strong> + <strong>A</strong> + <strong>M</strong> &mdash; the spec <em>is</em> the contract</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>Autonomous</strong> agents in the loop</td>
-		<td style="padding:0.35em;"><a href="https://brain-researcher.com/" target="_blank"><strong>Brain Researcher</strong></a>
-		  (Poldrack lab) &mdash; agentic neuroimaging analysis;
-		  <a href="https://github.com/K-Dense-AI/" target="_blank"><strong>K-Dense AI</strong></a> &mdash; &ldquo;AI co-scientists&rdquo;
-		  (and the host of the skills library we contribute to)</td>
-		<td style="padding:0.35em;"><a href="https://github.com/con/skills" target="_blank"><strong>con/skills</strong></a> +
-		  <a href="https://github.com/con/yolo" target="_blank"><strong>con/yolo</strong></a> for triage, review, dep updates</td>
-		<td style="padding:0.35em;">All of STAMPED &mdash; the harness becomes the type-checker</td>
-	  </tr>
-	</table>
-	<p style="margin-top:0.35em;padding:0.45em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.7em;">
-	  <strong>Common ground, all four:</strong> AI cannot be an author
-	  (<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html" target="_blank">ICMJE, Jan 2026</a>);
-	  humans retain full responsibility; AI use is disclosed <em>inside the artifact</em>.
-	  <strong>STAMPED Tracking is what makes that mechanical rather than a promise.</strong>
-	</p>
-	<p style="margin-top:0.25em;font-size:0.7em;font-style:italic;">
-	  Catalog of declared OSS stances:
-	  <a href="https://github.com/melissawm/open-source-ai-contribution-policies" target="_blank">melissawm/open-source-ai-contribution-policies</a>.
-	  &mdash; Note what the row-4 exemplars <em>are</em>: <strong>harnesses</strong>.
-	  <a href="https://brain-researcher.com/" target="_blank">Brain Researcher</a> constrains the agent to
-	  acceptable analyses and required validations rather than trusting it &mdash;
-	  autonomy is bought with <em>structure</em>, not with a bigger model.
-	</p>
-  </section>
+| Source | What it found / argues |
+| ------ | ---------------------- |
+| [**DORA 2025**](https://dora.dev/insights/balancing-ai-tensions/) (Google Cloud) | Higher AI adoption raises throughput *and* **delivery instability**. Their prescription is literally regime A+B: &ldquo;*working in small batches is a critical countermeasure to the risks of AI-assisted development*&rdquo;, plus test automation and fast feedback &mdash; because &ldquo;*verification is a fundamentally different cognitive task than creation*&rdquo;. |
+| [**METR RCT**](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), 2025 | 16 experienced OSS developers, 246 real issues, *on repos they already maintained*: **19% slower** with AI tools &mdash; while estimating they had been **20% faster**. The perception gap is the hazard, not the tooling. *(METR now labels this historical &mdash; tools moved on. The gap is the durable lesson.)* |
+| [**Addy Osmani**](https://addyo.substack.com/p/code-review-in-the-age-of-ai) | &ldquo;Proof over vibes.&rdquo; Verification, not authoring, is the bottleneck; *break agent output into digestible commits*; no PR without tests or a demo; humans stay non-negotiable for security and architecture. |
+| [**Simon Willison**](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)<br/><small>[&#9654; Pragmatic Summit talk](https://www.youtube.com/watch?v=owmJyKVu5f8)<br/>[&#9654; Lenny&rsquo;s Podcast](https://youtu.be/wc8FBhQtdsA)</small> | &ldquo;*Your job is to deliver code you have proven to work.*&rdquo; The skill is instructing *and then confidently verifying*; a model cannot take accountability, you can. And on regime B specifically &mdash; even *with* tests, he reports that &ldquo;*I haven&rsquo;t used it yet*&rdquo; still undermines his confidence in a change. **Trying it by hand is not superstition.** |
+| [**Faros telemetry**](https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025) (~22k devs) | PR size **+51%**, median time in review **+441%**, incidents per PR **+243%**. Big agent diffs do not get reviewed &mdash; they get waved through. |
 
-  <section>
-	<h3>Take home &mdash; what to do Monday</h3>
-	<ol style="font-size:0.85em;margin-top:0.5em;line-height:1.45;">
-	  <li><strong>Make one object actionable.</strong> Pick one study. Put it in a declared standard
-		(<a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a>, <a href="https://www.nwb.org/" target="_blank">NWB</a>)
-		and run the validator. The agent gets a grammar; you get a type-checker.</li>
-	  <li><strong>Record one command.</strong> Wrap your next analysis step in
-		<a href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" target="_blank"><code>datalad run</code></a>
-		&mdash; or at minimum in <a href="https://github.com/con/duct" target="_blank"><code>duct</code></a>.
-		A provenance record you did not have to remember to write.</li>
-	  <li><strong>Grade one thing against STAMPED.</strong>
-		<a href="https://checklist.stamped-principles.org/" target="_blank">checklist.stamped-principles.org</a>,
-		fifteen minutes, and you will know which property is your weakest.</li>
-	  <li><strong>Write down your harness.</strong> An
-		<a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> in the repo beats a prompt in your notes app.
-		Declare your AI policy there while you are at it.</li>
-	  <li><strong>Size the work to the loop you actually have.</strong> Until the project
-		self-checks, keep AI-assisted items small, reviewable, and tried by your own hand &mdash;
-		and say so out loud, so nobody mistakes regime B for regime A.</li>
-	  <li><strong>Push one skill upstream.</strong> The next person who needs your procedure should
-		<code>clone</code> it, not re-derive it.
-		<a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank">scientific-agent-skills</a>,
-		<a href="https://github.com/con/skills" target="_blank">con/skills</a>, or your own repo &mdash; but <em>somewhere public</em>.</li>
-	</ol>
-	<div style="margin-top:0.9em; padding:0.8em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.95em;">
-	  Standards and provenance were always the right answer.
-	  <strong>AI did not change the answer &mdash; it changed the deadline.</strong>
-	</div>
-  </section>
+</div>
+
+<div class="callout">
+Converging, from very different vantage points:
+<strong>the safe size of an AI-assisted work item is set by the strength of your verification loop.</strong>
+Build the loop, or keep the items small. Preferably both.
+</div>
+
+<aside class="notes">
+SKIP CANDIDATE if running long &mdash; these are the receipts for the
+previous slide and are ideal to hold back for Q&amp;A instead.
+</aside>
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+### HI &harr; AI &mdash; every project picks its own policy
+
+Rows 1&ndash;2 live in **regime B**; rows 3&ndash;4 are only honest once **regime A** is actually built.
+<!-- .element: style="font-size:0.7em;margin-top:-0.35em;margin-bottom:0.2em;color:#555;" -->
+
+<div class="md-table" style="font-size:0.63em;">
+
+| Stance | OSS exemplars | CON / adjacent example | Leans on |
+| ------ | ------------- | ---------------------- | -------- |
+| **Reject** AI-generated content | [Zig](https://ziglang.org/), [Krita](https://krita.org/), Clojure, QEMU | [**git-annex**](https://git-annex.branchable.com/contribute/) upstream &mdash; pure-HI commits | AI stays ephemeral; never enters the tracked artifact |
+| **Accept with disclosure** | [NumPy](https://numpy.org/), [Kubernetes](https://kubernetes.io/), Linux kernel, Django | [**DataLad**](https://datalad.org/), [**DANDI**](https://dandiarchive.org/) &mdash; `Co-Authored-By: Claude&hellip;` trailers, `@pytest.mark.ai_generated` | **T**racking &mdash; provenance is non-negotiable |
+| **Spec-driven AI-generated**<br/>(HI specs, AI writes, HI reviews) | Common in practice; rarely a *declared* policy | [**AnnexTube**](https://github.com/con/annextube), [**citations-collector**](https://github.com/con/citations-collector), parts of [**dandi-cli**](https://github.com/dandi/dandi-cli/tree/master/.lad) | **T** + **A** + **M** &mdash; the spec *is* the contract |
+| **Autonomous** agents in the loop | [**Brain Researcher**](https://brain-researcher.com/) (Poldrack lab) &mdash; agentic neuroimaging analysis; [**K-Dense AI**](https://github.com/K-Dense-AI/) &mdash; &ldquo;AI co-scientists&rdquo; (and the host of the skills library we contribute to) | [**con/skills**](https://github.com/con/skills) + [**con/yolo**](https://github.com/con/yolo) for triage, review, dep updates | All of STAMPED &mdash; the harness becomes the type-checker |
+
+</div>
+
+<div class="callout" style="font-size:0.7em;margin-top:0.35em;">
+<strong>Common ground, all four:</strong> AI cannot be an author
+(<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html">ICMJE, Jan 2026</a>);
+humans retain full responsibility; AI use is disclosed <em>inside the artifact</em>.
+<strong>STAMPED Tracking is what makes that mechanical rather than a promise.</strong>
+</div>
+
+Catalog of declared OSS stances:
+[melissawm/open-source-ai-contribution-policies](https://github.com/melissawm/open-source-ai-contribution-policies).
+&mdash; Note what the row-4 exemplars *are*: **harnesses**.
+[Brain Researcher](https://brain-researcher.com/) constrains the agent to
+acceptable analyses and required validations rather than trusting it &mdash;
+autonomy is bought with *structure*, not with a bigger model.
+<!-- .element: style="font-size:0.7em;margin-top:0.25em;font-style:italic;" -->
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+### Take home &mdash; what to do Monday
+
+<div style="font-size:0.85em;margin-top:0.5em;line-height:1.45;text-align:left;">
+
+1. **Make one object actionable.** Pick one study. Put it in a declared standard
+   ([BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/)) and run the validator.
+   The agent gets a grammar; you get a type-checker.
+2. **Record one command.** Wrap your next analysis step in
+   [`datalad run`](https://docs.datalad.org/en/stable/generated/man/datalad-run.html)
+   &mdash; or at minimum in [`duct`](https://github.com/con/duct).
+   A provenance record you did not have to remember to write.
+3. **Grade one thing against STAMPED.** [checklist.stamped-principles.org](https://checklist.stamped-principles.org/),
+   fifteen minutes, and you will know which property is your weakest.
+4. **Write down your harness.** An [`AGENTS.md`](https://agents.md/) in the repo beats a prompt
+   in your notes app. Declare your AI policy there while you are at it.
+5. **Size the work to the loop you actually have.** Until the project self-checks, keep
+   AI-assisted items small, reviewable, and tried by your own hand &mdash; and say so out loud,
+   so nobody mistakes regime B for regime A.
+6. **Push one skill upstream.** The next person who needs your procedure should `clone` it,
+   not re-derive it. [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills),
+   [con/skills](https://github.com/con/skills), or your own repo &mdash; but *somewhere public*.
+
+</div>
+
+<div class="callout" style="font-size:0.95em;margin-top:0.9em;">
+Standards and provenance were always the right answer.
+<strong>AI did not change the answer &mdash; it changed the deadline.</strong>
+</div>
+  </textarea></section>
 
 </section>
 
@@ -1422,18 +1304,20 @@ flowchart TD
 
 
 <!-- Thank you -->
-<section data-transition-speed="zoom">
-  <h1>Thank you!</h1>
-  <h3>Structure your objects, and<br/>let both intelligences work on them</h3>
-  <a href="https://stamped-principles.org/" target="_blank"><img style="height:420px;margin:20px" data-src="pics/borrowed/stamped-banner_ver-3.svg"/></a>
-  <p style="font-size:0.8em;">
-	<a href="https://stamped-principles.org/" target="_blank">stamped-principles.org</a> &middot;
-	<a href="https://checklist.stamped-principles.org/" target="_blank">checklist</a> &middot;
-	<a href="https://examples.stamped-principles.org/" target="_blank">examples</a> &middot;
-	<a href="https://github.com/con/skills" target="_blank">con/skills</a> &middot;
-	<a href="https://github.com/con/duct" target="_blank">con/duct</a>
-  </p>
-</section>
+<section data-transition-speed="zoom" data-markdown><textarea data-template>
+# Thank you!
+
+### Structure your objects, and<br/>let both intelligences work on them
+
+<a href="https://stamped-principles.org/"><img style="height:420px;margin:20px" data-src="pics/borrowed/stamped-banner_ver-3.svg"/></a>
+
+[stamped-principles.org](https://stamped-principles.org/) &middot;
+[checklist](https://checklist.stamped-principles.org/) &middot;
+[examples](https://examples.stamped-principles.org/) &middot;
+[con/skills](https://github.com/con/skills) &middot;
+[con/duct](https://github.com/con/duct)
+<!-- .element: style="font-size:0.8em;" -->
+</textarea></section>
 
 
 <!-- =================================================================
@@ -1441,10 +1325,12 @@ flowchart TD
      ================================================================= -->
 <section>
 
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2>Appendix</h2>
-	<p style="font-size:0.9em;">Material cut for time &mdash; press <strong>&darr;</strong> to walk it, or follow the links.</p>
-  </section>
+  <section data-background-gradient="radial-gradient(white, #f7dfd3)" data-markdown><textarea data-template>
+## Appendix
+
+Material cut for time &mdash; press **&darr;** to walk it, or follow the links.
+<!-- .element: style="font-size:0.9em;" -->
+  </textarea></section>
 
   <section>
 	<h3>STAMPED and <a href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> do different jobs</h3>
@@ -1629,6 +1515,14 @@ All decks: <https://datasets.datalad.org/centerforopenneuroscience/talks/>
 				// Learn about plugins: https://revealjs.com/plugins/
 				// RevealSearch: Press CTRL+Shift+F to search slide content
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealMermaid ]
+			});
+
+			// Markdown link syntax cannot carry target="_blank", and the slides
+			// are meant to be clicked through without losing the deck.  Give
+			// every external link that did not already ask for a target one.
+			Reveal.on('ready', () => {
+				document.querySelectorAll('.reveal section[data-markdown] a[href^="http"]:not([target])')
+					.forEach(a => a.target = '_blank');
 			});
 		</script>
 	</body>
