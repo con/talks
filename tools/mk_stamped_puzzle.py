@@ -11,9 +11,13 @@ improvement with gaps in it.
 
 Pieces are laid out on a grid and tiled exactly: every internal edge is drawn
 once as a tab and once as the matching blank, so the assembled square has no
-seams or overlaps.  Each piece carries the STAMPED letters it supplies; the
-letters repeat across pieces on purpose, because several tools feed the same
-property and that is the point.
+seams or overlaps.  Each piece carries the STAMPED letters it supplies, in STAMPED
+order; the letters repeat across pieces on purpose, because several tools feed
+the same property and that is the point.  They are also deliberately generous:
+`datalad run` is Tracked *and* Actionable because the record it writes is
+re-runnable, `con/duct` is also Self-contained because the log it leaves holds
+the command next to what the command cost, and git-annex is Tracked because
+version control over the content is the whole point of it.
 
 Writes pics/stamped-puzzle.svg -- vector, so it stays sharp in the decks and
 in the PDF export, and is referenced with data-src like every other image.
@@ -26,14 +30,14 @@ OUT = HERE / "pics" / "stamped-puzzle.svg"
 # (tool, what piece it contributes, STAMPED letters, url)
 PIECES = [
     ("BIDS / NWB",            "what the files are",        "SA",  "https://bids.neuroimaging.io/"),
-    ("HeuDiConv / ReproIn",   "raw → standard",       "A",   "https://github.com/nipy/heudiconv"),
-    ("ReproStim",             "what was actually shown",   "S",   "https://github.com/ReproNim/reprostim"),
+    ("HeuDiConv / ReproIn",   "raw → standard",            "AM",  "https://github.com/nipy/heudiconv"),
+    ("ReproStim",             "what was actually shown",   "ST",  "https://github.com/ReproNim/reprostim"),
     ("Open Brain Consent",    "permission to share",       "D",   "https://open-brain-consent.readthedocs.io/"),
-    ("datalad run",           "how it was made",           "T",   "https://docs.datalad.org/en/stable/generated/man/datalad-run.html"),
-    ("con/duct",              "what it cost",              "T",   "https://github.com/con/duct"),
-    ("DataLad / git-annex",   "versioned, composable",     "MD",  "https://www.datalad.org/"),
+    ("datalad run",           "how it was made",           "TA",  "https://docs.datalad.org/en/stable/generated/man/datalad-run.html"),
+    ("con/duct",              "what it cost",              "STA", "https://github.com/con/duct"),
+    ("DataLad / git-annex",   "versioned, composable",     "TMD", "https://www.datalad.org/"),
     ("ReproNim/containers",   "the environment travels",   "PE",  "https://github.com/ReproNim/containers"),
-    ("con/tinuous + CI",      "nobody has to remember",    "T",   "https://github.com/con/tinuous"),
+    ("con/tinuous + CI",      "nobody has to remember",    "ST",  "https://github.com/con/tinuous"),
 ]
 
 COLS, ROWS = 3, 3
