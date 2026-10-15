@@ -19,8 +19,8 @@ re-runnable, `con/duct` is also Self-contained because the log it leaves holds
 the command next to what the command cost, and git-annex is Tracked because
 version control over the content is the whole point of it.
 
-Every piece's name is a hyperlink to that tool's own page, so the picture is
-itself actionable -- which only works if the decks embed it with
+Every piece's name is a hyperlink to that tool's own page, and every letter
+links to that principle's worked examples, so the picture is itself actionable -- which only works if the decks embed it with
 `<object class="dia" data="pics/stamped-puzzle.svg">` rather than `<img>`: an
 `<img>` renders the SVG but kills its links.
 
@@ -56,6 +56,12 @@ FILL = ["#fdf6ec", "#f7ece0"]      # two beiges, checkerboard, theme-matched
 STROKE = "#b9a88f"
 LETTER = {"S": "#2e7d32", "T": "#c62828", "A": "#1565c0", "M": "#6a1b9a",
           "P": "#ef6c00", "E": "#00838f", "D": "#283593"}
+LETTER_NAME = {"S": "Self-contained", "T": "Tracked", "A": "Actionable",
+               "M": "Modular", "P": "Portable", "E": "Ephemeral",
+               "D": "Distributable"}
+# Each letter links to that principle's worked examples, so the picture answers
+# "what does Tracked actually mean" without the slide having to.
+EXAMPLES = "https://examples.stamped-principles.org/stamped_principles/{}/"
 
 # Tab direction for every internal edge, fixed rather than random so the file
 # is reproducible: regenerating must not produce a gratuitous diff.
@@ -125,6 +131,10 @@ def main():
         "<style>"
         "a text.name { fill: #8b743d; text-decoration: underline; cursor: pointer; }"
         "a:hover text.name { fill: #b39753; }"
+        # The letters keep their STAMPED colours -- they are the colour key for
+        # the whole deck -- so a dotted rule is what marks them as links.
+        "a text.letter { cursor: pointer; text-decoration: underline dotted; }"
+        "a:hover text.letter { text-decoration: underline; }"
         "</style>",
     ]
     for i, (tool, what, letters, url) in enumerate(PIECES):
@@ -146,9 +156,12 @@ def main():
         n = len(letters)
         for j, ch in enumerate(letters):
             lx = cx + (j - (n - 1) / 2) * 26
-            out.append(f'<text x="{lx:.0f}" y="{cy + 36:.0f}" text-anchor="middle" '
-                       f'font-size="25" font-weight="700" '
-                       f'fill="{LETTER[ch]}">{ch}</text>')
+            url = EXAMPLES.format(ch.lower())
+            out.append(f'<a href="{url}" xlink:href="{url}" target="_blank">'
+                       f'<title>{ch} — {LETTER_NAME[ch]}: worked examples</title>'
+                       f'<text class="letter" x="{lx:.0f}" y="{cy + 36:.0f}" '
+                       f'text-anchor="middle" font-size="25" font-weight="700" '
+                       f'fill="{LETTER[ch]}">{ch}</text></a>')
         out.append("</g>")
     out.append("</svg>")
     OUT.write_text("\n".join(out) + "\n")

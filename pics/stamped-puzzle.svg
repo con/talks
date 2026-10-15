@@ -1,68 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784 520" width="100%" height="100%" font-family="Source Sans Pro,Helvetica,sans-serif">
 <title>The STAMPED object, one piece per tool</title>
-<style>a text.name { fill: #8b743d; text-decoration: underline; cursor: pointer; }a:hover text.name { fill: #b39753; }</style>
+<style>a text.name { fill: #8b743d; text-decoration: underline; cursor: pointer; }a:hover text.name { fill: #b39753; }a text.letter { cursor: pointer; text-decoration: underline dotted; }a:hover text.letter { text-decoration: underline; }</style>
 <g><title>BIDS / NWB — what the files are</title>
 <path d="M 32 32 L 272.0 32.0 L 272.0 92.8 C 269.4 103.4 251.2 82.2 246.0 98.9 C 238.2 108.0 238.2 108.0 246.0 117.1 C 251.2 133.8 269.4 112.6 272.0 123.2 L 272.0 184.0 L 176.0 184.0 C 159.2 181.4 192.8 163.2 166.4 158.0 C 152.0 150.2 152.0 150.2 137.6 158.0 C 111.2 163.2 144.8 181.4 128.0 184.0 L 32.0 184.0 L 32.0 32.0 Z" fill="#fdf6ec" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://bids.neuroimaging.io/" xlink:href="https://bids.neuroimaging.io/" target="_blank"><text class="name" x="152" y="88" text-anchor="middle" font-size="19" font-weight="700">BIDS / NWB</text></a>
 <text x="152" y="112" text-anchor="middle" font-size="15" fill="#666">what the files are</text>
-<text x="139" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text>
-<text x="165" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/s/" xlink:href="https://examples.stamped-principles.org/stamped_principles/s/" target="_blank"><title>S — Self-contained: worked examples</title><text class="letter" x="139" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/a/" xlink:href="https://examples.stamped-principles.org/stamped_principles/a/" target="_blank"><title>A — Actionable: worked examples</title><text class="letter" x="165" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text></a>
 </g>
 <g><title>HeuDiConv / ReproIn — raw → standard</title>
 <path d="M 272 32 L 512.0 32.0 L 512.0 92.8 C 514.6 103.4 532.8 82.2 538.0 98.9 C 545.8 108.0 545.8 108.0 538.0 117.1 C 532.8 133.8 514.6 112.6 512.0 123.2 L 512.0 184.0 L 416.0 184.0 C 399.2 186.6 432.8 204.8 406.4 210.0 C 392.0 217.8 392.0 217.8 377.6 210.0 C 351.2 204.8 384.8 186.6 368.0 184.0 L 272.0 184.0 L 272.0 123.2 C 269.4 112.6 251.2 133.8 246.0 117.1 C 238.2 108.0 238.2 108.0 246.0 98.9 C 251.2 82.2 269.4 103.4 272.0 92.8 L 272.0 32.0 Z" fill="#f7ece0" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://github.com/nipy/heudiconv" xlink:href="https://github.com/nipy/heudiconv" target="_blank"><text class="name" x="392" y="88" text-anchor="middle" font-size="19" font-weight="700">HeuDiConv / ReproIn</text></a>
 <text x="392" y="112" text-anchor="middle" font-size="15" fill="#666">raw → standard</text>
-<text x="379" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text>
-<text x="405" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#6a1b9a">M</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/a/" xlink:href="https://examples.stamped-principles.org/stamped_principles/a/" target="_blank"><title>A — Actionable: worked examples</title><text class="letter" x="379" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/m/" xlink:href="https://examples.stamped-principles.org/stamped_principles/m/" target="_blank"><title>M — Modular: worked examples</title><text class="letter" x="405" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#6a1b9a">M</text></a>
 </g>
 <g><title>ReproStim — what was actually shown</title>
 <path d="M 512 32 L 752.0 32.0 L 752.0 184.0 L 656.0 184.0 C 639.2 181.4 672.8 163.2 646.4 158.0 C 632.0 150.2 632.0 150.2 617.6 158.0 C 591.2 163.2 624.8 181.4 608.0 184.0 L 512.0 184.0 L 512.0 123.2 C 514.6 112.6 532.8 133.8 538.0 117.1 C 545.8 108.0 545.8 108.0 538.0 98.9 C 532.8 82.2 514.6 103.4 512.0 92.8 L 512.0 32.0 Z" fill="#fdf6ec" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://github.com/ReproNim/reprostim" xlink:href="https://github.com/ReproNim/reprostim" target="_blank"><text class="name" x="632" y="88" text-anchor="middle" font-size="19" font-weight="700">ReproStim</text></a>
 <text x="632" y="112" text-anchor="middle" font-size="15" fill="#666">what was actually shown</text>
-<text x="619" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text>
-<text x="645" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/s/" xlink:href="https://examples.stamped-principles.org/stamped_principles/s/" target="_blank"><title>S — Self-contained: worked examples</title><text class="letter" x="619" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/t/" xlink:href="https://examples.stamped-principles.org/stamped_principles/t/" target="_blank"><title>T — Tracked: worked examples</title><text class="letter" x="645" y="144" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text></a>
 </g>
 <g><title>Open Brain Consent — permission to share</title>
 <path d="M 32 184 L 128.0 184.0 C 144.8 181.4 111.2 163.2 137.6 158.0 C 152.0 150.2 152.0 150.2 166.4 158.0 C 192.8 163.2 159.2 181.4 176.0 184.0 L 272.0 184.0 L 272.0 244.8 C 274.6 255.4 292.8 234.2 298.0 250.9 C 305.8 260.0 305.8 260.0 298.0 269.1 C 292.8 285.8 274.6 264.6 272.0 275.2 L 272.0 336.0 L 176.0 336.0 C 159.2 338.6 192.8 356.8 166.4 362.0 C 152.0 369.8 152.0 369.8 137.6 362.0 C 111.2 356.8 144.8 338.6 128.0 336.0 L 32.0 336.0 L 32.0 184.0 Z" fill="#f7ece0" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://open-brain-consent.readthedocs.io/" xlink:href="https://open-brain-consent.readthedocs.io/" target="_blank"><text class="name" x="152" y="240" text-anchor="middle" font-size="19" font-weight="700">Open Brain Consent</text></a>
 <text x="152" y="264" text-anchor="middle" font-size="15" fill="#666">permission to share</text>
-<text x="152" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#283593">D</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/d/" xlink:href="https://examples.stamped-principles.org/stamped_principles/d/" target="_blank"><title>D — Distributable: worked examples</title><text class="letter" x="152" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#283593">D</text></a>
 </g>
 <g><title>datalad run — how it was made</title>
 <path d="M 272 184 L 368.0 184.0 C 384.8 186.6 351.2 204.8 377.6 210.0 C 392.0 217.8 392.0 217.8 406.4 210.0 C 432.8 204.8 399.2 186.6 416.0 184.0 L 512.0 184.0 L 512.0 244.8 C 509.4 255.4 491.2 234.2 486.0 250.9 C 478.2 260.0 478.2 260.0 486.0 269.1 C 491.2 285.8 509.4 264.6 512.0 275.2 L 512.0 336.0 L 416.0 336.0 C 399.2 333.4 432.8 315.2 406.4 310.0 C 392.0 302.2 392.0 302.2 377.6 310.0 C 351.2 315.2 384.8 333.4 368.0 336.0 L 272.0 336.0 L 272.0 275.2 C 274.6 264.6 292.8 285.8 298.0 269.1 C 305.8 260.0 305.8 260.0 298.0 250.9 C 292.8 234.2 274.6 255.4 272.0 244.8 L 272.0 184.0 Z" fill="#fdf6ec" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" xlink:href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" target="_blank"><text class="name" x="392" y="240" text-anchor="middle" font-size="19" font-weight="700">datalad run</text></a>
 <text x="392" y="264" text-anchor="middle" font-size="15" fill="#666">how it was made</text>
-<text x="379" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text>
-<text x="405" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/t/" xlink:href="https://examples.stamped-principles.org/stamped_principles/t/" target="_blank"><title>T — Tracked: worked examples</title><text class="letter" x="379" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/a/" xlink:href="https://examples.stamped-principles.org/stamped_principles/a/" target="_blank"><title>A — Actionable: worked examples</title><text class="letter" x="405" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text></a>
 </g>
 <g><title>con/duct — what it cost</title>
 <path d="M 512 184 L 608.0 184.0 C 624.8 181.4 591.2 163.2 617.6 158.0 C 632.0 150.2 632.0 150.2 646.4 158.0 C 672.8 163.2 639.2 181.4 656.0 184.0 L 752.0 184.0 L 752.0 336.0 L 656.0 336.0 C 639.2 338.6 672.8 356.8 646.4 362.0 C 632.0 369.8 632.0 369.8 617.6 362.0 C 591.2 356.8 624.8 338.6 608.0 336.0 L 512.0 336.0 L 512.0 275.2 C 509.4 264.6 491.2 285.8 486.0 269.1 C 478.2 260.0 478.2 260.0 486.0 250.9 C 491.2 234.2 509.4 255.4 512.0 244.8 L 512.0 184.0 Z" fill="#f7ece0" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://github.com/con/duct" xlink:href="https://github.com/con/duct" target="_blank"><text class="name" x="632" y="240" text-anchor="middle" font-size="19" font-weight="700">con/duct</text></a>
 <text x="632" y="264" text-anchor="middle" font-size="15" fill="#666">what it cost</text>
-<text x="606" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text>
-<text x="632" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text>
-<text x="658" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/s/" xlink:href="https://examples.stamped-principles.org/stamped_principles/s/" target="_blank"><title>S — Self-contained: worked examples</title><text class="letter" x="606" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/t/" xlink:href="https://examples.stamped-principles.org/stamped_principles/t/" target="_blank"><title>T — Tracked: worked examples</title><text class="letter" x="632" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/a/" xlink:href="https://examples.stamped-principles.org/stamped_principles/a/" target="_blank"><title>A — Actionable: worked examples</title><text class="letter" x="658" y="296" text-anchor="middle" font-size="25" font-weight="700" fill="#1565c0">A</text></a>
 </g>
 <g><title>DataLad / git-annex — versioned, composable</title>
 <path d="M 32 336 L 128.0 336.0 C 144.8 338.6 111.2 356.8 137.6 362.0 C 152.0 369.8 152.0 369.8 166.4 362.0 C 192.8 356.8 159.2 338.6 176.0 336.0 L 272.0 336.0 L 272.0 396.8 C 269.4 407.4 251.2 386.2 246.0 402.9 C 238.2 412.0 238.2 412.0 246.0 421.1 C 251.2 437.8 269.4 416.6 272.0 427.2 L 272.0 488.0 L 32.0 488.0 L 32.0 336.0 Z" fill="#fdf6ec" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://www.datalad.org/" xlink:href="https://www.datalad.org/" target="_blank"><text class="name" x="152" y="392" text-anchor="middle" font-size="19" font-weight="700">DataLad / git-annex</text></a>
 <text x="152" y="416" text-anchor="middle" font-size="15" fill="#666">versioned, composable</text>
-<text x="126" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text>
-<text x="152" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#6a1b9a">M</text>
-<text x="178" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#283593">D</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/t/" xlink:href="https://examples.stamped-principles.org/stamped_principles/t/" target="_blank"><title>T — Tracked: worked examples</title><text class="letter" x="126" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/m/" xlink:href="https://examples.stamped-principles.org/stamped_principles/m/" target="_blank"><title>M — Modular: worked examples</title><text class="letter" x="152" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#6a1b9a">M</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/d/" xlink:href="https://examples.stamped-principles.org/stamped_principles/d/" target="_blank"><title>D — Distributable: worked examples</title><text class="letter" x="178" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#283593">D</text></a>
 </g>
 <g><title>ReproNim/containers — the environment travels</title>
 <path d="M 272 336 L 368.0 336.0 C 384.8 333.4 351.2 315.2 377.6 310.0 C 392.0 302.2 392.0 302.2 406.4 310.0 C 432.8 315.2 399.2 333.4 416.0 336.0 L 512.0 336.0 L 512.0 396.8 C 514.6 407.4 532.8 386.2 538.0 402.9 C 545.8 412.0 545.8 412.0 538.0 421.1 C 532.8 437.8 514.6 416.6 512.0 427.2 L 512.0 488.0 L 272.0 488.0 L 272.0 427.2 C 269.4 416.6 251.2 437.8 246.0 421.1 C 238.2 412.0 238.2 412.0 246.0 402.9 C 251.2 386.2 269.4 407.4 272.0 396.8 L 272.0 336.0 Z" fill="#f7ece0" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://github.com/ReproNim/containers" xlink:href="https://github.com/ReproNim/containers" target="_blank"><text class="name" x="392" y="392" text-anchor="middle" font-size="19" font-weight="700">ReproNim/containers</text></a>
 <text x="392" y="416" text-anchor="middle" font-size="15" fill="#666">the environment travels</text>
-<text x="379" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#ef6c00">P</text>
-<text x="405" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#00838f">E</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/p/" xlink:href="https://examples.stamped-principles.org/stamped_principles/p/" target="_blank"><title>P — Portable: worked examples</title><text class="letter" x="379" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#ef6c00">P</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/e/" xlink:href="https://examples.stamped-principles.org/stamped_principles/e/" target="_blank"><title>E — Ephemeral: worked examples</title><text class="letter" x="405" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#00838f">E</text></a>
 </g>
 <g><title>con/tinuous + CI — nobody has to remember</title>
 <path d="M 512 336 L 608.0 336.0 C 624.8 338.6 591.2 356.8 617.6 362.0 C 632.0 369.8 632.0 369.8 646.4 362.0 C 672.8 356.8 639.2 338.6 656.0 336.0 L 752.0 336.0 L 752.0 488.0 L 512.0 488.0 L 512.0 427.2 C 514.6 416.6 532.8 437.8 538.0 421.1 C 545.8 412.0 545.8 412.0 538.0 402.9 C 532.8 386.2 514.6 407.4 512.0 396.8 L 512.0 336.0 Z" fill="#fdf6ec" stroke="#b9a88f" stroke-width="1.6"/>
 <a href="https://github.com/con/tinuous" xlink:href="https://github.com/con/tinuous" target="_blank"><text class="name" x="632" y="392" text-anchor="middle" font-size="19" font-weight="700">con/tinuous + CI</text></a>
 <text x="632" y="416" text-anchor="middle" font-size="15" fill="#666">nobody has to remember</text>
-<text x="619" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text>
-<text x="645" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text>
+<a href="https://examples.stamped-principles.org/stamped_principles/s/" xlink:href="https://examples.stamped-principles.org/stamped_principles/s/" target="_blank"><title>S — Self-contained: worked examples</title><text class="letter" x="619" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#2e7d32">S</text></a>
+<a href="https://examples.stamped-principles.org/stamped_principles/t/" xlink:href="https://examples.stamped-principles.org/stamped_principles/t/" target="_blank"><title>T — Tracked: worked examples</title><text class="letter" x="645" y="448" text-anchor="middle" font-size="25" font-weight="700" fill="#c62828">T</text></a>
 </g>
 </svg>
