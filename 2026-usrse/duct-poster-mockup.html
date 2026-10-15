@@ -33,7 +33,7 @@
   header .qrs img { display: block; width: 92px; height: 92px; margin-bottom: 3px; }
   .qr { width: 90px; height: 90px; border: 2px dashed var(--rule); display: grid; place-items: center; font-size: 13px; color: var(--muted); text-align: center; }
 
-  main { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,1fr) minmax(0,1fr); gap: 14px; min-height: 0; }
+  main { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.55fr) minmax(0,1fr); gap: 14px; min-height: 0; }
   .col { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
   section { border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; position: relative; min-height: 0; overflow: hidden; }
   section > h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
@@ -139,7 +139,58 @@
 </div></header>
 
 <main>
-<!-- ============ LEFT (wide) ============ -->
+<!-- ============ LEFT ============ -->
+<div class="col">
+  <section>
+    <h2>Try it</h2>
+    <pre style="white-space:pre-wrap;font-size:13px">$ pip install 'con-duct[all]'   <span class="c"># or conda</span>
+$ duct sleep 2
+<span class="c">2026-09-30T16:03:21-0500 [INFO    ] con-duct: duct 0.23.0 is executing 'sleep 2'...
+2026-09-30T16:03:21-0500 [INFO    ] con-duct: Log files will be written to .duct/logs/2026.09.30T16.03.21-8486_
+2026-09-30T16:03:23-0500 [INFO    ] con-duct: Summary:</span>
+Exit Code: <span class="ok">0</span>
+Command: sleep 2
+Log files location: .duct/logs/2026.09.30T16.03.21-8486_
+Wall Clock Time: 2.002 sec
+Memory Peak Usage (RSS): 2.2 MB
+Memory Average Usage (RSS): 2.2 MB
+Memory Peak Percentage: 0.00%
+Memory Average Percentage: 0.00%
+CPU Peak Usage: 0.00%
+Average CPU Usage: 0.00%</pre>
+  </section>
+
+  <section>
+    <h2>You drive, the agent reads the records directly</h2>
+    <pre>$ duct singularity run …</pre>
+    <div class="chat">
+      <div class="who" style="margin-bottom:4px">simulated</div>
+      <div class="u"><div class="who">user</div>it didn't work</div>
+      <div class="a"><div class="who">claude</div>I used <code>con-duct ls</code> to find the run you mean. The exit code was 1 after 38 min, the problem was ...</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The agent drives, you read the summary</h2>
+    <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
+    <pre>$ duct --f-t 0 -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
+$ duct --f-t 0 -p logs/2_ -m "2: test hypothesis"       ./repro.sh
+$ duct --f-t 0 -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
+    <p>The agent reports “fixed”. The evidence in the logs:</p>
+    <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
+<b>PREFIX  MESSAGE                 EXIT_CODE</b>
+logs/1_ 1: reproduce user's bug <span class="bad">1</span>
+logs/2_ 2: test hypothesis      <span class="bad">1</span>
+logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
+
+  <section class="grow">
+    <h2>Plot resource usage</h2>
+    <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
+    <img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:360px;display:block;margin:0 auto">
+  </section>
+</div>
+
+<!-- ============ CENTER ============ -->
 <div class="col">
   <section class="intro">
     <h2 class="slogan">Record everything now, ask questions later!</h2>
@@ -205,57 +256,6 @@ runs/s5cmd_             <span class="g">64.5 GB</span>  26657.861 sec</pre></div
 <b>PREFIX                  PEAK_RSS</b>
 runs/fmriprep-ds000030_ <span class="g">16.9 GB</span>
 runs/fmriprep-ds002785_ <span class="g">25.7 GB</span></pre></div>
-  </section>
-</div>
-
-<!-- ============ CENTER ============ -->
-<div class="col">
-  <section>
-    <h2>Try it</h2>
-    <pre style="white-space:pre-wrap;font-size:13px">$ pip install 'con-duct[all]'   <span class="c"># or conda</span>
-$ duct sleep 2
-<span class="c">2026-09-30T16:03:21-0500 [INFO    ] con-duct: duct 0.23.0 is executing 'sleep 2'...
-2026-09-30T16:03:21-0500 [INFO    ] con-duct: Log files will be written to .duct/logs/2026.09.30T16.03.21-8486_
-2026-09-30T16:03:23-0500 [INFO    ] con-duct: Summary:</span>
-Exit Code: <span class="ok">0</span>
-Command: sleep 2
-Log files location: .duct/logs/2026.09.30T16.03.21-8486_
-Wall Clock Time: 2.002 sec
-Memory Peak Usage (RSS): 2.2 MB
-Memory Average Usage (RSS): 2.2 MB
-Memory Peak Percentage: 0.00%
-Memory Average Percentage: 0.00%
-CPU Peak Usage: 0.00%
-Average CPU Usage: 0.00%</pre>
-  </section>
-
-  <section>
-    <h2>You drive, the agent reads the records directly</h2>
-    <pre>$ duct singularity run …</pre>
-    <div class="chat">
-      <div class="who" style="margin-bottom:4px">simulated</div>
-      <div class="u"><div class="who">user</div>it didn't work</div>
-      <div class="a"><div class="who">claude</div>I used <code>con-duct ls</code> to find the run you mean. The exit code was 1 after 38 min, the problem was ...</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>The agent drives, you read the summary</h2>
-    <p>The agent writes a reproducer and runs it under duct, numbering each step in the tag:</p>
-    <pre>$ duct --f-t 0 -p logs/1_ -m "1: reproduce user's bug"  ./repro.sh
-$ duct --f-t 0 -p logs/2_ -m "2: test hypothesis"       ./repro.sh
-$ duct --f-t 0 -p logs/3_ -m "3: verify fix"            ./repro.sh</pre>
-    <p>The agent reports “fixed”. The evidence in the logs:</p>
-    <pre>$ con-duct ls logs/*info.json --colors -F message exit_code
-<b>PREFIX  MESSAGE                 EXIT_CODE</b>
-logs/1_ 1: reproduce user's bug <span class="bad">1</span>
-logs/2_ 2: test hypothesis      <span class="bad">1</span>
-logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
-
-  <section class="grow">
-    <h2>Plot resource usage</h2>
-    <pre>$ con-duct plot &lt;prefix&gt;info.json -o plot.png --cpu ps-cpu-timepoint</pre>
-    <img src="duct-poster-assets/fmriprep-ds002785-sub-0001-plot.svg" alt="con-duct plot of one fMRIPrep run" style="max-width:100%;max-height:360px;display:block;margin:0 auto">
   </section>
 </div>
 
