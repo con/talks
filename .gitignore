@@ -20,3 +20,4 @@ talk-proposal-draft.pdf
 
 # Local-only companion notes (schedules, private material from others)
 *.local.md
+*.local/
