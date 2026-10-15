@@ -1,0 +1,121 @@
+{
+  "html_audit_sha256": "2660d3009197f7bb407f086ecd3f4dc6b381826618d8c5039e239105ddccdba0",
+  "checked_at": "2026-10-14T23:27:31.912093+00:00",
+  "authentication": "none",
+  "results": [
+    {
+      "url": "https://dev.centerforopenneuroscience.org/",
+      "checked_at": "2026-10-14T23:27:29.382156+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://dev.centerforopenneuroscience.org/",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386",
+      "checked_at": "2026-10-14T23:27:29.382518+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "checked_at": "2026-10-14T23:27:29.382598+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "checked_at": "2026-10-14T23:27:29.382646+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md",
+      "checked_at": "2026-10-14T23:27:29.648254+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json",
+      "checked_at": "2026-10-14T23:27:30.304170+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json",
+      "checked_at": "2026-10-14T23:27:30.334948+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json",
+      "checked_at": "2026-10-14T23:27:30.381742+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json",
+      "checked_at": "2026-10-14T23:27:30.474042+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json",
+      "checked_at": "2026-10-14T23:27:30.883733+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "checked_at": "2026-10-14T23:27:30.982886+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design",
+      "checked_at": "2026-10-14T23:27:30.988948+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design",
+      "passed": true
+    },
+    {
+      "url": "https://pbs.dartmouth.edu/",
+      "checked_at": "2026-10-14T23:27:31.002894+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://pbs.dartmouth.edu/",
+      "passed": true
+    },
+    {
+      "url": "https://www.repronim.org/",
+      "checked_at": "2026-10-14T23:27:31.309800+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://repronim.org/",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "scope": "Public destination HTTP availability; annex content integrity is checked separately."
+}
