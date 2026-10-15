@@ -843,42 +843,69 @@ $ <span style="color:#ffb74d">datalad rerun 42dc5cfa</span>
 	<p style="font-size:0.8em;color:#555;margin-top:-0.3em;">
 	  formulation borrowed from <a href="https://www.nipreps.org/presentations/2026-OHBM-AI-Educational/" target="_blank">Oscar Esteban, OHBM 2026</a>
 	</p>
-	<table style="width:95%;margin:auto;font-size:0.85em;margin-top:0.8em;">
+	<table style="width:97%;margin:auto;font-size:0.72em;margin-top:0.5em;">
 	  <tr style="background-color:#e8eaf6;">
 		<th style="text-align:left;padding:0.4em;width:25%;">Harness piece</th>
 		<th style="text-align:left;padding:0.4em;">What it is</th>
 		<th style="text-align:left;padding:0.4em;width:22%;">STAMPED property</th>
 	  </tr>
 	  <tr>
-		<td style="padding:0.4em;"><a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> / <a href="https://code.claude.com/docs/en/memory" target="_blank"><code>CLAUDE.md</code></a></td>
-		<td style="padding:0.4em;">The project&rsquo;s operational contract: conventions, commands, what not to do</td>
-		<td style="padding:0.4em;"><strong>S</strong>elf-contained</td>
+		<td style="padding:0.3em;"><a href="https://agents.md/" target="_blank"><code>AGENTS.md</code></a> / <a href="https://code.claude.com/docs/en/memory" target="_blank"><code>CLAUDE.md</code></a></td>
+		<td style="padding:0.3em;">The project&rsquo;s operational contract: conventions, commands, what not to do</td>
+		<td style="padding:0.3em;"><strong>S</strong>elf-contained</td>
 	  </tr>
 	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.4em;"><a href="https://code.claude.com/docs/en/skills" target="_blank">Skills</a></td>
-		<td style="padding:0.4em;">A named, reusable procedure with its own references and scripts</td>
-		<td style="padding:0.4em;"><strong>M</strong>odular, <strong>A</strong>ctionable</td>
+		<td style="padding:0.3em;"><a href="https://code.claude.com/docs/en/skills" target="_blank">Skills</a></td>
+		<td style="padding:0.3em;">A named, reusable procedure with its own references and scripts</td>
+		<td style="padding:0.3em;"><strong>M</strong>odular, <strong>A</strong>ctionable</td>
 	  </tr>
 	  <tr>
-		<td style="padding:0.4em;"><a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks</a> / CI</td>
-		<td style="padding:0.4em;">Guard rails that run whether or not anyone remembered to</td>
-		<td style="padding:0.4em;"><strong>T</strong>racked</td>
+		<td style="padding:0.3em;"><a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks</a> / CI</td>
+		<td style="padding:0.3em;">Guard rails that run whether or not anyone remembered to</td>
+		<td style="padding:0.3em;"><strong>T</strong>racked</td>
 	  </tr>
 	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.4em;"><a href="https://modelcontextprotocol.io/" target="_blank">MCP</a> servers</td>
-		<td style="padding:0.4em;">The port to external systems &mdash; archives, trackers, databases</td>
-		<td style="padding:0.4em;"><strong>D</strong>istributable</td>
+		<td style="padding:0.3em;"><a href="https://modelcontextprotocol.io/" target="_blank">MCP</a> servers</td>
+		<td style="padding:0.3em;">The port to external systems &mdash; archives, trackers, databases</td>
+		<td style="padding:0.3em;"><strong>D</strong>istributable</td>
 	  </tr>
 	  <tr>
-		<td style="padding:0.4em;">Container / sandbox<br/>(<a href="https://github.com/con/yolo" target="_blank">con/yolo</a>)</td>
-		<td style="padding:0.4em;">Where it is allowed to run, and how much it can break</td>
-		<td style="padding:0.4em;"><strong>P</strong>ortable, <strong>E</strong>phemeral</td>
+		<td style="padding:0.3em;">Container / sandbox<br/>(<a href="https://github.com/con/yolo" target="_blank">con/yolo</a>)</td>
+		<td style="padding:0.3em;">Where it may run and how much it can break &mdash; and the one piece that
+		  <em>enforces</em> self-containment: what you did not declare is not in there</td>
+		<td style="padding:0.3em;"><strong>S</strong>elf-contained, <strong>P</strong>ortable, <strong>E</strong>phemeral</td>
+	  </tr>
+	  <tr style="background-color:#fafafa;">
+		<td style="padding:0.3em;">Pre-flight check</td>
+		<td style="padding:0.3em;">Credentials, access and inputs verified <em>before</em> the run starts &mdash;
+		  fail in the first second, not in hour three</td>
+		<td style="padding:0.3em;"><strong>A</strong>ctionable, <strong>E</strong>phemeral</td>
 	  </tr>
 	</table>
-	<div style="margin-top:0.9em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.9em;">
+	<div style="margin-top:0.6em; padding:0.6em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.8em;">
 	  The harness is <em>itself</em> a research object. Which means it can be
 	  self-contained, tracked, modular, portable &mdash; <strong>or it can be a pile of prompts in your notes app.</strong>
 	</div>
+	<aside class="notes">
+	  Two of these rows are worth a sentence each.
+
+	  The sandbox is not only blast-radius control. It is the one piece that
+	  ENFORCES self-containment rather than asking for it: inside a fresh
+	  container, anything you forgot to declare is not there, so the property
+	  gets checked on every run instead of being a virtue you remember. That
+	  is the same move as a validator -- turn a discipline into something the
+	  machine fails on.
+
+	  Pre-flight is John Lee's point, and it is the cheap one: before a study
+	  or a long agent session starts, assert that every credential, token and
+	  access path it will need is actually present. Fail in the first second
+	  rather than in hour three with half a dataset written. Honest caveat if
+	  anyone asks: not everything can be pre-flighted. Approvals that are
+	  granted interactively on first use -- a hook authorising against an
+	  external service, say -- cannot be checked ahead of time, so pre-flight
+	  covers what is checkable and the rest still bites you.
+	</aside>
+
 	<!-- workshop-xref -->
 	<p style="font-size:0.68em;margin-top:0.45em;color:#1565c0;">
 	  &rarr; <strong>Brent</strong> set up the <em>Model</em> half this morning.

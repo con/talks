@@ -722,11 +722,28 @@ flowchart LR
 	</aside>
   </section>
 <section data-transition="none">
-	<p style="font-size:1.4em;margin-top:2em;">
+	<p style="font-size:1.4em;margin-top:1.2em;">
 	  <a href="https://github.com/con/skills">con/skills</a> + <a href="https://github.com/con/yolo">con/yolo</a>:
 	  we automate the harness itself.
 	</p>
+	<ul style="font-size:0.95em;margin-top:0.8em;">
+	  <li>The <strong>sandbox is the only piece that <em>enforces</em> self-containment</strong> &mdash;
+		inside a fresh container, what you did not declare is simply not there.
+		The property gets checked on every run instead of being a virtue you remember.</li>
+	  <li><strong>Pre-flight, then run.</strong> Assert every credential, token and access path
+		<em>before</em> the job starts &mdash; fail in the first second, not in hour three
+		with half a dataset written.</li>
+	</ul>
 	<!-- TODO: add con/skills screenshot or logo -->
+	<aside class="notes">
+	  The sandbox line is the same move as a validator: turn a discipline into
+	  something the machine fails on.
+
+	  Pre-flight is John Lee's point. Caveat if asked: approvals granted
+	  interactively on first use -- a hook authorising against an external
+	  service -- cannot be checked ahead of time, so pre-flight covers what is
+	  checkable and the rest still bites you.
+	</aside>
   </section>
 <section>
 	<p style="font-size:2em;font-weight:bold;margin-top:2em;">
