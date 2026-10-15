@@ -9,11 +9,16 @@ These results do not establish general skill efficacy or reproduce the proposed 
 
 ## Retrieve and edit
 
-Large assets, the PDF, and preview use git-annex; GitHub displays pointers.
+Poster-specific image assets, the PDF, and preview use git-annex; GitHub displays pointers.
+The three institutional marks and CON QR are reused directly from `../orinoco-lite/assets/`.
 After cloning this branch, use an environment with DataLad and git-annex:
 
 ```sh
-datalad get 2026-usrse/stamped-ai-study/assets/ \
+datalad get 2026-usrse/orinoco-lite/assets/con-logo-outlined.svg \
+  2026-usrse/orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg \
+  2026-usrse/orinoco-lite/assets/repronim_logo.svg \
+  2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg \
+  2026-usrse/stamped-ai-study/assets/ \
   2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf \
   2026-usrse/stamped-ai-study/exports/pdf-preview.png
 ```
@@ -29,6 +34,7 @@ python3 verify-links.py --review-dir exports
 ```
 
 Retrieve assets first and unlock annexed outputs before replacing them.
+The QR generator reads shared artwork without rewriting it.
 The supplied scripts pin their Python dependencies; the builder also supports the bundled Codex Playwright runtime.
 Reinspect the PDF after content changes.
 
@@ -37,10 +43,13 @@ Reinspect the PDF after content changes.
 The existing [PDF audit](exports/pdf-audit.json), [link checks](exports/link-audit.json), and [visual review](exports/agent-visual-review.json) apply to the unchanged exported poster: one 44-inch square page, minimum 24 pt text, 17 link annotations and four QR codes decoded from PDF pixels.
 This is agent verification, not author review.
 The PDF SHA-256 is `ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d`.
+The [asset reuse check](exports/asset-reuse.json) verifies four shared files, all ten public annex payloads used or uploaded here, and a pixel-identical rebuild after changing the asset paths.
+The existing PDF and preview are retained.
 
 The [complete source snapshot and execution records](https://github.com/con/talks/tree/1e96d413e43ca048c7f45674ada9d5f316a68b91/2026-usrse/stamped-ai-study) remain preserved separately, including superseded layouts and retrieval reports.
 The QR destinations continue to point to that study's existing branches.
-Private transcript payloads remain withheld, and two optional diagnostic images plus two large logs await upload; none is required to view this poster.
+The three previously missing archival images are now on the annex remote.
+Private transcript payloads remain withheld; two large non-asset logs remain local.
 [source-manifest.json](source-manifest.json) identifies the original artwork and template.
 
 Composition and prose are CC BY-SA 4.0; scripts are Apache-2.0.

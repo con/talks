@@ -18,19 +18,32 @@
       "bytes": 125811,
       "md5": "5429db5139ba49cc5a94dceb1532abe0",
       "sha256": "076adc1bf4e2d9dba5983e22f753f562a7408c8a3393adea281c5478f64f7ee1",
-      "source": "2026-usrse/orinoco-lite/assets/con-logo-outlined.svg"
+      "source": "2026-usrse/orinoco-lite/assets/con-logo-outlined.svg",
+      "local_path": "../orinoco-lite/assets/con-logo-outlined.svg",
+      "reused_from_repository": true
     },
     "con-ccn-dartmouth-letterhead.svg": {
       "bytes": 379034,
       "md5": "be7ae71a14ff2301bb0cf1cde08457e9",
       "sha256": "69dfcc6cd70367b7a03b19982589ac7d2180fdf6723bbb17ae2361c6c356d625",
-      "source": "2026-usrse/orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg"
+      "source": "2026-usrse/orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg",
+      "local_path": "../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg",
+      "reused_from_repository": true
     },
     "repronim_logo.svg": {
       "bytes": 33939,
       "md5": "cfe9b83acfb1f1292027c0a214c4b0f9",
       "sha256": "0e1101fa2dca811587d0ad4caa040961da5156e11b9b23f64f29ca3463d84870",
-      "source": "2026-usrse/orinoco-lite/assets/repronim_logo.svg"
+      "source": "2026-usrse/orinoco-lite/assets/repronim_logo.svg",
+      "local_path": "../orinoco-lite/assets/repronim_logo.svg",
+      "reused_from_repository": true
+    },
+    "orinoco-qr-con.svg": {
+      "bytes": 67605,
+      "sha256": "9f5725bea98bf4b3b4b4a9479bdc734529b19db205089b291ee86e43320b1d49",
+      "source": "2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg",
+      "local_path": "../orinoco-lite/assets/orinoco-qr-con.svg",
+      "reused_from_repository": true
     }
   }
 }
