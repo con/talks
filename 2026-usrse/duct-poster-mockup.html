@@ -42,6 +42,7 @@
   .lede { font-weight: 700; }
   section.intro { background: #f5f3ee; }
   section.intro p { font-size: 17px; line-height: 1.35; }
+  section.intro p.slogan { font-size: 20px; font-weight: 700; color: var(--accent); margin: 0 0 4px; }
   :not(pre) > code { white-space: nowrap; }
   section.search { padding-left: 6px; padding-right: 6px; }
   section.search > p { font-size: 17px; line-height: 1.35; }
@@ -193,7 +194,8 @@ logs/3_ 3: verify fix           <span class="ok">0</span></pre>  </section>
 <div class="col">
   <section class="intro">
     <h2>What is <code>con-duct</code>?</h2>
-    <p><code>con-duct</code> is a lightweight, open-source (MIT) command-line wrapper that records what a command printed and the resources it used, for any command, with no code changes. Wrap a command with <code>duct &lt;cmd&gt;</code>, short for <code>con-duct run &lt;cmd&gt;</code>; companion commands such as <code>con-duct ls</code> and <code>con-duct plot</code> let people and agents find those records later, query them, and plot them.</p>
+    <p class="slogan">Record everything now, ask questions later!</p>
+    <p><code>con-duct</code> wraps any command, with no code changes, and records stdout, stderr, and resource statistics. Run <code>duct &lt;cmd&gt;</code> (short for <code>con-duct run &lt;cmd&gt;</code>). Later, you or your agent can find, query, and plot those records with <code>con-duct ls</code> and <code>con-duct plot</code>. Lightweight and open source (MIT).</p>
   </section>
 
   <section>
