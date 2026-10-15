@@ -186,6 +186,27 @@ The PNG itself is binary; commit it via DataLad
 | Venue-specific submission docs (PRD, BoF, poster, abstract) | `<venue-dir>/` (e.g. `2026-usrse/`) |
 | New reusable image | `pics/` (or `pics/borrowed/` if third-party) |
 | New citation PDF | `3rd-party/` |
+| Copyright/licensing, when the asset is *not* a plain drop into `pics/borrowed/` | an `[[annotations]]` block in `REUSE.toml` |
+
+### Licensing a new asset
+
+The repo is striving to be REUSE-compliant (`REUSE.toml` + `LICENSES/`).
+Anything dropped into `pics/borrowed/` or `3rd-party/` is already covered
+by the catch-all third-party markers, so no action is needed for the common
+case. Act only when:
+
+- **you know the provenance** — add a narrowing block (later blocks win)
+  recording the real holder and license, as is already done for the YODA
+  artwork and the Hanke-derived carrot/containers figures;
+- **the deck has a co-author** — add a block with both copyright lines, as
+  for `2026-bbqs-stamped*`;
+- **you add a third-party logo** — extend the `LicenseRef-ThirdPartyLogo`
+  path list.
+
+Do **not** annotate a borrowed asset with this repo's CC-BY-SA just to make
+the linter quiet; the markers exist precisely so that "we don't know" can be
+stated honestly. Note also that `reuse lint` skips symlinks, so annexed
+assets are not machine-checked — see the caveat in `README.md`.
 
 ## Don't do these
 

@@ -12,6 +12,7 @@
 #   make pdf              -- builds <name>.pdf for every *.md (needs a PDF engine)
 #   make html             -- explicit alias for the default
 #   make diagram          -- rebuilds the Orinoco metadata-flow figure
+#   make poster           -- prints the editable Orinoco poster HTML to PDF
 #   make proposal         -- just 2026-usrse-con-talk-abstract.html + 2026-usrse-con-talk-abstract.pdf
 #   make clean            -- remove generated *.html / *.pdf
 #
@@ -77,7 +78,7 @@ stamped-abcd-poster-draft.pdf: PDF_LATEX_OPTS := $(subst fontsize=11pt,fontsize=
 # PDF via HTML (wkhtmltopdf / weasyprint) — same look as the HTML render
 PDF_HTML_OPTS := --to html5 --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
-.PHONY: all html pdf diagram proposal clean help check
+.PHONY: all html pdf diagram proposal poster clean help check
 
 all: pdf
 
@@ -86,6 +87,12 @@ html: $(HTMLS)
 pdf: $(PDFS)
 
 diagram: orinoco-metadata-flow.png
+
+# Browser setup: uv run --with playwright playwright install chromium
+# Or use POSTER_BROWSER_ARGS='--channel chrome' for installed Google Chrome.
+POSTER_BROWSER_ARGS ?=
+poster:
+	uv run --with playwright python orinoco-lite/build-poster.py $(POSTER_BROWSER_ARGS)
 
 proposal: 2026-usrse-con-talk-abstract.html 2026-usrse-con-talk-abstract.pdf
 
