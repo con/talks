@@ -1147,6 +1147,43 @@ and for whoever clones the repo.
 ["A few words of intro into AI assisted coding"](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html#/)
 (CA Origami Retreat, 2026) &mdash; also in the appendix of this deck.-->
 <!-- .element: style="font-size:0.74em;margin-top:0.4em;" -->
+
+----
+
+### Next: skills that **assess** against STAMPED &mdash; and **recommend** the fix
+
+Ongoing, in the open: [github.com/orgs/con/projects/16](https://github.com/orgs/con/projects/16) &mdash; the *&ldquo;STAMPED skills&rdquo;* board
+<!-- .element: style="font-size:0.8em;margin-top:-0.3em;" -->
+
+<div class="md-table" style="font-size:0.72em;">
+
+| [`con/skills`](https://github.com/con/skills) PR | What it carries | State |
+| ------------------------------------------------ | --------------- | ----- |
+| [#24 &mdash; STAMPED skills development plan](https://github.com/con/skills/pull/24) | the **shared plan**, agreed before any code: what a STAMPED skill must do, and how it is graded | *in review* |
+| [#23 &mdash; `assess-stamped` + `align-stamped`](https://github.com/con/skills/pull/23) | [@asmacdo](https://github.com/asmacdo)&rsquo;s take: one skill **assesses**, a second **aligns** what it found | *in progress* |
+| [#26 &mdash; STAMPED skills: implementation](https://github.com/con/skills/pull/26) | ours, agent-driven &mdash; 44 files, 67 commits so far | *in progress* |
+
+</div>
+
+<div class="callout">
+The goal is narrow and concrete: <strong>point a skill at a dataset, get back which of the seven
+letters hold, with evidence &mdash; and what to do about the ones that do not.</strong>
+One plan, two implementations in parallel <em>on purpose</em>: we converge once we can see what each
+gets right. All three are drafts, in public &mdash; because the harness is a research object too.
+</div>
+
+Note:
+This is the "we are not just talking about it" slide. The goal in one
+sentence: skills that assess a research object against STAMPED and recommend
+what to fix -- the same pass I just ran by hand on the compression study, but
+as something you invoke. Three draft PRs, one board, all public. The plan PR
+came first and the two implementations came after it, deliberately in
+parallel: Austin's and the agent-driven one. The convergence has not happened
+yet -- that is the honest state, and it is fine to say so.
+
+If asked why two: because a skill is cheap to write and expensive to agree on,
+and comparing two real implementations is a faster way to find the right shape
+than reviewing one.
   </textarea></section>
 
 </section>
