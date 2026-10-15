@@ -19,8 +19,13 @@ re-runnable, `con/duct` is also Self-contained because the log it leaves holds
 the command next to what the command cost, and git-annex is Tracked because
 version control over the content is the whole point of it.
 
+Every piece's name is a hyperlink to that tool's own page, so the picture is
+itself actionable -- which only works if the decks embed it with
+`<object class="dia" data="pics/stamped-puzzle.svg">` rather than `<img>`: an
+`<img>` renders the SVG but kills its links.
+
 Writes pics/stamped-puzzle.svg -- vector, so it stays sharp in the decks and
-in the PDF export, and is referenced with data-src like every other image.
+in the PDF export.
 """
 import pathlib
 
@@ -109,19 +114,32 @@ def main():
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" '
         f'xmlns:xlink="http://www.w3.org/1999/xlink" '
-        f'viewBox="0 0 {sw} {sh}" width="{sw}" height="{sh}" '
+        # 100% rather than {sw}x{sh}: embedded with <object>, the root's own
+        # width/height would win over the element's box and the picture would
+        # sit undersized in its top-left corner.  viewBox keeps the aspect.
+        f'viewBox="0 0 {sw} {sh}" width="100%" height="100%" '
         f'font-family="Source Sans Pro,Helvetica,sans-serif">',
         "<title>The STAMPED object, one piece per tool</title>",
+        # Link colours are reveal.js's beige theme (--r-link-color and its
+        # hover), so a linked name reads as a link on the slide.
+        "<style>"
+        "a text.name { fill: #8b743d; text-decoration: underline; cursor: pointer; }"
+        "a:hover text.name { fill: #b39753; }"
+        "</style>",
     ]
     for i, (tool, what, letters, url) in enumerate(PIECES):
         c, r = i % COLS, i // COLS
         cx, cy = PAD + c * W + W / 2, PAD + r * H + H / 2
-        out.append(f'<a xlink:href="{esc(url)}" target="_top">')
         out.append(f'<g><title>{esc(tool)} — {esc(what)}</title>')
         out.append(f'<path d="{piece_path(c, r)}" fill="{FILL[(c + r) % 2]}" '
                    f'stroke="{STROKE}" stroke-width="1.6"/>')
-        out.append(f'<text x="{cx:.0f}" y="{cy - 20:.0f}" text-anchor="middle" '
-                   f'font-size="19" font-weight="700" fill="#333">{esc(tool)}</text>')
+        # Only the name is the link, not the whole piece: a piece-sized hit box
+        # would make the letters and the caption look clickable too.  Both href
+        # spellings, since the file is read by SVG1.1 and SVG2 consumers alike.
+        out.append(f'<a href="{esc(url)}" xlink:href="{esc(url)}" target="_blank">'
+                   f'<text class="name" x="{cx:.0f}" y="{cy - 20:.0f}" '
+                   f'text-anchor="middle" font-size="19" font-weight="700">'
+                   f'{esc(tool)}</text></a>')
         out.append(f'<text x="{cx:.0f}" y="{cy + 4:.0f}" text-anchor="middle" '
                    f'font-size="15" fill="#666">{esc(what)}</text>')
         # the letters this piece supplies, spelled out in STAMPED's colours
@@ -131,7 +149,7 @@ def main():
             out.append(f'<text x="{lx:.0f}" y="{cy + 36:.0f}" text-anchor="middle" '
                        f'font-size="25" font-weight="700" '
                        f'fill="{LETTER[ch]}">{ch}</text>')
-        out.append("</g></a>")
+        out.append("</g>")
     out.append("</svg>")
     OUT.write_text("\n".join(out) + "\n")
     print(f"wrote {OUT.relative_to(HERE)}  ({sw}x{sh}, {len(PIECES)} pieces)")

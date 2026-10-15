@@ -153,15 +153,7 @@
 
   <div style="margin-top:1em; padding:0.8em; background-color:#e3f2fd; border-left:4px solid #1976d2; font-size:0.85em;">
 	Oscar showed <strong>how to build the harness</strong>.<br/>
-	This talk is about <strong>what the harness stands on</strong> &mdash; and how harnesses themselves become shareable.
-  </div>
-
-  <!-- workshop-xref -->
-  <div style="margin-top:0.6em;font-size:0.72em;color:#444;">
-	&hellip; and on <strong>today</strong>: <strong>Brent</strong> on the models themselves,
-	<strong>JB</strong> and <strong>Michelle</strong> on putting them to work &mdash; then
-	<strong>Johanna</strong> and <strong>Satra</strong> on the infrastructure underneath.
-	<em>This talk is the hinge between those two halves.</em>
+	This talk is about <strong>what the harness should stand on</strong>,<br/> and how harnesses themselves become shareable.
   </div>
 
   <aside class="notes">
@@ -169,6 +161,16 @@
 	companion to this one; several people in the room will have seen it.
 	"Agent = Model + Harness" is his formulation and I am reusing it
 	on purpose — reuse over reinvention, which is also the thesis.
+
+	<!-- workshop-xref -->
+  <div style="margin-top:0.6em;font-size:0.72em;color:#444;">
+	&hellip; and on <strong>today</strong>: <strong>Brent</strong> on the models themselves,
+	<strong>JB</strong> and <strong>Michelle</strong> on putting them to work &mdash; then
+	<strong>Johanna</strong> and <strong>Satra</strong> on the infrastructure underneath.
+	<em>This talk is the hinge between those two halves.</em>
+  </div>
+
+
   </aside>
 </section>
 
@@ -192,7 +194,7 @@
 		<td style="text-align:left;padding:0.5em;width:45%;"><strong>verifying</strong> and <strong>situating</strong> it</td>
 	  </tr>
 	  <tr>
-		<td style="text-align:right;padding:0.5em;"><em>can I express this?</em></td>
+		<td style="text-align:right;padding:0.5em;"><em>can I create this?</em></td>
 		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
 		<td style="text-align:left;padding:0.5em;"><strong>is this right, and does it fit what already exists?</strong></td>
 	  </tr>
@@ -258,9 +260,9 @@
 	</table>
 
 	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
-	  Same model. Same prompt. <strong>Different affordances.</strong>
-	  On the left the agent improvises confidently and is wrong.
-	  On the right it can <em>act</em>, and the validator catches it when it does not.
+	  Same LLM. Same prompt. <strong>Different background.</strong>
+	  On the left the agent would improvise confidently and likely get it wrong.
+	  On the right it can <em>act</em> immediately.
 	</div>
 	<p style="font-size:0.66em;margin-top:0.35em;color:#555;">
 	  Not just rhetoric: a structured neuroimaging harness moved first-choice tool-selection accuracy from
@@ -347,23 +349,27 @@ Then jump straight to the third column as the reason this audience
 should care.
 </aside>
   </textarea></section>
+</section>
 
+<section>
   <section data-markdown><textarea data-template>
-### **A**ctionability is the one that agents live or die on
+### **A**ctionability is where agents shine and suck
 
-An actionable object answers, *without a human in the loop*:
+An actionable object answers, *without "reading"*
 
 - **What is this?** &rarr; a declared standard ([BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/)), not a README paragraph
 - **How do I run it?** &rarr; a recorded command, not &ldquo;see Methods&rdquo;
 - **Did I get it right?** &rarr; a validator exit code, not a reviewer&rsquo;s *opinion*
-  </textarea></section>
-  
+	</textarea>
+  </section>
+
   <section data-markdown><textarea data-template>
 ### Standards make Actionability cheap!
 
-You do not negotiate the layout per project &mdash; you inherit it.
+Nobody spends *tokens* to devise a layout per project &mdash; it comes
+for free!
 
-> &ldquo;You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all&rdquo;
+#### You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all
 
 &hellip; is a convenience for humans. For an agent it is the difference
 between **acting** and **hallucinating**.
@@ -402,7 +408,7 @@ between **acting** and **hallucinating**.
 	  <tr style="background-color:#fafafa;">
 		<td style="padding:0.35em;"><strong>Now</strong></td>
 		<td style="padding:0.35em;">A procedure <strong>described in human language</strong> &mdash;
-		  with scripts dropped in exactly where precision matters.</td>
+		  with scripts provided for efficiency and precision!</td>
 		<td style="padding:0.35em;"><strong>Any agent, on first contact.</strong>
 		  The interface moved from <em>syntax</em> to <em>language</em>, so vastly more of what we
 		  already wrote down became executable.</td>
@@ -441,25 +447,26 @@ between **acting** and **hallucinating**.
 	  AI did not only make <em>more things</em> actionable. It made <strong>automation on top of
 	  actionability cheap</strong> &mdash; which is the real multiplier.
 	</div>
-	<!-- workshop-xref -->
-	<p style="font-size:0.68em;margin-top:0.4em;color:#1565c0;">
-	  &rarr; <strong>Michelle</strong> already showed you this middle row working. My claim is about
-	  <em>why</em> it works now and did not five years ago: the unit of automation stopped being a
-	  CLI and became a <em>described procedure</em>.
-	</p>
 	<aside class="notes">
 	  The escalation is the point: actionable -> automatable. Before, you
 	  automated only what already had a clean CLI. Now the unit of
 	  automation can be a described procedure, so the set of things worth
 	  automating exploded. That is the opportunity — and the next slide is
 	  the bill that comes with it.
+	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.4em;color:#1565c0;">
+	  &rarr; <strong>Michelle</strong> already showed you this middle row working. My claim is about
+	  <em>why</em> it works now and did not five years ago: the unit of automation stopped being a
+	  CLI and became a <em>described procedure</em>.
+	</p>
+
 	</aside>
   </section>
 
   <section data-markdown><textarea data-template>
 ### So grade *them* too: a skill is a research object
 
-A skill that only runs in your repo, on your paths, undocumented and unversioned,
+A skill that only runs in your repo, on your paths, undocumented and unversioned,<br/>
 is a **silo with a friendlier interface**.
 <!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
 
@@ -491,14 +498,15 @@ Walk it yourself: [checklist.stamped-principles.org](https://checklist.stamped-p
 ([`main.tex`](https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex)
 &mdash; small enough to paste into a context window, which is how we actually grade a study today).
 <!-- .element: style="font-size:0.72em;margin-top:0.5em;" -->
+<aside class="notes">
 
 <!-- workshop-xref -->
 &rarr; **Johanna** is up next with a concrete pattern for exactly this.
 My ask is that whatever such a workflow writes down about itself be gradeable by this table.
 <!-- .element: style="font-size:0.68em;margin-top:0.3em;color:#1565c0;" -->
 
-<aside class="notes">
-This is the recursive turn and it is worth saying out loud: the
+
+  This is the recursive turn and it is worth saying out loud: the
 principles we wrote for datasets and analyses apply, unchanged, to
 the skills and automations we are now writing. A skill is just
 another research object. And the upstream skills repo already
@@ -526,7 +534,7 @@ That is a STAMPED review in all but name.
   <!-- The whole of Act III in one picture, before we walk its pieces. -->
   <section>
 	<h3>Nobody ships you a STAMPED object &mdash; each tool brings a piece</h3>
-  <img data-src="pics/stamped-puzzle.svg" width="900" height="597" style="width:900px;height:597px;"/>
+  <object class="dia" data="pics/stamped-puzzle.svg" type="image/svg+xml" style="width:900px;height:597px;"></object>
 	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.82em;">
 	  Letters repeat because several tools feed the same property, and that is the point:
 	  <strong>no one tool is the answer</strong>. The next slides walk three of these pieces &mdash;
