@@ -6,8 +6,8 @@ It shows both scientific results and how the research guidance was tested and re
 
 ## Read the poster
 
-- [Download the current PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s902807--03a8d929a51e3527d753af73c13f585a.pdf).
-- [View the image preview](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1115171--8ab36fdb27b9954129e9dcb0b1d421d8.png).
+- [Download the current PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s910371--6f48fd0b93942251b8caa9b6b4499a89.pdf).
+- [View the image preview](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1141436--34dba72fb838f6c37d03eddb4322138b.png).
 - [Read the poster and figure guide](https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md) for context before following individual research records.
 
 The PDF and preview are publicly downloadable; their contents have been checked against the reviewed local export.
@@ -19,6 +19,9 @@ The left column introduces STAMPED and the experiment.
 The centre shows one agent's brain analysis and where repeated analyses agree.
 The right compares scientific adequacy and research practices, including their progression across rounds.
 The scientific and checklist measures describe different outcomes; an improvement in one does not establish an improvement in the other.
+The plot shows 95% Wilson intervals for scientific adequacy and individual checklist scores with means ± one standard deviation.
+Each linked table score opens the condition’s individual filled checklists and original responses.
+The table uses mean app scores out of all 31 items; the plot uses the fraction of evaluated items met, a separate measure.
 
 Choose a starting point for the part you want to explore:
 

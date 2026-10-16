@@ -37,13 +37,14 @@
             <p class="section-label">01 · STAMPED</p><h2>The seven principles</h2>
         <dl class="principles-grid">
           <div><dt>Self-contained</dt><dd>Reach all essential components from one project root.</dd></div>
-          <div><dt>Tracked</dt><dd>Record which versions produced each result.</dd></div>
+          <div><dt>Tracked</dt><dd>Identify every component and record changes and computational provenance.</dd></div>
           <div><dt>Actionable</dt><dd>Provide executable procedures and reproduction instructions.</dd></div>
           <div><dt>Modular</dt><dd>Separate components for reuse and recombination.</dd></div>
-          <div><dt>Portable</dt><dd>Specify dependencies and required computing environments.</dd></div>
-          <div><dt>Ephemeral</dt><dd>Use a disposable environment for each execution.</dd></div>
-          <div><dt>Distributable</dt><dd>Preserve retrievable components and rebuildable environments.</dd></div>
+          <div><dt>Portable</dt><dd>Version environment specifications and avoid undocumented host dependencies.</dd></div>
+          <div><dt>Ephemeral</dt><dd>Run in fresh, disposable environments built from recorded specifications.</dd></div>
+          <div><dt>Distributable</dt><dd>Make components persistently retrievable in their recorded state, with explicit licenses.</dd></div>
         </dl>
+            <p class="small">Each principle is a spectrum, supporting incremental improvement. <a href="https://github.com/stamped-principles/stamped-paper">STAMPED paper</a>.</p>
           </section>
           <section>
             <p class="section-label">The experiment</p><h2>Test the skills<br>through the work</h2>
@@ -95,30 +96,30 @@
         <aside class="outcomes">
           <section>
             <p class="section-label">03 · Skills-development results</p><h2>Compare assistance<br>across retained runs</h2>
-            <p>All conditions share the scientific task and software resources. Agents receive no supplied research skills, a request to find useful skills, a request to find research skills, or the <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md">STAMPED skill bundle</a>.</p>
-            <p class="small"><span id="retained-rounds">Rounds 1, 2, 3; 72 research runs.</span> Pool iterations by condition, giving each research run equal weight. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context">Read a run</a></p>
+            <p>All conditions share the scientific task and software resources. The table names the added <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md">research-skill instructions</a>; each linked mean opens that condition’s checklists.</p>
+            <p class="small"><span id="retained-rounds">Rounds 1, 2, 3; 72 research runs.</span> Pool all three rounds by condition. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context">Read a run</a></p>
           </section>
           <section class="results-matrix">
             <table class="outcome-table">
               <colgroup><col><col><col><col><col></colgroup>
-              <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>mean met %</th></tr></thead>
+              <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>Checklist app<br>mean met %</th></tr></thead>
               <tbody>
                 <!-- BENCHMARK_OUTCOMES_START -->
-                <tr><th>No supplied research skills</th><td>18</td><td>16/18</td><td>5/5</td><td>22.6%<br>n=16</td></tr>
-                <tr><th>Find useful skills</th><td>18</td><td>13/18</td><td>2/3</td><td>23.2%<br>n=18</td></tr>
-                <tr><th>Find research skills</th><td>18</td><td>10/17</td><td>3/7</td><td>22.3%<br>n=17</td></tr>
-                <tr><th>Use STAMPED skills</th><td>18</td><td>10/17</td><td>3/6</td><td>32.3%<br>n=17</td></tr>
+                <tr><th scope="row">No supplied research skills</th><td>18</td><td>16/18</td><td>5/5</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#no-supplied-research-skills" title="No supplied research skills: mean app score 19.8% across 16 primary checklists; open the checklist list" aria-label="No supplied research skills: mean app score 19.8% across 16 primary checklists; open the checklist list">19.8%</a><br>n=16</td></tr>
+                <tr><th scope="row">Find useful skills</th><td>18</td><td>13/18</td><td>2/3</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-useful-skills" title="Find useful skills: mean app score 19.5% across 18 primary checklists; open the checklist list" aria-label="Find useful skills: mean app score 19.5% across 18 primary checklists; open the checklist list">19.5%</a><br>n=18</td></tr>
+                <tr><th scope="row">Find research skills</th><td>18</td><td>10/17</td><td>3/7</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-research-skills" title="Find research skills: mean app score 19.0% across 17 primary checklists; open the checklist list" aria-label="Find research skills: mean app score 19.0% across 17 primary checklists; open the checklist list">19.0%</a><br>n=17</td></tr>
+                <tr><th scope="row">Use STAMPED skills</th><td>18</td><td>10/17</td><td>3/6</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#use-stamped-skills" title="Use STAMPED skills: mean app score 27.7% across 17 primary checklists; open the checklist list" aria-label="Use STAMPED skills: mean app score 27.7% across 17 primary checklists; open the checklist list">27.7%</a><br>n=17</td></tr>
                 <!-- BENCHMARK_OUTCOMES_END -->
               </tbody>
             </table>
-            <p class="small summary-key"><strong>Science:</strong> fully supported / assessed analyses. <strong>Replay:</strong> all selected outputs matching / observed native reruns; — means none observed. <strong>STAMPED:</strong> mean percentage of evaluated items met (available n). <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures">Results + definitions</a>.</p>
+            <p class="small summary-key"><strong>Science:</strong> fully supported / assessed. <strong>Replay:</strong> all selected outputs matching / observed reruns. <strong>App:</strong> mean items met / all 31 (available n); the plot instead uses evaluated items. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/checklists/README.md">Scores + full responses</a>.</p>
           </section>
 
           <section class="ruled progression-section" aria-labelledby="progression-heading">
             <h3 id="progression-heading">How do outcomes change across rounds?</h3>
             <figure>
-              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures"><img class="progression-figure" src="figures/round-progression.svg" alt="Scientific adequacy and mean evaluated STAMPED items met for each assistance condition across rounds one, two and three"></a>
-              <figcaption>Six fresh runs per condition per round; primary judgments only. Available n: science 5–6, checklist 4–6. Lines connect round summaries. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv">Round data + denominators</a></figcaption>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures"><img class="progression-figure" src="figures/round-progression.svg" alt="Scientific adequacy with 95% Wilson intervals and individual evaluated-item checklist scores with means plus or minus one standard deviation, across three rounds"></a>
+              <figcaption>Science: 95% Wilson intervals, assuming independent runs. Checklist: individual scores and mean ± SD. Available n: science 5–6; checklist 4–6. Bars do not account for missing assessments or judge uncertainty. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv">Round data + denominators</a></figcaption>
             </figure>
           </section>
           <section class="ruled lessons-section" aria-labelledby="lessons-heading">
@@ -126,7 +127,7 @@
             <h3>Assess without prescribing</h3>
             <p>Specifying tools or output formats aids assessment but can prescribe the practices being evaluated. The common task left methods and delivery to workers; coordinator preservation was recorded separately. Bound repairs, preserve limitations and advance to the next planned round.</p>
             <p>We revised the <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds">STAMPED research-loop skill</a> to request an executable setup recipe or retrievable pinned source alongside the runtime identity. Fresh agents in the STAMPED condition tested the revised skill.</p>
-            <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Study design</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds">Why the skills changed</a></p>
+            <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Study design</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md">Study lessons</a></p>
           </section>
         </aside>
       </div>
