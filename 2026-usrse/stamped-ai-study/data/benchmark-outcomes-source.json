@@ -2,8 +2,8 @@
   "schema_version": 1,
   "repository": "https://github.com/leej3/stamped-in-practice",
   "branch": "codex/stamped-poster-analysis",
-  "revision": "e4127a648c0ca93b360077002478326bd0dfdfc4",
+  "revision": "52ad802824e29c52482e5ece63ba99fd5b6a6367",
   "source": "experiments/retained-round-reporting/pooled/poster-outcomes.json",
-  "sha256": "ed70a12a7b34e3e335dd3d58e65b88b98946e91b649259b674384ff499ab5011",
+  "sha256": "e98344d64e58774d00c7dc839651cb1058163da0708e72463cf8a28896d1e2a4",
   "scope": "Display copy; aggregation and run-level evidence remain in the benchmark."
 }

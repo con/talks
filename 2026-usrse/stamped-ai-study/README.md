@@ -3,9 +3,9 @@
 An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
 The blue banner states the experiment; the left column introduces STAMPED, the centre shows the NARPS scientific example, and the right connects condition-level outcomes to the study's research objects.
 
-Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or download [the revised PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s857856--47b3904e1be7ccc9f35de93dc2a178f2.pdf).
+Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or download [the revised PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s857716--87000aa48373103495d18a88f69cf647.pdf).
 The current PDF and preview are publicly retrievable; anonymous downloads match the reviewed local files byte-for-byte.
-The [completion plan](completion-plan.md) tracks the remaining round-three assessment integration.
+The [completion record](completion-plan.md) links the completed reporting and poster integration.
 
 ## Scientific figures belong to the benchmark
 
@@ -17,11 +17,12 @@ The group map shows formal round-two run 09: a one-sample group test on 54 parti
 The spatial comparison uses all 48 analyses from rounds two and three, twelve per condition, on 168,285 shared tested voxels.
 Every run retains its native corrected decisions and coverage; the source repository preserves masks, scientific code, reports and capture identities.
 
-The compact outcomes table pools the retained operational assessments from rounds one and two: 48 original research runs, 47 primary scientific judgments and 45 valid primary checklists.
+The compact outcomes table pools the retained operational assessments from all three rounds: 72 original research runs, 70 primary scientific judgments and 68 valid primary checklists.
 Native replay counts distinguish full selected-output matches from observed executions.
 The [benchmark summary](https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled) retains all grades, denominators, partial matches and separate round summaries.
 The [display data](data/benchmark-outcomes.json) and [source binding](data/benchmark-outcomes-source.json) identify the exact imported report.
-Round three will enter this table after its existing judges and closed extraction finish; its scientific maps are already included in the spatial figure.
+The complete table includes 21 observed native reruns: 13 full selected-output matches, five partial matches and three nonzero exits.
+Round-specific results and every original judgment remain retrievable.
 
 The poster focuses on the scientific results and skill-development experiment.
 Original reporting failures, additive extraction corrections and infrastructure diagnostics remain in the benchmark's linked reporting record.
@@ -43,7 +44,7 @@ pixi run verify
 pixi run links
 ```
 
-`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-method-lessons-published-20261016`](https://github.com/con/talks/tree/codex/env-poster-method-lessons-published-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
+`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-stamped-results-20261016`](https://github.com/con/talks/tree/codex/env-stamped-results-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
 
 To import a new committed benchmark export:
 

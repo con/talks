@@ -1,6 +1,6 @@
 # Completing the STAMPED in Practice poster
 
-The poster now contains measured outcomes from the retained operational assessments of rounds one and two, plus scientific spatial results from all 48 round-two and round-three analyses.
+The poster now contains measured outcomes from the retained operational assessments of all three rounds, plus scientific spatial results from all 48 round-two and round-three analyses.
 The original development comparison is not included in these summaries.
 The invitation remains to use STAMPED, try the skills and contribute example studies.
 
@@ -15,14 +15,20 @@ The poster imports verified display copies.
 The variability figure includes twelve analyses per condition from rounds two and three, on 168,285 shared tested voxels.
 - The revised PDF is inspected and checked for layout, legible text, links and QR destinations.
 
-## Remaining integration
+## Final integration
 
-1. Wait for the existing round-three judgments and their closed extraction; launch no new research or judges.
-2. Apply the benchmark's [same retained-input reporting procedure](https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting), preserving its original rejection report and every remaining failure.
-3. Add round three to the benchmark pool, retain all revision-specific and run-level evidence, and regenerate the summary.
-4. Import the committed summary with `scripts/import-benchmark-outcomes.py`; rebuild, inspect and publish the updated PDF.
-5. Reconcile the final experiment synthesis with the corrected reporting, then close the recurring evidence review.
+All 96 assigned operational judgments are closed.
+The benchmark reporting layer recognizes the authorized source revisions, recovers exact retained links and preserves every original judgment, rejection report and individual admission failure.
+The table pools 72 original runs with 70 primary scientific judgments and 68 valid primary checklists.
+Duplicate judges remain separate.
+
+The final pool includes 21 native rerun executions: 13 full selected-output matches, five partial matches and three nonzero exits.
+Unobserved or unavailable execution remains distinct.
+The published benchmark retains separate round summaries and the source revisions behind the pool.
+
+The poster imports that committed summary, and its PDF is rebuilt, inspected and verified.
+No research, replay or judging was repeated.
+The original coordinator checkout and frozen judging runtime remain unchanged by this reporting work.
 
 The infrastructure history and detailed exclusions belong in the linked research object.
 They are not additional poster panels.
-The current registered experiment, frozen judging runtime and active coordinator checkout remain unchanged by this reporting work.
