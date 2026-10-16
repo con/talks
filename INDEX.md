@@ -534,7 +534,8 @@ Cross-references in the per-topic lookup point at the shelved path
 
 ### `2026-usrse/stamped-ai-study/index.html` — *STAMPED in Practice*
 
-- Discussion placeholder: [editable poster, PDF and notes](2026-usrse/stamped-ai-study/README.md).
+- US-RSE 2026 poster comparing research-skill assistance across three rounds.
+- [Editable poster, verified PDF and research evidence](2026-usrse/stamped-ai-study/README.md).
 
 
 Posters are not reveal.js decks and have no slide IDs. HTML posters

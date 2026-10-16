@@ -40,8 +40,7 @@ A spectrum note distinguishes incremental improvement from a single compliance t
 
 The poster focuses on the scientific results and skill-development experiment.
 Original reporting failures, additive extraction corrections and infrastructure diagnostics remain in the benchmark's linked reporting record.
-The final guidance example explicitly identifies the STAMPED research-loop skill's environment-recipe clarification and the condition that received it.
-The methodological lesson pairs assessment without prescribing with bounded repairs that let the experiment advance.
+Future directions draw on the [study lessons](https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md): stronger calibrated judges, clear completion rules, common tool guidance, measured coordinator effort, isolation, execution capture and new scientific tasks.
 
 ## Retrieve and build
 
@@ -59,7 +58,7 @@ pixi run verify
 pixi run links
 ```
 
-`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-uncertainty-20261016`](https://github.com/con/talks/tree/codex/env-poster-uncertainty-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
+`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-ci-20261016`](https://github.com/con/talks/tree/codex/env-poster-ci-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
 
 To import a new committed benchmark export:
 

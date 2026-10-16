@@ -4,7 +4,7 @@
     "height": 4224
   },
   "minimum_text_px": 32,
-  "text_node_count": 166,
+  "text_node_count": 164,
   "small": [],
   "outside": [],
   "regionOverflow": [],
@@ -199,7 +199,7 @@
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv",
     "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
-    "https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md#invest-in-the-next-benchmark-not-only-the-next-skill-revision",
     "https://github.com/leej3/stamped-in-practice",
     "https://pbs.dartmouth.edu/",
     "https://www.repronim.org/"
@@ -242,14 +242,14 @@
         "x": 2690.828125,
         "y": 2880.9375,
         "width": 1445.15625,
-        "height": 600.125
+        "height": 502.9375
       }
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T18:58:23.576Z",
+  "created_utc": "2026-10-16T19:12:22.608Z",
   "source_sha256": {
-    "index.html": "8cecb2ced7be5db36ae0e69d22fda3d4df920e258a54ad7898458aa49a2c8825",
+    "index.html": "8077fdf31a6ffbd85ae477248bbc89c333b265b0cac9113330608f2e0854b0cb",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
     "poster.css": "c65cc3d163fb871f88354ccb9d140b9d7d1be3e50a2373c546fb6c11d4cbd914",
     "build-poster.cjs": "57fabc32b567f34aa31fcaedd4530fab64db44e581dab5eb92a538d2eb98bb8e",

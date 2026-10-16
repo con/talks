@@ -6,8 +6,8 @@ It shows both scientific results and how the research guidance was tested and re
 
 ## Read the poster
 
-- [Download the current PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s910371--6f48fd0b93942251b8caa9b6b4499a89.pdf).
-- [View the image preview](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1141436--34dba72fb838f6c37d03eddb4322138b.png).
+- [Download the current PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s908837--31099438fe11c5bd19df7b43513b8e42.pdf).
+- [View the image preview](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1116391--0e3f41dd0df6a3610fb5b7634c75608e.png).
 - [Read the poster and figure guide](https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md) for context before following individual research records.
 
 The PDF and preview are publicly downloadable; their contents have been checked against the reviewed local export.
