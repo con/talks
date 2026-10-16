@@ -9,7 +9,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s71083--8f66e387d1e50c94a14c747cc1a363ab.svg",
       "sha256": "3256be5b0c21a68881a5259ac190ccf30684d8bc25ae8b2d3085fbcc8687a03c",
       "bytes": 71083,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "assets/stamped-qr-poster.svg",
@@ -17,7 +18,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s72488--fcda447d1d4515e37ed70c0359039be9.svg",
       "sha256": "28439d899807c61b06977e9359fc6ec6766d7fb78e504c282389d9ca9a90dbdc",
       "bytes": 72488,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "assets/stamped-qr-study.svg",
@@ -25,7 +27,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s67623--fad8037a2c4eac1c81b0f96a75bb69e2.svg",
       "sha256": "771b6b0ca8b7efac41a536648d8f17f4d4ff63fcc8b5d4d2a6ae51f7db0a891e",
       "bytes": 67623,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "figures/narps-group-map.png",
@@ -33,7 +36,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s136105--1da95ba2ba89559e653cfb9f4e21cc21.png",
       "sha256": "c35b14d41d0b3496c6247d6dbc14db9c2f1e4009764d7370e07b0ec8f013e7b7",
       "bytes": 136105,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "figures/narps-spatial-agreement.svg",
@@ -41,7 +45,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s142319--635c889a2b6a58de2a5c8aa69f11e8e4.svg",
       "sha256": "7f7d3d44bacbbe6a8a911d89859fb7612ae3875bf35217efcc85b4891c6af790",
       "bytes": 142319,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "figures/narps-spatial-agreement.png",
@@ -49,23 +54,28 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s166353--6c8e79de1133a513b18c6123e3db1e71.png",
       "sha256": "f93b8a67c4d714622d891934546a1b384d99c7e3e32cc4fa42b06375f7355bf8",
       "bytes": 166353,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "exports/stamped-ai-poster.pdf",
-      "key": "MD5E-s838462--d8ef321e58eda856e01de66965ab01d9.pdf",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s838462--d8ef321e58eda856e01de66965ab01d9.pdf",
-      "sha256": "4f1b1e32c225ba04282bc2406e3a973a4092b9f386c0ca93d0cc2fb6b69f229d",
-      "bytes": 838462,
-      "passed": true
+      "key": "MD5E-s841738--411e41cdacf46c5470b4678d695d6d5c.pdf",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s841738--411e41cdacf46c5470b4678d695d6d5c.pdf",
+      "sha256": "eb7e1c194d8d0b524911112f51056bcf7dda30a85e6707d25995a78c10575ef8",
+      "bytes": 841738,
+      "passed": null,
+      "checked_utc": null,
+      "status": "publication_pending"
     },
     {
       "path": "exports/pdf-preview.png",
-      "key": "MD5E-s1012249--fb120e92a88e4205b2d5b54521840d3f.png",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1012249--fb120e92a88e4205b2d5b54521840d3f.png",
-      "sha256": "9734c16cfab996ac3a099823b9d616bb621e0a89093a95648d6491d0d303b400",
-      "bytes": 1012249,
-      "passed": true
+      "key": "MD5E-s1113227--e409190c803eba9bf21df3e1be969146.png",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1113227--e409190c803eba9bf21df3e1be969146.png",
+      "sha256": "e884e10d04b96f627757365ec2e6adb0346d8ec9c65ea3afdc5f43fa77a0be75",
+      "bytes": 1113227,
+      "passed": null,
+      "checked_utc": null,
+      "status": "publication_pending"
     },
     {
       "path": "../orinoco-lite/assets/con-logo-outlined.svg",
@@ -73,7 +83,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s125811--5429db5139ba49cc5a94dceb1532abe0.svg",
       "sha256": "076adc1bf4e2d9dba5983e22f753f562a7408c8a3393adea281c5478f64f7ee1",
       "bytes": 125811,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg",
@@ -81,7 +92,8 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s379034--be7ae71a14ff2301bb0cf1cde08457e9.svg",
       "sha256": "69dfcc6cd70367b7a03b19982589ac7d2180fdf6723bbb17ae2361c6c356d625",
       "bytes": 379034,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "../orinoco-lite/assets/repronim_logo.svg",
@@ -89,7 +101,8 @@
       "url": "https://raw.githubusercontent.com/con/talks/codex/stamped-example-poster/2026-usrse/orinoco-lite/assets/repronim_logo.svg",
       "sha256": "0e1101fa2dca811587d0ad4caa040961da5156e11b9b23f64f29ca3463d84870",
       "bytes": 33939,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     },
     {
       "path": "../orinoco-lite/assets/orinoco-qr-con.svg",
@@ -97,8 +110,15 @@
       "url": "https://raw.githubusercontent.com/con/talks/codex/stamped-example-poster/2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg",
       "sha256": "9f5725bea98bf4b3b4b4a9479bdc734529b19db205089b291ee86e43320b1d49",
       "bytes": 67605,
-      "passed": true
+      "passed": true,
+      "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     }
   ],
-  "all_passed": true
+  "all_passed": false,
+  "updated_utc": "2026-10-16T14:04:44.756888+00:00",
+  "pending_uploads": [
+    "exports/stamped-ai-poster.pdf",
+    "exports/pdf-preview.png"
+  ],
+  "scope": "Unchanged assets retain their prior retrieval checks. Current PDF and preview are retained locally; remote payload publication is pending."
 }

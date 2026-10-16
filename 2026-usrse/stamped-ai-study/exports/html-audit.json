@@ -4,7 +4,7 @@
     "height": 4224
   },
   "minimum_text_px": 32,
-  "text_node_count": 150,
+  "text_node_count": 153,
   "small": [],
   "outside": [],
   "regionOverflow": [],
@@ -182,7 +182,8 @@
     "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md",
     "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1",
     "https://github.com/leej3/stamped-in-practice",
-    "https://github.com/con/skills/commits/codex/pr26-operational-environment/",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/assessment-series/narps-neutral-r1-operational-v4/synthesis/viability.md",
     "https://pbs.dartmouth.edu/",
     "https://www.repronim.org/"
   ],
@@ -214,24 +215,24 @@
         "x": 2690.828125,
         "y": 1866.875,
         "width": 1445.15625,
-        "height": 913.25
+        "height": 864.65625
       }
     },
     {
       "element": "SECTION",
-      "class": "ruled revision-section",
+      "class": "ruled lessons-section",
       "rect": {
         "x": 2690.828125,
-        "y": 2806.125,
+        "y": 2757.53125,
         "width": 1445.15625,
-        "height": 199.375
+        "height": 795.90625
       }
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T05:47:27.131Z",
+  "created_utc": "2026-10-16T14:00:14.822Z",
   "source_sha256": {
-    "index.html": "29a3aebdcb3fcb42ddf3d32879095bdea133fee2e52371632d068fbab85475c4",
+    "index.html": "00d74b8b91af44d572a664571977cd2bfc5d6d553300b6b7b226b750285da525",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
     "poster.css": "352b253e7fa7fdf56f165fdbb053f0233a6e26900fa9303811685efc7082871d",
     "build-poster.cjs": "3c392e51ef7a2151447fa6fe0e934ef77b7926086923e10a9b938fe4ba9d0a1a",

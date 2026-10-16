@@ -11,9 +11,12 @@ Its common prompt already prescribed several assessed practices, and assessment 
 The twelve scientific analyses remain useful examples and evidence for improving both skills and measurement.
 They do not populate the poster's pooled comparison.
 
-A cleaner comparison needs a neutral common scientific task, explicit condition-specific skill instructions, a frozen assessment procedure and an end-to-end assessment pilot before launch.
-Changing the common instructions or repairing incompatible primary measurements calls for a separately registered comparison, linked to the development findings that motivated it.
-Poster preparation does not launch workers or change the registered protocol.
+The subsequent [neutral comparison](https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md) leaves methods and delivery practices to the workers and records coordinator preservation separately.
+Its [round-one assessment history](https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/assessment-series/narps-neutral-r1-operational-v4/synthesis/viability.md) documents repeated assessment repairs and reassessment of the same 24 unchanged worker deliveries before later research rounds.
+These records support the poster's two methodological lessons, separately from the earlier twelve-run scientific figures and any eventual comparison of skill effectiveness.
+The assessment histories remain distinct; changes to the measurement procedure cannot be silently pooled as a skill-only effect.
+Follow the benchmark's [current status](https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/STATUS.md) and existing authorized sequence for remaining collection.
+Poster preparation does not launch workers, add assessment trials or change the registered protocol.
 
 ## Pool retained iterations by condition
 
@@ -78,7 +81,7 @@ Keep worker delivery distinct from coordinator recovery and publication.
 
 ## Finish from the records
 
-1. Register the clean comparison and validate its collection and assessment procedures.
+1. Use the registered comparison and preserve its documented assessment boundaries.
 2. Publish each retained run, assessment and retrievable payload with its source binding.
 3. Generate pooled condition summaries and updated spatial figures in the benchmark.
 4. Link each skill revision to the observation that motivated it and its subsequent test.
