@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-16T17:43:58.925314+00:00",
+  "checked_utc": "2026-10-16T17:58:34.088592+00:00",
   "authentication": "none",
   "method": "Full annex payload download and SHA-256 comparison; ordinary Git source identities separately identified",
   "files": [
@@ -70,22 +70,27 @@
     },
     {
       "path": "exports/pdf-preview.png",
-      "sha256": "88711415d6cacc8af484ea5e1ae6644c794d20daa14ac40f9b6cf6a78d47e8cb",
-      "bytes": 1097314,
-      "storage": "Git",
-      "check": "Local source identity; published with poster branch",
-      "passed": true
+      "sha256": "46810c4a098104de29fe817f87aba8ae7faa3e00604355f2adfd36935cc54878",
+      "bytes": 1098696,
+      "storage": "annex",
+      "passed": true,
+      "key": "MD5E-s1098696--f2ab379c6d4215fc80b067d81634e857.png",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1098696--f2ab379c6d4215fc80b067d81634e857.png",
+      "downloaded_sha256": "46810c4a098104de29fe817f87aba8ae7faa3e00604355f2adfd36935cc54878",
+      "downloaded_bytes": 1098696,
+      "checked_utc": "2026-10-16T17:58:34.088592+00:00"
     },
     {
       "path": "exports/stamped-ai-poster.pdf",
-      "sha256": "c84506453c5eac6a034baee8bc31741830f639cc6a674cce708373c0fbc8ce9c",
-      "bytes": 857856,
-      "key": "MD5E-s857856--47b3904e1be7ccc9f35de93dc2a178f2.pdf",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s857856--47b3904e1be7ccc9f35de93dc2a178f2.pdf",
+      "sha256": "ad5f8adb4381bc49221937c4f0bb4ae383baba2476d16748a8f97cb5d7f329a2",
+      "bytes": 857716,
+      "key": "MD5E-s857716--87000aa48373103495d18a88f69cf647.pdf",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s857716--87000aa48373103495d18a88f69cf647.pdf",
       "storage": "annex",
-      "downloaded_sha256": "c84506453c5eac6a034baee8bc31741830f639cc6a674cce708373c0fbc8ce9c",
-      "downloaded_bytes": 857856,
-      "passed": true
+      "downloaded_sha256": "ad5f8adb4381bc49221937c4f0bb4ae383baba2476d16748a8f97cb5d7f329a2",
+      "downloaded_bytes": 857716,
+      "passed": true,
+      "checked_utc": "2026-10-16T17:58:34.088592+00:00"
     },
     {
       "path": "figures/narps-group-map.png",
