@@ -13,7 +13,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = Path('experiments/narps-poster/figures/poster-figure-manifest.json')
 BINDING = ROOT / 'figures/benchmark-source.json'
-EXPECTED = {f'{name}.{ext}' for name in ('narps-group-map', 'narps-spatial-agreement') for ext in ('svg', 'png')}
+EXPECTED = {f'{name}.{ext}' for name in ('narps-group-map', 'narps-spatial-agreement', 'round-progression') for ext in ('svg', 'png')}
 
 
 def digest(path):
@@ -43,7 +43,7 @@ def main():
         raw = (benchmark / MANIFEST).read_bytes()
         source = json.loads(raw)
         if {Path(row['path']).name for row in source['figures']} != EXPECTED:
-            raise ValueError('Benchmark must export the expected two SVG and two PNG figures')
+            raise ValueError('Benchmark must export the expected three SVG and three PNG figures')
         entries = source['figures'] + source['sources']
         verify(benchmark, entries)
         paths = [MANIFEST.as_posix(), *[row['path'] for row in entries]]

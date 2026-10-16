@@ -58,6 +58,17 @@
       }
     },
     {
+      "src": "figures/round-progression.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
+      "rect": {
+        "x": 2690.828125,
+        "y": 2174.25,
+        "width": 1445.15625,
+        "height": 670.953125
+      }
+    },
+    {
       "src": "assets/stamped-qr-study.svg",
       "loaded": true,
       "href": "https://github.com/leej3/stamped-in-practice",
@@ -163,6 +174,11 @@
     "https://github.com/con/skills/blob/codex/pr26-neutral-assessor/skills/assess-alignment-with-stamped-principles/SKILL.md",
     "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/align-with-stamped-principles/SKILL.md",
     "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/create-stamped-project/SKILL.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1",
+    "https://github.com/leej3/stamped-in-practice",
     "https://checklist.stamped-principles.org/",
     "https://pubmed.ncbi.nlm.nih.gov/17255512/",
     "https://doi.org/10.1038/s41586-020-2314-9",
@@ -178,11 +194,8 @@
     "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
     "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
     "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1",
-    "https://github.com/leej3/stamped-in-practice",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv",
     "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
     "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection",
     "https://pbs.dartmouth.edu/",
@@ -196,7 +209,7 @@
         "x": 2690.828125,
         "y": 712,
         "width": 1445.15625,
-        "height": 452.5
+        "height": 501.09375
       }
     },
     {
@@ -204,19 +217,19 @@
       "class": "results-matrix",
       "rect": {
         "x": 2690.828125,
-        "y": 1174.5,
+        "y": 1223.09375,
         "width": 1445.15625,
         "height": 823.5625
       }
     },
     {
       "element": "SECTION",
-      "class": "ruled evidence-section",
+      "class": "ruled progression-section",
       "rect": {
         "x": 2690.828125,
-        "y": 2070.0625,
+        "y": 2072.65625,
         "width": 1445.15625,
-        "height": 864.65625
+        "height": 875.015625
       }
     },
     {
@@ -224,28 +237,28 @@
       "class": "ruled lessons-section",
       "rect": {
         "x": 2690.828125,
-        "y": 2960.71875,
+        "y": 2973.671875,
         "width": 1445.15625,
-        "height": 575.53125
+        "height": 600.125
       }
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T17:56:40.122Z",
+  "created_utc": "2026-10-16T18:27:26.550Z",
   "source_sha256": {
-    "index.html": "19da60b51a508d75ed397483919b147a303d5afe5a6aebf92eb7114ef3ed046d",
+    "index.html": "6699fe1ee93ad2e807e192cc8f4b04a3fc3ad1ea52f2dd6e24dc84d0a4029b5c",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
-    "poster.css": "f0399ef01d8bafa3ee991dbd6dda78611ec75c47a10c3b9a09d62724555f0c9d",
+    "poster.css": "57c8a5fbab74566434e7074a3cc1a8f64919a5fe79860488ccd1169f4c7a6bd6",
     "build-poster.cjs": "878a2b50e848d0d8775c3c2ec63378def4d302f1e546d0ee438d66559da065de",
     "verify-pdf.py": "e0375281137d158da636f5faf8c3eb40d0bfbacdac848400157c181f2e0c479c",
     "verify-links.py": "d7d8139a9c7bdc95deb2300eb97c9b5cf3ec20434e5a67ace59b09ab8d9c4e4c",
     "make-logo-qrs.py": "c66c1f5af9422b96eaee726f91df10e20e301707d704d2787432c91b830f4632",
     "source-manifest.json": "4690c150b8f52f8311d4dbb83caceea4abeb753513b104c9dc9ca33c8a90f3ea",
-    "figures/benchmark-source.json": "e62324959d9a633d24f5f7e0bddb43b47767cebb488c5b8412ca92fef60f022b",
-    "scripts/import-benchmark-figures.py": "c634739fdfae9eca4e21d00b1ce392f1d387f8df2206d7f856c8a4cd4fca2106",
+    "figures/benchmark-source.json": "fd34067a956656a8105f6b1e96f49e6a3bc8c0aa1c39b9613c7cab61ceea540f",
+    "scripts/import-benchmark-figures.py": "e56328cfdb7f9b94e45194f4e4d8878ce87dcc8dec697bd9e41e2e8f84e1e500",
     "scripts/import-benchmark-outcomes.py": "b1310fed5a1bbf6b9549368d497496599dadb88e513acc69d3481a212e5bb556",
-    "data/benchmark-outcomes.json": "e98344d64e58774d00c7dc839651cb1058163da0708e72463cf8a28896d1e2a4",
-    "data/benchmark-outcomes-source.json": "7b7f9fb049343af92071c8fd29827f10ef85f155eede2eb25f03d42539e6135e",
+    "data/benchmark-outcomes.json": "9cb1b885667ca30947148d021d561641264fc00e3340d4880d9561a5982a440a",
+    "data/benchmark-outcomes-source.json": "95105975fe0351d755563ac6c6b1e21d9bee52a4252e9c7e37ba7e6d21dc5ae3",
     "pixi.toml": "8d593bb8c5e1495e07831d33a21d84bcb94183624749b2861d89875e74258a70",
     "package-lock.json": "c4a27d1390a90be1fed6dd2c6f713f8b9ecfb49f5721656de4db136af2307cdc"
   },
