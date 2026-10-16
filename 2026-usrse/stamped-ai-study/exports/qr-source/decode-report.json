@@ -1,23 +1,23 @@
 [
   {
     "name": "poster",
-    "url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+    "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
     "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-poster.svg",
-    "qr_version": 9,
+    "qr_version": 8,
     "error_correction": "H",
-    "modules_including_border": 61,
+    "modules_including_border": 57,
     "quiet_border_modules": 4,
     "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
     "logo_width_fraction_of_body": 0.42,
-    "file_bytes": 72488,
-    "logo_pad_percent_of_body_area": 10.92,
+    "file_bytes": 71326,
+    "logo_pad_percent_of_body_area": 11.14,
     "checks": [
       {
         "pixels": 144,
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -25,7 +25,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -33,7 +33,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -41,7 +41,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -49,7 +49,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -57,7 +57,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -65,7 +65,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -73,7 +73,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -81,7 +81,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -89,7 +89,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -97,7 +97,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -105,7 +105,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -113,7 +113,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -121,7 +121,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -129,7 +129,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -137,7 +137,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -145,7 +145,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -153,7 +153,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -161,7 +161,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -169,7 +169,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -177,7 +177,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -185,7 +185,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -193,7 +193,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -201,7 +201,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -209,7 +209,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -217,7 +217,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -225,7 +225,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -233,7 +233,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -241,7 +241,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -249,7 +249,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -257,7 +257,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -265,7 +265,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -273,7 +273,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -281,7 +281,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -289,7 +289,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -297,7 +297,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -305,7 +305,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -313,7 +313,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -321,7 +321,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -329,7 +329,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -337,7 +337,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       },
       {
@@ -345,7 +345,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
         ]
       }
     ]
@@ -703,7 +703,7 @@
   },
   {
     "name": "skills",
-    "url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+    "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
     "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-skills.svg",
     "qr_version": 8,
     "error_correction": "H",
@@ -711,7 +711,7 @@
     "quiet_border_modules": 4,
     "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
     "logo_width_fraction_of_body": 0.42,
-    "file_bytes": 71083,
+    "file_bytes": 71260,
     "logo_pad_percent_of_body_area": 11.14,
     "checks": [
       {
@@ -719,7 +719,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -727,7 +727,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -735,7 +735,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -743,7 +743,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -751,7 +751,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -759,7 +759,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -767,7 +767,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -775,7 +775,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -783,7 +783,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -791,7 +791,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -799,7 +799,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -807,7 +807,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -815,7 +815,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -823,7 +823,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -831,7 +831,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -839,7 +839,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -847,7 +847,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -855,7 +855,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -863,7 +863,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -871,7 +871,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -879,7 +879,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -887,7 +887,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -895,7 +895,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -903,7 +903,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -911,7 +911,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -919,7 +919,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -927,7 +927,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -935,7 +935,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -943,7 +943,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -951,7 +951,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -959,7 +959,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -967,7 +967,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -975,7 +975,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -983,7 +983,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -991,7 +991,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -999,7 +999,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1007,7 +1007,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1015,7 +1015,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1023,7 +1023,7 @@
         "variant": "original",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1031,7 +1031,7 @@
         "variant": "rotated-90",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1039,7 +1039,7 @@
         "variant": "grayscale-softened",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       },
       {
@@ -1047,7 +1047,7 @@
         "variant": "rotated-13",
         "passed": true,
         "decoded": [
-          "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
         ]
       }
     ]

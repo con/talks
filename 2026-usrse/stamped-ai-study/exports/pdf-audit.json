@@ -1,5 +1,5 @@
 {
-  "pdf_sha256": "365fdd07f55992f15eb18b11a8bec3e939d94849a6fac5b878ca2593bbeb97f3",
+  "pdf_sha256": "26d3260a2fe476998068e27f560ca8877ce6c5a04b3cbff3696a938e9949ca03",
   "page_count": 1,
   "page_points": [
     3168.0,
@@ -9,19 +9,19 @@
   "minimum_html_text_pt": 24.0,
   "minimum_pdf_text_pt": 24.0,
   "inspected_pdf_text_runs": 256,
-  "link_annotation_count": 40,
-  "unique_expected_links": 33,
+  "link_annotation_count": 41,
+  "unique_expected_links": 29,
   "missing_links": [],
   "raster_dpi": 150,
   "qr_results": [
     {
       "name": "poster",
-      "expected": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "expected": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
       "decoded": [
-        "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
       ],
       "decoded_rotated": [
-        "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
       ],
       "passed": true
     },
@@ -38,12 +38,12 @@
     },
     {
       "name": "skills",
-      "expected": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
+      "expected": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
       "decoded": [
-        "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills"
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
       ],
       "decoded_rotated": [
-        "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills"
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
       ],
       "passed": true
     },

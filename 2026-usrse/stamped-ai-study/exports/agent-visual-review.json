@@ -1,19 +1,25 @@
 {
-  "checked_utc": "2026-10-16T18:28:23.253817+00:00",
-  "reviewer": "Codex; independent visual pass by progression_review",
+  "checked_utc": "2026-10-16T18:35:21.688811+00:00",
+  "reviewer": "Codex; independent navigation and visual pass by progression_review",
   "files": {
-    "index.html": "6699fe1ee93ad2e807e192cc8f4b04a3fc3ad1ea52f2dd6e24dc84d0a4029b5c",
+    "index.html": "0d23bc7d3a4e29f97bde9b09692e3deaf5b8f7b6f938889e02474f099e91c3e1",
     "poster.css": "57c8a5fbab74566434e7074a3cc1a8f64919a5fe79860488ccd1169f4c7a6bd6",
-    "exports/stamped-ai-poster.pdf": "365fdd07f55992f15eb18b11a8bec3e939d94849a6fac5b878ca2593bbeb97f3",
-    "exports/pdf-preview.png": "e956aa13181affc6b2e46ab5ef1b4901689dacba25bc93d3009c997f80f181bf"
+    "README.md": "fdfe5026afafaa802383db5d91c749db03363b0d59f21007976bba18e4ca1c57",
+    "BUILDING.md": "4ab2f3ba14100f3cb5af007655296bc3551fe9facce872df903a0569d840139a",
+    "make-logo-qrs.py": "95016d0958ef4c064dce2548be4ac8f65fa171e5a15f5ee4c41378bc59445bc7",
+    "assets/stamped-qr-poster.svg": "7c48ccc171d37755479ddc42f6c6e32a1c1e2297f9041c30444e53137ce6db40",
+    "assets/stamped-qr-skills.svg": "ff98fa82038696210079f2ca79def36e3ac1bbbdf622f8c7349e341ba94bd502",
+    "exports/stamped-ai-poster.pdf": "26d3260a2fe476998068e27f560ca8877ce6c5a04b3cbff3696a938e9949ca03",
+    "exports/pdf-preview.png": "03653a0fc582fcd5742dc5a218a56a05363e3af30abbfd098295a2d12af1108f"
   },
   "observations": [
-    "Inspected the final rendered PDF preview: no overlaps, clipping or unreadable labels.",
-    "Two-panel chart shows all four conditions across rounds 1\u20133, separating supported analyses from mean evaluated checklist items met.",
-    "Caption states fresh runs, primary judgments, available denominators and connecting round summaries; underlying measurements are unchanged.",
-    "No supplied research skills is used consistently in the table, chart and spatial comparison.",
-    "Methodological copy identifies the STAMPED research-loop skill and its recipient condition, and retains bounded repairs with progression to the next planned round.",
-    "Evidence chain remains accessible in the left column; final independent visual review approved."
+    "Inspected the final PDF preview: chart, table and scientific figures remain legible with no overlaps or clipping.",
+    "General links now lead to reader guides for results, scientific figures, research skills and repository organization; specific code, data, task and design links remain direct.",
+    "Poster and skills QR codes resolve to the new guides; all four QR codes passed source-raster and rendered-PDF decoding checks.",
+    "Checked all referenced guide fragments against published Markdown headings; README and BUILDING local links and anchors resolve.",
+    "README leads with downloads and interpretation; build details and source bindings are retained in BUILDING.",
+    "Scientific figure copies, outcome values and benchmark bindings are unchanged.",
+    "Independent navigation and visual review approved; the final PDF, preview and changed annexed QR were uploaded and anonymously retrieved byte-for-byte."
   ],
   "passed": true
 }
