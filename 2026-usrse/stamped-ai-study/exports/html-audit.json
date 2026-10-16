@@ -170,7 +170,7 @@
     "https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1",
     "https://github.com/leej3/stamped-in-practice",
     "https://checklist.stamped-principles.org/",
-    "https://doi.org/10.1126/science.1134239",
+    "https://pubmed.ncbi.nlm.nih.gov/17255512/",
     "https://doi.org/10.1038/s41586-020-2314-9",
     "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
     "https://neurovault.org/collections/4932/",
@@ -256,9 +256,9 @@
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T04:39:51.940Z",
+  "created_utc": "2026-10-16T04:46:15.771Z",
   "source_sha256": {
-    "index.html": "7cc274a42b284d2cc3d40b68cf25367a4368be5a48aed49045e1f537883cae84",
+    "index.html": "65adf144d4d676298f48b3ea6bb16b46945592f3aa8323c4549e85baae9f9aff",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
     "poster.css": "0a4e777fb1ca3042c26b743a0b525fedbf13778c601fca6d937116a7fe0b9977",
     "build-poster.cjs": "5aa4ae64ee5846d8ea4f11a3a88c9950d2f26cf2801209072e57cebd152f669e",

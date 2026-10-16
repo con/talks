@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-16T04:43:43.188607+00:00",
+  "checked_utc": "2026-10-16T04:51:39.652943+00:00",
   "authentication": "none",
   "method": "download and compare full payload SHA-256",
   "files": [
@@ -101,10 +101,10 @@
     },
     {
       "path": "exports/stamped-ai-poster.pdf",
-      "key": "MD5E-s892880--c9c8152542986d34d271bc44900ab481.pdf",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892880--c9c8152542986d34d271bc44900ab481.pdf",
-      "sha256": "85f382b9ec37f6498c80c391237ca93bae8ed66a65a1f94e0df7bc04bec581ba",
-      "bytes": 892880,
+      "key": "MD5E-s892882--8fb66a8397e55c022c41a884750c0dd5.pdf",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892882--8fb66a8397e55c022c41a884750c0dd5.pdf",
+      "sha256": "289d01b8d3c11c821af197f4f1934c9d1f6d5199ae341a088e965d8b705fc091",
+      "bytes": 892882,
       "passed": true
     },
     {

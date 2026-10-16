@@ -1,9 +1,9 @@
 {
   "reviewer": "Codex agent",
   "author_review": false,
-  "pdf_sha256": "85f382b9ec37f6498c80c391237ca93bae8ed66a65a1f94e0df7bc04bec581ba",
+  "pdf_sha256": "289d01b8d3c11c821af197f4f1934c9d1f6d5199ae341a088e965d8b705fc091",
   "preview_sha256": "1b56557847966bb7e200a0dc038c767a746b305e21f0ea0a96a530ef0673b86e",
-  "reviewed_utc": "2026-10-16T04:42:58.644608+00:00",
+  "reviewed_utc": "2026-10-16T04:51:21.120226+00:00",
   "checks": [
     "Inspected the current full-page PDF raster preview",
     "STAMPED principles appear in the top band with concise definitions",
@@ -12,7 +12,8 @@
     "Spatial agreement figure uses all twelve runs on shared coverage and distinguishes unassessed areas",
     "All visible GitHub evidence links use named branches",
     "Three columns, captions, invitation and footer fit without clipping or overlap",
-    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum"
+    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum",
+    "Bibliographic URL update leaves the reviewed PDF raster byte-identical"
   ],
   "result": "passed"
 }
