@@ -555,7 +555,7 @@ That is a STAMPED review in all but name.
 
   <section>
 	<h3>Standards are the grammar &mdash; <a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a> as the worked example</h3>
-	<a href="https://bids-standard.github.io/" target="_blank"><img data-src="pics/BIDS-minder.svg" style="max-height:620px;"/></a>
+	<a href="https://bids-specification.readthedocs.io/en/stable/" target="_blank"><img data-src="pics/BIDS-minder.svg" style="max-height:620px;"/></a>
 	<div style="margin-top:0.4em;font-size:0.76em;">
 	  11 modalities &middot; <a href="https://bids.neuroimaging.io/extensions/beps.html" target="_blank">25 active BEPs</a> &middot;
 	  a <a href="https://bids-specification.readthedocs.io/en/stable/schema.json" target="_blank"><b>machine-readable schema</b></a> &middot;
@@ -1109,7 +1109,7 @@ or watch AI recreate the silo problem at machine speed.
 
 | Contribution | Who | What it carries |
 | ------------ | --- | --------------- |
-| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; [BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://heudiconv.repronim.org/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
+| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; [BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://heudiconv.readthedocs.io/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
 | [`skills/datalad`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad)<br/>[PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227) &mdash; merged | Dylan Pulver,<br/>*with our upstream review* | Clone/`get` semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot; **`datalad run` / `rerun` / `containers-run` as the provenance spine** &middot; publishing to siblings &middot; STAMPED landed in [`references/provenance.md`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md) on our suggestion |
 | [PR #265](https://github.com/K-Dense-AI/scientific-agent-skills/pull/265) &mdash; *open* | Brent McPherson<br/>(McGill) | **Maps all seven STAMPED properties onto concrete DataLad commands**, plus a *read-only evidence probe* per property (`datalad subdatasets -r` for S/M, `git log --grep '[DATALAD RUNCMD]'` for T, `datalad rerun --report` for A, `datalad siblings` for D&hellip;) |
 | [issue #217](https://github.com/K-Dense-AI/scientific-agent-skills/issues/217) &mdash; closed | **ours** (CON) | &ldquo;Should STAMPED be its own skill?&rdquo; &mdash; and the still-open question underneath: **where should domain skills live?** An upstream monorepo, or the project&rsquo;s own repo, with discovery on top? |
@@ -1164,8 +1164,8 @@ Ongoing, in the open: [github.com/orgs/con/projects/16](https://github.com/orgs/
 
 <div class="md-table" style="font-size:0.72em;">
 
-| [`con/skills`](https://github.com/con/skills) PR | What it carries | State |
-| ------------------------------------------------ | --------------- | ----- |
+| [`con/skills`](https://github.com/con/skills) PR | What it carries | On the board |
+| ------------------------------------------------ | --------------- | ------------ |
 | [#24 &mdash; STAMPED skills development plan](https://github.com/con/skills/pull/24) | the **shared plan**, agreed before any code: what a STAMPED skill must do, and how it is graded | *in review* |
 | [#23 &mdash; `assess-stamped` + `align-stamped`](https://github.com/con/skills/pull/23) | [@asmacdo](https://github.com/asmacdo)&rsquo;s take: one skill **assesses**, a second **aligns** what it found | *in progress* |
 | [#26 &mdash; STAMPED skills: implementation](https://github.com/con/skills/pull/26) | me, agent-driven | *in progress* |
@@ -1273,7 +1273,7 @@ than reviewing one.
 | [**DORA 2025**](https://dora.dev/insights/balancing-ai-tensions/) (Google Cloud) | Higher AI adoption raises throughput *and* **delivery instability**. Their prescription is literally regime A+B: &ldquo;*working in small batches is a critical countermeasure to the risks of AI-assisted development*&rdquo;, plus test automation and fast feedback &mdash; because &ldquo;*verification is a fundamentally different cognitive task than creation*&rdquo;. |
 | [**METR RCT**](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), 2025 | 16 experienced OSS developers, 246 real issues, *on repos they already maintained*: **19% slower** with AI tools &mdash; while estimating they had been **20% faster**. The perception gap is the hazard, not the tooling. *(METR now labels this historical &mdash; tools moved on. The gap is the durable lesson.)* |
 | [**Addy Osmani**](https://addyo.substack.com/p/code-review-in-the-age-of-ai) | &ldquo;Proof over vibes.&rdquo; Verification, not authoring, is the bottleneck; *break agent output into digestible commits*; no PR without tests or a demo; humans stay non-negotiable for security and architecture. |
-| [**Simon Willison**](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)<br/><small>[&#9654; Pragmatic Summit talk](https://www.youtube.com/watch?v=owmJyKVu5f8)<br/>[&#9654; Lenny&rsquo;s Podcast](https://youtu.be/wc8FBhQtdsA)</small> | &ldquo;*Your job is to deliver code you have proven to work.*&rdquo; The skill is instructing *and then confidently verifying*; a model cannot take accountability, you can. And on regime B specifically &mdash; even *with* tests, he reports that &ldquo;*I haven&rsquo;t used it yet*&rdquo; still undermines his confidence in a change. **Trying it by hand is not superstition.** |
+| [**Simon Willison**](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)<br/><small>[&#9654; Pragmatic Summit talk](https://www.youtube.com/watch?v=owmJyKVu5f8)<br/>[&#9654; Lenny&rsquo;s Podcast](https://youtu.be/wc8FBhQtdsA)</small> | &ldquo;*Your job is to deliver code you have proven to work.*&rdquo; The skill is instructing *and then confidently verifying*; a model cannot take accountability, you can. And on regime B specifically &mdash; even *with* tests, he says [on Lenny&rsquo;s Podcast](https://simonwillison.net/2026/Apr/2/lennys-podcast/) that &ldquo;*I haven&rsquo;t used it yet*&rdquo; still undermines his confidence in a change. **Trying it by hand is not superstition.** |
 </div>
 
 <div class="callout">
@@ -1298,7 +1298,7 @@ Rows 1&ndash;2 live in **regime B**; rows 3&ndash;4 are only honest once **regim
 
 | Stance | OSS exemplars | CON / adjacent example | Leans on |
 | ------ | ------------- | ---------------------- | -------- |
-| **Reject** AI-generated content | [Zig](https://ziglang.org/), [Krita](https://krita.org/), Clojure, QEMU | [**git-annex**](https://git-annex.branchable.com/contribute/) upstream &mdash; pure-HI commits | AI stays ephemeral; never enters the tracked artifact |
+| **Reject** AI-generated content | [Zig](https://ziglang.org/), [Krita](https://krita.org/), Clojure, QEMU | [**git-annex**](https://joeyh.name/blog/entry/policy_on_adding_AI_generated_content_to_my_software_projects/) upstream &mdash; pure-HI commits *(its &ldquo;policy&rdquo; page is deadpan)* | AI stays ephemeral; never enters the tracked artifact |
 | **Accept with disclosure** | [NumPy](https://numpy.org/), [Kubernetes](https://kubernetes.io/), Linux kernel, Django | [**DataLad**](https://datalad.org/), [**DANDI**](https://dandiarchive.org/) &mdash; `Co-Authored-By: Claude&hellip;` trailers, `@pytest.mark.ai_generated` | **T**racking &mdash; provenance is non-negotiable |
 | **Spec-driven AI-generated**<br/>(HI specs, AI writes, HI reviews) | Common in practice; rarely a *declared* policy | [**AnnexTube**](https://github.com/con/annextube), [**citations-collector**](https://github.com/con/citations-collector), parts of [**dandi-cli**](https://github.com/dandi/dandi-cli/tree/master/.lad) | **T** + **A** + **M** &mdash; the spec *is* the contract |
 | **Autonomous** agents in the loop | [**Brain Researcher**](https://brain-researcher.com/) (Poldrack lab) &mdash; agentic neuroimaging analysis; [**K-Dense AI**](https://github.com/K-Dense-AI/) &mdash; &ldquo;AI co-scientists&rdquo; (and the host of the skills library we contribute to) | [**con/skills**](https://github.com/con/skills) + [**con/yolo**](https://github.com/con/yolo) for triage, review, dep updates | All of STAMPED &mdash; the harness becomes the type-checker |
@@ -1410,7 +1410,7 @@ Material cut for time &mdash; press **&darr;** to walk it, or follow the links.
   </textarea></section>
 
   <section>
-	<h3>STAMPED and <a href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> do different jobs</h3>
+	<h3>STAMPED and <a href="https://www.gofair.foundation/fair-principles" target="_blank">FAIR</a> do different jobs</h3>
 	<table style="width:92%;margin:auto;font-size:0.9em;margin-top:1em;">
 	  <tr style="background-color:#e8eaf6;">
 		<th style="text-align:left;padding:0.5em;width:50%;">FAIR</th>
