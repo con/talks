@@ -1,15 +1,13 @@
 {
-  "input_provenance_sha256": "aef6b9940e6a0bef865e405e19f6e8c3932309175d7b61e38d6260f86137e6c0",
-  "render_script_sha256": "5c5e184cd423cabf020ec6936d8bbaf3141573786c5ed7b0f7d1ab68af9446d1",
+  "input_provenance_sha256": "37c94e97d1957209d39a0383dc4034a4ba5027d966135ef35b85be0c130380e6",
+  "render_script_sha256": "6f7f75d2bfef7a2ad466dc29b9af1cd138f7cc6a7f41d972f31a2a295d68d33e",
   "software": {
     "numpy": "2.5.4",
     "matplotlib": "3.11.2",
     "nibabel": "5.4.2"
   },
   "output_sha256": {
-    "narps-analysis-variability.svg": "92f1a67109ddca57d47377e5000aa3f0f7ecda8f5f99c3f820c4c1e8cb2638b6",
-    "narps-group-map.svg": "7e34652a83178ee178a01b7aea9e545f235f1cded5106ef6c7254c6b701fd327",
-    "narps-analysis-variability.png": "3ac62e1df7e992bcacbd7c15a9fe845b426152c54904c931a3c1c259e855bc75",
-    "narps-group-map.png": "851c93ad7fa51753a9bdc26b556dbd36b1487bef80b92237db8bdffbf2e8c799"
+    "narps-group-map.svg": "4d22926b56073a6bc1b981413d3d117948e8f02781f664faa876cd3e79995f3b",
+    "narps-group-map.png": "c35b14d41d0b3496c6247d6dbc14db9c2f1e4009764d7370e07b0ec8f013e7b7"
   }
 }

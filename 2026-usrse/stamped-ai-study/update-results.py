@@ -7,49 +7,60 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-CONDITIONS = [('baseline', 'Baseline'), ('discover-general', 'General'),
-              ('discover-science', 'Science'), ('stamped-explicit', 'STAMPED')]
+CONDITIONS = [('baseline', 'No supplied skills'), ('discover-general', 'Find useful skills'),
+              ('discover-science', 'Find research skills'), ('stamped-explicit', 'Use STAMPED skills')]
 EVIDENCE = 'https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json'
+SKILLS = 'https://github.com/con/skills/tree/codex/pr26-operational-environment/skills'
+
+
+def run_link(row):
+    target = row.get('result_url') or EVIDENCE
+    return f'<a href="{html.escape(target)}" title="{row["run"]}">{row["run"].split("-")[-1]}</a>'
+
+
+def outcome_cells(row, data):
+    primary = row['primary']
+    if not primary or primary['status'] != 'completed':
+        return '<td>—</td>' * 3
+    sc = primary['science']
+    science = {'supported':'S', 'qualified':'Q', 'not supported':'N', 'unable to assess':'U', 'not checked':'U'}[sc['reported_adequacy']]
+    if sc['display_qualifier']:
+        science += '*'
+    source = data['sources'][sc['source_id']].get('public_url') or EVIDENCE
+    science = f'<a href="{html.escape(source)}">{science}</a>'
+    rp = primary['replay']
+    replay = {'met':'P', 'passed':'P', 'pass':'P', 'partial':'~', 'unmet':'F', 'failed':'F', 'unavailable':'NA', 'invalid':'NA', 'not-checked':'U', 'not checked':'U'}[rp['comparable_status']] if rp else '—'
+    checklist = primary['checklist']
+    counts = '/'.join(str(checklist['comparable_counts'][k]) for k in ('met','partial','unmet'))
+    evidence = data['sources'][checklist['source_id']].get('public_url') or EVIDENCE
+    counts = f'<a href="{html.escape(evidence)}">{counts}</a>'
+    return ''.join(f'<td>{value}</td>' for value in (science, replay, counts))
 
 
 def main():
     data = json.loads((ROOT / 'data/assessment-snapshot.json').read_text())
     assert not data['warnings'], data['warnings']
-    parts = ['<table class="outcome-table"><colgroup><col><col><col><col></colgroup>',
-             '<thead><tr><th>Condition / runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>met / partial / unmet</th></tr></thead><tbody>']
+    parts = ['<table class="outcome-table"><colgroup><col><col><col><col><col></colgroup>',
+             '<thead><tr><th>Instruction</th><th>Run</th><th>Science</th><th>Replay</th><th>STAMPED<br>met / partial / unmet</th></tr></thead><tbody>']
     for iteration in data['rounds']:
         number = iteration['iteration']
         revision = iteration.get('skills_commit')
         label = f'Iteration {number}' + (' · final evaluation' if iteration['final_untuned_evaluation'] else '')
         if revision:
-            label += f' · <a href="https://github.com/con/skills/tree/{revision}">{revision[:7]}</a>'
-        parts.append(f'<tr class="iteration"><th colspan="4">{label}</th></tr>')
+            label += f' · <a href="{SKILLS}">skill revision {revision[:7]}</a>'
+        parts.append(f'<tr class="iteration"><th colspan="5">{label}</th></tr>')
+        iteration_started = any(r.get('result_url') for r in data['rows'] if r['iteration'] == number)
         for condition, label in CONDITIONS:
             rows = sorted((r for r in data['rows'] if r['iteration'] == number and r['condition'] == condition), key=lambda r:r['replicate'])
             assert len(rows) == 3
-            run_links, science, replay, counts = [], [], [], []
-            for row in rows:
-                rid = row['run'].split('-')[-1]
-                target = row.get('result_url') or EVIDENCE
-                run_links.append(f'<a href="{html.escape(target)}" title="{row["run"]}">{rid}</a>')
-                primary = row['primary']
-                if not primary or primary['status'] != 'completed':
-                    science.append('—'); replay.append('—'); counts.append('—')
-                    continue
-                sc = primary['science']
-                sci = {'supported':'S', 'qualified':'Q', 'not supported':'N', 'not checked':'—'}.get(sc['reported_adequacy'], '?')
-                if sc['display_qualifier']:
-                    sci += '*'
-                source = data['sources'][sc['source_id']].get('public_url') or EVIDENCE
-                science.append(f'<a href="{html.escape(source)}">{sci}</a>')
-                rp = primary['replay']
-                replay.append({'passed':'P', 'pass':'P', 'partial':'~', 'failed':'F', 'unavailable':'NA', 'invalid':'NA'}.get(rp['comparable_status'], '—') if rp else '—')
-                ck = primary['checklist']
-                val = ck['comparable_counts']
-                counts.append('/'.join(str(val[k]) for k in ('met','partial','unmet')))
-            # Three values in each cell map left-to-right onto the run IDs.
-            parts.append('<tr><th class="condition-cell">'+label+'<span class="runs">'+' · '.join(run_links)+'</span></th>'+
-                         ''.join('<td><span class="values">'+' · '.join(values)+'</span></td>' for values in (science,replay,counts))+'</tr>')
+            if not iteration_started:
+                # Reserved iterations expand to individual run rows when data arrive.
+                parts.append(f'<tr class="reserved"><th class="condition-cell">{label}</th><td class="run-cell">'+
+                             ' · '.join(run_link(row) for row in rows)+'</td><td>—</td><td>—</td><td>—</td></tr>')
+                continue
+            for index, row in enumerate(rows):
+                condition_cell = f'<th class="condition-cell" rowspan="3">{label}</th>' if index == 0 else ''
+                parts.append(f'<tr>{condition_cell}<th class="run-cell">{run_link(row)}</th>'+outcome_cells(row, data)+'</tr>')
     parts.append('</tbody></table>')
     content = (ROOT/'index.html').read_text()
     start, tail = content.split('<!-- ARM_RESULTS_START -->',1)

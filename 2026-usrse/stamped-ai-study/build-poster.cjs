@@ -75,7 +75,7 @@ const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).di
           }
         }
       }
-      for (const parent of poster.querySelectorAll('.study-main, .outcomes')) {
+      for (const parent of poster.querySelectorAll('.method-column, .science-column, .outcomes')) {
         const sections = [...parent.children];
         for (let i = 1; i < sections.length; i++) {
           const previous = sections[i - 1].getBoundingClientRect();
@@ -90,16 +90,17 @@ const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).di
       });
       const qrs = [...poster.querySelectorAll('[data-qr]')].map(a => ({ name: a.dataset.qr, url: a.href, rect: rect(a.querySelector('img').getBoundingClientRect()) }));
       const links = [...new Set([...poster.querySelectorAll('a')].map(a => a.href))];
+      const commitNavigationLinks = links.filter(url => /\/(tree|blob)\/[0-9a-f]{40}(\/|$)/.test(url));
       const blocks = [...poster.querySelectorAll('.property-section, .property-table, .property-table tbody tr, .stages-section, .section-heading, .stage-cards, .stages-figure, .scientific-results, .scope-note, .outcomes > section')].map(el => ({ element: el.tagName, class: el.className, rect: rect(el.getBoundingClientRect()) }));
-      return { size_css_px: { width: bounds.width, height: bounds.height }, minimum_text_px: Math.min(...text.map(t => t.px)), text_node_count: text.length, small, outside, regionOverflow, internalOverflow, sectionOverlap, unlinkedImages, images, qrs, links, blocks };
+      return { size_css_px: { width: bounds.width, height: bounds.height }, minimum_text_px: Math.min(...text.map(t => t.px)), text_node_count: text.length, small, outside, regionOverflow, internalOverflow, sectionOverlap, unlinkedImages, commitNavigationLinks, images, qrs, links, blocks };
     });
     audit.browser = browser.version();
     audit.created_utc = new Date().toISOString();
-    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'update-results.py', 'data/assessment-snapshot.json', 'figures/narps-figure-manifest.json', 'scripts/render-narps-figures.py', 'pixi.toml', 'package-lock.json'].map(n => [n, sha(path.join(root, n))]));
+    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'update-results.py', 'data/assessment-snapshot.json', 'figures/narps-figure-manifest.json', 'data/narps-spatial/render-manifest.json', 'scripts/render-narps-figures.py', 'scripts/render-narps-spatial.py', 'scripts/extract-narps-spatial.py', 'pixi.toml', 'package-lock.json'].map(n => [n, sha(path.join(root, n))]));
     audit.errors = errors;
     fs.writeFileSync(path.join(output, 'html-audit.json'), JSON.stringify(audit, null, 2) + '\n');
     await page.screenshot({ path: path.join(output, 'layout-review.png'), fullPage: true });
-    if (errors.length || audit.small.length || audit.outside.length || audit.regionOverflow.length || audit.internalOverflow.length || audit.sectionOverlap.length || audit.unlinkedImages.length || audit.images.some(i => !i.loaded)) {
+    if (errors.length || audit.small.length || audit.outside.length || audit.regionOverflow.length || audit.internalOverflow.length || audit.sectionOverlap.length || audit.unlinkedImages.length || audit.commitNavigationLinks.length || audit.images.some(i => !i.loaded)) {
       throw new Error('HTML layout or asset audit failed; inspect html-audit.json.');
     }
     if (!checkOnly) {

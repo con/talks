@@ -1,5 +1,5 @@
 {
-  "pdf_sha256": "afb037aea26970685b2c4288b8329fb627ca2db4a0db430cd16b93a3176fdd56",
+  "pdf_sha256": "85f382b9ec37f6498c80c391237ca93bae8ed66a65a1f94e0df7bc04bec581ba",
   "page_count": 1,
   "page_points": [
     3168.0,
@@ -8,9 +8,9 @@
   "minimum_html_text_px": 32,
   "minimum_html_text_pt": 24.0,
   "minimum_pdf_text_pt": 24.0,
-  "inspected_pdf_text_runs": 321,
-  "link_annotation_count": 74,
-  "unique_expected_links": 38,
+  "inspected_pdf_text_runs": 339,
+  "link_annotation_count": 92,
+  "unique_expected_links": 56,
   "missing_links": [],
   "raster_dpi": 150,
   "qr_results": [

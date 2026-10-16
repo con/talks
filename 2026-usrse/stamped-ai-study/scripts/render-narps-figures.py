@@ -52,48 +52,6 @@ def verify_snapshot(meta):
         raise ValueError("Expected the eight completed runs in this frozen snapshot")
 
 
-def variability(meta):
-    fig, axes = plt.subplots(2, 1, figsize=(13.5, 7.7), sharex=True)
-    fig.subplots_adjust(left=.17, right=.985, top=.93, bottom=.235, hspace=.34)
-    conditions = meta["conditions"]
-    offsets = [-.18, 0, .18]
-    groups = [[r for r in meta["records"] if r["condition"] == c] for c in conditions]
-    for ax, field, scale, limits, ticks in (
-        (axes[0], "mask_voxels", 1000, (178, 218), [180, 195, 210]),
-        (axes[1], "positive_whole_brain_fwe_voxels", 1, (-3, 31), [0, 12, 24]),
-    ):
-        ax.set_ylim(*limits)
-        ax.set_yticks(ticks)
-        ax.set_xlim(-.48, 3.48)
-        ax.grid(axis="y", color=PALE, lw=1.4, zorder=0)
-        ax.set_axisbelow(True)
-        for spine in ("top", "right", "bottom"):
-            ax.spines[spine].set_visible(False)
-        ax.spines["left"].set_color("#a9bac5")
-        ax.tick_params(axis="x", length=0, pad=18)
-        ax.tick_params(axis="y", length=0, pad=10)
-        for x, runs in enumerate(groups):
-            if not runs:
-                ax.text(x, sum(limits) / 2, "Result\nslot", ha="center", va="center", fontsize=24, color="#677d8d")
-            for j, row in enumerate(runs):
-                # Keep run labels separated when the saved results coincide.
-                dx = offsets[j] if len(runs) == 3 else [-.13, .13][j]
-                y = row[field] / scale
-                bonf = row["primary_correction"] == "Bonferroni"
-                ax.scatter(x + dx, y, marker="D" if bonf else "o", s=170,
-                           color=ORANGE if bonf else TEAL, edgecolor="white", linewidth=1.4, zorder=3)
-                ax.annotate(row["run"][-2:], (x + dx, y), xytext=(0, 12),
-                            textcoords="offset points", ha="center", fontsize=24, color=INK)
-    axes[0].set_ylabel("Search mask\n(1,000 voxels)", fontsize=25, labelpad=18)
-    axes[1].set_ylabel("Positive FWE\nvoxels", fontsize=25, labelpad=18)
-    axes[1].set_xticks(range(4), ["Baseline", "Discover\ngeneral", "Discover\nscience", "STAMPED\nexplicit"])
-    fig.legend(handles=[
-        Line2D([], [], marker="D", color=ORANGE, linestyle="None", markersize=12, label="Bonferroni"),
-        Line2D([], [], marker="o", color=TEAL, linestyle="None", markersize=12, label="Permutation max-T"),
-    ], loc="lower center", bbox_to_anchor=(.56, .01), frameon=False, ncol=2, fontsize=24, handletextpad=.5, columnspacing=1.3)
-    save(fig, "narps-analysis-variability")
-
-
 def maps(meta):
     files = {
         "t": "one_sample_t.nii.gz", "coverage": "common_brain_mask.nii.gz",
@@ -177,7 +135,7 @@ def maps(meta):
 
 def main():
     plt.rcParams.update({
-        "font.family": "DejaVu Sans", "font.size": 24, "text.color": INK,
+        "font.family": ["Arial", "DejaVu Sans", "sans-serif"], "font.size": 24, "text.color": INK,
         "axes.labelcolor": INK, "axes.titlecolor": INK,
         "xtick.color": INK, "ytick.color": INK,
         "svg.fonttype": "none", "svg.hashsalt": "stamped-narps-poster-2026-10-15",
@@ -185,16 +143,15 @@ def main():
     meta = json.loads((DATA / "provenance.json").read_text())
     verify_snapshot(meta)
     OUT.mkdir(exist_ok=True)
-    variability(meta)
     maps(meta)
-    outputs = sorted(OUT.glob("narps-*.svg")) + sorted(OUT.glob("narps-*.png"))
+    outputs = [OUT / "narps-group-map.svg", OUT / "narps-group-map.png"]
     (OUT / "narps-figure-manifest.json").write_text(json.dumps({
         "input_provenance_sha256": hashlib.sha256((DATA / "provenance.json").read_bytes()).hexdigest(),
         "render_script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "software": {"numpy": np.__version__, "matplotlib": matplotlib.__version__, "nibabel": nib.__version__},
         "output_sha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in outputs},
     }, indent=2) + "\n")
-    print("Verified snapshot hashes and map counts; rendered two SVG and PNG figures.")
+    print("Verified snapshot hashes and map counts; rendered the illustrative group map as SVG and PNG.")
 
 
 if __name__ == "__main__":

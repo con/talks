@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-16T03:54:01.994569+00:00",
+  "checked_utc": "2026-10-16T04:43:43.188607+00:00",
   "authentication": "none",
   "method": "download and compare full payload SHA-256",
   "files": [
@@ -25,6 +25,14 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s67623--fad8037a2c4eac1c81b0f96a75bb69e2.svg",
       "sha256": "771b6b0ca8b7efac41a536648d8f17f4d4ff63fcc8b5d4d2a6ae51f7db0a891e",
       "bytes": 67623,
+      "passed": true
+    },
+    {
+      "path": "data/narps-spatial/spatial-inputs.npz",
+      "key": "MD5E-s4292062--1fdef22f9f979756e157d0823d6c7be3.npz",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s4292062--1fdef22f9f979756e157d0823d6c7be3.npz",
+      "sha256": "7c630a699298b18e0fdad17ebfe6e89400d64568705dacc10d820381ed13509f",
+      "bytes": 4292062,
       "passed": true
     },
     {
@@ -68,19 +76,43 @@
       "passed": true
     },
     {
-      "path": "exports/pdf-preview.png",
-      "key": "MD5E-s1002213--7c164b507e229ef566739e02f5cc3269.png",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1002213--7c164b507e229ef566739e02f5cc3269.png",
-      "sha256": "8b2d643073d5bbd5b7b1545f1e394e028639582bb2e62b20fc824d6342401114",
-      "bytes": 1002213,
+      "path": "figures/narps-group-map.png",
+      "key": "MD5E-s136105--1da95ba2ba89559e653cfb9f4e21cc21.png",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s136105--1da95ba2ba89559e653cfb9f4e21cc21.png",
+      "sha256": "c35b14d41d0b3496c6247d6dbc14db9c2f1e4009764d7370e07b0ec8f013e7b7",
+      "bytes": 136105,
+      "passed": true
+    },
+    {
+      "path": "figures/narps-spatial-agreement.svg",
+      "key": "MD5E-s142319--635c889a2b6a58de2a5c8aa69f11e8e4.svg",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s142319--635c889a2b6a58de2a5c8aa69f11e8e4.svg",
+      "sha256": "7f7d3d44bacbbe6a8a911d89859fb7612ae3875bf35217efcc85b4891c6af790",
+      "bytes": 142319,
+      "passed": true
+    },
+    {
+      "path": "figures/narps-spatial-agreement.png",
+      "key": "MD5E-s166353--6c8e79de1133a513b18c6123e3db1e71.png",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s166353--6c8e79de1133a513b18c6123e3db1e71.png",
+      "sha256": "f93b8a67c4d714622d891934546a1b384d99c7e3e32cc4fa42b06375f7355bf8",
+      "bytes": 166353,
       "passed": true
     },
     {
       "path": "exports/stamped-ai-poster.pdf",
-      "key": "MD5E-s764394--688be8c06420100b438e1d9ea207036e.pdf",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s764394--688be8c06420100b438e1d9ea207036e.pdf",
-      "sha256": "afb037aea26970685b2c4288b8329fb627ca2db4a0db430cd16b93a3176fdd56",
-      "bytes": 764394,
+      "key": "MD5E-s892880--c9c8152542986d34d271bc44900ab481.pdf",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892880--c9c8152542986d34d271bc44900ab481.pdf",
+      "sha256": "85f382b9ec37f6498c80c391237ca93bae8ed66a65a1f94e0df7bc04bec581ba",
+      "bytes": 892880,
+      "passed": true
+    },
+    {
+      "path": "exports/pdf-preview.png",
+      "key": "MD5E-s1109867--4a784886434a9b2f74d505be6f3f5c82.png",
+      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1109867--4a784886434a9b2f74d505be6f3f5c82.png",
+      "sha256": "1b56557847966bb7e200a0dc038c767a746b305e21f0ea0a96a530ef0673b86e",
+      "bytes": 1109867,
       "passed": true
     },
     {
@@ -102,7 +134,7 @@
     {
       "path": "../orinoco-lite/assets/repronim_logo.svg",
       "key": null,
-      "url": "https://raw.githubusercontent.com/con/talks/efb1b059ffdf70d4e13f40cd5085aff6500e5269/2026-usrse/orinoco-lite/assets/repronim_logo.svg",
+      "url": "https://raw.githubusercontent.com/con/talks/codex/stamped-example-poster/2026-usrse/orinoco-lite/assets/repronim_logo.svg",
       "sha256": "0e1101fa2dca811587d0ad4caa040961da5156e11b9b23f64f29ca3463d84870",
       "bytes": 33939,
       "passed": true
@@ -110,25 +142,9 @@
     {
       "path": "../orinoco-lite/assets/orinoco-qr-con.svg",
       "key": null,
-      "url": "https://raw.githubusercontent.com/con/talks/efb1b059ffdf70d4e13f40cd5085aff6500e5269/2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg",
+      "url": "https://raw.githubusercontent.com/con/talks/codex/stamped-example-poster/2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg",
       "sha256": "9f5725bea98bf4b3b4b4a9479bdc734529b19db205089b291ee86e43320b1d49",
       "bytes": 67605,
-      "passed": true
-    },
-    {
-      "path": "figures/narps-analysis-variability.png",
-      "key": "MD5E-s147072--5cf081f3840d7ba45268688b8aa41778.png",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s147072--5cf081f3840d7ba45268688b8aa41778.png",
-      "sha256": "3ac62e1df7e992bcacbd7c15a9fe845b426152c54904c931a3c1c259e855bc75",
-      "bytes": 147072,
-      "passed": true
-    },
-    {
-      "path": "figures/narps-group-map.png",
-      "key": "MD5E-s139047--ccc9a985bf8d93427535348181fbadf8.png",
-      "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s139047--ccc9a985bf8d93427535348181fbadf8.png",
-      "sha256": "851c93ad7fa51753a9bdc26b556dbd36b1487bef80b92237db8bdffbf2e8c799",
-      "bytes": 139047,
       "passed": true
     }
   ],
