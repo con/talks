@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Generate index.html listing all talks (20*.html in repo root),
-# styled to loosely match https://centerforopenneuroscience.org/.
+# Generate index.html listing all talks (20*.html / 20*.pdf in repo root)
+# plus the entries listed in LISTED below, styled to loosely match https://centerforopenneuroscience.org/.
 #
 # Usage: tools/create_index.sh   (run from repo root, or anywhere)
 
@@ -46,11 +46,34 @@ html_escape() {
         -e "s/'/\&#39;/g"
 }
 
-# Collect & sort talks (reverse: newest first)
-# Include .html decks and .pdf exports of non-reveal.js talks (e.g. Google Slides).
-mapfile -t TALKS < <(ls -1 20*.html 20*.pdf 2>/dev/null | sort -r)
+# Entries which live in subdirectories (posters), or are annexed PDFs
+# without a usable title, are listed by hand: "year|path|title|kind|pdf",
+# where kind (e.g. "poster") is shown as a tag and the optional pdf is a
+# print version linked next to an HTML poster.
+LISTED=(
+    "2026|2026-usrse/duct-poster.html|Agent-friendly Provenance Capture with con-duct (US-RSE'26)|poster|2026-usrse/duct-poster.pdf"
+    "2026|2026-usrse/orinoco-lite_poster.html|Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations (US-RSE'26)|poster|"
+    "2025|2025-sfn-poster-data-standards.pdf|The Ecosystem of Standards in Neuroscience: Which Ones Are For You? (SfN 2025)|poster|"
+    "2024|202404xx-NSF-POSE-BIDS.pdf|The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience (NSF POSE, 2024)||"
+    "2022|posters/crcns-2022-dataland.pdf|DataLad: The Ecosystem for Everyone (CRCNS 2022)|poster|"
+)
 
-if [ "${#TALKS[@]}" -eq 0 ]; then
+# Collect entries as "year|path|title|kind|pdf", sorted newest first.
+# Include .html decks and .pdf exports of non-reveal.js talks (e.g. Google Slides).
+entries=()
+for f in 20*.html 20*.pdf; do
+    [ -e "$f" ] || continue
+    # Already listed (with a title) in LISTED
+    case " ${LISTED[*]} " in *"|$f|"*) continue ;; esac
+    raw_title=$(extract_title "$f")
+    # Skip work-in-progress decks
+    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
+    entries+=("${f:0:4}|$f|$raw_title||")
+done
+entries+=("${LISTED[@]}")
+mapfile -t ENTRIES < <(printf '%s\n' "${entries[@]}" | sort -r)
+
+if [ "${#ENTRIES[@]}" -eq 0 ]; then
     echo "No 20*.html / 20*.pdf talks found in $REPO_ROOT" >&2
     exit 1
 fi
@@ -58,13 +81,13 @@ fi
 # Build list items grouped by year
 list_items=""
 prev_year=""
-for f in "${TALKS[@]}"; do
-    raw_title=$(extract_title "$f")
-    # Skip work-in-progress decks
-    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
-    year="${f:0:4}"
+for e in "${ENTRIES[@]}"; do
+    IFS='|' read -r year f raw_title kind pdf <<<"$e"
     title=$(echo "$raw_title" | html_escape)
     name_escaped=$(echo "$f" | html_escape)
+    extra=""
+    [ -n "$kind" ] && extra+=" <span class=\"kind\">${kind}</span>"
+    [ -n "$pdf" ] && extra+=" (<a class=\"alt\" href=\"$(echo "$pdf" | html_escape)\">PDF</a>)"
     if [ "$year" != "$prev_year" ]; then
         if [ -n "$prev_year" ]; then
             list_items+="      </ul>"$'\n'
@@ -73,7 +96,7 @@ for f in "${TALKS[@]}"; do
         list_items+="      <ul class=\"talks\">"$'\n'
         prev_year="$year"
     fi
-    list_items+="        <li><a href=\"${name_escaped}\">${title}</a> <span class=\"file\">${name_escaped}</span></li>"$'\n'
+    list_items+="        <li><a href=\"${name_escaped}\">${title}</a>${extra} <span class=\"file\">${name_escaped}</span></li>"$'\n'
 done
 list_items+="      </ul>"$'\n'
 
@@ -146,6 +169,17 @@ cat > "$OUT" <<HTML
       text-decoration: none;
       font-weight: 600;
     }
+    ul.talks a.alt { font-weight: 400; }
+    ul.talks .kind {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+      background: var(--con-blue);
+      border-radius: 3px;
+      padding: 0.05em 0.4em;
+      vertical-align: middle;
+    }
     ul.talks a:hover { color: var(--con-blue); text-decoration: underline; }
     ul.talks .file {
       display: block;
@@ -168,11 +202,11 @@ cat > "$OUT" <<HTML
   <header>
     <div class="inner">
       <h1><a href="https://centerforopenneuroscience.org/">Center for Open Neuroscience</a></h1>
-      <p>Talks &amp; slide decks</p>
+      <p>Talks, slide decks &amp; posters</p>
     </div>
   </header>
   <main>
-    <p>Slides from talks and workshops by CON people. This location is also a DataLad dataset (git/git-annex repository) so you can datalad clone it to get all the sources and materials.</p>
+    <p>Slides and posters from talks and workshops by CON people. This location is also a DataLad dataset (git/git-annex repository) so you can datalad clone it to get all the sources and materials.</p>
 ${list_items}  </main>
   <footer>
     <div class="inner">
@@ -183,4 +217,4 @@ ${list_items}  </main>
 </html>
 HTML
 
-echo "Wrote $OUT with ${#TALKS[@]} talk(s)."
+echo "Wrote $OUT with ${#ENTRIES[@]} entries."

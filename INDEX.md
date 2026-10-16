@@ -12,18 +12,12 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Per-talk inventory
 
-### `2026-usrse/orinoco-lite_poster.html` — *Beyond the Lab Website*
-
-- US-RSE 2026 poster: service-based ORINOCO and GitHub-based ORINOCO Lite,
-  with actual websites, metadata editing, graph exploration and funder reporting.
-- Editable HTML/CSS, with PDF export through `2026-usrse/orinoco-lite/build-poster.py`.
-- Sources, licensing and four tagged component revisions: `2026-usrse/orinoco-lite/README.md`.
-
 Shelved drafts and outlines that are not currently being prepared for a
 venue live under [`_backdrawer_/`](_backdrawer_/README.md) and are
 listed in the *Shelved (backdrawer)* section below the active inventory.
 Cross-references in the per-topic lookup point at the shelved path
-(`_backdrawer_/<TALK-ID>.html`).
+(`_backdrawer_/<TALK-ID>.html`). Posters are listed in their own
+*Posters* section after the talks.
 
 ### `2026-reproAI-MIT-STAMPED.html` — *STAMPED principles and their role in the age of AI-driven scientific software development*
 - **Venue / date**: [*Neuroimaging, Reproducibility and LLMs: Early promises
@@ -200,6 +194,48 @@ Cross-references in the per-topic lookup point at the shelved path
   `SKIP CANDIDATE` marker in their `<aside class="notes">`; dropping all
   four lands at 30, still ~2 long. See `PLAN.md` §6 for the cut order.
 
+### `2026-dhmc-ieeg.html` — *Open Neuroscience Infrastructure for Intracranial EEG*
+- **Venue / date**: Dartmouth/DH Human Intracranial Electrophysiology
+  Consortium (monthly Zoom meeting), 2026-10-09; ~40 min + discussion.
+  Planning and audience notes: `2026-dhmc-ieeg/NOTES.md`.
+- **Spine**: a *toolbelt, not one solution* tour for an iEEG group
+  (macro- now, microelectrodes soon): clinic vs. academia → participants
+  and consent → NWB → NWB apps (Neurosift) → archives → BIDS →
+  nwb2bids / ReproStim / HED / sync → compute → DataLad → STAMPED →
+  take-home checklist. Each block ends with an explicit *ask* of the
+  audience.
+- **Written in markdown**: every top-level section is one
+  `data-markdown` textarea (`----` separators, `.slide:` comments,
+  `Note:` speaker notes); only the title and the who-we-are grid stay
+  HTML. The header comment explains the convention — copy it for new
+  markdown-first decks.
+- **Backbone diagrams**: two incrementally-built SVGs,
+  `pics/academic-clinician.svg` and `pics/academic-participants.svg`,
+  driven by their `.svgtune` files and pre-rendered into
+  `pics/*_tuned/`. Detour slides follow the diagram step that
+  introduces them and bookend back to it.
+- **Reusable highlights**:
+  - "Two communities, a thin line of correspondence" — clinic (vendor
+    hardware, DICOM, PACS/EHR) vs. academia (NWB, BIDS); DICOM WG-32
+    (ephys in DICOM) with the lossy-compression *ask*; "manufacturers do
+    not really care about academic standards" + *report gotchas to them*.
+  - Participants and consent: "Federally regulated but locally
+    managed", *plan the archive deposit in the consent form*.
+  - NWB block: one format for all modalities, NWB GUIDE ("TurboTax of
+    file conversions"), "Life without NWB"; five live Neurosift
+    examples (event-related signals, LFP, spectrograms) on DANDI data —
+    "cool stuff is possible only because of boring stuff (standards)".
+  - Data Archives: DANDI, EMBER, OpenNeuro, NEMAR, one slide each.
+  - BIDS: "Why do we need dataset standards?", BEP032 (microelectrode
+    ephys), nwb2bids.
+  - ReproStim, Pozu, HED (with HEDit), and LSL/QR-code sync slides.
+  - DataLad: "DataLad in one figure", "Why version control?", nesting
+    → BIDS study layout → all the way to the paper.
+  - "Take Home Weekend Entertainment Checklist from CON" (checkbox list).
+  - Acknowledgements grid **frozen** as delivered (see the comment in
+    the deck); regenerate a fresh one for new decks with
+    `tools/mk_whoweare.py`.
+
 ### `2026-mcgill-mechababs/slides.html` — *mechababs: STAMPED execution of BIDS Apps at scale*
 - **Venue / date**: McGill neuroscience group, 2026-08-11 (20 min + 10 min discussion).
 - **Not a reveal.js deck**: marp source `2026-mcgill-mechababs/slides.md`, built to a self-contained `slides.html` via `datalad run` (marp-cli 4.5.0; `datalad rerun` regenerates it). Lives in its own subdirectory, no root `<TALK-ID>.html`. Slide IDs below do not apply.
@@ -344,6 +380,15 @@ Cross-references in the per-topic lookup point at the shelved path
   - "What if standard does not (yet) fill the bill?"
   - Closing "talk in BIDS" Nirvana slide.
 
+### `202404xx-NSF-POSE-BIDS.pdf` — *The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience*  *(PDF/ODP)*
+- **Venue / date**: NSF POSE (Pathways to Enable Open-Source
+  Ecosystems), April 2024. Not a reveal.js deck: LibreOffice source
+  `202404xx-NSF-POSE-BIDS.odp` + PDF export, both at the repository
+  root. Co-credits slides by Ariel Rokem and Rémi Gau.
+- **Spine**: what BIDS is (standard + tools + community) → the
+  "Researcher A / Researcher B" re-use story → adoption and community,
+  threaded through the BIDS ecosystem figure.
+
 ### `2024-distribits-datalad.html` — *"What's in the DataLad sandwich" AKA the DataLad ecosystem*
 - **Venue / date**: distribits 2024.
 - **Spine**: DataLad origin → sandwich layering → ecosystem → CI / health.
@@ -485,6 +530,64 @@ Cross-references in the per-topic lookup point at the shelved path
 ### `0000-zoom-background.html` — Zoom background slide template
 - Not a talk; layout source for sharing CON banner during Zoom.
 
+## Posters
+
+Posters are not reveal.js decks and have no slide IDs. HTML posters
+live in their venue directory; `tools/create_index.sh` lists them (with
+a *poster* tag) on `index.html` from its hand-maintained `LISTED` array —
+add new posters there too.
+
+### `2026-usrse/duct-poster.html` — *Agent-friendly Provenance Capture with `con-duct`*
+- **Venue / date**: US-RSE'26 poster session, 2026-10. Presenters:
+  Austin Macdonald, Cody C. Baker, John A. Lee, Yaroslav O. Halchenko.
+- **Format**: editable HTML at 42×36 in; print PDF
+  `2026-usrse/duct-poster.pdf` (annexed). Abstract:
+  `2026-usrse/duct-poster-abstract.md`; layout notes:
+  `2026-usrse/duct-poster-layout.md`; assets under
+  `2026-usrse/duct-poster-assets/` (logos, QR codes, the
+  fmriprep-on-ds002785 resource plot).
+- **Content**: `duct <cmd>` as near-zero-effort provenance (stdout/err,
+  process-tree resource sampling, invocation + environment record);
+  `con-duct ls` filtering for humans *and* agents; a chat panel of an
+  agent reading duct records; comparison table against workflow
+  managers / experiment trackers. The agent-usage patterns that
+  `2026-reproAI-MIT-STAMPED.html` and `2026-usrse-con-talk.html` point
+  to live here.
+- *Asset*: `pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg`.
+
+### `2026-usrse/orinoco-lite_poster.html` — *Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations*
+- **Venue / date**: US-RSE'26 poster session, 2026-10.
+- **Content**: service-based ORINOCO and GitHub-based ORINOCO Lite,
+  with actual websites, metadata editing, graph exploration and funder
+  reporting.
+- **Format**: editable HTML/CSS, with PDF export through
+  `2026-usrse/orinoco-lite/build-poster.py`. Sources, licensing and four
+  tagged component revisions: `2026-usrse/orinoco-lite/README.md`.
+  Draft text: `2026-usrse/orinoco-lite-poster-draft.md`.
+
+### `2025-sfn-poster-data-standards.pdf` — *The Ecosystem of Standards in Neuroscience: Which Ones Are For You?*
+- **Venue / date**: SfN 2025; [Zenodo
+  10.5281/zenodo.18333008](https://doi.org/10.5281/zenodo.18333008),
+  34 authors led by Oliver Ruebel, CC-BY-4.0 (see `REUSE.toml`). PDF and
+  JPG at the repository root.
+- **Reuse**: the crops `pics/borrowed/2025-sfn-poster-data-standards_preview.jpg`
+  and `pics/borrowed/2025-sfn-poster-data-standards--archives.png` —
+  the "standards bring them all together" picture used in
+  `2026-dhmc-ieeg.html`.
+
+### `posters/crcns-2022-dataland.pdf` — *DataLad: The Ecosystem for Everyone*
+- **Venue / date**: CRCNS 2022 (committed 2022-10-26). Halchenko, Hanke,
+  Wagner, Poldrack, Heunis, Szczepanik, Wodder, Moench.
+- **Format**: Inkscape SVG source + PDF/PNG renderings, all in
+  `posters/` (annexed).
+
+### Poster abstracts in preparation (no poster yet)
+- `2026-sfn/stamped-poster-abstract.md` — STAMPED poster abstract for SfN 2026.
+- `2026-brain-initiative/stamped-poster-abstract.md` — the same STAMPED
+  abstract adapted for the BRAIN Initiative Conference 2026.
+- `2026-usrse/stamped-abcd-poster-draft.md` — *STAMPED in Practice:
+  Reproducing a Scientific Result Using ABCD Neuroimaging Data* (draft).
+
 ## Shelved (backdrawer)
 
 Outline-only stubs and parked drafts. See
@@ -555,6 +658,11 @@ ReproNim-containers / con/duct / ReproMan)
   involved. BIDS Features table, timeline SVG, 10th-birthday card.
 - `2023-bids-dicom.html` § BIDS features, § BIDS-minder, § DICOMs-in-BIDS
   workflow, § "All standards are bad, but some are used".
+- `2026-dhmc-ieeg.html` § clinic vs. academia (DICOM WG-32 for ephys,
+  "manufacturers do not care"), § NWB, § BEP032 microelectrode ephys,
+  § nwb2bids, § HED — the **ephys-facing** standards story.
+- `2025-sfn-poster-data-standards.pdf` (poster) — the neuro* standards
+  landscape on one page.
 - `2022-nih-compcore.html` § Microscopy-BIDS citation.
 - *Asset*: `pics/BIDS-minder.svg`, `pics/bids-logo-wide.png`,
   `pics/bids-yoda.png`, `pics/bep028-example1.png`,
@@ -568,6 +676,9 @@ ReproNim-containers / con/duct / ReproMan)
 - `2023-lbl-building-dandi.html` — extended version.
 - `2024-distribits-datalad.html` § DANDI alternative-view slide;
   § OpenNeuro infrastructure use.
+- `2026-dhmc-ieeg.html` § Data Archives — one slide each for DANDI,
+  EMBER, OpenNeuro, NEMAR; plus § consent ("plan the deposit in the
+  consent form") and the five Neurosift streaming examples.
 - *Asset*: `pics/dandi-slide-{modalities,services,standards,schema}.svg`,
   `pics/DANDI-{ecosystem,FAIR,users-*}.svg`,
   `pics/dandiarchive-webshots.png`, `pics/dandisets-healthstatus.png`.
@@ -623,6 +734,8 @@ ReproNim-containers / con/duct / ReproMan)
   § Principle 1.
 - `2022-nih-compcore.html` § Provenance capture (3 code-block slides).
 - `2024-distribits-datalad.html` § DataLad crawler gitGraph.
+- `2026-usrse/duct-poster.html` (poster) — `con-duct` run records, for
+  humans and agents; the place to point for duct usage patterns.
 
 ### CI / con/tinuous / daily-tested git-annex / health dashboards
 - `2024-distribits-datalad.html` § three-image stack of
@@ -872,15 +985,19 @@ ReproNim-containers / con/duct / ReproMan)
 
 Reach for these before writing anything per-talk:
 
-| Tool | What it does |
-| ---------------------- | ------------------------------------------------------------------------------------------------ |
-| `tools/mkqrcode.py`    | QR-code generation (PNG or SVG), with optional embedded logo and a decode-back verification pass   |
-| `tools/mkqrcode_con`   | Thin wrapper: `mkqrcode.py` with the CON logo and `-c H` error correction — **the branded variant** |
-| `tools/qrcode_url.sh`  | URL → QR shortcut                                                                                  |
-| `tools/mkpdf.py`       | Headless reveal.js → PDF for **any** deck (Playwright; page size from each deck's own reveal config). Third option next to `README.md`'s manual `?print-pdf` and decktape-in-Docker routes. Derived PDFs are not committed |
-| `tools/create_index.sh`| Index generation                                                                                   |
-| `tools/copy_pics.sh`   | Picture copying helper                                                                             |
-| `tools/get_pdf_page_to_png` | Extract one PDF page as a trimmed, transparent PNG (needs `pdftk`/`pdftoppm`/`convert`)       |
+| Tool                         | What it does                                                                                                                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tools/mkqrcode.py`          | QR-code generation (PNG or SVG), with optional embedded logo and a decode-back verification pass                                                                                                                           |
+| `tools/mkqrcode_con`         | Thin wrapper: `mkqrcode.py` with the CON logo and `-c H` error correction — **the branded variant**                                                                                                                        |
+| `tools/qrcode_url.sh`        | URL → QR shortcut                                                                                                                                                                                                          |
+| `tools/mkpdf.py`             | Headless reveal.js → PDF for **any** deck (Playwright; page size from each deck's own reveal config). Third option next to `README.md`'s manual `?print-pdf` and decktape-in-Docker routes. Derived PDFs are not committed |
+| `tools/create_index.sh`      | Regenerates `index.html`: root `20*.html`/`20*.pdf` by year, plus posters and other hand-titled entries from its `LISTED` array                                                                                            |
+| `tools/mk_whoweare.py`       | Acknowledgements fragment with all faces from the CON website's who-we-are page (`con-whoweare.phtml`)                                                                                                                     |
+| `tools/mk_ack_eras.py`       | Per-era acknowledgements iframes (`2026-usrse-con-talk/ack-*.html`) from the `sourcedata/con-site-specific` record store                                                                                                   |
+| `tools/mk_stamped_puzzle.py` | Draws `pics/stamped-puzzle.svg`: the STAMPED object as a jigsaw, one piece per tool                                                                                                                                        |
+| `tools/build_preview.py`     | Minimal static site with only the given decks and the files they reference (used by `.github/workflows/preview.yml` PR previews)                                                                                           |
+| `tools/copy_pics.sh`         | Picture copying helper                                                                                                                                                                                                     |
+| `tools/get_pdf_page_to_png`  | Extract one PDF page as a trimmed, transparent PNG (needs `pdftk`/`pdftoppm`/`convert`)                                                                                                                                    |
 
 ## How to use this index
 
