@@ -3,9 +3,8 @@
 An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
 The blue banner states the experiment; the left column introduces STAMPED, the centre shows the NARPS scientific example, and the right connects condition-level outcomes to the study's research objects.
 
-Open [index.html](index.html) or inspect the local [PDF](exports/stamped-ai-poster.pdf) and [preview](exports/pdf-preview.png).
-The revised PDF and preview are retained locally; their annex payload publication is pending.
-The [previous public PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s838462--d8ef321e58eda856e01de66965ab01d9.pdf) predates the methodological lessons.
+Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or download [the revised PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s841738--411e41cdacf46c5470b4678d695d6d5c.pdf).
+The current PDF and preview are publicly retrievable; anonymous downloads match the reviewed local files byte-for-byte.
 The [completion plan](completion-plan.md) identifies the evidence needed to fill the pooled comparison and guide subsequent data collection.
 
 ## Scientific figures belong to the benchmark
@@ -43,7 +42,7 @@ pixi run verify
 pixi run links
 ```
 
-`pixi run build` verifies the scientific display copies against their binding, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-method-lessons-20261016`](https://github.com/con/talks/tree/codex/env-poster-method-lessons-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
+`pixi run build` verifies the scientific display copies against their binding, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-method-lessons-published-20261016`](https://github.com/con/talks/tree/codex/env-poster-method-lessons-published-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
 
 To import a new committed benchmark export:
 
@@ -64,7 +63,7 @@ QR regeneration additionally requires Inkscape and `rsvg-convert`; ordinary buil
 ## Verification and provenance
 
 [HTML audit](exports/html-audit.json), [PDF audit](exports/pdf-audit.json), [link audit](exports/link-audit.json), [retrieval audit](exports/retrieval-audit.json) and [visual review](exports/agent-visual-review.json) describe the current export.
-The retrieval audit distinguishes previously published assets from the pending current PDF and preview.
+The retrieval audit records fresh full-payload checks for the current PDF and preview, alongside earlier checks for unchanged assets.
 Checks require one 44-inch square page, at least 24-point print text, no layout overflow, clickable PDF links, and four QR codes decoded from PDF pixels.
 These are agent checks; author review remains part of poster preparation.
 
