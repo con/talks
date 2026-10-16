@@ -325,7 +325,7 @@
 ### Seven properties a research object should have &mdash;<br/>whoever, *or whatever*, picks it up next.
 
 <aside class="notes">
-	  Let the banner sit for a beat before advancing the fragment.
+	  Let the banner sit for a beat.
 	  Banner art is the STAMPED project's own (stamped-principles.org).
 	</aside>
   </textarea></section>
@@ -342,8 +342,8 @@
 | **A**ctionable | Executable &amp; documented workflows | A command it can run, not a paragraph it must *read*. |
 | **M**odular | Independent &amp; composable modules | A unit small enough to reason about, swap, and verify in isolation. |
 | **P**ortable | Runs anywhere with explicit specs | If it only runs on your laptop, it is not actionable. |
-| **E**phemeral | Transient compute environment | Throw-away sandbox environments is exactly how you already should use agents!<br/> No accreted *my precious* to corrupt. |
-| **D**istributable | Shareable, persistent, retrievable | It can *transplant* it to another location (e.g., HPC), without shipping the entire drive. |
+| **E**phemeral | Transient compute environment | Throw-away sandbox environments are exactly how you already should use agents!<br/> No accreted *my precious* to corrupt. |
+| **D**istributable | Shareable, persistent, retrievable | It can *transplant* the object elsewhere (e.g. to HPC) without shipping the entire drive. |
 
 </div>
 
@@ -691,7 +691,7 @@ US-RSE and it is where the agent-usage patterns are written down.
 		</td>
 		<td style="width:56%;padding-left:0.8em;border-left:2px solid
 				   #666;text-align:center;vertical-align:top;">
-		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#fmriprep-on-1-subject-of-ds002785"><img data-src="pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg"/></a>
+		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#fmriprep-on-1-subject-of-ds002785"><img data-src="pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg" width="520" height="390" style="width:520px;height:390px;"/></a>
 		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/"
 		  target="_blank"><code>con-duct plot</code></a> &mdash; Who can guess this monster?</p>
 		</td>
@@ -705,14 +705,14 @@ US-RSE and it is where the agent-usage patterns are written down.
 	  Self-contained (<strong>S</strong>), tracked (<strong>T</strong>), immediately actionable (<strong>A</strong>).
 
 	  <p style="font-size:0.74em;margin-top:0.3em;">
-		More, including the <emph>patterns of use with AI agents</emph>
+		More, including the <em>patterns of use with AI agents</em>
 		will be presented on our US-RSE&rsquo;26 poster next Monday:<br/>
-		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html">"Agent-friendly provenance capture with con-duct"</a>
+		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank">"Agent-friendly provenance capture with con-duct"</a>
 	  </p>
 	</div>
 	<p style="font-size:0.72em;margin-top:0.4em;">
 	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
-	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a><br/>
+	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
 	  and every <code>datalad containers-run</code> gets a duct trace for free.
 	</p>
   </section>
@@ -739,7 +739,7 @@ derivatives/
     metrics.json  manifest.json
     duct-info.json  duct-usage.jsonl
   reports-*/</code></pre>
-		<p style="margin-top:0.3em;">BIDS-liked, M-odular: data and tool are
+		<p style="margin-top:0.3em;">BIDS-like, M-odular: data and tool are
 		<strong>subdatasets pinned by commit</strong>, not copies.</p>
 	  </td>
 	  <td style="width:54%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
@@ -766,7 +766,7 @@ derivatives/
 		<th style="padding:0.25em;">AI disclosure</th>
 	  </tr>
 	  <tr style="text-align:center;">
-		<td style="padding:0.25em;"><strong>1265</strong></td><td style="padding:0.25em;"><strong>1216</strong></td>
+		<td style="padding:0.25em;"><strong>1266</strong></td><td style="padding:0.25em;"><strong>1216</strong></td>
 		<td style="padding:0.25em;"><strong>1095</strong></td>
 		<td style="padding:0.25em;"><strong>912</strong>, 0 errors</td>
 		<td style="padding:0.25em;"><strong>3838 h</strong> (peak RSS 120 GB)</td>
@@ -938,7 +938,7 @@ $ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cf
 	<!-- workshop-xref 
 	<p style="font-size:0.68em;margin-top:0.45em;color:#1565c0;">
 	  &rarr; <strong>Brent</strong> set up the <em>Model</em> half this morning.
-	  <strong>Satra</strong> builds out the <em>Harness</em> half right after me, with knowledge
+	  <strong>Satra</strong> builds out the <em>Harness</em> half later this morning, with knowledge
 	  graphs underneath it &mdash; treat this act as the setup for that talk.
 	</p> -->
   </section>
@@ -955,7 +955,7 @@ $ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cf
 	</p>
 	<div style="margin-top:0.35em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
 	  The preprint names <strong>BIDS, NWB, DataLad/git-annex, DANDI and brainlife.io</strong> as its own
-	  Level-3 exemplars &mdash; and reserved <strong>Level 5 (AI + human in the loop)</strong> for the top.
+	  Level-3 exemplars &mdash; and reserved the top, <strong>Level 5 (Optimizing)</strong>, for closing the discovery loop with AI.
 	</div>
 	<strong>Well, too late, AI harnesses elevate you across all levels now.</strong>
 	<aside class="notes">
@@ -1069,7 +1069,7 @@ Ongoing, in the open: [github.com/orgs/con/projects/16](https://github.com/orgs/
 The goal is narrow and concrete: <strong>point a skill at a dataset, get back which of the seven
 letters hold, with evidence &mdash; and what to do about the ones that do not.</strong>
 One plan, two implementations in parallel <em>on purpose</em>: we converge once we can see what each
-gets right. All three are drafts, in public &mdash; because the harness is a research object too.
+gets right. All three are drafts, in public.
 </div>
 
 Note:
@@ -1116,7 +1116,7 @@ than reviewing one.
 			<li>Automated gates <em>before</em> human eyes; humans review intent and architecture</li>
 		  </ul>
 		  <div style="margin-top:0.4em;padding:0.5em;background-color:#e3f2fd;border-left:4px solid #1976d2;">
-			Only <em>then</em> are large autonomous batches could potentially be trusted.
+			Only <em>then</em> could large autonomous batches be trusted.
 		  </div>
 		</td>
 		<td style="width:50%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
@@ -1170,8 +1170,7 @@ than reviewing one.
 </div>
 
 <div class="callout">
-Converging, from very different vantage points:
-<strong>the safe size of an AI-assisted work item is set by the strength of your verification loop.</strong>
+Four very different vantage points, one rule.
 Build the loop, or keep the items small. Preferably both.
 </div>
 
@@ -1233,7 +1232,7 @@ autonomy is bought with *structure*, not with a bigger model. -->
 5. **Size the work to the loop you actually have.** Until the project self-checks, keep
    AI-assisted items small, reviewable, and tried by your own hand &mdash; and say so out loud,
 so nobody mistakes regime B for regime A.
-6. **Try one of our [con/skills](https://github.com/con/skills/)** E.g., good practice/low commitment ones like [**introduce-codespell**](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-codespell).
+6. **Try one of our [con/skills](https://github.com/con/skills/)** &mdash; a low-commitment one like [**introduce-codespell**](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-codespell).
 7. **Push one skill upstream.** To [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills), [con/skills](https://github.com/con/skills) to benefit from established CI and QA, or your own repo &mdash; but *somewhere public*.
 
 </div>
