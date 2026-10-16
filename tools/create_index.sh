@@ -206,7 +206,7 @@ cat > "$OUT" <<HTML
     </div>
   </header>
   <main>
-    <p>Slides and posters from talks and workshops by CON people. This location is also a DataLad dataset (git/git-annex repository) so you can datalad clone it to get all the sources and materials.</p>
+    <p>Slides and posters from talks and workshops by CON people. This location is also a <a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/talks">DataLad dataset (git/git-annex repository)</a> so you can datalad clone it to get all the sources and materials.</p>
 ${list_items}  </main>
   <footer>
     <div class="inner">

@@ -58,7 +58,8 @@ uv run --with playwright python tools/mkpdf.py <presentation-of-your-choice.html
 
 ## License
 
-CC-BY-SA: You are free to
+In short: **our own content** (slides, diagrams, text) is licensed
+**CC-BY-SA 4.0** by default (see `LICENSE`). CC-BY-SA: You are free to
 
    - share - copy and redistribute the material in any medium or format
    - adapt - remix, transform, and build upon the material for any purpose, even commercially
