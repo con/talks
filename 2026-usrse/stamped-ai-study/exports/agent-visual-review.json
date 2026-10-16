@@ -1,19 +1,19 @@
 {
   "reviewer": "Codex agent",
   "author_review": false,
-  "pdf_sha256": "289d01b8d3c11c821af197f4f1934c9d1f6d5199ae341a088e965d8b705fc091",
-  "preview_sha256": "1b56557847966bb7e200a0dc038c767a746b305e21f0ea0a96a530ef0673b86e",
-  "reviewed_utc": "2026-10-16T04:51:21.120226+00:00",
+  "pdf_sha256": "4f1b1e32c225ba04282bc2406e3a973a4092b9f386c0ca93d0cc2fb6b69f229d",
+  "preview_sha256": "9734c16cfab996ac3a099823b9d616bb621e0a89093a95648d6491d0d303b400",
+  "reviewed_utc": "2026-10-16T05:48:22.643514+00:00",
   "checks": [
     "Inspected the current full-page PDF raster preview",
-    "STAMPED principles appear in the top band with concise definitions",
-    "Original study occupies one sentence; assistance is explained with the revision comparison",
-    "All twelve first-iteration runs have individual assessment rows; all 36 allocated run IDs are present",
-    "Spatial agreement figure uses all twelve runs on shared coverage and distinguishes unassessed areas",
-    "All visible GitHub evidence links use named branches",
+    "Experiment framing restored in the blue banner; principles run down the left column",
+    "Compact four-row condition summary reserves space for pooled retained iterations",
+    "Both scientific figures are verified display copies from the benchmark repository",
+    "Research-object message and invitation retain prominent positions",
+    "No experiment-design concerns or completion-plan text appear on the poster",
     "Three columns, captions, invitation and footer fit without clipping or overlap",
-    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum",
-    "Bibliographic URL update leaves the reviewed PDF raster byte-identical"
+    "All 29 links pass and use named branches for GitHub evidence navigation",
+    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum"
   ],
   "result": "passed"
 }

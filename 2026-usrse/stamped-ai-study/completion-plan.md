@@ -1,108 +1,86 @@
 # Completing the STAMPED in Practice poster
 
-The poster is the target argument for the study, with real example results and open comparison slots.
-Its purpose is to help choose the evidence to collect, not to report a moving progress total.
-The underlying data exports retain timestamps and hashes for reproducibility.
+The poster presents the argument we want the experiment to establish: iteratively improve research skills by validating the scientific results and research objects they produce.
+Open comparison cells identify evidence still needed, while the scientific figures show real completed development work.
+The invitation is to use STAMPED, try the skills and contribute studies that test how well the guidance transfers.
 
-## The argument to complete
+## Retain development evidence; define the comparison
 
-We iteratively improve research skills by testing the scientific work they produce.
-A versioned research object lets others inspect both the scientific result and the process that changed the skills.
-The completed poster should establish which revisions improved scientific adequacy, reproducibility and consistency, show costs and adverse outcomes, and invite new studies that test transfer.
-An improved result is an empirical question, not an assumed conclusion.
+The benchmark's [round-one synthesis](https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1/synthesis) classifies `narps-v1` as development evidence.
+Its common prompt already prescribed several assessed practices, and assessment infrastructure made many replay measurements unavailable.
+The twelve scientific analyses remain useful examples and evidence for improving both skills and measurement.
+They do not populate the poster's pooled comparison.
 
-| Poster element | Present now | Evidence needed to finish |
-| --- | --- | --- |
-| Scientific case | NARPS H1; 54 fixed AO86 participant gain-effect maps; linked paper, task and data | Confirm the scientific panel is the intended scope of reproduction: group inference from supplied contrasts |
-| Group maps and condensed result | Run 09 maps, correction, regional coefficient and CI, generated from archived artifacts | Choose the final illustrative analysis by a stated rule; keep its exact source revision and inference details |
-| Variability across conditions | Spatial agreement of corrected positive maps from all twelve first-iteration runs, on shared coverage | Apply the same extraction to later iterations; retain native support and correction choices |
-| Checked outcomes | All 36 allocated runs have slots; available primary judgments populate science, replay and checklist counts | Finish and bind all 36 primary and 12 assigned duplicate judgments; preserve item-level validity and disagreement |
-| Iterative improvement | Revision 1 is pinned; two change-to-retest slots | For each revision, link the observed failure, reusable change, and next-round outcome; final round receives no further tuning |
-| Evidence and reuse | Links to skills, inputs, source, outputs, plans and figure code | Finish registering and publishing the research objects and assessment evidence; verify a recipient can retrieve each required payload |
-| Invitation | Use STAMPED; try the skills; contribute a hypothesis, data and reference result | Select the next studies with researchers at the conference |
+A cleaner comparison needs a neutral common scientific task, explicit condition-specific skill instructions, a frozen assessment procedure and an end-to-end assessment pilot before launch.
+Changing the common instructions or repairing incompatible primary measurements calls for a separately registered comparison, linked to the development findings that motivated it.
+Poster preparation does not launch workers or change the registered protocol.
 
-## Continue the experiment; add a consistent extraction layer
+## Pool retained iterations by condition
 
-The registered [comparison plan](https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md) already covers scientific adequacy, checklist attainment, operational outcomes, effort and descriptive variability.
-These poster requirements do not by themselves require a restart.
-Freeze a versioned secondary extraction specification, extract from stopped-worker artifacts, and leave the original work intact.
-Record round-one additions as retrospective; apply the same specification to later rounds.
+The poster uses four rows: no supplied skills, find useful skills, find research skills, and use STAMPED skills.
+Pool eligible iterations into one summary per condition, giving each independent research run equal weight.
+Retain iteration, replicate, skill revision and assessor revision in the linked records.
+Use one designated primary judgment per run; supplementary judgments measure disagreement, not additional independent runs.
 
-The spatial figure asks where repeated analyses agree, using corrected-positive frequency within each condition on the intersection of all twelve native search masks.
-The t maps agree to numerical precision; the visible difference is in corrected extent, including the choice of Bonferroni or permutation correction.
-This descriptive comparison does not estimate an assistance effect, and different native regions should not be pooled as a single vmPFC effect.
-A fixed-region mean recomputed from the same 54 input maps would be identical across conditions by construction.
-That would be a useful reference value, but an uninformative comparison of the assistance conditions.
+- **Runs:** retained run count and contributing iterations.
+- **Science:** proportions supported, qualified, unsupported and unable to assess, with the assessed denominator.
+- **Replay:** proportions passed, partial and failed among interpretable measurements, with available and unavailable counts.
+- **STAMPED:** average each run's proportion of applicable checklist items marked met, then average those proportions across runs.
+Use the same frozen checklist and applicability rules; retain MUST/SHOULD/MAY breakdowns and partial, unmet and unchecked profiles in the evidence.
+Do not treat an unavailable measurement as a failed run or silently omit unchecked items to raise a percentage.
 
-The implemented spatial endpoint is **the number of runs with corrected positive signal on shared coverage**, reported within each condition and iteration.
-To extend it consistently:
+Freeze the precise checklist denominator and missingness rules before collecting the comparison.
+If the applicable item set differs materially across runs, show the item profiles alongside the mean and avoid interpreting the mean as certification.
+Balanced replicate counts give iterations equal representation; if completion differs, report iteration coverage and avoid silently selecting whichever judgments finished.
 
-1. Verify image geometry, coordinate system and map semantics; do not mix effect, t, z or p maps.
-2. Retain each worker's native search mask and corrected positive map, with method, family and alpha.
-3. Define the evaluation support by a declared rule, independently of the desired result.
-The first-iteration figure uses the intersection of all twelve native masks (184,543 voxels), without resampling.
-Retain both common-support size and native-support size, plus each run’s coverage fraction.
-Voxels outside a native search mask are unassessed, not negative.
-4. Count corrected positive detections across all three runs on that common support.
-Preserve per-run native counts alongside the derived maps so effects of the coverage rule remain visible.
-5. Use the same geometry, cuts and colour scale across conditions, with run IDs and method labels.
-Treat agreement as descriptive; a common mistake can also produce agreement.
+Pooling describes overall performance under each condition.
+The improvement claim also needs a linked chain for each revision: observed failure, reusable skill change, and the subsequent test.
+Preserve those revision-specific records even though the poster table is pooled.
+Keep the final evaluation free of further tuning.
 
-For later revisions, retain the first-iteration support and report each run's coverage of it.
-If a run does not assess all of that support, do not count uncovered voxels as negative.
-Show coverage separately or recompute a declared intersection across the compared revisions, retaining both the original and revised domains.
-Pairwise Dice can be added as a secondary summary; retain its support size and mark both-empty denominators explicitly.
+## Complete the scientific panels
 
-When agents produce identical effect or t fields on shared support, report that null variation.
-Do not manufacture variation by changing the endpoint after seeing the result.
-Scientific adequacy, coverage choices and reproducibility can still differ.
+The original study question remains one sentence.
+The replication tests NARPS H1 using 54 fixed AO86 participant gain-effect maps, with a linked paper, task and data.
+Select the final illustrative analysis by a stated rule and retain its correction, region, estimate, interval, scientific commit and input hashes.
+Do not pool regional coefficients from different anatomical definitions.
+
+The variability figure shows how many runs detect corrected positive signal on shared coverage, grouped by condition.
+The present development example uses the intersection of twelve native search masks and participant coverage: 184,543 voxels, without resampling.
+It preserves native correction choices and treats unassessed voxels as missing coverage.
+The t fields agree to numerical precision; correction choices account for the displayed extent differences.
+Agreement is descriptive and does not by itself establish scientific validity.
+
+For later retained iterations, declare the evaluation domain and denominator before extracting results.
+Retain native masks, correction family/method/alpha, support size and coverage fraction.
+Use common geometry, cuts and colour scales; do not count uncovered voxels as negative.
+Report null variation when present instead of changing the endpoint to create variation.
+
+All scientific capture, rendering, inputs and outputs belong in the [benchmark workflow](https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/POSTER-FIGURES.md).
+The poster imports verified display copies only.
 
 ## Collect one bound record per run
 
-Retain a machine-readable record linking these fields to immutable artifact hashes and public or declared recipient URLs:
-
 | Record | Required fields |
 | --- | --- |
-| Assignment | study, iteration, run ID, condition, replicate, input revision, worker stop commit, skill revision, model/settings |
-| Actual skill exposure | discovered, installed and used skills; versions; unsuccessful attempts; evidence |
-| Scientific result | participant IDs/exclusions, model/design/weights, effect units, native region, effect/statistic maps, coverage/search mask, spatial reference, correction family/method/alpha, permutations/seed, hypothesis conclusion |
-| Native estimate | effect, interval and interval method; corrected regional and whole-brain positive voxels; native mask/region sizes |
-| Assessment | judgment ID/role, assessor/procedure revision, adequacy, every checklist item, validity overrides and missing reasons |
-| Replay | entry point, generated-output manifest, input hashes before/after, candidate outputs, exact/numerical comparison per file, missing outputs, scope and elapsed time |
-| Delivery and effort | worker delivery, coordinator preservation, independent retrieval, intervention, worker elapsed time and measured costs with their scope |
-| Secondary extraction | specification/code version, source hashes, evaluation support, alignment, metric/value/units and missing reason |
+| Assignment | study, iteration, run, condition, replicate, scientific task, inputs, skill revision, model/settings and worker stop commit |
+| Skill exposure | discovered, installed and used skills, versions, unsuccessful attempts and supporting evidence |
+| Science | participants/exclusions, model/design, effect units, region, maps, native support, spatial reference, correction, permutations/seed and hypothesis conclusion |
+| Assessment | primary/supplementary role, assessor/procedure revision, adequacy, every checklist verdict, validity overlays and missing reasons |
+| Replay | entry point, generated-output manifest, input hashes before/after, per-file comparison rule, missing outputs, scope and elapsed time |
+| Delivery and effort | worker delivery, coordinator preservation, independent retrieval, intervention and measured costs with their scope |
+| Secondary extraction | specification/code version, source hashes, evaluation domain, denominator, metric/units and missing reason |
 
-Do not make publication of an artifact or coordinator recovery count as worker delivery success.
-Keep duplicate and supplementary judgments separate from the first assigned primary.
+Generated-output manifests and input-hash guards must keep replay cleanup from deleting required inputs.
+Define exact versus numerical comparisons and treatment of timestamps and authored prose before assessment.
+Preserve raw judgments and their validity overlays; a more favourable reassessment must not silently replace a primary.
+Keep worker delivery distinct from coordinator recovery and publication.
 
-## Repair measurement collection, not the scientific record
+## Finish from the records
 
-The measurement disposition retains first-assigned judgments and marks infrastructure-affected measures unavailable.
-The current aggregation scripts and documentation still need to be reconciled with that disposition; an older aggregation rule would exclude original primaries.
-Preserve raw item verdicts and their external validity overlays instead of replacing historical grades.
-
-For future replay collection, distinguish generated outputs from inputs and authored reports.
-An output manifest plus an input-hash guard prevents the replay tool from deleting a required input.
-Define file-specific comparisons before evaluation: numerical arrays can have a declared tolerance; timestamps and authored prose need an explicit policy.
-Run 09 illustrates why this matters: 12 of 14 candidate files were byte-identical, the JSON timestamp changed, and the report was not regenerated.
-
-These fixes need versioned assessment procedures and consistent interpretation across comparisons.
-They do not justify selecting a more favorable reassessment as the primary.
-Keep assessor amendments visible in the machine-readable results and stratify affected measures where necessary.
-
-## When a new comparison is needed
-
-Start a newly registered comparison if the desired poster requires a different scientific task, a mandatory common model/region, participant-level preprocessing, substantive changes to worker instructions, or a new primary assessment definition that cannot be applied comparably to existing objects.
-That is a design decision to make before launching affected workers.
-A new comparison should preserve and link the current study as evidence that motivated it, rather than discard it.
-
-## Finish the poster from the records
-
-1. Publish and bind each completed run, assessment and payload retrieval receipt.
-2. Refresh the assessment export and figure inputs from those exact revisions.
-3. Extend the variability figure by iteration using the extraction specification.
-4. Replace the two revision slots with the actual changes and their subsequent outcomes.
-5. Add a concise comparison result supported by the completed matrix, including null or adverse findings.
-6. Rebuild the PDF, inspect its layout, and verify links and QR codes.
-
-The current figure inputs and assessment export are reproducible saved data, not promises that the later result slots have been measured.
+1. Register the clean comparison and validate its collection and assessment procedures.
+2. Publish each retained run, assessment and retrievable payload with its source binding.
+3. Generate pooled condition summaries and updated spatial figures in the benchmark.
+4. Link each skill revision to the observation that motivated it and its subsequent test.
+5. Fill the compact poster table, add the supported comparison finding, and import the benchmark figures.
+6. Rebuild and inspect the PDF; verify branch links, payload retrieval and QR codes.
