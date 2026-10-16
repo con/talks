@@ -282,15 +282,26 @@
 
   <section>
 	<h3>This problem already has a name</h3>
+	<!-- Two rows, not one: the images share a middle axis with the arrow,
+	     and the captions start on a common line underneath whatever the
+	     height difference between the two pictures happens to be. -->
 	<table style="width:100%;margin-top:1em;">
-	  <tr style="vertical-align:middle;">
-		<td style="width:48%;text-align:center;">
+	  <!-- border-bottom:none -- the beige theme rules every row but the last -->
+	  <tr>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
 		  <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"><img data-src="pics/yoda-principles-reordered.png" style="max-height:480px;"/></a>
+		</td>
+		<td style="width:4%;text-align:center;vertical-align:middle;border-bottom:none;font-size:2em;">&rarr;</td>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
+		  <a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:100%;"/></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:center;vertical-align:top;">
 		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">YODA</a></strong>, 2018 &mdash; for humans composing studies</p>
 		</td>
-		<td style="width:4%;text-align:center;font-size:2em;">&rarr;</td>
-		<td style="width:48%;text-align:center;">
-		  <a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:100%;"/></a>
+		<td></td>
+		<td style="text-align:center;vertical-align:top;">
 		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://stamped-principles.org/" target="_blank">STAMPED</a></strong>, 2026 &mdash; generalized, gradeable, domain-agnostic</p>
 		</td>
 	  </tr>
@@ -312,7 +323,7 @@
 <a href="https://stamped-principles.org/"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:96%;max-width:1300px;"/></a>
 
 ### Seven properties a research object should have &mdash;<br/>whoever, *or whatever*, picks it up next.
-<!-- .element: class="fragment" style="margin-top:0.6em;" -->
+
 <aside class="notes">
 	  Let the banner sit for a beat before advancing the fragment.
 	  Banner art is the STAMPED project's own (stamped-principles.org).
@@ -370,10 +381,10 @@ An actionable object answers, *without "reading"*
 Nobody spends *tokens* to devise a layout per project &mdash; it comes
 for free!
 
-#### You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all
+### You&rsquo;ve seen one BIDS dataset, you&rsquo;ve seen them all
 
-&hellip; is a convenience for humans. For an agent it is the difference
-between **acting** and **hallucinating**.
+&hellip; is a convenience for humans.<br/>
+For an agent it is the difference between **acting** and **hallucinating**.
   </textarea></section>
 
 	<!-- TMI
@@ -465,7 +476,7 @@ between **acting** and **hallucinating**.
   </section>
 
   <section data-markdown><textarea data-template>
-### So grade *them* too: a skill is a research object
+### So grade *them*&nbsp; too: a skill is a research object
 
 A skill that only runs in your repo, on your paths, undocumented and unversioned,<br/>
 is a **silo with a friendlier interface**.
@@ -653,11 +664,6 @@ wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
 `stdout`/`stderr` &mdash; as plain, self-contained files.
 <!-- .element: style="font-size:0.88em;margin-top:0.5em;" -->
 
-More, including the **patterns of use with AI agents** &mdash; who drives, who reads the records &mdash;
-on our US-RSE&rsquo;26 poster next Monday:
-[*Agent-friendly provenance capture with `con-duct`*](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html)
-<!-- .element: style="font-size:0.74em;margin-top:0.3em;" -->
-
 <aside class="notes">
 SKIP CANDIDATE if running long &mdash; the next slide carries the
 argument; this one is the screenshot that sells it.  If you do skip it,
@@ -692,10 +698,16 @@ US-RSE and it is where the agent-usage patterns are written down.
 	  it needs <em>numbers and text it can read</em>, not a human recollection.
 	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
 	  Self-contained (<strong>S</strong>), tracked (<strong>T</strong>), immediately actionable (<strong>A</strong>).
+
+	  <p style="font-size:0.74em;margin-top:0.3em;">
+		More, including the <emph>patterns of use with AI agents</emph>
+		will be presented on our US-RSE&rsquo;26 poster next Monday:<br/>
+		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html">"Agent-friendly provenance capture with con-duct"</a>
+	  </p>
 	</div>
 	<p style="font-size:0.72em;margin-top:0.4em;">
 	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
-	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
+	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a><br/>
 	  and every <code>datalad containers-run</code> gets a duct trace for free.
 	</p>
   </section>
@@ -722,7 +734,7 @@ derivatives/
     metrics.json  manifest.json
     duct-info.json  duct-usage.jsonl
   reports-*/</code></pre>
-		<p style="margin-top:0.3em;">BIDS-shaped, YODA-composed: data and tool are
+		<p style="margin-top:0.3em;">BIDS-liked, M-odular: data and tool are
 		<strong>subdatasets pinned by commit</strong>, not copies.</p>
 	  </td>
 	  <td style="width:54%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
@@ -783,23 +795,15 @@ $ uv pip install --python envs/compbench/bin/python \
 $ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cfa</span>
   run(ok): ... [duct --clobber --output-prefix ..]
   <span style="color:#8bc34a">Wall Clock Time: 2.465 sec   RSS peak: 142 MB</span></code></pre>
-		<p style="font-size:0.8em;margin-top:0.5em;">
-		  &hellip;against <code>0.51&nbsp;s / 9&nbsp;MB</code> originally &mdash; but
-		  <a href="https://github.com/con/duct" target="_blank"><code>duct</code></a> went
-		  <strong>0.21&nbsp;&rarr;&nbsp;0.23</strong> in between: the old record caught
-		  <strong>one</strong> sample, the new one three. A cost trace is only as good as its
-		  sampling rate &mdash; which is why the raw <code>duct-usage.jsonl</code> is committed
-		  next to the summary, and why the <em>record of the record</em> matters too.
-		</p>
 	  </td>
 	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
 		<strong>Did the science come back?</strong>
 		<table style="width:100%;font-size:0.82em;margin-top:0.3em;">
 		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
-		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.5142911224682944 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.514... <strong style="color:#2e7d32;">same</strong></td></tr>
 		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
 		  <tr><td style="padding:0.2em;"><code>rmse</code> &middot; <code>round_trip_ok</code></td><td style="padding:0.2em;">0.0 &middot; true <strong style="color:#2e7d32;">same</strong></td></tr>
-		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.6094860217612 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.609... <strong style="color:#2e7d32;">same</strong></td></tr>
 		  <tr><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">~20% slower &mdash; <em>as they must</em></td></tr>
 		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">same kernel 6.12.57,<br/>python 3.13.15&rarr;<strong>3.13.5</strong></td></tr>
 		  <tr><td style="padding:0.2em;"><code>duct-info</code></td><td style="padding:0.2em;">host <code>327bc591&hellip;</code>&rarr;<code>typhon</code>:<br/>the original ran in a container<br/>the record never named</td></tr>
@@ -934,124 +938,8 @@ $ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cf
 	</p> -->
   </section>
 
-  <!-- ============ Two ladders: individual (AI coding) and team (SciOps) ============ -->
   <section>
-	<h3>Where are <em>you</em>&nbsp; on the ladder?</h3>
-	<table style="width:100%;margin-top:0.3em;"><tr style="vertical-align:top;"><td style="width:29%;padding-right:0.7em;vertical-align:top;">
-	  <a href="https://www.youtube.com/watch?v=6W_-YWHKwZ4" target="_blank"><img data-src="pics/borrowed/ai-ladder-skills.png" style="max-width:100%;"/></a>
-	  <p style="font-size:0.62em;margin-top:0.3em;color:#555;">
-		Ladder figure &amp; framing:
-		<a href="https://www.youtube.com/watch?v=6W_-YWHKwZ4" target="_blank">Jo Van Eyck,
-		&ldquo;You are Not Ready: Agentic coding in 2026&rdquo;</a>
-	  </p>
-	</td><td style="width:71%;padding-left:0.7em;vertical-align:top;">
-	<table style="width:100%;font-size:0.63em;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.28em;width:17%;">Level</th>
-		<th style="text-align:left;padding:0.28em;width:36%;">What it looks like</th>
-		<th style="text-align:left;padding:0.28em;">The skill you have to acquire</th>
-	  </tr>
-	  <tr><td style="padding:0.28em;"><strong>L1</strong> Chat</td>
-		  <td style="padding:0.28em;">Browser tab; copy-paste</td>
-		  <td style="padding:0.28em;">Prompt &amp; <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank">context engineering</a></td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.28em;"><strong>L2</strong> Mid-loop</td>
-		  <td style="padding:0.28em;">In the IDE &mdash; &ldquo;autocomplete on steroids&rdquo;</td>
-		  <td style="padding:0.28em;">Critically evaluating alternatives, not accepting them</td></tr>
-	  <tr><td style="padding:0.28em;"><strong>L3</strong> In-the-loop</td>
-		  <td style="padding:0.28em;">The <em>babysitting phase</em> &mdash; you watch it struggle</td>
-		  <td style="padding:0.28em;">Doom loops, guard rails, <strong>extracting reusable skills</strong>. <em>2&ndash;3 months, minimum.</em></td></tr>
-	  <tr style="background-color:#fafafa;"><td style="padding:0.28em;"><strong>L4</strong> On-the-loop</td>
-		  <td style="padding:0.28em;">Spec it, hand off, verify the artifact</td>
-		  <td style="padding:0.28em;">Everything above <em>plus</em> a real harness: skills, tests, sandboxes, scanners</td></tr>
-	  <tr><td style="padding:0.28em;"><strong>L5</strong> Multi-agent</td>
-		  <td style="padding:0.28em;">Orchestration; the frontier</td>
-		  <td style="padding:0.28em;">Everyone is still figuring this out</td></tr>
-	</table>
-	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.75em;">
-	  <strong>L4&ndash;L5 is exactly where a bad harness stops being survivable</strong> &mdash;
-	  which is why the harness, not the model, is the thing to invest in.
-	</div>
-	</td></tr></table>
-	<aside class="notes">
-	  Ask the room by show of hands. Most will be L1-L2, a few L3.
-	  The honest message: you cannot buy your way to L4 with a better
-	  model — L3 is a time tax nobody skips, and what you accumulate
-	  during it IS the harness.
-	</aside>
-  </section>
-
-  <section>
-	<h3>And the loop that gets you up it</h3>
-	<table style="width:100%;margin-top:0.2em;">
-	  <tr style="vertical-align:top;">
-		<td style="width:36%;vertical-align:top;">
-		  <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '17px'}}}%%
-flowchart TD
-    IDEA["Idea"] --> S1["1. Overall design / spec"]
-    S1 --> S2["2. Aspect design / prompt"]
-    S2 --> S3["3. AI work"]
-    S3 --> S4["4. Review / test"]
-    S4 -->|"iterate"| S2
-    S4 --> S5["5. Compound into spec / SKILL"]
-    S5 -->|"next aspect"| S2
-    S5 -->|"adjust / memorize"| S1
-
-    style IDEA fill:#9c27b0,color:#fff,stroke:#7b1fa2,stroke-width:2px
-    style S1 fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
-    style S2 fill:#2e7d32,color:#fff,stroke:#1b5e20,stroke-width:2px
-    style S3 fill:#e65100,color:#fff,stroke:#bf360c,stroke-width:2px
-    style S4 fill:#c62828,color:#fff,stroke:#b71c1c,stroke-width:2px
-    style S5 fill:#283593,color:#fff,stroke:#1a237e,stroke-width:3px
-		  </div>
-		</td>
-		<td style="width:64%;padding-left:1em;vertical-align:top;">
-		  <table style="width:100%;font-size:0.68em;">
-			<tr style="background-color:#e8eaf6;">
-			  <th style="text-align:left;padding:0.3em;width:28%;">Development model</th>
-			  <th style="text-align:left;padding:0.3em;width:30%;">Stages used</th>
-			  <th style="text-align:left;padding:0.3em;">What is missing</th>
-			</tr>
-			<tr><td style="padding:0.3em;"><strong>Vibe coding</strong></td>
-				<td style="padding:0.3em;">2 &rarr; 3 &rarr; 4 (loop)</td>
-				<td style="padding:0.3em;">No spec, no condensing &mdash; the knowledge evaporates with the session</td></tr>
-			<tr style="background-color:#fafafa;"><td style="padding:0.3em;"><strong>Spec-driven</strong></td>
-				<td style="padding:0.3em;"><strong>1</strong> &rarr; 2 &rarr; 3 &rarr; 4 &rarr; 2&hellip;</td>
-				<td style="padding:0.3em;">Loops back to the prompt; the spec should be updated too</td></tr>
-			<tr><td style="padding:0.3em;"><strong>Compound engineering</strong></td>
-				<td style="padding:0.3em;">1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; <strong>5</strong> &rarr; 1+2&hellip;</td>
-				<td style="padding:0.3em;"><strong>Nothing</strong> &mdash; each cycle makes the next one cheaper</td></tr>
-		  </table>
-		  <div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.76em;">
-			<strong>Stage 5 is where a skill is born.</strong>
-			Vibe coding throws the lesson away; compound engineering writes it down &mdash;
-			and what it writes down is exactly the artifact we just said must be STAMPED.
-		  </div>
-		  <p style="font-size:0.7em;margin-top:0.5em;">
-			Tooling for stage 1: <a href="https://github.com/github/spec-kit" target="_blank">spec-kit</a> &middot;
-			<a href="https://github.com/Fission-AI/OpenSpec" target="_blank">OpenSpec</a> &middot;
-			<a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank">compound-engineering</a> &middot;
-			<a href="https://github.com/chrisfoulon/LAD" target="_blank">LAD</a>
-			(in use in <a href="https://github.com/dandi/dandi-cli/tree/master/.lad" target="_blank">dandi-cli</a>)
-		  </p>
-		  <!-- workshop-xref 
-		  <p style="font-size:0.68em;margin-top:0.35em;color:#1565c0;">
-			&rarr; <strong>Johanna</strong>, next: a pattern that does stage&nbsp;5
-			<em>on purpose</em>, so each run leaves the workflow better than it found it.
-		  </p>
-		  -->
-		</td>
-	  </tr>
-	</table>
-	<aside class="notes">
-	  The single most useful sentence here: "each unit of engineering work
-	  should make subsequent units easier, not harder". If your AI usage
-	  is not producing reusable artifacts, you are at stage 4 forever.
-	</aside>
-  </section>
-
-  <section>
-	<h3>That was the <em>individual</em> ladder. Here is the <em>team</em>&nbsp; one.</h3>
+	<h3>"AI" now permeates through all levels of SciOps.</h3>
 	<a href="https://arxiv.org/abs/2401.00077" target="_blank"><img data-src="pics/borrowed/neuro-sciops-fig.svg" style="max-width:92%;"/></a>
 	<p style="font-size:0.68em;margin-top:0.3em;">
 	  <strong>Figure reproduced from:</strong>
@@ -1062,9 +950,9 @@ flowchart TD
 	</p>
 	<div style="margin-top:0.35em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
 	  The preprint names <strong>BIDS, NWB, DataLad/git-annex, DANDI and brainlife.io</strong> as its own
-	  Level-3 exemplars &mdash; and reserves <strong>Level 5 (AI + human in the loop)</strong> for the top.
-	  <!-- <br/><strong>L5 presupposes L3 underneath it.</strong> You do not get closed-loop discovery on top of <code>study_final2/</code>. -->
+	  Level-3 exemplars &mdash; and reserved <strong>Level 5 (AI + human in the loop)</strong> for the top.
 	</div>
+	<strong>Well, too late, AI harnesses elevate you across all levels now.</strong>
 	<aside class="notes">
 	  Two ladders, one climb: the AI-coding ladder is personal maturity,
 	  SciOps is team/operational maturity. STAMPED is what each individual
@@ -1074,7 +962,7 @@ flowchart TD
   </section>
 
   <section data-markdown><textarea data-template>
-### Right now, everyone is rebuilding the same private harness
+### But right now, everyone is rebuilding the same private harness
 
 A hundred labs, each writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
 None of them shared. None of them versioned. None of them tested.
