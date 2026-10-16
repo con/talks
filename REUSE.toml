@@ -568,3 +568,9 @@ path = ["2026-usrse/stamped-ai-study/figures/narps-group-map.*", "2026-usrse/sta
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "NOASSERTION"]
 SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyMixed"
+
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/figures/round-progression.*"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

@@ -1,18 +1,19 @@
 {
-  "checked_utc": "2026-10-16T17:58:34.088592+00:00",
-  "reviewer": "Codex",
+  "checked_utc": "2026-10-16T18:28:23.253817+00:00",
+  "reviewer": "Codex; independent visual pass by progression_review",
   "files": {
-    "index.html": "19da60b51a508d75ed397483919b147a303d5afe5a6aebf92eb7114ef3ed046d",
-    "poster.css": "f0399ef01d8bafa3ee991dbd6dda78611ec75c47a10c3b9a09d62724555f0c9d",
-    "exports/stamped-ai-poster.pdf": "ad5f8adb4381bc49221937c4f0bb4ae383baba2476d16748a8f97cb5d7f329a2",
-    "exports/pdf-preview.png": "46810c4a098104de29fe817f87aba8ae7faa3e00604355f2adfd36935cc54878"
+    "index.html": "6699fe1ee93ad2e807e192cc8f4b04a3fc3ad1ea52f2dd6e24dc84d0a4029b5c",
+    "poster.css": "57c8a5fbab74566434e7074a3cc1a8f64919a5fe79860488ccd1169f4c7a6bd6",
+    "exports/stamped-ai-poster.pdf": "365fdd07f55992f15eb18b11a8bec3e939d94849a6fac5b878ca2593bbeb97f3",
+    "exports/pdf-preview.png": "e956aa13181affc6b2e46ab5ef1b4901689dacba25bc93d3009c997f80f181bf"
   },
   "observations": [
-    "Inspected the rendered PDF preview: no overlaps, clipping or unreadable labels.",
-    "Blue experiment banner leads; STAMPED principles remain in the left column.",
-    "Compact four-condition table displays all three retained rounds: 72 assigned research runs, primary outcomes and explicit measurement denominators.",
-    "Scientific example is formal round-two run 09; variability figure covers 48 round-two/three analyses.",
-    "Infrastructure corrections and rejection details remain linked in the benchmark, outside the poster."
+    "Inspected the final rendered PDF preview: no overlaps, clipping or unreadable labels.",
+    "Two-panel chart shows all four conditions across rounds 1\u20133, separating supported analyses from mean evaluated checklist items met.",
+    "Caption states fresh runs, primary judgments, available denominators and connecting round summaries; underlying measurements are unchanged.",
+    "No supplied research skills is used consistently in the table, chart and spatial comparison.",
+    "Methodological copy identifies the STAMPED research-loop skill and its recipient condition, and retains bounded repairs with progression to the next planned round.",
+    "Evidence chain remains accessible in the left column; final independent visual review approved."
   ],
   "passed": true
 }

@@ -57,7 +57,16 @@
             </ol>
             <p>Three iterations of testing and revision. In the final iteration, evaluate without further tuning.</p>
           </section>
-          <section class="ruled skills-section"><h3>Put the principles to work</h3><p>The <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">skills</a> guide project creation, analysis, assessment and improvement. They make STAMPED actionable guidance for an agent.</p><p>Use the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to examine your own research object, then follow the evidence behind each answer.</p></section>
+          <section class="ruled evidence-section">
+            <p class="section-label">The study is itself a research object</p><h3>Follow the evidence</h3>
+            <div class="evidence-chain">
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json">Versioned inputs</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md">Code + execution records + results</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1">Assessments + reasons for revisions</a>
+            </div>
+            <p>Inspect both the scientific result and the decisions that shaped the experiment in <a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a>. Apply the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to your own research object.</p>
+          </section>
         </div>
         <div class="science-column">
           <section>
@@ -86,7 +95,7 @@
         <aside class="outcomes">
           <section>
             <p class="section-label">03 · Skills-development results</p><h2>Compare assistance<br>across retained runs</h2>
-            <p>Agents receive one instruction: no supplied skills, find useful skills, find skills for scientific quality and reproducibility, or use <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">STAMPED skills</a>.</p>
+            <p>All conditions share the scientific task and software resources. Agents receive no supplied research skills, a request to find useful skills, a request to find research skills, or the <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">STAMPED skill bundle</a>.</p>
             <p class="small"><span id="retained-rounds">Rounds 1, 2, 3; 72 research runs.</span> Pool iterations by condition, giving each research run equal weight. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Run-level evidence</a></p>
           </section>
           <section class="results-matrix">
@@ -95,7 +104,7 @@
               <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>mean met %</th></tr></thead>
               <tbody>
                 <!-- BENCHMARK_OUTCOMES_START -->
-                <tr><th>No supplied skills</th><td>18</td><td>16/18</td><td>5/5</td><td>22.6%<br>n=16</td></tr>
+                <tr><th>No supplied research skills</th><td>18</td><td>16/18</td><td>5/5</td><td>22.6%<br>n=16</td></tr>
                 <tr><th>Find useful skills</th><td>18</td><td>13/18</td><td>2/3</td><td>23.2%<br>n=18</td></tr>
                 <tr><th>Find research skills</th><td>18</td><td>10/17</td><td>3/7</td><td>22.3%<br>n=17</td></tr>
                 <tr><th>Use STAMPED skills</th><td>18</td><td>10/17</td><td>3/6</td><td>32.3%<br>n=17</td></tr>
@@ -104,21 +113,19 @@
             </table>
             <p class="small summary-key"><strong>Science:</strong> fully supported / assessed analyses. <strong>Replay:</strong> all selected outputs matching / observed native reruns; — means none observed. <strong>STAMPED:</strong> mean percentage of evaluated items met (available n). <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled">All grades + denominators</a>.</p>
           </section>
-          <section class="ruled evidence-section">
-            <p class="section-label">The study is itself a research object</p><h3>Follow any result back to its source</h3>
-            <div class="evidence-chain">
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json">Versioned inputs</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md">Code + execution records + results</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1">Assessments + reasons for revisions</a>
-            </div>
-            <p><a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a> links the skills, data, runs, assessments and revisions—including unsuccessful attempts.</p><p>Preserve enough evidence to examine both the scientific result and the decisions that shaped the experiment.</p>
+
+          <section class="ruled progression-section" aria-labelledby="progression-heading">
+            <h3 id="progression-heading">How do outcomes change across rounds?</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled"><img class="progression-figure" src="figures/round-progression.svg" alt="Scientific adequacy and mean evaluated STAMPED items met for each assistance condition across rounds one, two and three"></a>
+              <figcaption>Six fresh runs per condition per round; primary judgments only. Available n: science 5–6, checklist 4–6. Lines connect round summaries. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv">Round data + denominators</a></figcaption>
+            </figure>
           </section>
           <section class="ruled lessons-section" aria-labelledby="lessons-heading">
             <p class="section-label" id="lessons-heading">Improving the guidance</p>
             <h3>Assess without prescribing</h3>
-            <p>Requiring particular tools or output formats makes assessment easier, but risks prescribing the practices being evaluated. Our revised design let workers choose their methods and delivery practices, while recording coordinator preservation separately. The challenge is to make work inspectable while preserving meaningful freedom.</p>
-            <p>Fresh runs test each revision. The final <a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md">environment guidance</a> asks for an executable setup recipe or retrievable pinned source alongside the runtime version.</p>
+            <p>Specifying tools or output formats aids assessment but can prescribe the practices being evaluated. The common task left methods and delivery to workers; coordinator preservation was recorded separately. Bound repairs, preserve limitations and advance to the next planned round.</p>
+            <p>We revised the <a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md">STAMPED research-loop skill</a> to request an executable setup recipe or retrievable pinned source alongside the runtime identity. Fresh agents in the STAMPED condition tested the revised skill.</p>
             <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Study design</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection">Evidence behind revisions</a></p>
           </section>
         </aside>

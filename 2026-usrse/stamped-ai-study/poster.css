@@ -52,7 +52,10 @@ figcaption { font-size:32px; line-height:1.32; margin:18px 0 0; }
 .outcome-table col:nth-child(4) { width:16%; }
 .outcome-table col:nth-child(5) { width:23%; }
 .columns .summary-key { margin-top:24px; }
-.outcomes .evidence-section { margin-top:72px; }
+.progression-figure { width:100%; display:block; }
+.method-column .evidence-chain { gap:8px; padding:22px; margin-bottom:22px; }
+.progression-section { padding-top:24px; }
+.lessons-section > p:last-child { margin-bottom:0; }
 .revision { border-left:6px solid var(--con-blue); padding:18px 26px; margin-bottom:20px; }
 .revision b { font-size:37px; }
 .revision p { font-size:34px; margin:12px 0 0; }
