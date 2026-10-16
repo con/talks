@@ -1,83 +1,41 @@
 # STAMPED in Practice poster
 
-An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
-The blue banner states the experiment; the left column introduces STAMPED and the study's evidence chain, the centre shows the NARPS scientific example, and the right compares pooled outcomes and progression across rounds.
+Can research guidance help AI agents do sound science and leave work others can inspect and reproduce?
+This **44 × 44 inch** poster presents a comparison of four kinds of assistance across three rounds of a shared neuroscience task.
+It shows both scientific results and how the research guidance was tested and revised.
 
-Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or download [the revised PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s903486--05cd201d8a411298c1a47e213da6a250.pdf).
-The current PDF and preview are publicly retrievable; anonymous downloads match the reviewed local files byte-for-byte.
-The [completion record](completion-plan.md) links the completed reporting and poster integration.
+## Read the poster
 
-## Scientific figures belong to the benchmark
+- [Download the current PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s902807--03a8d929a51e3527d753af73c13f585a.pdf).
+- [View the image preview](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1115171--8ab36fdb27b9954129e9dcb0b1d421d8.png).
+- [Read the poster and figure guide](https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md) for context before following individual research records.
 
-The [benchmark figure workflow](https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/POSTER-FIGURES.md) contains the scientific generators, frozen inputs, root Pixi environment, derived results and provenance.
-This poster retains display copies and a [source binding](figures/benchmark-source.json), including the exact benchmark revision and SHA-256 values.
-Reader-facing links open named branches; exact revisions remain in the provenance.
+The PDF and preview are publicly downloadable; their contents have been checked against the reviewed local export.
+GitHub may show annexed files as pointers, so use the download links above rather than expecting those pointers to display the poster.
 
-The group map shows formal round-two run 09: a one-sample group test on 54 participant maps, 9,999 sign-flip permutations and whole-brain FWE correction.
-The spatial comparison uses all 48 analyses from rounds two and three, twelve per condition, on 168,285 shared tested voxels.
-Every run retains its native corrected decisions and coverage; the source repository preserves masks, scientific code, reports and capture identities.
+## Follow the story
 
-The compact outcomes table pools the retained operational assessments from all three rounds: 72 original research runs, 70 primary scientific judgments and 68 valid primary checklists.
-Native replay counts distinguish full selected-output matches from observed executions.
-The [benchmark summary](https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled) retains all grades, denominators, partial matches and separate round summaries.
-The [display data](data/benchmark-outcomes.json) and [source binding](data/benchmark-outcomes-source.json) identify the exact imported report.
-The complete table includes 21 observed native reruns: 13 full selected-output matches, five partial matches and three nonzero exits.
-Round-specific results and every original judgment remain retrievable.
+The left column introduces STAMPED and the experiment.
+The centre shows one agent's brain analysis and where repeated analyses agree.
+The right compares scientific adequacy and research practices, including their progression across rounds.
+The scientific and checklist measures describe different outcomes; an improvement in one does not establish an improvement in the other.
 
-The progression chart shows each condition across the three rounds, with separate panels for scientific adequacy and mean evaluated checklist items met.
-Each point summarizes designated primary judgments from six assigned fresh workers; science has 5–6 available judgments and the checklist has 4–6 per condition and round.
-The chart uses the same retained summary as the table, with exact denominators in the linked round data.
-Only the STAMPED condition receives the revised research-skill bundle; the other conditions retain their assigned instructions.
-The baseline label is “No supplied research skills”: common task instructions, software resources and runtime system skills remain available to all conditions.
+Choose a starting point for the part you want to explore:
 
-The poster focuses on the scientific results and skill-development experiment.
-Original reporting failures, additive extraction corrections and infrastructure diagnostics remain in the benchmark's linked reporting record.
-The final guidance example explicitly identifies the STAMPED research-loop skill's environment-recipe clarification and the condition that received it.
-The methodological lesson pairs assessment without prescribing with bounded repairs that let the experiment advance.
+- [Results and interpretation](https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md) explains the measures, missing assessments and limits of the comparison, then leads to the underlying tables.
+- [Scientific figures](https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures) explains what each image represents and where its inputs and plotting code live.
+- [Research skills and assessment](https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md) introduces the workflows, the independent assessor and the revisions tested in each round.
+- [Repository map](https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md) explains why evidence links open different branches and how to read an individual research delivery.
 
-## Retrieve and build
+The poster's general links and QR codes lead to these introductions.
+Links labelled **Analysis code**, **Numerical results**, **Figure code**, **Map inputs** or **Round data + denominators** open the named material directly.
 
-Run from this directory:
+## Edit or reproduce the poster
 
-```sh
-pixi install
-pixi run datalad get ../orinoco-lite/assets/con-logo-outlined.svg \
-  ../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg \
-  ../orinoco-lite/assets/repronim_logo.svg \
-  ../orinoco-lite/assets/orinoco-qr-con.svg assets figures exports
-pixi run setup-browser
-pixi run build
-pixi run verify
-pixi run links
-```
+This directory is in the presentation repository, `con/talks`, on the `codex/stamped-example-poster` branch.
+The scientific records and figure-generation workflow belong to `leej3/stamped-in-practice`; this directory holds display copies, their source bindings and the editable [HTML](index.html) and [CSS](poster.css).
+The [build guide](BUILDING.md) covers retrieval, source imports, the exact environment and export checks.
 
-`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-progression-20261016`](https://github.com/con/talks/tree/codex/env-poster-progression-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
-
-To import a new committed benchmark export:
-
-```sh
-pixi run git annex unlock figures
-pixi run python scripts/import-benchmark-figures.py --benchmark /path/to/stamped-in-practice
-pixi run python scripts/import-benchmark-outcomes.py --benchmark /path/to/stamped-in-practice
-pixi run build
-```
-
-The importer checks every source recorded in the benchmark export manifest and requires those files to match its committed revision.
-Scientific regeneration and input refresh happen through the benchmark's documented root tasks.
-The historical poster-side scientific pipeline remains in Git history; it is no longer a second source of truth.
-
-Institutional marks are reused from the ORINOCO Lite poster.
-To change QR destinations, edit `make-logo-qrs.py` and run `pixi run python make-logo-qrs.py --check-dir exports/qr-source`.
-QR regeneration additionally requires Inkscape and `rsvg-convert`; ordinary builds use the supplied QR assets.
-
-## Verification and provenance
-
-[HTML audit](exports/html-audit.json), [PDF audit](exports/pdf-audit.json), [link audit](exports/link-audit.json), [retrieval audit](exports/retrieval-audit.json) and [visual review](exports/agent-visual-review.json) describe the current export.
-The retrieval audit records fresh full-payload checks for the current PDF, preview and changed figure assets, alongside earlier checks for unchanged assets.
-Checks require one 44-inch square page, at least 24-point print text, no layout overflow, clickable PDF links, and four QR codes decoded from PDF pixels.
-These are agent checks; author review remains part of poster preparation.
-
-Earlier designs remain in the [poster history](https://github.com/con/talks/commits/codex/stamped-example-poster/2026-usrse/stamped-ai-study).
-[source-manifest.json](source-manifest.json) records the inherited layout and artwork.
-Composition and prose are CC BY-SA 4.0; scripts are Apache-2.0.
-Institutional marks and external scientific inputs retain their own rights, documented in [REUSE.toml](../../REUSE.toml) and the benchmark provenance.
+The exported poster passes checks for its page size, minimum 24-point text, links, QR codes and public downloads, plus a visual review.
+These agent checks support author review.
+The [build guide's verification records](BUILDING.md#verification-and-provenance) contain the details; the [completion record](completion-plan.md) and [poster history](https://github.com/con/talks/commits/codex/stamped-example-poster/2026-usrse/stamped-ai-study) preserve how the poster developed.

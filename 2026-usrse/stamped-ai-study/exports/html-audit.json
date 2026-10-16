@@ -27,7 +27,7 @@
     {
       "src": "assets/stamped-qr-poster.svg",
       "loaded": true,
-      "href": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
       "rect": {
         "x": 3926.984375,
         "y": 121.59375,
@@ -38,7 +38,7 @@
     {
       "src": "figures/narps-group-map.svg",
       "loaded": true,
-      "href": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace",
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
       "rect": {
         "x": 1270.21875,
         "y": 1354.8125,
@@ -49,7 +49,7 @@
     {
       "src": "figures/narps-spatial-agreement.svg",
       "loaded": true,
-      "href": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures",
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
       "rect": {
         "x": 1270.21875,
         "y": 2517.96875,
@@ -60,7 +60,7 @@
     {
       "src": "figures/round-progression.svg",
       "loaded": true,
-      "href": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures",
       "rect": {
         "x": 2690.828125,
         "y": 2174.25,
@@ -82,7 +82,7 @@
     {
       "src": "assets/stamped-qr-skills.svg",
       "loaded": true,
-      "href": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
       "rect": {
         "x": 3913,
         "y": 3658.59375,
@@ -127,7 +127,7 @@
   "qrs": [
     {
       "name": "poster",
-      "url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
       "rect": {
         "x": 3926.984375,
         "y": 121.59375,
@@ -147,7 +147,7 @@
     },
     {
       "name": "skills",
-      "url": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
       "rect": {
         "x": 3913,
         "y": 3658.59375,
@@ -168,36 +168,32 @@
   ],
   "links": [
     "https://dev.centerforopenneuroscience.org/",
-    "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
-    "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
-    "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md",
-    "https://github.com/con/skills/blob/codex/pr26-neutral-assessor/skills/assess-alignment-with-stamped-principles/SKILL.md",
-    "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/align-with-stamped-principles/SKILL.md",
-    "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/create-stamped-project/SKILL.md",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json",
-    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1",
-    "https://github.com/leej3/stamped-in-practice",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#explore-the-research-skills",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#understand-the-assessor",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#choose-a-destination",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md",
     "https://checklist.stamped-principles.org/",
     "https://pubmed.ncbi.nlm.nih.gov/17255512/",
     "https://doi.org/10.1038/s41586-020-2314-9",
     "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
     "https://neurovault.org/collections/4932/",
     "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py",
     "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial",
     "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
-    "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py",
     "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv",
     "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
-    "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection",
+    "https://github.com/leej3/stamped-in-practice",
     "https://pbs.dartmouth.edu/",
     "https://www.repronim.org/"
   ],
@@ -244,16 +240,16 @@
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T18:27:26.550Z",
+  "created_utc": "2026-10-16T18:33:46.476Z",
   "source_sha256": {
-    "index.html": "6699fe1ee93ad2e807e192cc8f4b04a3fc3ad1ea52f2dd6e24dc84d0a4029b5c",
+    "index.html": "0d23bc7d3a4e29f97bde9b09692e3deaf5b8f7b6f938889e02474f099e91c3e1",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
     "poster.css": "57c8a5fbab74566434e7074a3cc1a8f64919a5fe79860488ccd1169f4c7a6bd6",
     "build-poster.cjs": "878a2b50e848d0d8775c3c2ec63378def4d302f1e546d0ee438d66559da065de",
     "verify-pdf.py": "e0375281137d158da636f5faf8c3eb40d0bfbacdac848400157c181f2e0c479c",
     "verify-links.py": "d7d8139a9c7bdc95deb2300eb97c9b5cf3ec20434e5a67ace59b09ab8d9c4e4c",
-    "make-logo-qrs.py": "c66c1f5af9422b96eaee726f91df10e20e301707d704d2787432c91b830f4632",
-    "source-manifest.json": "4690c150b8f52f8311d4dbb83caceea4abeb753513b104c9dc9ca33c8a90f3ea",
+    "make-logo-qrs.py": "95016d0958ef4c064dce2548be4ac8f65fa171e5a15f5ee4c41378bc59445bc7",
+    "source-manifest.json": "a477044a216b60ccbe1757fe8dc93b7fbce77e2c57e5385ea185a0826ec7f09f",
     "figures/benchmark-source.json": "fd34067a956656a8105f6b1e96f49e6a3bc8c0aa1c39b9613c7cab61ceea540f",
     "scripts/import-benchmark-figures.py": "e56328cfdb7f9b94e45194f4e4d8878ce87dcc8dec697bd9e41e2e8f84e1e500",
     "scripts/import-benchmark-outcomes.py": "b1310fed5a1bbf6b9549368d497496599dadb88e513acc69d3481a212e5bb556",
