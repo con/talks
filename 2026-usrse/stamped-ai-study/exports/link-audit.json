@@ -1,11 +1,11 @@
 {
-  "html_audit_sha256": "a515bf5406e5433079a204fa1e4f486838c4692a45b8bf189c525333a14b0176",
-  "checked_at": "2026-10-16T14:00:54.779630+00:00",
+  "html_audit_sha256": "57e5d54be979e61dbdbd366e408234d9f41f15113b85d68be6531e7604fd4d22",
+  "checked_at": "2026-10-16T17:41:22.034385+00:00",
   "authentication": "none",
   "results": [
     {
       "url": "https://checklist.stamped-principles.org/",
-      "checked_at": "2026-10-16T14:00:47.535967+00:00",
+      "checked_at": "2026-10-16T17:41:17.637521+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://checklist.stamped-principles.org/",
@@ -13,7 +13,7 @@
     },
     {
       "url": "https://dev.centerforopenneuroscience.org/",
-      "checked_at": "2026-10-16T14:00:47.536200+00:00",
+      "checked_at": "2026-10-16T17:41:17.637885+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://dev.centerforopenneuroscience.org/",
@@ -21,63 +21,63 @@
     },
     {
       "url": "https://doi.org/10.1038/s41586-020-2314-9",
-      "checked_at": "2026-10-16T14:00:47.536285+00:00",
+      "checked_at": "2026-10-16T17:41:17.637983+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://www.nature.com/articles/s41586-020-2314-9?error=cookies_not_supported&code=df11cfec-1ce3-4d61-9dcd-ebd6b922b149",
+      "final_url": "https://www.nature.com/articles/s41586-020-2314-9?error=cookies_not_supported&code=53ed44ad-7647-4efa-8b22-168c134d94a2",
       "passed": true
     },
     {
       "url": "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
-      "checked_at": "2026-10-16T14:00:47.536346+00:00",
+      "checked_at": "2026-10-16T17:41:17.638046+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://openneuro.org/datasets/ds001734/versions/1.0.4",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/blob/codex/pr26-assessment-evidence/skills/assess-alignment-with-stamped-principles/SKILL.md",
-      "checked_at": "2026-10-16T14:00:47.816199+00:00",
+      "url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/align-with-stamped-principles/SKILL.md",
+      "checked_at": "2026-10-16T17:41:17.834548+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/blob/codex/pr26-assessment-evidence/skills/assess-alignment-with-stamped-principles/SKILL.md",
+      "final_url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/align-with-stamped-principles/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/align-with-stamped-principles/SKILL.md",
-      "checked_at": "2026-10-16T14:00:47.893100+00:00",
+      "url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/create-stamped-project/SKILL.md",
+      "checked_at": "2026-10-16T17:41:17.846488+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/align-with-stamped-principles/SKILL.md",
+      "final_url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/create-stamped-project/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/create-stamped-project/SKILL.md",
-      "checked_at": "2026-10-16T14:00:48.172130+00:00",
+      "url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md",
+      "checked_at": "2026-10-16T17:41:18.178653+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/create-stamped-project/SKILL.md",
+      "final_url": "https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/do-full-research-loop/SKILL.md",
-      "checked_at": "2026-10-16T14:00:48.590167+00:00",
+      "url": "https://github.com/con/skills/blob/codex/pr26-neutral-assessor/skills/assess-alignment-with-stamped-principles/SKILL.md",
+      "checked_at": "2026-10-16T17:41:18.423210+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/do-full-research-loop/SKILL.md",
+      "final_url": "https://github.com/con/skills/blob/codex/pr26-neutral-assessor/skills/assess-alignment-with-stamped-principles/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
-      "checked_at": "2026-10-16T14:00:48.723187+00:00",
+      "url": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
+      "checked_at": "2026-10-16T17:41:18.434946+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+      "final_url": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
       "passed": true
     },
     {
       "url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
-      "checked_at": "2026-10-16T14:00:48.852084+00:00",
+      "checked_at": "2026-10-16T17:41:18.720677+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
@@ -85,63 +85,55 @@
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice",
-      "checked_at": "2026-10-16T14:00:49.196212+00:00",
+      "checked_at": "2026-10-16T17:41:18.816385+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/assessment-series/narps-neutral-r1-operational-v4/synthesis/viability.md",
-      "checked_at": "2026-10-16T14:00:49.570180+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json",
+      "checked_at": "2026-10-16T17:41:18.940513+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/assessment-series/narps-neutral-r1-operational-v4/synthesis/viability.md",
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json",
       "passed": true
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
-      "checked_at": "2026-10-16T14:00:49.577065+00:00",
+      "checked_at": "2026-10-16T17:41:19.202358+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-v1/procedure.json",
-      "checked_at": "2026-10-16T14:00:49.609074+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py",
+      "checked_at": "2026-10-16T17:41:19.331824+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-v1/procedure.json",
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md",
-      "checked_at": "2026-10-16T14:00:49.914150+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md",
+      "checked_at": "2026-10-16T17:41:19.469525+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md",
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/results.json",
-      "checked_at": "2026-10-16T14:00:50.158126+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json",
+      "checked_at": "2026-10-16T17:41:19.611557+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/results.json",
-      "passed": true
-    },
-    {
-      "url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/scripts/analyze_gain.py",
-      "checked_at": "2026-10-16T14:00:50.208142+00:00",
-      "method": "HEAD",
-      "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/scripts/analyze_gain.py",
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json",
       "passed": true
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py",
-      "checked_at": "2026-10-16T14:00:50.221033+00:00",
+      "checked_at": "2026-10-16T17:41:19.790592+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py",
@@ -149,7 +141,7 @@
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
-      "checked_at": "2026-10-16T14:00:50.523204+00:00",
+      "checked_at": "2026-10-16T17:41:19.917903+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
@@ -157,7 +149,7 @@
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md",
-      "checked_at": "2026-10-16T14:00:50.724194+00:00",
+      "checked_at": "2026-10-16T17:41:19.995889+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md",
@@ -165,31 +157,31 @@
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
-      "checked_at": "2026-10-16T14:00:50.909166+00:00",
+      "checked_at": "2026-10-16T17:41:20.151582+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1",
-      "checked_at": "2026-10-16T14:00:50.933174+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1",
+      "checked_at": "2026-10-16T17:41:20.338403+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1",
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09/results",
-      "checked_at": "2026-10-16T14:00:51.122184+00:00",
+      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection",
+      "checked_at": "2026-10-16T17:41:20.447639+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09/results",
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection",
       "passed": true
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures",
-      "checked_at": "2026-10-16T14:00:51.241129+00:00",
+      "checked_at": "2026-10-16T17:41:20.461585+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures",
@@ -197,15 +189,31 @@
     },
     {
       "url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial",
-      "checked_at": "2026-10-16T14:00:51.503153+00:00",
+      "checked_at": "2026-10-16T17:41:20.736674+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial",
       "passed": true
     },
     {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace",
+      "checked_at": "2026-10-16T17:41:20.858458+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
+      "checked_at": "2026-10-16T17:41:20.916165+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled",
+      "passed": true
+    },
+    {
       "url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
-      "checked_at": "2026-10-16T14:00:51.560077+00:00",
+      "checked_at": "2026-10-16T17:41:20.920628+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
@@ -213,7 +221,7 @@
     },
     {
       "url": "https://neurovault.org/collections/4932/",
-      "checked_at": "2026-10-16T14:00:51.680302+00:00",
+      "checked_at": "2026-10-16T17:41:21.250454+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://neurovault.org/collections/4932/",
@@ -221,7 +229,7 @@
     },
     {
       "url": "https://pbs.dartmouth.edu/",
-      "checked_at": "2026-10-16T14:00:51.818211+00:00",
+      "checked_at": "2026-10-16T17:41:21.321703+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://pbs.dartmouth.edu/",
@@ -229,7 +237,7 @@
     },
     {
       "url": "https://pubmed.ncbi.nlm.nih.gov/17255512/",
-      "checked_at": "2026-10-16T14:00:52.085583+00:00",
+      "checked_at": "2026-10-16T17:41:21.349465+00:00",
       "method": "HEAD",
       "http_status": 203,
       "final_url": "https://pubmed.ncbi.nlm.nih.gov/17255512/",
@@ -237,7 +245,7 @@
     },
     {
       "url": "https://www.repronim.org/",
-      "checked_at": "2026-10-16T14:00:52.093210+00:00",
+      "checked_at": "2026-10-16T17:41:21.381535+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://repronim.org/",

@@ -34,7 +34,7 @@ LOGO_WIDTH_FRACTION = 0.42
 DESTINATIONS = {
     "poster": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
     "study": "https://github.com/leej3/stamped-in-practice",
-    "skills": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+    "skills": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
     "con": "https://dev.centerforopenneuroscience.org/",
 }
 

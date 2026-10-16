@@ -1,5 +1,5 @@
 {
-  "pdf_sha256": "eb7e1c194d8d0b524911112f51056bcf7dda30a85e6707d25995a78c10575ef8",
+  "pdf_sha256": "c84506453c5eac6a034baee8bc31741830f639cc6a674cce708373c0fbc8ce9c",
   "page_count": 1,
   "page_points": [
     3168.0,
@@ -8,9 +8,9 @@
   "minimum_html_text_px": 32,
   "minimum_html_text_pt": 24.0,
   "minimum_pdf_text_pt": 24.0,
-  "inspected_pdf_text_runs": 228,
-  "link_annotation_count": 37,
-  "unique_expected_links": 30,
+  "inspected_pdf_text_runs": 237,
+  "link_annotation_count": 38,
+  "unique_expected_links": 31,
   "missing_links": [],
   "raster_dpi": 150,
   "qr_results": [
@@ -38,12 +38,12 @@
     },
     {
       "name": "skills",
-      "expected": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+      "expected": "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills",
       "decoded": [
-        "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+        "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills"
       ],
       "decoded_rotated": [
-        "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
+        "https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills"
       ],
       "passed": true
     },

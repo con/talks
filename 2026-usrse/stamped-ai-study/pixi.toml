@@ -22,6 +22,7 @@ git-annex = "*"
 [tasks]
 setup-browser = "npm ci && npx playwright install chromium"
 figures = "python scripts/import-benchmark-figures.py"
-build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures"] }
+outcomes = "python scripts/import-benchmark-outcomes.py"
+build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures", "outcomes"] }
 verify = "python verify-pdf.py --review-dir exports"
 links = "python verify-links.py --review-dir exports"

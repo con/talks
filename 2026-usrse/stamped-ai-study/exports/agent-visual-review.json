@@ -1,19 +1,18 @@
 {
-  "reviewer": "Codex agent; independent editorial and visual review by a second agent",
-  "author_review": false,
-  "pdf_sha256": "eb7e1c194d8d0b524911112f51056bcf7dda30a85e6707d25995a78c10575ef8",
-  "preview_sha256": "e884e10d04b96f627757365ec2e6adb0346d8ec9c65ea3afdc5f43fa77a0be75",
-  "reviewed_utc": "2026-10-16T14:02:19.247244+00:00",
-  "checks": [
-    "Inspected the current full-page PDF raster preview",
-    "Experiment framing remains in the blue banner; principles remain down the left column",
-    "Two linked methodological lessons fit below the research-object section",
-    "Lessons distinguish worker choice from coordinator preservation and describe reassessment of unchanged deliveries",
-    "Supporting notes distinguish the later neutral comparison from the earlier scientific illustrations",
-    "Both scientific figures remain verified display copies from the benchmark repository",
-    "Three columns, captions, invitation and footer fit without clipping or overlap",
-    "All 30 links pass and use named branches for GitHub evidence navigation",
-    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum"
+  "checked_utc": "2026-10-16T17:43:58.925314+00:00",
+  "reviewer": "Codex",
+  "files": {
+    "index.html": "c219353135bbb4f0266d19614bab42124fcc6a5aad0fcb792794a8841baadb66",
+    "poster.css": "f0399ef01d8bafa3ee991dbd6dda78611ec75c47a10c3b9a09d62724555f0c9d",
+    "exports/stamped-ai-poster.pdf": "c84506453c5eac6a034baee8bc31741830f639cc6a674cce708373c0fbc8ce9c",
+    "exports/pdf-preview.png": "88711415d6cacc8af484ea5e1ae6644c794d20daa14ac40f9b6cf6a78d47e8cb"
+  },
+  "observations": [
+    "Inspected the rendered PDF preview: no overlaps, clipping or unreadable labels.",
+    "Blue experiment banner leads; STAMPED principles remain in the left column.",
+    "Compact four-condition table displays imported primary summaries and explicit measurement denominators.",
+    "Scientific example is formal round-two run 09; variability figure covers 48 round-two/three analyses.",
+    "Infrastructure corrections and rejection details remain linked in the benchmark, outside the poster."
   ],
-  "result": "passed"
+  "passed": true
 }
