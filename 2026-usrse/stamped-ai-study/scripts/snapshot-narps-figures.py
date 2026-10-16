@@ -61,6 +61,9 @@ def main() -> None:
         src = worker / relative
         dst = SNAPSHOT / destination
         revision = git(worker, "rev-parse", "HEAD")
+        branch = git(worker, "branch", "--show-current")
+        if not branch:
+            raise ValueError(f"Source needs a named public branch: {worker.name}")
         if git(worker, "status", "--porcelain", "--", relative):
             raise ValueError(f"Source is not a clean committed file: {src}")
         dst.parent.mkdir(parents=True, exist_ok=True)
@@ -70,9 +73,10 @@ def main() -> None:
             "bytes": dst.stat().st_size,
             "source_repository": REPOSITORY,
             "source_revision": revision,
+            "source_branch": branch,
             "source_path": relative,
             "source_git_object": git(worker, "rev-parse", f"HEAD:{relative}"),
-            "source_url": f"{REPOSITORY}/blob/{revision}/{relative}",
+            "source_url": f"{REPOSITORY}/blob/{branch}/{relative}",
             "transformation": "byte-for-byte copy; annex symlinks dereferenced",
         }
         if src.is_symlink():

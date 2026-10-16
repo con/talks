@@ -4,13 +4,14 @@
     "height": 4224
   },
   "minimum_text_px": 32,
-  "text_node_count": 240,
+  "text_node_count": 265,
   "small": [],
   "outside": [],
   "regionOverflow": [],
   "internalOverflow": [],
   "sectionOverlap": [],
   "unlinkedImages": [],
+  "commitNavigationLinks": [],
   "images": [
     {
       "src": "../orinoco-lite/assets/con-logo-outlined.svg",
@@ -37,23 +38,23 @@
     {
       "src": "figures/narps-group-map.svg",
       "loaded": true,
-      "href": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
+      "href": "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09/results",
       "rect": {
         "x": 1270.21875,
-        "y": 1420,
+        "y": 1416.8125,
         "width": 1328.609375,
         "height": 629.84375
       }
     },
     {
-      "src": "figures/narps-analysis-variability.svg",
+      "src": "figures/narps-spatial-agreement.svg",
       "loaded": true,
       "href": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
       "rect": {
         "x": 1270.21875,
-        "y": 2594.6875,
+        "y": 2583.5,
         "width": 1328.609375,
-        "height": 757.796875
+        "height": 856.203125
       }
     },
     {
@@ -62,7 +63,7 @@
       "href": "https://github.com/leej3/stamped-in-practice",
       "rect": {
         "x": 3625,
-        "y": 3640.59375,
+        "y": 3658.59375,
         "width": 180,
         "height": 180
       }
@@ -73,7 +74,7 @@
       "href": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "rect": {
         "x": 3913,
-        "y": 3640.59375,
+        "y": 3658.59375,
         "width": 180,
         "height": 180
       }
@@ -84,7 +85,7 @@
       "href": "https://dev.centerforopenneuroscience.org/",
       "rect": {
         "x": 2271.203125,
-        "y": 3955.09375,
+        "y": 3964.09375,
         "width": 155,
         "height": 155
       }
@@ -95,7 +96,7 @@
       "href": "https://pbs.dartmouth.edu/",
       "rect": {
         "x": 2895.078125,
-        "y": 3981.6875,
+        "y": 3990.6875,
         "width": 126,
         "height": 136
       }
@@ -106,7 +107,7 @@
       "href": "https://www.repronim.org/",
       "rect": {
         "x": 3777.640625,
-        "y": 3984.984375,
+        "y": 3993.984375,
         "width": 146,
         "height": 140
       }
@@ -128,7 +129,7 @@
       "url": "https://github.com/leej3/stamped-in-practice",
       "rect": {
         "x": 3625,
-        "y": 3640.59375,
+        "y": 3658.59375,
         "width": 180,
         "height": 180
       }
@@ -138,7 +139,7 @@
       "url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "rect": {
         "x": 3913,
-        "y": 3640.59375,
+        "y": 3658.59375,
         "width": 180,
         "height": 180
       }
@@ -148,7 +149,7 @@
       "url": "https://dev.centerforopenneuroscience.org/",
       "rect": {
         "x": 2271.203125,
-        "y": 3955.09375,
+        "y": 3964.09375,
         "width": 155,
         "height": 155
       }
@@ -157,40 +158,58 @@
   "links": [
     "https://dev.centerforopenneuroscience.org/",
     "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
-    "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills",
-    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/do-full-research-loop/SKILL.md",
-    "https://github.com/con/skills/blob/b86e37ff9115e37541fd47aca73f49e13b5110bb/skills/assess-alignment-with-stamped-principles/SKILL.md",
-    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/align-with-stamped-principles/SKILL.md",
-    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/create-stamped-project/SKILL.md",
-    "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+    "https://github.com/stamped-principles/stamped-paper",
+    "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+    "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/do-full-research-loop/SKILL.md",
+    "https://github.com/con/skills/blob/codex/pr26-assessment-evidence/skills/assess-alignment-with-stamped-principles/SKILL.md",
+    "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/align-with-stamped-principles/SKILL.md",
+    "https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/create-stamped-project/SKILL.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json",
     "https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json",
-    "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/sources.json",
-    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/report.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md",
     "https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1",
     "https://github.com/leej3/stamped-in-practice",
-    "https://github.com/stamped-principles/stamped-paper",
+    "https://checklist.stamped-principles.org/",
+    "https://doi.org/10.1126/science.1134239",
     "https://doi.org/10.1038/s41586-020-2314-9",
     "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
     "https://neurovault.org/collections/4932/",
-    "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/study-task.md",
-    "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
-    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/scripts/analyze_gain.py",
-    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/results.json",
-    "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa",
-    "https://github.com/leej3/stamped-in-practice/tree/d90a335549f43007eac05902859224e6ce2eaada",
-    "https://github.com/leej3/stamped-in-practice/tree/e0a8fb1ae78b457a38ff7102825b1d8bc63119b4",
-    "https://github.com/leej3/stamped-in-practice/tree/abf95b00c02fb55d16c4d269926c1428cedc0574",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09/results",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/scripts/analyze_gain.py",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/results.json",
+    "https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/scripts/render-narps-spatial.py",
+    "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/narps-spatial",
+    "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-01",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-01-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-01-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-02",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-02-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-02-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-03",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-04",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-05",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-05-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-05-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-06",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-06-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-06-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-07",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-07-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-07-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-08",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-08-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-08-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09-judge-01-output/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09-judge-01-output/2026-10-16-response.json",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-10",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-11",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-12",
     "https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json",
-    "https://github.com/leej3/stamped-in-practice/tree/e2d266ea0ca7cc52e9ecab358e0f5a8c9085f6b9",
-    "https://github.com/leej3/stamped-in-practice/tree/32d9cabf7b5d041f9efb97830bf5279068809357",
-    "https://github.com/leej3/stamped-in-practice/tree/f30190d8144a9e15acfa1c0d973eadf0d655c83c",
-    "https://github.com/leej3/stamped-in-practice/tree/42e957201315aa8221ba60fbe614119e22639ce8",
-    "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73",
-    "https://github.com/leej3/stamped-in-practice/blob/5a16be31d225574a4643a8feb000ca0a5fa7f7ad/2026-10-16-assessment.md",
-    "https://github.com/leej3/stamped-in-practice/blob/15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8/2026-10-16-assessment.md",
     "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
     "https://github.com/con/skills/commits/codex/pr26-operational-environment/",
-    "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
     "https://pbs.dartmouth.edu/",
     "https://www.repronim.org/"
   ],
@@ -200,9 +219,9 @@
       "class": "",
       "rect": {
         "x": 2690.828125,
-        "y": 712,
+        "y": 760,
         "width": 1445.15625,
-        "height": 452.5
+        "height": 519.6875
       }
     },
     {
@@ -210,9 +229,9 @@
       "class": "results-matrix",
       "rect": {
         "x": 2690.828125,
-        "y": 1174.5,
+        "y": 1289.6875,
         "width": 1445.15625,
-        "height": 1740
+        "height": 1640
       }
     },
     {
@@ -220,7 +239,7 @@
       "class": "assessment-key",
       "rect": {
         "x": 2690.828125,
-        "y": 2944.5,
+        "y": 2955.6875,
         "width": 1445.15625,
         "height": 331.71875
       }
@@ -230,28 +249,31 @@
       "class": "ruled revision-section",
       "rect": {
         "x": 2690.828125,
-        "y": 3306.21875,
+        "y": 3313.40625,
         "width": 1445.15625,
-        "height": 261.15625
+        "height": 237.15625
       }
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-16T03:53:32.322Z",
+  "created_utc": "2026-10-16T04:39:51.940Z",
   "source_sha256": {
-    "index.html": "e1d36d6ace870af797b0e749c1e524cc0fc1295ad22fa5a8b1739738feade758",
+    "index.html": "7cc274a42b284d2cc3d40b68cf25367a4368be5a48aed49045e1f537883cae84",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
-    "poster.css": "4e890983412328ea10245eed3edbde7509b3a6d9b63157c27a708ddb177ccff4",
-    "build-poster.cjs": "37b4c7643adeeba6630fb42de1a6a986e0f12420f8b5bc733d5eee7014d4f086",
+    "poster.css": "0a4e777fb1ca3042c26b743a0b525fedbf13778c601fca6d937116a7fe0b9977",
+    "build-poster.cjs": "5aa4ae64ee5846d8ea4f11a3a88c9950d2f26cf2801209072e57cebd152f669e",
     "verify-pdf.py": "e0375281137d158da636f5faf8c3eb40d0bfbacdac848400157c181f2e0c479c",
     "verify-links.py": "d7d8139a9c7bdc95deb2300eb97c9b5cf3ec20434e5a67ace59b09ab8d9c4e4c",
     "make-logo-qrs.py": "7d7b2cd508a25f0e15d7674caee7061aaacf6d5eb32d9371df8433f94c42257c",
     "source-manifest.json": "4690c150b8f52f8311d4dbb83caceea4abeb753513b104c9dc9ca33c8a90f3ea",
-    "update-results.py": "434b10418ad12985c75c9758d99a5b753fab084a5576183d197530788cda2bea",
-    "data/assessment-snapshot.json": "462f1c3cd91b93c50a7a296b3360915968e6881b90c8d75c7d2becb76dae4688",
-    "figures/narps-figure-manifest.json": "6c60b03e457464bda8ac4b3d0559bf9eec0260ffd851b627ef0ee174fd0a0f6b",
-    "scripts/render-narps-figures.py": "5c5e184cd423cabf020ec6936d8bbaf3141573786c5ed7b0f7d1ab68af9446d1",
-    "pixi.toml": "5add8575728f46c680d9b1ee1a3182176ef9adb2b584c143d8a5bffcc93f2bfe",
+    "update-results.py": "4fecd6800bcdc4c654d8797f89f4ea661fb49b5bd03d6777e622bccebb707c94",
+    "data/assessment-snapshot.json": "ffe68055bb16cd5dbba608856621fbb76d34031820d8b0853e8c3648ed540477",
+    "figures/narps-figure-manifest.json": "05ddd6e5b0f8b2e19b4e48dd8f83030df34ec88d2ad1ad262b6793171711e67a",
+    "data/narps-spatial/render-manifest.json": "c856ace4958901d7ce4f1f4b266a9185c21baa801e0118bf5850b8f35fc6671d",
+    "scripts/render-narps-figures.py": "6f7f75d2bfef7a2ad466dc29b9af1cd138f7cc6a7f41d972f31a2a295d68d33e",
+    "scripts/render-narps-spatial.py": "1303f14f12f8962072bf56b777c5a5d8cf76186a7420501feb23f2fd4ddcbea7",
+    "scripts/extract-narps-spatial.py": "6c2f00088746092123a35cbfc2d798defddbe11047f78f91341afa2dc0fd3507",
+    "pixi.toml": "1cb16abd8da8dbada99853862612c66ecfedd1b914a6b6e6ab0b6a3220a896fb",
     "package-lock.json": "c4a27d1390a90be1fed6dd2c6f713f8b9ecfb49f5721656de4db136af2307cdc"
   },
   "errors": []

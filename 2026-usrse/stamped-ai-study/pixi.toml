@@ -26,7 +26,9 @@ git-annex = "*"
 
 [tasks]
 setup-browser = "npm ci && npx playwright install chromium"
-figures = "python scripts/render-narps-figures.py"
+group-map = "python scripts/render-narps-figures.py"
+spatial-map = "python scripts/render-narps-spatial.py"
+figures = { depends-on = ["group-map", "spatial-map"] }
 table = "python update-results.py"
 build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures", "table"] }
 verify = "python verify-pdf.py --review-dir exports"

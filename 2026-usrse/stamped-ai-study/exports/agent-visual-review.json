@@ -1,16 +1,18 @@
 {
   "reviewer": "Codex agent",
   "author_review": false,
-  "pdf_sha256": "afb037aea26970685b2c4288b8329fb627ca2db4a0db430cd16b93a3176fdd56",
-  "preview_sha256": "8b2d643073d5bbd5b7b1545f1e394e028639582bb2e62b20fc824d6342401114",
-  "reviewed_utc": "2026-10-16T03:52:25.040938+00:00",
+  "pdf_sha256": "85f382b9ec37f6498c80c391237ca93bae8ed66a65a1f94e0df7bc04bec581ba",
+  "preview_sha256": "1b56557847966bb7e200a0dc038c767a746b305e21f0ea0a96a530ef0673b86e",
+  "reviewed_utc": "2026-10-16T04:42:58.644608+00:00",
   "checks": [
-    "Inspected current full-page PDF raster preview",
-    "Three columns and invitation fit without clipping or overlap",
-    "Group maps, color scale and variability markers are readable",
-    "All 36 allocated run slots are represented; unmeasured values remain open",
-    "Figures use saved scientific outputs and independent input hashes",
-    "Four QR codes decode from PDF pixels; PDF text minimum 24 pt"
+    "Inspected the current full-page PDF raster preview",
+    "STAMPED principles appear in the top band with concise definitions",
+    "Original study occupies one sentence; assistance is explained with the revision comparison",
+    "All twelve first-iteration runs have individual assessment rows; all 36 allocated run IDs are present",
+    "Spatial agreement figure uses all twelve runs on shared coverage and distinguishes unassessed areas",
+    "All visible GitHub evidence links use named branches",
+    "Three columns, captions, invitation and footer fit without clipping or overlap",
+    "Four QR codes decode from PDF pixels; all PDF text meets the 24 pt minimum"
   ],
   "result": "passed"
 }

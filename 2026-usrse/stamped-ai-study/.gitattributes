@@ -5,3 +5,4 @@
 
 # Poster-specific image assets are distributed through the annex remote.
 assets/*.svg annex.largefiles=anything
+*.npz annex.largefiles=anything

@@ -15,7 +15,7 @@ An improved result is an empirical question, not an assumed conclusion.
 | --- | --- | --- |
 | Scientific case | NARPS H1; 54 fixed AO86 participant gain-effect maps; linked paper, task and data | Confirm the scientific panel is the intended scope of reproduction: group inference from supplied contrasts |
 | Group maps and condensed result | Run 09 maps, correction, regional coefficient and CI, generated from archived artifacts | Choose the final illustrative analysis by a stated rule; keep its exact source revision and inference details |
-| Variability across conditions | Individual native mask sizes and corrected positive voxel counts from eight completed runs | Extract all allocated runs and iterations; preserve native method choices; show points and ranges |
+| Variability across conditions | Spatial agreement of corrected positive maps from all twelve first-iteration runs, on shared coverage | Apply the same extraction to later iterations; retain native support and correction choices |
 | Checked outcomes | All 36 allocated runs have slots; available primary judgments populate science, replay and checklist counts | Finish and bind all 36 primary and 12 assigned duplicate judgments; preserve item-level validity and disagreement |
 | Iterative improvement | Revision 1 is pinned; two change-to-retest slots | For each revision, link the observed failure, reusable change, and next-round outcome; final round receives no further tuning |
 | Evidence and reuse | Links to skills, inputs, source, outputs, plans and figure code | Finish registering and publishing the research objects and assessment evidence; verify a recipient can retrieve each required payload |
@@ -28,26 +28,32 @@ These poster requirements do not by themselves require a restart.
 Freeze a versioned secondary extraction specification, extract from stopped-worker artifacts, and leave the original work intact.
 Record round-one additions as retrospective; apply the same specification to later rounds.
 
-The existing native mask/count figure shows analytic variation, including the choice of Bonferroni or permutation correction.
-It is not an estimate of the effect of an assistance strategy, and different native regions should not be pooled as a single vmPFC effect.
+The spatial figure asks where repeated analyses agree, using corrected-positive frequency within each condition on the intersection of all twelve native search masks.
+The t maps agree to numerical precision; the visible difference is in corrected extent, including the choice of Bonferroni or permutation correction.
+This descriptive comparison does not estimate an assistance effect, and different native regions should not be pooled as a single vmPFC effect.
 A fixed-region mean recomputed from the same 54 input maps would be identical across conditions by construction.
 That would be a useful reference value, but an uninformative comparison of the assistance conditions.
 
-A useful additional spatial endpoint is **pairwise agreement of corrected positive maps on common evaluation support**, reported within each condition and iteration:
+The implemented spatial endpoint is **the number of runs with corrected positive signal on shared coverage**, reported within each condition and iteration.
+To extend it consistently:
 
 1. Verify image geometry, coordinate system and map semantics; do not mix effect, t, z or p maps.
 2. Retain each worker's native search mask and corrected positive map, with method, family and alpha.
-3. Define the evaluation support independently of the desired result, documenting its anatomical source and coverage rule.
+3. Define the evaluation support by a declared rule, independently of the desired result.
+The first-iteration figure uses the intersection of all twelve native masks (184,543 voxels), without resampling.
 Retain both common-support size and native-support size, plus each run’s coverage fraction.
 Voxels outside a native search mask are unassessed, not negative.
-4. Compute full-domain Dice only when both runs assessed the evaluation domain.
-Otherwise mark it unavailable or report a separately labeled pair-specific intersection and its size.
-On the declared support, compute pairwise Dice overlap of corrected positive maps and positive voxel counts.
-Record both-empty maps explicitly; do not silently assign perfect agreement to an empty denominator.
-5. Show all three pairwise comparisons for three runs, with run IDs and method labels.
+4. Count corrected positive detections across all three runs on that common support.
+Preserve per-run native counts alongside the derived maps so effects of the coverage rule remain visible.
+5. Use the same geometry, cuts and colour scale across conditions, with run IDs and method labels.
 Treat agreement as descriptive; a common mistake can also produce agreement.
 
-If all agents produce identical effect or t fields on shared support, report that null variation.
+For later revisions, retain the first-iteration support and report each run's coverage of it.
+If a run does not assess all of that support, do not count uncovered voxels as negative.
+Show coverage separately or recompute a declared intersection across the compared revisions, retaining both the original and revised domains.
+Pairwise Dice can be added as a secondary summary; retain its support size and mark both-empty denominators explicitly.
+
+When agents produce identical effect or t fields on shared support, report that null variation.
 Do not manufacture variation by changing the endpoint after seeing the result.
 Scientific adequacy, coverage choices and reproducibility can still differ.
 

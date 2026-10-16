@@ -23,8 +23,6 @@ from zoneinfo import ZoneInfo
 
 STATUSES = ("met", "partial", "unmet", "not-checked", "not-applicable")
 REMOTE = "https://github.com/leej3/stamped-in-practice"
-# Published primary records; verify exact source bytes before adding a link.
-PUBLISHED = {'narps-r1-07-judgment-01': '5a16be31d225574a4643a8feb000ca0a5fa7f7ad', 'narps-r1-08-judgment-01': '15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8'}
 
 
 def digest(data):
@@ -38,8 +36,18 @@ def git(root, *args):
 
 def scientific_label(report):
     # Preserve the judge's classification, not whether the tested hypothesis won.
-    match = re.search(r"Scientific adequacy:\*?\*?\s*\*?\*?\s*(not supported|qualified|supported|not checked)", report, re.I)
-    return match.group(1).lower() if match else None
+    match = re.search(r"Scientific adequacy:\*?\*?\s*\*?\*?\s*(not supported|qualified|supported|unable to assess|not checked)", report, re.I)
+    if match:
+        return match.group(1).lower()
+    # Judges also label the scientific section's verdict "Adequacy" or
+    # "Classification". Restrict these alternatives to that section so a
+    # checklist verdict elsewhere cannot be mistaken for scientific adequacy.
+    section = re.search(r"^## Scientific[^\n]*\n(.*?)(?=^## |\Z)", report, re.I | re.M | re.S)
+    if section:
+        match = re.search(r"(?:Adequacy|Classification):\*?\*?\s*\*?\*?\s*(not supported|qualified|supported|unable to assess|not checked)", section[1], re.I)
+        if match:
+            return match[1].lower()
+    return None
 
 
 def main():
@@ -55,6 +63,17 @@ def main():
     warnings = []
     head_bytes = git(root, "rev-parse", "HEAD")
     head = head_bytes.decode().strip() if head_bytes else None
+    # Read advertised refs without fetching or mutating the live study checkout.
+    # Named links are easier to navigate; immutable revisions and file hashes
+    # below retain the exact identity verified when the snapshot was exported.
+    advertised = git(root, "ls-remote", "--heads", REMOTE + ".git")
+    public_branches = {}
+    if advertised:
+        for line in advertised.decode().splitlines():
+            revision, ref = line.split("\t", 1)
+            public_branches[ref.removeprefix("refs/heads/")] = revision
+    else:
+        warnings.append("Public branch advertisement unavailable; no new source links verified")
 
     def read_source(path, source_id, coordinator_relative=None):
         data = path.read_bytes()
@@ -63,16 +82,28 @@ def main():
             record["coordinator_path"] = coordinator_relative
             committed = git(root, "show", f"HEAD:{coordinator_relative}")
             record["matches_coordinator_head"] = committed == data
-            if committed == data and head:
-                record["public_url"] = f"{REMOTE}/blob/{head}/{coordinator_relative}"
+            public_revision = public_branches.get("main")
+            published = git(root, "show", f"{public_revision}:{coordinator_relative}") if public_revision else None
+            if published == data:
+                record["public_url"] = f"{REMOTE}/blob/main/{coordinator_relative}"
+                record["public_branch"] = "main"
+                record["published_commit"] = public_revision
+                record["publication_status"] = "published-branch-source-hash-verified"
         else:
             record["publication_status"] = "not-established-by-this-export"
-            revision = PUBLISHED.get(source_id.split("/")[0])
+            judgment_id = source_id.split("/")[0]
+            match = re.fullmatch(r"(narps-r\d+-\d+)-judgment-(\d+)", judgment_id)
+            branch = f"codex/{match[1]}-judge-{match[2]}-output" if match else None
+            revision = public_branches.get(branch)
             if revision and path.name.endswith(("assessment.md", "response.json", "fresh-rerun.json")):
                 published = git(path.parent, "show", f"{revision}:{path.name}")
                 if published == data:
-                    record["public_url"] = f"{REMOTE}/blob/{revision}/{path.name}"
-                    record["publication_status"] = "published-immutable-source-hash-verified"
+                    record["public_url"] = f"{REMOTE}/blob/{branch}/{path.name}"
+                    record["public_branch"] = branch
+                    record["published_commit"] = revision
+                    record["publication_status"] = "published-branch-source-hash-verified"
+                else:
+                    warnings.append(f"{source_id}: advertised output branch does not match source bytes")
         sources[source_id] = record
         return data
 
@@ -209,7 +240,9 @@ def main():
                 "worker_result_commit": run.get("worker_head_commit"),
                 "worker_finished_at": run.get("finished_at"),
                 "worker_elapsed_seconds": run.get("worker_elapsed_seconds"),
-                "result_url": f"{REMOTE}/tree/{run['worker_head_commit']}" if run.get("worker_head_commit") else None,
+                "result_url": f"{REMOTE}/tree/codex/{run_id}" if run.get("worker_head_commit") and public_branches.get(f"codex/{run_id}") == run["worker_head_commit"] else None,
+                "result_branch": f"codex/{run_id}",
+                "result_branch_verified_commit": public_branches.get(f"codex/{run_id}"),
                 "primary": None, "retrieval": None,
                 "duplicate_assigned": run_id in plan["duplicate_judgments"],
             }
@@ -259,7 +292,7 @@ def main():
             "replay": "Assessor-infrastructure failures are unavailable, not worker failures. Same-host replay does not establish cross-host portability.",
             "retrieval": "Coordinator preservation verifies exact stopped-worker bytes; it is not worker delivery credit or successful scientific execution.",
             "missing": "Missing assessments and future runs are missing observations, never zero scores. Supplementary judgments cannot replace assigned primaries or duplicates.",
-            "publication": "Source hashes bind original local records. A null public_url means publication of that raw source is not established by this export; result_commit links are independent from assessment publication.",
+            "publication": "Reader links use named branches, verified against advertised remote heads at export. Exact commits and source hashes retain snapshot identity. Branches may later advance. A null public_url means publication of that raw source is not established by this export; result links are independent from assessment publication.",
         },
         "rounds": rounds, "rows": rows, "other_judgments": other_judgments,
         "sources": sources, "warnings": warnings,
