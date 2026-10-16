@@ -5,164 +5,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STAMPED in Practice: Checking AI-assisted Analysis and Its Research Record</title>
-  <meta name="description" content="US-RSE 2026 poster: three exploratory paired comparisons of AI-assisted research with and without five STAMPED skills. Checked actual-data results and replay, with screening and integration failures retained. ABCD reproduction was not performed.">
+  <title>STAMPED in Practice: Improving research skills through reproducible experiments</title>
+  <meta name="description" content="A research poster connecting iterative STAMPED skill development, a NARPS neuroimaging reproduction, and run-level scientific and reproducibility assessments.">
   <meta name="submitted-title" content="STAMPED in Practice: Reproducing a Scientific Result Using ABCD Neuroimaging Data">
   <link rel="stylesheet" href="template.css">
   <link rel="stylesheet" href="poster.css">
 </head>
 <body>
   <nav class="screen-tools" aria-label="Poster viewing controls">
-    <button type="button" id="fit">Fit to window</button>
-    <button type="button" id="actual">Full size</button>
+    <button type="button" id="fit">Fit to window</button><button type="button" id="actual">Full size</button>
     <button type="button" onclick="window.print()">Print</button>
-    <a href="README.md">Editing and source notes</a>
+    <a href="completion-plan.md">What is needed to complete this poster</a>
   </nav>
   <div id="viewport">
-    <main class="poster" aria-label="US-RSE 2026 poster, draft for author review">
+    <main class="poster" aria-label="STAMPED in Practice poster, working draft">
       <header class="masthead">
-        <div>
-          <p class="eyebrow">STAMPED · US-RSE 2026</p>
-          <h1>STAMPED in Practice<span>Checking AI-assisted analysis<br>and its research record</span></h1>
-        </div>
+        <div><p class="eyebrow">US-RSE 2026 · Research in the open</p><h1>STAMPED in Practice<span>Improving research skills through<br>reproducible experiments</span></h1></div>
         <a class="image-link" href="https://dev.centerforopenneuroscience.org/"><img class="con-logo" src="../orinoco-lite/assets/con-logo-outlined.svg" alt="Center for Open Neuroscience"></a>
         <div class="author-panel">
-          <div class="authors">
-            <p><strong><span class="name">John A. Lee</span><span class="name">Austin Macdonald</span><span class="name">Cody C. Baker</span><span class="name">Yaroslav O. Halchenko</span></strong></p>
-            <p class="affiliation">Center for Open Neuroscience<br>Psychological and Brain Sciences<br>Dartmouth College</p>
-          </div>
-          <a class="qr-badge" data-qr="poster" href="https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"><img src="assets/stamped-qr-poster.svg" alt="QR code for this poster and its editable source">Poster + source</a>
+          <div class="authors"><p><strong><span class="name">John A. Lee</span><span class="name">Austin Macdonald</span><span class="name">Cody C. Baker</span><span class="name">Yaroslav O. Halchenko</span></strong></p><p class="affiliation">Center for Open Neuroscience<br>Dartmouth College</p></div>
+          <a class="qr-badge" data-qr="poster" href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"><img src="assets/stamped-qr-poster.svg" alt="QR code for this poster, figures and source">Poster + code</a>
         </div>
       </header>
-
-      <section class="lead" aria-label="Primary question">
-        <p>An AI assistant can write analysis code. <strong>Can another person check its result, rerun the work, and reuse what it produced?</strong> STAMPED gives us seven practical questions to ask about that research.</p>
-        <p class="pitch"><strong>We compare the same tasks with and without five reusable skills.</strong><span>A skill is a short set of instructions and checks an assistant can follow. We check scientific results and the records needed to reproduce them.</span></p>
+      <section class="lead" aria-label="Experiment and rationale">
+        <p><strong>Our experiment:</strong> iteratively improve <a href="https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills">STAMPED research skills</a> by validating the scientific results and research objects they produce.</p>
+        <p class="pitch"><strong>Make the improvement process inspectable.</strong><span>Link the skills, data, runs, assessments and revisions, so others can evaluate both the science and how the guidance evolved.</span></p>
       </section>
-
       <div class="columns">
-        <div class="comparison study-main">
-          <section class="property-section" aria-labelledby="properties-heading">
-            <p class="section-label">1 · What would make this work reusable?</p>
-            <h2 id="properties-heading">Seven properties, with evidence for each</h2>
-            <p class="intro">Three paired tasks show useful evidence and limits. A recorded command alone does not show that an analysis is correct.</p>
-            <table class="property-table">
-              <colgroup><col class="property-col"><col class="question-col"><col class="method-col"><col class="evidence-col"></colgroup>
-              <thead><tr><th>Property</th><th>Practical question</th><th>Original abstract: tool plan</th><th>Three pairs: evidence and gaps</th></tr></thead>
-              <tbody>
-                <tr><th>Self-contained</th><td>Is everything needed identified?</td><td>DataLad + git-annex</td><td data-result-key="self-contained"><span class="judgment">Partial · both arms</span>Pinned inputs and locked software; offline setup untested.</td></tr>
-                <tr><th>Trackable</th><td>Can we follow how it changed?</td><td>Git · DataLad run · con-duct · NIDM · PROV</td><td data-result-key="trackable"><span class="judgment">Partial · both arms</span>Git and row audits retained; native DataLad rerun incomplete.</td></tr>
-                <tr><th>Actionable</th><td>Can someone run or use it?</td><td>Tested BIDS Apps + Pixi tasks</td><td data-result-key="actionable"><span class="judgment demonstrated">Demonstrated · both arms</span>All six science commands replayed; full reports untested.</td></tr>
-                <tr><th>Modular</th><td>Can a part be reused on its own?</td><td>DataLad composition</td><td data-result-key="modular"><span class="judgment demonstrated">Demonstrated · both arms</span>Three supplied datasets; workers separated code and outputs.</td></tr>
-                <tr><th>Portable</th><td>Can it run in another environment?</td><td>Apptainer</td><td data-result-key="portable"><span class="judgment">Partial · both arms</span>New software environments, one Mac; other systems untested.</td></tr>
-                <tr><th>Ephemeral</th><td>Can a fresh workspace reproduce it?</td><td>Apptainer · BABS · Slurm</td><td data-result-key="ephemeral"><span class="judgment">Partial · both arms</span>Outputs rebuilt in new checkouts; shared caches retained.</td></tr>
-                <tr><th>Distributable</th><td>Can others obtain the right parts?</td><td>Persistent git-annex remotes</td><td data-result-key="distributable"><span class="judgment">Partial · both arms</span>Input license known; new code licensing and external retrieval unverified.</td></tr>
-              </tbody>
-            </table>
-            <p class="table-note">Tools preserve the original proposal; many were not used. <a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md">Judgments cover these three pairs</a>. The coordinator supplied datasets and ran independent replay; later log packaging is curation. Containers and clusters are untested.</p>
+        <div class="method-column">
+          <section>
+            <p class="section-label">01 · Experiment</p><h2>Test the skills through the work</h2>
+            <p>We ask whether successive revisions improve scientific adequacy and reproducibility, while reducing failures and variability.</p>
+            <ol class="loop">
+              <li><b><a href="https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/do-full-research-loop/SKILL.md">Run</a></b><span>Fresh agents address the same scientific question.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/b86e37ff9115e37541fd47aca73f49e13b5110bb/skills/assess-alignment-with-stamped-principles/SKILL.md">Assess</a></b><span>Independent judges inspect the research object and attempt replay.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/align-with-stamped-principles/SKILL.md">Revise</a></b><span>Use recurring findings to improve and compress the skills.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/create-stamped-project/SKILL.md">Repeat</a></b><span>Test the next pinned revision with fresh agents.</span></li>
+            </ol>
+            <p class="small">Three iterations; four assistance conditions; three research runs per condition. Final iteration: evaluate without further tuning.</p>
           </section>
-
-          <section class="stages-section" aria-labelledby="tasks-heading">
-            <div class="section-heading">
-              <div><p class="section-label">2 · A small, increasingly demanding case study</p><h2 id="tasks-heading">How do response times change across runs?</h2></div>
-              <a class="qr-badge" data-qr="study" href="https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"><img src="assets/stamped-qr-study.svg" alt="QR code for the study protocol and research evidence">Study + evidence</a>
+          <section class="ruled">
+            <h3>Four ways to assist an agent</h3>
+            <div class="conditions">
+              <div><b class="condition baseline">B</b><p><strong>Baseline</strong>No supplied research skills.</p></div>
+              <div><b class="condition general">G</b><p><strong>General discovery</strong>Find and use useful skills.</p></div>
+              <div><b class="condition science">S</b><p><strong>Science discovery</strong>Find skills for scientific quality and reproducibility.</p></div>
+              <div><b class="condition explicit">E</b><p><strong>Explicit STAMPED</strong>Use the pinned research workflows.</p></div>
             </div>
-            <p class="intro">We use public mixed-gambles task records from OpenNeuro <a href="https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386">ds000005</a>: 16 participants and three runs each. We summarize recorded decision times; we do not infer why they changed.</p>
-            <figure class="stages-figure">
-              <a class="image-link stage-cards" href="https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design" aria-label="Open the three-stage study protocol">
-                <div><span class="stage-number">01</span><h3>One participant</h3><p>Compare the median response time in the first and third runs.</p></div>
-                <div><span class="stage-number">02</span><h3>The group</h3><p>Estimate the average within-person change and its uncertainty.</p></div>
-                <div><span class="stage-number">03</span><h3>Sensitivity</h3><p>Vary the summary and response-time rule; add the middle run.</p></div>
-              </a>
-              <figcaption>Each stage uses two fresh assistant contexts. Progress depends on a correct result and an independent successful replay at the preceding stage.</figcaption>
+            <p class="small">Matched task, inputs and resources; randomized launch order; three repeats. Record assigned assistance and actual skill use separately. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json">Run settings</a></p>
+          </section>
+          <section class="ruled evidence-section">
+            <p class="section-label">The study is itself a research object</p><h3>Follow any result back to its source</h3>
+            <div class="evidence-chain">
+              <a href="https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/sources.json">Versioned inputs</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/report.md">Code + execution records + results</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1">Assessments + reasons for revisions</a>
+            </div>
+            <p>Ideas for better skills are testable only when we can trace the data generated along the way. <a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a> connects the experiment, including unsuccessful attempts.</p>
+          </section>
+          <section class="principles ruled"><h3><a href="https://github.com/stamped-principles/stamped-paper">STAMPED principles</a></h3><p class="small">Self-contained · Trackable · Actionable · Modular · Portable · Ephemeral · Distributable</p></section>
+        </div>
+        <div class="science-column">
+          <section>
+            <p class="section-label">02 · Scientific results</p><h2>Reproducing a NARPS analysis</h2>
+            <p><strong>Hypothesis:</strong> increasing potential gain increases activity in ventromedial prefrontal cortex (vmPFC) in the equal-indifference group.</p>
+            <p>We reanalyse <strong>54 participant gain-effect maps</strong> from NARPS team AO86. Preprocessing and participant models are fixed; agents choose group inference and report whole-brain-corrected results.</p>
+            <p class="source-links"><a href="https://doi.org/10.1038/s41586-020-2314-9">Paper: Botvinik-Nezer et al., 2020</a> · <a href="https://doi.org/10.18112/openneuro.ds001734.v1.0.4">OpenNeuro data</a><br><a href="https://neurovault.org/collections/4932/">AO86 contrast maps</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/study-task.md">Exact scientific task</a></p>
+          </section>
+          <section class="science-result">
+            <h3>Group-level gain response</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results"><img class="brain-figure" src="figures/narps-group-map.svg" alt="Orthogonal views of the NARPS group gain-effect t map, vmPFC region, and corrected positive signal"></a>
+              <figcaption><strong>Example completed analysis, run 09.</strong> One-sample group test, 10,000 sign flips, whole-brain family-wise error correction at 0.05. <a href="https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/scripts/analyze_gain.py">Analysis code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/results.json">Numerical results</a></figcaption>
             </figure>
-            <section class="scientific-results" aria-labelledby="science-heading">
-              <h3 id="science-heading">Checked scientific results</h3>
-              <!-- SCIENCE_RESULTS_START -->
-<p><strong>One participant:</strong> median response time 1272 → 1261 ms; change -11 ms. Both arms agree.</p>
-<p><strong>16 participants:</strong> average within-person change +31.3 ms; 95% bootstrap interval [-70.3, 132.7] ms. Both arms agree.</p>
-<p class="science-note">Change is third minus first run; the interval includes zero. Missing responses limit interpretation. This is not a causal effect.</p>
-<p><strong>Sensitivity:</strong> median/mean summaries, with or without a 0.2–3.0 s response-time band, gave +11.2 to +58.7 ms; all four 95% intervals include zero.</p>
-              <!-- SCIENCE_RESULTS_END -->
-            </section>
-            <div class="scope-note"><strong>Scope change:</strong> public behavioral data replace the proposed ABCD neuroimaging case. <strong>The ABCD result has not been reproduced.</strong></div>
+            <div class="finding"><b>No corrected positive vmPFC signal</b><p>24 posterior voxels survived correction; none overlapped the vmPFC region. Bilateral AAL medial-orbitofrontal mean coefficient −0.0079, 95% CI [−0.0346, 0.0188], in the supplied model’s units.</p></div>
+          </section>
+          <section class="variability-section ruled">
+            <h3>How much do analyses vary?</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"><img class="variability-figure" src="figures/narps-analysis-variability.svg" alt="Individual run results grouped by assigned assistance condition; missing measurements remain open"></a>
+              <figcaption><strong>Each point is one research run.</strong> Search masks and correction methods vary across runs. This figure describes analysis choices and their outputs; the completed comparison adds every condition and iteration. <a href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study">Figure code + source values</a></figcaption>
+            </figure>
+
           </section>
         </div>
-
-        <aside class="outcomes" aria-labelledby="comparison-heading">
+        <aside class="outcomes">
           <section>
-            <p class="section-label">3 · What do the skills add?</p>
-            <h2 id="comparison-heading">A matched comparison</h2>
-            <p class="intro">Both arms receive the same data, task, software, STAMPED references, and shared account controls. Only the treatment arm is instructed to read the five new skills.</p>
-            <div class="pair-comparison">
-              <div><h3>Baseline</h3><p>Common task<br>and controls</p></div>
-              <div><h3>With skills</h3><p>Common task<br>+ five skills</p></div>
-            </div>
-            <p class="method-spec">Each attempt: <strong>8 minutes</strong> · gpt-6-astra · ultra reasoning · fresh local workspace.</p>
+            <p class="section-label">03 · Skills-development results</p><h2>Check every run,<br>then compare revisions</h2>
+            <p>Scientific adequacy, STAMPED attainment and replay are separate outcomes. Repeated runs reveal consistency; repeated judgments reveal assessor disagreement.</p>
+            <p class="small">Within each condition, values follow the three listed run IDs. “—” is a result slot; “NA” is an unavailable measurement.</p>
           </section>
-          <section class="value-section skills-section">
-            <div><h3>Reusable research guidance</h3><p>The skills turn the seven properties into steps: define the research object, preserve evidence, make work runnable, check it, and prepare it for reuse.</p></div>
-            <a class="qr-badge" data-qr="skills" href="https://github.com/con/skills/tree/codex/stamped-research-skills"><img src="assets/stamped-qr-skills.svg" alt="QR code for the five reusable STAMPED skills">Read the skills</a>
-          </section>
-          <section class="measurement-section">
-            <p class="section-label">Report benefits and costs together</p>
-            <h3>What do we check?</h3>
-            <ul>
-              <li><strong>Data checks:</strong> separate numerical and row-level checks.</li>
-              <li><strong>Replay:</strong> remove outputs, then rebuild in a fresh checkout.</li>
-              <li><strong>Costs and gaps:</strong> time, tokens, setup, interventions, and failures.</li>
-            </ul>
-          </section>
-          <section class="result-box" aria-labelledby="results-heading">
-            <p class="section-label">One attempt per arm and task</p>
-            <h3 id="results-heading">Checked outcomes</h3>
+          <section class="results-matrix">
             <!-- ARM_RESULTS_START -->
-<table class="outcome-table"><thead><tr><th scope="col">Task</th><th scope="col">Baseline</th><th scope="col">With skills</th></tr></thead><tbody><tr><th scope="row">One person</th><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json">270 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span></td><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json">358 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span></td></tr>
-<tr><th scope="row">Cohort</th><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json">387 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span></td><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json">413 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span></td></tr>
-<tr><th scope="row">Sensitivity</th><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json">383 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span><span class="check-status screening-passed">Screening: Passed</span></td><td><span class="worker-time"><a href="https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json">474 s</a></span><span class="check-status">Data checks: Passed</span><span class="check-status">Replay: Passed</span><span class="check-status screening-failed">Screening: Failed</span></td></tr></tbody></table>
-              <!-- ARM_RESULTS_END -->
-            <p class="result-note">Worker time only; setup and evaluator replay are separate. Replay used a fresh checkout on the same host.</p>
+<table class="outcome-table"><colgroup><col><col><col><col></colgroup>
+<thead><tr><th>Condition / runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>met / partial / unmet</th></tr></thead><tbody>
+<tr class="iteration"><th colspan="4">Iteration 1 · <a href="https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa">c90252a</a></th></tr>
+<tr><th class="condition-cell">Baseline<span class="runs"><a href="https://github.com/leej3/stamped-in-practice/tree/d90a335549f43007eac05902859224e6ce2eaada" title="narps-r1-01">01</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/e0a8fb1ae78b457a38ff7102825b1d8bc63119b4" title="narps-r1-02">02</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/abf95b00c02fb55d16c4d269926c1428cedc0574" title="narps-r1-03">03</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">General<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r1-04">04</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/e2d266ea0ca7cc52e9ecab358e0f5a8c9085f6b9" title="narps-r1-05">05</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/32d9cabf7b5d041f9efb97830bf5279068809357" title="narps-r1-06">06</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">Science<span class="runs"><a href="https://github.com/leej3/stamped-in-practice/tree/f30190d8144a9e15acfa1c0d973eadf0d655c83c" title="narps-r1-07">07</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/42e957201315aa8221ba60fbe614119e22639ce8" title="narps-r1-08">08</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73" title="narps-r1-09">09</a></span></th><td><span class="values"><a href="https://github.com/leej3/stamped-in-practice/blob/5a16be31d225574a4643a8feb000ca0a5fa7f7ad/2026-10-16-assessment.md">Q*</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8/2026-10-16-assessment.md">N*</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json">S</a></span></td><td><span class="values">NA · NA · ~</span></td><td><span class="values">10/8/10 · 15/5/7 · 13/6/10</span></td></tr>
+<tr><th class="condition-cell">STAMPED<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r1-10">10</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r1-11">11</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r1-12">12</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr class="iteration"><th colspan="4">Iteration 2</th></tr>
+<tr><th class="condition-cell">Baseline<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-01">01</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-02">02</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-03">03</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">General<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-04">04</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-05">05</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-06">06</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">Science<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-07">07</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-08">08</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-09">09</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">STAMPED<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-10">10</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-11">11</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-12">12</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr class="iteration"><th colspan="4">Iteration 3 · final evaluation</th></tr>
+<tr><th class="condition-cell">Baseline<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-01">01</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-02">02</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-03">03</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">General<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-04">04</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-05">05</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-06">06</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">Science<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-07">07</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-08">08</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-09">09</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+<tr><th class="condition-cell">STAMPED<span class="runs"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-10">10</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-11">11</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-12">12</a></span></th><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td><td><span class="values">— · — · —</span></td></tr>
+</tbody></table>
+<!-- ARM_RESULTS_END -->
           </section>
-          <section class="failure-summary">
-            <h3>Screening and integration failures</h3>
-            <p>The skills arm in task 03 failed the required case-insensitive “N/A” check. Those tokens were absent from the real data. Missing validation software and native DataLad rerun also caused failures.</p>
+          <section class="assessment-key">
+            <p><strong>Science:</strong> S supported · Q qualified · N not supported. These judge the reported conclusion. *Replay-dependent uncertainty; see linked evidence.</p>
+            <p><strong>STAMPED:</strong> met / partial / unmet item counts. Remaining not-checked, not-applicable and unavailable items are retained with the <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json">item-level evidence</a>.</p>
+            <p><strong>Replay:</strong> P passed · ~ partial · F failed. The <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">assessment plan</a> also records retrieval, interventions and worker effort.</p>
           </section>
-          <section class="callout">
-            <h3>Limits of this study</h3>
-            <p>All trials share an account, host, and software caches. Fresh contexts do not isolate account settings.</p>
-            <p>An unblinded study-design agent checked the outputs; the authors develop STAMPED and these skills. This small case series cannot establish general effectiveness.</p>
-          </section>
+          <section class="ruled revision-section"><h3>Connect each revision to its next test</h3><p class="small">1 → 2: [failure → change → outcome]<br>2 → final: [change → independent retest]<br><a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Iteration records</a> · <a href="https://github.com/con/skills/commits/codex/pr26-operational-environment/">Skill history</a></p></section>
+
         </aside>
       </div>
-
+      <section class="invitation">
+        <div><h2>Use STAMPED. Try the skills. Bring us a study.</h2><p>Share a hypothesis, accessible data and a reference result. Help us test the skills on your science—and discuss what better guidance should do.</p></div>
+        <a class="qr-badge" data-qr="study" href="https://github.com/leej3/stamped-in-practice"><img src="assets/stamped-qr-study.svg" alt="QR code for the STAMPED in Practice research object">Study + data</a>
+        <a class="qr-badge" data-qr="skills" href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"><img src="assets/stamped-qr-skills.svg" alt="QR code for reusable STAMPED research skills">Use the skills</a>
+      </section>
       <footer class="footer">
-        <div class="snapshot">
-          <p><strong>Three local pairs, October 2026.</strong> Source: Tom et al. (2007), mixed-gambles task, OpenNeuro ds000005 (PDDL). Code, input versions, protocol, and review notes are linked from the study.</p>
-          <p class="thanks">STAMPED means Self-contained, Trackable, Actionable, Modular, Portable, Ephemeral, Distributable. Poster layout adapted from CON’s US-RSE 2026 ORINOCO Lite poster.</p>
-          <p class="thanks">OpenAI Codex assisted the analyses and poster draft.</p>
-        </div>
-        <div class="partners">
-          <a class="qr-badge con-footer" data-qr="con" href="https://dev.centerforopenneuroscience.org/"><img src="../orinoco-lite/assets/orinoco-qr-con.svg" alt="QR code for the Center for Open Neuroscience">Explore CON</a>
-          <div class="partner-affiliation"><a href="https://pbs.dartmouth.edu/"><img class="dartmouth" src="../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"></a><a href="https://pbs.dartmouth.edu/"><strong>Dartmouth College</strong>Psychological and<br>Brain Sciences</a></div>
-          <a class="repronim-support" href="https://www.repronim.org/"><img class="repronim" src="../orinoco-lite/assets/repronim_logo.svg" alt="ReproNim"><span>Supported by<br>ReproNim</span></a>
-        </div>
+        <div><p><strong>A reproducible study of reproducibility.</strong> Source, figure inputs, run-level evidence and the completion plan accompany this editable poster.</p><p class="thanks">Working draft · NARPS replaces the ABCD case proposed in the abstract. OpenAI Codex assisted analysis and poster preparation.</p></div>
+        <div class="partners"><a class="qr-badge con-footer" data-qr="con" href="https://dev.centerforopenneuroscience.org/"><img src="../orinoco-lite/assets/orinoco-qr-con.svg" alt="QR code for the Center for Open Neuroscience">Explore CON</a><div class="partner-affiliation"><a href="https://pbs.dartmouth.edu/"><img class="dartmouth" src="../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"></a><a href="https://pbs.dartmouth.edu/"><strong>Dartmouth College</strong>Psychological and<br>Brain Sciences</a></div><a class="repronim-support" href="https://www.repronim.org/"><img class="repronim" src="../orinoco-lite/assets/repronim_logo.svg" alt="ReproNim"><span>Supported by<br>ReproNim</span></a></div>
       </footer>
     </main>
   </div>
   <script>
-    const poster = document.querySelector('.poster');
-    const viewport = document.getElementById('viewport');
+    const poster = document.querySelector('.poster'), viewport = document.getElementById('viewport');
     let fit = true;
-    function resize() {
-      const scale = fit ? Math.min((window.innerWidth - 32) / 4224, 1) : 1;
-      poster.style.transform = `scale(${scale})`;
-      viewport.style.width = `${4224 * scale}px`;
-      viewport.style.height = `${4224 * scale}px`;
-    }
+    function resize() { const scale = fit ? Math.min((window.innerWidth - 32) / 4224, 1) : 1; poster.style.transform = `scale(${scale})`; viewport.style.width = `${4224 * scale}px`; viewport.style.height = `${4224 * scale}px`; }
     document.getElementById('fit').onclick = () => { fit = true; resize(); };
     document.getElementById('actual').onclick = () => { fit = false; resize(); };
-    window.addEventListener('resize', resize);
-    resize();
+    window.addEventListener('resize', resize); resize();
   </script>
 </body>
 </html>
