@@ -96,7 +96,7 @@ const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).di
     });
     audit.browser = browser.version();
     audit.created_utc = new Date().toISOString();
-    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'figures/benchmark-source.json', 'scripts/import-benchmark-figures.py', 'scripts/import-benchmark-outcomes.py', 'data/benchmark-outcomes.json', 'data/benchmark-outcomes-source.json', 'pixi.toml', 'package-lock.json'].map(n => [n, sha(path.join(root, n))]));
+    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'figures/benchmark-source.json', 'scripts/import-benchmark-figures.py', 'scripts/import-benchmark-outcomes.py', 'data/benchmark-outcomes.json', 'data/benchmark-checklists.json', 'data/benchmark-outcomes-source.json', 'pixi.toml', 'package-lock.json'].map(n => [n, sha(path.join(root, n))]));
     audit.errors = errors;
     fs.writeFileSync(path.join(output, 'html-audit.json'), JSON.stringify(audit, null, 2) + '\n');
     await page.screenshot({ path: path.join(output, 'layout-review.png'), fullPage: true });

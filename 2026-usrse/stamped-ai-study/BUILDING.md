@@ -17,15 +17,26 @@ Every run retains its native corrected decisions and coverage; the source reposi
 The compact outcomes table pools the retained operational assessments from all three rounds: 72 original research runs, 70 primary scientific judgments and 68 valid primary checklists.
 Native replay counts distinguish full selected-output matches from observed executions.
 The [benchmark summary](https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled) retains all grades, denominators, partial matches and separate round summaries.
-The [display data](data/benchmark-outcomes.json) and [source binding](data/benchmark-outcomes-source.json) identify the exact imported report.
+The [outcomes](data/benchmark-outcomes.json), [checklist index](data/benchmark-checklists.json) and [source binding](data/benchmark-outcomes-source.json) identify the exact imported reports.
+The table’s linked checklist scores average each valid primary response’s met-item count divided by all 31 checklist items, matching the app’s denominator.
+Each condition mean links to its individual filled checklists, with exact original JSON responses alongside them.
+The app rounds individual scores to integers; pooled means use the unrounded fractions and display one decimal.
+Four unavailable checklists remain unscored; their retained responses are accessible with exclusion reasons.
 The complete table includes 21 observed native reruns: 13 full selected-output matches, five partial matches and three nonzero exits.
 Round-specific results and every original judgment remain retrievable.
 
 The progression chart shows each condition across the three rounds, with separate panels for scientific adequacy and mean evaluated checklist items met.
 Each point summarizes designated primary judgments from six assigned fresh workers; science has 5–6 available judgments and the checklist has 4–6 per condition and round.
-The chart uses the same retained summary as the table, with exact denominators in the linked round data.
+Scientific proportions have 95% Wilson intervals, conditional on independent runs with a common within-group probability.
+The checklist panel shows each available run, connected means and ± one sample standard deviation, describing between-run spread rather than uncertainty in a mean.
+Its denominator is evaluated items (met + partial + unmet), excluding unchecked and not-applicable items; this differs from the table’s all-31-item app measure.
+The chart uses the same retained judgments as the table, with exact denominators in the linked round data.
+Neither bar type accounts for missing judgments, assessor uncertainty, shared infrastructure or the adaptive protocol; these are descriptive comparisons, not causal effects.
 Only the STAMPED condition receives the revised research-skill bundle; the other conditions retain their assigned instructions.
 The baseline label is “No supplied research skills”: common task instructions, software resources and runtime system skills remain available to all conditions.
+
+The seven concise definitions follow the [STAMPED paper](https://github.com/stamped-principles/stamped-paper/blob/main/main.tex), including component and change provenance, versioned environment specifications, persistent retrieval and explicit licenses.
+A spectrum note distinguishes incremental improvement from a single compliance threshold.
 
 The poster focuses on the scientific results and skill-development experiment.
 Original reporting failures, additive extraction corrections and infrastructure diagnostics remain in the benchmark's linked reporting record.
@@ -48,7 +59,7 @@ pixi run verify
 pixi run links
 ```
 
-`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-reader-guides-20261016`](https://github.com/con/talks/tree/codex/env-poster-reader-guides-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
+`pixi run build` verifies the scientific display copies and outcome table against their bindings, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-poster-uncertainty-20261016`](https://github.com/con/talks/tree/codex/env-poster-uncertainty-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
 
 To import a new committed benchmark export:
 

@@ -1,25 +1,30 @@
 {
-  "checked_utc": "2026-10-16T18:35:21.688811+00:00",
-  "reviewer": "Codex; independent navigation and visual pass by progression_review",
+  "checked_utc": "2026-10-16T18:59:39.679278+00:00",
+  "reviewer": "Codex; independent statistical/export and poster visual review by progression_review",
   "files": {
-    "index.html": "0d23bc7d3a4e29f97bde9b09692e3deaf5b8f7b6f938889e02474f099e91c3e1",
-    "poster.css": "57c8a5fbab74566434e7074a3cc1a8f64919a5fe79860488ccd1169f4c7a6bd6",
-    "README.md": "fdfe5026afafaa802383db5d91c749db03363b0d59f21007976bba18e4ca1c57",
-    "BUILDING.md": "4ab2f3ba14100f3cb5af007655296bc3551fe9facce872df903a0569d840139a",
+    "index.html": "8cecb2ced7be5db36ae0e69d22fda3d4df920e258a54ad7898458aa49a2c8825",
+    "poster.css": "c65cc3d163fb871f88354ccb9d140b9d7d1be3e50a2373c546fb6c11d4cbd914",
+    "README.md": "d53787619381b96c4036e3a3b40c79efe696e7a8b5d6f58ea4098071747737d8",
+    "BUILDING.md": "073838351ffc0542a6d97779dfc69b5e72f115829f0910e66e4eaea192cf42d5",
     "make-logo-qrs.py": "95016d0958ef4c064dce2548be4ac8f65fa171e5a15f5ee4c41378bc59445bc7",
     "assets/stamped-qr-poster.svg": "7c48ccc171d37755479ddc42f6c6e32a1c1e2297f9041c30444e53137ce6db40",
     "assets/stamped-qr-skills.svg": "ff98fa82038696210079f2ca79def36e3ac1bbbdf622f8c7349e341ba94bd502",
-    "exports/stamped-ai-poster.pdf": "26d3260a2fe476998068e27f560ca8877ce6c5a04b3cbff3696a938e9949ca03",
-    "exports/pdf-preview.png": "03653a0fc582fcd5742dc5a218a56a05363e3af30abbfd098295a2d12af1108f"
+    "exports/stamped-ai-poster.pdf": "99761b72051fc6fbe886a8cf92ef98ccee8816ee24a2653596a4aa1b0abdeb6a",
+    "exports/pdf-preview.png": "5016f432a04d710f040ae806fb0f135ddf0df309fa58ffc18abd2d7bcf49d34d",
+    "figures/round-progression.svg": "59e5cb8a3995f4594d15bc757a2054c1d647d35119f5ace42eb07fbb298020b3",
+    "data/benchmark-checklists.json": "685bcfcb152509ce514a57f130eac26fc5a8dc0654b20a84735002e82ed83e38",
+    "data/benchmark-outcomes-source.json": "8684eb7e5083ca56161f992abd5ef2ec5bf496c9bb2cf0a16a2f811d487a58e6"
   },
   "observations": [
-    "Inspected the final PDF preview: chart, table and scientific figures remain legible with no overlaps or clipping.",
-    "General links now lead to reader guides for results, scientific figures, research skills and repository organization; specific code, data, task and design links remain direct.",
-    "Poster and skills QR codes resolve to the new guides; all four QR codes passed source-raster and rendered-PDF decoding checks.",
-    "Checked all referenced guide fragments against published Markdown headings; README and BUILDING local links and anchors resolve.",
-    "README leads with downloads and interpretation; build details and source bindings are retained in BUILDING.",
-    "Scientific figure copies, outcome values and benchmark bindings are unchanged.",
-    "Independent navigation and visual review approved; the final PDF, preview and changed annexed QR were uploaded and anonymously retrieved byte-for-byte."
+    "Inspected the final PDF preview and full-size progression chart: no overlaps, clipping or unreadable labels; all actual PDF text is at least 24 points.",
+    "The science panel shows 95% Wilson intervals; the checklist panel shows individual run scores, connected means and plus/minus one sample standard deviation. The caption states the distinction and missingness/judge limitations.",
+    "Four underlined pooled app scores open their condition checklist lists: 19.8%, 19.5%, 19.0% and 27.7%, with n=16, 18, 17 and 17. The visible key distinguishes all 31 items from the plot’s evaluated-item denominator.",
+    "Independent review verified all 72 raw response copies against archive members, all 68 canonical filled-checklist URLs, and the four excluded rows without scores or app links. Original pooled research summaries are unchanged.",
+    "The study-lessons link opens the canonical main/LESSONS.md; the revised-skill paragraph names the STAMPED research-loop skill and receiving condition.",
+    "All four QR codes and all expected PDF hyperlinks passed automated checks. The final PDF, preview and changed PNG were anonymously retrieved byte-for-byte after upload.",
+    "All 68 generated filled-checklist links returned HTTP 200. One oversized URL omits only reasons the app does not display; its actual app view was checked for all answer states and the expected 7/31 = 23% score. All original JSON remains complete.",
+    "The revised Tracking, Portability, Ephemerality and Distributability definitions were checked against the STAMPED paper. The spectrum note and explicit paper link fit cleanly; an independent final visual pass approved the left column.",
+    "All 36 final poster destinations passed live checks; the main results and poster guides now distinguish table app scores from plotted evaluated-item scores."
   ],
   "passed": true
 }
