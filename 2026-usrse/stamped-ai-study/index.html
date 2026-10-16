@@ -28,7 +28,7 @@
         </div>
       </header>
       <section class="lead" aria-label="Experiment and rationale">
-        <p><strong>Our experiment:</strong> iteratively improve <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">STAMPED research skills</a> by validating the scientific results and research objects they produce.</p>
+        <p><strong>Our experiment:</strong> iteratively improve <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">STAMPED research skills</a> by validating the scientific results and research objects they produce.</p>
         <p class="pitch"><strong>Make the improvement process inspectable.</strong><span>Link the skills, data, runs, assessments and revisions, so others can evaluate both the science and how the guidance evolved.</span></p>
       </section>
       <div class="columns">
@@ -50,35 +50,35 @@
 
             <p>Do successive revisions improve scientific adequacy, reproducibility and consistency?</p>
             <ol class="loop">
-              <li><b><a href="https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/do-full-research-loop/SKILL.md">Run</a></b><span>Fresh agents address the same scientific question.</span></li>
-              <li><b><a href="https://github.com/con/skills/blob/codex/pr26-assessment-evidence/skills/assess-alignment-with-stamped-principles/SKILL.md">Assess</a></b><span>Independent judges inspect the research object and attempt replay.</span></li>
-              <li><b><a href="https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/align-with-stamped-principles/SKILL.md">Revise</a></b><span>Use recurring findings to improve and compress the skills.</span></li>
-              <li><b><a href="https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/create-stamped-project/SKILL.md">Repeat</a></b><span>Test the next pinned revision with fresh agents.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md">Run</a></b><span>Fresh agents address the same scientific question.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/codex/pr26-neutral-assessor/skills/assess-alignment-with-stamped-principles/SKILL.md">Assess</a></b><span>Independent judges inspect the research object and attempt replay.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/align-with-stamped-principles/SKILL.md">Revise</a></b><span>Use recurring findings to improve and compress the skills.</span></li>
+              <li><b><a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/create-stamped-project/SKILL.md">Repeat</a></b><span>Test the next pinned revision with fresh agents.</span></li>
             </ol>
             <p>Three iterations of testing and revision. In the final iteration, evaluate without further tuning.</p>
           </section>
-          <section class="ruled skills-section"><h3>Put the principles to work</h3><p>The <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">skills</a> guide project creation, analysis, assessment and improvement. They make STAMPED actionable guidance for an agent.</p><p>Use the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to examine your own research object, then follow the evidence behind each answer.</p></section>
+          <section class="ruled skills-section"><h3>Put the principles to work</h3><p>The <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">skills</a> guide project creation, analysis, assessment and improvement. They make STAMPED actionable guidance for an agent.</p><p>Use the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to examine your own research object, then follow the evidence behind each answer.</p></section>
         </div>
         <div class="science-column">
           <section>
             <p class="section-label">02 · Scientific results</p><h2>Replicating a gain-response analysis</h2>
             <p><a href="https://pubmed.ncbi.nlm.nih.gov/17255512/">Tom et al.</a> asked how the brain represents potential gains and losses during risky choices.</p>
-            <p><strong>Our replication:</strong> test whether potential gain increases ventromedial prefrontal cortex (vmPFC) activity in the equal-indifference group (NARPS H1). Agents choose group inference for 54 fixed AO86 participant maps.</p>
+            <p><strong>Our replication:</strong> does potential gain increase ventromedial prefrontal cortex (vmPFC) activity? Agents test NARPS H1 using the same 54 equal-indifference AO86 participant maps.</p>
             <p class="source-links"><a href="https://doi.org/10.1038/s41586-020-2314-9">NARPS paper</a> · <a href="https://doi.org/10.18112/openneuro.ds001734.v1.0.4">OpenNeuro data</a> · <a href="https://neurovault.org/collections/4932/">AO86 maps</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md">Scientific task</a></p>
           </section>
           <section class="science-result">
             <h3>Group-level gain response</h3>
             <figure>
-              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09/results"><img class="brain-figure" src="figures/narps-group-map.svg" alt="Orthogonal views of the NARPS group gain-effect t map, vmPFC region, and corrected positive signal"></a>
-              <figcaption><strong>Example completed analysis, run 09.</strong> One-sample group test, 10,000 sign flips, whole-brain family-wise error correction at 0.05. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/scripts/analyze_gain.py">Analysis code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/results.json">Numerical results</a></figcaption>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace"><img class="brain-figure" src="figures/narps-group-map.svg" alt="Orthogonal views of the NARPS group gain-effect t map, vmPFC region, and corrected positive signal"></a>
+              <figcaption><strong>Round 2, run 09.</strong> One-sample test, 9,999 sign flips, whole-brain family-wise error (FWE) correction at 0.05. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py">Analysis code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json">Numerical results</a></figcaption>
             </figure>
-            <div class="finding"><b>No corrected positive vmPFC signal</b><p>24 posterior voxels survived; none in bilateral AAL medial-orbitofrontal parcels. Regional mean coefficient −0.0079 (95% CI −0.0346 to 0.0188; supplied model’s units).</p></div>
+            <div class="finding"><b>No corrected positive vmPFC signal</b><p>24 posterior voxels survived correction; none overlapped the analysis’s Harvard–Oxford vmPFC proxy.</p></div>
           </section>
           <section class="variability-section ruled">
             <h3>Where do repeated analyses agree?</h3>
             <figure>
-              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures"><img class="variability-figure" src="figures/narps-spatial-agreement.svg" alt="Spatial agreement of corrected positive findings across three runs in each assistance condition"></a>
-              <figcaption><strong>Group statistics agree; correction choices change detected extent.</strong> Colour shows how many of three runs detected corrected positive signal on shared coverage. Runs 01–02 use Bonferroni; the others use permutation max-T. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial">Map inputs</a></figcaption>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures"><img class="variability-figure" src="figures/narps-spatial-agreement.svg" alt="Spatial agreement of corrected positive findings across twelve runs in each assistance condition, from rounds two and three"></a>
+              <figcaption><strong>Corrected findings vary across repeated analyses.</strong> Colour shows the fraction of 12 runs per condition detecting positive FWE-corrected signal in rounds 2 and 3. Each run retains its chosen method; 168,285 voxels share tested coverage. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial">Map inputs</a></figcaption>
             </figure>
 
           </section>
@@ -86,46 +86,47 @@
         <aside class="outcomes">
           <section>
             <p class="section-label">03 · Skills-development results</p><h2>Compare assistance<br>across retained runs</h2>
-            <p>Agents receive one instruction: no supplied skills, find useful skills, find skills for scientific quality and reproducibility, or use <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">STAMPED skills</a>.</p>
-            <p class="small">Pool retained iterations by condition, giving each research run equal weight. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Run-level evidence</a></p>
+            <p>Agents receive one instruction: no supplied skills, find useful skills, find skills for scientific quality and reproducibility, or use <a href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills">STAMPED skills</a>.</p>
+            <p class="small"><span id="retained-rounds">Rounds 1, 2; 48 research runs.</span> Pool iterations by condition, giving each research run equal weight. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Run-level evidence</a></p>
           </section>
           <section class="results-matrix">
             <table class="outcome-table">
               <colgroup><col><col><col><col><col></colgroup>
               <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>mean met %</th></tr></thead>
               <tbody>
-                <tr><th>No supplied skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><th>Find useful skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><th>Find research skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><th>Use STAMPED skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                <!-- BENCHMARK_OUTCOMES_START -->
+                <tr><th>No supplied skills</th><td>12</td><td>11/12</td><td>3/3</td><td>21.1%<br>n=10</td></tr>
+                <tr><th>Find useful skills</th><td>12</td><td>10/12</td><td>1/1</td><td>23.0%<br>n=12</td></tr>
+                <tr><th>Find research skills</th><td>12</td><td>5/11</td><td>3/5</td><td>21.9%<br>n=11</td></tr>
+                <tr><th>Use STAMPED skills</th><td>12</td><td>8/12</td><td>2/4</td><td>25.5%<br>n=12</td></tr>
+                <!-- BENCHMARK_OUTCOMES_END -->
               </tbody>
             </table>
-            <p class="small summary-key"><strong>Science and replay:</strong> proportions in each outcome category, with available n. <strong>STAMPED:</strong> mean proportion of applicable checklist items met, with partial and unmet profiles in the linked evidence.</p>
+            <p class="small summary-key"><strong>Science:</strong> fully supported / assessed analyses. <strong>Replay:</strong> all selected outputs matching / observed native reruns; — means none observed. <strong>STAMPED:</strong> mean percentage of evaluated items met (available n). <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled">All grades + denominators</a>.</p>
           </section>
           <section class="ruled evidence-section">
             <p class="section-label">The study is itself a research object</p><h3>Follow any result back to its source</h3>
             <div class="evidence-chain">
               <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json">Versioned inputs</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md">Code + execution records + results</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1">Assessments + reasons for revisions</a>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/report.md">Code + execution records + results</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1">Assessments + reasons for revisions</a>
             </div>
             <p><a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a> links the skills, data, runs, assessments and revisions—including unsuccessful attempts.</p><p>Preserve enough evidence to examine both the scientific result and the decisions that shaped the experiment.</p>
           </section>
           <section class="ruled lessons-section" aria-labelledby="lessons-heading">
-            <p class="section-label" id="lessons-heading">Two lessons from the study</p>
+            <p class="section-label" id="lessons-heading">Improving the guidance</p>
             <h3>Assess without prescribing</h3>
             <p>Requiring particular tools or output formats makes assessment easier, but risks prescribing the practices being evaluated. Our revised design let workers choose their methods and delivery practices, while recording coordinator preservation separately. The challenge is to make work inspectable while preserving meaningful freedom.</p>
-            <h3>Keep repair from replacing experimentation</h3>
-            <p>Defects in round-one assessment prompted repeated repairs and reassessment of the same research deliveries, postponing tests of revised skills on fresh work. This experience motivates explicit boundaries between developing the assessment and running the experiment: freeze the procedure, retain failures and uncertainty, and define when to proceed.</p>
-            <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Neutral task design</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/assessment-series/narps-neutral-r1-operational-v4/synthesis/viability.md">Assessment history</a></p>
+            <p>Fresh runs test each revision. The final <a href="https://github.com/con/skills/blob/codex/narps-round3-research-guidance/skills/do-full-research-loop/SKILL.md">environment guidance</a> asks for an executable setup recipe or retrievable pinned source alongside the runtime version.</p>
+            <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Study design</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-neutral-v1/skill-reflection">Evidence behind revisions</a></p>
           </section>
         </aside>
       </div>
       <section class="invitation">
         <div><h2>Use STAMPED. Try the skills. Bring us a study.</h2><p>Share a hypothesis, accessible data and a reference result. Help us test the skills on your science—and discuss what better guidance should do.</p></div>
         <a class="qr-badge" data-qr="study" href="https://github.com/leej3/stamped-in-practice"><img src="assets/stamped-qr-study.svg" alt="QR code for the STAMPED in Practice research object">Study + data</a>
-        <a class="qr-badge" data-qr="skills" href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"><img src="assets/stamped-qr-skills.svg" alt="QR code for reusable STAMPED research skills">Use the skills</a>
+        <a class="qr-badge" data-qr="skills" href="https://github.com/con/skills/tree/codex/narps-round3-research-guidance/skills"><img src="assets/stamped-qr-skills.svg" alt="QR code for reusable STAMPED research skills">Use the skills</a>
       </section>
       <footer class="footer">
         <div><p><strong>A reproducible study of reproducibility.</strong> Source, figure inputs and run-level evidence are linked from the study.</p><p class="thanks">OpenAI Codex assisted analysis and poster preparation.</p></div>

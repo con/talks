@@ -22,7 +22,7 @@ h1 span { font-size: 48px; }
 .columns .section-label { font-size: 32px; margin-bottom: 18px; }
 .columns .small, .columns .source-links { font-size: 32px; line-height: 1.35; }
 .method-column, .science-column { display:flex; flex-direction:column; gap: 40px; }
-.science-column { border-left:2px solid var(--rule); padding-left:44px; gap:32px; }
+.science-column { border-left:2px solid var(--rule); padding-left:44px; gap:24px; }
 .ruled { border-top: 3px solid var(--rule); padding-top: 30px; }
 .loop { list-style: none; padding:0; margin:34px 0; display:grid; gap:18px; counter-reset: step; }
 .loop li { display:grid; grid-template-columns: 160px 1fr; gap:22px; padding:24px; background:var(--tint); font-size:36px; line-height:1.25; border-left:7px solid var(--green); }
@@ -30,7 +30,7 @@ h1 span { font-size: 48px; }
 .evidence-chain { background:var(--tint); padding:28px; margin-bottom:28px; display:grid; text-align:center; gap:12px; font-size:34px; line-height:1.25; }
 .evidence-chain span { color:var(--green); font-size:34px; }
 .source-links { color:var(--green); }
-.science-result { border-top:7px solid var(--green); padding-top:30px; }
+.science-result { border-top:7px solid var(--green); padding-top:24px; }
 .brain-figure { width:100%; display:block; }
 figcaption { font-size:32px; line-height:1.32; margin:18px 0 0; }
 .finding { margin-top:28px; background:var(--tint); padding:28px 32px; border-left:7px solid var(--green); }
@@ -67,3 +67,5 @@ figcaption { font-size:32px; line-height:1.32; margin:18px 0 0; }
 .partners .qr-badge img { max-height:none; height:155px; width:155px; }
 .qr-badge { font-size:32px; }
 .repronim-support { display:flex; align-items:center; gap:22px; font-size:32px; text-decoration:none; }
+
+.variability-section { padding-top:24px; }
