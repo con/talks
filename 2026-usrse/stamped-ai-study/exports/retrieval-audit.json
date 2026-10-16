@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-16T05:48:40.738147+00:00",
+  "checked_utc": "2026-10-16T15:11:51.055227+00:00",
   "authentication": "none",
   "method": "download and compare full payload SHA-256",
   "files": [
@@ -63,9 +63,12 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s841738--411e41cdacf46c5470b4678d695d6d5c.pdf",
       "sha256": "eb7e1c194d8d0b524911112f51056bcf7dda30a85e6707d25995a78c10575ef8",
       "bytes": 841738,
-      "passed": null,
-      "checked_utc": null,
-      "status": "publication_pending"
+      "passed": true,
+      "checked_utc": "2026-10-16T15:11:50.961999+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "retrieved_bytes": 841738,
+      "retrieved_sha256": "eb7e1c194d8d0b524911112f51056bcf7dda30a85e6707d25995a78c10575ef8"
     },
     {
       "path": "exports/pdf-preview.png",
@@ -73,9 +76,12 @@
       "url": "https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s1113227--e409190c803eba9bf21df3e1be969146.png",
       "sha256": "e884e10d04b96f627757365ec2e6adb0346d8ec9c65ea3afdc5f43fa77a0be75",
       "bytes": 1113227,
-      "passed": null,
-      "checked_utc": null,
-      "status": "publication_pending"
+      "passed": true,
+      "checked_utc": "2026-10-16T15:11:51.054258+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "retrieved_bytes": 1113227,
+      "retrieved_sha256": "e884e10d04b96f627757365ec2e6adb0346d8ec9c65ea3afdc5f43fa77a0be75"
     },
     {
       "path": "../orinoco-lite/assets/con-logo-outlined.svg",
@@ -114,11 +120,8 @@
       "checked_utc": "2026-10-16T05:48:40.738147+00:00"
     }
   ],
-  "all_passed": false,
-  "updated_utc": "2026-10-16T14:04:44.756888+00:00",
-  "pending_uploads": [
-    "exports/stamped-ai-poster.pdf",
-    "exports/pdf-preview.png"
-  ],
-  "scope": "Unchanged assets retain their prior retrieval checks. Current PDF and preview are retained locally; remote payload publication is pending."
+  "all_passed": true,
+  "updated_utc": "2026-10-16T15:11:51.055227+00:00",
+  "pending_uploads": [],
+  "scope": "Current PDF and preview downloaded anonymously and verified byte-for-byte. Unchanged assets retain their earlier retrieval checks at the per-file times shown."
 }
