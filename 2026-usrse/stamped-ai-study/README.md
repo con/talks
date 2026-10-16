@@ -3,7 +3,7 @@
 An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
 It replaces the earlier behavioral example with the NARPS group-analysis study and presents the intended completed argument, with real example results and open slots for the remaining runs and revisions.
 
-Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or retrieve [the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892880--c9c8152542986d34d271bc44900ab481.pdf).
+Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or retrieve [the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892882--8fb66a8397e55c022c41a884750c0dd5.pdf).
 The [completion plan](completion-plan.md) identifies the evidence needed to finish the poster and changes to data collection that can support it.
 No research workers or study protocols are changed by this poster module.
 
