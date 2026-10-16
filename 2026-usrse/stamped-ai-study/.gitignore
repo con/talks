@@ -1,2 +1,10 @@
 # Keep the exported poster in this module.
 !exports/stamped-ai-poster.pdf
+.pixi/
+pixi.lock
+node_modules/
+exports/html-fullsize.png
+exports/pdf-fullsize.png
+exports/pdf-qr-*.png
+exports/qr-source/*.png
+exports/layout-review.png

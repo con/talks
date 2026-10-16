@@ -32,9 +32,9 @@ INK = "#193c4d"
 BORDER = 4  # Four completely clear modules on every side.
 LOGO_WIDTH_FRACTION = 0.42
 DESTINATIONS = {
-    "poster": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
-    "study": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
-    "skills": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+    "poster": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+    "study": "https://github.com/leej3/stamped-in-practice",
+    "skills": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
     "con": "https://dev.centerforopenneuroscience.org/",
 }
 

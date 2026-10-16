@@ -552,3 +552,30 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "Dartmouth College (institutional artwork)", "NOASSERTION"]
 SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyLogo"
+
+# Reproducible NARPS poster code and generated evidence.
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/scripts/*.py", "2026-usrse/stamped-ai-study/pixi.toml", "2026-usrse/stamped-ai-study/package*.json"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/data/assessment-snapshot.json", "2026-usrse/stamped-ai-study/data/narps-figure-guidance.json", "2026-usrse/stamped-ai-study/data/*/provenance.json", "2026-usrse/stamped-ai-study/figures/*.json", "2026-usrse/stamped-ai-study/figures/narps-analysis-variability.*"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# Scientific source artifacts are attributed in the input provenance manifest.
+# Copying them here does not relicense their upstream data, atlas or code.
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/data/*/maps/**", "2026-usrse/stamped-ai-study/data/*/summaries/**", "2026-usrse/stamped-ai-study/data/*/participant-map-sources.json", "2026-usrse/stamped-ai-study/data/*/source-analysis-run09.py"]
+precedence = "override"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/figures/narps-group-map.*"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "NOASSERTION"]
+SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyMixed"

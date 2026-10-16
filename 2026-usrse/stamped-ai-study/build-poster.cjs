@@ -95,9 +95,10 @@ const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).di
     });
     audit.browser = browser.version();
     audit.created_utc = new Date().toISOString();
-    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'update-results.py', 'results-data.json'].map(n => [n, sha(path.join(root, n))]));
+    audit.source_sha256 = Object.fromEntries(['index.html', 'template.css', 'poster.css', 'build-poster.cjs', 'verify-pdf.py', 'verify-links.py', 'make-logo-qrs.py', 'source-manifest.json', 'update-results.py', 'data/assessment-snapshot.json', 'figures/narps-figure-manifest.json', 'scripts/render-narps-figures.py', 'pixi.toml', 'package-lock.json'].map(n => [n, sha(path.join(root, n))]));
     audit.errors = errors;
     fs.writeFileSync(path.join(output, 'html-audit.json'), JSON.stringify(audit, null, 2) + '\n');
+    await page.screenshot({ path: path.join(output, 'layout-review.png'), fullPage: true });
     if (errors.length || audit.small.length || audit.outside.length || audit.regionOverflow.length || audit.internalOverflow.length || audit.sectionOverlap.length || audit.unlinkedImages.length || audit.images.some(i => !i.loaded)) {
       throw new Error('HTML layout or asset audit failed; inspect html-audit.json.');
     }

@@ -1,5 +1,5 @@
 {
-  "pdf_sha256": "ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d",
+  "pdf_sha256": "afb037aea26970685b2c4288b8329fb627ca2db4a0db430cd16b93a3176fdd56",
   "page_count": 1,
   "page_points": [
     3168.0,
@@ -8,42 +8,42 @@
   "minimum_html_text_px": 32,
   "minimum_html_text_pt": 24.0,
   "minimum_pdf_text_pt": 24.0,
-  "inspected_pdf_text_runs": 184,
-  "link_annotation_count": 17,
-  "unique_expected_links": 14,
+  "inspected_pdf_text_runs": 321,
+  "link_annotation_count": 74,
+  "unique_expected_links": 38,
   "missing_links": [],
   "raster_dpi": 150,
   "qr_results": [
     {
       "name": "poster",
-      "expected": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "expected": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
       "decoded": [
-        "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
       ],
       "decoded_rotated": [
-        "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study"
+        "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"
       ],
       "passed": true
     },
     {
       "name": "study",
-      "expected": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "expected": "https://github.com/leej3/stamped-in-practice",
       "decoded": [
-        "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        "https://github.com/leej3/stamped-in-practice"
       ],
       "decoded_rotated": [
-        "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research"
+        "https://github.com/leej3/stamped-in-practice"
       ],
       "passed": true
     },
     {
       "name": "skills",
-      "expected": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "expected": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "decoded": [
-        "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
       ],
       "decoded_rotated": [
-        "https://github.com/con/skills/tree/codex/stamped-research-skills"
+        "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"
       ],
       "passed": true
     },

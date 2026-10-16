@@ -1,56 +1,84 @@
-# STAMPED example poster — discussion placeholder
+# STAMPED in Practice poster
 
-An editable **44 × 44 inch** poster adapted from [PR 20](https://github.com/con/talks/pull/20), preserving its layout and institutional artwork.
-This is a placeholder for discussion on October 15, 2026, alongside the existing skills proposals: [con/skills#23](https://github.com/con/skills/pull/23), [#24](https://github.com/con/skills/pull/24), and [#26](https://github.com/con/skills/pull/26).
+An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
+It replaces the earlier behavioral example with the NARPS group-analysis study and presents the intended completed argument, with real example results and open slots for the remaining runs and revisions.
 
-Open [index.html](index.html), view the [PDF preview](exports/pdf-preview.png), or [download the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s694949--7de393e12e04e7a63f89db7c5334b360.pdf).
-The [study report](https://github.com/leej3/stamped-ai-research/blob/3db3674d639e63407fa5ac0f9c9012bf48c12727/research/REPORT.md) documents three exploratory paired tasks, including the skills arm's missing-value screening failure.
-These results do not establish general skill efficacy or reproduce the proposed ABCD analysis.
+Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or retrieve [the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s764394--688be8c06420100b438e1d9ea207036e.pdf).
+The [completion plan](completion-plan.md) identifies the evidence needed to finish the poster and changes to data collection that can support it.
+No research workers or study protocols are changed by this poster module.
 
-## Retrieve and edit
+## What is reproducible here
 
-Poster-specific image assets, the PDF, and preview use git-annex; GitHub displays pointers.
-The three institutional marks and CON QR are reused directly from `../orinoco-lite/assets/`.
-After cloning this branch, use an environment with DataLad and git-annex:
+- Scientific figures: saved worker summaries and group maps, input hashes, source revisions and plotting code.
+- Outcomes matrix: all three allocated iterations and four conditions, generated from a saved assessment export; open cells remain missing observations.
+- Poster: local HTML/CSS, reusable institutional artwork, branded QR generation, a Pixi environment, a pinned browser dependency and PDF/layout checks.
 
-```sh
-datalad get 2026-usrse/orinoco-lite/assets/con-logo-outlined.svg \
-  2026-usrse/orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg \
-  2026-usrse/orinoco-lite/assets/repronim_logo.svg \
-  2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg \
-  2026-usrse/stamped-ai-study/assets/ \
-  2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf \
-  2026-usrse/stamped-ai-study/exports/pdf-preview.png
-```
+The scientific panel illustrates [run 09](https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73), conditional on the supplied AO86 maps.
+The native-analysis variability plot has eight completed runs; it deliberately preserves differing masks and corrections.
+Figure provenance is in [data/narps-2026-10-15/provenance.json](data/narps-2026-10-15/provenance.json).
+The [assessment data](data/assessment-snapshot.json) retain raw statuses, external validity overrides, missingness, source hashes and separate supplementary judgments.
+The exported records are sufficient to regenerate the poster's displayed numbers; full research objects remain linked in the study.
 
-Edit `index.html` and `poster.css`; preserve the artwork and minimum **32 CSS px / 24 pt** text.
-From this directory, with Node/Playwright, uv, Poppler, Inkscape and `rsvg-convert` available:
+## Retrieve and build
+
+Run from this directory:
 
 ```sh
-uv run --python 3.12 make-logo-qrs.py --check-dir exports/qr-source
-node build-poster.cjs --out-dir exports
-uv run --python 3.12 verify-pdf.py --review-dir exports
-python3 verify-links.py --review-dir exports
+pixi install
+pixi run datalad get ../orinoco-lite/assets/con-logo-outlined.svg \
+  ../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg \
+  ../orinoco-lite/assets/repronim_logo.svg \
+  ../orinoco-lite/assets/orinoco-qr-con.svg assets data figures exports
+pixi run setup-browser
+pixi run build
+pixi run verify
+pixi run links
 ```
 
-Retrieve assets first and unlock annexed outputs before replacing them.
-The QR generator reads shared artwork without rewriting it.
-The supplied scripts pin their Python dependencies; the builder also supports the bundled Codex Playwright runtime.
-Reinspect the PDF after content changes.
+The build uses saved local inputs and makes no requests for live study state.
+`pixi run build` regenerates figures and the outcomes table, then exports the poster.
+Before replacing tracked annexed outputs, run `pixi run git annex unlock assets figures exports/stamped-ai-poster.pdf exports/pdf-preview.png`.
+The local `pixi.lock` is preserved on a separate environment snapshot branch, [`codex/env-stamped-poster-narps-20261015`](https://github.com/con/talks/tree/codex/env-stamped-poster-narps-20261015); it is excluded from poster history.
+For an exact environment replay, retrieve that snapshot's `pixi.lock` into this directory before `pixi install --locked`.
 
-## Snapshot and provenance
+Institutional marks are reused from the ORINOCO Lite poster.
+To change QR destinations, edit `make-logo-qrs.py` and run:
 
-The existing [PDF audit](exports/pdf-audit.json), [link checks](exports/link-audit.json), and [visual review](exports/agent-visual-review.json) apply to the unchanged exported poster: one 44-inch square page, minimum 24 pt text, 17 link annotations and four QR codes decoded from PDF pixels.
-This is agent verification, not author review.
-The PDF SHA-256 is `ff238582851dfcf54a7e3be92c955e99644bd09d5eeed34f2c9c0f4ec969f68d`.
-The [asset reuse check](exports/asset-reuse.json) verifies four shared files, all ten public annex payloads used or uploaded here, and a pixel-identical rebuild after changing the asset paths.
-The existing PDF and preview are retained.
+```sh
+pixi run python make-logo-qrs.py --check-dir exports/qr-source
+```
 
-The [complete source snapshot and execution records](https://github.com/con/talks/tree/1e96d413e43ca048c7f45674ada9d5f316a68b91/2026-usrse/stamped-ai-study) remain preserved separately, including superseded layouts and retrieval reports.
-The QR destinations continue to point to that study's existing branches.
-The three previously missing archival images are now on the annex remote.
-Private transcript payloads remain withheld; two large non-asset logs remain local.
-[source-manifest.json](source-manifest.json) identifies the original artwork and template.
+QR regeneration additionally requires Inkscape and `rsvg-convert`.
+Ordinary poster builds use the supplied QR assets and do not require those tools.
+
+## Refresh the evidence deliberately
+
+The assessment export reads allocation and completed judgments from an existing coordinator checkout without changing it:
+
+```sh
+pixi run python scripts/export-assessments.py \
+  --study /path/to/stamped-in-practice \
+  --out data/assessment-snapshot.json
+```
+
+Review the export's warnings, validity overlays and source bindings before rebuilding.
+A source hash does not by itself establish publication of the original assessment; null source URLs retain that distinction.
+The poster's primary judgments remain separate from duplicate and supplementary reviews.
+STAMPED cells contain met / partial / unmet counts, not an overall score.
+Remaining unavailable, not-checked and not-applicable items remain in the linked export.
+
+The scientific input capture script documents the eight initial worker formats.
+Extend its explicit parsers when adding new runs; do not use zero as a missing result or pool incompatible regional estimands.
+See [completion-plan.md](completion-plan.md) before adding a common-support comparison.
+
+## Verification and provenance
+
+[HTML audit](exports/html-audit.json), [PDF audit](exports/pdf-audit.json), [link audit](exports/link-audit.json) and [visual review](exports/agent-visual-review.json) describe the current export.
+The checks require one 44-inch square page, at least 24-point print text, no layout overflow, clickable PDF links, and all four QR codes decoded from PDF pixels.
+These are agent checks; author review remains part of poster preparation.
+
+The original placeholder and superseded verification reports remain in Git history at [efb1b05](https://github.com/con/talks/tree/efb1b059ffdf70d4e13f40cd5085aff6500e5269/2026-usrse/stamped-ai-study).
+[source-manifest.json](source-manifest.json) records the inherited layout and artwork.
 
 Composition and prose are CC BY-SA 4.0; scripts are Apache-2.0.
-Institutional marks retain their original rights and exceptions in [REUSE.toml](../../REUSE.toml).
+Institutional marks and external scientific inputs retain their own rights, documented in [REUSE.toml](../../REUSE.toml) and the figure provenance.

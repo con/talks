@@ -1,107 +1,298 @@
 {
-  "html_audit_sha256": "2660d3009197f7bb407f086ecd3f4dc6b381826618d8c5039e239105ddccdba0",
-  "checked_at": "2026-10-14T23:27:31.912093+00:00",
+  "html_audit_sha256": "d93d93b6df686dd95ea97264cf99df0b820834661edd4b861af2e3aa6bcd8fea",
+  "checked_at": "2026-10-16T03:51:45.060633+00:00",
   "authentication": "none",
   "results": [
     {
       "url": "https://dev.centerforopenneuroscience.org/",
-      "checked_at": "2026-10-14T23:27:29.382156+00:00",
+      "checked_at": "2026-10-16T03:51:38.087872+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://dev.centerforopenneuroscience.org/",
       "passed": true
     },
     {
-      "url": "https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386",
-      "checked_at": "2026-10-14T23:27:29.382518+00:00",
+      "url": "https://doi.org/10.1038/s41586-020-2314-9",
+      "checked_at": "2026-10-16T03:51:38.088313+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386",
+      "final_url": "https://www.nature.com/articles/s41586-020-2314-9?error=cookies_not_supported&code=cc35ed6d-a124-45ec-b35c-52d546440458",
       "passed": true
     },
     {
-      "url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
-      "checked_at": "2026-10-14T23:27:29.382598+00:00",
+      "url": "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
+      "checked_at": "2026-10-16T03:51:38.088428+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "final_url": "https://openneuro.org/datasets/ds001734/versions/1.0.4",
       "passed": true
     },
     {
-      "url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
-      "checked_at": "2026-10-14T23:27:29.382646+00:00",
+      "url": "https://github.com/con/skills/blob/b86e37ff9115e37541fd47aca73f49e13b5110bb/skills/assess-alignment-with-stamped-principles/SKILL.md",
+      "checked_at": "2026-10-16T03:51:38.088507+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "final_url": "https://github.com/con/skills/blob/b86e37ff9115e37541fd47aca73f49e13b5110bb/skills/assess-alignment-with-stamped-principles/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md",
-      "checked_at": "2026-10-14T23:27:29.648254+00:00",
+      "url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/align-with-stamped-principles/SKILL.md",
+      "checked_at": "2026-10-16T03:51:38.337533+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md",
+      "final_url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/align-with-stamped-principles/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json",
-      "checked_at": "2026-10-14T23:27:30.304170+00:00",
+      "url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/create-stamped-project/SKILL.md",
+      "checked_at": "2026-10-16T03:51:38.710471+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json",
+      "final_url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/create-stamped-project/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json",
-      "checked_at": "2026-10-14T23:27:30.334948+00:00",
+      "url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/do-full-research-loop/SKILL.md",
+      "checked_at": "2026-10-16T03:51:38.820619+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json",
+      "final_url": "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/do-full-research-loop/SKILL.md",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json",
-      "checked_at": "2026-10-14T23:27:30.381742+00:00",
+      "url": "https://github.com/con/skills/commits/codex/pr26-operational-environment/",
+      "checked_at": "2026-10-16T03:51:38.868509+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json",
+      "final_url": "https://github.com/con/skills/commits/codex/pr26-operational-environment/",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json",
-      "checked_at": "2026-10-14T23:27:30.474042+00:00",
+      "url": "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa",
+      "checked_at": "2026-10-16T03:51:39.186536+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json",
+      "final_url": "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json",
-      "checked_at": "2026-10-14T23:27:30.883733+00:00",
+      "url": "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills",
+      "checked_at": "2026-10-16T03:51:39.329673+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json",
+      "final_url": "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
-      "checked_at": "2026-10-14T23:27:30.982886+00:00",
+      "url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
+      "checked_at": "2026-10-16T03:51:39.467334+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "final_url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "passed": true
     },
     {
-      "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design",
-      "checked_at": "2026-10-14T23:27:30.988948+00:00",
+      "url": "https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json",
+      "checked_at": "2026-10-16T03:51:39.700664+00:00",
+      "method": "HEAD",
+      "http_status": 404,
+      "passed": false
+    },
+    {
+      "url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "checked_at": "2026-10-16T03:51:39.744797+00:00",
       "method": "HEAD",
       "http_status": 200,
-      "final_url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design",
+      "final_url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice",
+      "checked_at": "2026-10-16T03:51:39.852570+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8/2026-10-16-assessment.md",
+      "checked_at": "2026-10-16T03:51:40.122696+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8/2026-10-16-assessment.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/report.md",
+      "checked_at": "2026-10-16T03:51:40.267451+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/report.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/results.json",
+      "checked_at": "2026-10-16T03:51:40.286823+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/results.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/scripts/analyze_gain.py",
+      "checked_at": "2026-10-16T03:51:40.354573+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/scripts/analyze_gain.py",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/5a16be31d225574a4643a8feb000ca0a5fa7f7ad/2026-10-16-assessment.md",
+      "checked_at": "2026-10-16T03:51:40.764917+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/5a16be31d225574a4643a8feb000ca0a5fa7f7ad/2026-10-16-assessment.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/sources.json",
+      "checked_at": "2026-10-16T03:51:40.765584+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/sources.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/study-task.md",
+      "checked_at": "2026-10-16T03:51:40.794815+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/study-task.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+      "checked_at": "2026-10-16T03:51:40.837905+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json",
+      "checked_at": "2026-10-16T03:51:41.268301+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73",
+      "checked_at": "2026-10-16T03:51:41.291840+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
+      "checked_at": "2026-10-16T03:51:41.313678+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/32d9cabf7b5d041f9efb97830bf5279068809357",
+      "checked_at": "2026-10-16T03:51:41.318552+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/32d9cabf7b5d041f9efb97830bf5279068809357",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/42e957201315aa8221ba60fbe614119e22639ce8",
+      "checked_at": "2026-10-16T03:51:41.694918+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/42e957201315aa8221ba60fbe614119e22639ce8",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/abf95b00c02fb55d16c4d269926c1428cedc0574",
+      "checked_at": "2026-10-16T03:51:41.700598+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/abf95b00c02fb55d16c4d269926c1428cedc0574",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/d90a335549f43007eac05902859224e6ce2eaada",
+      "checked_at": "2026-10-16T03:51:41.796552+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/d90a335549f43007eac05902859224e6ce2eaada",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/e0a8fb1ae78b457a38ff7102825b1d8bc63119b4",
+      "checked_at": "2026-10-16T03:51:41.802692+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/e0a8fb1ae78b457a38ff7102825b1d8bc63119b4",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/e2d266ea0ca7cc52e9ecab358e0f5a8c9085f6b9",
+      "checked_at": "2026-10-16T03:51:42.149927+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/e2d266ea0ca7cc52e9ecab358e0f5a8c9085f6b9",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/f30190d8144a9e15acfa1c0d973eadf0d655c83c",
+      "checked_at": "2026-10-16T03:51:42.242859+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/f30190d8144a9e15acfa1c0d973eadf0d655c83c",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
+      "checked_at": "2026-10-16T03:51:42.269848+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1",
+      "checked_at": "2026-10-16T03:51:42.279838+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1",
+      "passed": true
+    },
+    {
+      "url": "https://github.com/stamped-principles/stamped-paper",
+      "checked_at": "2026-10-16T03:51:42.651155+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://github.com/stamped-principles/stamped-paper",
+      "passed": true
+    },
+    {
+      "url": "https://neurovault.org/collections/4932/",
+      "checked_at": "2026-10-16T03:51:42.678609+00:00",
+      "method": "HEAD",
+      "http_status": 200,
+      "final_url": "https://neurovault.org/collections/4932/",
       "passed": true
     },
     {
       "url": "https://pbs.dartmouth.edu/",
-      "checked_at": "2026-10-14T23:27:31.002894+00:00",
+      "checked_at": "2026-10-16T03:51:42.678779+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://pbs.dartmouth.edu/",
@@ -109,13 +300,13 @@
     },
     {
       "url": "https://www.repronim.org/",
-      "checked_at": "2026-10-14T23:27:31.309800+00:00",
+      "checked_at": "2026-10-16T03:51:42.843094+00:00",
       "method": "HEAD",
       "http_status": 200,
       "final_url": "https://repronim.org/",
       "passed": true
     }
   ],
-  "all_passed": true,
+  "all_passed": false,
   "scope": "Public destination HTTP availability; annex content integrity is checked separately."
 }

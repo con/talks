@@ -4,7 +4,7 @@
     "height": 4224
   },
   "minimum_text_px": 32,
-  "text_node_count": 156,
+  "text_node_count": 240,
   "small": [],
   "outside": [],
   "regionOverflow": [],
@@ -17,43 +17,65 @@
       "loaded": true,
       "href": "https://dev.centerforopenneuroscience.org/",
       "rect": {
-        "x": 1798.453125,
-        "y": 129.328125,
-        "width": 840,
-        "height": 259.328125
+        "x": 1914.171875,
+        "y": 139.484375,
+        "width": 690,
+        "height": 213.03125
       }
     },
     {
       "src": "assets/stamped-qr-poster.svg",
       "loaded": true,
-      "href": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "href": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
       "rect": {
         "x": 3926.984375,
-        "y": 116.203125,
+        "y": 121.59375,
         "width": 204,
         "height": 204
+      }
+    },
+    {
+      "src": "figures/narps-group-map.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
+      "rect": {
+        "x": 1270.21875,
+        "y": 1420,
+        "width": 1328.609375,
+        "height": 629.84375
+      }
+    },
+    {
+      "src": "figures/narps-analysis-variability.svg",
+      "loaded": true,
+      "href": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+      "rect": {
+        "x": 1270.21875,
+        "y": 2594.6875,
+        "width": 1328.609375,
+        "height": 757.796875
       }
     },
     {
       "src": "assets/stamped-qr-study.svg",
       "loaded": true,
-      "href": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "href": "https://github.com/leej3/stamped-in-practice",
       "rect": {
-        "x": 2548.328125,
-        "y": 2391.609375,
-        "width": 204,
-        "height": 204
+        "x": 3625,
+        "y": 3640.59375,
+        "width": 180,
+        "height": 180
       }
     },
     {
       "src": "assets/stamped-qr-skills.svg",
       "loaded": true,
-      "href": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "href": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "rect": {
-        "x": 3926.984375,
-        "y": 1481.984375,
-        "width": 204,
-        "height": 204
+        "x": 3913,
+        "y": 3640.59375,
+        "width": 180,
+        "height": 180
       }
     },
     {
@@ -61,10 +83,10 @@
       "loaded": true,
       "href": "https://dev.centerforopenneuroscience.org/",
       "rect": {
-        "x": 2332.8125,
-        "y": 3917.578125,
-        "width": 204,
-        "height": 204
+        "x": 2271.203125,
+        "y": 3955.09375,
+        "width": 155,
+        "height": 155
       }
     },
     {
@@ -72,8 +94,8 @@
       "loaded": true,
       "href": "https://pbs.dartmouth.edu/",
       "rect": {
-        "x": 2924.71875,
-        "y": 3968.671875,
+        "x": 2895.078125,
+        "y": 3981.6875,
         "width": 126,
         "height": 136
       }
@@ -83,8 +105,8 @@
       "loaded": true,
       "href": "https://www.repronim.org/",
       "rect": {
-        "x": 3777.625,
-        "y": 3971.96875,
+        "x": 3777.640625,
+        "y": 3984.984375,
         "width": 146,
         "height": 140
       }
@@ -93,286 +115,144 @@
   "qrs": [
     {
       "name": "poster",
-      "url": "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
+      "url": "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
       "rect": {
         "x": 3926.984375,
-        "y": 116.203125,
+        "y": 121.59375,
         "width": 204,
         "height": 204
       }
     },
     {
       "name": "study",
-      "url": "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
+      "url": "https://github.com/leej3/stamped-in-practice",
       "rect": {
-        "x": 2548.328125,
-        "y": 2391.609375,
-        "width": 204,
-        "height": 204
+        "x": 3625,
+        "y": 3640.59375,
+        "width": 180,
+        "height": 180
       }
     },
     {
       "name": "skills",
-      "url": "https://github.com/con/skills/tree/codex/stamped-research-skills",
+      "url": "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
       "rect": {
-        "x": 3926.984375,
-        "y": 1481.984375,
-        "width": 204,
-        "height": 204
+        "x": 3913,
+        "y": 3640.59375,
+        "width": 180,
+        "height": 180
       }
     },
     {
       "name": "con",
       "url": "https://dev.centerforopenneuroscience.org/",
       "rect": {
-        "x": 2332.8125,
-        "y": 3917.578125,
-        "width": 204,
-        "height": 204
+        "x": 2271.203125,
+        "y": 3955.09375,
+        "width": 155,
+        "height": 155
       }
     }
   ],
   "links": [
     "https://dev.centerforopenneuroscience.org/",
-    "https://github.com/con/talks/tree/codex/stamped-usrse-poster/2026-usrse/stamped-ai-study",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/REPORT.md",
-    "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research",
-    "https://github.com/OpenNeuroDatasets/ds000005/tree/b094fc2f41487f92d382a1a432165ae58caae386",
-    "https://github.com/leej3/stamped-ai-research/tree/codex/stamped-poster-study/research/mixed-gambles-design",
-    "https://github.com/con/skills/tree/codex/stamped-research-skills",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-01/assessment.json",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/baseline-evaluation.json",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-02/treatment-evaluation.json",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/baseline-evaluation.json",
-    "https://github.com/leej3/stamped-ai-research/blob/codex/stamped-poster-study/research/mixed-gambles-design/evaluator/stage-03/treatment-evaluation.json",
+    "https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study",
+    "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills",
+    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/do-full-research-loop/SKILL.md",
+    "https://github.com/con/skills/blob/b86e37ff9115e37541fd47aca73f49e13b5110bb/skills/assess-alignment-with-stamped-principles/SKILL.md",
+    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/align-with-stamped-principles/SKILL.md",
+    "https://github.com/con/skills/blob/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa/skills/create-stamped-project/SKILL.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json",
+    "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/sources.json",
+    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/report.md",
+    "https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1",
+    "https://github.com/leej3/stamped-in-practice",
+    "https://github.com/stamped-principles/stamped-paper",
+    "https://doi.org/10.1038/s41586-020-2314-9",
+    "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
+    "https://neurovault.org/collections/4932/",
+    "https://github.com/leej3/stamped-in-practice/blob/c7a135f92f92df15c379f7c2d9231f13981d76e4/input/study-task.md",
+    "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73/results",
+    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/scripts/analyze_gain.py",
+    "https://github.com/leej3/stamped-in-practice/blob/2ad7c466615141d11b81720ff97d61c2d7c23f73/results/results.json",
+    "https://github.com/con/skills/tree/c90252a7b9072a4828e9c0b1fa6e5f48409a9cfa",
+    "https://github.com/leej3/stamped-in-practice/tree/d90a335549f43007eac05902859224e6ce2eaada",
+    "https://github.com/leej3/stamped-in-practice/tree/e0a8fb1ae78b457a38ff7102825b1d8bc63119b4",
+    "https://github.com/leej3/stamped-in-practice/tree/abf95b00c02fb55d16c4d269926c1428cedc0574",
+    "https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json",
+    "https://github.com/leej3/stamped-in-practice/tree/e2d266ea0ca7cc52e9ecab358e0f5a8c9085f6b9",
+    "https://github.com/leej3/stamped-in-practice/tree/32d9cabf7b5d041f9efb97830bf5279068809357",
+    "https://github.com/leej3/stamped-in-practice/tree/f30190d8144a9e15acfa1c0d973eadf0d655c83c",
+    "https://github.com/leej3/stamped-in-practice/tree/42e957201315aa8221ba60fbe614119e22639ce8",
+    "https://github.com/leej3/stamped-in-practice/tree/2ad7c466615141d11b81720ff97d61c2d7c23f73",
+    "https://github.com/leej3/stamped-in-practice/blob/5a16be31d225574a4643a8feb000ca0a5fa7f7ad/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/blob/15e4e2eacc1b19e57eac08292f3d12b4d09ab9f8/2026-10-16-assessment.md",
+    "https://github.com/leej3/stamped-in-practice/tree/main/iterations",
+    "https://github.com/con/skills/commits/codex/pr26-operational-environment/",
+    "https://github.com/con/skills/tree/codex/pr26-operational-environment/skills",
     "https://pbs.dartmouth.edu/",
     "https://www.repronim.org/"
   ],
   "blocks": [
     {
       "element": "SECTION",
-      "class": "property-section",
-      "rect": {
-        "x": 88,
-        "y": 792,
-        "width": 2669.328125,
-        "height": 1507.609375
-      }
-    },
-    {
-      "element": "TABLE",
-      "class": "property-table",
-      "rect": {
-        "x": 88,
-        "y": 1016.609375,
-        "width": 2669.328125,
-        "height": 1174.625
-      }
-    },
-    {
-      "element": "TR",
       "class": "",
       "rect": {
-        "x": 88,
-        "y": 1106.109375,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1254.453125,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1402.796875,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1551.140625,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1699.484375,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1847.828125,
-        "width": 2669.328125,
-        "height": 148.34375
-      }
-    },
-    {
-      "element": "TR",
-      "class": "",
-      "rect": {
-        "x": 88,
-        "y": 1996.171875,
-        "width": 2669.328125,
-        "height": 194.0625
+        "x": 2690.828125,
+        "y": 712,
+        "width": 1445.15625,
+        "height": 452.5
       }
     },
     {
       "element": "SECTION",
-      "class": "stages-section",
+      "class": "results-matrix",
       "rect": {
-        "x": 88,
-        "y": 2351.609375,
-        "width": 2669.328125,
-        "height": 1354.8125
-      }
-    },
-    {
-      "element": "DIV",
-      "class": "section-heading",
-      "rect": {
-        "x": 88,
-        "y": 2391.609375,
-        "width": 2669.328125,
-        "height": 285.59375
-      }
-    },
-    {
-      "element": "FIGURE",
-      "class": "stages-figure",
-      "rect": {
-        "x": 88,
-        "y": 2834.359375,
-        "width": 2669.328125,
-        "height": 390.1875
-      }
-    },
-    {
-      "element": "A",
-      "class": "image-link stage-cards",
-      "rect": {
-        "x": 88,
-        "y": 2834.359375,
-        "width": 2669.328125,
-        "height": 325
+        "x": 2690.828125,
+        "y": 1174.5,
+        "width": 1445.15625,
+        "height": 1740
       }
     },
     {
       "element": "SECTION",
-      "class": "scientific-results",
+      "class": "assessment-key",
       "rect": {
-        "x": 88,
-        "y": 3252.546875,
-        "width": 2669.328125,
-        "height": 317.28125
-      }
-    },
-    {
-      "element": "DIV",
-      "class": "scope-note",
-      "rect": {
-        "x": 88,
-        "y": 3605.828125,
-        "width": 2669.328125,
-        "height": 100.59375
+        "x": 2690.828125,
+        "y": 2944.5,
+        "width": 1445.15625,
+        "height": 331.71875
       }
     },
     {
       "element": "SECTION",
-      "class": "",
+      "class": "ruled revision-section",
       "rect": {
-        "x": 2843.328125,
-        "y": 792,
-        "width": 1292.65625,
-        "height": 610.984375
-      }
-    },
-    {
-      "element": "SECTION",
-      "class": "value-section skills-section",
-      "rect": {
-        "x": 2843.328125,
-        "y": 1446.984375,
-        "width": 1292.65625,
-        "height": 320.59375
-      }
-    },
-    {
-      "element": "SECTION",
-      "class": "measurement-section",
-      "rect": {
-        "x": 2843.328125,
-        "y": 1811.578125,
-        "width": 1292.65625,
-        "height": 346.671875
-      }
-    },
-    {
-      "element": "SECTION",
-      "class": "result-box",
-      "rect": {
-        "x": 2843.328125,
-        "y": 2202.25,
-        "width": 1292.65625,
-        "height": 948.953125
-      }
-    },
-    {
-      "element": "SECTION",
-      "class": "failure-summary",
-      "rect": {
-        "x": 2843.328125,
-        "y": 3195.203125,
-        "width": 1292.65625,
-        "height": 235.921875
-      }
-    },
-    {
-      "element": "SECTION",
-      "class": "callout",
-      "rect": {
-        "x": 2843.328125,
-        "y": 3440.75,
-        "width": 1292.65625,
-        "height": 409.25
+        "x": 2690.828125,
+        "y": 3306.21875,
+        "width": 1445.15625,
+        "height": 261.15625
       }
     }
   ],
   "browser": "151.0.7922.34",
-  "created_utc": "2026-10-15T00:24:51.520Z",
+  "created_utc": "2026-10-16T03:53:32.322Z",
   "source_sha256": {
-    "index.html": "527f2eaca6e412d66d56969d8bc105efa3336f46fd1a2b4653c66f6a8d66f171",
+    "index.html": "e1d36d6ace870af797b0e749c1e524cc0fc1295ad22fa5a8b1739738feade758",
     "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
-    "poster.css": "878332525bbaa508869b86c74fba4ca69248dea42f65c2f9e7683ca69dc397b4",
-    "build-poster.cjs": "113e2fc4ecff9d73acb94c7e3faa478944a81f3802b5ad33502f98b99eebe13a",
+    "poster.css": "4e890983412328ea10245eed3edbde7509b3a6d9b63157c27a708ddb177ccff4",
+    "build-poster.cjs": "37b4c7643adeeba6630fb42de1a6a986e0f12420f8b5bc733d5eee7014d4f086",
     "verify-pdf.py": "e0375281137d158da636f5faf8c3eb40d0bfbacdac848400157c181f2e0c479c",
     "verify-links.py": "d7d8139a9c7bdc95deb2300eb97c9b5cf3ec20434e5a67ace59b09ab8d9c4e4c",
-    "make-logo-qrs.py": "c73a0d7b5468ed5b1a16424ac475fac0bf834ef129318abcb54e515d4179d47f",
-    "source-manifest.json": "113a23cd2d05214fb3aad567a47498ea64684e3fba627495c02c75c82dfc15d9",
-    "update-results.py": "7e6db439ac299178942cfc104930529e22a23d5e4d69f731dda914a4f17626cc",
-    "results-data.json": "24d7e20bfe07ade368ffb13b1267e840e4ef833df75d5fee6fd61da7e2406ab9"
+    "make-logo-qrs.py": "7d7b2cd508a25f0e15d7674caee7061aaacf6d5eb32d9371df8433f94c42257c",
+    "source-manifest.json": "4690c150b8f52f8311d4dbb83caceea4abeb753513b104c9dc9ca33c8a90f3ea",
+    "update-results.py": "434b10418ad12985c75c9758d99a5b753fab084a5576183d197530788cda2bea",
+    "data/assessment-snapshot.json": "462f1c3cd91b93c50a7a296b3360915968e6881b90c8d75c7d2becb76dae4688",
+    "figures/narps-figure-manifest.json": "6c60b03e457464bda8ac4b3d0559bf9eec0260ffd851b627ef0ee174fd0a0f6b",
+    "scripts/render-narps-figures.py": "5c5e184cd423cabf020ec6936d8bbaf3141573786c5ed7b0f7d1ab68af9446d1",
+    "pixi.toml": "5add8575728f46c680d9b1ee1a3182176ef9adb2b584c143d8a5bffcc93f2bfe",
+    "package-lock.json": "c4a27d1390a90be1fed6dd2c6f713f8b9ecfb49f5721656de4db136af2307cdc"
   },
   "errors": []
 }
