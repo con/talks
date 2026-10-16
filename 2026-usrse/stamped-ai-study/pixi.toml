@@ -6,11 +6,6 @@ platforms = [{ platform = "osx-arm64", macos = "14.0" }, "linux-64"]
 
 [dependencies]
 python = ">=3.12,<3.14"
-numpy = ">=2,<3"
-scipy = ">=1.15,<2"
-matplotlib-base = ">=3.10,<4"
-nibabel = ">=5.3,<6"
-nilearn = ">=0.14,<0.15"
 pillow = ">=11,<13"
 pypdf = ">=6,<7"
 qrcode = ">=8,<9"
@@ -26,10 +21,7 @@ git-annex = "*"
 
 [tasks]
 setup-browser = "npm ci && npx playwright install chromium"
-group-map = "python scripts/render-narps-figures.py"
-spatial-map = "python scripts/render-narps-spatial.py"
-figures = { depends-on = ["group-map", "spatial-map"] }
-table = "python update-results.py"
-build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures", "table"] }
+figures = "python scripts/import-benchmark-figures.py"
+build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures"] }
 verify = "python verify-pdf.py --review-dir exports"
 links = "python verify-links.py --review-dir exports"

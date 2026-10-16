@@ -27,8 +27,14 @@
           <a class="qr-badge" data-qr="poster" href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"><img src="assets/stamped-qr-poster.svg" alt="QR code for this poster, figures and source">Poster + code</a>
         </div>
       </header>
-      <section class="principles-band" aria-label="STAMPED principles">
-        <h2><a href="https://github.com/stamped-principles/stamped-paper">STAMPED</a>: principles for reproducible research</h2>
+      <section class="lead" aria-label="Experiment and rationale">
+        <p><strong>Our experiment:</strong> iteratively improve <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">STAMPED research skills</a> by validating the scientific results and research objects they produce.</p>
+        <p class="pitch"><strong>Make the improvement process inspectable.</strong><span>Link the skills, data, runs, assessments and revisions, so others can evaluate both the science and how the guidance evolved.</span></p>
+      </section>
+      <div class="columns">
+        <div class="method-column">
+          <section class="principles-section">
+            <p class="section-label">01 · STAMPED</p><h2>The seven principles</h2>
         <dl class="principles-grid">
           <div><dt>Self-contained</dt><dd>Reach all essential components from one project root.</dd></div>
           <div><dt>Tracked</dt><dd>Record which versions produced each result.</dd></div>
@@ -38,12 +44,10 @@
           <div><dt>Ephemeral</dt><dd>Use a disposable environment for each execution.</dd></div>
           <div><dt>Distributable</dt><dd>Preserve retrievable components and rebuildable environments.</dd></div>
         </dl>
-      </section>
-      <div class="columns">
-        <div class="method-column">
+          </section>
           <section>
-            <p class="section-label">01 · Experiment</p><h2>Improve the skills<br>by testing their results</h2>
-            <p class="experiment-statement">We wished to iteratively improve <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">skills for STAMPED research</a> by validating the scientific results and research objects they produced.</p>
+            <p class="section-label">The experiment</p><h2>Test the skills<br>through the work</h2>
+
             <p>Do successive revisions improve scientific adequacy, reproducibility and consistency?</p>
             <ol class="loop">
               <li><b><a href="https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/do-full-research-loop/SKILL.md">Run</a></b><span>Fresh agents address the same scientific question.</span></li>
@@ -52,16 +56,6 @@
               <li><b><a href="https://github.com/con/skills/blob/codex/pr26-operational-environment/skills/create-stamped-project/SKILL.md">Repeat</a></b><span>Test the next pinned revision with fresh agents.</span></li>
             </ol>
             <p>Three iterations of testing and revision. In the final iteration, evaluate without further tuning.</p>
-          </section>
-          <section class="ruled evidence-section">
-            <p class="section-label">The study is itself a research object</p><h3>Follow any result back to its source</h3>
-            <div class="evidence-chain">
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json">Versioned inputs</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md">Code + execution records + results</a><span>↓</span>
-              <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations/narps-v1">Assessments + reasons for revisions</a>
-            </div>
-            <p><a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a> links the skills, data, runs, assessments and revisions—including unsuccessful attempts.</p><p>This lets others assess both the scientific results and the process of improving the skills. Ideas for better guidance become testable when we can trace the data generated along the way.</p>
           </section>
           <section class="ruled skills-section"><h3>Put the principles to work</h3><p>The <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">skills</a> guide project creation, analysis, assessment and improvement. They make STAMPED actionable guidance for an agent.</p><p>Use the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to examine your own research object, then follow the evidence behind each answer.</p></section>
         </div>
@@ -83,55 +77,42 @@
           <section class="variability-section ruled">
             <h3>Where do repeated analyses agree?</h3>
             <figure>
-              <a class="image-link" href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study"><img class="variability-figure" src="figures/narps-spatial-agreement.svg" alt="Spatial agreement of corrected positive findings across three runs in each assistance condition"></a>
-              <figcaption><strong>Group statistics agree; correction choices change detected extent.</strong> Iteration 1: colour shows how many of three runs detected corrected positive signal on shared coverage. Runs 01–02 use Bonferroni; the others use permutation max-T. <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/scripts/render-narps-spatial.py">Figure code</a> · <a href="https://github.com/con/talks/tree/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/narps-spatial">Map inputs</a></figcaption>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/figures"><img class="variability-figure" src="figures/narps-spatial-agreement.svg" alt="Spatial agreement of corrected positive findings across three runs in each assistance condition"></a>
+              <figcaption><strong>Group statistics agree; correction choices change detected extent.</strong> Colour shows how many of three runs detected corrected positive signal on shared coverage. Runs 01–02 use Bonferroni; the others use permutation max-T. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial">Map inputs</a></figcaption>
             </figure>
 
           </section>
         </div>
         <aside class="outcomes">
           <section>
-            <p class="section-label">03 · Skills-development results</p><h2>Check every run,<br>then compare revisions</h2>
-            <p>At each revision, three runs receive each instruction: no supplied skills, find useful skills, find skills for scientific quality and reproducibility, or use <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">STAMPED skills</a>.</p><p class="small">Matched task, inputs and resources; randomized launch order. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/iterations/narps-v1/procedure.json">Run settings</a></p>
-            <p class="small">Assess scientific adequacy, replay and <a href="https://checklist.stamped-principles.org/">STAMPED</a> separately. “—” marks an open result; “NA” an unavailable measurement.</p>
+            <p class="section-label">03 · Skills-development results</p><h2>Compare assistance<br>across retained runs</h2>
+            <p>Agents receive one instruction: no supplied skills, find useful skills, find skills for scientific quality and reproducibility, or use <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">STAMPED skills</a>.</p>
+            <p class="small">Pool retained iterations by condition, giving each research run equal weight. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Run-level evidence</a></p>
           </section>
           <section class="results-matrix">
-            <!-- ARM_RESULTS_START -->
-<table class="outcome-table"><colgroup><col><col><col><col><col></colgroup>
-<thead><tr><th>Instruction</th><th>Run</th><th>Science</th><th>Replay</th><th>STAMPED<br>met / partial / unmet</th></tr></thead><tbody>
-<tr class="iteration"><th colspan="5">Iteration 1 · <a href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills">skill revision c90252a</a></th></tr>
-<tr><th class="condition-cell" rowspan="3">No supplied skills</th><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-01" title="narps-r1-01">01</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-01-judge-01-output/2026-10-16-assessment.md">Q</a></td><td>~</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-01-judge-01-output/2026-10-16-response.json">9/8/13</a></td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-02" title="narps-r1-02">02</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-02-judge-01-output/2026-10-16-assessment.md">Q*</a></td><td>NA</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-02-judge-01-output/2026-10-16-response.json">11/6/12</a></td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-03" title="narps-r1-03">03</a></th><td>—</td><td>—</td><td>—</td></tr>
-<tr><th class="condition-cell" rowspan="3">Find useful skills</th><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-04" title="narps-r1-04">04</a></th><td>—</td><td>—</td><td>—</td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-05" title="narps-r1-05">05</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-05-judge-01-output/2026-10-16-assessment.md">Q*</a></td><td>NA</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-05-judge-01-output/2026-10-16-response.json">11/10/7</a></td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-06" title="narps-r1-06">06</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-06-judge-01-output/2026-10-16-assessment.md">Q*</a></td><td>NA</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-06-judge-01-output/2026-10-16-response.json">15/4/10</a></td></tr>
-<tr><th class="condition-cell" rowspan="3">Find research skills</th><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-07" title="narps-r1-07">07</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-07-judge-01-output/2026-10-16-assessment.md">Q*</a></td><td>NA</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-07-judge-01-output/2026-10-16-response.json">10/8/10</a></td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-08" title="narps-r1-08">08</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-08-judge-01-output/2026-10-16-assessment.md">N*</a></td><td>NA</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-08-judge-01-output/2026-10-16-response.json">15/5/7</a></td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09" title="narps-r1-09">09</a></th><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09-judge-01-output/2026-10-16-assessment.md">S</a></td><td>~</td><td><a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09-judge-01-output/2026-10-16-response.json">13/6/10</a></td></tr>
-<tr><th class="condition-cell" rowspan="3">Use STAMPED skills</th><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-10" title="narps-r1-10">10</a></th><td>—</td><td>—</td><td>—</td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-11" title="narps-r1-11">11</a></th><td>—</td><td>—</td><td>—</td></tr>
-<tr><th class="run-cell"><a href="https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-12" title="narps-r1-12">12</a></th><td>—</td><td>—</td><td>—</td></tr>
-<tr class="iteration"><th colspan="5">Iteration 2</th></tr>
-<tr class="reserved"><th class="condition-cell">No supplied skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-01">01</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-02">02</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-03">03</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Find useful skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-04">04</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-05">05</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-06">06</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Find research skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-07">07</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-08">08</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-09">09</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Use STAMPED skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-10">10</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-11">11</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r2-12">12</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="iteration"><th colspan="5">Iteration 3 · final evaluation</th></tr>
-<tr class="reserved"><th class="condition-cell">No supplied skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-01">01</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-02">02</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-03">03</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Find useful skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-04">04</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-05">05</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-06">06</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Find research skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-07">07</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-08">08</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-09">09</a></td><td>—</td><td>—</td><td>—</td></tr>
-<tr class="reserved"><th class="condition-cell">Use STAMPED skills</th><td class="run-cell"><a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-10">10</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-11">11</a> · <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json" title="narps-r3-12">12</a></td><td>—</td><td>—</td><td>—</td></tr>
-</tbody></table>
-<!-- ARM_RESULTS_END -->
+            <table class="outcome-table">
+              <colgroup><col><col><col><col><col></colgroup>
+              <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>STAMPED<br>mean met %</th></tr></thead>
+              <tbody>
+                <tr><th>No supplied skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><th>Find useful skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><th>Find research skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><th>Use STAMPED skills</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table>
+            <p class="small summary-key"><strong>Science and replay:</strong> proportions in each outcome category, with available n. <strong>STAMPED:</strong> mean proportion of applicable checklist items met, with partial and unmet profiles in the linked evidence.</p>
           </section>
-          <section class="assessment-key">
-            <p><strong>Science:</strong> S supported · Q qualified · N not supported · U unable to assess. These judge the reported conclusion. *Replay-dependent uncertainty; see linked evidence.</p>
-            <p><strong>STAMPED:</strong> met / partial / unmet item counts. Remaining not-checked, not-applicable and unavailable items are retained with the <a href="https://github.com/con/talks/blob/codex/stamped-example-poster/2026-usrse/stamped-ai-study/data/assessment-snapshot.json">item-level evidence</a>.</p>
-            <p><strong>Replay:</strong> P passed · ~ partial · F failed · U unchecked. The <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">assessment plan</a> also records retrieval, interventions and worker effort.</p>
+          <section class="ruled evidence-section">
+            <p class="section-label">The study is itself a research object</p><h3>Follow any result back to its source</h3>
+            <div class="evidence-chain">
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/sources.json">Versioned inputs</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-v1/procedure.json">Task + skill revision + environment</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/codex/narps-r1-09/results/report.md">Code + execution records + results</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/tree/codex/iteration-narps-v1">Assessments + reasons for revisions</a>
+            </div>
+            <p><a href="https://github.com/leej3/stamped-in-practice">stamped-in-practice</a> links the skills, data, runs, assessments and revisions—including unsuccessful attempts.</p><p>This lets others assess both the scientific results and the process of improving the skills. Ideas for better guidance become testable when we can trace the data generated along the way.</p>
           </section>
-          <section class="ruled revision-section"><h3>Connect each revision to its next test</h3><p class="small">1 → 2: [failure → change → outcome]<br>2 → final: [change → independent retest]<br><a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Iteration records</a> · <a href="https://github.com/con/skills/commits/codex/pr26-operational-environment/">Skill history</a></p></section>
-
+          <section class="ruled revision-section"><h3>Link each revision to evidence</h3><p>Observed failure → skill change → subsequent test.</p><p class="small"><a href="https://github.com/leej3/stamped-in-practice/tree/main/iterations">Iteration records</a> · <a href="https://github.com/con/skills/commits/codex/pr26-operational-environment/">Skill history</a></p></section>
         </aside>
       </div>
       <section class="invitation">
@@ -140,7 +121,7 @@
         <a class="qr-badge" data-qr="skills" href="https://github.com/con/skills/tree/codex/pr26-operational-environment/skills"><img src="assets/stamped-qr-skills.svg" alt="QR code for reusable STAMPED research skills">Use the skills</a>
       </section>
       <footer class="footer">
-        <div><p><strong>A reproducible study of reproducibility.</strong> Source, figure inputs, run-level evidence and the completion plan accompany this editable poster.</p><p class="thanks">OpenAI Codex assisted analysis and poster preparation.</p></div>
+        <div><p><strong>A reproducible study of reproducibility.</strong> Source, figure inputs and run-level evidence are linked from the study.</p><p class="thanks">OpenAI Codex assisted analysis and poster preparation.</p></div>
         <div class="partners"><a class="qr-badge con-footer" data-qr="con" href="https://dev.centerforopenneuroscience.org/"><img src="../orinoco-lite/assets/orinoco-qr-con.svg" alt="QR code for the Center for Open Neuroscience">Explore CON</a><div class="partner-affiliation"><a href="https://pbs.dartmouth.edu/"><img class="dartmouth" src="../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"></a><a href="https://pbs.dartmouth.edu/"><strong>Dartmouth College</strong>Psychological and<br>Brain Sciences</a></div><a class="repronim-support" href="https://www.repronim.org/"><img class="repronim" src="../orinoco-lite/assets/repronim_logo.svg" alt="ReproNim"><span>Supported by<br>ReproNim</span></a></div>
       </footer>
     </main>

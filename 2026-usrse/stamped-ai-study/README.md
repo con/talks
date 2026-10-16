@@ -1,26 +1,22 @@
 # STAMPED in Practice poster
 
 An editable **44 × 44 inch** poster about improving STAMPED research skills through the scientific work they produce.
-It replaces the earlier behavioral example with the NARPS group-analysis study and presents the intended completed argument, with real example results and open slots for the remaining runs and revisions.
+The blue banner states the experiment; the left column introduces STAMPED, the centre shows the NARPS scientific example, and the right connects condition-level outcomes to the study's research objects.
 
-Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or retrieve [the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s892882--8fb66a8397e55c022c41a884750c0dd5.pdf).
-The [completion plan](completion-plan.md) identifies the evidence needed to finish the poster and changes to data collection that can support it.
-No research workers or study protocols are changed by this poster module.
+Open [index.html](index.html), inspect the [PDF preview](exports/pdf-preview.png), or retrieve [the PDF](https://hub.centerforopenneuroscience.org/git-annex-p2phttp/git-annex/40d344f5-0628-494e-82e4-9fab0949ed12/key/MD5E-s838462--d8ef321e58eda856e01de66965ab01d9.pdf).
+The [completion plan](completion-plan.md) identifies the evidence needed to fill the pooled comparison and guide subsequent data collection.
 
-## What is reproducible here
+## Scientific figures belong to the benchmark
 
-- Scientific figures: saved worker summaries and group maps, input hashes, source revisions and plotting code.
-- Outcomes matrix: all three allocated iterations and four conditions, generated from a saved assessment export; open cells remain missing observations.
-- Poster: local HTML/CSS, reusable institutional artwork, branded QR generation, a Pixi environment, a pinned browser dependency and PDF/layout checks.
+The [benchmark figure workflow](https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/POSTER-FIGURES.md) contains the scientific generators, frozen inputs, root Pixi environment, derived results and provenance.
+This poster retains display copies and a [source binding](figures/benchmark-source.json), including the exact benchmark revision and SHA-256 values.
+Reader-facing links open named branches; exact revisions remain in the provenance.
 
-The scientific panel illustrates [run 09](https://github.com/leej3/stamped-in-practice/tree/codex/narps-r1-09), conditional on the supplied AO86 maps.
-The spatial comparison shows corrected-positive agreement across all twelve first-iteration runs, three per condition, on shared coverage.
+The group map illustrates development run 09, conditional on the supplied AO86 participant maps.
+The spatial comparison includes twelve development runs, three per condition, on shared coverage.
 Group t maps agree to numerical precision; native correction choices account for the displayed difference in positive extent.
-Illustrative-map provenance is in [data/narps-2026-10-15/provenance.json](data/narps-2026-10-15/provenance.json).
-Spatial source identities, coverage rules and display choices are in [data/narps-spatial/provenance.json](data/narps-spatial/provenance.json); [derived-summary.json](data/narps-spatial/derived-summary.json) contains the regenerated measurements.
-The [assessment data](data/assessment-snapshot.json) retain raw statuses, external validity overrides, missingness, source hashes and separate supplementary judgments.
-The exported records are sufficient to regenerate the poster's displayed numbers; full research objects remain linked in the study.
-Reader-facing links open named branches; exact source revisions and hashes remain in the provenance records.
+These development examples remain useful while the compact outcomes table reserves space for eligible benchmark iterations pooled by condition.
+No comparison averages have been inserted yet.
 
 ## Retrieve and build
 
@@ -31,71 +27,38 @@ pixi install
 pixi run datalad get ../orinoco-lite/assets/con-logo-outlined.svg \
   ../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg \
   ../orinoco-lite/assets/repronim_logo.svg \
-  ../orinoco-lite/assets/orinoco-qr-con.svg assets data figures exports
+  ../orinoco-lite/assets/orinoco-qr-con.svg assets figures exports
 pixi run setup-browser
 pixi run build
 pixi run verify
 pixi run links
 ```
 
-The build uses saved local inputs and makes no requests for live study state.
-`pixi run build` regenerates figures and the outcomes table, then exports the poster.
-Before replacing tracked annexed outputs, run `pixi run git annex unlock assets figures exports/stamped-ai-poster.pdf exports/pdf-preview.png`.
-The local `pixi.lock` is preserved on a separate environment snapshot branch, [`codex/env-stamped-poster-spatial-20261016`](https://github.com/con/talks/tree/codex/env-stamped-poster-spatial-20261016); it is excluded from poster history.
-For an exact environment replay, retrieve that snapshot's `pixi.lock` into this directory before `pixi install --locked`.
+`pixi run build` verifies the scientific display copies against their binding, then exports the local HTML/CSS poster. It does not regenerate scientific analyses or request live study data. Before replacing annexed exports, run `pixi run git annex unlock exports/stamped-ai-poster.pdf exports/pdf-preview.png`. The exact validated `pixi.lock` is preserved separately on [`codex/env-stamped-poster-contained-20261016`](https://github.com/con/talks/tree/codex/env-stamped-poster-contained-20261016). For an exact environment replay, retrieve its `2026-usrse/stamped-ai-study/pixi.lock` here before `pixi install --locked`.
+
+To import a new committed benchmark export:
+
+```sh
+pixi run git annex unlock figures
+pixi run python scripts/import-benchmark-figures.py --benchmark /path/to/stamped-in-practice
+pixi run build
+```
+
+The importer checks every source recorded in the benchmark export manifest and requires those files to match its committed revision.
+Scientific regeneration and input refresh happen through the benchmark's documented root tasks.
+The historical poster-side scientific pipeline remains in Git history; it is no longer a second source of truth.
 
 Institutional marks are reused from the ORINOCO Lite poster.
-To change QR destinations, edit `make-logo-qrs.py` and run:
-
-```sh
-pixi run python make-logo-qrs.py --check-dir exports/qr-source
-```
-
-QR regeneration additionally requires Inkscape and `rsvg-convert`.
-Ordinary poster builds use the supplied QR assets and do not require those tools.
-
-## Refresh the evidence deliberately
-
-The assessment export reads allocation and completed judgments from an existing coordinator checkout without changing it:
-
-```sh
-pixi run python scripts/export-assessments.py \
-  --study /path/to/stamped-in-practice \
-  --out data/assessment-snapshot.json
-```
-
-Review the export's warnings, validity overlays and source bindings before rebuilding.
-A source hash does not by itself establish publication of the original assessment; null source URLs retain that distinction.
-The poster's primary judgments remain separate from duplicate and supplementary reviews.
-STAMPED cells contain met / partial / unmet counts, not an overall score.
-Remaining unavailable, not-checked and not-applicable items remain in the linked export.
-
-The original input capture script preserves the illustrative analysis and its initial source summaries.
-The spatial extraction separately records all twelve native masks, t maps and corrected-positive maps.
-Do not use zero as a missing result or pool incompatible regional estimands.
-See [completion-plan.md](completion-plan.md) before extending the spatial comparison to later iterations.
-
-To refresh spatial inputs from completed worker checkouts and their recorded assignments:
-
-```sh
-pixi run python scripts/extract-narps-spatial.py \
-  --workers-root /path/to/stamped-in-practice-workers/codex \
-  --capture-root /path/to/narps-v1
-pixi run spatial-map
-```
-
-The compact NPZ preserves all twelve native support masks and corrected-positive maps, together with losslessly deduplicated t values on shared support and anatomical context.
-Extraction checks participant-map identities, source cleanliness, native geometry, correction semantics, assignment and published result counts.
-The renderer verifies the frozen input hash and recomputes both agreement maps and the numerical summary offline.
+To change QR destinations, edit `make-logo-qrs.py` and run `pixi run python make-logo-qrs.py --check-dir exports/qr-source`.
+QR regeneration additionally requires Inkscape and `rsvg-convert`; ordinary builds use the supplied QR assets.
 
 ## Verification and provenance
 
-[HTML audit](exports/html-audit.json), [PDF audit](exports/pdf-audit.json), [link audit](exports/link-audit.json) and [visual review](exports/agent-visual-review.json) describe the current export.
-The checks require one 44-inch square page, at least 24-point print text, no layout overflow, clickable PDF links, and all four QR codes decoded from PDF pixels.
+[HTML audit](exports/html-audit.json), [PDF audit](exports/pdf-audit.json), [link audit](exports/link-audit.json), [retrieval audit](exports/retrieval-audit.json) and [visual review](exports/agent-visual-review.json) describe the current export.
+Checks require one 44-inch square page, at least 24-point print text, no layout overflow, clickable PDF links, and four QR codes decoded from PDF pixels.
 These are agent checks; author review remains part of poster preparation.
 
-Earlier designs and verification reports remain in the [poster history](https://github.com/con/talks/commits/codex/stamped-example-poster/2026-usrse/stamped-ai-study).
+Earlier designs remain in the [poster history](https://github.com/con/talks/commits/codex/stamped-example-poster/2026-usrse/stamped-ai-study).
 [source-manifest.json](source-manifest.json) records the inherited layout and artwork.
-
 Composition and prose are CC BY-SA 4.0; scripts are Apache-2.0.
-Institutional marks and external scientific inputs retain their own rights, documented in [REUSE.toml](../../REUSE.toml) and the figure provenance.
+Institutional marks and external scientific inputs retain their own rights, documented in [REUSE.toml](../../REUSE.toml) and the benchmark provenance.
