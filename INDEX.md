@@ -12,45 +12,14 @@ This matches reveal.js's URL-fragment numbering: `#/<n-1>/<m-1>`.
 
 ## Chronology
 
-When each talk or poster was presented (or is scheduled), newest first.
-**`tools/create_index.sh` builds `index.html` from this table** — its
-order, years, titles and *poster* tags — so add a row for every new deck
-or poster. `Date` is `YYYY-MM-DD`, or `YYYY-MM` where the exact day is
-not recorded; `Date from` says where the date came from (git dates are
-only a proxy for when it was presented). In `Entry`, the first path is
-the link and an optional second one is a print PDF. Older talks that
-live in their own repositories are DataLad subdatasets named
-`<YYYY>-<venue>-<topic>/`, linked by their `index.html`. Rows whose title
-starts with `[WiP]` are not listed. `2026-mcgill-mechababs/slides.html`
-(2026-08-11) is left out because its annexed content is not published.
-
-| Date       | Kind   | Entry                                                      | Title                                                                                                 | Date from                                                                                                          |
-| ---------- | ------ | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| 2026-10-19 | talk   | `2026-usrse-con-talk.html`                                 | [WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON | US-RSE'26 program (Monday)                                                                                         |
-| 2026-10-19 | poster | `2026-usrse/duct-poster.html` `2026-usrse/duct-poster.pdf` | Agent-friendly Provenance Capture with con-duct (US-RSE'26)                                           | US-RSE'26 first day (Oct 19–21); poster session day not in the program                                             |
-| 2026-10-19 | poster | `2026-usrse/orinoco-lite_poster.html`                      | Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations (US-RSE'26)        | US-RSE'26 first day (Oct 19–21); poster session day not in the program                                             |
-| 2026-10-16 | talk   | `2026-reproAI-MIT-STAMPED.html`                            | STAMPED principles and their role in the age of AI-driven scientific software development             | title slide                                                                                                        |
-| 2026-10-09 | talk   | `2026-dhmc-ieeg.html`                                      | Open Neuroscience Infrastructure for Intracranial EEG                                                 | title slide                                                                                                        |
-| 2026-06-02 | talk   | `2026-nih-bids2.0.html`                                    | BIDS 2.0                                                                                              | title slide                                                                                                        |
-| 2026-06    | talk   | `2026-brainhack-containers-mashup.html`                    | Containers: BrainHack 2026 Mashup                                                                     | git: added 2026-06-11                                                                                              |
-| 2026-03-11 | talk   | `2026-bbqs-stamped.pdf`                                    | Guidelines for Reproducible Research (BBQS, 2026)                                                     | `2026-bbqs-stamped/README.md`                                                                                      |
-| 2026-02-06 | talk   | `2026-repronim-YODA-BIDS-webinar.html`                     | ReproFlow & YODA: Structure your studies, observable and reproducible they become                     | title slide                                                                                                        |
-| 2026-02    | talk   | `2026-ca-origami-retreat-aicoding.html`                    | A few words of intro into AI assisted coding                                                          | git: added 2026-02-24                                                                                              |
-| 2025-11    | poster | `2025-sfn-poster-data-standards.pdf`                       | The Ecosystem of Standards in Neuroscience: Which Ones Are For You? (SfN 2025)                        | SfN 2025 (Nov); Zenodo record 2025-11-11                                                                           |
-| 2025-10    | talk   | `2025-distribits-YODA.html`                                | Pragmatic YODA: overview of YODA principles and their wild life encounters                            | distribits 2025 (Oct); git: added 2025-10-21                                                                       |
-| 2025-02    | talk   | `2025-ca-origami-retreat.html`                             | A challenge on the way to Neuroscience Nirvana                                                        | git: added 2025-02-27                                                                                              |
-| 2024-08    | talk   | `2024-distribits-datalad-name.html`                        | "What's in the DataLad name" AKA How come DataLad?                                                    | git: added 2024-08-14 (INDEX says distribits 2024, which was in April -- unverified)                               |
-| 2024-06    | talk   | `2024-repronim-reproflow-webinar/index.html`               | SciOps from ReproNim                                                                                  | git: subdataset, last commit 2024-06-07 (its README says December 2024, apparently carried over from the 2020 one) |
-| 2024-04    | talk   | `2024-distribits-datalad.html`                             | "What's in the DataLad sandwich" AKA DataLad "ecosystem"                                              | distribits 2024 (Apr); git: 2024-03-29..04-03                                                                      |
-| 2024-04    | talk   | `202404xx-NSF-POSE-BIDS.pdf`                               | The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience (NSF POSE, 2024) | filename                                                                                                           |
-| 2023-06    | talk   | `2023-brain-dandi.html`                                    | DANDI: distributed archives for neurophysiology data integration                                      | git: 2023-06-27..29                                                                                                |
-| 2023-06    | talk   | `2023-brain-dandi-imgdatasrc.html`                         | DANDI: distributed archives for neurophysiology data integration                                      | git: 2023-06-29                                                                                                    |
-| 2023-06    | talk   | `2023-bids-dicom.html`                                     | BIDS 4 DICOM WG-16                                                                                    | git: added 2023-06-14                                                                                              |
-| 2023-04    | talk   | `2023-lbl-building-dandi.html`                             | Building an Archive for Large-scale Neuroscience Data                                                 | git: 2023-04-09..10                                                                                                |
-| 2022-10    | poster | `posters/crcns-2022-dataland.pdf`                          | DataLad: The Ecosystem for Everyone (CRCNS 2022)                                                      | git: 2022-10-26                                                                                                    |
-| 2022-09    | talk   | `2022-tx-big-neuroscience.html`                            | Towards the Big Data Neuroscience Nirvana                                                             | git: 2022-09-15..16                                                                                                |
-| 2022-09    | talk   | `2022-nih-compcore.html`                                   | An Integrated and Trusted Scientific and Statistical Computing Core                                   | git: 2022-09-12                                                                                                    |
-| 2020-12    | talk   | `2020-repronim-reprocomp-webinar/index.html`               | Reproducible Execution of Data Collection/Processing                                                  | subdataset README (December 2020); git: last commit 2020-12-04                                                     |
+When each talk or poster was presented, who gave it and where, now lives
+in the CON record store, not here: one `XYZPublication` record per talk
+(`bibo:Slideshow`) or poster (`fabio:ConferencePoster`) under
+`sourcedata/con-site-specific/metadata/records/XYZPublication/`, each date
+backed by evidence under `sources/curation-evidence/XYZPublication/`.
+`tools/mk_index.py` generates `index.html` and `talks.yaml` (the same list
+as data, newest first) from those records — read `talks.yaml` for the
+chronology. A deck whose `<title>` starts with `[WiP]` is not listed.
 
 ## Per-talk inventory
 
@@ -610,8 +579,8 @@ Cross-references in the per-topic lookup point at the shelved path
 ## Posters
 
 Posters are not reveal.js decks and have no slide IDs. HTML posters
-live in their venue directory; list each one in the *Chronology* table
-above (kind `poster`) so it appears on `index.html`.
+live in their venue directory; each needs a record (kind
+`fabio:ConferencePoster`, see *Chronology* above) to appear on `index.html`.
 
 ### `2026-usrse/duct-poster.html` — *Agent-friendly Provenance Capture with `con-duct`*
 - **Venue / date**: US-RSE'26 poster session, 2026-10. Presenters:
@@ -1072,7 +1041,7 @@ Reach for these before writing anything per-talk:
 | `tools/mkqrcode_con`         | Thin wrapper: `mkqrcode.py` with the CON logo and `-c H` error correction — **the branded variant**                                                                                                                        |
 | `tools/qrcode_url.sh`        | URL → QR shortcut                                                                                                                                                                                                          |
 | `tools/mkpdf.py`             | Headless reveal.js → PDF for **any** deck (Playwright; page size from each deck's own reveal config). Third option next to `README.md`'s manual `?print-pdf` and decktape-in-Docker routes. Derived PDFs are not committed |
-| `tools/create_index.sh`      | Regenerates `index.html` from the *Chronology* table in `INDEX.md`; warns about root `20*.html`/`20*.pdf` missing from it                                                                                                   |
+| `tools/mk_index.py`          | Generates `index.html` and `talks.yaml` from the talk/poster records in `sourcedata/con-site-specific`; warns about root `20*.html`/`20*.pdf` without a record                                                             |
 | `tools/mk_whoweare.py`       | Acknowledgements fragment with all faces from the CON website's who-we-are page (`con-whoweare.phtml`)                                                                                                                     |
 | `tools/mk_ack_eras.py`       | Per-era acknowledgements iframes (`2026-usrse-con-talk/ack-*.html`) from the `sourcedata/con-site-specific` record store                                                                                                   |
 | `tools/mk_stamped_puzzle.py` | Draws `pics/stamped-puzzle.svg`: the STAMPED object as a jigsaw, one piece per tool                                                                                                                                        |

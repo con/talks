@@ -13,7 +13,7 @@
 [submodule "con-site-specific"]
 	path = sourcedata/con-site-specific
 	url = http://github.com/ORINOCO-Lite/con-site-specific
-	branch = enh-temporal-associations
+	branch = main
 [submodule "2024-repronim-reproflow-webinar"]
 	path = 2024-repronim-reproflow-webinar
 	url = https://github.com/ReproNim/webinar-2024-reproflow

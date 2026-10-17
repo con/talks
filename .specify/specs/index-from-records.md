@@ -1,8 +1,14 @@
 # Mint `index.html` from CON records
 
-Status: **plan** (2026-10-16). Stage 1 (the `## Chronology` table in
-`INDEX.md`, read by `tools/create_index.sh`) is done and is the starting
-point here.
+Status: **done** (2026-10-17) for phases 1–4, with these deviations:
+records were committed straight to the store's `main` (no PR); talks are
+linked to their projects (so they show on project pages); events stay
+text (`bibo:presentedAt`) with a `# TODO(event)` comment in each record;
+`tools/mk_index.py` also exports `talks.yaml`; the reader was not shared
+with `mk_ack_eras.py`, and parity is on the listed entries and their
+order (same-date ties may differ), not bytes — the page now also shows
+each entry's date and venue. Stage 1 (the `## Chronology` table in
+`INDEX.md`, read by `tools/create_index.sh`) was the starting point.
 
 ## Goal
 

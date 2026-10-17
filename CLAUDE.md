@@ -31,7 +31,10 @@ embed/                    — small HTML iframes referenced by some decks
 posters/                  — poster sources (separate flow)
 sourcedata/con-site-specific/ — submodule: the CON record store that
                             tools/mk_ack_eras.py reads to build the
-                            acknowledgements grid (CON_RECORD_STORE overrides).
+                            acknowledgements grid, and tools/mk_index.py
+                            reads (talk/poster XYZPublication records) to
+                            build index.html + talks.yaml
+                            (CON_RECORD_STORE overrides).
                             Editing records there: read its
                             docs/metadata-curation.md first, and run
                             tools/validate_records.py before committing —
@@ -87,7 +90,18 @@ ones. For text-only edits to existing HTML, plain `git` is fine.
    loop, `npm install` then `npm start` per `README.md`.
 9. **Update `INDEX.md`** with the new deck (per-talk entry + any
    topic-lookup additions).
-10. **Commit** the new deck *and* the QR code *and* the `INDEX.md`
+10. **Add a talk record** to the record store, so the deck appears on
+    `index.html`: an `XYZPublication` in
+    `sourcedata/con-site-specific/metadata/records/XYZPublication/`
+    (copy a `talk-*.yaml` / `poster-*.yaml` sibling: `bibo:Slideshow` or
+    `fabio:ConferencePoster`, `generated_by[0].at_time` = the day it is
+    presented, `foaf:homepage` = the live-slides URL) and its evidence
+    under `sources/curation-evidence/XYZPublication/`. Read the store's
+    `AGENTS.md` first; `python3 tools/validate_records.py` there must
+    pass. Commit in the store, then regenerate here:
+    `datalad run -m "index: <TALK-ID>" -i sourcedata/con-site-specific -o index.html -o talks.yaml "tools/mk_index.py"`.
+    Never edit `index.html` or `talks.yaml` by hand.
+11. **Commit** the new deck *and* the QR code *and* the `INDEX.md`
     update together. Use the repo's git workflow (DataLad-managed).
 
 ### QR codes
@@ -246,6 +260,7 @@ A reasonable flow:
 3. Search `INDEX.md`'s topic-lookup for matching reusable slides.
 4. Produce `<TALK-ID>.html` (and the companion `<TALK-ID>/PLAN.md` if
    the deck warrants one).
-5. Update `INDEX.md` with the new talk's entry.
+5. Update `INDEX.md` with the new talk's entry, and add its talk record
+   (step 10 above) once the date is set.
 6. Surface a list of slides borrowed (with source `<file>:<section>`
    pointers) so the user can sanity-check sourcing.
