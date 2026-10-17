@@ -295,7 +295,12 @@ def load():
             continue
         rows.append({
             "slug": slug,
-            "name": d.get("display_label") or one(d, "dlthings:formatted_name") or slug,
+            # Not every record carries a display_label -- the BIDS and NWB
+            # people added in Oct 2026 have only given/family names -- and
+            # falling through to the slug puts "dora-hermes" on the slide.
+            "name": (d.get("display_label") or one(d, "dlthings:formatted_name")
+                     or " ".join(filter(None, (d.get("given_name"),
+                                               d.get("family_name")))) or slug),
             "tier": one(d, "dlthings:tier"),
             "started": earliest.get(pid),
             "ended": ended.get(pid),

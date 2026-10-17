@@ -92,7 +92,8 @@ def from_store(slug):
     if not f.exists():
         return None
     r = yaml.safe_load(f.read_text()) or {}
-    name = r.get("display_label") or r.get("formatted_name")
+    name = (r.get("display_label") or r.get("formatted_name")
+            or " ".join(filter(None, (r.get("given_name"), r.get("family_name")))))
     pos = next((a["value"] for a in r.get("attributes", [])
                 if a.get("predicate") == "dlthings:position"), "")
     return (name, pos) if name else None
