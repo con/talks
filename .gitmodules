@@ -19,3 +19,8 @@
 	url = https://github.com/ReproNim/webinar-2024-reproflow
 	datalad-id = 5db11bd6-8755-11e9-8596-f0d5bf7b5561
 	datalad-url = https://github.com/ReproNim/webinar-2024-reproflow
+[submodule "2020-repronim-reprocomp-webinar"]
+	path = 2020-repronim-reprocomp-webinar
+	url = https://github.com/ReproNim/webinar-2020-reprocomp
+	datalad-id = 5db11bd6-8755-11e9-8596-f0d5bf7b5561
+	datalad-url = https://github.com/ReproNim/webinar-2020-reprocomp
