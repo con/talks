@@ -192,6 +192,20 @@ The PNG itself is binary; commit it via DataLad
   `graph TB|LR`). Newer decks set theme variables per-diagram.
 - **Speaker notes** — `<aside class="notes">…</aside>`. Fine to be
   long; press `s` to view in reveal.js.
+- **Faces on a project slide** — put a few of the people from the
+  acknowledgements in the slide's top-right corner, so they are present
+  while their work is on screen instead of only in the grid at the end.
+  Declare who, and nothing else:
+  ```html
+  <div class="faces" data-people="john-lee isaac-to"></div>
+  ```
+  then `tools/mk_faces.py --expand <TALK-ID>.html` fills in the linked
+  round portraits (idempotent; re-run after editing `data-people`).
+  `tools/mk_faces.py --list` prints the keys. Names and portraits come
+  from `con-whoweare.phtml`, the same source as the acknowledgements
+  grid, and each face links to that person's record on the website.
+  Keep a row to ~5 and crowd one with `style="--face-size:56px"`.
+
 - **Section dividers** — soft radial gradient
   (`<section data-background-gradient="radial-gradient(white, #f7dfd3)">`)
   for "Challenge:" intros.

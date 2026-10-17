@@ -39,3 +39,51 @@
    own diagrams (2026-dhmc-ieeg.html does it in its own <style>, the puzzle
    slides inline), so only the frame is reset here. */
 .reveal object.dia { border: 0; }
+
+/* ------------------------------------------------------------------
+   Faces.  A few of the people from the acknowledgements, in the top
+   right corner of the slide about the thing they built, so they are
+   present while their work is on screen and the grid at the end is
+   recognition rather than introduction.
+
+   A deck declares only WHO:
+
+       <div class="faces" data-people="john-lee isaac-to"></div>
+
+   and tools/mk_faces.py --expand fills in the linked <a class="face">
+   portraits from con-whoweare.phtml.
+
+   Positioned against the slide's own box -- reveal gives every section
+   position:absolute, and with center:true that box is the content, so
+   the row sits just above whatever the slide starts with instead of at
+   a fixed canvas offset.  Per-slide size:  style="--face-size:52px".
+   ------------------------------------------------------------------ */
+.reveal .faces {
+	--face-size: 64px;
+	position: absolute;
+	top: calc(-1 * var(--face-size) - 12px);
+	right: 0;
+	display: flex;
+	gap: 7px;
+	z-index: 3;
+	line-height: 1;
+}
+/* The beige theme puts a 4px border and a drop shadow on every image in
+   a section; these are portraits, not screenshots. */
+.reveal .faces .face img {
+	width: var(--face-size);
+	height: var(--face-size);
+	object-fit: cover;
+	object-position: center top;
+	border-radius: 50%;
+	display: block;
+	margin: 0;
+	background: none;
+	border: 2px solid rgba(0, 0, 0, 0.18);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+	filter: saturate(0.92);
+}
+.reveal .faces .face:hover img {
+	border-color: #a04000;
+	filter: none;
+}
