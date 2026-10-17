@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "repository": "https://github.com/leej3/stamped-in-practice",
+  "branch": "codex/stamped-poster-analysis",
+  "revision": "5d8e165ab248f4426a9e52feecb43b383e3ff8cf",
+  "source": "experiments/retained-round-reporting/pooled/poster-outcomes.json",
+  "sha256": "9cb1b885667ca30947148d021d561641264fc00e3340d4880d9561a5982a440a",
+  "checklists": {
+    "source": "experiments/narps-poster/checklists/index.json",
+    "sha256": "685bcfcb152509ce514a57f130eac26fc5a8dc0654b20a84735002e82ed83e38",
+    "manifest": "experiments/narps-poster/figures/poster-figure-manifest.json",
+    "manifest_sha256": "54e048cafdae541ab9cae4ee672e26bf24f084dcb838385b56f257f53dde3cc8"
+  },
+  "scope": "Display copy; aggregation and run-level evidence remain in the benchmark."
+}

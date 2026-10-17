@@ -1,0 +1,154 @@
+<!doctype html>
+<!-- SPDX-FileCopyrightText: 2026 Center for Open Neuroscience -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STAMPED in Practice: Improving research skills through reproducible experiments</title>
+  <meta name="description" content="A research poster connecting iterative STAMPED skill development, a NARPS neuroimaging reproduction, and run-level scientific and reproducibility assessments.">
+  <meta name="submitted-title" content="STAMPED in Practice: Reproducing a Scientific Result Using ABCD Neuroimaging Data">
+  <link rel="stylesheet" href="template.css">
+  <link rel="stylesheet" href="poster.css">
+</head>
+<body>
+  <nav class="screen-tools" aria-label="Poster viewing controls">
+    <button type="button" id="fit">Fit to window</button><button type="button" id="actual">Full size</button>
+    <button type="button" onclick="window.print()">Print</button>
+    <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md">Guide to the poster and evidence</a>
+  </nav>
+  <div id="viewport">
+    <main class="poster" aria-label="STAMPED in Practice poster, working draft">
+      <header class="masthead">
+        <div><p class="eyebrow">US-RSE 2026 · Research in the open</p><h1>STAMPED in Practice<span>Improving research skills through<br>reproducible experiments</span></h1></div>
+        <a class="image-link" href="https://dev.centerforopenneuroscience.org/"><img class="con-logo" src="../orinoco-lite/assets/con-logo-outlined.svg" alt="Center for Open Neuroscience"></a>
+        <div class="author-panel">
+          <div class="authors"><p><strong><span class="name">John A. Lee</span><span class="name">Austin Macdonald</span><span class="name">Cody C. Baker</span><span class="name">Yaroslav O. Halchenko</span></strong></p><p class="affiliation">Center for Open Neuroscience<br>Dartmouth College</p></div>
+          <a class="qr-badge" data-qr="poster" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"><img src="assets/stamped-qr-poster.svg" alt="QR code for the poster guide, download and evidence">Poster guide</a>
+        </div>
+      </header>
+      <section class="lead" aria-label="Experiment and rationale">
+        <p><strong>Our experiment:</strong> iteratively improve <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md">STAMPED research skills</a> by validating the scientific results and research objects they produce.</p>
+        <p class="pitch"><strong>Make the improvement process inspectable.</strong><span>Link the skills, data, runs, assessments and revisions, so others can evaluate both the science and how the guidance evolved.</span></p>
+      </section>
+      <div class="columns">
+        <div class="method-column">
+          <section class="principles-section">
+            <p class="section-label">01 · STAMPED</p><h2>The seven principles</h2>
+        <dl class="principles-grid">
+          <div><dt>Self-contained</dt><dd>Reach all essential components from one project root.</dd></div>
+          <div><dt>Tracked</dt><dd>Identify every component and record changes and computational provenance.</dd></div>
+          <div><dt>Actionable</dt><dd>Provide executable procedures and reproduction instructions.</dd></div>
+          <div><dt>Modular</dt><dd>Separate components for reuse and recombination.</dd></div>
+          <div><dt>Portable</dt><dd>Version environment specifications and avoid undocumented host dependencies.</dd></div>
+          <div><dt>Ephemeral</dt><dd>Run in fresh, disposable environments built from recorded specifications.</dd></div>
+          <div><dt>Distributable</dt><dd>Make components persistently retrievable in their recorded state, with explicit licenses.</dd></div>
+        </dl>
+            <p class="small">Each principle is a spectrum, supporting incremental improvement. <a href="https://github.com/stamped-principles/stamped-paper">STAMPED paper</a>.</p>
+          </section>
+          <section>
+            <p class="section-label">The experiment</p><h2>Test the skills<br>through the work</h2>
+
+            <p>Do successive revisions improve scientific adequacy, reproducibility and consistency?</p>
+            <ol class="loop">
+              <li><b><a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#explore-the-research-skills">Run</a></b><span>Fresh agents address the same scientific question.</span></li>
+              <li><b><a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#understand-the-assessor">Assess</a></b><span>Independent judges inspect the research object and attempt replay.</span></li>
+              <li><b><a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds">Revise</a></b><span>Use recurring findings to improve and compress the skills.</span></li>
+              <li><b><a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds">Repeat</a></b><span>Test the next pinned revision with fresh agents.</span></li>
+            </ol>
+            <p>Three iterations of testing and revision. In the final iteration, evaluate without further tuning.</p>
+          </section>
+          <section class="ruled evidence-section">
+            <p class="section-label">The study is itself a research object</p><h3>Follow the evidence</h3>
+            <div class="evidence-chain">
+              <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#choose-a-destination">Scientific task + inputs</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds">Guidance + tested revisions</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context">Reports + code + results</a><span>↓</span>
+              <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md">Assessments + lessons</a>
+            </div>
+            <p>Inspect both the scientific result and the decisions that shaped the experiment through the <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md">repository map</a>. Apply the <a href="https://checklist.stamped-principles.org/">STAMPED checklist</a> to your own research object.</p>
+          </section>
+        </div>
+        <div class="science-column">
+          <section>
+            <p class="section-label">02 · Scientific results</p><h2>Replicating a gain-response analysis</h2>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov/17255512/">Tom et al.</a> asked how the brain represents potential gains and losses during risky choices.</p>
+            <p><strong>Our replication:</strong> does potential gain increase ventromedial prefrontal cortex (vmPFC) activity? Agents test NARPS H1 using the same 54 equal-indifference AO86 participant maps.</p>
+            <p class="source-links"><a href="https://doi.org/10.1038/s41586-020-2314-9">NARPS paper</a> · <a href="https://doi.org/10.18112/openneuro.ds001734.v1.0.4">OpenNeuro data</a> · <a href="https://neurovault.org/collections/4932/">AO86 maps</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md">Scientific task</a></p>
+          </section>
+          <section class="science-result">
+            <h3>Group-level gain response</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures"><img class="brain-figure" src="figures/narps-group-map.svg" alt="Orthogonal views of the NARPS group gain-effect t map, vmPFC region, and corrected positive signal"></a>
+              <figcaption><strong>Round 2, run 09.</strong> One-sample test, 9,999 sign flips, whole-brain family-wise error (FWE) correction at 0.05. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py">Analysis code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json">Numerical results</a></figcaption>
+            </figure>
+            <div class="finding"><b>No corrected positive vmPFC signal</b><p>24 posterior voxels survived correction; none overlapped the analysis’s Harvard–Oxford vmPFC proxy.</p></div>
+          </section>
+          <section class="variability-section ruled">
+            <h3>Where do repeated analyses agree?</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures"><img class="variability-figure" src="figures/narps-spatial-agreement.svg" alt="Spatial agreement of corrected positive findings across twelve runs in each assistance condition, from rounds two and three"></a>
+              <figcaption><strong>Corrected findings vary across repeated analyses.</strong> Colour shows the fraction of 12 runs per condition reporting a positive FWE-corrected result in rounds 2 and 3. Each run retains its chosen method; 168,285 voxels share tested coverage. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial">Map inputs</a></figcaption>
+            </figure>
+
+          </section>
+        </div>
+        <aside class="outcomes">
+          <section>
+            <p class="section-label">03 · Skills-development results</p><h2>Compare assistance<br>across retained runs</h2>
+            <p>All conditions share the scientific task and software resources. The table names the added <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md">research-skill instructions</a>; each linked mean opens that condition’s checklists.</p>
+            <p class="small"><span id="retained-rounds">Rounds 1, 2, 3; 72 research runs.</span> Pool all three rounds by condition. <a href="https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md">Comparison plan</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context">Read a run</a></p>
+          </section>
+          <section class="results-matrix">
+            <table class="outcome-table">
+              <colgroup><col><col><col><col><col></colgroup>
+              <thead><tr><th>Instruction</th><th>Runs</th><th>Science</th><th>Replay</th><th>Checklist app<br>mean met %</th></tr></thead>
+              <tbody>
+                <!-- BENCHMARK_OUTCOMES_START -->
+                <tr><th scope="row">No supplied research skills</th><td>18</td><td>16/18</td><td>5/5</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#no-supplied-research-skills" title="No supplied research skills: mean app score 19.8% across 16 primary checklists; open the checklist list" aria-label="No supplied research skills: mean app score 19.8% across 16 primary checklists; open the checklist list">19.8%</a><br>n=16</td></tr>
+                <tr><th scope="row">Find useful skills</th><td>18</td><td>13/18</td><td>2/3</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-useful-skills" title="Find useful skills: mean app score 19.5% across 18 primary checklists; open the checklist list" aria-label="Find useful skills: mean app score 19.5% across 18 primary checklists; open the checklist list">19.5%</a><br>n=18</td></tr>
+                <tr><th scope="row">Find research skills</th><td>18</td><td>10/17</td><td>3/7</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-research-skills" title="Find research skills: mean app score 19.0% across 17 primary checklists; open the checklist list" aria-label="Find research skills: mean app score 19.0% across 17 primary checklists; open the checklist list">19.0%</a><br>n=17</td></tr>
+                <tr><th scope="row">Use STAMPED skills</th><td>18</td><td>10/17</td><td>3/6</td><td><a href="https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#use-stamped-skills" title="Use STAMPED skills: mean app score 27.7% across 17 primary checklists; open the checklist list" aria-label="Use STAMPED skills: mean app score 27.7% across 17 primary checklists; open the checklist list">27.7%</a><br>n=17</td></tr>
+                <!-- BENCHMARK_OUTCOMES_END -->
+              </tbody>
+            </table>
+            <p class="small summary-key"><strong>Science:</strong> fully supported / assessed. <strong>Replay:</strong> all selected outputs matching / observed reruns. <strong>App:</strong> mean items met / all 31 (available n); the plot instead uses evaluated items. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/checklists/README.md">Scores + full responses</a>.</p>
+          </section>
+
+          <section class="ruled progression-section" aria-labelledby="progression-heading">
+            <h3 id="progression-heading">How do outcomes change across rounds?</h3>
+            <figure>
+              <a class="image-link" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures"><img class="progression-figure" src="figures/round-progression.svg" alt="Scientific adequacy with 95% Wilson intervals and individual evaluated-item checklist scores with means plus or minus one standard deviation, across three rounds"></a>
+              <figcaption>Science: 95% Wilson intervals, assuming independent runs. Checklist: individual scores and mean ± SD. Available n: science 5–6; checklist 4–6. Bars do not account for missing assessments or judge uncertainty. <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py">Figure code</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv">Round data + denominators</a></figcaption>
+            </figure>
+          </section>
+          <section class="ruled lessons-section" aria-labelledby="lessons-heading">
+            <p class="section-label" id="lessons-heading">Next study</p>
+            <h3>Future directions</h3>
+            <p>Use stronger, calibrated judges and set clear completion rules for each round. Give every agent a common foundation in scientific tools and dependencies, and measure the coordinator effort supporting their work.</p>
+            <p>Test containerized isolation and more complete execution capture. Integrate skill-evolution tools and evaluate improvements on new scientific tasks.</p>
+            <p class="small"><a href="https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md">Study design</a> · <a href="https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md#invest-in-the-next-benchmark-not-only-the-next-skill-revision">Future study priorities</a></p>
+          </section>
+        </aside>
+      </div>
+      <section class="invitation">
+        <div><h2>Use STAMPED. Try the skills. Bring us a study.</h2><p>Share a hypothesis, accessible data and a reference result. Help us test the skills on your science—and discuss what better guidance should do.</p></div>
+        <a class="qr-badge" data-qr="study" href="https://github.com/leej3/stamped-in-practice"><img src="assets/stamped-qr-study.svg" alt="QR code for the STAMPED in Practice research object">Study + data</a>
+        <a class="qr-badge" data-qr="skills" href="https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"><img src="assets/stamped-qr-skills.svg" alt="QR code for the guide to STAMPED research skills">Use the skills</a>
+      </section>
+      <footer class="footer">
+        <div><p><strong>A reproducible study of reproducibility.</strong> Source, figure inputs and run-level evidence are linked from the study.</p><p class="thanks">OpenAI Codex assisted analysis and poster preparation.</p></div>
+        <div class="partners"><a class="qr-badge con-footer" data-qr="con" href="https://dev.centerforopenneuroscience.org/"><img src="../orinoco-lite/assets/orinoco-qr-con.svg" alt="QR code for the Center for Open Neuroscience">Explore CON</a><div class="partner-affiliation"><a href="https://pbs.dartmouth.edu/"><img class="dartmouth" src="../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))" alt="Dartmouth College seal"></a><a href="https://pbs.dartmouth.edu/"><strong>Dartmouth College</strong>Psychological and<br>Brain Sciences</a></div><a class="repronim-support" href="https://www.repronim.org/"><img class="repronim" src="../orinoco-lite/assets/repronim_logo.svg" alt="ReproNim"><span>Supported by<br>ReproNim</span></a></div>
+      </footer>
+    </main>
+  </div>
+  <script>
+    const poster = document.querySelector('.poster'), viewport = document.getElementById('viewport');
+    let fit = true;
+    function resize() { const scale = fit ? Math.min((window.innerWidth - 32) / 4224, 1) : 1; poster.style.transform = `scale(${scale})`; viewport.style.width = `${4224 * scale}px`; viewport.style.height = `${4224 * scale}px`; }
+    document.getElementById('fit').onclick = () => { fit = true; resize(); };
+    document.getElementById('actual').onclick = () => { fit = false; resize(); };
+    window.addEventListener('resize', resize); resize();
+  </script>
+</body>
+</html>

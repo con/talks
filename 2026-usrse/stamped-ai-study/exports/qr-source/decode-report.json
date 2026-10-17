@@ -1,0 +1,1406 @@
+[
+  {
+    "name": "poster",
+    "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+    "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-poster.svg",
+    "qr_version": 8,
+    "error_correction": "H",
+    "modules_including_border": 57,
+    "quiet_border_modules": 4,
+    "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 71326,
+    "logo_pad_percent_of_body_area": 11.14,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "study",
+    "url": "https://github.com/leej3/stamped-in-practice",
+    "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-study.svg",
+    "qr_version": 5,
+    "error_correction": "H",
+    "modules_including_border": 45,
+    "quiet_border_modules": 4,
+    "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 67623,
+    "logo_pad_percent_of_body_area": 12.08,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "skills",
+    "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+    "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/stamped-ai-study/assets/stamped-qr-skills.svg",
+    "qr_version": 8,
+    "error_correction": "H",
+    "modules_including_border": 57,
+    "quiet_border_modules": 4,
+    "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 71260,
+    "logo_pad_percent_of_body_area": 11.14,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "con",
+    "url": "https://dev.centerforopenneuroscience.org/",
+    "file": "/Users/johnlee/.local/share/wt-utils/worktrees/38ff/talks/2026-usrse/orinoco-lite/assets/orinoco-qr-con.svg",
+    "qr_version": 5,
+    "error_correction": "H",
+    "modules_including_border": 45,
+    "quiet_border_modules": 4,
+    "logo_source": "../orinoco-lite/assets/con-logo-outlined.svg",
+    "logo_width_fraction_of_body": 0.42,
+    "file_bytes": 67605,
+    "logo_pad_percent_of_body_area": 12.08,
+    "checks": [
+      {
+        "pixels": 144,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 144,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 177,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 180,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 200,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 210,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 220,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 240,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 266,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 354,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 531,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "original",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-90",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "grayscale-softened",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      },
+      {
+        "pixels": 720,
+        "variant": "rotated-13",
+        "passed": true,
+        "decoded": [
+          "https://dev.centerforopenneuroscience.org/"
+        ]
+      }
+    ]
+  }
+]

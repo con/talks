@@ -1,0 +1,63 @@
+{
+  "pdf_sha256": "e164d299a5d9f853ceb67771edc282b4b22f3967275eb06bd738f6be787d435f",
+  "page_count": 1,
+  "page_points": [
+    3168.0,
+    3168.0
+  ],
+  "minimum_html_text_px": 32,
+  "minimum_html_text_pt": 24.0,
+  "minimum_pdf_text_pt": 24.0,
+  "inspected_pdf_text_runs": 255,
+  "link_annotation_count": 45,
+  "unique_expected_links": 36,
+  "missing_links": [],
+  "raster_dpi": 150,
+  "qr_results": [
+    {
+      "name": "poster",
+      "expected": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+      "decoded": [
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+      ],
+      "decoded_rotated": [
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md"
+      ],
+      "passed": true
+    },
+    {
+      "name": "study",
+      "expected": "https://github.com/leej3/stamped-in-practice",
+      "decoded": [
+        "https://github.com/leej3/stamped-in-practice"
+      ],
+      "decoded_rotated": [
+        "https://github.com/leej3/stamped-in-practice"
+      ],
+      "passed": true
+    },
+    {
+      "name": "skills",
+      "expected": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+      "decoded": [
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+      ],
+      "decoded_rotated": [
+        "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md"
+      ],
+      "passed": true
+    },
+    {
+      "name": "con",
+      "expected": "https://dev.centerforopenneuroscience.org/",
+      "decoded": [
+        "https://dev.centerforopenneuroscience.org/"
+      ],
+      "decoded_rotated": [
+        "https://dev.centerforopenneuroscience.org/"
+      ],
+      "passed": true
+    }
+  ],
+  "visual_review": "Required separately; not established by this script."
+}

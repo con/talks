@@ -3,6 +3,8 @@ This is folder to collect ideas/drafts for submissions for https://us-rse.org/us
 The Orinoco Lite poster is available as [editable poster](orinoco-lite_poster.html), with [editing, PDF export and release notes](orinoco-lite/README.md).
 Its [submitted abstract](orinoco-lite-poster-draft.md) remains alongside it.
 
+The [STAMPED in Practice poster](stamped-ai-study/README.md) compares research-skill assistance across three rounds, with editable HTML, a verified PDF and links to the research evidence.
+
 ### Meeting theme etc
 
 That meeting is about/for Software Research Engineers. And this particular meeting has following
