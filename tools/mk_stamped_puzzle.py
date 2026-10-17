@@ -25,25 +25,47 @@ links to that principle's worked examples, so the picture is itself actionable -
 `<img>` renders the SVG but kills its links.
 
 Writes pics/stamped-puzzle.svg -- vector, so it stays sharp in the decks and
-in the PDF export.
+in the PDF export -- plus the build-up stages the US-RSE deck walks through:
+stamped-puzzle-frame.svg (the empty outline, "this is the shape of the thing")
+and stamped-puzzle-{2016,2020,2024}.svg (the pieces that existed by the end of
+that era, the rest still holes).  The stages carry the year each piece arrived
+and deliberately carry *no* STAMPED letters: the properties were only named in
+2026, so the letters belong to the final picture alone, which is the reveal.
+
+The final stamped-puzzle.svg is frozen -- the MIT STAMPED deck is delivered
+against it, so regenerating must leave it byte-identical.
 """
 import pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 OUT = HERE / "pics" / "stamped-puzzle.svg"
+STAGE_OUT = str(HERE / "pics" / "stamped-puzzle-{}.svg")
 
-# (tool, what piece it contributes, STAMPED letters, url)
+# (tool, what piece it contributes, STAMPED letters, url, year it arrived)
+#
+# The year is the piece's own first appearance, not the grant or the paper:
+# DataLad's first commits are 2013, the RUNCMD record 2015, HeuDiConv 2015
+# the ReproIn convention that makes the piece automatic 2017, Open Brain Consent 2015, the BIDS
+# paper 2016, ReproNim/containers 2019, ReproStim 2020, con/tinuous 2021,
+# con/duct 2024.  Used only to decide which stage a piece is already in.
 PIECES = [
-    ("BIDS / NWB",            "what the files are",        "SA",  "https://bids.neuroimaging.io/"),
-    ("HeuDiConv / ReproIn",   "raw → standard",            "AM",  "https://github.com/nipy/heudiconv"),
-    ("ReproStim",             "what was actually shown",   "ST",  "https://github.com/ReproNim/reprostim"),
-    ("Open Brain Consent",    "permission to share",       "D",   "https://open-brain-consent.readthedocs.io/"),
-    ("datalad run",           "how it was made",           "TA",  "https://docs.datalad.org/en/stable/generated/man/datalad-run.html"),
-    ("con/duct",              "what it cost",              "STA", "https://github.com/con/duct"),
-    ("DataLad / git-annex",   "versioned, composable",     "TMD", "https://www.datalad.org/"),
-    ("ReproNim/containers",   "the environment travels",   "PE",  "https://github.com/ReproNim/containers"),
-    ("con/tinuous + CI",      "nobody has to remember",    "ST",  "https://github.com/con/tinuous"),
+    ("BIDS / NWB",            "what the files are",        "SA",  "https://bids.neuroimaging.io/", 2016),
+    ("HeuDiConv / ReproIn",   "raw → standard",            "AM",  "https://github.com/nipy/heudiconv", 2017),
+    ("ReproStim",             "what was actually shown",   "ST",  "https://github.com/ReproNim/reprostim", 2020),
+    ("Open Brain Consent",    "permission to share",       "D",   "https://open-brain-consent.readthedocs.io/", 2015),
+    ("datalad run",           "how it was made",           "TA",  "https://docs.datalad.org/en/stable/generated/man/datalad-run.html", 2015),
+    ("con/duct",              "what it cost",              "STA", "https://github.com/con/duct", 2024),
+    ("DataLad / git-annex",   "versioned, composable",     "TMD", "https://www.datalad.org/", 2013),
+    ("ReproNim/containers",   "the environment travels",   "PE",  "https://github.com/ReproNim/containers", 2019),
+    ("con/tinuous + CI",      "nobody has to remember",    "ST",  "https://github.com/con/tinuous", 2021),
 ]
+
+# Each stage shows the pieces that existed by the end of that era; the ones new
+# since the previous stage get the same red accent the acknowledgement grids use
+# for "new in this era", so the two build-ups read as one convention.
+STAGES = [2016, 2020, 2024]
+GHOST_FILL, GHOST_STROKE = "#faf7f2", "#c6b9a3"
+ACCENT = "#c0392b"
 
 COLS, ROWS = 3, 3
 W, H = 240, 152          # piece size
@@ -115,8 +137,13 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def main():
+def render(as_of=None, since=None, letters=True, years=False):
+    """One SVG.  as_of=None draws every piece built; otherwise pieces that
+    arrived after `as_of` are drawn as holes, and those newer than `since` get
+    the red "new in this era" accent."""
     sw, sh = COLS * W + 2 * PAD, ROWS * H + 2 * PAD
+    title = ("The STAMPED object, one piece per tool" if as_of is None
+             else f"The object as of {as_of} -- the holes are what came later")
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" '
         f'xmlns:xlink="http://www.w3.org/1999/xlink" '
@@ -125,7 +152,7 @@ def main():
         # sit undersized in its top-left corner.  viewBox keeps the aspect.
         f'viewBox="0 0 {sw} {sh}" width="100%" height="100%" '
         f'font-family="Source Sans Pro,Helvetica,sans-serif">',
-        "<title>The STAMPED object, one piece per tool</title>",
+        f"<title>{title}</title>",
         # Link colours are reveal.js's beige theme (--r-link-color and its
         # hover), so a linked name reads as a link on the slide.
         "<style>"
@@ -137,12 +164,25 @@ def main():
         "a:hover text.letter { text-decoration: underline; }"
         "</style>",
     ]
-    for i, (tool, what, letters, url) in enumerate(PIECES):
+    # Holes first, built pieces over them: a neighbouring hole drawn later
+    # would overdraw the accent edge of the piece that was just added.
+    for i, (_, _, _, _, year) in enumerate(PIECES):
+        if as_of is not None and year > as_of:
+            # The shape still reads, so the audience sees the object is not
+            # finished rather than seeing a smaller object.
+            out.append(f'<path d="{piece_path(i % COLS, i // COLS)}" '
+                       f'fill="{GHOST_FILL}" stroke="{GHOST_STROKE}" '
+                       f'stroke-width="1.6" stroke-dasharray="5 5"/>')
+    for i, (tool, what, letters_, url, year) in enumerate(PIECES):
         c, r = i % COLS, i // COLS
         cx, cy = PAD + c * W + W / 2, PAD + r * H + H / 2
+        if as_of is not None and year > as_of:
+            continue
+        new_here = since is not None and year > since
         out.append(f'<g><title>{esc(tool)} — {esc(what)}</title>')
         out.append(f'<path d="{piece_path(c, r)}" fill="{FILL[(c + r) % 2]}" '
-                   f'stroke="{STROKE}" stroke-width="1.6"/>')
+                   f'stroke="{ACCENT if new_here else STROKE}" '
+                   f'stroke-width="{2.8 if new_here else 1.6}"/>')
         # Only the name is the link, not the whole piece: a piece-sized hit box
         # would make the letters and the caption look clickable too.  Both href
         # spellings, since the file is read by SVG1.1 and SVG2 consumers alike.
@@ -152,20 +192,41 @@ def main():
                    f'{esc(tool)}</text></a>')
         out.append(f'<text x="{cx:.0f}" y="{cy + 4:.0f}" text-anchor="middle" '
                    f'font-size="15" fill="#666">{esc(what)}</text>')
-        # the letters this piece supplies, spelled out in STAMPED's colours
-        n = len(letters)
-        for j, ch in enumerate(letters):
-            lx = cx + (j - (n - 1) / 2) * 26
-            url = EXAMPLES.format(ch.lower())
-            out.append(f'<a href="{url}" xlink:href="{url}" target="_blank">'
-                       f'<title>{ch} — {LETTER_NAME[ch]}: worked examples</title>'
-                       f'<text class="letter" x="{lx:.0f}" y="{cy + 36:.0f}" '
-                       f'text-anchor="middle" font-size="25" font-weight="700" '
-                       f'fill="{LETTER[ch]}">{ch}</text></a>')
+        if years:
+            out.append(f'<text x="{cx:.0f}" y="{cy + 34:.0f}" text-anchor="middle" '
+                       f'font-size="17" font-weight="700" '
+                       f'fill="{ACCENT if new_here else "#8a7f6d"}">{year}</text>')
+        if letters:
+            # the letters this piece supplies, spelled out in STAMPED's colours
+            n = len(letters_)
+            for j, ch in enumerate(letters_):
+                lx = cx + (j - (n - 1) / 2) * 26
+                lurl = EXAMPLES.format(ch.lower())
+                out.append(f'<a href="{lurl}" xlink:href="{lurl}" target="_blank">'
+                           f'<title>{ch} — {LETTER_NAME[ch]}: worked examples</title>'
+                           f'<text class="letter" x="{lx:.0f}" y="{cy + 36:.0f}" '
+                           f'text-anchor="middle" font-size="25" font-weight="700" '
+                           f'fill="{LETTER[ch]}">{ch}</text></a>')
         out.append("</g>")
     out.append("</svg>")
-    OUT.write_text("\n".join(out) + "\n")
+    return "\n".join(out) + "\n", sw, sh
+
+
+def main():
+    svg, sw, sh = render()
+    OUT.write_text(svg)
     print(f"wrote {OUT.relative_to(HERE)}  ({sw}x{sh}, {len(PIECES)} pieces)")
+    # the empty frame: the shape of the object before any of it was built
+    frame = pathlib.Path(STAGE_OUT.format("frame"))
+    frame.write_text(render(as_of=0)[0])
+    print(f"wrote {frame.relative_to(HERE)}  (outline only)")
+    for n, year in enumerate(STAGES):
+        path = pathlib.Path(STAGE_OUT.format(year))
+        path.write_text(render(as_of=year,
+                               since=STAGES[n - 1] if n else 0,
+                               letters=False, years=True)[0])
+        built = sum(1 for p in PIECES if p[4] <= year)
+        print(f"wrote {path.relative_to(HERE)}  ({built}/{len(PIECES)} pieces)")
 
 
 if __name__ == "__main__":
