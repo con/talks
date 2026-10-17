@@ -78,6 +78,11 @@
       vertical-align: middle;
     }
     ul.talks a:hover { color: var(--con-blue); text-decoration: underline; }
+    ul.talks .meta {
+      display: block;
+      font-size: 0.9em;
+      color: var(--con-muted);
+    }
     ul.talks .file {
       display: block;
       font-family: 'Source Code Pro', monospace;
@@ -103,53 +108,54 @@
     </div>
   </header>
   <main>
-    <p>Slides and posters from talks and workshops by CON people. This location is also a <a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/talks">DataLad dataset (git/git-annex repository)</a> so you can datalad clone it to get all the sources and materials.</p>
+    <p>Slides and posters from talks and workshops by CON people. This location is also a <a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/talks">DataLad dataset (git/git-annex repository)</a> so you can datalad clone it to get all the sources and materials. Also as data: <a href="talks.yaml">talks.yaml</a>.</p>
       <h2>2026</h2>
       <ul class="talks">
-        <li><a href="2026-usrse/duct-poster.html">Agent-friendly Provenance Capture with con-duct (US-RSE&#39;26)</a> <span class="kind">poster</span> (<a class="alt" href="2026-usrse/duct-poster.pdf">PDF</a>) <span class="file">2026-usrse/duct-poster.html</span></li>
-        <li><a href="2026-usrse/orinoco-lite_poster.html">Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations (US-RSE&#39;26)</a> <span class="kind">poster</span> <span class="file">2026-usrse/orinoco-lite_poster.html</span></li>
-        <li><a href="2026-reproAI-MIT-STAMPED.html">STAMPED principles and their role in the age of AI-driven scientific software development</a> <span class="file">2026-reproAI-MIT-STAMPED.html</span></li>
-        <li><a href="2026-dhmc-ieeg.html">Open Neuroscience Infrastructure for Intracranial EEG</a> <span class="file">2026-dhmc-ieeg.html</span></li>
-        <li><a href="2026-nih-bids2.0.html">BIDS 2.0</a> <span class="file">2026-nih-bids2.0.html</span></li>
-        <li><a href="2026-brainhack-containers-mashup.html">Containers: BrainHack 2026 Mashup</a> <span class="file">2026-brainhack-containers-mashup.html</span></li>
-        <li><a href="2026-bbqs-stamped.pdf">Guidelines for Reproducible Research (BBQS, 2026)</a> <span class="file">2026-bbqs-stamped.pdf</span></li>
-        <li><a href="2026-repronim-YODA-BIDS-webinar.html">ReproFlow &amp; YODA: Structure your studies, observable and reproducible they become</a> <span class="file">2026-repronim-YODA-BIDS-webinar.html</span></li>
-        <li><a href="2026-ca-origami-retreat-aicoding.html">A few words of intro into AI assisted coding</a> <span class="file">2026-ca-origami-retreat-aicoding.html</span></li>
+        <li><a href="2026-usrse-con-talk.html">Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON</a> <span class="meta">2026-10-19 &middot; US-RSE&#x27;26, the Research Software Engineers Conference</span> <span class="file">2026-usrse-con-talk.html</span></li>
+        <li><a href="2026-usrse/duct-poster.html">Agent-friendly Provenance Capture with con-duct</a> <span class="kind">poster</span> (<a class="alt" href="2026-usrse/duct-poster.pdf">PDF</a>) <span class="meta">2026-10-19 &middot; US-RSE&#x27;26, the Research Software Engineers Conference (poster session)</span> <span class="file">2026-usrse/duct-poster.html</span></li>
+        <li><a href="2026-usrse/orinoco-lite_poster.html">Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations</a> <span class="kind">poster</span> <span class="meta">2026-10-19 &middot; US-RSE&#x27;26, the Research Software Engineers Conference (poster session)</span> <span class="file">2026-usrse/orinoco-lite_poster.html</span></li>
+        <li><a href="2026-reproAI-MIT-STAMPED.html">STAMPED principles and their role in the age of AI-driven scientific software development</a> <span class="meta">2026-10-16 &middot; Neuroimaging, Reproducibility and LLMs: Early promises and future questions -- a ReproNim workshop, MIT Building 46, Cambridge MA</span> <span class="file">2026-reproAI-MIT-STAMPED.html</span></li>
+        <li><a href="2026-dhmc-ieeg.html">Open Neuroscience Infrastructure for Intracranial EEG</a> <span class="meta">2026-10-09 &middot; Dartmouth/DH Human Intracranial Electrophysiology Consortium (monthly meeting, Zoom)</span> <span class="file">2026-dhmc-ieeg.html</span></li>
+        <li><a href="2026-nih-bids2.0.html">BIDS 2.0</a> <span class="meta">2026-06-02 &middot; NIMH Data Science &amp; Sharing Team, Lunch &amp; Learn</span> <span class="file">2026-nih-bids2.0.html</span></li>
+        <li><a href="2026-brainhack-containers-mashup.html">Containers: BrainHack 2026 Mashup</a> <span class="meta">2026-06 &middot; BrainHack 2026, containers session</span> <span class="file">2026-brainhack-containers-mashup.html</span></li>
+        <li><a href="2026-bbqs-stamped.pdf">Guidelines for Reproducible Research (BBQS, 2026)</a> <span class="meta">2026-03-11 &middot; BBQS (BRAIN Behavior Quantification and Synchronization) virtual workshop</span> <span class="file">2026-bbqs-stamped.pdf</span></li>
+        <li><a href="2026-repronim-YODA-BIDS-webinar.html">ReproFlow &amp; YODA: Structure your studies, observable and reproducible they become</a> <span class="meta">2026-02-06 &middot; ReproNim webinar</span> <span class="file">2026-repronim-YODA-BIDS-webinar.html</span></li>
+        <li><a href="2026-ca-origami-retreat-aicoding.html">A few words of intro into AI assisted coding</a> <span class="meta">2026-02 &middot; CA Origami Retreat 2026</span> <span class="file">2026-ca-origami-retreat-aicoding.html</span></li>
       </ul>
       <h2>2025</h2>
       <ul class="talks">
-        <li><a href="2025-sfn-poster-data-standards.pdf">The Ecosystem of Standards in Neuroscience: Which Ones Are For You? (SfN 2025)</a> <span class="kind">poster</span> <span class="file">2025-sfn-poster-data-standards.pdf</span></li>
-        <li><a href="2025-distribits-YODA.html">Pragmatic YODA: overview of YODA principles and their wild life encounters</a> <span class="file">2025-distribits-YODA.html</span></li>
-        <li><a href="2025-ca-origami-retreat.html">A challenge on the way to Neuroscience Nirvana</a> <span class="file">2025-ca-origami-retreat.html</span></li>
+        <li><a href="2025-sfn-poster-data-standards.pdf">The Ecosystem of Standards in Neuroscience: Which Ones Are For You?</a> <span class="kind">poster</span> <span class="meta">2025-11 &middot; Society for Neuroscience (SfN) 2025</span> <span class="file">2025-sfn-poster-data-standards.pdf</span></li>
+        <li><a href="2025-distribits-YODA.html">Pragmatic YODA: overview of YODA principles and their wild life encounters</a> <span class="meta">2025-10 &middot; distribits 2025</span> <span class="file">2025-distribits-YODA.html</span></li>
+        <li><a href="2025-ca-origami-retreat.html">A challenge on the way to Neuroscience Nirvana</a> <span class="meta">2025-02 &middot; CA Origami Retreat 2025</span> <span class="file">2025-ca-origami-retreat.html</span></li>
       </ul>
       <h2>2024</h2>
       <ul class="talks">
-        <li><a href="2024-distribits-datalad-name.html">&quot;What&#39;s in the DataLad name&quot; AKA How come DataLad?</a> <span class="file">2024-distribits-datalad-name.html</span></li>
-        <li><a href="2024-repronim-reproflow-webinar/index.html">SciOps from ReproNim</a> <span class="file">2024-repronim-reproflow-webinar/index.html</span></li>
-        <li><a href="2024-distribits-datalad.html">&quot;What&#39;s in the DataLad sandwich&quot; AKA DataLad &quot;ecosystem&quot;</a> <span class="file">2024-distribits-datalad.html</span></li>
-        <li><a href="202404xx-NSF-POSE-BIDS.pdf">The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience (NSF POSE, 2024)</a> <span class="file">202404xx-NSF-POSE-BIDS.pdf</span></li>
+        <li><a href="2024-distribits-datalad-name.html">&quot;What&#x27;s in the DataLad name&quot; AKA How come DataLad?</a> <span class="meta">2024-08 &middot; distribits 2024 (lightning talk) -- unverified, see the evidence</span> <span class="file">2024-distribits-datalad-name.html</span></li>
+        <li><a href="2024-repronim-reproflow-webinar/index.html">SciOps from ReproNim</a> <span class="meta">2024-06 &middot; ReproNim webinar</span> <span class="file">2024-repronim-reproflow-webinar/index.html</span></li>
+        <li><a href="2024-distribits-datalad.html">&quot;What&#x27;s in the DataLad sandwich&quot; AKA DataLad &quot;ecosystem&quot;</a> <span class="meta">2024-04 &middot; distribits 2024</span> <span class="file">2024-distribits-datalad.html</span></li>
+        <li><a href="202404xx-NSF-POSE-BIDS.pdf">The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience</a> <span class="meta">2024-04 &middot; NSF POSE (Pathways to Enable Open-Source Ecosystems)</span> <span class="file">202404xx-NSF-POSE-BIDS.pdf</span></li>
       </ul>
       <h2>2023</h2>
       <ul class="talks">
-        <li><a href="2023-brain-dandi.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="file">2023-brain-dandi.html</span></li>
-        <li><a href="2023-brain-dandi-imgdatasrc.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="file">2023-brain-dandi-imgdatasrc.html</span></li>
-        <li><a href="2023-bids-dicom.html">BIDS 4 DICOM WG-16</a> <span class="file">2023-bids-dicom.html</span></li>
-        <li><a href="2023-lbl-building-dandi.html">Building an Archive for Large-scale Neuroscience Data</a> <span class="file">2023-lbl-building-dandi.html</span></li>
+        <li><a href="2023-bids-dicom.html">BIDS 4 DICOM WG-16</a> <span class="meta">2023-06 &middot; DICOM WG-16 meeting</span> <span class="file">2023-bids-dicom.html</span></li>
+        <li><a href="2023-brain-dandi-imgdatasrc.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="meta">2023-06 &middot; BRAIN Initiative Conference 2023 (short version)</span> <span class="file">2023-brain-dandi-imgdatasrc.html</span></li>
+        <li><a href="2023-brain-dandi.html">DANDI: distributed archives for neurophysiology data integration</a> <span class="meta">2023-06 &middot; BRAIN Initiative Conference 2023</span> <span class="file">2023-brain-dandi.html</span></li>
+        <li><a href="2023-lbl-building-dandi.html">Building an Archive for Large-scale Neuroscience Data</a> <span class="meta">2023-04 &middot; Lawrence Berkeley National Laboratory (LBL)</span> <span class="file">2023-lbl-building-dandi.html</span></li>
       </ul>
       <h2>2022</h2>
       <ul class="talks">
-        <li><a href="posters/crcns-2022-dataland.pdf">DataLad: The Ecosystem for Everyone (CRCNS 2022)</a> <span class="kind">poster</span> <span class="file">posters/crcns-2022-dataland.pdf</span></li>
-        <li><a href="2022-tx-big-neuroscience.html">Towards the Big Data Neuroscience Nirvana</a> <span class="file">2022-tx-big-neuroscience.html</span></li>
-        <li><a href="2022-nih-compcore.html">An Integrated and Trusted Scientific and Statistical Computing Core</a> <span class="file">2022-nih-compcore.html</span></li>
+        <li><a href="posters/crcns-2022-dataland.pdf">DataLad: The Ecosystem for Everyone</a> <span class="kind">poster</span> <span class="meta">2022-10 &middot; CRCNS 2022</span> <span class="file">posters/crcns-2022-dataland.pdf</span></li>
+        <li><a href="2022-nih-compcore.html">An Integrated and Trusted Scientific and Statistical Computing Core</a> <span class="meta">2022-09 &middot; NIH SSCR pitch</span> <span class="file">2022-nih-compcore.html</span></li>
+        <li><a href="2022-tx-big-neuroscience.html">Towards the Big Data Neuroscience Nirvana</a> <span class="meta">2022-09 &middot; ACNN Workshop 2022 (Texas), https://neurosciencenetwork.org/ACNN_Workshop_2022.html</span> <span class="file">2022-tx-big-neuroscience.html</span></li>
       </ul>
       <h2>2020</h2>
       <ul class="talks">
-        <li><a href="2020-repronim-reprocomp-webinar/index.html">Reproducible Execution of Data Collection/Processing</a> <span class="file">2020-repronim-reprocomp-webinar/index.html</span></li>
+        <li><a href="2020-repronim-reprocomp-webinar/index.html">Reproducible Execution of Data Collection/Processing</a> <span class="meta">2020-12 &middot; ReproNim webinar</span> <span class="file">2020-repronim-reprocomp-webinar/index.html</span></li>
       </ul>
   </main>
   <footer>
     <div class="inner">
-      Auto-generated by <code>tools/create_index.sh</code>.
+      Auto-generated by <code>tools/mk_index.py</code> from the talk records in <a href="https://github.com/ORINOCO-Lite/con-site-specific">con-site-specific</a>.
     </div>
   </footer>
 </body>
