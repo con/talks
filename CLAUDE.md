@@ -99,7 +99,9 @@ ones. For text-only edits to existing HTML, plain `git` is fine.
     under `sources/curation-evidence/XYZPublication/`. Read the store's
     `AGENTS.md` first; `python3 tools/validate_records.py` there must
     pass. Commit in the store, then regenerate here:
-    `datalad run -m "index: <TALK-ID>" -i sourcedata/con-site-specific -o index.html -o talks.yaml "tools/mk_index.py"`.
+    `datalad run -m "index: <TALK-ID>" -i sourcedata/con-site-specific/metadata/records -o index.html -o talks.yaml "python3 tools/mk_index.py"`
+    (`python3` needs PyYAML; inputs are the records only, so the store's
+    annexed portraits are not fetched).
     Never edit `index.html` or `talks.yaml` by hand.
 11. **Commit** the new deck *and* the QR code *and* the `INDEX.md`
     update together. Use the repo's git workflow (DataLad-managed).
