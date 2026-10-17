@@ -14,3 +14,8 @@
 	path = sourcedata/con-site-specific
 	url = http://github.com/ORINOCO-Lite/con-site-specific
 	branch = enh-temporal-associations
+[submodule "2024-repronim-reproflow-webinar"]
+	path = 2024-repronim-reproflow-webinar
+	url = https://github.com/ReproNim/webinar-2024-reproflow
+	datalad-id = 5db11bd6-8755-11e9-8596-f0d5bf7b5561
+	datalad-url = https://github.com/ReproNim/webinar-2024-reproflow
