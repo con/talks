@@ -1,7 +1,8 @@
 #!/bin/bash
 #
-# Generate index.html listing all talks (20*.html / 20*.pdf in repo root)
-# plus the entries listed in LISTED below, styled to loosely match https://centerforopenneuroscience.org/.
+# Generate index.html listing all talks and posters from the "Chronology"
+# table of INDEX.md, newest first, styled to loosely match
+# https://centerforopenneuroscience.org/.
 #
 # Usage: tools/create_index.sh   (run from repo root, or anywhere)
 
@@ -13,30 +14,6 @@ cd "$REPO_ROOT"
 
 OUT="index.html"
 
-# Extract title from an HTML file: first <title>...</title>, fall back to filename.
-# For non-HTML files, fall back to the stem (filename without extension).
-extract_title() {
-    local f="$1" t ext
-    ext="${f##*.}"
-    if [ "$ext" = "html" ]; then
-        t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -n1)
-        [ -z "$t" ] && t=$(basename "$f" .html)
-    else
-        # Non-HTML talk (e.g. .pdf/.pptx) — try companion README heading,
-        # fall back to filename stem.
-        local stem
-        stem=$(basename "$f")
-        stem="${stem%.*}"
-        t=""
-        if [ -f "${stem}/README.md" ]; then
-            t=$(sed -n 's/^# *//p' "${stem}/README.md" | head -n1)
-        fi
-        [ -z "$t" ] && t="$stem"
-    fi
-    # Strip leading/trailing whitespace
-    echo "$t" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
-}
-
 # HTML-escape a string (&, <, >, ", ')
 html_escape() {
     sed -e 's/&/\&amp;/g' \
@@ -46,43 +23,47 @@ html_escape() {
         -e "s/'/\&#39;/g"
 }
 
-# Entries which live in subdirectories (posters), or are annexed PDFs
-# without a usable title, are listed by hand: "year|path|title|kind|pdf",
-# where kind (e.g. "poster") is shown as a tag and the optional pdf is a
-# print version linked next to an HTML poster.
-LISTED=(
-    "2026|2026-usrse/duct-poster.html|Agent-friendly Provenance Capture with con-duct (US-RSE'26)|poster|2026-usrse/duct-poster.pdf"
-    "2026|2026-usrse/orinoco-lite_poster.html|Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations (US-RSE'26)|poster|"
-    "2025|2025-sfn-poster-data-standards.pdf|The Ecosystem of Standards in Neuroscience: Which Ones Are For You? (SfN 2025)|poster|"
-    "2024|202404xx-NSF-POSE-BIDS.pdf|The Brain Imaging Data Structure (BIDS): an open community standard for neuroscience (NSF POSE, 2024)||"
-    "2022|posters/crcns-2022-dataland.pdf|DataLad: The Ecosystem for Everyone (CRCNS 2022)|poster|"
+# Entries come from the "## Chronology" table of INDEX.md, one row per
+# talk or poster: | Date | Kind | Entry | Title | Date from |.  Entry holds
+# the path in backticks, optionally followed by a print PDF.  Rows are
+# turned into "date|path|title|kind|pdf" and sorted newest first (stable,
+# so rows sharing a date keep the table's order).
+mapfile -t ENTRIES < <(
+    awk '
+        /^## / { in_table = ($0 == "## Chronology") }
+        in_table && /^\| [0-9]{4}-[0-9]{2}/ {
+            n = split($0, c, / \| /)
+            date = c[1]; sub(/^\| */, "", date)
+            kind = c[2]; title = c[4]
+            gsub(/^ +| +$/, "", kind); gsub(/^ +| +$/, "", title)
+            gsub(/\\\|/, "|", title)
+            m = split(c[3], p, "`")
+            pdf = (m >= 5) ? p[4] : ""
+            print date "|" p[2] "|" title "|" (kind == "talk" ? "" : kind) "|" pdf
+        }' INDEX.md | sort -s -t'|' -k1,1 -r
 )
 
-# Collect entries as "year|path|title|kind|pdf", sorted newest first.
-# Include .html decks and .pdf exports of non-reveal.js talks (e.g. Google Slides).
-entries=()
+# A root deck missing from the table would silently drop off the index
 for f in 20*.html 20*.pdf; do
     [ -e "$f" ] || continue
-    # Already listed (with a title) in LISTED
-    case " ${LISTED[*]} " in *"|$f|"*) continue ;; esac
-    raw_title=$(extract_title "$f")
-    # Skip work-in-progress decks
-    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
-    entries+=("${f:0:4}|$f|$raw_title||")
+    printf '%s\n' "${ENTRIES[@]}" | grep -q "^[^|]*|$f|" \
+        || echo "WARNING: $f is not in the Chronology table of INDEX.md" >&2
 done
-entries+=("${LISTED[@]}")
-mapfile -t ENTRIES < <(printf '%s\n' "${entries[@]}" | sort -r)
 
 if [ "${#ENTRIES[@]}" -eq 0 ]; then
-    echo "No 20*.html / 20*.pdf talks found in $REPO_ROOT" >&2
+    echo "No entries found in the Chronology table of $REPO_ROOT/INDEX.md" >&2
     exit 1
 fi
 
 # Build list items grouped by year
 list_items=""
 prev_year=""
+listed=0
 for e in "${ENTRIES[@]}"; do
-    IFS='|' read -r year f raw_title kind pdf <<<"$e"
+    IFS='|' read -r date f raw_title kind pdf <<<"$e"
+    # Skip work-in-progress decks
+    case "$raw_title" in '[WiP]'*|'[WIP]'*|'[wip]'*) continue ;; esac
+    year="${date:0:4}"
     title=$(echo "$raw_title" | html_escape)
     name_escaped=$(echo "$f" | html_escape)
     extra=""
@@ -96,6 +77,7 @@ for e in "${ENTRIES[@]}"; do
         list_items+="      <ul class=\"talks\">"$'\n'
         prev_year="$year"
     fi
+    listed=$((listed + 1))
     list_items+="        <li><a href=\"${name_escaped}\">${title}</a>${extra} <span class=\"file\">${name_escaped}</span></li>"$'\n'
 done
 list_items+="      </ul>"$'\n'
@@ -217,4 +199,4 @@ ${list_items}  </main>
 </html>
 HTML
 
-echo "Wrote $OUT with ${#ENTRIES[@]} entries."
+echo "Wrote $OUT with ${listed} entries."
