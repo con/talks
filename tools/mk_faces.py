@@ -42,6 +42,7 @@ Styling lives in css/custom.css (`.reveal .faces`); size is per-slide via
 """
 
 import argparse
+import os
 import pathlib
 import re
 import sys
@@ -50,6 +51,10 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 ROSTER_SOURCE = "con-whoweare.phtml"
 PORTRAITS = "pics/con-whoweare"
 SITE = "https://centerforopenneuroscience.org"
+# Same default as tools/mk_ack_eras.py: the vendored record store, which knows
+# about people the website has not been rebuilt with yet.
+STORE = pathlib.Path(os.environ.get(
+    "CON_RECORD_STORE", HERE / "sourcedata/con-site-specific"))
 
 # One <a class="cww-person"> per person, as tools/mk_whoweare.py writes it.
 ENTRY = re.compile(
@@ -70,12 +75,37 @@ class Person:
         self.portrait = portrait
 
 
+def from_store(slug):
+    """(display name, position) from the record store, or None.
+
+    Somebody can have a record before the website has been rebuilt with it
+    -- Dora Hermes and Seyed (Yahya) Shirazi were added to the store on
+    2026-10-17 -- and the store knows their name and affiliation even while
+    con-whoweare.phtml does not.  Optional: without PyYAML or without the
+    submodule checked out, the slug is simply title-cased instead.
+    """
+    try:
+        import yaml
+    except ImportError:
+        return None
+    f = STORE / "metadata/records/XYZPerson" / f"{slug}.yaml"
+    if not f.exists():
+        return None
+    r = yaml.safe_load(f.read_text()) or {}
+    name = r.get("display_label") or r.get("formatted_name")
+    pos = next((a["value"] for a in r.get("attributes", [])
+                if a.get("predicate") == "dlthings:position"), "")
+    return (name, pos) if name else None
+
+
 def roster():
     """slug -> Person, from the whoweare fragment plus any stray portrait.
 
-    A portrait with no entry on the website (Ben Dichter is acknowledged here
-    and has never been on it) is still usable: it links to the page itself
-    rather than to an anchor that does not exist.
+    A portrait with no entry on the website (Ben Dichter was acknowledged
+    here before he was listed on it) is still usable: it links to the page
+    itself rather than to an anchor that does not exist, and once the page
+    does list the person, regenerating con-whoweare.phtml picks up their
+    anchor and role with no change here or in the deck.
     """
     src = (HERE / ROSTER_SOURCE).read_text()
     people = {}
@@ -83,9 +113,12 @@ def roster():
         people[slug] = Person(slug, name, title, href, portrait)
     for f in sorted((HERE / PORTRAITS).iterdir()):
         if f.suffix.lower() in (".jpg", ".jpeg", ".png") and f.stem not in people:
-            name = " ".join(w.capitalize() for w in f.stem.split("-"))
+            stored = from_store(f.stem)
+            name = (stored[0] if stored
+                    else " ".join(w.capitalize() for w in f.stem.split("-")))
+            title = f"{name} — {stored[1]}" if stored and stored[1] else name
             people[f.stem] = Person(
-                f.stem, name, name, f"{SITE}/whoweare",
+                f.stem, name, title, f"{SITE}/whoweare",
                 f"{PORTRAITS}/{f.name}")
     return people
 

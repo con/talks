@@ -330,6 +330,19 @@ Era 2009–2012. Verb lens: COMPOSE.
     <p>We reuse the standard and automate its adoption.</p>
     <p><small><a href="https://github.com/con/skills">github.com/con/skills</a></small></p>
   </section>
+<section>
+    <h2><a href="https://github.com/duecredit/duecredit">duecredit</a></h2>
+    <p>Reuse somebody&rsquo;s method &mdash; and cite it without being told to.</p>
+    <img data-src="pics/duecredit_example.gif" style="width:670px;height:560px;"
+	 alt="duecredit collecting the references for a script as it runs"/>
+    <p><small>Citations declared next to the code that implements them, and
+	  <code>python -m duecredit yourscript.py</code> reports what to cite for what was
+	  <em>actually</em> used &mdash; including, via injections, packages that never declared any.</small></p>
+    <aside class="notes">
+	  Reuse has a debt attached, and nobody can pay it from memory. Let the run
+	  say what it used. Keep this one short -- the animation does the talking.
+    </aside>
+  </section>
 <section data-background-gradient="radial-gradient(white, #f7dfd3)">
 	<h2><span style="color:#1565c0;">Compose</span> &mdash; small modules, common substrate</h2>
 	<h3 class="fragment">Sandwich, don't silo.</h3>
@@ -492,11 +505,16 @@ graph LR
 	  &mdash; the heading is mine, anything in quote marks is verbatim and carries its author.
 	  Same shape as the Codeberg slide and the Networked Intelligence slide.</aside>
   </section>
+<section data-background="black" data-transition="none">
+	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;Without standards, AI produces cacophony at scale.&rdquo;</p>
+  </section>
 <section>
-	<div class="faces" style="--face-size:56px" data-people="jean-baptiste-poline chris-markiewicz satrajit-ghosh">
+	<div class="faces" style="--face-size:56px" data-people="jean-baptiste-poline chris-markiewicz satrajit-ghosh dora-hermes seyed-yahya-shirazi">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#jeanbaptiste_poline_" target="_blank" title="Jean-Baptiste Poline — McGill University, Canada"><img data-src="pics/con-whoweare/jean-baptiste-poline.png" alt="Jean-Baptiste Poline"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Dora Hermes"><img data-src="pics/con-whoweare/dora-hermes.jpg" alt="Dora Hermes"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Seyed (Yahya) Shirazi — Assistant Project Scientist, SCCN, UC San Diego"><img data-src="pics/con-whoweare/seyed-yahya-shirazi.jpg" alt="Seyed (Yahya) Shirazi"/></a>
 	</div>
 	<h2>BIDS as a meta-standard</h2>
 	<!-- explicit width as well as height: without both, reveal centres the
@@ -602,10 +620,11 @@ Note:
 Era 2017–2020. Verb lens: COMPOSE.
 </textarea></section>
 <section data-transition="none">
-	<div class="faces" style="--face-size:56px" data-people="chris-markiewicz matteo-visconti-di-oleggio-castello satrajit-ghosh">
+	<div class="faces" style="--face-size:56px" data-people="michael-hanke satrajit-ghosh chris-markiewicz matteo-visconti-di-oleggio-castello">
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#matteo_visconti_di_oleggio_castello_" target="_blank" title="Matteo Visconti di Oleggio Castello — UC Berkeley, CA"><img data-src="pics/con-whoweare/matteo-visconti-di-oleggio-castello.jpg" alt="Matteo Visconti di Oleggio Castello"/></a>
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
 	</div>
 	<h2><a href="https://reproin.repronim.org/">ReproIn</a> + <a href="https://heudiconv.readthedocs.io/">HeuDiConv</a></h2>
 	<p style="font-size:1.4em;margin-top:1.5em;">Acquire reproducibly.</p>
@@ -614,15 +633,18 @@ Era 2017–2020. Verb lens: COMPOSE.
 <section data-transition="none">
 	<h2><a href="https://github.com/ReproNim/containers">///repronim/containers</a></h2>
 	<p style="font-size:1.1em;margin:0.1em 0 0.3em 0;">Pinned environments. Everywhere.</p>
-	<img data-src="pics/containers-run.svg" style="width:1120px;height:578px;" alt="datalad containers-run: dataset, container subdataset, command, outputs"/>
+	<img data-src="pics/repronim-containers-stamped_tuned/lower-noyoda_preview.png"
+		 style="width:1240px;height:464px;"
+		 alt="DANDI and OpenNeuro feed raw data into a BIDS dataset, analyses and papers ride on top, and the containers subdataset supplies the environment to all of them"/>
 	<p style="font-size:0.76em;margin-top:0.2em;">
 	  <a href="https://docs.datalad.org/projects/container/en/stable/generated/man/datalad-containers-run.html">datalad containers-run</a> &mdash;
 	  the image is a <strong>tracked subdataset</strong>, not a <code>latest</code> tag that drifts, and the commit records
 	  the image <em>and</em> the command together. Throw the container away afterwards: that is the point, and it is already how agents run.</p>
 	<aside class="notes">
 	  Curated Apptainer/Singularity images, auto-rebuilt and auto-snapshotted, and
-	  a local backup of containers in case a hub takes them away.  Figure from the
-	  ReproNim YODA/BIDS webinar deck.
+	  a local backup of containers in case a hub takes them away.  Figure is the STAMPED-tuned
+	  variant of the ReproNim/containers artwork (ReproNim/containers-artwork,
+	  repronim-containers-stamped_tuned/lower-noyoda.svg).
 	</aside>
   </section>
 <section data-transition="none">
@@ -664,7 +686,7 @@ Era 2017–2020. Verb lens: COMPOSE.
 	<p><small><em>Later</em>, well out of this era &mdash; but it belongs to this story, not to 2024.
 	  Already adopted inside <a href="https://github.com/ReproNim/containers">ReproNim/containers</a> and
 	  <a href="https://github.com/ReproNim/reprostim">ReproStim</a>; <code>RRID:SCR_025436</code>.<br/>
-	  Poster this week: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
+	  Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
 	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><em>Agent-friendly
 	  Provenance Capture with <code>con-duct</code></em></a> &mdash; the patterns of use with AI agents are on it.
 	  Go find Austin.</small></p>
@@ -719,9 +741,8 @@ Note:
 Era 2021–2024. Verb lens: AUTOMATE.
 </textarea></section>
 <section data-transition="none">
-	<div class="faces" data-people="cody-baker austin-macdonald">
+	<div class="faces" data-people="cody-baker">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
 	</div>
 	<h2><a href="https://neuroconv.readthedocs.io/">NeuroConv</a> + <a href="https://github.com/con/nwb2bids">nwb2bids</a></h2>
 	<p style="font-size:1.4em;margin-top:1.5em;">Convert once, use everywhere.</p>
@@ -769,15 +790,16 @@ flowchart LR
 <section>
 	<div style="display:flex;justify-content:center;align-items:center;gap:3em;margin-top:1.5em;">
 	  <a href="https://dandiarchive.org/"><img style="height:160px" data-src="pics/dandi-logo-square.svg"/></a>
-	  <a href="https://emberarchive.org/"><strong style="font-size:2em;">EMBER</strong></a>
+	  <a href="https://emberarchive.org/" style="display:inline-flex;align-items:center;gap:0.25em;"><img style="width:97px;height:120px;" data-src="pics/con-projects/ember_logo.png" alt="EMBER"/><strong style="font-size:2em;">EMBER</strong></a>
 	  <a href="https://openneuro.org/"><img style="height:100px" data-src="pics/borrowed/openneuro_logo.png"/></a>
 	</div>
 	<p style="margin-top:1.5em;font-style:italic;">National archives. Built on shared standards.</p>
   </section>
 <section>
-	<div class="faces" data-people="satrajit-ghosh ben-dichter john-wodder">
+	<div class="faces" data-people="satrajit-ghosh ben-dichter cody-baker john-wodder">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Ben Dichter"><img data-src="pics/con-whoweare/ben-dichter.png" alt="Ben Dichter"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
 	</div>
 	<h2>DANDI ecosystem &mdash; integrate, don't re-implement</h2>
@@ -909,13 +931,8 @@ dimmed = association already ended.
 Note:
 Era 2025–. Verb lens: REUSE · COMPOSE · EXTEND · STANDARDIZE · AUTOMATE.
 </textarea></section>
-<section>
-    <h2><a href="https://github.com/duecredit/duecredit">duecredit</a> &middot;
-	  <a href="https://github.com/con/citations-collector">citations-collector</a></h2>
-    <p>Credit for the software, tracked and harvested automatically.</p>
-  </section>
 <section data-background="black">
-    <h2 style="color:white;">&ldquo;What if AI attribution worked the same way?&rdquo;</h2>
+    <h2 style="color:white;">&ldquo;What if AI attribution worked like citation?&rdquo;</h2>
   </section>
 <section>
     <pre><code class="language-text">SPDX-FileContributor: assisted-by-ai: Claude Code 2.1 / Claude Sonnet 4.6</code></pre>
@@ -1020,11 +1037,13 @@ slide carry the idea on their own.
 	  answer, and a picture with gaps in it already beats study_final2/.
 	</aside>
   </section>
-<section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;Without standards, AI produces cacophony at scale.&rdquo;</p>
-  </section>
 <section data-transition="none">
-	<p style="font-size:1.4em;margin-top:2em;">One instance of the pattern:<br/>lab knowledge management.</p>
+	<p style="font-size:1.5em;margin-top:1.5em;">Every lab already runs a knowledge base:<br/>
+	  people, projects, grants, papers, datasets.</p>
+	<p class="fragment" style="font-size:1.2em;">Usually it is a website somebody edits by hand,
+	  and a CV somebody else retypes.</p>
+	<aside class="notes">The way into ORINOCO is the knowledge base, not the standard:
+	  everyone in this room maintains one, and nobody calls it that.</aside>
   </section>
 <section>
 	<div class="faces" data-people="michael-hanke john-lee isaac-to">
@@ -1032,13 +1051,41 @@ slide carry the idea on their own.
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
 	</div>
-	<h3>ORINOCO &rarr; ORINOCO-Lite</h3>
-	<!-- TODO: simple flow diagram or two logos side by side -->
-	<p style="margin-top:1em;"><a href="https://github.com/INM-7">INM-7 Jülich</a> &rarr; CON, GitHub-native</p>
-	<p><small>Reusing ORINOCO (Michael Hanke / INM-7) and composing with GitHub Actions/Pages.<br/>
-	  Poster this week: <strong>John Lee</strong>, I. To, Y. O. Halchenko,
+	<h3 style="margin-bottom:0.1em;">ORINOCO &rarr; ORINOCO-Lite</h3>
+	<!-- Both diagrams are the poster's own, in place under 2026-usrse/orinoco-lite/
+	     rather than copied into pics/ -- same files, one copy. -->
+	<div style="display:flex;justify-content:center;align-items:flex-start;gap:1.5em;">
+	  <div>
+		<p style="font-size:0.62em;margin:0 0 0.2em 0;"><strong>ORINOCO</strong> &mdash;
+		  <a href="https://github.com/INM-7">INM-7 J&uuml;lich</a>, self-hosted</p>
+		<img style="width:600px;height:270px;"
+			 data-src="2026-usrse/orinoco-lite/assets/orinoco-selfhost-components-poster.svg"
+			 alt="ORINOCO: schema, SHACL-VUE and dump-things around a self-hosted Forgejo, rendering a data catalog, a lab website and an annual report"/>
+	  </div>
+	  <div>
+		<p style="font-size:0.62em;margin:0 0 0.2em 0;"><strong>ORINOCO-Lite</strong> &mdash; CON, GitHub-native</p>
+		<img style="width:600px;height:270px;"
+			 data-src="2026-usrse/orinoco-lite/assets/orinoco-lite-components-poster.svg"
+			 alt="ORINOCO-Lite: the same schema and outputs, with GitHub pull requests over git + YAML records and GitHub Actions doing the build"/>
+	  </div>
+	</div>
+	<p style="margin-top:0.3em;"><small>Same schema in, same outputs out. <strong>Reuse</strong> the upstream design,
+	  <strong>compose</strong> it from GitHub Actions and Pages, <strong>automate</strong> the build &mdash;
+	  nothing to host, and the records stay the model while every site is only a view.</small></p>
+  </section>
+<section>
+	<h3 style="margin-bottom:0.15em;">The lab website <em>is</em> the records</h3>
+	<a href="https://centerforopenneuroscience.org/persons" target="_blank"><img style="width:557px;height:680px;"
+		 data-src="2026-usrse/orinoco-lite/assets/orinoco-con-persons-panel-20261013.png"
+		 alt="The CON People page, rendered from the record store"/></a>
+	<p style="margin-top:0.2em;"><small>Every face in the corner of these slides is a record in that store, and so is
+	  this page &mdash; and the acknowledgements at the end.<br/>
+	  Poster this evening: <strong>John Lee</strong>, I. To, Y. O. Halchenko,
 	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/orinoco-lite_poster.html" target="_blank"><em>Beyond the Lab
 	  Website: Reusing Structured Research Metadata Across Lab Operations</em></a>.</small></p>
+	<aside class="notes">One sentence: the people you have been seeing all talk are rows in a store,
+	  and this page, the CV, the annual report and the acknowledgements slide are all views of it.
+	  Then send them to John's poster.</aside>
   </section>
 <section>
 	<p style="font-size:1.4em;font-style:italic;margin-top:2em;">
@@ -1052,7 +1099,7 @@ slide carry the idea on their own.
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
 	</div>
-	<h3>Four posters this week &mdash; come find us</h3>
+	<h3>Four posters this evening &mdash; come find us</h3>
 	<!-- duct and orinoco-lite are published under
 	     datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/ .
 	     The two STAMPED posters are not online yet: when they are, swap the
@@ -1188,8 +1235,8 @@ slide carry the idea on their own.
 	  <a href="https://bids.neuroimaging.io/"><img style="height:150px;" data-src="pics/BIDS_Logo.png" alt="BIDS"/></a>
 	  <a href="https://datalad.org/"><img style="height:110px;" data-src="pics/datalad_logo_wide.svg" alt="DataLad"/></a>
 	  <a href="https://openneuro.org/"><img style="height:110px;" data-src="pics/borrowed/openneuro_logo.png" alt="OpenNeuro"/></a>
-	  <a href="https://www.nwb.org/"><strong style="font-size:1.6em;">NWB</strong></a>
-	  <a href="https://emberarchive.org/"><strong style="font-size:1.6em;">EMBER</strong></a>
+	  <a href="https://www.nwb.org/"><img style="width:328px;height:60px;" data-src="pics/con-projects/nwb_logo.png" alt="NWB"/></a>
+	  <a href="https://emberarchive.org/" style="display:inline-flex;align-items:center;gap:0.25em;"><img style="width:89px;height:110px;" data-src="pics/con-projects/ember_logo.png" alt="EMBER"/><strong style="font-size:1.6em;">EMBER</strong></a>
 	</div>
 	<p style="font-size:1.2em;margin-top:1em;">One ecosystem. None of it single-authored.</p>
 	<aside class="notes">One wall, not six slides. Do not read the names out.</aside>

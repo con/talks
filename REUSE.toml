@@ -499,3 +499,13 @@ path = "2026-usrse/orinoco-lite/assets/repronim_logo.svg"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
+# duecredit's own demo animation, taken from examples/ in the duecredit
+# repository (duecredit/duecredit), which is BSD-2-Clause.  Yarik is one of
+# the two copyright holders there, but it is still that project's file and
+# carries that project's terms, not this repository's.
+[[annotations]]
+path = "pics/duecredit_example.gif"
+precedence = "override"
+SPDX-FileCopyrightText = "2015 Yaroslav Halchenko, Matteo Visconti di Oleggio Castello"
+SPDX-License-Identifier = "BSD-2-Clause"
