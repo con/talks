@@ -1383,13 +1383,13 @@ harnesses. Autonomy is bought with structure, not with a bigger model.
 
 Note: Let the banner sit for a beat. Banner art is the STAMPED project's own.
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+----
+
 ### STAMPED in one table
 
 <div class="md-table" style="font-size:0.78em;">
 
-| Property | In one line | What it buys an *agent* |
+| Property | In one line | What it buys an *AI agent* |
 | -------- | ----------- | ----------------------- |
 | **S**elf-contained | Everything under one boundary | A bounded context window. Nothing it needs is &ldquo;on Bob&rsquo;s laptop&rdquo;. |
 | **T**racked | Version control &amp; provenance | A diff to review, and a record of *who/what* produced each change &mdash; including the agent. |
@@ -1406,34 +1406,49 @@ Note: Let the banner sit for a beat. Banner art is the STAMPED project's own.
 Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1](https://doi.org/10.31222/osf.io/f3h82_v1)
 <!-- .element: style="font-size:0.72em;margin-top:0.6em;" -->
 
-Note:
-Do not read the table. Seven properties, each a spectrum rather than a
-pass/fail gate. Then jump straight to the third column -- that is why this
-audience should care. SKIP CANDIDATE if running long: the letters on the next
-slide carry the idea on their own.
-  </textarea></section>
+----
 
-<!-- The payoff of the build-up: same nine pieces, now with the letters. -->
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
+### a skill is a research object: So grade *them*&nbsp; too!
 
-### Twenty years, many tools, one object
+A skill that only runs in your repo, on your paths, undocumented and unversioned,<br/>
+is a **silo with a friendlier interface**.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
+
+<div class="md-table" style="font-size:0.68em;">
+
+| Property | &hellip; applied to a skill or an automation |
+| -------- | -------------------------------------------- |
+| **S**elf-contained | Carries its own references and scripts. Not &ldquo;see our internal wiki&rdquo;. |
+| **T**racked | In git, with a `metadata.version` and a history &mdash; so a change to the procedure is reviewable. |
+| **A**ctionable | Runnable commands and scripts, not only prose. *Recursive, and the point.* |
+| **M**odular | One skill, one job. Composable with the others instead of a mega-prompt. |
+| **P**ortable | No hardcoded paths, no &ldquo;works on our cluster&rdquo;. Declares its dependencies and versions. |
+| **E**phemeral | Runs in a fresh sandbox. No accreted state it silently depends on. |
+| **D**istributable | Published where someone else can find and install it &mdash; not pasted into chat. |
+
+</div>
+
+
+Walk it yourself: [checklist.stamped-principles.org](https://checklist.stamped-principles.org/)
+(MUST / SHOULD / MAY, item by item) &middot;
+[examples](https://examples.stamped-principles.org/) &middot;
+[principles](https://stamped-principles.org/) &middot;
+[paper source](https://github.com/stamped-principles/stamped-paper)
+([`main.tex`](https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex)
+&mdash; small enough to paste into a context window, which is how we actually grade a study today)
+
+----
+
+### Pick your pieces of the puzzle to become STAMPED
 
 <object class="dia" data="pics/stamped-puzzle-usrse.svg" type="image/svg+xml" style="width:1000px;height:531px;"></object>
 
-<div style="margin-top:0.4em; padding:0.6em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.8em;">
-The same pieces &mdash; with the letters. No single tool hands you a STAMPED research
-object; each one contributes a property, and <strong>Reuse. Compose. Extend. Standardize.
-Automate.</strong> is how separate tools came to cover all seven. Names and letters
-are links: follow them later.
-</div>
+<p>and visit our posters tonight on STAMPED:</p>
 
-Note:
-The reveal the build-up was for. Letters repeat across pieces because several
-tools feed the same property, and that is the argument: no one tool is the
-answer, and a picture with gaps in it already beats study_final2/.
-
-If asked why only nine: these are the ones this talk had time for. The
-half-pieces on the sides are the rest -- the full list is on the website.
+- <a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED Principles: pragmatic practices for reproducible science</strong></a> by <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> et al.
+- <a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED in Practice</strong></a> by
+<a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; et al.
+	</div>
 
 </textarea></section></section>
 
@@ -1463,6 +1478,8 @@ room maintains one, and nobody calls it that.
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
 	</div>
 	<h3 style="margin-bottom:0.1em;">ORINOCO &rarr; ORINOCO-Lite</h3>
+	<a href="https://linkml.io/"><img style="width:200px" src="pics/borrowed/linkml-logo_color.png"/></a>
+
 	<!-- Both diagrams are the poster's own, in place under 2026-usrse/orinoco-lite/
 	     rather than copied into pics/ -- same files, one copy. -->
 	<div style="display:flex;justify-content:center;align-items:flex-start;gap:1.5em;">
@@ -1507,43 +1524,46 @@ AI drafts candidate records.<br/>Schema validates.<br/>Humans curate via PR.
 <!-- .element: style="font-size:1.4em;font-style:italic;" -->
 
 </textarea></section>
-<section>
-	<div class="faces" data-people="austin-macdonald cody-baker john-lee isaac-to">
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
-	</div>
-	<h3>Four posters this evening &mdash; come find us</h3>
-	<!-- duct and orinoco-lite are published under
-	     datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/ .
-	     The two STAMPED posters are not online yet: when they are, swap the
-	     stamped-principles.org links below for their own URLs. -->
-	<div style="font-size:0.78em;text-align:left;max-width:1180px;margin:0.4em auto;line-height:1.45;">
-	  <p style="margin:0.45em 0;">
-		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><strong>Agent-friendly Provenance Capture with <code>con-duct</code></strong></a><br/>
-		<span style="color:#666;"><a href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank">Austin Macdonald</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#yaroslav_o_halchenko_" target="_blank">Y. O. Halchenko</a> &mdash; patterns of use with AI agents are on it</span></p>
-	  <p style="margin:0.45em 0;">
-		<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/orinoco-lite_poster.html" target="_blank"><strong>Beyond the Lab Website: reusing structured research metadata across lab operations</strong></a><br/>
-		<span style="color:#666;"><a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank">Isaac To</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#yaroslav_o_halchenko_" target="_blank">Y. O. Halchenko</a> &mdash; ORINOCO-Lite, the thing this website is generated by</span></p>
-	  <p style="margin:0.45em 0;">
-		<a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED Principles: pragmatic practices for reproducible science</strong></a><br/>
-		<span style="color:#666;"><a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank">Austin Macdonald</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#yaroslav_o_halchenko_" target="_blank">Y. O. Halchenko</a></span></p>
-	  <p style="margin:0.45em 0;">
-		<a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED in Practice: reproducing a scientific result using ABCD neuroimaging data</strong></a><br/>
-		<span style="color:#666;"><a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank">Austin Macdonald</a> &middot; <a href="https://centerforopenneuroscience.org/whoweare#yaroslav_o_halchenko_" target="_blank">Y. O. Halchenko</a> &mdash; the seven properties applied to somebody else&rsquo;s finished analysis</span></p>
-	</div>
-	<p style="font-size:0.72em;color:#777;margin-top:0.2em;">Titles link to the posters, names to their <a href="https://centerforopenneuroscience.org/whoweare" target="_blank">CON records</a> &mdash;
-	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/" target="_blank">datasets.datalad.org/&hellip;/talks/2026-usrse/</a></p>
-	<aside class="notes">
-	  Do not read all four. Name the two that match the room -- con/duct and
-	  STAMPED in Practice -- and say the slide is online so they can click the
-	  rest. The presenters are the authors, not me: send people to them.
-	</aside>
-  </section>
+
+</section>
+
+
+<!-- Here a summary slide with some tasks -->
+
+<section data-transition-speed="zoom">
+  <H1>Thank you!</H1>
+  <h2>Reuse. Compose. Extend. Standardize. Automate.</h2>
+  <h3>Together we can make any science a better science!</h3>
+
+  <p>
+	<!-- any other mascot???
+		<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
+		  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
+		</a>
+		-->
+  </p>
+  <p><small>Slides: <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">datasets.datalad.org/&hellip;/2026-usrse-con-talk.html</a> &mdash; CC-BY-SA</small></p>
+</section>
+
+<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+</section>
+
+</section>
+
+
+<section data-transition="slide">
+
+  <section>
+	<h1>EXTRAS</h1>
+	</section
+
+<!-- The closing act: beats, the acknowledgements, and the Monday list.
+     Markdown, because almost every slide here is one sentence and an
+     attribute; the two that are not (the logo wall and nothing else) stay
+     HTML below. -->
 <section data-markdown data-separator="^\n----\n"><textarea data-template>
 
-Standards give both HI and AI a shared grammar.
+	Standards give both HI and AI a shared grammar.
 <!-- .element: style="font-size:1.4em;font-style:italic;" -->
 
 ----
@@ -1568,17 +1588,7 @@ YouTube &rarr; DataLad. Cloud silos &rarr; git-annex. AI sessions &rarr; subdata
 
 Note: Hold here. This is RSE take-home line #2.
 
-</textarea></section>
-</section>
-
-
-<section data-transition="slide">
-
-<!-- The closing act: beats, the acknowledgements, and the Monday list.
-     Markdown, because almost every slide here is one sentence and an
-     attribute; the two that are not (the logo wall and nothing else) stay
-     HTML below. -->
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
+----
 
 REUSE &nbsp;&middot;&nbsp; COMPOSE &nbsp;&middot;&nbsp; EXTEND<br/>
 STANDARDIZE &nbsp;&middot;&nbsp; AUTOMATE
@@ -1755,21 +1765,6 @@ Your Monday: one upstream search. One datalad run. One CI job.
 
 
 
-<section data-transition-speed="zoom">
-  <H1>Thank you!</H1>
-  <h2>Reuse. Compose. Extend. Standardize. Automate.</h2>
-  <p>
-	<!-- any other mascot???
-		<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
-		  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
-		</a>
-		-->
-  </p>
-  <p><small>Slides: <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">datasets.datalad.org/&hellip;/2026-usrse-con-talk.html</a> &mdash; CC-BY-SA</small></p>
-</section>
-
-<section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
-</section>
 
 
 <!-- End of slides -->
