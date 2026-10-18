@@ -2,6 +2,10 @@
 **/.git* annex.largefiles=nothing
 * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 *.svg annex.largefiles=(largerthan=100K)
+# Decks stay in git (the largest is ~83K); single-file HTML bundles such as the
+# STAMPED poster (fonts and figures base64-inlined, ~5 MB of UTF-8 text) go to
+# the annex.
+*.html annex.largefiles=(largerthan=1MB)
 # Preserve the storage rule for the original SVG in this branch's history.
 2026-usrse/orinoco-lite-poster.svg annex.largefiles=nothing
 # Preserve the original Git-stored logo in PR history; the relocated asset
