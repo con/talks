@@ -584,11 +584,12 @@ Cross-references in the per-topic lookup point at the shelved path
 - [Editable poster, verified PDF and research evidence](2026-usrse/stamped-ai-study/README.md).
 
 ### `2026-sfn/stamped-poster-4x6.html` — *STAMPED: Seven principles for re-executable research objects in neuroscience*
-- **Venue / date**: one 4×6 ft poster shown at three venues: SfN 2026, the
-  US-RSE'26 poster session (2026-10) and the BRAIN Initiative Conference 2026.
-  Authors: Cody C. Baker, Austin Macdonald, John A. Lee, Yaroslav O. Halchenko.
+- **Venue / date**: the same poster for three venues: SfN 2026, the US-RSE'26
+  poster session (2026-10) and the BRAIN Initiative Conference 2026. Authors:
+  Cody C. Baker, Austin Macdonald, John A. Lee, Yaroslav O. Halchenko.
 - **Format**: a single-file HTML bundle (~5 MB, fonts and figures inlined;
-  needs JavaScript to unpack), annexed. The same annex key is linked as
+  needs JavaScript to unpack) declaring a 72 × 48 in (6 × 4 ft) landscape
+  canvas, annexed. The same annex key is linked as
   `2026-usrse/stamped-poster-4x6.html` and
   `2026-brain-initiative/stamped-poster-4x6.html`. Abstracts:
   `2026-sfn/stamped-poster-abstract.md`,
