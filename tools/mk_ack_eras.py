@@ -83,8 +83,10 @@ ERAS = [
     ("2012", "2009–2012", "NeuroDebian"),
     ("2016", "2013–2016", "DataLad · BIDS"),
     ("2020", "2017–2020", "OpenNeuro · NWB · ReproNim"),
-    ("2024", "2021–2024", "DANDI · EMBER · HED"),
-    ("2026", "2025–", "STAMPED · ORINOCO-Lite"),
+    # 2021 to now is one era in the deck: the talk stopped being a chronology
+    # there and became a description of what is running today, so splitting it
+    # at 2024 produced two slides that said the same thing with one more face.
+    ("2026", "2021–", "DANDI · EMBER · HED · STAMPED · ORINOCO-Lite"),
 ]
 
 # Extra people to ring on a given era's slide, beyond that era's arrivals.

@@ -143,6 +143,9 @@ path = [
     "pics/nwb-guide-file-metadata-20261008.webp",
     "pics/openneuro-studies-webshot_20260602.png",
     "pics/stamped-principles-webshot_20260602.png",
+    # our own repositories, but the page around them is GitHub's
+    "pics/webshot-con-duct.png",
+    "pics/webshot-con-skills.png",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
