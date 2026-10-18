@@ -7,3 +7,9 @@
 # Preserve the original Git-stored logo in PR history; the relocated asset
 # under 2026-usrse/orinoco-lite/assets/ follows the normal SVG annex rule.
 pics/con-logo-outlined.svg annex.largefiles=nothing
+# The STAMPED poster is a single-file HTML bundle (~5 MB; fonts and figures
+# base64-inlined into one line). It is UTF-8 text, so the rule above would keep
+# it in git; annex it at each venue path (one key, three symlinks).
+2026-sfn/stamped-poster-4x6.html annex.largefiles=anything
+2026-usrse/stamped-poster-4x6.html annex.largefiles=anything
+2026-brain-initiative/stamped-poster-4x6.html annex.largefiles=anything

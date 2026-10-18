@@ -418,6 +418,23 @@ SPDX-FileCopyrightText = [
 ]
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
+# The STAMPED poster (SfN 2026, US-RSE'26, BRAIN Initiative 2026): one annexed
+# HTML bundle, the same key at all three venue paths. Authors as on the poster.
+[[annotations]]
+path = [
+    "2026-sfn/stamped-poster-4x6.html",
+    "2026-usrse/stamped-poster-4x6.html",
+    "2026-brain-initiative/stamped-poster-4x6.html",
+]
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2026 Cody C. Baker <cody.c.baker.phd@gmail.com>",
+    "2026 Austin Macdonald <Austin.S.Macdonald@dartmouth.edu>",
+    "2026 John A. Lee <John.A.Lee@dartmouth.edu>",
+    "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
 
 # === 6. Corrections to the blanket markers above ===========================
 # These blocks are LAST on purpose: they win over the pics/borrowed/** marker,

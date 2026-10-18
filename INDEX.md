@@ -583,6 +583,22 @@ Cross-references in the per-topic lookup point at the shelved path
 - US-RSE 2026 poster comparing research-skill assistance across three rounds.
 - [Editable poster, verified PDF and research evidence](2026-usrse/stamped-ai-study/README.md).
 
+### `2026-sfn/stamped-poster-4x6.html` — *STAMPED: Seven principles for re-executable research objects in neuroscience*
+- **Venue / date**: one 4×6 ft poster shown at three venues: SfN 2026, the
+  US-RSE'26 poster session (2026-10) and the BRAIN Initiative Conference 2026.
+  Authors: Cody C. Baker, Austin Macdonald, John A. Lee, Yaroslav O. Halchenko.
+- **Format**: a single-file HTML bundle (~5 MB, fonts and figures inlined;
+  needs JavaScript to unpack), annexed. The same annex key is linked as
+  `2026-usrse/stamped-poster-4x6.html` and
+  `2026-brain-initiative/stamped-poster-4x6.html`. Abstracts:
+  `2026-sfn/stamped-poster-abstract.md`,
+  `2026-brain-initiative/stamped-poster-abstract.md`; the US-RSE companion
+  poster is `2026-usrse/stamped-ai-study/index.html` above.
+- **Content**: the seven STAMPED properties (Self-containment, Tracking,
+  Actionability, Modularity, Portability, Ephemerality, Distributability) and
+  how they complement FAIR, with OpenNeuroDerivatives and DANDI Compute (the
+  Allen Institute for Neural Dynamics ephys pipeline) as case studies.
+
 
 Posters are not reveal.js decks and have no slide IDs. HTML posters
 live in their venue directory; each needs a record (kind
