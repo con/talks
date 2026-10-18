@@ -509,3 +509,80 @@ path = "pics/duecredit_example.gif"
 precedence = "override"
 SPDX-FileCopyrightText = "2015 Yaroslav Halchenko, Matteo Visconti di Oleggio Castello"
 SPDX-License-Identifier = "BSD-2-Clause"
+
+# STAMPED example poster source and verification reports.
+# Institutional artwork retains its separate attribution below.
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/index.html",
+    "2026-usrse/stamped-ai-study/*.css",
+    "2026-usrse/stamped-ai-study/*.md",
+    "2026-usrse/stamped-ai-study/*.json",
+    "2026-usrse/stamped-ai-study/.gitattributes",
+    "2026-usrse/stamped-ai-study/.gitignore",
+    "2026-usrse/stamped-ai-study/exports/*.json",
+    "2026-usrse/stamped-ai-study/exports/qr-source/decode-report.json",
+    "2026-usrse/stamped-ai-study/assets/stamped-qr-*.svg",
+    "2026-usrse/stamped-ai-study/exports/pdf-qr-*.png",
+    "2026-usrse/stamped-ai-study/exports/qr-source/*.png",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# Reference layout from con/talks PR 20, pinned in source-manifest.json.
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/template.css"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 John Lee", "2026 Isaac To", "2026 Yaroslav O. Halchenko", "2026 Center for Open Neuroscience"]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/build-poster.cjs",
+    "2026-usrse/stamped-ai-study/make-logo-qrs.py",
+    "2026-usrse/stamped-ai-study/verify-links.py",
+    "2026-usrse/stamped-ai-study/verify-pdf.py",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Shared institutional artwork and CON QR retain the existing PR 20 annotations.
+
+# CC-BY-SA covers the poster composition, not its embedded institutional marks.
+[[annotations]]
+path = [
+    "2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf",
+    "2026-usrse/stamped-ai-study/exports/html-fullsize.png",
+    "2026-usrse/stamped-ai-study/exports/pdf-fullsize.png",
+    "2026-usrse/stamped-ai-study/exports/pdf-preview.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "Dartmouth College (institutional artwork)", "NOASSERTION"]
+SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyLogo"
+
+# Reproducible NARPS poster code and generated evidence.
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/scripts/*.py", "2026-usrse/stamped-ai-study/pixi.toml", "2026-usrse/stamped-ai-study/package*.json"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/figures/*.json"
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["2026-usrse/stamped-ai-study/figures/narps-group-map.*", "2026-usrse/stamped-ai-study/figures/narps-spatial-agreement.*"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 Center for Open Neuroscience (composition)", "NOASSERTION"]
+SPDX-License-Identifier = "CC-BY-SA-4.0 AND LicenseRef-ThirdPartyMixed"
+
+[[annotations]]
+path = "2026-usrse/stamped-ai-study/figures/round-progression.*"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

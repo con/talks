@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: Apache-2.0
+[workspace]
+name = "stamped-in-practice-poster"
+channels = ["conda-forge"]
+platforms = [{ platform = "osx-arm64", macos = "14.0" }, "linux-64"]
+
+[dependencies]
+python = ">=3.12,<3.14"
+pillow = ">=11,<13"
+pypdf = ">=6,<7"
+qrcode = ">=8,<9"
+poppler = "*"
+nodejs = ">=22,<23"
+pre-commit = "*"
+git = "*"
+
+[pypi-dependencies]
+zxing-cpp = "==2.3.0"
+datalad = "*"
+git-annex = "*"
+
+[tasks]
+setup-browser = "npm ci && npx playwright install chromium"
+figures = "python scripts/import-benchmark-figures.py"
+outcomes = "python scripts/import-benchmark-outcomes.py"
+build = { cmd = "node build-poster.cjs --out-dir exports", depends-on = ["figures", "outcomes"] }
+verify = "python verify-pdf.py --review-dir exports"
+links = "python verify-links.py --review-dir exports"

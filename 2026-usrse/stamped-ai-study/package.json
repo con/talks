@@ -1,0 +1,6 @@
+{
+  "name": "stamped-in-practice-poster",
+  "private": true,
+  "license": "Apache-2.0",
+  "dependencies": { "playwright": "1.62.1" }
+}
