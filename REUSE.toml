@@ -378,8 +378,17 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 # The NiPy mark, fetched from nipy.org/img/nipy.svg (the site itself is
 # CC-BY-4.0, but the mark is a project mark, reproduced here for nominative
 # use on the acknowledgement slides like every other one in this section).
+# Its three offspring come from con-site-specific's content/projects/, which
+# took them from the projects' own pages; the IPython banner is
+# docs/source/_static/logo.png in ipython/ipython.
 [[annotations]]
-path = "pics/con-projects/nipy_logo.svg"
+path = [
+    "pics/con-projects/nipy_logo.svg",
+    "pics/con-projects/nibabel_logo.png",
+    "pics/con-projects/nipype_logo.png",
+    "pics/con-projects/nitime_logo.png",
+    "pics/con-projects/ipython_logo.png",
+]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "NOASSERTION"
 SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"

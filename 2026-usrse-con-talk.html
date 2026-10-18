@@ -95,6 +95,11 @@
   </section>
 </section>
 
+<!-- The opening: the problem, the five verbs, and the promise.  One
+     horizontal section, so the eras that follow each read as a step
+     sideways rather than as more of the same. -->
+<section>
+
 <section data-background="black">
   <h2 style="color:white;">It&rsquo;s 2026. AI writes code.</h2>
 </section>
@@ -198,14 +203,6 @@
   <h2 style="color:white;">&ldquo;2000. A neuroscience grad student joins a Debian developer&rsquo;s lab.&rdquo;</h2>
 </section>
 
-<section>
-  <p style="font-size:1.1em;">Fernando Perez was building IPython in the same open-science community. Same instinct: reuse the ecosystem, not just the code.</p>
-  <!-- TODO: add Fernando Perez / IPython logo pic if available -->
-  <aside class="notes">
-    Fernando Perez will have given the morning plenary. One sentence callback.
-    Move on immediately. Drop the slide entirely if the program moved and he has
-    not spoken yet -- a callback to something nobody saw is just a name.
-  </aside>
 </section>
 
 <!-- ===== era 2004 ============================================== -->
@@ -264,6 +261,75 @@ Era 2005–2008. Verb lens: EXTEND.
 		   multivariate pattern analysis of fMRI data. <em>Neuroinformatics</em>, 7:37&ndash;53, 2009.
 		   doi: 10.1007/s12021-008-9041-y</a></small>
   </section>
+<section>
+  <p style="font-size:1.1em;">Fernando Perez was building IPython in the same open-science community. Same instinct: reuse the ecosystem, not just the code.</p>
+  <!-- TODO: add Fernando Perez / IPython logo pic if available -->
+  <aside class="notes">
+    Fernando Perez will have given the morning plenary. One sentence callback.
+    Move on immediately. Drop the slide entirely if the program moved and he has
+    not spoken yet -- a callback to something nobody saw is just a name.
+  </aside>
+</section>
+
+<section data-background-gradient="radial-gradient(white, #f7dfd3)">
+	<h2><span style="color:#1565c0;">Compose</span> &mdash; small modules, common substrate</h2>
+	<h3 class="fragment">Sandwich, don't silo.</h3>
+  </section>
+
+<section>
+	<h3>Not three toolboxes &mdash; one ecosystem</h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:3.2em;margin:1.2em 0 0.8em 0;">
+	  <a href="http://www.pymvpa.org/" title="PyMVPA"><img style="width:320px;height:150px;" data-src="pics/pymvpa_logo_fromfusionposter.svg" alt="PyMVPA"/></a>
+	  <a href="https://nipy.org/" title="NiPy"><img style="width:150px;height:150px;" data-src="pics/con-projects/nipy_logo.svg" alt="NiPy"/></a>
+	  <a href="https://ipython.org/" title="IPython"><img style="width:419px;height:54px;" data-src="pics/con-projects/ipython_logo.png" alt="IPython"/></a>
+	</div>
+	<p style="font-size:0.95em;margin:0.2em 0;">Same people, same rooms, same substrate &mdash; NumPy, SciPy, matplotlib, and
+	  Debian underneath all of it. Nobody shipped their own array type, their own plotting, their own shell.</p>
+	<p><small>PyMVPA ran its tutorials in IPython and read its data through what became
+	  <a href="https://nipy.org/nibabel/">NiBabel</a>. The ecosystem was the product; the packages were how it was delivered.</small></p>
+	<aside class="notes">
+	  This is COMPOSE, four slides early and in its original setting. The verb is not an
+	  architecture diagram -- it is what you do when three projects in one community agree
+	  to need each other. Point at the substrate line, not at the logos.
+
+	  If Fernando spoke this morning, this is where the callback lands: his talk and this
+	  slide are the same claim from two directions.
+	</aside>
+  </section>
+
+<section>
+	<h3>&hellip; and somebody has to <span style="color:#1565c0;">decompose</span> first</h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:2.2em;margin:1.1em 0 0.6em 0;">
+	  <a href="https://nipy.org/" title="NiPy"><img style="width:190px;height:190px;" data-src="pics/con-projects/nipy_logo.svg" alt="NiPy"/></a>
+	  <span style="font-size:2.6em;color:#1565c0;">&rarr;</span>
+	  <div style="display:flex;flex-direction:column;gap:0.5em;">
+		<a href="https://nipy.org/nibabel/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:327px;height:66px;" data-src="pics/con-projects/nibabel_logo.png" alt="NiBabel"/></a>
+		<a href="https://nipype.readthedocs.io/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:330px;height:66px;" data-src="pics/con-projects/nipype_logo.png" alt="Nipype"/></a>
+		<a href="https://nipy.org/nitime/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:326px;height:66px;" data-src="pics/con-projects/nitime_logo.png" alt="Nitime"/></a>
+	  </div>
+	</div>
+	<p style="font-size:0.95em;margin:0.2em 0;">File formats, pipelines and time series were split out of NiPy as separate
+	  packages &mdash; usable without taking the analysis suite with them. NiPy is still there.</p>
+	<p><small>Reading a NIfTI file no longer costs you a framework. Everything later in this talk
+	  &mdash; DataLad extensions, <code>con/duct</code>, the BIDS BEPs &mdash; is this same move.</small></p>
+	<aside class="notes">
+	  The hidden half of the word. You can only compose from small modules because somebody
+	  split them out first, and splitting is the unglamorous half: no new capability, only
+	  somebody else's dependency list getting shorter.
+
+	  Dates deliberately not on the slide -- the splits run from roughly 2007 into the early
+	  2010s, past this era's boundary. The point is the move, not the year.
+	</aside>
+  </section>
+
+<section data-transition="none">
+	<h1 style="font-size:3em;color:#1565c0;"><span style="color:#90caf9;">(DE)</span>COMPOSE</h1>
+	<aside class="notes">The word has a hidden half. You can only compose from small modules
+	  because somebody split them out first &mdash; nipy into nibabel, nipype and nitime, and
+	  nipy still there afterwards. Say it once, here, and the datalad-extensions and con/duct
+	  slides later need no explanation.</aside>
+  </section>
+
 <section data-markdown><textarea data-template>
 ### 2005–2008 &mdash; who we were working with
 
@@ -343,17 +409,6 @@ Era 2009–2012. Verb lens: COMPOSE.
 	  say what it used. Keep this one short -- the animation does the talking,
 	  and it runs 17 seconds, so talk over it and move on before it ends.
     </aside>
-  </section>
-<section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2><span style="color:#1565c0;">Compose</span> &mdash; small modules, common substrate</h2>
-	<h3 class="fragment">Sandwich, don't silo.</h3>
-  </section>
-<section data-transition="none">
-	<h1 style="font-size:3em;color:#1565c0;"><span style="color:#90caf9;">(DE)</span>COMPOSE</h1>
-	<aside class="notes">The word has a hidden half. You can only compose from small modules
-	  because somebody split them out first &mdash; nipy into nibabel, nipype and nitime, and
-	  nipy still there afterwards. Say it once, here, and the datalad-extensions and con/duct
-	  slides later need no explanation.</aside>
   </section>
 <section data-background-gradient="radial-gradient(white, #f7dfd3)">
 	<h2><span style="color:#2e7d32;">Extend</span> &mdash; stay on as maintainer</h2>
