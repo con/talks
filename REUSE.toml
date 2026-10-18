@@ -375,6 +375,15 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Michael Hanke <michael.hanke@gmail.com>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
+# The NiPy mark, fetched from nipy.org/img/nipy.svg (the site itself is
+# CC-BY-4.0, but the mark is a project mark, reproduced here for nominative
+# use on the acknowledgement slides like every other one in this section).
+[[annotations]]
+path = "pics/con-projects/nipy_logo.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NOASSERTION"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyLogo"
+
 # The DANDI mark, matching how pics/borrowed/dandi_logo.svg is already treated.
 [[annotations]]
 path = "pics/dandi-logo-square.svg"

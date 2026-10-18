@@ -110,6 +110,12 @@ ACCENT = {
 # grouped by where each mark came from.
 BANDS = [
     ("Collaborating with(in)", [
+        # NiPy, from the April 2008 Paris sprint onwards -- where YOH, Matthew
+        # Brett, Michael Hanke and Jean-Baptiste Poline were all in one room
+        # and the Python neuroimaging stack this talk is about started being
+        # built together.  The date is editorial: the store's nipy record
+        # carries associations but no `started`.
+        ("NiPy", "2008-04-01", "pics/con-projects/nipy_logo.svg", 44, "https://nipy.org/"),
         ("DataLad", "2013-11-01", "pics/con-projects/datalad_logo.png", 42, "https://www.datalad.org/"),
         ("ReproNim", "2016-04-15", "pics/con-projects/repronim_logo.svg", 58, "https://repronim.org/"),
         ("DANDI", "2019-07-24", "pics/con-projects/dandi_logo.png", 49, "https://dandiarchive.org/"),
