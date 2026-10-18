@@ -609,7 +609,7 @@ with access to 600TB+ of neural data
 </textarea></section>
 
 <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">Without standards, AI produces cacophony at scale.</p>
+	<p style="color:white;font-size:2em;margin-top:2em;">Without standards, humans produce mess, and AI scales that up!</p>
 </section>
 
 <section>
@@ -750,7 +750,7 @@ with access to 600TB+ of neural data
 	  (<a href="https://bids-apps.neuroimaging.io/">BIDS-Apps</a>, <a href="https://datalad.org">DataLad</a>, <a href="https://github.com/bids-standard/bids-validator">bids-validator</a>)<br/>
 
 	  &nbsp;	  &nbsp;	  &nbsp;
-	  <h3>Agentic AI is great at working along any of those dimension and benefits greatly from clean MVC separations</h3>
+	  <h3>Agentic AI is great at working along any of those dimension and benefits greatly from clean MVC separation</h3>
 </section>
 
 <section>
@@ -817,8 +817,95 @@ Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.dat
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#matteo_visconti_di_oleggio_castello_" target="_blank" title="Matteo Visconti di Oleggio Castello — UC Berkeley, CA"><img data-src="pics/con-whoweare/matteo-visconti-di-oleggio-castello.jpg" alt="Matteo Visconti di Oleggio Castello"/></a>
 	</div>
-  </textarea>
-</section>
+
+----
+
+### [ReproFlow: Automatic collection of Audio-Video Stimuli and responses](https://github.com/ReproNim/reprostim/)
+
+<object type="image/svg+xml" data="pics/borrowed/reproflow.svg" style="width:1300px;height:731px;">
+</object>
+
+----
+
+### [... and then all into BIDS too!](https://github.com/dbic/QA/tree/with-reprostim-videos/sub-qa/ses-20240730/func/)
+
+![](pics/borrowed/dbic-QA-audiovideo-20261008.png)
+
+<small>
+Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+</small>
+
+	</textarea>
+  </section>
+
+  <section>
+	<h3>But a layout only tells you <em>what</em> &nbsp; the files are.</h3>
+	<p>It says nothing about <em>how they came to be</em>, or <em>what it cost</em> to make them.</p>
+  </section>
+
+  <section>
+	<h3><a href="https://docs.datalad.org/en/stable/generated/man/datalad-run.html" target="_blank"><code>datalad run</code></a> writes the record for you</h3>
+<pre style="font-size:0.72em;"><code class="language-shell">$ datalad run -m "run brain extract workflow" \
+    --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+    --output "sub-*/anat" \
+    bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz</code></pre>
+<pre style="font-size:0.72em;"><code class="language-shell">$ git show --stat
+commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
+
+    [DATALAD RUNCMD] run brain extract workflow
+
+    === Do not change lines below ===
+    {
+     "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz ...",
+     "dsid": "b656ac80-973c-45ef-887e-1b8d6f6a51dd",
+     "exit": 0,
+     "inputs": ["inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz"],
+     "outputs": ["sub-*/anat"],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+ sub-001/anat.nii.gz      | 1 +
+ sub-001/anat_mask.nii.gz | 1 +</code></pre>
+	<ul style="font-size:0.88em;">
+	  <li>Machine-readable, <em>in the commit message</em> &mdash; no sidecar database to lose</li>
+	  <li>Clean git state in, clean git state out: <strong>no surprises</strong></li>
+	  <li><a href="https://docs.datalad.org/en/stable/generated/man/datalad-rerun.html" target="_blank"><code>datalad rerun</code></a> reads it back and re-executes</li>
+	</ul>
+	<p style="font-size:0.72em;margin-top:0.3em;">
+	  Example from the <a href="https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html" target="_blank">DataLad Handbook</a>.
+	  Found in the wild
+	  in <a href="https://github.com/datalad/datalad-usage-dashboard"
+	  target="_blank">~15% of indexed DataLad repositories on
+		GitHub</a>.<br>
+	</p>
+	<aside class="notes">
+	  	<!-- workshop-xref -->
+	<p style="font-size:0.68em;margin-top:0.2em;color:#1565c0;">
+	  &rarr; <strong>JB</strong>&rsquo;s analytical flexibility is an opportunity only if you can still say,
+	  a year later, <em>which</em> variant produced this figure. That sentence is the record above.
+	</p>
+
+	</aside>
+	
+  </section>
+
+  <section data-markdown><textarea data-template>
+### Provenance does not care who wrote the code
+
+Agent-written or human-crafted, <br>the `[DATALAD RUNCMD]` record is the same shape.
+<!-- .element: style="font-size:1.4em;margin-top:1.2em;" -->
+
+The tests do not know the code was AI-generated either.
+<!-- .element: style="font-size:1.2em;margin-top:1em;" -->
+
+<!-- <div class="callout-indigo" style="font-size:0.95em;margin-top:1.2em;">
+This is why <strong>Tracking</strong> is the principle that makes AI disclosure
+<em>mechanical</em> instead of aspirational &mdash; and we will come back to that at the end.
+</div>
+<aside class="notes">Hold here. This is take-home line #1.</aside>-->
+
+  </textarea></section>
 
 
 
@@ -840,63 +927,136 @@ Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.dat
 	</aside>
 </section>
 
-<section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Small units. Common substrate.<br/>No glue code you own alone.
-	</p>
-  </section>
-<section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;AI generates glue. Nobody owns the glue.&rdquo;</p>
-  </section>
-<section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Deliberate interfaces outlast generated adapters.
-	</p>
-  </section>
-<section data-transition="none">
-	<h2><a href="https://github.com/ReproNim/reproman">ReproMan</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Run it <em>there</em>. Record what &ldquo;there&rdquo; was.</p>
-	<p><small>Started 2016 as NICEMAN. Submit to containers, AWS, SLURM/condor &mdash; and collect the
-	  environment (Debian and conda packages, VCS revisions) in enough detail to re-create it.<br/>
-	  M. Travers, R. Buccigrossi, C. Haselgrove, K. Meyer, and <strong>Y. O. Halchenko</strong>.
-	  NICEMAN: NeuroImaging Computational Environments Manager, OHBM 2018.</small></p>
-	<aside class="notes">ReproMan is the one in this deck that did not take off the way the others did,
-	  and that is worth saying out loud. But the question it asked outlived it.</aside>
-  </section>
 
-  <section data-transition="none">
-  	<div class="faces" data-people="austin-macdonald cody-baker john-lee">
+  <section data-markdown><textarea data-template>
+### The missing piece from the future: [con/duct](https://github.com/con/duct)
+
+<div class="faces" data-people="austin-macdonald cody-baker john-lee">
   	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
   	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
   	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
-  	</div>
-	<h3>ReproMan&rsquo;s afterlife: <a href="https://github.com/con/duct">con/duct</a></h3>
-	<p style="font-size:1.2em;margin-top:1em;">
-	  ReproMan asked <em>what did that remote run actually cost?</em><br/>
-	  brainlife&rsquo;s <a href="https://github.com/brainlife/abcd-spec/blob/master/hooks/smon"><code>smon</code></a> showed how to sample it.<br/>
-	  <strong>2024:</strong> <code>duct &lt;cmd&gt;</code> &mdash; no third-party dependencies, uniform records.
-	</p>
-	<p><small><em>Later</em>, well out of this era &mdash; but it belongs to this story, not to 2024.
-	  Already adopted inside <a href="https://github.com/ReproNim/containers">ReproNim/containers</a> and
-	  <a href="https://github.com/ReproNim/reprostim">ReproStim</a>; <code>RRID:SCR_025436</code>.<br/>
-	  Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
+</div>
+
+<a href="https://github.com/con/duct" target="_blank"><img data-src="pics/webshot-con-duct.png" width="845" height="480" style="width:845px;height:480px;"/></a>
+
+Wrap *any* command. It records, next to the outputs:
+wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
+`stdout`/`stderr` &mdash; as plain, self-contained files.
+<!-- .element: style="font-size:0.88em;margin-top:0.5em;" -->
+
+<aside class="notes">
+SKIP CANDIDATE if running long &mdash; the next slide carries the
+argument; this one is the screenshot that sells it.  If you do skip it,
+still say the poster line out loud: the duct poster is on Monday at
+US-RSE and it is where the agent-usage patterns are written down.
+</aside>
+  </textarea></section>
+
+  <section>
+	<h3>&hellip; and <em>that log is</em> &nbsp; the provenance you need later</h3>
+	<table style="width:100%;font-size:0.72em;margin-top:0.3em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:44%;padding-right:0.8em;vertical-align:top;">
+		  <strong>&ldquo;Why did this get OOM-killed on the cluster?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Peak RSS over time, per process. Not your memory of it.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;How much do I request for 2,000 subjects?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Measured, from the run you already did.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;What did it print before it died?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Captured, versioned, next to the outputs.</li></ul>
+		</td>
+		<td style="width:56%;padding-left:0.8em;border-left:2px solid
+				   #666;text-align:center;vertical-align:top;">
+		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#fmriprep-on-1-subject-of-ds002785"><img data-src="pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg" width="520" height="390" style="width:520px;height:390px;"/></a>
+		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/"
+		  target="_blank"><code>con-duct plot</code></a> &mdash; Who can guess this monster?</p>
+		</td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  <strong>Why an AI audience should care:</strong> when you hand a failing pipeline to an agent,
+	  it needs <em>numbers and text it can read</em>, not a human recollection.
+	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
+
+	  <p style="font-size:0.74em;margin-top:0.3em;">
+		Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
 	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><em>Agent-friendly
 	  Provenance Capture with <code>con-duct</code></em></a> &mdash; the patterns of use with AI agents are on it.
 	  Go find Austin.</small></p>
-	<aside class="notes">Reuse across a decade and across two communities: the need came from ReproMan,
-	  the sampling approach came from brainlife, the tool is ours. Nobody started from scratch.
-	  Plug Austin's poster here explicitly &mdash; he is presenting it, not me.</aside>
-  </section>
-<section data-transition="none">
-	<h2><a href="https://www.nwb.org/">NWB</a> + <a href="https://www.kitware.com/">Kitware</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Academic RSE &harr; engineering industry.</p>
-	<p><small>Sustained collaboration on browse / analyze / visualize tooling.</small></p>
-  </section>
-<section data-transition="none">
-	<h1 style="font-size:3em;color:#6a1b9a;">STANDARDIZE</h1>
+	  </p>
+	</div>
+	<p style="font-size:0.72em;margin-top:0.4em;">
+	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
+	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
+	  and every <code>datalad containers-run</code> gets a duct trace for free.
+	</p>
   </section>
 
-<section>
+
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: data-transition="slide" -->
+
+## Data Archives
+
+----
+
+## Archives: free backup, (ours) open by design
+
+[![](pics/borrowed/2025-sfn-poster-data-standards--archives.png)](https://zenodo.org/records/18333008)
+
+<small>
+From: Rübel, O., Baker, C. C., … Halchenko, Y. (2025). <emph>The Ecosystem of Standards in Neuroscience: Which Ones Are For You?</emph> Society for Neuroscience (SfN) annual meeting, Neuroscience 2025 (SfN), San Diego. <a href="https://doi.org/10.5281/zenodo.18333008">DOI: 10.5281/zenodo.18333008</a>
+</small>
+
+----
+
+### OpenNeuro
+
+<!-- TODO: add people icons for Poldrack and Chris M -->
+[![](pics/borrowed/openneuro-ieeg-webshote-20261008.png)<!-- .element: style="width:1150px;" -->](https://openneuro.org/)
+
+BRAIN Initiative archive for \*MRI, EEG, MEG
+etc human data (Stanford-led, with **Dartmouth/CON** as Co-I), live
+since 2017.
+[openneuro.org](https://openneuro.org)
+
+----
+
+### DANDI &mdash; the neurophysiology archive
+
+<!-- TODO: add people icons for Satra, Cody, Ben Dichter, Isaac, Austin, ... anyone else involved with DANDI -->
+
+[![](pics/borrowed/dandiarchive-webshote-20261008.png)<!-- .element: style="width:1150px;" -->](https://dandiarchive.org/)
+
+BRAIN Initiative archive for the neurophysiological data (MIT and
+**Dartmouth/CON** lead, with Kitware, et al), live since
+2019. [dandiarchive.org](https://dandiarchive.org)
+
+----
+
+#### [stats.dandiarchive.org](https://stats.dandiarchive.org)
+
+[![](pics/borrowed/dandiarchive-stats-webshote-20261008.png)<!-- .element: style="width:1150px;" -->](https://stats.dandiarchive.org/)
+
+----
+
+### API allowed for access and analytics
+
+Later: for AI agents included.
+
+----
+
+### DANDI ecosystem &mdash; integrate, don't re-implement
+
+<img style="width:1150px;height:687px;" data-src="pics/DANDI-ecosystem.svg"/>
+
+
+</textarea></section>
+
+
+
+  <section>
 	<h3>The object so far &mdash; 2020</h3>
 	<object class="dia" data="pics/stamped-puzzle-2020.svg" type="image/svg+xml" style="width:800px;height:531px;"></object>
 	<p style="font-size:0.78em;margin-top:0.2em;">Seven. The environment now travels with the record, and
@@ -908,8 +1068,9 @@ Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.dat
 	  needs a slide.
 	</aside>
   </section>
+
 <section data-markdown><textarea data-template>
-### 2017–2020 &mdash; who we were working with
+### 2017–2020 &mdash; our extended "team"
 
 <iframe src="2026-usrse-con-talk/ack-2020.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
 
@@ -919,75 +1080,59 @@ dimmed = association already ended.
 </textarea></section>
 </section>
 
-<!-- ===== era 2024 ============================================== -->
+<!-- ===== era from 2021 till now ============================================== -->
 <section>
-<section data-markdown><textarea data-template>
-## 2021–2024 &mdash; DANDI · EMBER · HED
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+## 2021–now &mdash; ARCHIVES · STANDARDS · AI · STAMPED
 
-<p style="font-size:0.78em;letter-spacing:0.12em;color:#d84315;font-weight:700;margin:0 0 0.4em 0;">AUTOMATE</p>
+<!-- TODO use corresponding colors for different words in below -->
+### AUTOMATE · INTEGRATE · SCALE-UP · COLLABORATE 
 
-**[DANDI](https://dandiarchive.org/)** and **[EMBER](https://emberarchive.org/)** — national archives. **[registry.datalad.org](https://registry.datalad.org/)** federates petabytes with no central platform. **HED** for what happened when.
+----
 
-<p style="font-size:0.62em;color:#666;margin-top:1.2em;"><strong>AI:</strong> **[con/tinuous](https://github.com/con/tinuous)**, daily `git-annex` tests, auto-rebuilt containers, mirrored dandisets. At agent-rate output, automated testing is the only review that scales.</p>
+<!-- add color to slide data-background-gradient="radial-gradient(white, #f7dfd3)" --> 
 
-Note:
-Era 2021–2024. Verb lens: AUTOMATE.
+### <span style="color:#d84315;">Automate</span> &mdash; or it doesn&rsquo;t happen at scale</h2>
+
+<h3 class="fragment">If a human has to remember and do it, it&rsquo;s already outdated.</h3>
+
+----
+
+	<div class="faces" data-people="john-wodder">
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
+	</div>
+	<h2><a href="https://github.com/con/tinuous">con/tinuous</a></h2>
+	<H3>CI logs and build-artifacts archived (to git/git-annex). Every PR. Every build.</h3>
+	<img style="height:450px;margin-top:1em;" data-src="pics/con-tinuous-github.png"/>
+
+
+----
+
+<div class="faces" data-people="cody-baker">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
+  <!-- TODO: add ben dichter -->
+	</div>
+
+![](pics/2026-dhmc-ieeg-nwb-convert-scale.svg)<!-- .element: style="width:1250px;" -->
+
+----
+
+<!-- .slide: data-transition="slide-in" -->
+
+### nwb2bids: NWB dandisets represented in BIDS
+
+[![](pics/borrowed/bids-dandisets-dashboard-20261008.png)](https://github.com/bids-dandisets/dashboard?tab=readme-ov-file#dandisets)
+
+----
+
+### nwb2bids: BIDS version of 000003
+
+#### You seen one of them -- you saw them all
+
+[![](pics/borrowed/bids-dandisets-000003-20261008.png)](https://github.com/bids-dandisets/000003/tree/draft/sub-YutaMouse57/ses-YutaMouse57-161016/ecephys)
+
 </textarea></section>
-<section data-transition="none">
-	<div class="faces" data-people="cody-baker">
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
-	</div>
-	<h2><a href="https://neuroconv.readthedocs.io/">NeuroConv</a> + <a href="https://github.com/con/nwb2bids">nwb2bids</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Convert once, use everywhere.</p>
-	<p><small>Raw physiology &rarr; NWB; NWB &rarr; BIDS layout. Two flagship standards, one bridge.</small></p>
-  </section>
-<section>
-	<h3>From ad-hoc to standard, in one slide</h3>
-	<div class="mermaid"><pre>
-flowchart LR
-  RUNCMD["DataLad RUNCMD<br/>(2015, ad-hoc JSON in commit msgs)"] --> BEP["BEP028<br/>BIDS provenance"]
-  RUNCMD --> EXP["bids-prov-exporter<br/>(WiP)"]
-  BEP --> COMMUNITY["BIDS standard<br/>(community-owned)"]
-  EXP --> COMMUNITY
-  classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
-  classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
-  class RUNCMD orange
-  class BEP green
-  class COMMUNITY green
-	</pre></div>
-	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
-	  <strong>Take home:</strong> the next time you reach for <em>your own</em> JSON-in-a-commit-message format,
-	  ask which upstream standard it should fold back into.
-	</p>
-  </section>
-<section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;AI extends by adding. It rarely stays to maintain.&rdquo;</p>
-  </section>
-<section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Staying on as maintainer is the non-automatable contribution.
-	</p>
-  </section>
-<section>
-	<!-- TODO: add LinkML logo -->
-	<h2><a href="https://linkml.io/">LinkML</a></h2>
-	<p style="font-size:1.2em;margin-top:1em;">Schemas that compose.</p>
-	<p><small>Built two hours north of this room, at LBNL (Lawrence Berkeley National Laboratory).</small></p>
-  </section>
-<section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;"><a href="https://orcid.org/">ORCID</a> &middot;
-	  <a href="https://ror.org/">ROR</a> &middot; <a href="https://www.doi.org/">DOI</a> &middot;
-	  <a href="https://www.w3.org/TR/prov-o/">PROV-O</a></p>
-	<p style="font-size:1.3em;">Reused identifiers, not invented.</p>
-  </section>
-<section>
-	<div style="display:flex;justify-content:center;align-items:center;gap:3em;margin-top:1.5em;">
-	  <a href="https://dandiarchive.org/"><img style="height:160px" data-src="pics/dandi-logo-square.svg"/></a>
-	  <a href="https://emberarchive.org/" style="display:inline-flex;align-items:center;gap:0.25em;"><img style="width:97px;height:120px;" data-src="pics/con-projects/ember_logo.png" alt="EMBER"/><strong style="font-size:2em;">EMBER</strong></a>
-	  <a href="https://openneuro.org/"><img style="height:100px" data-src="pics/borrowed/openneuro_logo.png"/></a>
-	</div>
-	<p style="margin-top:1.5em;font-style:italic;">National archives. Built on shared standards.</p>
-  </section>
+
 <section>
 	<div class="faces" data-people="satrajit-ghosh ben-dichter cody-baker john-wodder">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
@@ -1001,19 +1146,21 @@ flowchart LR
 <section data-background-gradient="radial-gradient(white, #f7dfd3)">
 	<h2><span style="color:#d84315;">Automate</span> &mdash; or it doesn&rsquo;t happen at scale</h2>
 	<h3 class="fragment">If a human has to remember it, it&rsquo;s already broken.</h3>
-  </section>
+</section>
+
 <section data-transition="none">
 	<div class="faces" data-people="john-wodder">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
 	</div>
 	<h2><a href="https://github.com/con/tinuous">con/tinuous</a></h2>
-	<p style="font-size:1.5em;margin-top:1.5em;">&ldquo;CI logs archived. Every PR. Every build.&rdquo;</p>
+	<p style="font-size:1.5em;margin-top:1.5em;">&ldquo;CI logs archived.<br/> Every PR. Every build.&rdquo;</p>
 	<img style="height:450px;margin-top:1em;" data-src="pics/con-tinuous-github.png"/>
-  </section>
+	<!-- TODO: add a note for AI used to troubleshoot and bisect issues across all infrastructure solutions -->
+	
+</section>
+
+
 <section data-transition="none">
-	<div class="faces" data-people="joey-hess">
-	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#joey_hess_" target="_blank" title="Joey Hess — Independent Guru"><img data-src="pics/con-whoweare/joey-hess.jpg" alt="Joey Hess"/></a>
-	</div>
 	<h2><a href="https://github.com/con/git-annex">git-annex</a> daily tests</h2>
 	<p style="font-size:1.5em;margin-top:2em;">&ldquo;DataLad and git-annex: tested daily. Automatically.&rdquo;</p>
 	<img style="height:350px;margin-top:1em;" data-src="pics/datalad-daily-status-email-subject.png"/>
@@ -1022,8 +1169,8 @@ flowchart LR
 	<div class="faces" data-people="john-wodder">
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
 	</div>
-	<h2>dandisets mirror</h2>
-	<p style="font-size:1.5em;margin-top:2em;">&ldquo;Auto-mirrored. Petabytes. No human in the loop.&rdquo;</p>
+	<h2>dandi/backups2datalad: dandisets mirror</h2>
+	<h3>Auto-mirrored. Petabyte(s). No human in the loop.</h3>
 	<img style="height:350px;margin-top:1em;" data-src="pics/github-dandisets.png"/>
   </section>
 <section>
@@ -1033,7 +1180,7 @@ flowchart LR
 	  nightly cron, deploy scripts, glue. Someone maintains <em>that</em>.
 	</p>
 	<p style="margin-top:1em;font-size:1.1em;">
-	  By 2024 the harness was bigger than several of the projects under it.<br/>
+	  By 2024 the CI/CD harnesses became comparable to several of the projects under it.<br/>
 	  <em>That</em> is why a small RSE center was dragged toward AI assistance
 	  &mdash; not for the science, but for the
 	  <strong>maintenance of the meta-layer</strong>.
@@ -1100,7 +1247,7 @@ flowchart LR
 	</aside>
   </section>
 <section data-markdown><textarea data-template>
-### 2021–2024 &mdash; who we were working with
+### 2021–2024 &mdash; our extended "team"
 
 <iframe src="2026-usrse-con-talk/ack-2024.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
 
@@ -1267,7 +1414,7 @@ slide carry the idea on their own.
 	  nothing to host, and the records stay the model while every site is only a view.</small></p>
   </section>
 <section>
-	<h3 style="margin-bottom:0.15em;">The lab website <em>is</em> the records</h3>
+	<h3 style="margin-bottom:0.15em;">The CON website <em>is</em>&nbsp; the records</h3>
 	<a href="https://centerforopenneuroscience.org/persons" target="_blank"><img style="width:557px;height:680px;"
 		 data-src="2026-usrse/orinoco-lite/assets/orinoco-con-persons-panel-20261013.png"
 		 alt="The CON People page, rendered from the record store"/></a>
