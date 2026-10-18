@@ -102,15 +102,6 @@
 
   <section data-markdown data-separator="^\n----\n"><textarea data-template>
 
-## Reality Check
-
-![](pics/borrowed/idiocracy-fixed.gif)<!-- .element: style="width:630px;height:473px;box-shadow:10px 10px 8px #888888;" -->
-
-**Many names on the slides are links** &mdash; follow along, click through later.
-<!-- .element: style="font-size:0.7em;color:#555;" -->
-
-----
-
 ![](pics/yarik-goal.svg)<!-- .element: style="height:800px" -->
 
 ----
@@ -126,122 +117,17 @@
 
 <p class="fragment" style="font-size:0.95em;letter-spacing:0.08em;font-weight:700;margin-top:0.3em;">
 <span style="color:#a04000;">REUSE</span> &middot;
-<span style="color:#1565c0;">COMPOSE</span> &middot;
+<span style="color:#1565c0;">(DE)COMPOSE</span> &middot;
 <span style="color:#2e7d32;">EXTEND</span> &middot;
 <span style="color:#6a1b9a;">STANDARDIZE</span> &middot;
 <span style="color:#d84315;">AUTOMATE</span></p>
-
-<p style="font-size:0.62em;color:#666;margin-top:0.2em;">The five verbs were on the front page in 2015 &mdash; before we had a word for what they add up to.</p>
 
 Note:
 The principles have been written down on the site for a decade; the deck
 walks the same five in the order they were learned. Say the verbs once here,
 then let the eras say them again one at a time.
 
-</textarea></section>
-
-<section data-markdown><textarea data-template>
-
-<!-- .slide: data-background="black" -->
-
-## It&rsquo;s 2026. AI writes code.
-
-</textarea></section>
-
-  <section>
-	<h3>The bottleneck moved</h3>
-	<table style="width:90%;margin:auto;font-size:0.95em;margin-top:1em;">
-	  <tr>
-		<td style="text-align:right;padding:0.5em;width:45%;"><em>writing</em> the code</td>
-		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
-		<td style="text-align:left;padding:0.5em;width:45%;"><strong>verifying</strong> and <strong>situating</strong> it</td>
-	  </tr>
-	  <tr>
-		<td style="text-align:right;padding:0.5em;"><em>can I create this?</em></td>
-		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
-		<td style="text-align:left;padding:0.5em;"><strong>is this right, and does it fit what already exists?</strong></td>
-	  </tr>
-	</table>
-
-	<div style="margin-top:1.2em;text-align:center;">
-	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank"><img data-src="pics/borrowed/2026-ai-intensifies.png" style="width:394px;height:380px;box-shadow:5px 5px 8px #888;"/></a>
-	</div>
-	<p style="font-size:0.7em;color:#555;margin-top:0.3em;">
-	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank">HBR, Feb 2026: &ldquo;AI doesn&rsquo;t reduce work, it intensifies it&rdquo;</a>
-	</p>
-	<aside class="notes">
-	  Agent-rate output demands agent-rate review. You cannot
-	  hand-inspect what an agent produces in an afternoon. The only
-	  things that scale with it are standards (so correctness is
-	  checkable) and provenance (so the history is reconstructable).
-	</aside>
-  </section>
-
-<section data-markdown><textarea data-template>
-
-<!-- .slide: data-background="black" -->
-
-## AI created a new problem:
-
-### it fosters silos.
-
-</textarea></section>
-
-<section>
-  <h2>AI fosters silo projects.</h2>
-  <blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
-    &ldquo;&hellip; by adopting LLMs people tend to code <em>single-use software</em> from scratch.
-    While this leads to an increase in &lsquo;shared&rsquo; code, it is mostly code that not only
-    has not been &lsquo;written&rsquo; by anyone but is also <strong>not maintained by anyone</strong>.&rdquo;
-  </blockquote>
-  <blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
-    &ldquo;You can develop at a rapid pace, build things as if you had a large team.
-    Only that you have none. In fact, <strong>you are (often) alone</strong>, working with a
-    statistical machine that turns energy into code.&rdquo;
-  </blockquote>
-  <p style="font-size:0.72em;margin-top:0.6em;display:flex;align-items:center;justify-content:center;gap:0.8em;">
-    <a href="https://codeberg.org/" target="_blank"><img style="width:121px;height:70px;margin:0;" data-src="pics/borrowed/codeberg_logo.svg" alt="Codeberg"/></a>
-    <span>&mdash; B. Greshake Tzovaras, O. Richter, W. Zijl,
-    <a href="https://blog.codeberg.org/protecting-our-floss-commons-from-llms.html">&ldquo;Protecting our FLOSS commons from LLMs&rdquo;</a>,
-    Codeberg e.V., 23 July 2026</span>
-  </p>
-  <aside class="notes">
-    Codeberg raised the alarm clearly: LLM coding assistance by default generates
-    self-contained, non-reusing, non-contributing projects. The silo is the path of
-    least resistance.
-
-    Note the second quote deliberately: "you are (often) alone". That is the deck's own
-    closing arc, arriving from an independent source in July 2026 — do not point at it
-    here, just let it be read. It pays off at "You are alone." near the end.
-
-    Both motions passed: 358 for / 144 against / 14 abstentions, ~50% turnout. The
-    second changes the terms of use to prohibit vibe-coded projects. Codeberg is not a
-    hostile-to-AI outlier; it is a forge doing arithmetic on its own storage bill.
-  </aside>
-</section>
-
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
-
-<!-- .slide: data-background="black" -->
-
-## Agents don&rsquo;t search. They generate.
-
 ----
-
-### Reuse requires asking &ldquo;does this exist?&rdquo; before the first keystroke.
-
-Note:
-Moved up from the STAMPED act on purpose: the deck opens by naming the silo, so
-the first verb has to answer it here, not ninety slides later.
-
-</textarea></section>
-
-
-<!-- The spine of the talk.  This frame returns at the end of every era with the
-     pieces that existed by then (pics/stamped-puzzle-20XX.svg, all generated by
-     tools/mk_stamped_puzzle.py) and a last time with the letters that name what
-     they have in common. -->
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
 
 ### Twenty years, building components for one structure
 
@@ -263,7 +149,7 @@ pieces there are -- the count is the payoff three eras from now.
 
 <!-- .slide: data-background="black" -->
 
-## &ldquo;It started as an accident.&rdquo;
+## And I started "alone"
 
 ----
 
@@ -795,7 +681,7 @@ Without standards, humans produce mess, and AI scales that up!
 
 ----
 
-### The object so far &mdash; 2016
+### Parts of the toolbelt puzzle &mdash; 2016
 
 <object class="dia" data="pics/stamped-puzzle-2016.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
 
@@ -941,7 +827,7 @@ later, *which* variant produced this figure. That sentence is the record above.
 Agent-written or human-crafted, <br>the `[DATALAD RUNCMD]` record is the same shape.
 <!-- .element: style="font-size:1.4em;margin-top:1.2em;" -->
 
-The tests do not know the code was AI-generated either.
+<!-- The tests do not know the code was AI-generated either. -->
 <!-- .element: style="font-size:1.2em;margin-top:1em;" -->
 
 <!-- <div class="callout-indigo" style="font-size:0.95em;margin-top:1.2em;">
@@ -1062,12 +948,13 @@ From: Rübel, O., Baker, C. C., … Halchenko, Y. (2025). <emph>The Ecosystem of
 
 ----
 
-### OpenNeuro
+### OpenNeuro - The Neuroimaging archive
 
 <div class="faces" data-people="russell-poldrack chris-markiewicz">
   <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Russell A. Poldrack"><img data-src="pics/con-whoweare/russell-poldrack.jpg" alt="Russell A. Poldrack"/></a>
   <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
 </div>
+
 [![](pics/borrowed/openneuro-ieeg-webshote-20261008.png)<!-- .element: style="width:1100px;height:656px;" -->](https://openneuro.org/)
 
 BRAIN Initiative archive for \*MRI, EEG, MEG
@@ -1126,7 +1013,7 @@ Later: for AI agents included.
 
   <section data-markdown><textarea data-template>
 
-### The object so far &mdash; 2020
+### Parts of the toolbelt puzzle &mdash; 2020
 
 <object class="dia" data="pics/stamped-puzzle-2020.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
 
@@ -1175,18 +1062,50 @@ dimmed = association already ended.
 	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
 	</div>
 	<h2><a href="https://github.com/con/tinuous">con/tinuous</a></h2>
-	<H3>CI logs and build-artifacts archived (to git/git-annex). Every PR. Every build.</h3>
+	<H3>CI logs and build-artifacts archived (to git/git-annex). <br/>Every PR. Every build.</h3>
 	<img style="height:450px;margin-top:1em;" data-src="pics/con-tinuous-github.png"/>
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+## [git-annex](https://github.com/con/git-annex) daily tests
+
+<!-- [git-annex](https://git-annex.branchable.com/) is the content layer under DataLad, and its
+upstream is one person. We build and run its test suite every day, on our platforms, so a
+regression is *our* bug report rather than *their* surprise. -->
+
+DataLad and git-annex: tested daily. Automatically.
+<!-- .element: style="font-size:1.3em;" -->
+
+![](pics/datalad-daily-status-email-subject.png)<!-- .element: style="width:1300px;height:83px;margin-top:1em;" -->
+
+<iframe src="embed/datalad_git-annex_daily.html" style="width:50%; height:600px;"></iframe>
 
 
 ----
 
-<div class="faces" data-people="cody-baker ben-dichter">
-  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
-  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Ben Dichter"><img data-src="pics/con-whoweare/ben-dichter.png" alt="Ben Dichter"/></a>
+## DataLad Extensions & Their Health
+
+<img style="height:900px" data-src="pics/datalad-extensions.png"/>
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+<div class="faces" data-people="john-wodder">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
 </div>
 
-![](pics/2026-dhmc-ieeg-nwb-convert-scale.svg)<!-- .element: style="width:1150px;height:647px" -->
+## [dandi/backups2datalad](https://github.com/dandi/backups2datalad): dandisets mirror
+
+Every dandiset, continuously mirrored into a DataLad dataset on GitHub &mdash;
+a second copy of the archive, with version history, that nobody has to remember to make.
+<!-- .element: style="font-size:0.85em;" -->
+
+### Auto-mirrored. Petabyte(s) in Git/git-annex. No human in the loop.
+
+![](pics/github-dandisets.png)<!-- .element: style="margin-top:0.5em;" -->
 
 ----
 
@@ -1206,46 +1125,31 @@ dimmed = association already ended.
 
 [![](pics/borrowed/bids-dandisets-000003-20261008.png)<!-- .element: style="width:1022px;height:740px" -->](https://github.com/bids-dandisets/000003/tree/draft/sub-YutaMouse57/ses-YutaMouse57-161016/ecephys)
 
-</textarea></section>
+----
 
+### [DANDI Compute](https://github.com/dandi-compute): Archive-wide pre-processing
 
+<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/orchestration.svg" style="width:1300px;height:812px;">
+</object>
 
+----
 
+### Parts of the toolbelt puzzle &mdash; 2024
+
+<object class="dia" data="pics/stamped-puzzle-2024.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
+
+Nine. All of it built before anyone said &ldquo;agent&rdquo; &mdash;
+and before we had a name for what the pieces had in common.
+<!-- .element: style="font-size:0.78em;" -->
+
+Note:
+Hold one beat on "before we had a name for it" -- the letters land two eras
+later and this is the setup for them.
+
+</textarea></section></section>
+
+<section>
 <section data-markdown data-separator="^\n----\n"><textarea data-template>
-
-<!-- .slide: data-transition="none" -->
-
-## [git-annex](https://github.com/con/git-annex) daily tests
-
-[git-annex](https://git-annex.branchable.com/) is the content layer under DataLad, and its
-upstream is one person. We build and run its test suite every day, on our platforms, so a
-regression is *our* bug report rather than *their* surprise.
-<!-- .element: style="font-size:0.85em;" -->
-
-&ldquo;DataLad and git-annex: tested daily. Automatically.&rdquo;
-<!-- .element: style="font-size:1.3em;" -->
-
-![](pics/datalad-daily-status-email-subject.png)<!-- .element: style="width:1300px;height:83px;margin-top:1em;" -->
-
-----
-
-<!-- .slide: data-transition="none" -->
-
-<div class="faces" data-people="john-wodder">
-  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
-</div>
-
-## [dandi/backups2datalad](https://github.com/dandi/backups2datalad): dandisets mirror
-
-Every dandiset, continuously mirrored into a DataLad dataset on GitHub &mdash;
-a second copy of the archive, with version history, that nobody has to remember to make.
-<!-- .element: style="font-size:0.85em;" -->
-
-### Auto-mirrored. Petabyte(s). No human in the loop.
-
-![](pics/github-dandisets.png)<!-- .element: style="width:374px;height:350px;margin-top:0.5em;" -->
-
-----
 
 ## Cost: harnesses, harnesses, harnesses
 
@@ -1254,8 +1158,8 @@ Someone maintains *that*.
 <!-- .element: style="font-size:1.2em;margin-top:1.5em;" -->
 
 By 2024 the CI/CD harnesses became comparable to several of the projects under it.<br/>
-*That* is why a small RSE center was dragged toward AI assistance &mdash; not for the science,
-but for the **maintenance of the meta-layer**.
+*That* is why a small RSE center was dragged toward AI assistance &mdash; not just for the science,
+but for the **development of code and maintenance of the meta-layer**.
 <!-- .element: style="font-size:1.1em;margin-top:1em;" -->
 
 Note:
@@ -1268,127 +1172,133 @@ feasible for a small RSE center.
 
 ----
 
-<!-- .slide: data-transition="none" -->
-
-[con/skills](https://github.com/con/skills) + [con/yolo](https://github.com/con/yolo): we automate the harness itself.
-<!-- .element: style="font-size:1.4em;" -->
-
-**con/skills** &mdash; the recurring jobs of a small RSE centre written down as agent skills
-(introduce REUSE compliance, triage an issue, update a dependency).
-**con/yolo** &mdash; the sandbox that runs them unattended.
-<!-- .element: style="font-size:0.8em;color:#555;" -->
-
-- The **sandbox is the only piece that *enforces* self-containment** &mdash; inside a fresh container, what you did not declare is simply not there. The property gets checked on every run instead of being a virtue you remember.
-- **Pre-flight, then run.** Assert every credential, token and access path *before* the job starts &mdash; fail in the first second, not in hour three with half a dataset written.
-<!-- .element: style="font-size:0.95em;" -->
-
-[![](pics/webshot-con-skills.png)<!-- .element: style="width:600px;height:343px;" -->](https://github.com/con/skills)
-
-Note:
-The sandbox line is the same move as a validator: turn a discipline into
-something the machine fails on.
-
-Pre-flight is John Lee's point. Caveat if asked: approvals granted
-interactively on first use -- a hook authorising against an external
-service -- cannot be checked ahead of time, so pre-flight covers what is
-checkable and the rest still bites you.
-
-----
-
-&ldquo;The tests don&rsquo;t know the code was AI-generated.&rdquo;
-<!-- .element: style="font-size:2em;font-weight:bold;" -->
-
-Note: Hold here. This is RSE take-home line #1.
-
-----
-
-<!-- .slide: data-background="black" data-transition="none" -->
-
-&ldquo;Agent-rate output demands agent-rate review.&rdquo;
-<!-- .element: style="font-size:2em;" -->
-
-----
-
-<!-- .slide: data-background="black" data-transition="none" -->
-
-&ldquo;<a href="https://github.com/con/duct" style="color:#80cbc4;">con/duct</a> watches every process. AI agents included.&rdquo;
-<!-- .element: style="font-size:1.8em;" -->
-
-Note: Wall time, CPU, memory, per task. Per agent run.
-
-----
-
-<!-- .slide: data-transition="none" -->
-
-# AUTOMATE
-<!-- .element: style="font-size:3em;color:#d84315;" -->
-
-----
-
-### The object so far &mdash; 2024
-
-<object class="dia" data="pics/stamped-puzzle-2024.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
-
-Nine. All of it built before anyone said &ldquo;agent&rdquo; &mdash;
-and before we had a name for what the pieces had in common.
-<!-- .element: style="font-size:0.78em;" -->
-
-Note:
-Hold one beat on "before we had a name for it" -- the letters land two eras
-later and this is the setup for them.
-
-</textarea></section>
-<section data-markdown><textarea data-template>
-### 2021–now &mdash; our extended "team"
-
-<iframe src="2026-usrse-con-talk/ack-2026.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
-
-Note:
-Generated from con-site-specific records. Red ring = new in this era;
-dimmed = association already ended.
-</textarea></section>
-
-<!-- ===== still 2021-now: the part that got a name in 2025 ======== -->
-<section data-markdown><textarea data-template>
-### &hellip; and in 2025 the pieces got a name
-
-<p style="font-size:0.78em;letter-spacing:0.12em;color:#555;font-weight:700;margin:0 0 0.4em 0;">REUSE · COMPOSE · EXTEND · STANDARDIZE · AUTOMATE</p>
-
-**[STAMPED](https://stamped-principles.org/)** — seven properties a research object should have, whoever or whatever made it. **ORINOCO-Lite** — the website you are looking at is generated from records, with `datalad run` provenance on every rendering.
-
-<p style="font-size:0.62em;color:#666;margin-top:1.2em;"><strong>AI:</strong> Both intelligences need the same thing: structure they can act on without guessing.</p>
-
-Note:
-Still the 2021– era. Verb lens: all five at once, which is the point of the name.
-</textarea></section>
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
-
 <!-- .slide: data-background="black" -->
 
-## &ldquo;What if AI attribution worked like citation?&rdquo;
-
-----
-
-```text
-SPDX-FileContributor: assisted-by-ai: Claude Code 2.1 / Claude Sonnet 4.6
-```
-
-File-level AI provenance that survives redistribution.
-
-Filed as [fsfe/reuse-website#127](https://github.com/fsfe/reuse-website/issues/127) &mdash;
-reuse the grammar you already have, rather than inventing a field.
-<!-- .element: style="font-size:0.7em;" -->
-
-Note:
-Same SPDX grammar already used for copyright. No new tooling required.
-Survives git history loss. Machine-readable. Per file.
+## It&rsquo;s 2026. AI writes code.
 
 </textarea></section>
 
-<!-- The AI-acceptance spectrum, carried over from the MIT STAMPED deck so the
-     two decks make the same claim with the same receipts. -->
-<section data-markdown><textarea data-template>
-### HI &harr; AI &mdash; every project picks its own policy
+<section>
+  <h3>The bottleneck moved</h3>
+	<table style="width:90%;margin:auto;font-size:0.95em;margin-top:1em;">
+	  <tr>
+		<td style="text-align:right;padding:0.5em;width:45%;"><em>writing</em> the code</td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;width:45%;"><strong>verifying</strong> and <strong>situating</strong> it</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:right;padding:0.5em;"><em>can I create this?</em></td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;"><strong>is this right, and does it fit what already exists?</strong></td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:1.2em;text-align:center;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank"><img data-src="pics/borrowed/2026-ai-intensifies.png" style="width:394px;height:380px;box-shadow:5px 5px 8px #888;"/></a>
+	</div>
+	<p style="font-size:0.7em;color:#555;margin-top:0.3em;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank">HBR, Feb 2026: &ldquo;AI doesn&rsquo;t reduce work, it intensifies it&rdquo;</a>
+	</p>
+	<aside class="notes">
+	  Agent-rate output demands agent-rate review. You cannot
+	  hand-inspect what an agent produces in an afternoon. The only
+	  things that scale with it are standards (so correctness is
+	  checkable) and provenance (so the history is reconstructable).
+	</aside>
+  </section>
+
+  <section>
+	<h3>"AI" now permeated through all levels of SciOps.</h3>
+
+	<H4>when originally we thought just about closing the loop with AI:</h4>
+	<a href="https://arxiv.org/abs/2401.00077" target="_blank"><img data-src="pics/borrowed/neuro-sciops-fig.svg" style="max-width:92%;"/></a>
+	<p style="font-size:0.68em;margin-top:0.3em;">
+	  <strong>Figure reproduced from:</strong>
+	  <a href="https://arxiv.org/abs/2401.00077" target="_blank">E. C. Johnson, T. T. Nguyen, B. K. Dichter, &hellip;,
+	  M. E. Martone, F. Pestilli, D. Yatsenko.
+	  <em>SciOps: Achieving Productivity and Reliability in Data-Intensive Research.</em>
+	  arXiv:2401.00077, 2024.</a>
+	</p>
+  </section>
+
+<section data-markdown  data-separator="^\n----\n"><textarea data-template>
+
+## AI fosters silos
+
+<blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
+    &ldquo;&hellip; by adopting LLMs people tend to code <em>single-use software</em> from scratch.
+    While this leads to an increase in &lsquo;shared&rsquo; code, it is mostly code that not only
+    has not been &lsquo;written&rsquo; by anyone but is also <strong>not maintained by anyone</strong>.&rdquo;
+  </blockquote>
+  <blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
+    &ldquo;You can develop at a rapid pace, build things as if you had a large team.
+    Only that you have none. In fact, <strong>you are (often) alone</strong>, working with a
+    statistical machine that turns energy into code.&rdquo;
+  </blockquote>
+  <p style="font-size:0.72em;margin-top:0.6em;display:flex;align-items:center;justify-content:center;gap:0.8em;">
+    <a href="https://codeberg.org/" target="_blank"><img style="width:121px;height:70px;margin:0;" data-src="pics/borrowed/codeberg_logo.svg" alt="Codeberg"/></a>
+    <span>&mdash; B. Greshake Tzovaras, O. Richter, W. Zijl,
+    <a href="https://blog.codeberg.org/protecting-our-floss-commons-from-llms.html">&ldquo;Protecting our FLOSS commons from LLMs&rdquo;</a>,
+    Codeberg e.V., 23 July 2026</span>
+  </p>
+
+----
+
+### and many rebuild the same private harness
+
+Researchers writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
+None of them shared. None of them versioned. None of them tested.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+We have seen this failure mode before. It was called<br/>
+***&ldquo;every lab has its own analysis scripts&rdquo;***,<br/> and we fixed it with standards and packages.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+<div class="callout" style="font-size:1.0em;margin-top:1.2em;">
+<strong>Skills are the new REUSABLE module.</strong>
+</div>
+<aside class="notes">
+	  This is the "ask" of the talk, stated before the evidence.
+	  Then show that we are already doing it, upstream, in public.
+	  SKIP CANDIDATE if running long &mdash; it can be delivered verbally
+	  as the lead-in to the contributions table.
+	</aside>
+
+----
+
+### so we found upstream "skills distribution" to contribute
+
+[K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
+&mdash; [177 scientific skills](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills),
+[Agent Skills](https://code.claude.com/docs/en/skills) spec, MIT-licensed, scanned and reviewed.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
+
+<div class="md-table" style="font-size:0.68em;">
+
+| Contribution | Who | What it carries |
+| ------------ | --- | --------------- |
+| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; [BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://github.com/nipy/heudiconv/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
+| [`skills/datalad`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad)<br/>[PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227) &mdash; merged | Dylan Pulver,<br/>*with our upstream review* | Clone/`get` semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot; **`datalad run` / `rerun` / `containers-run` as the provenance spine** &middot; publishing to siblings &middot; STAMPED landed in [`references/provenance.md`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md) on our suggestion |
+
+----
+
+### and started to distribute ([APM](https://microsoft.github.io/apm/)) domain-agnostic ones: [con/skills](https://github.com/con/skills/)
+
+<div class="md-table">
+
+| Skill | What it automates |
+| ----- | ----------------- |
+| [introduce-reuse-compliance](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-reuse-compliance) | SPDX / [REUSE](https://reuse.software/) licensing metadata &mdash; including for BIDS datasets |
+| [credit-contributions](https://github.com/con/skills/tree/0.20261015.0/skills/credit-contributions) | [CRediT](https://credit.niso.org/) author-contribution statements from git history |
+| [tinuous-analyzer](https://github.com/con/skills/tree/0.20261015.0/skills/tinuous-analyzer) | CI-failure investigation across archived [con/tinuous](https://github.com/con/tinuous) logs |
+| [bisect-and-patch-git-annex](https://github.com/con/skills/tree/0.20261015.0/skills/bisect-and-patch-git-annex) | Bisect a `git-annex` regression from CI logs and produce a red/green PR |
+| [issue-triage](https://github.com/con/skills/tree/0.20261015.0/skills/issue-triage) &middot; [pr-feedback-review](https://github.com/con/skills/tree/0.20261015.0/skills/pr-feedback-review) | Triage and review work, cross-referenced against the codebase |
+|  [introduce-intuit-auto](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-intuit-auto) &middot; [**introduce-codespell**](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-codespell) | Bootstrap spell-checking / automated releases into any project |
+</div>
+
+----
+
+### Beware: HI &harr; AI &mdash; every project picks its own policy
 
 Rows 1&ndash;2 are where almost every project actually is. Rows 3&ndash;4 are only honest once the verification loop is built.
 <!-- .element: style="font-size:0.7em;margin-top:-0.35em;margin-bottom:0.2em;color:#555;" -->
@@ -1419,8 +1329,43 @@ Note:
 The spectrum, not a recommendation -- every project here picks its own row, and
 a project is allowed to sit in row 1 forever. Note what the row-4 exemplars are:
 harnesses. Autonomy is bought with structure, not with a bigger model.
-</textarea></section>
-<section data-markdown><textarea data-template>
+</textarea></section></section>
+
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+# AI Performs better under Clear Operational Criteria
+
+----
+
+## Let's formalize properties of a research object to improve rigor and reproducibility
+
+<table style="width:100%;margin-top:1em;">
+	  <!-- border-bottom:none -- the beige theme rules every row but the last -->
+	  <tr>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
+		  <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"><img data-src="pics/yoda-principles-reordered.png" style="max-height:480px;"/></a>
+		</td>
+		<td style="width:4%;text-align:center;vertical-align:middle;border-bottom:none;font-size:2em;">&rarr;</td>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
+		  <a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:100%;"/></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:center;vertical-align:top;">
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">YODA</a></strong>, 2018 &mdash; solid base</p>
+		</td>
+		<td></td>
+		<td style="text-align:center;vertical-align:top;">
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://stamped-principles.org/" target="_blank">STAMPED</a></strong>, 2026 &mdash; generalized, gradeable, domain-agnostic</p>
+		</td>
+	  </tr>
+	</table>
+
+### We did not invent these <em>for</em> AI. That is the point &mdash; they were already the right properties.
+
+----
 
 <div class="faces" data-people="cody-baker austin-macdonald john-lee">
   <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
@@ -1428,11 +1373,12 @@ harnesses. Autonomy is bought with structure, not with a bigger model.
   <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
 </div>
 
+
 [![](pics/borrowed/stamped-banner_ver-3.svg)<!-- .element: style="width:1220px;height:317px;" -->](https://stamped-principles.org/)
 
 ### Seven properties a research object should have &mdash;<br/>whoever, *or whatever*, picks it up next.
 
-For research objects, we wrote the standard ourselves: [stamped-principles.org](https://stamped-principles.org/)
+[stamped-principles.org](https://stamped-principles.org/)
 <!-- .element: style="font-size:0.7em;" -->
 
 Note: Let the banner sit for a beat. Banner art is the STAMPED project's own.
@@ -1489,12 +1435,17 @@ answer, and a picture with gaps in it already beats study_final2/.
 If asked why only nine: these are the ones this talk had time for. The
 half-pieces on the sides are the rest -- the full list is on the website.
 
+</textarea></section></section>
+
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+# AI Performs better on well structured data
+
 ----
 
-<!-- .slide: data-transition="none" -->
-
-Every lab already runs a knowledge base:<br/>people, projects, grants, papers, datasets.
-<!-- .element: style="font-size:1.5em;" -->
+## Every lab already runs a knowledge base:<br/>people, projects, grants, papers, datasets.
 
 Usually it is a website somebody edits by hand, and a CV somebody else retypes.
 <!-- .element: class="fragment" style="font-size:1.2em;" -->
