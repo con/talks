@@ -87,3 +87,17 @@
 	border-color: #a04000;
 	filter: none;
 }
+
+/* Reveal marks a slide with a dark background .has-dark-background; the beige
+   theme leaves the text its usual near-black, so every such slide used to
+   repeat color:white on each element inline.  Say it once.  Inline styles
+   still win, so decks that set their own colour are unaffected. */
+.reveal .has-dark-background,
+.reveal .has-dark-background h1,
+.reveal .has-dark-background h2,
+.reveal .has-dark-background h3,
+.reveal .has-dark-background h4,
+.reveal .has-dark-background p,
+.reveal .has-dark-background li {
+	color: #fff;
+}
