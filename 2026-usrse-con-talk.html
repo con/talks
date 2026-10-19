@@ -446,7 +446,7 @@ We reuse the standard and automate its adoption.
 
 ----
 
-## in one figure
+## DataLad in one figure
 
 ![](pics/datalad_process_tuned/00base_preview.png)<!-- .element: style="width:1300px;height:520px" -->
 
@@ -870,7 +870,7 @@ US-RSE and it is where the agent-usage patterns are written down.
 	<table style="width:100%;font-size:0.72em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
 	  <td style="width:46%;padding-right:0.8em;vertical-align:top;">
 		<strong>1. The layout (<em>what</em>)</strong>
-<pre style="font-size:0.74em;margin-top:0.2em;"><code data-noescape>dataset_description.json
+<pre style="font-size:0.86em;margin-top:0.2em;"><code data-noescape>dataset_description.json
 code/
   compression-comparisons-tools/
   run_sweep.sh
@@ -886,7 +886,7 @@ derivatives/
 	  </td>
 	  <td style="width:54%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
 		<strong>2. The record (<em>how</em>) &mdash; and 3. the cost (<em>what it took</em>)</strong>
-<pre style="font-size:0.68em;margin-top:0.2em;"><code data-noescape>$ git log --oneline
+<pre style="font-size:0.80em;margin-top:0.2em;"><code data-noescape>$ git log --oneline
 7733465 [DATALAD RUNCMD] cell aind-634568__zstd...
 
  "cmd": "<span style="color:#ffb74d">duct</span> --output-prefix .../duct- \
@@ -927,7 +927,7 @@ derivatives/
 	<h3>So I tried to <code>rerun</code> it &mdash; fresh clone, two months later</h3>
 	<table style="width:100%;font-size:0.74em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
 	  <td style="width:53%;padding-right:0.8em;vertical-align:top;">
-<pre style="font-size:0.62em;"><code data-noescape>$ datalad clone <span style="color:#8bc34a">https://github.com/dandi/\
+<pre style="font-size:0.9em;"><code data-noescape>$ datalad clone <span style="color:#8bc34a">https://github.com/dandi/\
     compression-comparisons-t261-study</span>
 $ datalad get -n code/compression-comparisons-tools
   <span style="color:#8bc34a">✓ submodule URL fixed &mdash; it just works now</span>
@@ -945,7 +945,7 @@ $ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cf
 	  </td>
 	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
 		<strong>Did the science come back?</strong>
-		<table style="width:100%;font-size:0.82em;margin-top:0.3em;">
+		<table style="width:100%;font-size:0.92em;margin-top:0.3em;">
 		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
 		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.514... <strong style="color:#2e7d32;">same</strong></td></tr>
 		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
@@ -1155,7 +1155,7 @@ a second copy of the archive, with version history, that nobody has to remember 
 
 <object class="dia" data="pics/stamped-puzzle-2024.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
 
-Nine. Many more could be found on https://centerforopenneuroscience.org/projects.
+Nine. [Many more on our projects page](https://centerforopenneuroscience.org/projects).
 <!-- .element: style="font-size:0.78em;" -->
 
 Note:
@@ -1563,7 +1563,6 @@ AI drafts candidate records.<br/>Schema validates.<br/>Humans curate via PR.
 
 <iframe src="2026-usrse-con-talk/ack-now.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
 
-</textarea></section>
 </section>
 
 
