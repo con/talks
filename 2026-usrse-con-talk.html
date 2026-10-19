@@ -146,12 +146,6 @@ pieces there are -- the count is the payoff three eras from now.
 
 <!-- .slide: data-background="black" -->
 
-## And I started "alone"
-
-----
-
-<!-- .slide: data-background="black" -->
-
 ## 2000. A neuroscience grad student joins a Debian developer&rsquo;s lab.
 
 </textarea></section>
@@ -309,7 +303,7 @@ dimmed = association already ended.
 
 <!-- ===== era 2012 ============================================== -->
 <section>
-<section data-markdown><textarea data-template>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
 ## 2009–2012 &mdash; NeuroDebian
 
 <div class="faces" data-people="michael-hanke">
@@ -377,17 +371,6 @@ Eventually most of it dissolved upstream into **[Debian Med](https://blends.debi
 	</aside>
 </section>
 
-  <section data-background="pics/borrowed/debconf10-nyc-group.jpg"
-           data-background-size="cover"
-           data-background-position="center">
-	<!-- TODO: crop to show Yaroslav (#10 in the numbered wiki photo) with surrounding people -->
-	<div style="position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);padding:0.4em;">
-	  <small style="color:white;"><a href="https://wiki.debian.org/DebConf10" style="color:#80cbc4;">DebConf10</a>, New York City, 2010. This is what &ldquo;joining&rdquo; looks like.</small>
-	</div>
-	<aside class="notes">DebConf10, NYC 2010. Yaroslav is #10 in the numbered group photo. The point of
-	  putting this here rather than at the end: the community came first, the software second.</aside>
-  </section>
-
   <section data-markdown data-separator="^\n----\n"><textarea data-template>
 
 [![](pics/borrowed/reuse-logo.png)<!-- .element: style="width:428px;height:100px;margin:0.4em 0;" -->](https://reuse.software/)
@@ -433,30 +416,20 @@ We reuse the standard and automate its adoption.
 -->
 
 
-  <section data-markdown><textarea data-template>
+<!-- <section data-markdown><textarea data-template>
 ### 2009–2012 &mdash; who we were working with
-
 <iframe src="2026-usrse-con-talk/ack-2012.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
+</textarea></section> -->
 
-Note:
-Generated from con-site-specific records. Red ring = new in this era;
-dimmed = association already ended.
-</textarea></section>
-</section>
+</section> 
 
 <!-- ===== era 2016 ============================================== -->
 <section>
-<section data-markdown><textarea data-template>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
 ## 2013–2016 &mdash; DataLad · BIDS
 
 <h3><span style="letter-spacing:0.12em;color:#6a1b9a;font-weight:700;margin:0 0 0.4em 0;">STANDARDIZE</span></h3>
-
-- **Data logistics**: **[DataLad](https://www.datalad.org/)** (2013) put `git` + **[git-annex](https://git-annex.branchable.com/)** under *data*.
-- **[BIDS](https://bids.neuroimaging.io/)** (2016)  — a community data standard, not a lab convention.
-
-</textarea></section>
-
-<section data-markdown data-separator="^\n----\n"><textarea data-template>
 
 <!-- .slide: data-transition="slide" -->
 <div class="faces" style="--face-size:56px" data-people="michael-hanke joey-hess kyle-meyer benjamin-poldrack adina-wagner">
@@ -471,17 +444,9 @@ dimmed = association already ended.
 
 <p style="margin-top:0.4em;font-size:140%">A data management suite that makes data access and management as easy as managing code and software!</p>
 
-<small>Born in 2013</small>
-
-<small>
-<a style="font-size:0.72em;" href="https://joss.theoj.org/papers/10.21105/joss.03262"><b>Y. Halchenko</b>, K. Meyer, B. Poldrack, D. Solanky, A. Wagner, J. Gors, D. MacFarlane, D. Pustina, V. Sochat, S. Ghosh, C. Mönch, C. Markiewicz, L. Waite, I. Shlyakhter, A. de la Vega, S. Hayashi, C. Häusler, J.-B. Poline, T. Kadelka, K. Skytén, D. Jarecka, D. Kennedy, T. Strauss, M. Cieslak, P. Vavra, H.-I. Ioanas, R. Schneider, M. Pflüger, J. Haxby, S. Eickhoff, and M. Hanke. DataLad: distributed system for joint management of code, data, and their relationship. Journal of Open Source Software, 6(63):3262, jul 2021. doi: 10.21105/joss.03262</a>
-</small>
-
 ----
 
-<!-- .slide: data-transition="slide" -->
-
-## DataLad in one figure
+## in one figure
 
 ![](pics/datalad_process_tuned/00base_preview.png)<!-- .element: style="width:1300px;height:520px" -->
 
@@ -490,16 +455,6 @@ dimmed = association already ended.
 ### &hellip; and nesting can go all the way to the paper!
 
 ![](pics/repronim-containers-stamped_tuned/lower-noyoda_preview.png)<!-- .element: style="width:1240px;height:464px" -->
-
-----
-
-## Meet one of the "largest" Git "repositories"
-
-![](pics/datasets.datalad.org-20220313.png)<!-- .element: style="width:1000px;height:550px" -->
-
-over 6,000+ Git repositories as "subdatasets", <br>
-with access to 600TB+ of neural data
-
 
 </textarea></section>
 
@@ -592,7 +547,6 @@ Without standards, humans produce mess, and AI scales that up!
 			<li>Which file is which subject? <em>Infer.</em></li>
 			<li>What are the acquisition parameters? <em>Infer.</em></li>
 			<li>Which script made <code>results_use_this_one.mat</code>? <em>Infer.</em></li>
-			<li>Was it run on the fixed data or the broken data? <em>Infer.</em></li>
 		  </ul>
 		</td>
 		<td style="width:50%;padding-left:1em;border-left:2px solid #666;">
@@ -611,7 +565,6 @@ Without standards, humans produce mess, and AI scales that up!
 			<li>Subject, session, task, run: <strong>in the filename</strong></li>
 			<li>Parameters: <strong>in the sidecar</strong></li>
 			<li>Provenance of derivatives: <strong><code>GeneratedBy</code></strong></li>
-			<li>Correctness: <strong><a href="https://github.com/bids-standard/bids-validator" target="_blank">a validator says so</a></strong></li>
 		  </ul>
 		</td>
 	  </tr>
@@ -664,20 +617,13 @@ Without standards, humans produce mess, and AI scales that up!
 <object class="dia" data="pics/stamped-puzzle-2016.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
 
 Three pieces, and already the shape of the thing: what the files *are*, how they
-were *made*, and something that can *version* them. Everything after this fills a
-hole we walked into.
+were *made*, and something that can *version* them.
 <!-- .element: style="font-size:0.78em;" -->
 
-Note:
-Five seconds. Name only what is new. The holes are the point -- and so are the
-half-pieces running off the sides: the object does not stop at nine, nine is
-what fits in this talk.
-
-If anyone reads the top-left piece closely: it says BIDS / NWB because the two
-share one role, and NWB joins it in the next era.
 
 </textarea></section>
-<section data-markdown><textarea data-template>
+
+<!-- <section data-markdown><textarea data-template>
 ### 2013–2016 &mdash; who we were working with
 
 <iframe src="2026-usrse-con-talk/ack-2016.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
@@ -685,8 +631,9 @@ share one role, and NWB joins it in the next era.
 Note:
 Generated from con-site-specific records. Red ring = new in this era;
 dimmed = association already ended.
-</textarea></section>
-</section>
+</textarea></section> -->
+
+</section> 
 
 <!-- ===== era 2020 ============================================== -->
 <section>
@@ -888,40 +835,144 @@ US-RSE and it is where the agent-usage patterns are written down.
 	  </tr>
 	</table>
 
-	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
-	  <strong>Why an AI audience should care:</strong> when you hand a failing pipeline to an agent,
-	  it needs <em>numbers and text it can read</em>, not a human recollection.
-	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
-
-	  <p style="font-size:0.74em;margin-top:0.3em;">
-		Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,
-	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><em>Agent-friendly
-	  Provenance Capture with <code>con-duct</code></em></a> &mdash; the patterns of use with AI agents are on it.
-	  Go find Austin.</p>
-	</div>
 	<p style="font-size:0.72em;margin-top:0.4em;">
 	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
 	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
 	  and every <code>datalad containers-run</code> gets a duct trace for free.
 	</p>
+
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  <strong>Why useful for AI:</strong> makes logs readily available *if* needed.<br/>
+	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
+
+	  <p style="font-size:0.74em;margin-top:0.3em;">
+		Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,<br/>
+	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><em>Agent-friendly
+	  Provenance Capture with <code>con-duct</code></em></a> &mdash; the patterns of use with AI agents are on it.
+	  Go find Austin.</p>
+	</div>
   </section>
 
+  <section data-markdown><textarea data-template>
+### Goal: Distill the best operation practices for Humans and AI
+ 
+![](pics/borrowed/notebooklm-stamped-glassbox-20261008-p3.png)
+</textarea></section>
 
+  <section>
+	<h3>All three layers, one real artifact &mdash; built with AI</h3>
+	<p style="font-size:0.8em;margin-top:-0.3em;">
+	  <a href="https://github.com/dandi/compression-comparisons-t261-study" target="_blank"><code>dandi/compression-comparisons-t261-study</code></a>
+	  &mdash; a reproduction of
+	  <a href="https://doi.org/10.1088/1741-2552/acf5a4" target="_blank">Buccino et al. 2023</a> on ephys compression,
+	  plus a comparison against the new ITU-T T.261 codec.
+	</p>
+	<table style="width:100%;font-size:0.72em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:46%;padding-right:0.8em;vertical-align:top;">
+		<strong>1. The layout (<em>what</em>)</strong>
+<pre style="font-size:0.74em;margin-top:0.2em;"><code data-noescape>dataset_description.json
+code/
+  compression-comparisons-tools/
+  run_sweep.sh
+sourcedata/
+  aind-ephys-compression/      <span style="color:#8bc34a">#&nbsp;523&nbsp;GB</span>
+derivatives/
+  compbench-*/&lt;cell&gt;/
+    metrics.json  manifest.json
+    duct-info.json  duct-usage.jsonl
+  reports-*/</code></pre>
+		<p style="margin-top:0.3em;">BIDS-like, M-odular: data and tool are
+		<strong>subdatasets pinned by commit</strong>, not copies.</p>
+	  </td>
+	  <td style="width:54%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>2. The record (<em>how</em>) &mdash; and 3. the cost (<em>what it took</em>)</strong>
+<pre style="font-size:0.68em;margin-top:0.2em;"><code data-noescape>$ git log --oneline
+7733465 [DATALAD RUNCMD] cell aind-634568__zstd...
+
+ "cmd": "<span style="color:#ffb74d">duct</span> --output-prefix .../duct- \
+      --sample-interval 1 --report-interval 5 \
+      <span style="color:#ffb74d">compbench run</span> --codec zstd ...",
+ "inputs":  ["sourcedata/aind-ephys-compression/.."],
+ "outputs": ["derivatives/../aind-634568__zstd.."],
+ "exit": 0</code></pre>
+		<p style="margin-top:0.3em;">The recorded command <strong>is</strong> a <code>duct</code>
+		invocation &mdash; so every cell commits its own resource trace beside its own results.</p>
+	  </td>
+	</tr></table>
+
+	<table style="width:99%;margin:auto;font-size:0.7em;margin-top:0.4em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="padding:0.25em;">commits</th><th style="padding:0.25em;"><code>[DATALAD RUNCMD]</code></th>
+		<th style="padding:0.25em;">of those, wrapping <code>duct</code></th>
+		<th style="padding:0.25em;">cells</th><th style="padding:0.25em;">recorded compute</th>
+		<th style="padding:0.25em;">AI disclosure</th>
+	  </tr>
+	  <tr style="text-align:center;">
+		<td style="padding:0.25em;"><strong>1266</strong></td><td style="padding:0.25em;"><strong>1216</strong></td>
+		<td style="padding:0.25em;"><strong>1095</strong></td>
+		<td style="padding:0.25em;"><strong>912</strong>, 0 errors</td>
+		<td style="padding:0.25em;"><strong>3838 h</strong> (peak RSS 120 GB)</td>
+		<td style="padding:0.25em;"><strong>26</strong> <code>Co-Authored-By:&nbsp;Claude</code></td>
+	  </tr>
+	</table>
+	<aside class="notes">
+	  This is the slide that joins the three tools into one object. Say:
+	  everything in the previous three slides, at scale, on a real study,
+	  and the bulk of it driven by an agent. The README is worth reading
+	  aloud from — it records its own gaps rather than papering over them.
+	</aside>
+  </section>
+
+  <section>
+	<h3>So I tried to <code>rerun</code> it &mdash; fresh clone, two months later</h3>
+	<table style="width:100%;font-size:0.74em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:53%;padding-right:0.8em;vertical-align:top;">
+<pre style="font-size:0.62em;"><code data-noescape>$ datalad clone <span style="color:#8bc34a">https://github.com/dandi/\
+    compression-comparisons-t261-study</span>
+$ datalad get -n code/compression-comparisons-tools
+  <span style="color:#8bc34a">✓ submodule URL fixed &mdash; it just works now</span>
+
+$ <span style="color:#ef9a9a"># no image to pull: the env is prose in README.md</span>
+$ uv venv envs/compbench
+$ uv pip install --python envs/compbench/bin/python \
+    './code/compression-comparisons-tools[ephys,..]' \
+    wavpack-numcodecs flac-numcodecs
+  <span style="color:#ef9a9a">✗ not all of it built &mdash; enough for this cell</span>
+
+$ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cfa</span>
+  run(ok): ... [duct --clobber --output-prefix ..]
+  <span style="color:#8bc34a">Wall Clock Time: 2.465 sec   RSS peak: 142 MB</span></code></pre>
+	  </td>
+	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>Did the science come back?</strong>
+		<table style="width:100%;font-size:0.82em;margin-top:0.3em;">
+		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
+		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.514... <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>rmse</code> &middot; <code>round_trip_ok</code></td><td style="padding:0.2em;">0.0 &middot; true <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.609... <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">~20% slower &mdash; <em>as they must</em></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">same kernel 6.12.57,<br/>python 3.13.15&rarr;<strong>3.13.5</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>duct-info</code></td><td style="padding:0.2em;">host <code>327bc591&hellip;</code>&rarr;<code>typhon</code>:<br/>the original ran in a container<br/>the record never named</td></tr>
+		</table>
+		<p style="font-size:0.9em;margin-top:0.4em;">
+		  A hand-rebuilt environment, a <strong>different Python</strong>, no container &mdash;
+		  and <strong>every scientific number came back bit-for-bit.</strong>
+		  Only timings moved.
+		</p>
+	  </td>
+	</tr></table>
+
+  </section>
+
+</section>
+
+<section>
 <section data-markdown data-separator="^\n----\n"><textarea data-template>
 
 <!-- .slide: data-transition="slide" -->
 
 ## Data Archives
-
-----
-
-## Archives: free backup, (ours) open by design
-
-[![](pics/borrowed/2025-sfn-poster-data-standards--archives.png)<!-- .element: style="width:853px;height:700px" -->](https://zenodo.org/records/18333008)
-
-<small>
-From: Rübel, O., Baker, C. C., … Halchenko, Y. (2025). <em>The Ecosystem of Standards in Neuroscience: Which Ones Are For You?</em> Society for Neuroscience (SfN) annual meeting, Neuroscience 2025 (SfN), San Diego. <a href="https://doi.org/10.5281/zenodo.18333008">DOI: 10.5281/zenodo.18333008</a>
-</small>
 
 ----
 
@@ -1005,16 +1056,15 @@ ReproStim gets its only mention here, and that is enough: the point is that the
 holes keep being filled by whatever was missing, not that every tool needs a
 slide.
 
-----
+<!-- ----
 
 ### 2017–2020 &mdash; our extended "team"
 
-<iframe src="2026-usrse-con-talk/ack-2020.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
-
-Note:
-Generated from con-site-specific records. Red ring = new in this era;
-dimmed = association already ended.
+<iframe src="2026-usrse-con-talk/ack-2020.html"
+		style="width:1360px;height:830px;border:0;background:transparent;"
+		scrolling="no"></iframe> -->
 </textarea></section>
+
 </section>
 
 <!-- ===== era from 2021 till now ============================================== -->
@@ -1086,16 +1136,6 @@ a second copy of the archive, with version history, that nobody has to remember 
 
 ----
 
-<!-- .slide: data-transition="slide-in" -->
-
-### nwb2bids: NWB dandisets represented in BIDS
-
-<small>**[nwb2bids](https://github.com/con/nwb2bids)** lays a BIDS tree over a set of NWB files, so the archive is navigable with BIDS tooling without re-encoding a byte.</small>
-
-[![](pics/borrowed/bids-dandisets-dashboard-20261008.png)<!-- .element: style="width:964px;height:760px" -->](https://github.com/bids-dandisets/dashboard?tab=readme-ov-file#dandisets)
-
-----
-
 ### nwb2bids: BIDS version of 000003
 
 #### You have seen one of them &mdash; you have seen them all
@@ -1115,8 +1155,7 @@ a second copy of the archive, with version history, that nobody has to remember 
 
 <object class="dia" data="pics/stamped-puzzle-2024.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
 
-Nine. All of it built before anyone said &ldquo;agent&rdquo; &mdash;
-and before we had a name for what the pieces had in common.
+Nine. Many more could be found on https://centerforopenneuroscience.org/projects.
 <!-- .element: style="font-size:0.78em;" -->
 
 Note:
@@ -1424,10 +1463,11 @@ Walk it yourself: [checklist.stamped-principles.org](https://checklist.stamped-p
 
 <object class="dia" data="pics/stamped-puzzle-usrse.svg" type="image/svg+xml" style="width:1000px;height:531px;"></object>
 
-<p>and visit our posters tonight on STAMPED:</p>
+<p>and our posters tonight on STAMPED:</p>
 
-- <a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED Principles: pragmatic practices for reproducible science</strong></a> by <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> et al.
-- <a href="https://stamped-principles.org/" target="_blank"><strong>STAMPED in Practice</strong></a> by
+- <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-poster-4x6.html" target="_blank"><strong>STAMPED Principles: pragmatic practices for reproducible science</strong></a> by <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> et al.
+- <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/"  target="_blank"><strong>STAMPED in Practice: Improving research skills through
+reproducible experiments</strong></a> by
 <a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; et al.
 
 </textarea></section></section>
@@ -1504,13 +1544,32 @@ AI drafts candidate records.<br/>Schema validates.<br/>Humans curate via PR.
 <!-- .element: style="font-size:1.4em;font-style:italic;" -->
 
 </textarea></section>
+</section>
 
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+### Monday take home
+
+1. **REUSE: Search before you generate.** One upstream pass before the first keystroke &mdash; and put that instruction in your agent&rsquo;s harness, where it will actually be followed.
+2. **Record one command.** Wrap your next build or analysis step in [`duct`](https://github.com/con/duct) and/or [`datalad run`](https://docs.datalad.org/en/stable/generated/man/datalad-run.html).
+3. **Put one object in a declared standard** and run its validator. The agent gets a grammar; you get a type-checker.
+4. **Write the harness down.** An [`AGENTS.md`](https://agents.md/) in the repo beats a prompt in your notes app &mdash; and declare your AI policy there while you are at it.
+5. **Size the work to the loop you actually have.** Until the project checks itself, keep AI-assisted changes small, reviewable, and tried by your own hand.
+<!-- .element: style="text-align:left;font-size:0.92em;line-height:1.5;max-width:1150px;margin:0.4em auto;" -->
+</textarea></section>
+
+<section>
+<h2>Our extended "team" - Thank you!</h2>
+
+<iframe src="2026-usrse-con-talk/ack-now.html" style="width:1360px;height:830px;border:0;background:transparent;" scrolling="no"></iframe>
+
+</textarea></section>
 </section>
 
 
 <!-- Here a summary slide with some tasks -->
 
-<section data-transition-speed="zoom">
+<section data-transition="zoom">
   <H1>Thank you!</H1>
   <h2>Reuse. Compose. Extend. Standardize. Automate.</h2>
   <h3>Together we can make any science a better science!</h3>
