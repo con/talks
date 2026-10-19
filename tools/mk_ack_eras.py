@@ -163,6 +163,12 @@ FUNDERS = [
     ("NIH", "2016-04-15", "pics/borrowed/nih.png", 62, "https://www.nih.gov"),
     ("INCF", "2016-01-01", "pics/borrowed/incf-mark.png", 30, "https://incf.org"),
     ("AWS Open Data", "2019-08-01", "pics/borrowed/aws-mark.png", 44, "https://aws.amazon.com/opendata/open-data-sponsorship-program/"),
+    # Meta's "Brain and AI (OpenNeuro archive derivatives)" gift -- the store
+    # has the grant (XYZGrant/meta-brain-and-ai) and the organisation, but no
+    # award date: it carries "No public award identifier".  The date here is
+    # therefore EDITORIAL and only has to land in the right era; every date in
+    # 2021-2026 renders identically, since the deck's last era starts in 2021.
+    ("Meta", "2025-01-01", "pics/borrowed/meta-mark.svg", 26, "https://about.meta.com"),
 ]
 
 # Jim Haxby is dated 2015-07-22 in the store because the Center's own record
@@ -180,7 +186,7 @@ html,body{margin:0;padding:0;background:transparent;height:100%;
   font-family:'Source Sans Pro',Helvetica,sans-serif;color:#333;}
 body{display:flex;flex-direction:column;justify-content:center;}
 .sec{margin:0 0 10px 0;}
-.lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+.lbl{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;opacity:.6;margin:0 0 3px 0;text-align:center;}
 .grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
   gap:4px 10px;}
@@ -189,11 +195,11 @@ body{display:flex;flex-direction:column;justify-content:center;}
 .logos img{display:block;}
 .chip{display:inline-block;font-size:15px;font-weight:600;color:#555;
   border:1px solid #cfc6b8;border-radius:4px;padding:4px 10px;}
-.p{width:92px;text-align:center;text-decoration:none;color:inherit;
+.p{width:113px;text-align:center;text-decoration:none;color:inherit;
   transition:opacity .4s ease;}
-.p img{width:62px;height:62px;border-radius:50%;object-fit:cover;
+.p img{width:76px;height:76px;border-radius:50%;object-fit:cover;
   border:2px solid transparent;display:block;margin:0 auto 2px;}
-.p span{display:block;font-size:10.5px;line-height:1.15;}
+.p span{display:block;font-size:12.5px;line-height:1.15;}
 .accent img{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.18);}
 .accent span{font-weight:700;color:#c0392b;}
 .present{opacity:1;}
@@ -202,14 +208,20 @@ body{display:flex;flex-direction:column;justify-content:center;}
 """
 
 
-# The fragment is dropped into a 1360px iframe and .p cells are 92px wide
-# with a 10px gap, so 13 fit on a line.  Left to itself flex-wrap fills each
+# The fragment is dropped into a 1400px iframe and .p cells are 113px wide
+# with a 10px gap, so 11 fit on a line.  Left to itself flex-wrap fills each
 # line before starting the next, which is how a 15-person Emeritus section
-# ends up 13 + 2: one row running the full width of the slide and two
+# ends up 11 + 4: one row running the full width of the slide and four
 # stragglers underneath.  Capping the grid's width at a balanced
 # people-per-row instead gives 8 + 7, which reads as one block.
-CELL = 92 + 10          # .p width + .grid column-gap
-ROW_MAX = 13            # how many of those fit across the iframe
+#
+# The cell used to be 92px with a 62px portrait, which fit the whole roster
+# on four rows and left ~220px of the slide empty underneath.  Trading width
+# for height -- fewer, larger faces per row -- fills it: the 39-person final
+# grid is six rows of 76px portraits and lands within a few pixels of the
+# iframe.  Anything larger forces the two logo bands to wrap and overflows.
+CELL = 113 + 10         # .p width + .grid column-gap
+ROW_MAX = 11            # how many of those fit across the iframe
 
 
 def grid_width(n):

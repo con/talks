@@ -191,6 +191,9 @@ path = [
     "pics/borrowed/erdf.png",
     "pics/borrowed/fzj_logo.svg",
     "pics/borrowed/hbp_logo.png",
+    # Meta's corporate mark, from Wikimedia Commons, where it is tagged
+    # public domain (below the threshold of originality) and trademarked.
+    "pics/borrowed/meta-mark.svg",
     "pics/borrowed/nih.png",
     "pics/borrowed/nsf1.jpg",
     "pics/borrowed/nsf_2020.png",
