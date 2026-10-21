@@ -16,3 +16,8 @@ node_modules/
 .cache
 .pki
 talk-proposal-draft.pdf
+.duct
+
+# Local-only companion notes (schedules, private material from others)
+*.local.md
+*.local/

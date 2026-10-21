@@ -29,6 +29,17 @@ pics/borrowed/            — third-party images
 3rd-party/                — third-party PDFs cited in slides
 embed/                    — small HTML iframes referenced by some decks
 posters/                  — poster sources (separate flow)
+sourcedata/con-site-specific/ — submodule: the CON record store that
+                            tools/mk_ack_eras.py reads to build the
+                            acknowledgements grid, and tools/mk_index.py
+                            reads (talk/poster XYZPublication records) to
+                            build index.html + talks.yaml
+                            (CON_RECORD_STORE overrides).
+                            Editing records there: read its
+                            docs/metadata-curation.md first, and run
+                            tools/validate_records.py before committing —
+                            every date needs an evidence assertion under
+                            sources/curation-evidence/ or the gate fails.
 2026-usrse/               — venue-specific drafts: proposal, BoF/poster templates,
                             lineage diagrams
 2026-ohbm-ossig/          — OHBM Open Science Room submission
@@ -79,7 +90,20 @@ ones. For text-only edits to existing HTML, plain `git` is fine.
    loop, `npm install` then `npm start` per `README.md`.
 9. **Update `INDEX.md`** with the new deck (per-talk entry + any
    topic-lookup additions).
-10. **Commit** the new deck *and* the QR code *and* the `INDEX.md`
+10. **Add a talk record** to the record store, so the deck appears on
+    `index.html`: an `XYZPublication` in
+    `sourcedata/con-site-specific/metadata/records/XYZPublication/`
+    (copy a `talk-*.yaml` / `poster-*.yaml` sibling: `bibo:Slideshow` or
+    `fabio:ConferencePoster`, `generated_by[0].at_time` = the day it is
+    presented, `foaf:homepage` = the live-slides URL) and its evidence
+    under `sources/curation-evidence/XYZPublication/`. Read the store's
+    `AGENTS.md` first; `python3 tools/validate_records.py` there must
+    pass. Commit in the store, then regenerate here:
+    `datalad run -m "index: <TALK-ID>" -i sourcedata/con-site-specific/metadata/records -o index.html -o talks.yaml "python3 tools/mk_index.py"`
+    (`python3` needs PyYAML; inputs are the records only, so the store's
+    annexed portraits are not fetched).
+    Never edit `index.html` or `talks.yaml` by hand.
+11. **Commit** the new deck *and* the QR code *and* the `INDEX.md`
     update together. Use the repo's git workflow (DataLad-managed).
 
 ### QR codes
@@ -168,6 +192,20 @@ The PNG itself is binary; commit it via DataLad
   `graph TB|LR`). Newer decks set theme variables per-diagram.
 - **Speaker notes** — `<aside class="notes">…</aside>`. Fine to be
   long; press `s` to view in reveal.js.
+- **Faces on a project slide** — put a few of the people from the
+  acknowledgements in the slide's top-right corner, so they are present
+  while their work is on screen instead of only in the grid at the end.
+  Declare who, and nothing else:
+  ```html
+  <div class="faces" data-people="john-lee isaac-to"></div>
+  ```
+  then `tools/mk_faces.py --expand <TALK-ID>.html` fills in the linked
+  round portraits (idempotent; re-run after editing `data-people`).
+  `tools/mk_faces.py --list` prints the keys. Names and portraits come
+  from `con-whoweare.phtml`, the same source as the acknowledgements
+  grid, and each face links to that person's record on the website.
+  Keep a row to ~5 and crowd one with `style="--face-size:56px"`.
+
 - **Section dividers** — soft radial gradient
   (`<section data-background-gradient="radial-gradient(white, #f7dfd3)">`)
   for "Challenge:" intros.
@@ -186,6 +224,27 @@ The PNG itself is binary; commit it via DataLad
 | Venue-specific submission docs (PRD, BoF, poster, abstract) | `<venue-dir>/` (e.g. `2026-usrse/`) |
 | New reusable image | `pics/` (or `pics/borrowed/` if third-party) |
 | New citation PDF | `3rd-party/` |
+| Copyright/licensing, when the asset is *not* a plain drop into `pics/borrowed/` | an `[[annotations]]` block in `REUSE.toml` |
+
+### Licensing a new asset
+
+The repo is striving to be REUSE-compliant (`REUSE.toml` + `LICENSES/`).
+Anything dropped into `pics/borrowed/` or `3rd-party/` is already covered
+by the catch-all third-party markers, so no action is needed for the common
+case. Act only when:
+
+- **you know the provenance** — add a narrowing block (later blocks win)
+  recording the real holder and license, as is already done for the YODA
+  artwork and the Hanke-derived carrot/containers figures;
+- **the deck has a co-author** — add a block with both copyright lines, as
+  for `2026-bbqs-stamped*`;
+- **you add a third-party logo** — extend the `LicenseRef-ThirdPartyLogo`
+  path list.
+
+Do **not** annotate a borrowed asset with this repo's CC-BY-SA just to make
+the linter quiet; the markers exist precisely so that "we don't know" can be
+stated honestly. Note also that `reuse lint` skips symlinks, so annexed
+assets are not machine-checked — see the caveat in `README.md`.
 
 ## Don't do these
 
@@ -217,6 +276,7 @@ A reasonable flow:
 3. Search `INDEX.md`'s topic-lookup for matching reusable slides.
 4. Produce `<TALK-ID>.html` (and the companion `<TALK-ID>/PLAN.md` if
    the deck warrants one).
-5. Update `INDEX.md` with the new talk's entry.
+5. Update `INDEX.md` with the new talk's entry, and add its talk record
+   (step 10 above) once the date is set.
 6. Surface a list of slides borrowed (with source `<file>:<section>`
    pointers) so the user can sanity-check sourcing.

@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<!-- Edit me start! -->
-		<title>[WiP] Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON</title>
-		<meta name="description" content="[WiP] US-RSE 2026 talk by Yaroslav O. Halchenko et al. Two decades of CON's domain-agnostic open research-software stack — Reuse / Compose / Extend / Standardize / Automate — and what to copy on Monday.">
+		<title>Reuse, Compose, Extend, Standardize, Automate: Two Decades of RSEing Open (Neuro)Science at CON</title>
+		<meta name="description" content="US-RSE 2026 talk by Yaroslav O. Halchenko et al. Two decades of CON's domain-agnostic open research-software stack — Reuse / Compose / Extend / Standardize / Automate — and what to copy on Monday.">
 		<meta name="author" content=" Yaroslav O. Halchenko ">
 		<!-- Edit me end! -->
 
@@ -24,20 +24,10 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
-
-<!-- Start of slides -->
-
-<!-- =================================================================
-     S1. Title slide  (template borrowed from 2026-repronim-YODA-BIDS-
-     webinar.html title slide; logo strip and affiliations verbatim
-     per SOUL.md §3)
-     ================================================================= -->
 <section>
   <section>
 	  <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg" style="height:150px;"></a>
 	  <h2 style="margin-top:0.3em;margin-bottom:0.3em;">
-		<span style="background-color:#ffcdd2;color:#b71c1c;padding:0 0.3em;border-radius:4px;font-size:0.7em;vertical-align:middle;">WiP</span>
 		Reuse, Compose, Extend, Standardize, Automate
 	  </h2>
 	  <p style="margin-top:0.3em;margin-bottom:0.3em;font-size:0.85em;font-style:italic;">
@@ -82,7 +72,7 @@
 	 <a href="http://neuro.debian.net" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/neurodebian.png"/></a>
 	 <a href="http://repronim.org" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/repronim-logo-vertical.svg"/></a>
   <a href="https://open-brain-consent.readthedocs.io" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/OBC_LogoCheck.svg"/></a>
-	 <a href="https://github.com/myyoda/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/yoda.svg"/></a>
+	 <a href="https://github.com/myyoda" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/stamped-yoda.svg"/></a>
 	 <a href="https://dandiarchive.org" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/dandi-logo-square.svg"/></a>
   	 <a href="https://bids.neuroimaging.io/" target="_blank"> <img  style="height:100px;margin:15px" data-src="pics/BIDS_Logo.png"/></a>
 	 <a href="https://standforukraine.com/" target="_blank"> <img  style="height:100px;margin:15px"  data-src="pics/Ukrainian_Blue-Yellow_ribbon.svg"/></a>
@@ -90,1137 +80,1787 @@
 </small>
 
 </small>
+	<aside class="notes">
+	  Optional opener, only if the chair mentions the session changed: this
+	  session was announced with four talks and the one on staying current with
+	  AI tools -- "Drinking from the Firehose" -- is no longer on the program.
+	  "Three of us left -- drinking from the AI firehose claimed one."
+	  Then straight into the deck.
+
+	  Judgement call before using it: the printed program never listed it, so
+	  most of the room will not know it is missing, and the authors may have
+	  withdrawn for reasons that are not funny.  Keep it light, aimed at the
+	  hose and not at them, and drop it entirely if the chair says nothing.
+	</aside>
   </section>
 </section>
 
-
-<!-- =================================================================
-     S2-S14. Act I — Lessig-style opening (new slides)
-     ================================================================= -->
-
-<!-- S2: white-on-black beat -->
-<section data-background="black">
-  <h2 style="color:white;">It&rsquo;s 2026. AI writes code.</h2>
-</section>
-
-<!-- S3: white-on-black beat -->
-<section data-background="black">
-  <h2 style="color:white;">AI tends to produce silos.</h2>
-</section>
-
-<!-- S4: Codeberg/Forgejo framing -->
+<!-- The opening: the problem, the five verbs, and the promise.  One
+     horizontal section, so the eras that follow each read as a step
+     sideways rather than as more of the same. -->
 <section>
-  <blockquote style="font-size:1.1em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.5em auto;max-width:900px;">
-    &ldquo;AI exemplifies silo projects.&rdquo;
-  </blockquote>
-  <p style="font-size:0.75em;margin-top:0.5em;">
-    &mdash; <a href="https://codeberg.org/Codeberg/Community/issues/1734">Codeberg Community: &ldquo;Protecting our FLOSS commons from LLMs&rdquo;</a>
-  </p>
-  <!-- TODO: add Codeberg logo pic -->
-  <aside class="notes">
-    Codeberg / Forgejo raised the alarm clearly: AI coding assistance by default
-    generates self-contained, non-reusing, non-contributing projects.
-    The silo is the path of least resistance.
-  </aside>
+
+  <section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+![](pics/yarik-goal.svg)<!-- .element: style="height:800px" -->
+
+----
+
+<!-- A "Brief Yarik's Bio" slide used to sit here; the canonical copy
+     lives in 2026-nih-bids2.0.html (also 2023-bids-dicom.html). -->
+<a href="https://centerforopenneuroscience.org/">
+<div class="r-stack">
+<img style="width:2000px" data-src="pics/con-webshot-20150812-front-up.png"/>
+<img class="fragment" style="width:2000px" data-src="pics/con-principles.png"/>
+</div>
+</a>
+
+<p class="fragment" style="font-size:0.95em;letter-spacing:0.08em;font-weight:700;margin-top:0.3em;">
+<span style="color:#a04000;">REUSE</span> &middot;
+<span style="color:#1565c0;">(DE)COMPOSE</span> &middot;
+<span style="color:#2e7d32;">EXTEND</span> &middot;
+<span style="color:#6a1b9a;">STANDARDIZE</span> &middot;
+<span style="color:#d84315;">AUTOMATE</span></p>
+
+Note:
+The principles have been written down on the site for a decade; the deck
+walks the same five in the order they were learned. Say the verbs once here,
+then let the eras say them again one at a time.
+
+----
+
+### Twenty years, building components for one structure
+
+<object class="dia" data="pics/stamped-puzzle-frame.svg" type="image/svg+xml" style="width:1000px;height:531px;"></object>
+
+Pieces &mdash; in neuroimaging, and well beyond it.
+<br/> *Full picture runs off the edges: nine is what fits in fifteen minutes.*
+<br/> Visit https://centerforopenneuroscience.org/projects for more.
+<!-- .element: style="font-size:0.85em;" -->
+
+Note:
+Two seconds here. This is a promise, not a slide to explain: the frame comes
+back at the end of the eras that add pieces, so the audience watches the
+structure fill in rather than being handed a portfolio. Do not say how many
+pieces there are -- the count is the payoff three eras from now.
+
+----
+
+<!-- .slide: data-background="black" -->
+
+## 2000. A neuroscience grad student joins a Debian developer&rsquo;s lab
+
+</textarea></section>
+
 </section>
 
-<!-- S5: transition -->
+<!-- ===== era 2004 ============================================== -->
 <section>
-  <h2>The antidote has a name.</h2>
+<section data-markdown><textarea data-template>
+## 2000–2004 &mdash; Debian immersion
+
+<p style="font-size:0.78em;letter-spacing:0.12em;color:#a04000;font-weight:700;margin:0 0 0.4em 0;">REUSE</p>
+
+Joined **[Barak Pearlmutter](https://barak.pearlmutter.net/)**'s lab as a grad student.<br/>
+A Debian developer's lab, so open-source practice came with the furniture.
+
+<p style="font-size:0.62em;color:#666;margin-top:1.2em;"><strong>AI and HI:</strong> are influenced by context they are put into!</p>
+
+Note:
+Era 2000–2004. Verb lens: REUSE.
+</textarea></section>
+
+<!-- <section data-markdown><textarea data-template>
+### 2000–2004 &mdash; who we were working with
+
+<iframe src="2026-usrse-con-talk/ack-2004.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+
+Note:
+Generated from con-site-specific records. Red ring = new in this era;
+dimmed = association already ended.
+
+</section> -->
+
 </section>
 
-<!-- S6-S10: rapid burst — five words, one per slide -->
-<section data-transition="none">
-  <h1 style="font-size:3em;color:#a04000;">REUSE</h1>
-</section>
 
-<section data-transition="none">
-  <h1 style="font-size:3em;color:#1565c0;">COMPOSE</h1>
-</section>
-
-<section data-transition="none">
-  <h1 style="font-size:3em;color:#2e7d32;">EXTEND</h1>
-</section>
-
-<section data-transition="none">
-  <h1 style="font-size:3em;color:#6a1b9a;">STANDARDIZE</h1>
-</section>
-
-<section data-transition="none">
-  <h1 style="font-size:3em;color:#d84315;">AUTOMATE</h1>
-</section>
-
-<!-- S11: land -->
+<!-- ===== era 2008 ============================================== -->
 <section>
-  <h3>&ldquo;We&rsquo;ve been building this immune system for 20 years.&rdquo;</h3>
-</section>
+<section data-markdown  data-separator="^\n----\n"><textarea data-template>
+## 2006–2009
 
-<!-- S12: white-on-black transition -->
-<section data-background="black">
-  <h2 style="color:white;">&ldquo;It started as an accident.&rdquo;</h2>
-</section>
+<span style="font-size:0.78em;letter-spacing:0.12em;color:#1565c0;font-weight:700;margin:0 0 0.4em 0;">COMPOSE</span> and
+<span style="font-size:0.78em;letter-spacing:0.12em;color:#2e7d32;font-weight:700;">EXTEND</span>
 
-<!-- S13: white-on-black historical framing -->
-<section data-background="black">
-  <h2 style="color:white;">&ldquo;2000. A neuroscience grad student joins a Debian developer&rsquo;s lab.&rdquo;</h2>
-</section>
+Ran online into **Michael Hanke** with similar interests, and we saw
+that ...
 
-<!-- S14: Fernando Perez callback -->
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+## Every lab has its own analysis scripts
+
+----
+
+## The first machine learning library for neuroscience
+
+<div class="faces" data-people="michael-hanke james-haxby">
+      <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+      <a class="face" href="https://centerforopenneuroscience.org/whoweare#james_v_haxby_" target="_blank" title="James V. Haxby — Member of National Academy of Science"><img data-src="pics/con-whoweare/james-haxby.jpg" alt="James V. Haxby"/></a>
+</div>
+
+![](pics/pymvpa_logo_fromfusionposter.svg)<!-- .element: style="width:700px;height:328px;" -->
+
+Python "batteries included" facilitated full test suite, CI and tutorials before any of that was common in scientific Python.
+
+[M. Hanke, **Y. O. Halchenko**, P. B. Sederberg, et al. PyMVPA: A Python toolbox for
+multivariate pattern analysis of fMRI data. *Neuroinformatics*, 7:37&ndash;53, 2009.
+doi: 10.1007/s12021-008-9041-y](http://dx.doi.org/10.1007/s12021-008-9041-y)
+<!-- .element: style="font-size:0.7em;" -->
+
+<!-- Also took over maintaining **[Fail2Ban](https://github.com/fail2ban/fail2ban)** — 989 commits from 2005, nothing to do with neuroscience, running under everyone's infrastructure. -->
+
+<!-- <p style="font-size:0.62em;color:#666;margin-top:1.2em;"><strong>AI:</strong>Testing (unit-, integration, downstream) became a practice we transferred into AI world.</p> -->
+
+Note:
+Era 2007–2009. Verb lens: COMPOSE and EXTEND.
+</textarea></section>
+
+
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: data-visibility="hidden" -->
+
+[Fernando P&eacute;rez](https://statistics.berkeley.edu/people/fernando-perez) was building [IPython](https://ipython.org/) in the same open-science community. Same
+instinct: reuse the ecosystem, not just the code.
+<!-- .element: style="font-size:1.1em;" -->
+
+Note:
+Fernando Perez will have given the morning plenary. One sentence callback. Move
+on immediately. Drop the slide entirely if the program moved and he has not
+spoken yet -- a callback to something nobody saw is just a name.
+
+</textarea></section>
+
 <section>
-  <p style="font-size:1.1em;">Fernando Perez was building IPython in the same open-science community. Same instinct: reuse the ecosystem, not just the code.</p>
-  <!-- TODO: add Fernando Perez / IPython logo pic if available -->
-  <aside class="notes">
-    Fernando Perez will have given the morning plenary. One sentence callback.
-    Move on immediately.
-  </aside>
-</section>
+	<h3>Toolboxes gave us ecosystem</h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:3.2em;margin:1.2em 0 0.8em 0;">
+	  <a href="http://www.pymvpa.org/" title="PyMVPA"><img style="width:320px;height:150px;" data-src="pics/pymvpa_logo_fromfusionposter.svg" alt="PyMVPA"/></a>
+	  <a href="https://nipy.org/" title="NiPy"><img style="width:150px;height:150px;" data-src="pics/con-projects/nipy_logo.svg" alt="NiPy"/></a>
+	  <a href="https://ipython.org/" title="IPython"><img style="width:419px;height:54px;" data-src="pics/con-projects/ipython_logo.png" alt="IPython"/></a>
+	</div>
+	<p style="font-size:0.95em;margin:0.2em 0;"><a href="https://numpy.org/">NumPy</a>,
+	  <a href="https://scipy.org/">SciPy</a>, <a href="https://matplotlib.org/">matplotlib</a>, and
+	  (for us) <a href="https://www.debian.org/">Debian</a> underneath all of it.</p>
+	<p><small>PyMVPA ran its tutorials in IPython and read its data through what became
+	  <a href="https://nipy.org/nibabel/">NiBabel</a>.</small></p>
+	<aside class="notes">
+	  This is COMPOSE, four slides early and in its original setting. The verb is not an
+	  architecture diagram -- it is what you do when three projects in one community agree
+	  to need each other. Point at the substrate line, not at the logos.
 
+	  If Fernando spoke this morning, this is where the callback lands: his talk and this
+	  slide are the same claim from two directions.
+	</aside>
+  </section>
 
-<!-- =================================================================
-     S15-S22. Act I — Timeline burst (replaces 9-bullet slide)
-     ================================================================= -->
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2000 &mdash; Barak Pearlmutter&rsquo;s lab. Debian immersion.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2005 &mdash; pkg-exppsy. Packaging FSL + PyEPL with Michael Hanke.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2007 &mdash; PyMVPA. Full test suite + CI before it was common.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2009 &mdash; NeuroDebian. Born by joining Debian, not forking it.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2013 &mdash; DataLad. Git + git-annex for everything.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2016 &mdash; BIDS. Co-founding a community data standard.</p>
-</section>
-
-<section data-transition="none">
-  <p style="font-size:1.3em;">2024+ &mdash; STAMPED &middot; DANDI &middot; EMBER &middot; ORINOCO-Lite.</p>
-</section>
-
-<!-- S22: land after burst -->
 <section>
-  <h3>Seven milestones. Five verbs. Two decades.</h3>
+	<h3>&hellip; and somebody has to <span style="color:#1565c0;">decompose</span> first</h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:2.2em;margin:1.1em 0 0.6em 0;">
+	  <a href="https://nipy.org/" title="NiPy"><img style="width:190px;height:190px;" data-src="pics/con-projects/nipy_logo.svg" alt="NiPy"/></a>
+	  <span style="font-size:2.6em;color:#1565c0;">&rarr;</span>
+	  <div style="display:flex;flex-direction:column;gap:0.5em;">
+		<a href="https://nipy.org/nibabel/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:327px;height:66px;" data-src="pics/con-projects/nibabel_logo.png" alt="NiBabel"/></a>
+		<a href="https://nipype.readthedocs.io/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:330px;height:66px;" data-src="pics/con-projects/nipype_logo.png" alt="Nipype"/></a>
+		<a href="https://nipy.org/nitime/" style="background:#fff;border:1px solid #e3dbc9;border-radius:6px;padding:5px 9px;"><img style="width:326px;height:66px;" data-src="pics/con-projects/nitime_logo.png" alt="Nitime"/></a>
+	  </div>
+	</div>
+	<aside class="notes">
+	  The hidden half of the word. You can only compose from small modules because somebody
+	  split them out first, and splitting is the unglamorous half: no new capability, only
+	  somebody else's dependency list getting shorter.
+
+	  Dates deliberately not on the slide -- the splits run from roughly 2007 into the early
+	  2010s, past this era's boundary. The point is the move, not the year.
+	</aside>
+  </section>
+
+<section data-markdown><textarea data-template>
+
+<!-- .slide: data-transition="none" -->
+
+# <span style="color:#90caf9;">(DE)</span>COMPOSE
+<!-- .element: style="font-size:3em;color:#1565c0;" -->
+
+## to maximize development and maintenance efficiency, REUSE, etc
+
+Note:
+The word has a hidden half. You can only compose from small modules because
+somebody split them out first -- nipy into nibabel, nipype and nitime, and nipy
+still there afterwards. Say it once, here, and the datalad-extensions and
+con/duct slides later need no explanation.
+
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+<!-- .slide: data-visibility="hidden" -->
+
+### 2005–2008 &mdash; ecosystem introduced me to wonderful new collaborators
+
+<iframe src="2026-usrse-con-talk/ack-2008.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+
+Note:
+Generated from con-site-specific records. Red ring = new in this era;
+dimmed = association already ended.
+</textarea></section>
 </section>
 
-
-<!-- =================================================================
-     Five-verb summary card (kept; moved after burst)
-     ================================================================= -->
-<!-- TODO: decide whether to keep verb-table or remove after burst -->
+<!-- ===== era 2012 ============================================== -->
 <section>
-  <h2>Two decades, five verbs</h2>
-  <table style="margin-left:auto;margin-right:auto;font-size:1.1em;">
-    <tr>
-      <td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#a04000;">Reuse</strong></td>
-      <td style="padding:0.5em 1.5em;">join an upstream instead of writing one</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#1565c0;">Compose</strong></td>
-      <td style="padding:0.5em 1.5em;">small modules over silo&rsquo;d monoliths</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#2e7d32;">Extend</strong></td>
-      <td style="padding:0.5em 1.5em;">stay on as maintainer of what you depend on</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#6a1b9a;">Standardize</strong></td>
-      <td style="padding:0.5em 1.5em;">a common language &mdash; for humans <em>and</em> agents</td>
-    </tr>
-    <tr>
-      <td style="padding:0.5em 1.5em;text-align:right;"><strong style="color:#d84315;">Automate</strong></td>
-      <td style="padding:0.5em 1.5em;">if you don&rsquo;t, it doesn&rsquo;t happen at scale</td>
-    </tr>
-  </table>
-  <aside class="notes">
-    Summary card after the burst. Each section proves one verb.
-  </aside>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+## 2009–2012 &mdash; NeuroDebian
+
+<div class="faces" data-people="michael-hanke">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+</div>
+
+<p style="font-size:0.78em;letter-spacing:0.12em;color:#1565c0;font-weight:700;margin:0 0 0.4em 0;">COMPOSE</p>
+
+<!-- the banner is 531x413; at width:1200px alone it rendered 933px tall and
+     pushed the citation off the canvas -->
+[![](pics/neurodebian_logo_web_banner.png)<!-- .element: style="width:480px;height:373px;" -->](https://neuro.debian.net)
+
+**[NeuroDebian](https://neuro.debian.net/)** was born by *joining* Debian, not forking it. Thousands of users to this day, and the maintenance shared with a distribution that outlives any grant.
+
+**Reusing existing distributions ([PyPI](https://pypi.org/), [conda](https://conda.org/), etc) was the answer in 2009 and still is.**
+
+[**Y. O. Halchenko** and M. Hanke. Open is not enough. Let's take the next step:
+An integrated, community-driven computing platform for neuroscience.
+Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fninf.2012.00022](http://dx.doi.org/10.3389/fninf.2012.00022)
+<!-- .element: style="font-size:0.7em;" -->
+
+Note:
+Era 2009–2012. Verb lens: COMPOSE.
+
+----
+
+<!-- .slide: data-background-gradient="radial-gradient(white, #f7dfd3)" -->
+
+### The cheapest reproducible thing is the one you didn&rsquo;t have to build
+
+----
+
+## NeuroDebian: a textbook bridge
+
+[![](pics/neurodebian-overview.png)<!-- .element: style="width:1040px;height:687px;" -->](https://neuro.debian.net)
+
+Eventually most of it dissolved upstream into **[Debian Med](https://blends.debian.org/med/)**,
+**[Debian Science](https://blends.debian.org/science/)**, and **[conda-forge](https://conda-forge.org/)**. *A successful bridge dissolves into the commons.*
+<!-- .element: style="font-size:0.7em;" -->
+
+</textarea></section>
+
+<section data-transition="none">
+	<h3>Not an ending &mdash; a handover <em>upwards</em></h3>
+	<div style="display:flex;align-items:center;justify-content:center;gap:3em;margin:1em 0 0.6em 0;">
+	  <img style="height:150px;" data-src="pics/borrowed/debian-openlogo.svg" alt="Debian"/>
+	  <img style="height:150px;" data-src="pics/borrowed/debian-med-logo.svg" alt="Debian Med"/>
+	  <img style="height:150px;" data-src="pics/debian-python-logo.png" alt="Debian Python Team"/>
+	</div>
+	<p style="font-size:1.15em;margin:0.2em 0;">
+	  <a href="https://blends.debian.org/med/">Debian Med</a> &middot;
+	  <a href="https://wiki.debian.org/DebianScience">Debian Science</a> &middot;
+	  <a href="https://wiki.debian.org/Teams/PythonTeam">Debian Python Team</a>
+	</p>
+	<p><small>Small team, wide scope &rarr; big teams, each with a narrower one.<br/>
+	  Packages we used to carry alone are now co-maintained: more hands, a bus factor above one.<br/>
+	  <em>Later</em> &mdash; <a href="https://tracker.debian.org/pkg/psychopy">psychopy</a> moves to Debian Med in 2020;
+	  nifticlib, gifticlib, odin, cmtk follow over the next two years.</small></p>
+	<aside class="notes">
+	  Important correction to the obvious reading: this is not NeuroDebian ending. It is the
+	  maintenance moving from a two-person team to teams that scale better, at the cost of a
+	  narrower target each. I am still in all three. The Debian QA page counts roughly 73
+	  package entries under Debian Med, 38 under the Python Team, 28 under Debian Science.
+	  The scope narrows per team; the total breadth goes up.
+	</aside>
 </section>
 
+  <section data-markdown data-separator="^\n----\n"><textarea data-template>
 
-<!-- =================================================================
-     SECTION: REUSE
-     borrows: NeuroDebian + PyMVPA blocks from 2022-nih-compcore.html
-     ================================================================= -->
-<section data-transition="slide">
+[![](pics/borrowed/reuse-logo.png)<!-- .element: style="width:428px;height:100px;margin:0.4em 0;" -->](https://reuse.software/)
 
-  <!-- REUSE anchor word -->
-  <section data-transition="none">
-    <h1 style="font-size:3em;color:#a04000;">REUSE</h1>
-  </section>
+Debian DEP-5 &rarr; REUSE spec: machine-readable licensing, per file.
 
-  <!-- Rule -->
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-    <h3>The cheapest reproducible thing is the one you didn&rsquo;t have to build.</h3>
-  </section>
+```
+/introduce-reuse-compliance
+```
 
-  <!-- NeuroDebian logo (borrowed from 2022-nih-compcore.html) -->
-  <section>
-	<a href="https://neuro.debian.net">
-	  <img style="width:1200px"
-		   data-src="pics/neurodebian_logo_web_banner.png"/></a>
-	<br><br>
-	<small>
-	  <a href="http://dx.doi.org/10.3389/fninf.2012.00022">
-		 <b>Y. O. Halchenko</b> and M. Hanke. Open is not enough. Let's take the next step:
-		 An integrated, community-driven computing platform for neuroscience.
-		 Frontiers in Neuroinformatics, 6(00022), 2012. doi: 10.3389/fninf.2012.00022
-	</a></small>
-  </section>
+We reuse the standard and automate its adoption.
 
-  <!-- Beat: born by joining -->
-  <section>
-    <h3>Born by joining <strong>Debian</strong>. Not forking it.</h3>
-  </section>
+[github.com/con/skills](https://github.com/con/skills)
+<!-- .element: style="font-size:0.7em;" -->
 
-  <!-- NeuroDebian overview: a textbook bridge -->
-  <section>
-	<h2>NeuroDebian: a textbook bridge</h2>
-	<a href="https://neuro.debian.net">
-	  <img style="width:1100px" data-src="pics/neurodebian-overview.png"/></a>
-	<p><small>Eventually most of it dissolved upstream into <strong>Debian Med</strong>,
-	  <strong>Debian Science</strong>, and <strong>conda-forge</strong>. <em>A successful bridge dissolves into the commons.</em></small></p>
-  </section>
+</textarea></section>
 
-  <!-- PyMVPA logo -->
-  <section>
-	  <img style="width:1500px"
-		   data-src="pics/pymvpa_logo_fromfusionposter.svg"/>
-	  <br>
-	  <small>
-		<a href="http://dx.doi.org/10.1007/s12021-008-9041-y">
-		   M. Hanke, <b>Y. O. Halchenko</b>, P. B. Sederberg, et al. PyMVPA: A Python toolbox for
-		   multivariate pattern analysis of fMRI data. <em>Neuroinformatics</em>, 7:37&ndash;53, 2009.
-		   doi: 10.1007/s12021-008-9041-y</a></small>
-  </section>
-
-  <!-- Beat: PyMVPA -->
-  <section>
-    <h3>2007. Full test suite. CI. Tutorials. Before it was common.</h3>
-  </section>
-
-  <!-- Current exemplars: 3 individual slides -->
+<!--
   <section>
     <h2><a href="https://github.com/duecredit/duecredit">duecredit</a></h2>
-    <p>Automated scholarly credit tracking.</p>
-  </section>
-
-  <section>
-    <h2><a href="https://github.com/con/duct">con/duct</a></h2>
-    <p>Process monitor. Wall time. Memory. Per task.</p>
-  </section>
-
-  <section>
-    <h2><a href="https://github.com/con/citations-collector">citations-collector</a></h2>
-    <p>Citation harvesting for your stack.</p>
-  </section>
-
-  <!-- Land slide -->
-  <section>
-    <h3>One upstream search pass saves a thousand local fixes.</h3>
-  </section>
-
-  <!-- REUSE/SPDX beat — slide 1: REUSE spec -->
-  <section>
-    <!-- TODO: add reuse.software logo -->
-    <h2>REUSE</h2>
-    <p>Debian DEP-5 &rarr; REUSE spec: machine-readable licensing, per file.</p>
-    <p><small><a href="https://reuse.software/">reuse.software</a></small></p>
-  </section>
-
-  <!-- REUSE/SPDX beat — slide 2: /introduce-reuse-compliance skill -->
-  <section>
-    <pre><code>/introduce-reuse-compliance</code></pre>
-    <p>We reuse the standard and automate its adoption.</p>
-    <p><small><a href="https://github.com/con/skills">github.com/con/skills</a></small></p>
-  </section>
-
-  <!-- REUSE/SPDX beat — slide 3: AI attribution transition -->
-  <section data-background="black">
-    <h2 style="color:white;">&ldquo;What if AI attribution worked the same way?&rdquo;</h2>
-  </section>
-
-  <!-- REUSE/SPDX beat — slide 4: code slide -->
-  <section>
-    <pre><code class="language-text">SPDX-FileContributor: assisted-by-ai: Claude Code 2.1 / Claude Sonnet 4.6</code></pre>
-    <p>File-level AI provenance that survives redistribution.</p>
+    <p>Reuse somebody&rsquo;s method &mdash; and cite it without being told to.</p>
+    <img data-src="pics/duecredit_example.gif" style="width:670px;height:560px;"
+	 alt="duecredit collecting the references for a script as it runs"/>
+    <p><small>Citations declared next to the code that implements them, and
+	  <code>python -m duecredit yourscript.py</code> reports what to cite for what was
+	  <em>actually</em> used &mdash; including, via injections, packages that never declared any.</small></p>
     <aside class="notes">
-      Same SPDX grammar already used for copyright. No new tooling required.
-      Survives git history loss. Machine-readable. Per file.
+	  Reuse has a debt attached, and nobody can pay it from memory. Let the run
+	  say what it used. Keep this one short -- the animation does the talking,
+	  and it runs 17 seconds, so talk over it and move on before it ends.
     </aside>
   </section>
-
-  <!-- REUSE/SPDX beat — slide 5: "We filed the issue." -->
-  <section>
-    <h3>We filed the issue.</h3>
-    <p><small><a href="https://github.com/fsfe/reuse-website/issues/127">fsfe/reuse-website#127</a></small></p>
-  </section>
-
-  <!-- TODO: generate % AI commits over time graphic from git log (stacked bar: Co-Authored-By: Claude Code vs total commits by month) -->
-
-  <!-- REUSE AI beat — slide 1 -->
-  <section data-background="black">
-    <h2 style="color:white;">&ldquo;Agents don&rsquo;t search. They generate.&rdquo;</h2>
-  </section>
-
-  <!-- REUSE AI beat — slide 2 (land) -->
-  <section>
-    <h3>Reuse requires asking &ldquo;does this exist?&rdquo; before the first keystroke.</h3>
-  </section>
-
-  <!-- REUSE callback anchor -->
-  <section data-transition="none">
-    <h1 style="font-size:3em;color:#a04000;">REUSE</h1>
-  </section>
-
-</section>
-
-
-<!-- =================================================================
-     SECTION: COMPOSE
-     borrows: DataLad sandwich mermaid + extensions slide
-     (2024-distribits-datalad.html); registry stats
-     (2025-distribits-YODA.html); con/duct (2025-distribits-YODA.html);
-     ReproNim/containers (2025-distribits-YODA.html).
-     ================================================================= -->
-<section data-transition="slide">
-
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2><span style="color:#1565c0;">Compose</span> &mdash; small modules, common substrate</h2>
-	<h3 class="fragment">Sandwich, don't silo.</h3>
-  </section>
-
-  <!-- DataLad sandwich mermaid borrowed from 2024-distribits-datalad.html -->
-  <section>
-	<h2>The DataLad sandwich</h2>
-	<h4>Layered tech that everyone <em>already</em> knows</h4>
-	<div class="mermaid"><pre>
-graph TB
-    user --> datalad[datalad get file] --> git-annex[git-annex get file] -.-> git-annex-remote-archives --> git-annex2[git-annex get --key XXX.tar.gz] -.-> git-annex-remote-datalad
-
-    datalad --> git1[git]
-    git-annex --> git2[git]
-    git-annex2 --> git3[git]
-
-    classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
-    classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
-    classDef red fill:#f44d27,stroke:#333,stroke-width:1px;
-    class datalad orange
-    class git-annex-remote-archives orange
-    class git-annex-remote-datalad orange
-
-    class git-annex green
-    class git-annex2 green
-
-    class git red
-    class git1 red
-    class git2 red
-    class git3 red
-	</pre></div>
-	<p><small><a href="https://joss.theoj.org/papers/10.21105/joss.03262">DataLad: distributed system for joint management of code, data, and their relationship.</a> Halchenko et al., JOSS 2021.</small></p>
-  </section>
-
-  <!-- DataLad extensions diagram (borrowed from 2024-distribits-datalad.html) -->
-  <section>
-    <h2>DataLad extensions: domain-agnostic core, à la carte add-ons</h2>
-    <div class="mermaid"><pre>
-graph LR
- datalad --> datalad-crawler
- datalad --> datalad-container
- datalad --> datalad-neuroimaging
- datalad --> datalad-osf
- datalad --> datalad-fuse
- datalad --> datalad-xnat
- datalad --> datalad-ukbiobank
- datalad --> datalad-next
- datalad --> ...
- classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
- classDef orangy fill:#ffc200,stroke:#333,stroke-width:1px;
- class datalad orange
- class datalad-crawler orangy
- class datalad-container orangy
- class datalad-neuroimaging orangy
- class datalad-osf orangy
- class datalad-fuse orangy
- class datalad-xnat orangy
- class datalad-ukbiobank orangy
- class datalad-next orangy
-</pre></div>
-	<p><small>Extensions = separate Python packages, ride on
-	  <a href="https://github.com/datalad/datalad-extension-template">datalad-extension-template</a>
-	  &mdash; your domain plugs in, neuroimaging is just one of many.</small></p>
-  </section>
-
-  <!-- registry.datalad.org federation (borrowed from
-       2025-distribits-YODA.html) -->
-  <section>
-	<h2>Federate, don&rsquo;t recentralize</h2>
-	<a href="https://registry.datalad.org/overview/"><img style="height:600px" data-src="pics/datalad-registry-stats-20251021.png"/></a>
-	<p><small><a href="https://registry.datalad.org/">registry.datalad.org</a> indexes
-	  DataLad datasets <em>across</em> institutions and clouds &mdash; discovery over
-	  <strong>petabytes</strong>, no platform required.</small></p>
-  </section>
-
-  <!-- 3-item burst: acquire / convert / pin -->
-  <section data-transition="none">
-	<h2><a href="https://reproin.repronim.org/">ReproIn</a> + <a href="https://heudiconv.repronim.org/">HeuDiConv</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Acquire reproducibly.</p>
-	<p><small>Sequence naming convention at the scanner &rarr; DICOM &rarr; BIDS, no human in the loop.</small></p>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://neuroconv.readthedocs.io/">NeuroConv</a> + <a href="https://github.com/con/nwb2bids">nwb2bids</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Convert once, use everywhere.</p>
-	<p><small>Raw physiology &rarr; NWB; NWB &rarr; BIDS layout. Two flagship standards, one bridge.</small></p>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://github.com/ReproNim/containers">ReproNim/containers</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Pinned environments. Everywhere.</p>
-	<p><small>Curated Singularity/Apptainer containers, auto-rebuilt and auto-snapshotted.</small></p>
-  </section>
-
-  <!-- COMPOSE land slide -->
-  <section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Small units. Common substrate.<br/>No glue code you own alone.
-	</p>
-  </section>
-
-  <!-- COMPOSE AI beat -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;AI generates glue. Nobody owns the glue.&rdquo;</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Deliberate interfaces outlast generated adapters.
-	</p>
-  </section>
-
-  <!-- COMPOSE callback -->
-  <section data-transition="none">
-	<h1 style="font-size:3em;color:#1565c0;">COMPOSE</h1>
-  </section>
-
-</section>
-
-
-<!-- =================================================================
-     SECTION: EXTEND
-     borrows: BEP028 reference; BIDS Steering iframe vibe; Debian Med flow.
-     ================================================================= -->
-<section data-transition="slide">
-
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
+  -->
+  
+<!--
+<section data-background-gradient="radial-gradient(white, #f7dfd3)">
 	<h2><span style="color:#2e7d32;">Extend</span> &mdash; stay on as maintainer</h2>
-	<h3 class="fragment">Ship pragmatic now, formalize upstream later.</h3>
+	<h3 class="fragment">Ship pragmatic now, formalize upstream later</h3>
   </section>
-
-  <!-- 3-slide burst: where we stayed -->
-  <section data-transition="none">
-	<h2><a href="https://www.debian.org/devel/debian-med/">Debian Med</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Packaging. Still there.</p>
-	<p><small>pkg-exppsy &rarr; NeuroDebian &rarr; Debian Med &amp; Debian Science &rarr; conda-forge.<br/>
-	  <em>A successful bridge dissolves into the commons.</em></small></p>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://bids.neuroimaging.io/governance.html">BIDS Steering Group</a> + WG-16</h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Advisory. Standards evolution.</p>
-	<p><small>Co-evolving the standard, not just consuming it.
-	  <a href="https://github.com/bids-standard/bids-specification">BEP028</a>: DataLad&rsquo;s ad-hoc
-	  <code>RUNCMD</code> provenance lifting into BIDS.</small></p>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://www.nwb.org/">NWB</a> + <a href="https://www.kitware.com/">Kitware</a></h2>
-	<p style="font-size:1.4em;margin-top:1.5em;">Academic RSE &harr; engineering industry.</p>
-	<p><small>Sustained collaboration on browse / analyze / visualize tooling.</small></p>
-  </section>
-
-  <!-- RUNCMD → BEP028 mermaid — the best concrete artifact in the section -->
-  <section>
-	<h3>From ad-hoc to standard, in one slide</h3>
-	<div class="mermaid"><pre>
-flowchart LR
-  RUNCMD["DataLad RUNCMD<br/>(2015, ad-hoc JSON in commit msgs)"] --> BEP["BEP028<br/>BIDS provenance"]
-  RUNCMD --> EXP["bids-prov-exporter<br/>(WiP)"]
-  BEP --> COMMUNITY["BIDS standard<br/>(community-owned)"]
-  EXP --> COMMUNITY
-  classDef orange fill:#ffa200,stroke:#333,stroke-width:1px;
-  classDef green fill:#40bf4c,stroke:#333,stroke-width:1px;
-  class RUNCMD orange
-  class BEP green
-  class COMMUNITY green
-	</pre></div>
-	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.85em;">
-	  <strong>Take home:</strong> the next time you reach for <em>your own</em> JSON-in-a-commit-message format,
-	  ask which upstream standard it should fold back into.
-	</p>
-  </section>
-
-  <!-- EXTEND AI beat -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;AI extends by adding. It rarely stays to maintain.&rdquo;</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Staying on as maintainer is the non-automatable contribution.
-	</p>
-  </section>
-
-  <!-- EXTEND callback -->
-  <section data-transition="none">
+<section data-transition="none">
 	<h1 style="font-size:3em;color:#2e7d32;">EXTEND</h1>
-  </section>
-
 </section>
+-->
 
 
-<!-- =================================================================
-     SECTION: STANDARDIZE
-     borrows: BIDS slide from 2023-bids-dicom.html / 2025-ca-origami.
-     "Make re-use convenient" Buddha framing from 2025-ca-origami.
-     ================================================================= -->
-<section data-transition="slide">
+<!-- <section data-markdown><textarea data-template>
+### 2009–2012 &mdash; who we were working with
+<iframe src="2026-usrse-con-talk/ack-2012.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+</textarea></section> -->
 
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2><span style="color:#6a1b9a;">Standardize</span> &mdash; a language for HI <em>and</em> AI</h2>
-	<h3 class="fragment">All standards are &ldquo;bad&rdquo;<sup>*</sup>, but some are used.</h3>
-	<p class="fragment">* &mdash; D. Clunie, MICCAI 2017.</p>
-  </section>
+</section> 
 
-  <!-- BIDS slide (cited from 2023-bids-dicom.html) -->
-  <section>
-	<h2>Data: <a href="https://bids.neuroimaging.io/">BIDS</a> &amp; <a href="https://www.nwb.org/">NWB</a></h2>
-	<img style="width:1200px"  data-src="pics/bids-logo-wide.png"/>
+<!-- ===== era 2016 ============================================== -->
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+## 2013–2016 &mdash; DataLad · BIDS
+
+<h3><span style="letter-spacing:0.12em;color:#6a1b9a;font-weight:700;margin:0 0 0.4em 0;">STANDARDIZE</span></h3>
+
+<!-- .slide: data-transition="slide" -->
+<div class="faces" style="--face-size:56px" data-people="michael-hanke joey-hess kyle-meyer benjamin-poldrack adina-wagner">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#joey_hess_" target="_blank" title="Joey Hess — Independent Guru"><img data-src="pics/con-whoweare/joey-hess.jpg" alt="Joey Hess"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#kyle_meyer_" target="_blank" title="Kyle Meyer — Programmer"><img data-src="pics/con-whoweare/kyle-meyer.jpg" alt="Kyle Meyer"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#benjamin_poldrack_" target="_blank" title="Benjamin Poldrack — INM-7, Research Centre Julich, Germany"><img data-src="pics/con-whoweare/benjamin-poldrack.jpg" alt="Benjamin Poldrack"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#adina_wagner_" target="_blank" title="Adina Wagner — INM-7, Research Centre Julich, Germany"><img data-src="pics/con-whoweare/adina-wagner.jpg" alt="Adina Wagner"/></a>
+</div>
+
+[![](pics/datalad_logo_wide.gif)<!-- .element: style="width:592px;height:260px" -->](https://datalad.org)
+
+<p style="margin-top:0.4em;font-size:140%">A data management suite that makes data access and management as easy as managing code and software!</p>
+
+----
+
+## DataLad in one figure
+
+![](pics/datalad_process_tuned/00base_preview.png)<!-- .element: style="width:1300px;height:520px" -->
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### &hellip; and nesting can go all the way to the paper!
+
+![](pics/repronim-containers-stamped_tuned/lower-noyoda_preview.png)<!-- .element: style="width:1240px;height:464px" -->
+
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+Without standards, humans produce mess, and AI scales that up!
+<!-- .element: style="font-size:2em;" -->
+
+</textarea></section>
+
+<section>
+	<div class="faces" style="--face-size:56px" data-people="russell-poldrack jean-baptiste-poline chris-markiewicz satrajit-ghosh dora-hermes seyed-yahya-shirazi">
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Russell A. Poldrack"><img data-src="pics/con-whoweare/russell-poldrack.jpg" alt="Russell A. Poldrack"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#jeanbaptiste_poline_" target="_blank" title="Jean-Baptiste Poline — McGill University, Canada"><img data-src="pics/con-whoweare/jean-baptiste-poline.png" alt="Jean-Baptiste Poline"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Dora Hermes — Mayo Clinic, Rochester, MN"><img data-src="pics/con-whoweare/dora-hermes.jpg" alt="Dora Hermes"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Seyed (Yahya) Shirazi — Assistant Project Scientist, SCCN, UC San Diego"><img data-src="pics/con-whoweare/seyed-yahya-shirazi.jpg" alt="Seyed (Yahya) Shirazi"/></a>
+	</div>
+		<a href="https://bids.neuroimaging.io/"><img style="width:2000px" data-src="pics/bids-logo-wide.png"/></a>
 	<br>
 	<small>
 	  <a href="https://www.nature.com/articles/sdata201644">
-		Gorgolewski, K. J., Auer, T., &hellip;, <b>Halchenko, Y. O.</b>, &hellip;, Poldrack, R. A. (2016).
-		The brain imaging data structure, a format for organizing and describing outputs of
-		neuroimaging experiments. <em>Scientific Data</em>, 3:160044.</a>
+		Gorgolewski, K. J., Auer, T., Calhoun, V. D., Craddock, R. C., Das, S., Duff,
+		E. P., Flandin, G., Ghosh, S. S., Glatard, T., <b>Halchenko, Y. O.</b>, Handwerker,
+		D. A., Hanke, M., Keator, D., Li, X., Michael, Z., Maumet, C., Nichols, B. N.,
+		Nichols, T. E., Pellman, J., Poline, J.-B., Rokem, A., Schaefer, G., Sochat, V.,
+		Triplett, W., Turner, J. A., Varoquaux, G., and Poldrack, R. A. (<b>2016</b>). The
+		brain imaging data structure, a format for organizing and describing outputs
+		of neuroimaging experiments. Scientific Data, 3:160044</a>
 	</small>
-	<p><small>You've seen one BIDS dataset, you've seen them all. <em>That's the point.</em></small></p>
   </section>
-
-  <!-- BIDS-as-meta-standard ecosystem image (borrowed from 2023-bids-dicom.html) -->
-  <section>
-	<h2>BIDS as a meta-standard</h2>
-	<img data-src="pics/BIDS-minder.svg" style="height:600px"/>
-	<p><small>Not a wire format &mdash; a <em>contract</em>. Validators, BIDS-Apps, BEPs all hang off it.</small></p>
-  </section>
-
-  <!-- NWB slide -->
-  <section>
-	<!-- TODO: add NWB logo — check pics/ for an NWB-specific logo asset -->
-	<h2><a href="https://www.nwb.org/">NWB</a> &mdash; Neurodata Without Borders</h2>
-	<img data-src="pics/NWB-datatypes.svg" style="height:500px"/>
-	<p><small>Standard for neurophysiology. Same principle.</small></p>
-  </section>
-
-  <!-- MVC — 3 Lessig slides + land -->
-  <section data-transition="none">
-	<h1 style="font-size:4em;">M</h1>
-	<p>Schema. Machine-readable. Deterministically validatable.</p>
-	<p><small>Examples: <a href="https://bids.neuroimaging.io/">BIDS</a>, <a href="https://www.nwb.org/">NWB</a>, <a href="https://linkml.io/">LinkML</a></small></p>
-  </section>
-
-  <section data-transition="none">
-	<h1 style="font-size:4em;">C</h1>
-	<p>Tools that operate on the Model.</p>
-	<p><small>Examples: <a href="https://bids-apps.neuroimaging.io/">BIDS-Apps</a>, <a href="https://datalad.org">DataLad</a>, <a href="https://heudiconv.repronim.org/">HeuDiConv</a></small></p>
-  </section>
-
-  <section data-transition="none">
-	<h1 style="font-size:4em;">V</h1>
-	<p>Use-case views on the same data.</p>
-	<p><small>Examples: lab website, reports, discovery portals</small></p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Same M &rarr; endless C and V.<br/>This is why standards compound.
-	</p>
-	<aside class="notes">MVC at infrastructure scale: the Model is the standard. Once you have a shared M, Reuse and Compose become architecturally necessary, not just good hygiene.</aside>
-  </section>
-
-  <!-- STAMPED slide -->
-  <section>
-	<a href="https://stamped-principles.org/"><img data-src="pics/stamped-principles-webshot_20260602.png" style="height:550px"/></a>
-	<p><small>For research objects, we wrote the standard ourselves.
-	  <a href="https://stamped-principles.org/">stamped-principles.org</a></small></p>
-  </section>
-
-  <!-- AI general beats for STANDARDIZE — BEFORE ORINOCO-Lite -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;Without standards, AI produces cacophony at scale.&rdquo;</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.5em;font-style:italic;margin-top:2em;">
-	  Standards are the framing and validation layer for any AI endeavor.
-	</p>
-  </section>
-
-  <!-- ORINOCO-Lite — one instance of the general pattern -->
-  <section data-transition="none">
-	<p style="font-size:1.4em;margin-top:2em;">One instance of the pattern:<br/>lab knowledge management.</p>
-  </section>
-
-  <section>
-	<!-- TODO: add LinkML logo -->
-	<h2><a href="https://linkml.io/">LinkML</a></h2>
-	<p style="font-size:1.2em;margin-top:1em;">Schemas that compose.</p>
-	<p><small>Built 2 hours north, at LBNL (Lawrence Berkeley National Laboratory).</small></p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;"><a href="https://orcid.org/">ORCID</a></p>
-	<p style="font-size:1.1em;">Reused identifier, not invented.</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;"><a href="https://ror.org/">ROR</a></p>
-	<p style="font-size:1.1em;">Reused identifier, not invented.</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;"><a href="https://www.doi.org/">DOI</a> + <a href="https://www.w3.org/TR/prov-o/">PROV-O</a></p>
-	<p style="font-size:1.1em;">Reused identifier, not invented.</p>
-  </section>
-
-  <section>
-	<h3>ORINOCO &rarr; ORINOCO-Lite</h3>
-	<!-- TODO: simple flow diagram or two logos side by side -->
-	<p style="margin-top:1em;"><a href="https://github.com/INM-7">INM-7 Jülich</a> &rarr; CON, GitHub-native</p>
-	<p><small>Reusing ORINOCO (Michael Hanke / INM-7) and composing with GitHub Actions/Pages.</small></p>
-  </section>
-
-  <section>
-	<p style="font-size:1.4em;font-style:italic;margin-top:2em;">
-	  AI drafts candidate records.<br/>Schema validates.<br/>Humans curate via PR.
-	</p>
-  </section>
-
-  <!-- Poster call-out -->
-  <section>
-	<p style="font-size:1.1em;margin-top:3em;color:#555;">
-	  Posters this week:<br/>
-	  <strong>ORINOCO-Lite</strong> &middot; <strong>STAMPED</strong> &middot; <strong>con/duct</strong><br/>
-	  <span style="font-size:0.9em;">Come find us.</span>
-	</p>
-  </section>
-
-  <!-- STANDARDIZE AI callback beat -->
-  <section>
-	<p style="font-size:1.4em;font-style:italic;margin-top:2em;">
-	  Standards give both HI and AI a shared grammar.
-	</p>
-  </section>
-
-  <!-- STANDARDIZE callback -->
-  <section data-transition="none">
-	<h1 style="font-size:3em;color:#6a1b9a;">STANDARDIZE</h1>
-  </section>
-
-</section>
-
-
-<!-- =================================================================
-     SECTION: STANDARDIZE AT SCALE — FEDERATED ARCHIVES
-     borrows: dandi-slide-modalities + DANDI-ecosystem from
-     2023-brain-dandi.html.
-     ================================================================= -->
-<section data-transition="slide">
-
-  <!-- Lean 2-slide federated archives -->
-  <section>
-	<div style="display:flex;justify-content:center;align-items:center;gap:3em;margin-top:1.5em;">
-	  <a href="https://dandiarchive.org/"><img style="height:160px" data-src="pics/dandi-logo-square.svg"/></a>
-	  <a href="https://emberarchive.org/"><strong style="font-size:2em;">EMBER</strong></a>
-	  <a href="https://openneuro.org/"><img style="height:100px" data-src="pics/borrowed/openneuro_logo.png"/></a>
-	</div>
-	<p style="margin-top:1.5em;font-style:italic;">National archives. Built on shared standards.</p>
-  </section>
-
-  <section>
-	<h2>What's in DANDI</h2>
-	<img style="height:700px" data-src="pics/dandi-slide-modalities.svg"/>
-  </section>
-
-  <section>
-	<h2>DANDI ecosystem &mdash; integrate, don't re-implement</h2>
-	<img  style="width:1300px" data-src="pics/DANDI-ecosystem.svg"/>
-  </section>
-
-</section>
-
-
-<!-- =================================================================
-     SECTION: REUSE-IN-REVERSE — cut from 15-min version (too long)
-     AnnexTube / mykrok / con/serve can appear in a longer version or
-     as a backup slide if time permits.
-     Restore by un-commenting the slide block below.
-
-  <section data-transition="slide">
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2><span style="color:#a04000;">Reuse, in reverse</span></h2>
-	<h3 class="fragment">Your data is yours, even when someone else hosts it.</h3>
-  </section>
-  <section>
-	<h2>Pull content back: <a href="https://github.com/con/annextube">AnnexTube</a> / <a href="https://github.com/mykrok/mykrok">mykrok</a> / <a href="https://con.github.io/serve/">con/serve</a></h2>
-	<p>YouTube → DataLad. Cloud silos → git-annex. AI sessions → subdatasets.</p>
-  </section>
-  </section>
-
-     ================================================================= -->
-
-
-<!-- =================================================================
-     SECTION: AUTOMATE  (the 5th verb)
-     The action without which none of the other four scale.  Borrows
-     CI / con/tinuous / daily-tested-git-annex / dandiset-mirroring
-     slides from 2024-distribits-datalad.html and 2022-nih-compcore.html;
-     adds the "cost = harnesses to maintain → AI is the meta-layer"
-     punchline that hands off into HI+AI.
-     ================================================================= -->
-<section data-transition="slide">
-
-  <section data-background-gradient="radial-gradient(white, #f7dfd3)">
-	<h2><span style="color:#d84315;">Automate</span> &mdash; or it doesn&rsquo;t happen at scale</h2>
-	<h3 class="fragment">If a human has to remember it, it&rsquo;s already broken.</h3>
-  </section>
-
-  <!-- S10.2 — 4-slide burst: what gets automated -->
-  <section data-transition="none">
-	<h2><a href="https://github.com/con/tinuous">con/tinuous</a></h2>
-	<p style="font-size:1.5em;margin-top:1.5em;">&ldquo;CI logs archived. Every PR. Every build.&rdquo;</p>
-	<img style="height:450px;margin-top:1em;" data-src="pics/con-tinuous-github.png"/>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://github.com/datalad/git-annex">git-annex</a> daily tests</h2>
-	<p style="font-size:1.5em;margin-top:2em;">&ldquo;DataLad and git-annex: tested daily. Automatically.&rdquo;</p>
-	<img style="height:350px;margin-top:1em;" data-src="pics/datalad-daily-status-email-subject.png"/>
-  </section>
-
-  <section data-transition="none">
-	<h2><a href="https://github.com/ReproNim/containers">ReproNim/containers</a></h2>
-	<p style="font-size:1.5em;margin-top:2em;">&ldquo;Auto-rebuilt. Auto-snapshotted. Always current.&rdquo;</p>
-  </section>
-
-  <section data-transition="none">
-	<h2>dandisets mirror</h2>
-	<p style="font-size:1.5em;margin-top:2em;">&ldquo;Auto-mirrored. Petabytes. No human in the loop.&rdquo;</p>
-	<img style="height:350px;margin-top:1em;" data-src="pics/github-dandisets.png"/>
-  </section>
-
-  <!-- S10.3 — Cost: harnesses (2 slides) -->
-  <section>
-	<h2>Cost: harnesses, harnesses, harnesses</h2>
-	<p style="font-size:1.2em;margin-top:1.5em;">
-	  Each automation is itself <em>code</em> &mdash; CI YAML, hooks,
-	  nightly cron, deploy scripts, glue. Someone maintains <em>that</em>.
-	</p>
-	<p style="margin-top:1em;font-size:1.1em;">
-	  By 2024 the harness was bigger than several of the projects under it.<br/>
-	  <em>That</em> is why a small RSE center was dragged toward AI assistance
-	  &mdash; not for the science, but for the
-	  <strong>maintenance of the meta-layer</strong>.
-	</p>
-	<aside class="notes">
-	  Verbally: the five verbs also map onto the SciOps maturity ladder
-	  (Johnson et al. 2024, arXiv:2401.00077) — L1 ad-hoc to L3 open-source
-	  ecosystems (BIDS/NWB/DataLad exemplars) to L4 SciOps pipelines
-	  (Automate) to L5 Optimizing with AI. Most labs sit at L1-L2.
-	  The 5 verbs are the practical climb to L3-L4; AI is what makes L5
-	  feasible for a small RSE center.
-	</aside>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.4em;margin-top:2em;">
-	  <a href="https://github.com/con/skills">con/skills</a> + <a href="https://github.com/con/yolo">con/yolo</a>:
-	  we automate the harness itself.
-	</p>
-	<!-- TODO: add con/skills screenshot or logo -->
-  </section>
-
-  <!-- S10 land slide 1: RSE take-home line #1 -->
-  <section>
-	<p style="font-size:2em;font-weight:bold;margin-top:2em;">
-	  &ldquo;The tests don&rsquo;t know the code was AI-generated.&rdquo;
-	</p>
-	<aside class="notes">Hold here. This is RSE take-home line #1.</aside>
-  </section>
-
-  <!-- S10 AI beat -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;Agent-rate output demands agent-rate review.&rdquo;</p>
-  </section>
-
-  <!-- S10 Provenance beat: 3 slides + 1 land -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:1.8em;margin-top:2em;">
-	  &ldquo;<a href="https://github.com/con/duct" style="color:#80cbc4;">con/duct</a> watches every process. AI agents included.&rdquo;
-	</p>
-	<aside class="notes">Wall time, CPU, memory, per task. Per agent run.</aside>
-  </section>
-
-  <section data-transition="none">
-	<img style="height:700px;" data-src="pics/webshot-con-duct.png"/>
-	<p><small><a href="https://github.com/con/duct">con/duct</a> &mdash; wall time, CPU, memory, per task. Per agent run.</small></p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;">
-	  &ldquo;<a href="https://github.com/con/tinuous">con/tinuous</a> archives every run. AI-assisted runs included.&rdquo;
-	</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;">
-	  &ldquo;<code>datalad run</code> records every transformation.
-	  Agent-written or hand-written.&rdquo;
-	</p>
-  </section>
-
-  <!-- S10 land slide 2: RSE take-home line #2 -->
-  <section>
-	<p style="font-size:2em;font-weight:bold;margin-top:2em;">
-	  &ldquo;Provenance doesn&rsquo;t care who wrote the code.&rdquo;
-	</p>
-	<aside class="notes">Hold here. This is RSE take-home line #2.</aside>
-  </section>
-
-  <!-- AUTOMATE callback -->
-  <section data-transition="none">
-	<h1 style="font-size:3em;color:#d84315;">AUTOMATE</h1>
-  </section>
-
-</section>
-
-
-<!-- =================================================================
-     ACT III — Synthesis
-     Five-verb reunion -> "alone" -> community photos -> "Together." ->
-     logo burst -> HI+AI policy table -> Networked Intelligence ->
-     closing land.
-     ================================================================= -->
-<section data-transition="slide">
-
-  <!-- Five-verb reunion -->
-  <section>
-	<p style="font-size:1.8em; line-height:2;">
-	  REUSE &nbsp;&middot;&nbsp; COMPOSE &nbsp;&middot;&nbsp; EXTEND<br>
-	  STANDARDIZE &nbsp;&middot;&nbsp; AUTOMATE
-	</p>
-	<aside class="notes">Hold. The reunion after the per-verb journey.</aside>
-  </section>
-
-  <!-- Two beat slides -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">&ldquo;These are not 20-year-old advice.&rdquo;</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;font-weight:bold;margin-top:2em;">
-	  They are the load-bearing structure for the age of AI.
-	</p>
-	<aside class="notes">Hold.</aside>
-  </section>
-
-  <!-- "Alone" sequence -->
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:2em;margin-top:2em;">AI makes going alone tempting.</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;">Fast. Flexible. Free of dependencies.</p>
-  </section>
-
-  <section data-background="black" data-transition="none">
-	<h1 style="font-size:4em;color:white;">You are alone.</h1>
-	<aside class="notes">Pause here. Long hold. The silence is the point.</aside>
-  </section>
-
-  <!-- Community photos burst — emotional counter-argument -->
-  <section data-background="pics/borrowed/debconf10-nyc-group.jpg"
-           data-background-size="cover"
-           data-background-position="center">
-	<!-- TODO: crop to show Yaroslav (#10 in the numbered wiki photo) with surrounding people -->
-	<aside class="notes">DebConf10, NYC 2010. Yaroslav is #10 in the group.</aside>
-  </section>
-
-  <section data-background="pics/borrowed/debconf15-heidelberg-group.jpg"
-           data-background-size="cover"
-           data-background-position="center">
-	<aside class="notes">DebConf15, Heidelberg 2015.</aside>
-  </section>
-
-  <section>
-	<!-- TODO: BIDS inaugural meeting / BIDS steering group photo -->
-	<aside class="notes">BIDS inaugural meeting or steering group — source from BIDS community.</aside>
-  </section>
-
-  <section>
-	<!-- TODO: distribits or ReproNim group photo -->
-	<aside class="notes">distribits or ReproNim group photo.</aside>
-  </section>
-
-  <section>
-	<!-- TODO: largest community photo available (OHBM open science room?) -->
-	<aside class="notes">Largest community photo available — OHBM open science room or similar.</aside>
-  </section>
-
-  <!-- "Together." beat -->
-  <section data-background="black" data-transition="none">
-	<h1 style="font-size:4em;color:white;">Together.</h1>
-	<aside class="notes">The callback. Earns the closing line.</aside>
-  </section>
-
-  <!-- "Hundred projects" argument -->
-  <section data-transition="none">
-	<p style="font-size:1.6em;margin-top:2em;">
-	  A hundred agentic projects reinventing the same infrastructure&hellip;
-	</p>
-  </section>
-
-  <section data-background="black" data-transition="none">
-	<p style="color:white;font-size:1.8em;margin-top:2em;">&hellip;is a hundred times the debt.</p>
-	<aside class="notes">Hold.</aside>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;">One collaborative ecosystem.</p>
-  </section>
-
-  <!-- Logo burst: 6 slides, data-transition="none", 1 logo each -->
-  <section data-transition="none">
-	<a href="https://dandiarchive.org/"><img style="height:400px;" data-src="pics/dandi-logo-square.svg"/></a>
-	<p style="font-size:1.2em;margin-top:0.5em;">DANDI</p>
-  </section>
-
-  <section data-transition="none">
-	<a href="https://bids.neuroimaging.io/"><img style="height:300px;" data-src="pics/BIDS_Logo.png"/></a>
-	<p style="font-size:1.2em;margin-top:0.5em;">BIDS</p>
-  </section>
-
-  <section data-transition="none">
-	<a href="https://datalad.org/"><img style="height:300px;" data-src="pics/datalad_logo_wide.svg"/></a>
-	<p style="font-size:1.2em;margin-top:0.5em;">DataLad</p>
-  </section>
-
-  <section data-transition="none">
-	<a href="https://openneuro.org/"><img style="height:300px;" data-src="pics/borrowed/openneuro_logo.png"/></a>
-	<p style="font-size:1.2em;margin-top:0.5em;">OpenNeuro</p>
-  </section>
-
-  <section data-transition="none">
-	<a href="https://www.nwb.org/"><img style="height:300px;" data-src="pics/NWB-datatypes.svg"/></a>
-	<p style="font-size:1.2em;margin-top:0.5em;">NWB</p>
-  </section>
-
-  <section data-transition="none">
-	<!-- TODO: EMBER logo if available, else text slide -->
-	<a href="https://emberarchive.org/"><p style="font-size:3em;font-weight:bold;margin-top:2em;">EMBER</p></a>
-	<p style="font-size:1.2em;">microscopy &middot; behavior</p>
-  </section>
-
-  <!-- HI+AI policy table — moved from S11 -->
-  <section>
-	<h2>HI &harr; AI &mdash; every project picks its own policy</h2>
-	<table style="font-size:0.78em;width:99%;margin:auto;">
-	  <tr style="background-color:#e8eaf6;">
-		<th style="text-align:left;padding:0.35em;width:18%;">Stance</th>
-		<th style="text-align:left;padding:0.35em;width:25%;">OSS exemplars</th>
-		<th style="text-align:left;padding:0.35em;width:25%;">CON / adjacent example</th>
-		<th style="text-align:left;padding:0.35em;">SciOps fit / what it relies on</th>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>1. Reject</strong> any AI-generated content</td>
-		<td style="padding:0.35em;">Zig, Krita, Clojure, QEMU; in practice <a href="https://git-annex.branchable.com/contribute/">git-annex</a> (Joey Hess&rsquo;s &ldquo;policy&rdquo; is famously a satirical Feb-30 joke)</td>
-		<td style="padding:0.35em;"><strong>git-annex</strong> upstream contributions &mdash; pure-HI commits</td>
-		<td style="padding:0.35em;">L3 floor; AI use, if any, stays ephemeral &mdash; never enters the tracked artifact</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>2. Accept with disclosure</strong> (AI-assisted ok; must be marked)</td>
-		<td style="padding:0.35em;"><a href="https://numpy.org/">NumPy</a>, <a href="https://kubernetes.io/">Kubernetes</a>, Linux kernel, Django</td>
-		<td style="padding:0.35em;"><strong>DataLad</strong>, <strong>DANDI</strong> &mdash; HI commits; AI may have helped; <code>Co-Authored-By:&nbsp;Claude&hellip;</code> trailers, <code>@pytest.mark.ai_generated</code></td>
-		<td style="padding:0.35em;">L3 &rarr; L4; leans hardest on STAMPED <strong>T</strong> (Tracking) &mdash; provenance is non-negotiable</td>
-	  </tr>
-	  <tr>
-		<td style="padding:0.35em;"><strong>3. Spec-driven AI-generated</strong> (HI specs, AI writes, HI reviews)</td>
-		<td style="padding:0.35em;">Increasingly common; rare as <em>declared</em> upstream policy</td>
-		<td style="padding:0.35em;"><strong>AnnexTube</strong>, <strong>mykrok</strong>, <strong>con/citations-collector</strong>, parts of <strong>dandi-cli</strong> (LAD specs + AI-generated tests)</td>
-		<td style="padding:0.35em;">L4; leans on <strong>T</strong> + <strong>A</strong>ctionability + <strong>M</strong>odularity &mdash; the spec <em>is</em> the contract</td>
-	  </tr>
-	  <tr style="background-color:#fafafa;">
-		<td style="padding:0.35em;"><strong>4. Autonomous</strong> agents in the loop</td>
-		<td style="padding:0.35em;">Active research everywhere; rarely a declared production policy</td>
-		<td style="padding:0.35em;"><strong>con/skills</strong> + <strong>con/yolo</strong> workflows for triage, PR review, dep updates</td>
-		<td style="padding:0.35em;">L5 (Optimizing); all of STAMPED + the harness itself becomes the type-checker</td>
+<section>
+	<h3>What BIDS is made of</h3>
+	<table style="border:none;width:100%;">
+	  <tr style="vertical-align:middle;border-bottom:none;">
+		<td style="width:28%;text-align:center;">
+		  <img data-src="pics/borrowed/dicom2bids-justbids.png" style="width:295px;height:340px;" alt="instrument output reorganized into a BIDS dataset"/>
+		</td>
+		<td style="width:72%;text-align:left;">
+		  <ul style="font-size:0.72em;">
+			<li><strong>One layout, declared</strong> &mdash;
+			  <code>sub-&lt;label&gt;/[ses-&lt;label&gt;/]&lt;datatype&gt;/</code>.
+			  <em>You have seen one BIDS dataset, you have seen them all.</em></li>
+			<li><strong>File names that parse</strong> &mdash; entities in a fixed order, not prose</li>
+			<li><strong>A short list of allowed formats</strong> per data type, instead of &ldquo;whatever wrote it&rdquo;</li>
+			<li><strong>Metadata with a place to live</strong> &mdash; JSON sidecars, TSV tables, and an
+			  <a href="https://bids-specification.readthedocs.io/en/stable/common-principles.html#the-inheritance-principle">inheritance principle</a> so it is said once</li>
+			<li><strong>Readable by both</strong> &mdash; a prose
+			  <a href="https://bids-specification.readthedocs.io/">specification</a> for humans and a
+			  <a href="https://github.com/bids-standard/bids-specification/tree/master/src/schema">machine-readable schema</a>
+			  the validator, the docs and the tooling are generated from</li>
+			<li><strong>An amendment process</strong> &mdash;
+			  <a href="https://bids.neuroimaging.io/extensions/">BEPs</a> and open PR review, so the standard can be wrong and still recover</li>
+		  </ul>
+		</td>
 	  </tr>
 	</table>
-	<p style="margin-top:0.5em;padding:0.5em;background-color:#fff3cd;border-left:4px solid #f90;font-size:0.8em;">
-	  <strong>Common ground (all four stances):</strong>
-	  AI cannot be an author (<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html">ICMJE Jan 2026</a>);
-	  humans retain full responsibility; AI use must be <em>disclosed</em> in the artifact itself
-	  (commit trailer, methods section, acknowledgments). The STAMPED <em>Tracking</em> principle is
-	  what makes that mechanical instead of aspirational.
-	</p>
-	<p style="margin-top:0.4em;font-size:0.75em;font-style:italic;">
-	  Survey of declared OSS stances:
-	  <a href="https://github.com/melissawm/open-source-ai-contribution-policies">melissawm/open-source-ai-contribution-policies</a>
-	  &mdash; community-maintained catalog.
-	</p>
-	<aside class="notes">This is the spectrum — every project picks its own policy.</aside>
-  </section>
-
-  <!-- Networked Intelligence paper (2 slides + land) -->
-  <section data-transition="none">
-	<p style="font-size:1.8em;margin-top:2em;">Others are formalizing this too.</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:1.2em;margin-top:1.5em;font-weight:bold;">
-	  &ldquo;Networked Intelligence: Active Shared Context Graphs<br/>for Human-AI Team Science&rdquo;
-	</p>
-	<p style="margin-top:1em;">
-	  <small>
-		Pryor, R. et al. (2026). arXiv:<a href="https://arxiv.org/abs/2607.13220">2607.13220</a>
-	  </small>
-	</p>
-  </section>
-
-  <section data-transition="none">
-	<p style="font-size:2em;font-weight:bold;margin-top:2em;">
-	  &ldquo;Scale the connections, not just the agents.&rdquo;
-	</p>
-	<aside class="notes">Hold. Paraphrase of the paper's core claim.</aside>
-  </section>
-
-  <!-- Closing land -->
-  <section>
-	<p style="font-size:1.8em;font-weight:bold;margin-top:2em;">
-	  The principles don&rsquo;t change. The urgency does.
-	</p>
-	<aside class="notes">Hold.</aside>
-  </section>
-
-  <!-- Closer: Yoda SVG + home message -->
-  <section>
-	<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
-	  <img style="height:250px;margin:20px" data-src="pics/yoda.svg"/>
-	</a>
-	<p style="font-size:1.5em;margin-top:0.5em;">
-	  Together we can make neuroscience a better science!
-	</p>
+	<p style="font-size:0.8em;margin-top:0.2em;"><strong>None of this is neuroimaging.</strong>
+	  It is the anatomy of a standard your field can adopt &mdash; and the contract an agent can be held to.</p>
 	<aside class="notes">
-	  Say the closing line slowly. Stop. Let it land.
-	  Your Monday: one upstream search. One datalad run. One CI job.
+	  SKIP CANDIDATE if running long &mdash; the previous slide already says
+	  "contract", and this one can be delivered as one sentence over it.
+	  Keep it if the room is standards-curious: it is the most directly
+	  transferable slide in the deck for a non-neuro audience.
+	  Figure adapted from the DHMC iEEG deck.
 	</aside>
   </section>
 
-</section>
+
+  <section>
+	<h3>Without structure, the agent has to guess</h3>
+	<table style="width:100%;font-size:0.78em;margin-top:0.5em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:50%;padding-right:1em;">
+		  <strong style="color:#c62828;">What an agent finds in most labs</strong>
+<pre style="font-size:0.78em;"><code>study_final2/
+  scans/
+    s01_ep2d_bold_moco_3.nii
+    s01_t1_mprage_FINAL.nii
+    s02_ep2d_bold_moco_3(1).nii
+  analysis_new/
+    run_it.sh
+    run_it_OLD.sh
+    results_use_this_one.mat
+  notes.docx</code></pre>
+		  <ul style="margin-top:0.4em;">
+			<li>Which file is which subject? <em>Infer.</em></li>
+			<li>What are the acquisition parameters? <em>Infer.</em></li>
+			<li>Which script made <code>results_use_this_one.mat</code>? <em>Infer.</em></li>
+		  </ul>
+		</td>
+		<td style="width:50%;padding-left:1em;border-left:2px solid #666;">
+		  <strong style="color:#2a5;">What an agent finds in a <a href="https://bids.neuroimaging.io/" target="_blank">BIDS</a> dataset</strong>
+<pre style="font-size:0.78em;"><code>ds000001/
+  dataset_description.json
+  participants.tsv
+  sub-01/
+    anat/sub-01_T1w.nii.gz
+    anat/sub-01_T1w.json
+    func/sub-01_task-rest_bold.nii.gz
+    func/sub-01_task-rest_bold.json
+  derivatives/
+    mriqc/dataset_description.json</code></pre>
+		  <ul style="margin-top:0.4em;">
+			<li>Subject, session, task, run: <strong>in the filename</strong></li>
+			<li>Parameters: <strong>in the sidecar</strong></li>
+			<li>Provenance of derivatives: <strong><code>GeneratedBy</code></strong></li>
+		  </ul>
+		</td>
+	  </tr>
+	</table>
+
+	<!--
+	<div style="margin-top:0.7em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.85em;">
+	  Same LLM. Same prompt. <strong>Different background.</strong>
+	  On the left the agent would improvise confidently and likely get it wrong.
+	  On the right it can <em>act</em> immediately.
+	</div>
+	-->
+	
+	<p style="font-size:0.66em;margin-top:0.35em;color:#555;">
+	  Not just rhetoric: a structured neuroimaging harness moved first-choice tool-selection accuracy from
+	  <strong>23.3% to 93.6%</strong> across seven models &mdash;
+	  <a href="https://arxiv.org/abs/2608.19902" target="_blank">Chen, &hellip;, Poldrack,
+	  <em>Bringing analytic rigor to agentic AI for science</em>, arXiv:2608.19902, 2026</a>
+	  (<a href="https://brain-researcher.com/" target="_blank">brain-researcher.com</a>).
+	</p>
+	<aside class="notes">
+	  This is the hinge of the talk. An unstructured tree does not give
+	  the agent less information — it gives it *ambiguous* information,
+	  which is worse, because a model will resolve ambiguity with a
+	  plausible guess rather than an error.
+	</aside>
+  </section>
 
 
-<!-- =================================================================
-     S. Acknowledgements (canonical layout from 2024-distribits-datalad.html)
-     ================================================================= -->
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: data-transition="none" -->
+
+# [MVC Design Pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+<!-- .element: style="font-size:3em;" -->
+
+**M**odel &mdash; the **standard itself**, machine-readable and validatable<br/>
+([BIDS](https://bids.neuroimaging.io/), [NWB](https://www.nwb.org/), [LinkML](https://linkml.io/), [DuckDB Hive](https://duckdb.org/docs/lts/data/partitioning/hive_partitioning))<br/>
+**V**iews &mdash; use-case renderings of the same data (portals, reports, lab sites)<br/>
+**C**ontrollers &mdash; tools that operate on it
+([BIDS-Apps](https://bids-apps.neuroimaging.io/), [DataLad](https://datalad.org), [bids-validator](https://github.com/bids-standard/bids-validator))
+<!-- .element: style="font-size:1.05em;" -->
+
+### Agentic AI is great at working along any of those dimensions and benefits greatly from clean MVC separation
+
+----
+
+### Parts of the toolbelt puzzle &mdash; 2016
+
+<object class="dia" data="pics/stamped-puzzle-2016.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
+
+Three pieces, and already the shape of the thing: what the files *are*, how they
+were *made*, and something that can *version* them.
+<!-- .element: style="font-size:0.78em;" -->
+
+
+</textarea></section>
+
+<!-- <section data-markdown><textarea data-template>
+### 2013–2016 &mdash; who we were working with
+
+<iframe src="2026-usrse-con-talk/ack-2016.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+
+Note:
+Generated from con-site-specific records. Red ring = new in this era;
+dimmed = association already ended.
+</textarea></section> -->
+
+</section> 
+
+<!-- ===== era 2020 ============================================== -->
 <section>
-  <h2>Acknowledgements</h2>
-  <table>
-  <tr style="vertical-align:top">
-    <td style="vertical-align:top">
-      <dl>
-        <dt>Software &amp; communities</dt>
-        <dd style="margin-left:5px!important">
-          <ul style="margin-left:5px!important">
-              <li>Joey Hess (<code>git-annex</code>)</li>
-              <li>The <strong>DataLad</strong> team &amp; contributors</li>
-              <li><strong>Debian</strong> / Debian Med / Debian Science / conda-forge</li>
-              <li><strong>BIDS</strong> &amp; <strong>NWB</strong> communities</li>
-              <li><a href="https://www.distribits.live/">distribits</a> community</li>
-          </ul>
-        </dd>
-        <dt style="margin-top:20px">Some slides origin:</dt>
-        <dd style="margin-left:5px!important">
-          <ul style="margin-left:5px!important">
-              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html">2024 distribits DataLad sandwich</a></li>
-              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html">2025 distribits Pragmatic YODA</a></li>
-              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore.html">2022 NIH integrated &amp; trusted SSCC</a></li>
-              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi.html">2023 BRAIN DANDI</a></li>
-              <li><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html">2026 CA Origami AI-assisted coding</a></li>
-              <img src="pics/borrowed/bannerthanks.svg">
-          </ul>
-        </dd>
-      </dl>
-    </td>
-    <td style="vertical-align:top">
-  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
-  <img style="height:120px;margin-right:10px" data-src="pics/borrowed/nih.png" />
-  <img style="height:120px;margin-right:10px" data-src="pics/borrowed/nsf_2020.png" />
-  <img style="height:120px;margin-right:50px;margin-left:10px" data-src="pics/borrowed/binc.png" />
-  <img style="height:120px;margin-left:50px" data-src="pics/borrowed/bmbf_2020.png" />
-  <div style="margin-top:-20px">
-  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/erdf.png" />
-  <img style="height:60px;margin-right:20px" data-src="pics/borrowed/cbbs_logo.png" />
-  <img style="height:60px" data-src="pics/borrowed/LSA-Logo.png" />
-  <img style="height:80px;margin-top:0px;margin-left:auto;margin-right:auto;width:20%" data-src="pics/borrowed/fzj_logo.svg" />
+  <section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+## 2017–2020 &mdash; ReproNim & Archives
+
+<p style="font-size:0.78em;letter-spacing:0.12em;font-weight:700;margin:0 0 0.4em 0;"><span style="color:#a04000;">REUSE</span> &middot; <span style="color:#1565c0;">COMPOSE</span> &middot; <span style="color:#2e7d32;">EXTEND</span> &middot; <span style="color:#d84315;">AUTOMATE</span></p>
+
+- **[ReproNim](https://www.repronim.org/)** TR&amp;D3 on reproducible execution.
+
+- Archives built on shared standards: **[OpenNeuro](https://openneuro.org/)** on BIDS for neuroimaging. **[DANDI](https://dandiarchive.org/)** on **[NWB](https://www.nwb.org/)** for neurophysiology.
+
+<p style="font-size:0.62em;color:#666;margin-top:1.2em;"><strong>AI:</strong> Bridging to <strong><a href="https://www.dicomstandard.org/">DICOM</a></strong> (<a href="https://www.dicomstandard.org/activity/wgs/wg-16">WG-16 Magnetic Resonance</a>, <a href="https://www.dicomstandard.org/activity/wgs/wg-32">WG-32 Neurophysiology Data</a>) and <strong><a href="https://ngff.openmicroscopy.org/">NGFF/OME-Zarr</a></strong>: the formats the instruments actually write, which no amount of generated glue replaces.</p>
+
+Note:
+Era 2017–2020. Verb lens: COMPOSE.
+
+----
+
+<!-- .slide: data-transition="slide" -->
+
+## DICOMs to BIDS: ReproIn + HeuDiConv
+
+<small>**[HeuDiConv](https://heudiconv.readthedocs.io/)** converts what the scanner wrote into a standard layout, following a heuristic.
+**[ReproIn](https://reproin.repronim.org/)** is the naming convention that makes the heuristic unnecessary: name the sequence right at the console, and conversion is automatic.</small>
+
+<div class="r-stack">
+<img data-src="pics/dbic-conversions-p1.png" style="width:1150px;height:658px;"/>
+<img class="fragment" data-src="pics/dbic-conversions-p2.png" style="width:1150px;height:658px;"/>
+</div>
+
+<small>
+Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+</small>
+
+<div class="faces" style="--face-size:56px" data-people="michael-hanke satrajit-ghosh chris-markiewicz matteo-visconti-di-oleggio-castello">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#matteo_visconti_di_oleggio_castello_" target="_blank" title="Matteo Visconti di Oleggio Castello — UC Berkeley, CA"><img data-src="pics/con-whoweare/matteo-visconti-di-oleggio-castello.jpg" alt="Matteo Visconti di Oleggio Castello"/></a>
+</div>
+
+----
+
+### [ReproFlow: Automatic collection of Audio-Video Stimuli and responses](https://github.com/ReproNim/reprostim/)
+
+<object type="image/svg+xml" data="pics/borrowed/reproflow.svg" style="width:1300px;height:731px;">
+</object>
+
+----
+
+### [... and then all into BIDS too!](https://github.com/dbic/QA/tree/with-reprostim-videos/sub-qa/ses-20240730/func/)
+
+![](pics/borrowed/dbic-QA-audiovideo-20261008.png)<!-- .element: style="width:1300px;height:535px" -->
+
+<small>
+Discover more from "SciOps from ReproNim" webinar (<a href="https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/SZ96Q6pwJzQ">video on ReproTube</a>).
+</small>
+
+	</textarea>
+  </section>
+
+  <section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+### But a layout only tells you *what* &nbsp; the files are
+
+It says nothing about *how they came to be*, or *what it cost* to make them.
+
+----
+
+### [`datalad run`](https://docs.datalad.org/en/stable/generated/man/datalad-run.html) writes the record for you
+
+<pre style="font-size:0.56em;"><code class="language-shell">$ datalad run -m "run brain extract workflow" \
+    --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+    --output "sub-*/anat" \
+    bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz</code></pre>
+
+<pre style="font-size:0.52em;"><code class="language-shell" style="max-height:none;">$ git show --stat
+commit 1223bc4bead3c7e6be15b78546c894c6465dd7a4
+
+    [DATALAD RUNCMD] run brain extract workflow
+
+    === Do not change lines below ===
+    {
+     "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz ...",
+     "dsid": "b656ac80-973c-45ef-887e-1b8d6f6a51dd",
+     "exit": 0,
+     "inputs": ["inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz"],
+     "outputs": ["sub-*/anat"],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+ sub-001/anat.nii.gz      | 1 +
+ sub-001/anat_mask.nii.gz | 1 +</code></pre>
+
+- Machine-readable, *in the commit message* &mdash; no sidecar database to lose
+- Clean git state in, clean git state out: **no surprises**
+- [`datalad rerun`](https://docs.datalad.org/en/stable/generated/man/datalad-rerun.html) reads it back and re-executes
+<!-- .element: style="font-size:0.88em;" -->
+
+Example from the [DataLad Handbook](https://handbook.datalad.org/en/latest/usecases/reproducible_neuroimaging_analysis_simple.html).
+Found in the wild in [~15% of indexed DataLad repositories on GitHub](https://github.com/datalad/datalad-usage-dashboard).
+<!-- .element: style="font-size:0.72em;" -->
+
+Note:
+JB's analytical flexibility is an opportunity only if you can still say, a year
+later, *which* variant produced this figure. That sentence is the record above.
+
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+### Provenance does not care who wrote the code
+
+Agent-written or human-crafted, <br>the `[DATALAD RUNCMD]` record is the same shape.
+<!-- .element: style="font-size:1.4em;margin-top:1.2em;" -->
+
+<!-- The tests do not know the code was AI-generated either. -->
+<!-- .element: style="font-size:1.2em;margin-top:1em;" -->
+
+<!-- <div class="callout-indigo" style="font-size:0.95em;margin-top:1.2em;">
+This is why <strong>Tracking</strong> is the principle that makes AI disclosure
+<em>mechanical</em> instead of aspirational &mdash; and we will come back to that at the end.
+</div>
+<aside class="notes">Hold here. This is take-home line #1.</aside>-->
+
+  </textarea></section>
+
+
+
+<section data-markdown><textarea data-template>
+
+<!-- .slide: data-transition="none" -->
+
+## [///repronim/containers](https://github.com/ReproNim/containers)
+
+Pinned environments. Everywhere.
+<!-- .element: style="font-size:1.1em;" -->
+
+![DANDI and OpenNeuro feed raw data into a BIDS dataset, analyses and papers ride on top, and the containers subdataset supplies the environment to all of them](pics/repronim-containers-stamped_tuned/lower-noyoda_preview.png)<!-- .element: style="width:1240px;height:464px;" -->
+
+[datalad containers-run](https://docs.datalad.org/projects/container/en/stable/generated/man/datalad-containers-run.html) &mdash;
+the image is a **tracked subdataset**, not a `latest` tag that drifts, and the commit records
+the image *and* the command together.
+<!-- .element: style="font-size:0.76em;" -->
+
+Note:
+Curated Apptainer/Singularity images, auto-rebuilt and auto-snapshotted, and a
+local backup of containers in case a hub takes them away.  Figure is the
+STAMPED-tuned variant of the ReproNim/containers artwork
+(ReproNim/containers-artwork, repronim-containers-stamped_tuned/lower-noyoda.svg).
+
+</textarea></section>
+
+
+  <section data-markdown><textarea data-template>
+### The missing piece from the future: [con/duct](https://github.com/con/duct)
+
+<div class="faces" data-people="austin-macdonald cody-baker john-lee">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
+</div>
+
+<a href="https://github.com/con/duct" target="_blank"><img data-src="pics/webshot-con-duct.png" width="845" height="480" style="width:845px;height:480px;"/></a>
+
+Wrap *any* command. It records, next to the outputs:
+wall time, CPU, peak RSS, per-process-tree samples, exit code, environment, full
+`stdout`/`stderr` &mdash; as plain, self-contained files.
+<!-- .element: style="font-size:0.88em;margin-top:0.5em;" -->
+
+<aside class="notes">
+SKIP CANDIDATE if running long &mdash; the next slide carries the
+argument; this one is the screenshot that sells it.  If you do skip it,
+still say the poster line out loud: the duct poster is on Monday at
+US-RSE and it is where the agent-usage patterns are written down.
+</aside>
+  </textarea></section>
+
+  <section>
+	<h3>&hellip; and <em>that log is</em> &nbsp; the provenance you need later</h3>
+	<table style="width:100%;font-size:0.72em;margin-top:0.3em;">
+	  <tr style="vertical-align:top;">
+		<td style="width:44%;padding-right:0.8em;vertical-align:top;">
+		  <strong>&ldquo;Why did this get OOM-killed on the cluster?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Peak RSS over time, per process. Not your memory of it.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;How much do I request for 2,000 subjects?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Measured, from the run you already did.</li></ul>
+		  <strong style="display:block;margin-top:0.5em;">&ldquo;What did it print before it died?&rdquo;</strong>
+		  <ul style="margin-top:0.2em;"><li>Captured, versioned, next to the outputs.</li></ul>
+		</td>
+		<td style="width:56%;padding-left:0.8em;border-left:2px solid
+				   #666;text-align:center;vertical-align:top;">
+		  <a href="https://github.com/con/duct-gallery/?tab=readme-ov-file#fmriprep-on-1-subject-of-ds002785"><img data-src="pics/fmriprep-on-1-subject-of-ds002785__ps-cpu-timepoint.svg" width="520" height="390" style="width:520px;height:390px;"/></a>
+		  <p style="font-size:0.95em;margin-top:0.1em;"><a href="https://github.com/con/duct-gallery/"
+		  target="_blank"><code>con-duct plot</code></a> &mdash; Who can guess this monster?</p>
+		</td>
+	  </tr>
+	</table>
+
+	<p style="font-size:0.72em;margin-top:0.4em;">
+	  Already wired in: set <code>REPRONIM_USE_DUCT=1</code> with
+	  <a href="https://github.com/ReproNim/containers" target="_blank"><code>///repronim/containers</code></a>
+	  and every <code>datalad containers-run</code> gets a duct trace for free.
+	</p>
+
+	<div style="margin-top:0.5em; padding:0.7em; background-color:#fffacd; border-left:4px solid #f90; font-size:0.78em;">
+	  <strong>Why useful for AI:</strong> makes logs readily available *if* needed.<br/>
+	  <code>duct</code> turns &ldquo;it crashed, I think it ran out of memory&rdquo; into a file.
+
+	  <p style="font-size:0.74em;margin-top:0.3em;">
+		Poster this evening: <strong>Austin Macdonald</strong>, C. C. Baker, J. A. Lee, Y. O. Halchenko,<br/>
+	  <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html" target="_blank"><em>Agent-friendly
+	  Provenance Capture with <code>con-duct</code></em></a> &mdash; the patterns of use with AI agents are on it.
+	  Go find Austin.</p>
+	</div>
+  </section>
+
+  <section data-markdown><textarea data-template>
+### Goal: Distill the best operation practices for Humans and AI
+ 
+![](pics/borrowed/notebooklm-stamped-glassbox-20261008-p3.png)
+</textarea></section>
+
+  <section>
+	<h3>All three layers, one real artifact &mdash; built with AI</h3>
+	<p style="font-size:0.8em;margin-top:-0.3em;">
+	  <a href="https://github.com/dandi/compression-comparisons-t261-study" target="_blank"><code>dandi/compression-comparisons-t261-study</code></a>
+	  &mdash; a reproduction of
+	  <a href="https://doi.org/10.1088/1741-2552/acf5a4" target="_blank">Buccino et al. 2023</a> on ephys compression,
+	  plus a comparison against the new ITU-T T.261 codec.
+	</p>
+	<table style="width:100%;font-size:0.72em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:45%;padding-right:0.8em;vertical-align:top;">
+		<strong>1. The layout (<em>what</em>)</strong>
+<pre style="width:100%;font-size:0.86em;margin-top:0.2em;"><code data-noescape>dataset_description.json
+code/
+  compression-comparisons-tools/
+  run_sweep.sh
+sourcedata/
+  aind-ephys-compression/      <span style="color:#8bc34a">#&nbsp;523&nbsp;GB</span>
+derivatives/
+  compbench-*/&lt;cell&gt;/
+    metrics.json  manifest.json
+    duct-info.json  duct-usage.jsonl
+  reports-*/</code></pre>
+		<p style="margin-top:0.3em;">BIDS-like, M-odular: data and tool are
+		<strong>subdatasets pinned by commit</strong>, not copies.</p>
+	  </td>
+	  <td style="width:55%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>2. The record (<em>how</em>) &mdash; and 3. the cost (<em>what it took</em>)</strong>
+<pre style="width:100%;font-size:0.78em;margin-top:0.2em;"><code data-noescape>$ git log --oneline
+7733465 [DATALAD RUNCMD] cell aind-634568__zstd...
+
+ "cmd": "<span style="color:#ffb74d">duct</span> --output-prefix .../duct- \
+      --sample-interval 1 --report-interval 5 \
+      <span style="color:#ffb74d">compbench run</span> --codec zstd ...",
+ "inputs":  ["sourcedata/aind-ephys-compression/.."],
+ "outputs": ["derivatives/../aind-634568__zstd.."],
+ "exit": 0</code></pre>
+		<p style="margin-top:0.3em;">The recorded command <strong>is</strong> a <code>duct</code>
+		invocation &mdash; so every cell commits its own resource trace beside its own results.</p>
+	  </td>
+	</tr></table>
+
+	<table style="width:99%;margin:auto;font-size:0.7em;margin-top:0.4em;">
+	  <tr style="background-color:#e8eaf6;">
+		<th style="padding:0.25em;">commits</th><th style="padding:0.25em;"><code>[DATALAD RUNCMD]</code></th>
+		<th style="padding:0.25em;">of those, wrapping <code>duct</code></th>
+		<th style="padding:0.25em;">cells</th><th style="padding:0.25em;">recorded compute</th>
+		<th style="padding:0.25em;">AI disclosure</th>
+	  </tr>
+	  <tr style="text-align:center;">
+		<td style="padding:0.25em;"><strong>1266</strong></td><td style="padding:0.25em;"><strong>1216</strong></td>
+		<td style="padding:0.25em;"><strong>1095</strong></td>
+		<td style="padding:0.25em;"><strong>912</strong>, 0 errors</td>
+		<td style="padding:0.25em;"><strong>3838 h</strong> (peak RSS 120 GB)</td>
+		<td style="padding:0.25em;"><strong>26</strong> <code>Co-Authored-By:&nbsp;Claude</code></td>
+	  </tr>
+	</table>
+	<aside class="notes">
+	  This is the slide that joins the three tools into one object. Say:
+	  everything in the previous three slides, at scale, on a real study,
+	  and the bulk of it driven by an agent. The README is worth reading
+	  aloud from — it records its own gaps rather than papering over them.
+	</aside>
+  </section>
+
+  <section>
+	<h3>So I tried to <code>rerun</code> it &mdash; fresh clone, two months later</h3>
+	<table style="width:100%;font-size:0.74em;margin-top:0.2em;table-layout:fixed;"><tr style="vertical-align:top;">
+	  <td style="width:53%;padding-right:0.8em;vertical-align:top;">
+<pre style="width:100%;font-size:0.72em;"><code data-noescape style="max-height:none;">$ datalad clone <span style="color:#8bc34a">https://github.com/dandi/\
+    compression-comparisons-t261-study</span>
+$ datalad get -n code/compression-comparisons-tools
+  <span style="color:#8bc34a">✓ submodule URL fixed &mdash; it just works now</span>
+
+$ <span style="color:#ef9a9a"># no image to pull: the env is prose in README.md</span>
+$ uv venv envs/compbench
+$ uv pip install --python envs/compbench/bin/python \
+    './code/compression-comparisons-tools[ephys,..]' \
+    wavpack-numcodecs flac-numcodecs
+  <span style="color:#ef9a9a">✗ not all of it built &mdash; enough for this cell</span>
+
+$ <span style="color:#ffb74d">datalad rerun -b repro-20261015-42dc5cfa-1 42dc5cfa</span>
+  run(ok): ... [duct --clobber --output-prefix ..]
+  <span style="color:#8bc34a">Wall Clock Time: 2.465 sec   RSS peak: 142 MB</span></code></pre>
+	  </td>
+	  <td style="width:47%;padding-left:0.8em;border-left:2px solid #666;vertical-align:top;">
+		<strong>Did the science come back?</strong>
+		<table style="width:100%;font-size:0.92em;margin-top:0.3em;">
+		  <tr style="background-color:#e8eaf6;"><th style="text-align:left;padding:0.2em;">field</th><th style="text-align:left;padding:0.2em;">original vs. rerun</th></tr>
+		  <tr><td style="padding:0.2em;"><code>cr</code></td><td style="padding:0.2em;">1.514... <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>encoded_bytes</code></td><td style="padding:0.2em;">5283 <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>rmse</code> &middot; <code>round_trip_ok</code></td><td style="padding:0.2em;">0.0 &middot; true <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>signal_std</code></td><td style="padding:0.2em;">706.609... <strong style="color:#2e7d32;">same</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>*_time_s</code></td><td style="padding:0.2em;">~20% slower &mdash; <em>as they must</em></td></tr>
+		  <tr style="background-color:#fafafa;"><td style="padding:0.2em;"><code>manifest</code></td><td style="padding:0.2em;">same kernel 6.12.57,<br/>python 3.13.15&rarr;<strong>3.13.5</strong></td></tr>
+		  <tr><td style="padding:0.2em;"><code>duct-info</code></td><td style="padding:0.2em;">host <code>327bc591&hellip;</code>&rarr;<code>typhon</code>:<br/>the original ran in a container<br/>the record never named</td></tr>
+		</table>
+		<p style="font-size:0.9em;margin-top:0.4em;">
+		  A hand-rebuilt environment, a <strong>different Python</strong>, no container &mdash;
+		  and <strong>every scientific number came back bit-for-bit.</strong>
+		  Only timings moved.
+		</p>
+	  </td>
+	</tr></table>
+
+  </section>
+
+</section>
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: data-transition="slide" -->
+
+<!-- .slide: data-visibility="hidden" -->
+
+## Data Archives
+
+----
+
+### OpenNeuro - The Neuroimaging archive
+
+<div class="faces" data-people="russell-poldrack chris-markiewicz">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Russell A. Poldrack"><img data-src="pics/con-whoweare/russell-poldrack.jpg" alt="Russell A. Poldrack"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#chris_markiewicz_" target="_blank" title="Chris Markiewicz — Stanford University, Poldrack Lab"><img data-src="pics/con-whoweare/chris-markiewicz.jpg" alt="Chris Markiewicz"/></a>
+</div>
+
+[![](pics/borrowed/openneuro-ieeg-webshote-20261008.png)<!-- .element: style="width:1100px;height:656px;" -->](https://openneuro.org/)
+
+[BRAIN Initiative](https://www.nih.gov/brain) archive for \*MRI, EEG, MEG
+etc human data (Stanford-led, with **Dartmouth/CON** as Co-I), live
+since 2017.
+[openneuro.org](https://openneuro.org)
+
+----
+
+### DANDI &mdash; the neurophysiology archive
+
+<div class="faces" style="--face-size:56px" data-people="satrajit-ghosh ben-dichter cody-baker austin-macdonald isaac-to john-wodder">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Ben Dichter"><img data-src="pics/con-whoweare/ben-dichter.png" alt="Ben Dichter"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
+</div>
+
+[![](pics/borrowed/dandiarchive-webshote-20261008.png)<!-- .element: style="width:1050px;height:626px;" -->](https://dandiarchive.org/)
+
+[BRAIN Initiative](https://www.nih.gov/brain) archive for the neurophysiological data (MIT and
+**Dartmouth/CON** lead, with [Kitware](https://www.kitware.com/), et al), live since
+2019. [dandiarchive.org](https://dandiarchive.org)
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+#### [stats.dandiarchive.org](https://stats.dandiarchive.org)
+
+[![](pics/borrowed/dandiarchive-stats-webshote-20261008.png)<!-- .element: style="width:1100px;height:662px;" -->](https://stats.dandiarchive.org/)
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### [API](https://docs.dandiarchive.org/api/rest-api/) allowed for access and analytics
+
+Later: for AI agents included.
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### DANDI ecosystem &mdash; integrate, don't re-implement
+
+<div class="faces" data-people="satrajit-ghosh ben-dichter cody-baker john-wodder">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#satrajit_ghosh_" target="_blank" title="Satrajit Ghosh — MIT, Harvard Medical School"><img data-src="pics/con-whoweare/satrajit-ghosh.jpg" alt="Satrajit Ghosh"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare" target="_blank" title="Ben Dichter"><img data-src="pics/con-whoweare/ben-dichter.png" alt="Ben Dichter"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
+</div>
+
+<img style="width:1150px;height:687px;" data-src="pics/DANDI-ecosystem.svg"/>
+
+
+</textarea></section>
+
+
+
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+### Parts of the toolbelt puzzle &mdash; 2020
+
+<object class="dia" data="pics/stamped-puzzle-2020.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
+
+Seven. The archives give the object somewhere to live after the paper, the
+environment now travels with the record, and [ReproStim](https://github.com/ReproNim/reprostim)
+(2020) captures what the participant *actually* saw, rather than what the
+stimulus script was supposed to show.
+<!-- .element: style="font-size:0.78em;" -->
+
+Note:
+ReproStim gets its only mention here, and that is enough: the point is that the
+holes keep being filled by whatever was missing, not that every tool needs a
+slide.
+
+<!-- ----
+
+### 2017–2020 &mdash; our extended "team"
+
+<iframe src="2026-usrse-con-talk/ack-2020.html"
+		style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;"
+		scrolling="no"></iframe> -->
+</textarea></section>
+
+</section>
+
+<!-- ===== era from 2021 till now ============================================== -->
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+## 2021–now &mdash; ARCHIVES · STANDARDS · AI · STAMPED
+
+### <span style="color:#d84315;">AUTOMATE</span> · <span style="color:#1565c0;">COMPOSE</span> · <span style="color:#6a1b9a;">STANDARDIZE</span>
+
+----
+
+<!-- add color to slide data-background-gradient="radial-gradient(white, #f7dfd3)" --> 
+
+### <span style="color:#d84315;">Automate</span> &mdash; or it doesn&rsquo;t happen at scale
+
+<h3 class="fragment">If a human has to remember and do it, it&rsquo;s already outdated</h3>
+
+----
+
+	<div class="faces" data-people="john-wodder">
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
+	</div>
+	<h2><a href="https://github.com/con/tinuous">con/tinuous</a></h2>
+	<H3>CI logs and build-artifacts archived (to git/git-annex). <br/>Every PR. Every build</h3>
+	<img style="width:1288px;height:450px;margin-top:1em;" data-src="pics/con-tinuous-github.png"/>
+
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+<!-- .slide: data-visibility="hidden" -->
+
+## [git-annex](https://github.com/con/git-annex) daily tests
+
+<!-- [git-annex](https://git-annex.branchable.com/) is the content layer under DataLad, and its
+upstream is one person. We build and run its test suite every day, on our platforms, so a
+regression is *our* bug report rather than *their* surprise. -->
+
+DataLad and git-annex: tested daily. Automatically.
+<!-- .element: style="font-size:1.3em;" -->
+
+![](pics/datalad-daily-status-email-subject.png)<!-- .element: style="width:1300px;height:83px;margin-top:1em;" -->
+
+<iframe src="embed/datalad_git-annex_daily.html" style="width:50%; height:600px;"></iframe>
+
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+## DataLad Extensions & Their Health
+
+<img style="width:1220px;height:799px;" data-src="pics/datalad-extensions.png"/>
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+<div class="faces" data-people="john-wodder">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_wodder_" target="_blank" title="John Wodder — Software Developer"><img data-src="pics/con-whoweare/john-wodder.jpg" alt="John Wodder"/></a>
+</div>
+
+## [dandi/backups2datalad](https://github.com/dandi/backups2datalad): dandisets mirror
+
+Every dandiset, continuously mirrored into a DataLad dataset on GitHub &mdash;
+a second copy of the archive, with version history, that nobody has to remember to make.
+<!-- .element: style="font-size:0.85em;" -->
+
+### Auto-mirrored. Petabyte(s) in Git/git-annex. No human in the loop
+
+![](pics/github-dandisets.png)<!-- .element: style="width:620px;height:580px;margin-top:0.5em;" -->
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### nwb2bids: BIDS version of 000003
+
+#### You have seen one of them &mdash; you have seen them all
+
+[![](pics/borrowed/bids-dandisets-000003-20261008.png)<!-- .element: style="width:1022px;height:740px" -->](https://github.com/bids-dandisets/000003/tree/draft/sub-YutaMouse57/ses-YutaMouse57-161016/ecephys)
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### [DANDI Compute](https://github.com/dandi-compute): Archive-wide pre-processing
+
+<object type="image/svg+xml" data="pics/dandi-compute-figure_tuned/orchestration.svg" style="width:1300px;height:812px;">
+</object>
+
+----
+
+### Parts of the toolbelt puzzle &mdash; 2024
+
+<object class="dia" data="pics/stamped-puzzle-2024.svg" type="image/svg+xml" style="width:942px;height:500px;"></object>
+
+Nine. [Many more on our projects page](https://centerforopenneuroscience.org/projects).
+<!-- .element: style="font-size:0.78em;" -->
+
+Note:
+Hold one beat on "before we had a name for it" -- the letters land two eras
+later and this is the setup for them.
+
+</textarea></section></section>
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+## Cost: harnesses, harnesses, harnesses
+
+Each automation is itself *code* &mdash; CI YAML, hooks, nightly cron, deploy scripts, glue.
+Someone maintains *that*.
+<!-- .element: style="font-size:1.2em;margin-top:1.5em;" -->
+
+By 2024 the CI/CD harnesses became comparable to several of the projects under it.<br/>
+*That* is why a small RSE center was dragged toward AI assistance &mdash; not just for the science,
+but for the **development of code and maintenance of the meta-layer**.
+<!-- .element: style="font-size:1.1em;margin-top:1em;" -->
+
+Note:
+Verbally: the five verbs also map onto the SciOps maturity ladder
+(Johnson et al. 2024, arXiv:2401.00077 -- I am a co-author on it) -- L1 ad-hoc to L3 open-source
+ecosystems (BIDS/NWB/DataLad exemplars) to L4 SciOps pipelines
+(Automate) to L5 Optimizing with AI. Most labs sit at L1-L2.
+The 5 verbs are the practical climb to L3-L4; AI is what makes L5
+feasible for a small RSE center.
+
+----
+
+<!-- .slide: data-background="black" -->
+
+## It&rsquo;s 2026. AI writes code
+
+</textarea></section>
+
+<section>
+  <h3>The bottleneck moved</h3>
+	<table style="width:90%;margin:auto;font-size:0.95em;margin-top:1em;">
+	  <tr>
+		<td style="text-align:right;padding:0.5em;width:45%;"><em>writing</em> the code</td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;width:45%;"><strong>verifying</strong> and <strong>situating</strong> it</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:right;padding:0.5em;"><em>can I create this?</em></td>
+		<td style="text-align:center;font-size:1.5em;">&rarr;</td>
+		<td style="text-align:left;padding:0.5em;"><strong>is this right, and does it fit what already exists?</strong></td>
+	  </tr>
+	</table>
+
+	<div style="margin-top:1.2em;text-align:center;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank"><img data-src="pics/borrowed/2026-ai-intensifies.png" style="width:394px;height:380px;box-shadow:5px 5px 8px #888;"/></a>
+	</div>
+	<p style="font-size:0.7em;color:#555;margin-top:0.3em;">
+	  <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank">HBR, Feb 2026: &ldquo;AI doesn&rsquo;t reduce work, it intensifies it&rdquo;</a>
+	</p>
+	<aside class="notes">
+	  Agent-rate output demands agent-rate review. You cannot
+	  hand-inspect what an agent produces in an afternoon. The only
+	  things that scale with it are standards (so correctness is
+	  checkable) and provenance (so the history is reconstructable).
+	</aside>
+  </section>
+
+  <section>
+	<h3>&ldquo;AI&rdquo; has now permeated all levels of SciOps</h3>
+
+	<h4>&hellip; when originally we thought just about closing the loop with AI:</h4>
+	<a href="https://arxiv.org/abs/2401.00077" target="_blank"><img data-src="pics/borrowed/neuro-sciops-fig.svg" style="max-width:92%;"/></a>
+	<p style="font-size:0.68em;margin-top:0.3em;">
+	  <strong>Figure reproduced from:</strong>
+	  <a href="https://arxiv.org/abs/2401.00077" target="_blank">E. C. Johnson, T. T. Nguyen, B. K. Dichter, &hellip;,
+	  M. E. Martone, F. Pestilli, D. Yatsenko.
+	  <em>SciOps: Achieving Productivity and Reliability in Data-Intensive Research.</em>
+	  arXiv:2401.00077, 2024.</a>
+	</p>
+  </section>
+
+<section data-markdown  data-separator="^\n----\n"><textarea data-template>
+
+## AI fosters silos
+
+<blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
+    &ldquo;&hellip; by adopting LLMs people tend to code <em>single-use software</em> from scratch.
+    While this leads to an increase in &lsquo;shared&rsquo; code, it is mostly code that not only
+    has not been &lsquo;written&rsquo; by anyone but is also <strong>not maintained by anyone</strong>.&rdquo;
+  </blockquote>
+  <blockquote style="font-size:1.0em;font-style:italic;border-left:6px solid #555;padding:0.5em 1em;margin:0.8em auto;max-width:960px;">
+    &ldquo;You can develop at a rapid pace, build things as if you had a large team.
+    Only that you have none. In fact, <strong>you are (often) alone</strong>, working with a
+    statistical machine that turns energy into code.&rdquo;
+  </blockquote>
+  <p style="font-size:0.72em;margin-top:0.6em;display:flex;align-items:center;justify-content:center;gap:0.8em;">
+    <a href="https://codeberg.org/" target="_blank"><img style="width:121px;height:70px;margin:0;" data-src="pics/borrowed/codeberg_logo.svg" alt="Codeberg"/></a>
+    <span>&mdash; B. Greshake Tzovaras, O. Richter, W. Zijl,
+    <a href="https://blog.codeberg.org/protecting-our-floss-commons-from-llms.html">&ldquo;Protecting our FLOSS commons from LLMs&rdquo;</a>,
+    Codeberg e.V., 23 July 2026</span>
+  </p>
+
+----
+
+### and many rebuild the same private harness
+
+Researchers writing their own &ldquo;how to work with BIDS&rdquo; prompt.<br/>
+None of them shared. None of them versioned. None of them tested.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+We have seen this failure mode before. It was called<br/>
+***&ldquo;every lab has its own analysis scripts&rdquo;***,<br/> and we fixed it with standards and packages.
+<!-- .element: style="font-size:1.15em;margin-top:1em;" -->
+
+----
+<!-- .slide: data-background="black" data-transition="none" -->
+
+## Duplication is Evil!
+
+----
+
+## Skills are the new REUSABLE module
+
+<aside class="notes">
+	  This is the "ask" of the talk, stated before the evidence.
+	  Then show that we are already doing it, upstream, in public.
+	  SKIP CANDIDATE if running long &mdash; it can be delivered verbally
+	  as the lead-in to the contributions table.
+	</aside>
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### so we found upstream "skills distribution" to contribute
+
+[K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
+&mdash; [177 scientific skills](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills),
+[Agent Skills](https://code.claude.com/docs/en/skills) spec, MIT-licensed, scanned and reviewed.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
+
+<div class="md-table" style="font-size:0.68em;">
+
+| Contribution | Who | What it carries |
+| ------------ | --- | --------------- |
+| [`skills/bids`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/bids)<br/>[PR #125](https://github.com/K-Dense-AI/scientific-agent-skills/pull/125) &mdash; merged | **ours** (CON) | Entity grammar &amp; 35 entities &middot; the [machine-readable schema](https://bids-specification.readthedocs.io/en/stable/schema.json) shipped as a reference &middot; [BEPs](https://bids.neuroimaging.io/extensions/beps.html) &middot; [HeuDiConv](https://github.com/nipy/heudiconv/)/[ReproIn](https://reproin.repronim.org/)/dcm2bids/BIDScoin conversion paths &middot; validation &middot; derivatives &amp; BIDS-Apps |
+| [`skills/datalad`](https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/datalad)<br/>[PR #227](https://github.com/K-Dense-AI/scientific-agent-skills/pull/227) &mdash; merged | Dylan Pulver,<br/>*with our upstream review* | Clone/`get` semantics &amp; the &ldquo;pointers are not data&rdquo; failure &middot; **`datalad run` / `rerun` / `containers-run` as the provenance spine** &middot; publishing to siblings &middot; STAMPED landed in [`references/provenance.md`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/datalad/references/provenance.md) on our suggestion |
+
+----
+
+### and started to distribute ([APM](https://microsoft.github.io/apm/)) domain-agnostic ones: [con/skills](https://github.com/con/skills/)
+
+<div class="md-table">
+
+| Skill | What it automates |
+| ----- | ----------------- |
+| [introduce-reuse-compliance](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-reuse-compliance) | SPDX / [REUSE](https://reuse.software/) licensing metadata &mdash; including for BIDS datasets |
+| [credit-contributions](https://github.com/con/skills/tree/0.20261015.0/skills/credit-contributions) | [CRediT](https://credit.niso.org/) author-contribution statements from git history |
+| [tinuous-analyzer](https://github.com/con/skills/tree/0.20261015.0/skills/tinuous-analyzer) | CI-failure investigation across archived [con/tinuous](https://github.com/con/tinuous) logs |
+| [bisect-and-patch-git-annex](https://github.com/con/skills/tree/0.20261015.0/skills/bisect-and-patch-git-annex) | Bisect a `git-annex` regression from CI logs and produce a red/green PR |
+| [issue-triage](https://github.com/con/skills/tree/0.20261015.0/skills/issue-triage) &middot; [pr-feedback-review](https://github.com/con/skills/tree/0.20261015.0/skills/pr-feedback-review) | Triage and review work, cross-referenced against the codebase |
+|  [introduce-intuit-auto](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-intuit-auto) &middot; [**introduce-codespell**](https://github.com/con/skills/tree/0.20261015.0/skills/introduce-codespell) | Bootstrap spell-checking / automated releases into any project |
+</div>
+
+----
+
+# Be Considerate: There is a spectrum of AI "uptake"!
+
+----
+
+### HI &harr; AI &mdash; every project picks its own policy
+
+Rows 1&ndash;2 are where almost every project actually is. Rows 3&ndash;4 are only honest once the verification loop is built.
+<!-- .element: style="font-size:0.7em;margin-top:-0.35em;margin-bottom:0.2em;color:#555;" -->
+
+<div class="md-table" style="font-size:0.63em;">
+
+| Stance | OSS exemplars | CON / adjacent example | Leans on |
+| ------ | ------------- | ---------------------- | -------- |
+| **Reject** AI-generated content | [Zig](https://ziglang.org/), [Krita](https://krita.org/), [Clojure](https://clojure.org/), [QEMU](https://www.qemu.org/) | [**git-annex**](https://joeyh.name/blog/entry/policy_on_adding_AI_generated_content_to_my_software_projects/) upstream &mdash; pure-HI commits *(no AI-generated content)* | AI stays ephemeral; never enters the tracked artifact |
+| **Accept with disclosure** | [NumPy](https://numpy.org/), [Kubernetes](https://kubernetes.io/), [Linux kernel](https://www.kernel.org/), [Django](https://www.djangoproject.com/) | [**DataLad**](https://datalad.org/), [**DANDI**](https://dandiarchive.org/) &mdash; `Co-Authored-By: Claude&hellip;` trailers, `@pytest.mark.ai_generated` | Provenance of work instructed by AGENTS.md etc |
+| **Spec-driven AI-generated**<br/>(HI specs, AI writes, HI reviews) | Common in practice; rarely a *declared* policy | [**AnnexTube**](https://github.com/con/annextube), [**citations-collector**](https://github.com/con/citations-collector), parts of [**dandi-cli**](https://github.com/dandi/dandi-cli/tree/master/.lad) | Human maintained specification |
+| **Autonomous** agents in the loop | [**Brain Researcher**](https://brain-researcher.com/) (Poldrack lab); [**K-Dense AI**](https://github.com/K-Dense-AI/) &mdash; &ldquo;AI co-scientists&rdquo;, host of the [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) library we upstream to | [**con/skills**](https://github.com/con/skills) + [**con/yolo**](https://github.com/con/yolo) for triage, review, dep updates | All of STAMPED &mdash; the harness becomes the type-checker |
+
+</div>
+
+<div class="callout" style="font-size:0.7em;margin-top:0.35em;">
+<strong>Common ground, all four:</strong> AI cannot be an author
+(<a href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html">ICMJE, Jan 2026</a>);
+humans retain full responsibility; AI use is disclosed <em>inside the artifact</em>.
+<strong>Tracking is what makes that mechanical rather than a promise.</strong>
+</div>
+
+Catalog of declared OSS stances:
+[melissawm/open-source-ai-contribution-policies](https://github.com/melissawm/open-source-ai-contribution-policies).
+<!-- .element: style="font-size:0.7em;margin-top:0.25em;font-style:italic;" -->
+
+Note:
+The spectrum, not a recommendation -- every project here picks its own row, and
+a project is allowed to sit in row 1 forever. Note what the row-4 exemplars are:
+harnesses. Autonomy is bought with structure, not with a bigger model.
+</textarea></section></section>
+
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+# AI Performs better under Clear Operational Criteria
+
+----
+
+## Let's formalize properties of a research object to improve rigor and reproducibility
+
+<table style="width:100%;margin-top:1em;">
+	  <!-- border-bottom:none -- the beige theme rules every row but the last -->
+	  <tr>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
+		  <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"><img data-src="pics/yoda-principles-reordered.png" style="max-height:480px;"/></a>
+		</td>
+		<td style="width:4%;text-align:center;vertical-align:middle;border-bottom:none;font-size:2em;">&rarr;</td>
+		<td style="width:48%;text-align:center;vertical-align:middle;border-bottom:none;">
+		  <a href="https://stamped-principles.org/" target="_blank"><img data-src="pics/borrowed/stamped-banner_ver-3.svg" style="width:100%;"/></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td style="text-align:center;vertical-align:top;">
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">YODA</a></strong>, 2018 &mdash; solid base</p>
+		</td>
+		<td></td>
+		<td style="text-align:center;vertical-align:top;">
+		  <p style="font-size:0.75em;margin-top:0.3em;"><strong><a href="https://stamped-principles.org/" target="_blank">STAMPED</a></strong>, 2026 &mdash; generalized, gradeable, domain-agnostic</p>
+		</td>
+	  </tr>
+	</table>
+
+### We did not invent these <em>for</em> AI. That is the point &mdash; they were already the right properties
+
+----
+
+<div class="faces" data-people="cody-baker austin-macdonald john-lee">
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank" title="Cody Baker — Research Software Engineer"><img data-src="pics/con-whoweare/cody-baker.jpg" alt="Cody Baker"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#austin_macdonald_" target="_blank" title="Austin Macdonald — Software Engineer"><img data-src="pics/con-whoweare/austin-macdonald.jpg" alt="Austin Macdonald"/></a>
+  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
+</div>
+
+
+[![](pics/borrowed/stamped-banner_ver-3.svg)<!-- .element: style="width:1220px;height:317px;" -->](https://stamped-principles.org/)
+
+### Seven properties a research object should have &mdash;<br/>whoever, *or whatever*, picks it up next
+
+[stamped-principles.org](https://stamped-principles.org/)
+<!-- .element: style="font-size:0.7em;" -->
+
+Note: Let the banner sit for a beat. Banner art is the STAMPED project's own.
+
+----
+
+### STAMPED in one table
+
+<div class="md-table" style="font-size:0.78em;">
+
+| Property | In one line | What it buys an *AI agent* |
+| -------- | ----------- | ----------------------- |
+| **S**elf-contained | Everything under one boundary | A bounded context window. Nothing it needs is &ldquo;on Bob&rsquo;s laptop&rdquo;. |
+| **T**racked | Version control &amp; provenance | A diff to review, and a record of *who/what* produced each change &mdash; including the agent. |
+| **A**ctionable | Executable &amp; documented workflows | A command it can run, not a paragraph it must *read*. |
+| **M**odular | Independent &amp; composable modules | A unit small enough to reason about, swap, and verify in isolation. |
+| **P**ortable | Runs anywhere with explicit specs | If it only runs on your laptop, it is not actionable. |
+| **E**phemeral | Transient compute environment | Throw-away sandboxes are already how you should run agents. No accreted *my precious* to corrupt. |
+| **D**istributable | Shareable, persistent, retrievable | It can *transplant* the object elsewhere (e.g. to HPC) without shipping the entire drive. |
+
+</div>
+
+[A. Macdonald, C. Baker, I. To, **Y. O. Halchenko**.
+*STAMPED: principles for reproducible research objects.*
+Preprint, 2026. doi: 10.31222/osf.io/f3h82_v1](https://doi.org/10.31222/osf.io/f3h82_v1)
+<!-- .element: style="font-size:0.72em;margin-top:0.6em;" -->
+
+----
+
+<!-- .slide: data-visibility="hidden" -->
+
+### a skill is a research object: So grade *them*&nbsp; too!
+
+A skill that only runs in your repo, on your paths, undocumented and unversioned,<br/>
+is a **silo with a friendlier interface**.
+<!-- .element: style="font-size:0.85em;margin-top:-0.2em;" -->
+
+<div class="md-table" style="font-size:0.68em;">
+
+| Property | &hellip; applied to a skill or an automation |
+| -------- | -------------------------------------------- |
+| **S**elf-contained | Carries its own references and scripts. Not &ldquo;see our internal wiki&rdquo;. |
+| **T**racked | In git, with a `metadata.version` and a history &mdash; so a change to the procedure is reviewable. |
+| **A**ctionable | Runnable commands and scripts, not only prose. *Recursive, and the point.* |
+| **M**odular | One skill, one job. Composable with the others instead of a mega-prompt. |
+| **P**ortable | No hardcoded paths, no &ldquo;works on our cluster&rdquo;. Declares its dependencies and versions. |
+| **E**phemeral | Runs in a fresh sandbox. No accreted state it silently depends on. |
+| **D**istributable | Published where someone else can find and install it &mdash; not pasted into chat. |
+
+</div>
+
+
+Walk it yourself: [checklist.stamped-principles.org](https://checklist.stamped-principles.org/)
+(MUST / SHOULD / MAY, item by item) &middot;
+[examples](https://examples.stamped-principles.org/) &middot;
+[principles](https://stamped-principles.org/) &middot;
+[paper source](https://github.com/stamped-principles/stamped-paper)
+([`main.tex`](https://raw.githubusercontent.com/stamped-principles/stamped-paper/refs/heads/main/main.tex)
+&mdash; small enough to paste into a context window, which is how we actually grade a study today)
+
+----
+
+### Pick your pieces of the puzzle to become STAMPED
+
+<object class="dia" data="pics/stamped-puzzle-usrse.svg" type="image/svg+xml" style="width:1000px;height:531px;"></object>
+
+<p>and our posters tonight on STAMPED:</p>
+
+- <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-poster-4x6.html" target="_blank"><strong>STAMPED Principles: pragmatic practices for reproducible science</strong></a> by <a href="https://centerforopenneuroscience.org/whoweare#cody_baker_" target="_blank">Cody Baker</a> et al.
+- <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/"  target="_blank"><strong>STAMPED in Practice: Improving research skills through
+reproducible experiments</strong></a> by
+<a href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank">John Lee</a> &middot; et al.
+
+</textarea></section></section>
+
+
+<section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+# AI Performs better on well structured data
+
+----
+
+## Every lab already runs a knowledge base:<br/>people, projects, grants, papers, datasets
+
+Usually it is a website somebody edits by hand, and a CV somebody else retypes.
+<!-- .element: class="fragment" style="font-size:1.2em;" -->
+
+Note:
+The way into ORINOCO is the knowledge base, not the standard: everyone in this
+room maintains one, and nobody calls it that.
+
+</textarea></section>
+
+<section>
+	<div class="faces" data-people="michael-hanke john-lee isaac-to">
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#michael_hanke_" target="_blank" title="Michael Hanke — University of Magdeburg, Germany"><img data-src="pics/con-whoweare/michael-hanke.jpg" alt="Michael Hanke"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#john_lee_" target="_blank" title="John Lee — Research Software Engineer"><img data-src="pics/con-whoweare/john-lee.jpg" alt="John Lee"/></a>
+	  <a class="face" href="https://centerforopenneuroscience.org/whoweare#isaac_to_" target="_blank" title="Isaac To — Software Developer"><img data-src="pics/con-whoweare/isaac-to.jpg" alt="Isaac To"/></a>
+	</div>
+	<h3 style="margin-bottom:0.1em;">ORINOCO &rarr; ORINOCO-Lite</h3>
+	<a href="https://linkml.io/"><img style="width:200px;height:111px;" data-src="pics/borrowed/linkml-logo_color.png"/></a>
+
+	<!-- Both diagrams are the poster's own, in place under 2026-usrse/orinoco-lite/
+	     rather than copied into pics/ -- same files, one copy. -->
+	<div style="display:flex;justify-content:center;align-items:flex-start;gap:1.5em;">
+	  <div>
+		<p style="font-size:0.62em;margin:0 0 0.2em 0;"><strong>ORINOCO</strong> &mdash;
+		  <a href="https://github.com/INM-7">INM-7 J&uuml;lich</a>, self-hosted</p>
+		<img style="width:600px;height:270px;"
+			 data-src="2026-usrse/orinoco-lite/assets/orinoco-selfhost-components-poster.svg"
+			 alt="ORINOCO: schema, SHACL-VUE and dump-things around a self-hosted Forgejo, rendering a data catalog, a lab website and an annual report"/>
+	  </div>
+	  <div>
+		<p style="font-size:0.62em;margin:0 0 0.2em 0;"><strong>ORINOCO-Lite</strong> &mdash; CON, GitHub-native</p>
+		<img style="width:600px;height:270px;"
+			 data-src="2026-usrse/orinoco-lite/assets/orinoco-lite-components-poster.svg"
+			 alt="ORINOCO-Lite: the same schema and outputs, with GitHub pull requests over git + YAML records and GitHub Actions doing the build"/>
+	  </div>
+	</div>
+	<p style="margin-top:0.3em;"><small>Same schema in, same outputs out. <strong>Reuse</strong> the upstream design,
+	  <strong>compose</strong> it from GitHub Actions and Pages, <strong>automate</strong> the build &mdash;
+	  nothing to host, and the records stay the model while every site is only a view.</small></p>
+  </section>
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+### The CON website *is*&nbsp; the records
+
+<div style="display:flex;justify-content:center;align-items:flex-start;gap:34px;margin-top:0.1em;">
+  <div>
+	<a href="https://centerforopenneuroscience.org/whoweare" target="_blank"><img data-src="pics/20261019-con-website-people-webshot.png" style="width:561px;height:600px;margin:0;"/></a>
+	<div style="font-size:0.46em;line-height:1.2;margin-top:0.3em;"><strong>View 1</strong> &mdash; the public site<br/><code>centerforopenneuroscience.org/whoweare</code></div>
   </div>
-  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
-  <div style="margin-top:-20px">
-  <img style="height:90px;margin:20px" data-src="pics/borrowed/hbp_logo.png" />
-  <img style="height:90px;margin:20px" data-src="pics/borrowed/conp_logo.png" />
-  <img style="height:90px;margin:20px" data-src="pics/borrowed/vbc_logo.png" />
-  <img style="height:90px;margin:20px" data-src="pics/borrowed/repronim_logo.svg" />
+  <div>
+	<a href="https://dev.centerforopenneuroscience.org/persons" target="_blank"><img data-src="pics/20261019-devcon-website-people-webshot.png" style="width:495px;height:600px;margin:0;"/></a>
+	<div style="font-size:0.46em;line-height:1.2;margin-top:0.3em;"><strong>View 2</strong> &mdash; the ORINOCO-Lite rebuild<br/><code>dev.centerforopenneuroscience.org/persons</code></div>
   </div>
-  <div style="margin-top:-40px">
-  <img style="height:120px;margin:20px" data-src="pics/borrowed/openneuro_logo.png" />
-  <img style="height:120px;margin:20px" data-src="pics/borrowed/cbrain_logo.png" />
-  <img style="height:120px;margin:20px" data-src="pics/borrowed/brainlife_logo.png" />
-  <img style="height:120px;margin:20px" data-src="pics/borrowed/dandi_logo.svg" />
-  </div>
-  </td>
-  </tr>
-  </table>
+</div>
+
+<p style="font-size:0.62em;margin:0.25em 0 0;">Two views, one <strong>model</strong> &mdash; the same records, rendered twice. <em>MVC, for a lab website.</em></p>
+
+#### Every face and every project is a record in the store
+
+Poster this evening: **John Lee**, I. To, Y. O. Halchenko,<br/>
+[*Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations*](https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/orinoco-lite_poster.html).
+<!-- .element: style="font-size:0.7em;" -->
+
+Note:
+One sentence: the people you have been seeing all talk are rows in a store, and
+this page, the CV, the annual report and the acknowledgements slide are all
+views of it. Then send them to John's poster.
+
+----
+
+AI drafts candidate records.<br/>Schema validates.<br/>Humans curate via PR.
+<!-- .element: style="font-size:1.4em;font-style:italic;" -->
+
+</textarea></section>
+</section>
+
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: style="font-size:1.1em;line-height:1.42;" -->
+
+# Monday take home
+
+1. **REUSE: Search before you generate.** One upstream pass before the first keystroke &mdash; and put that instruction in your agent&rsquo;s harness, where it will actually be followed.
+2. **Record one command.** Wrap your next build or analysis step in [`duct`](https://github.com/con/duct) and/or [`datalad run`](https://docs.datalad.org/en/stable/generated/man/datalad-run.html).
+3. **Put one object in a declared standard** and run its validator. The agent gets a grammar; you get a type-checker.
+4. **Write the harness down.** An [`AGENTS.md`](https://agents.md/) in the repo beats a prompt in your notes app &mdash; and declare your AI policy there while you are at it.
+5. **Size the work to the loop you actually have.** Until the project checks itself, keep AI-assisted changes small, reviewable, and tried by your own hand.
+</textarea></section>
+
+<section>
+<h1 style="font-size:1em;margin:0 0 0.1em;">Our extended "team" - Thank you!</h1>
+
+<iframe src="2026-usrse-con-talk/ack-now.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+
 </section>
 
 
-<!-- =================================================================
-     S. Thank you / sign-off (Yoda SVG sign-off per SOUL.md §3)
-     ================================================================= -->
-<section data-transition-speed="zoom">
-  <H1>Thank you!</H1>
-  <h2>Reuse. Compose. Extend. Standardize. Automate.</h2>
-  <p>
-	<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
-	  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
-	</a>
+<!-- Here a summary slide with some tasks -->
+
+<section data-transition="zoom">
+  <H1>Thank you for your attention!</H1>
+  <h2>Reuse &middot; Compose &middot; Extend &middot; Standardize &middot; Automate</h2>
+  <!-- The sixth verb, in the deck's accent red rather than one of the five
+	   verb colours, because it is the one no tool supplies.  It is what the
+	   "You are alone." / "You are not." pair and the acknowledgements grid
+	   were for; the line below is its payoff. -->
+  <h2 style="margin-top:0.1em;">
+	<span style="color:#c0392b;">SOCIALIZE!</span></h2>
+  <h3>Together we can make any science a better science!</h3>
+
+  <p style="margin:0.5em 0 0;">
+	<!-- any other mascot???
+		<a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank">
+		  <img style="height:300px;margin:20px" data-src="pics/yoda.svg"/>
+		</a>
+		-->
+	<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html"><img style="width:260px;height:260px;margin:0;" data-src="pics/2026-usrse-con-talk-qrcode.png" alt="QR code to the live slides"/></a>
   </p>
   <p><small>Slides: <a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">datasets.datalad.org/&hellip;/2026-usrse-con-talk.html</a> &mdash; CC-BY-SA</small></p>
 </section>
 
-
-<!-- background slide , Needs tune up of config below
-
 <section data-background="pics/con-ccn-dartmouth-letterhead.svg"  data-background-opacity="100%" data-background-size="95%" data-background-position="top">
+  <!-- The card that stays up through the Q&amp;A, so the QR and the URL are
+	   back on screen for the five minutes the room is still looking at it.
+	   The letterhead background sits at the top, and center:true drops this
+	   block into the empty half below it. -->
+  <p style="margin:4em 0 0;">
+	<a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html"><img style="width:340px;height:340px;margin:0;" data-src="pics/2026-usrse-con-talk-qrcode.png" alt="QR code to the live slides"/></a>
+  </p>
+  <p style="font-size:0.66em;margin:0.35em 0 0;">Slides &amp; sources</p>
+  <p style="font-size:0.5em;margin:0.1em 0 0;word-break:break-all;"><a href="https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html">https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html</a></p>
+  <p style="font-size:0.42em;color:#777;margin:0.45em 0 0;">CC-BY-SA &middot;
+	<a href="https://fosstodon.org/@yarikoptic">@yarikoptic@fosstodon.org</a></p>
 </section>
--->
+
+
+<section data-transition="slide">
+
+  <section>
+	<h1>EXTRAS</h1>
+  </section>
+
+<!-- The closing act: beats, the acknowledgements, and the Monday list.
+     Markdown, because almost every slide here is one sentence and an
+     attribute; the two that are not (the logo wall and nothing else) stay
+     HTML below. -->
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+	Standards give both HI and AI a shared grammar.
+<!-- .element: style="font-size:1.4em;font-style:italic;" -->
+
+----
+
+<!-- .slide: data-background-gradient="radial-gradient(white, #f7dfd3)" -->
+
+## <span style="color:#a04000;">Reuse, in reverse</span>
+
+### Your data is yours, even when someone else hosts it
+<!-- .element: class="fragment" -->
+
+----
+
+## Pull content back: [AnnexTube](https://github.com/con/annextube) / [mykrok](https://github.com/mykrok/mykrok) / [con/serve](https://con.github.io/serve/)
+
+YouTube &rarr; DataLad. Cloud silos &rarr; git-annex. AI sessions &rarr; subdatasets.
+
+----
+
+&ldquo;Provenance doesn&rsquo;t care who wrote the code.&rdquo;
+<!-- .element: style="font-size:2em;font-weight:bold;" -->
+
+Note: Hold here. This is RSE take-home line #2.
+
+----
+
+REUSE &nbsp;&middot;&nbsp; COMPOSE &nbsp;&middot;&nbsp; EXTEND<br/>
+STANDARDIZE &nbsp;&middot;&nbsp; AUTOMATE
+<!-- .element: style="font-size:1.8em;line-height:2;" -->
+
+Note: Hold. The reunion after the per-verb journey.
+
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+&ldquo;This is not 20-year-old advice.&rdquo;
+<!-- .element: style="font-size:2em;" -->
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+They are the load-bearing structure for the age of AI.
+<!-- .element: style="font-size:1.8em;font-weight:bold;" -->
+
+Note: Hold.
+
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+AI makes going alone tempting.
+<!-- .element: style="font-size:2em;" -->
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+Fast. Flexible. Free of dependencies.
+<!-- .element: style="font-size:1.8em;" -->
+
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+# You are alone
+<!-- .element: style="font-size:4em;" -->
+
+Note: Pause here. Long hold. The silence is the point.
+
+----
+
+### You are not. <span style="font-size:0.55em;font-weight:normal;color:#777;">&mdash; acknowledgements</span>
+<!-- .element: style="font-size:0.75em;margin:0 0 0.1em;" -->
+
+<iframe src="2026-usrse-con-talk/ack-now.html" style="width:1400px;height:955px;max-width:100%;border:0;background:transparent;" scrolling="no"></iframe>
+
+Note:
+Do not read the names. Say: not one tool in this talk has a single author,
+and every face here is a person who stayed on to maintain something.
+That is the part an agent cannot supply.
+
+The counter-argument to "You are alone." is this grid, which is why it sits
+here rather than as an appendix after the closing line.  Generated by
+tools/mk_ack_eras.py from con-site-specific; regenerate with --write and
+every deck that embeds it updates.
+
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+# Together
+<!-- .element: style="font-size:4em;" -->
+
+Note: The callback. Earns the closing line.
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+A hundred agentic projects reinventing the same infrastructure&hellip;
+<!-- .element: style="font-size:1.6em;" -->
+
+----
+
+<!-- .slide: data-background="black" data-transition="none" -->
+
+&hellip;is a hundred times the debt.
+<!-- .element: style="font-size:1.8em;" -->
+
+Note: Hold.
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+One collaborative ecosystem.
+<!-- .element: style="font-size:1.8em;" -->
+
+</textarea></section>
+
+<section data-transition="none">
+	<div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.2em 2.5em;margin-top:0.5em;">
+	  <a href="https://dandiarchive.org/"><img style="height:200px;" data-src="pics/dandi-logo-square.svg" alt="DANDI"/></a>
+	  <a href="https://bids.neuroimaging.io/"><img style="height:150px;" data-src="pics/BIDS_Logo.png" alt="BIDS"/></a>
+	  <a href="https://datalad.org/"><img style="height:110px;" data-src="pics/datalad_logo_wide.svg" alt="DataLad"/></a>
+	  <a href="https://openneuro.org/"><img style="height:110px;" data-src="pics/borrowed/openneuro_logo.png" alt="OpenNeuro"/></a>
+	  <a href="https://www.nwb.org/"><img style="width:328px;height:60px;" data-src="pics/con-projects/nwb_logo.png" alt="NWB"/></a>
+	  <a href="https://emberarchive.org/" style="display:inline-flex;align-items:center;gap:0.25em;"><img style="width:89px;height:110px;" data-src="pics/con-projects/ember_logo.png" alt="EMBER"/><strong style="font-size:1.6em;">EMBER</strong></a>
+	</div>
+	<p style="font-size:1.2em;margin-top:1em;">One ecosystem. None of it single-authored.</p>
+	<aside class="notes">One wall, not six slides. Do not read the names out.</aside>
+  </section>
+
+<section data-markdown data-separator="^\n----\n"><textarea data-template>
+
+<!-- .slide: data-transition="none" -->
+
+Others are formalizing this too.
+<!-- .element: style="font-size:1.8em;" -->
+
+----
+
+<!-- .slide: data-transition="none" -->
+
+Scale the connections, not just the agents.
+<!-- .element: style="font-size:1.9em;font-weight:bold;" -->
+
+&ldquo;Networked Intelligence: Active Shared Context Graphs for Human-AI Team Science&rdquo; &mdash;
+Choudhury, S. et al. (2026), arXiv:[2607.13220](https://arxiv.org/abs/2607.13220)
+<!-- .element: style="font-size:0.8em;" -->
+
+&ldquo;The open problem is therefore not only how to scale models, but how to develop
+&lsquo;networked intelligence&rsquo;, scaling the connections between humans and AI systems
+so that a result or hypothesis produced in one context reaches another person, agent,
+instrument or robot that can act on it.&rdquo;
+<!-- .element: style="font-size:0.78em;font-style:italic;color:#555;max-width:1000px;margin:1.2em auto 0 auto;" -->
+
+Note:
+Hold on the big line. It is OUR compression, not a quotation -- the paper says
+"scale models", not "agents" -- so it is set without quote marks and the
+authors' own sentence sits underneath, verbatim from the abstract.
+
+----
+
+The principles don&rsquo;t change. The urgency does.
+<!-- .element: style="font-size:1.8em;font-weight:bold;" -->
+
+Note: Hold.
+
+----
+
+Together we can make any science a better science!
+<!-- .element: style="font-size:1.5em;" -->
+
+Note:
+Say the closing line slowly. Stop. Let it land.
+Your Monday: one upstream search. One datalad run. One CI job.
+
+</textarea></section>
+
+</section>
+
+
+
+
+
 
 <!-- End of slides -->
 
@@ -1241,7 +1881,11 @@ flowchart LR
 				hash: true,
 				width: 1400,
 				height: 1050,
-				margin: 0.1,
+				// 0.04, not reveal's old 0.1: the canvas below is 4:3 and every
+				// projector in the room is 16:9, so the binding dimension is
+				// height.  A 10% margin threw away 6% of the type size for
+				// empty bands above and below that nobody was reading.
+				margin: 0.04,
 				minScale: 0.2,
 				maxScale: 1.0,
 
@@ -1256,6 +1900,36 @@ flowchart LR
 				transition: ['slide', 'fade'],
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
 			});
+
+			// The face row (css/custom.css .reveal .faces) hangs above the
+			// slide's own content box, which is what keeps it next to the
+			// content rather than at a fixed canvas offset.  On the two or
+			// three tallest slides that box starts so high that the row ends
+			// up off the top of the 1050px canvas -- invisible at a 4% margin,
+			// and cropped in the PDF export at any margin.  Nudge it back in.
+			function clampFaces() {
+				var slides = document.querySelector('.reveal .slides');
+				if (!slides) return;
+				var top = slides.getBoundingClientRect().top;
+				var scale = Reveal.getScale() || 1;
+				var rows = document.querySelectorAll('section.present .faces');
+				for (var i = 0; i < rows.length; i++) {
+					rows[i].style.transform = '';
+					var box = rows[i].getBoundingClientRect();
+					// A vertical stack's own section element is .present too,
+					// so the list also carries the rows of its hidden
+					// siblings.  They
+					// measure 0x0; leave them alone.
+					if (box.height < 1) continue;
+					var over = top + 6 - box.top;
+					if (over > 0)
+						rows[i].style.transform =
+							'translateY(' + (over / scale) + 'px)';
+				}
+			}
+			Reveal.on('ready', clampFaces);
+			Reveal.on('slidechanged', clampFaces);
+			Reveal.on('resize', clampFaces);
 		</script>
 	</body>
 </html>

@@ -34,6 +34,29 @@ Lessig move: cut content, add ~60 single-concept transition/beat slides.
 - One light moment per block max; deliver and immediately move on.
 - Target 40-50% image-only slides.
 
+**Whose words are these?** The deck mixes YOH's own compressions with real
+quotations, and twice shipped a compression inside quote marks under someone
+else's name. The rule, applied throughout:
+
+- **His line = a heading, no quote marks.** The display font and position
+  already say "this is the talk speaking".
+- **Quote marks = verbatim**, always, and the author is named.
+- **Where his line distils a specific source, the source line starts with
+  `after`** — "after D. Clunie, MICCAI 2017". One word, standard usage, needs
+  no explaining, and survives into the published deck where nobody is there
+  to say it out loud.
+
+Live examples of the shape: the Codeberg slide (heading, then two verbatim
+blockquotes with full attribution), the Clunie standardize slide (heading,
+then `after`), and the Networked Intelligence slide (our compression plain,
+the authors' own sentence underneath in quote marks).
+
+Rejected: marking his lines with his portrait from the acknowledgements grid.
+It competes with a one-line aphorism at projection size, it spends the
+portrait's meaning in the two places it already earns it (title slide and
+every era's grid), and a face beside a claim reads as self-promotion in a
+talk whose argument is that none of this was done alone.
+
 ---
 
 ## Three-Act Structure
@@ -429,3 +452,237 @@ All are single-concept; most are text-only or one-logo. No new images required e
   joke, don't add words.
 - **Closing:** say the closing line slowly. Stop. Let the Yoda SVG sit. Do not move to the
   thank-you slide until the line has landed.
+
+---
+
+## TODO — NiPy: our entry into the community (2005–2008, paying off in 2009–2012)
+
+**Status:** not started. Raised 2026-10-11, revised same day after checking the
+archives.
+
+The 2005–2008 era currently ends on PyMVPA and its test suite. What actually
+closed that era is missing: **NiPy was our entry into the community.** Before
+it, two people packaging for themselves; after it, a room with the people who
+became nibabel, nipype, nitime and dipy. The deck does not mention NiPy once
+(`grep -ci nipy` on it returns 0).
+
+### 1. The thing to check first — nibabel's git history is ours
+
+```bash
+gh api "repos/nipy/nibabel/commits?per_page=1&page=6449" --jq '.[0].commit'
+```
+
+nibabel's **root commit** is 2007-02-08, author `mhanke-guest`, message
+*"Move pynifti packaging to alioth (really)."*, and its `git-svn-id` trailer
+reads:
+
+```
+svn+ssh://svn.debian.org/svn/pkg-exppsy/pynifti/trunk@179
+```
+
+`pkg-exppsy` is the subversion repo in this deck's own 2005–2008 era title.
+nibabel — the file-format layer under essentially every Python neuroimaging
+tool in use today — has its git history rooted in our Debian packaging repo,
+by way of Hanke's PyNIfTI. `yoh-guest` appears four days later, 2007-02-12.
+Christopher Burns (Berkeley / NiPy) shows up 2008-06-30, which is the NiPy
+convergence arriving in the tree.
+
+This is a better "small seeds grow big" than anything else in the deck,
+because the seed is ours and it is verifiable in one command. It belongs at
+the close of 2005–2008, and it makes the NiPy entry below land as consequence
+rather than anecdote.
+
+Dates for the neighbouring projects, same method (repo root commits):
+
+- **nipype** — 2009-07-15, Jarrod Millman; Satra led it out. "Soon after the
+  2008 workshop" checks out.
+- **nitime** — 2009-09-02, Fernando Perez.
+
+### 2. Add NiPy as a project we collaborated on
+
+`con-site-specific` already has `XYZProject/nipy.yaml`, `nitime.yaml`,
+`nibabel.yaml` and `nipype.yaml` — but `nipy.yaml` and `nitime.yaml` are bare
+stubs with **no `associated_with` and no `started`**, so they cannot surface in
+the era acknowledgements at all. Needs contributor associations
+(`marcrel:ctb`) for YOH and Hanke with researched dates, then a band entry in
+`tools/mk_ack_eras.py`.
+
+Framing to get right: the `nipy` **package** is effectively RIP and we were
+contributors, not leads. The point is not the package — it is that the
+community around it still runs everything. So this is where "a project ending
+is not the thing ending" gets said for the first time, and it rhymes with the
+Debian handover slide two eras later.
+
+### 3. The 2008 NiPy workshop — needs sourcing
+
+Per YOH: a **NiPy-specific workshop in 2008**, and soon after it Satra split
+out nipype and nibabel was born. **I could not source the event itself.** The
+surrounding record is consistent with it and nothing contradicts it: 2008 is
+the year Fernando Perez and Matthew Brett went full-time at the UC Berkeley
+Brain Imaging Center with Brett coming to work on NIPY, Neurospin began
+refactoring FFF toward NiPy (Roche, Thirion, Thyreau, with Perez advising),
+and Gaël Varoquaux joined Parietal at Neurospin. See
+<http://nipy.org/nipy/history.html>, whose narrative stops in 2008.
+
+Where to look next: the `nipy-devel` mailing list archive for 2008 (the
+announcement and logistics thread would be there), and personal photo archives.
+Do not put a date or an attendee list on a slide until one of those confirms it.
+
+**Note this is NOT the Paris event in §4.** Earlier I conflated them; they are
+three years apart.
+
+### 4. The EuroSciPy 2011 slide — "small seeds grow big"
+
+> **Python in Neuroscience**, satellite to EuroSciPy 2011
+> Paris, École Normale Supérieure, **29–30 August 2011**
+> (main EuroSciPy 25–28 Aug, same venue)
+> Program committee: Bertrand Thirion, Romain Brette, Eilif Müller,
+> **Gaël Varoquaux** (INSERM U992), Raphaël Ritz, Laurent Perrinet,
+> Andrew Davison.
+
+Book of abstracts, 39 pp, authoritative:
+<https://pythonneuro.sciencesconf.org/conference/pythonneuro/boa_en.pdf>
+
+The table of contents is the slide. No commentary needed:
+
+| Page | Abstract                                                                              | Authors                        |
+| ---- | ------------------------------------------------------------------------------------- | ------------------------------ |
+| 13   | NiBabel: Conductor for a cacophony of neuro-imaging file formats                      | M. Brett, S. Gerhard, M. Hanke |
+| 18   | The virtues and sins of PyMVPA                                                        | **Y. O. Halchenko**, M. Hanke  |
+| 21   | More than batteries included: NeuroDebian                                             | M. Hanke, **Y. O. Halchenko**  |
+| 22   | NiPyPe: a flexible, lightweight and extensible neuroimaging data processing framework | S. Ghosh et al.                |
+| 25   | Nitime and IPython: tools for time-series analysis and high-level parallel computing  | F. Perez et al.                |
+
+**What to say, precisely.** The printed abstract does *not* name the IPython
+notebook — its second half is IPython's then-new **ZeroMQ parallel-computing
+backend**. But per YOH, who was in the room: in the talk itself Fernando
+demoed what was released shortly after as the IPython notebook (IPython 0.12,
+December 2011), and NeuroDebian began packaging it soon after that.
+
+So the slide is stronger than the abstract, not weaker: the written record
+describes a messaging backend mixed in with a time-series library, four pages
+from our PyMVPA and NeuroDebian abstracts, and what was actually shown that
+day became Jupyter. Say both halves — the abstract on screen, the demo in the
+telling. Do not claim the abstract announced the notebook.
+
+The abstract also signs off `Nitime can be found at: http://nipy.org/nitime` —
+nitime lived under nipy.org, which is the line back to §2.
+
+**And the reason this lands at US-RSE specifically:** per the delivery notes
+above, our session is the first after the Plenary — **Fernando Pérez /
+Jupyter**. His 2011 abstract, from a program we are also on, a few hours after
+he speaks. One slide. Do not labour it.
+
+### 5. (DE)COMPOSE — the move, its cost, and why AI makes it urgent
+
+Raised by YOH 2026-10-11 and refined the same day. A through-line the deck
+tells four times without ever naming.
+
+**The move:** splitting a larger project into smaller ones is itself the step
+that buys agile development and reuse. It is the face of COMPOSE nobody says
+out loud — you can only compose from small modules because somebody
+decomposed them first. Slide 16/10 (*"small modules, common substrate"*)
+presents the modules as if they were found that way. They were not.
+
+**Done:** the in-era word slide 16/11 now reads **(DE)COMPOSE**, the "(DE)"
+in a lighter tint. The Act I verb slide stays plain COMPOSE on purpose —
+introduce the five words cleanly, reveal the hidden half once the content
+has earned it.
+
+**The core survives the split.** This is the part that makes it a technique
+rather than an obituary, and it must be said explicitly on each instance:
+
+| When  | Core        | Extracted                                                     | The core afterwards                          | In deck?    |
+| ----- | ----------- | ------------------------------------------------------------- | -------------------------------------------- | ----------- |
+| 2009  | nipy        | nibabel · nipype · nitime                                     | **still there** — the fMRI analysis package  | no — §1/§2  |
+| 2015– | datalad     | datalad-{crawler,container,neuroimaging,osf,fuse,xnat,next,…} | **still there** — the domain-agnostic core   | yes — 17/2  |
+| 2020  | NeuroDebian | Debian Med · Debian Science · Debian Python Team              | **still there** — the repo and the backports | yes — 16/14 |
+| 2024  | ReproMan    | con/duct (with brainlife `smon`)                              | the exception — ReproMan did not carry on    | yes — 18/7  |
+
+PyNIfTI → nibabel is deliberately *not* a row here: that one is absorption,
+not extraction, and it belongs in §1 as the root-commit fact.
+
+ReproMan is the honest exception and should be presented as one — it is
+already framed that way in its slide notes ("the one that did not take off;
+the question it asked outlived it"). Four cases, three where the parent is
+still shipping: that is a pattern, not a rule, and saying so is more
+convincing than pretending it is a rule.
+
+The 2020 row is the one worth pausing on: the same move applied to **people**
+rather than code, and that slide already argues it in those terms ("a
+handover upwards"). Decomposition is a social technique as well as an
+architectural one.
+
+**The cost — the deck has the slide, missing the cause.** N packages means N
+repos, N CI configs, N release processes, N doc builds, N packaging recipes,
+plus cross-version testing between them that did not exist when it was one
+tree. Slide 19/17 lands exactly that burden —
+
+> *"Each automation is itself code — CI YAML, hooks, nightly cron, deploy
+> scripts, glue. Someone maintains that. By 2024 the harness was bigger than
+> several of the projects under it. That is why a small RSE center was
+> dragged toward AI assistance — not for the science, but for the
+> maintenance of the meta-layer."*
+
+— but presents it as if it arrived from nowhere. **Decomposition is where it
+comes from.** One added clause closes the loop; the payoff slide after it
+(19/18, `con/skills` + `con/yolo`, *"we automate the harness itself"*) is
+already the answer, as is `/introduce-reuse-compliance` at 16/8 at the
+per-repo scale.
+
+**Why this is urgent now, and not just good hygiene.** AI can produce very
+large codebases very fast, and what it does not produce is **clean working
+surfaces**. Module boundaries are the surfaces both humans and agents work
+against: they are what makes a change local, a test meaningful, a reuse
+possible. A monolithic ad-hoc beast is less robust to maintain and extend
+*whether or not* the next contributor is an AI — and agents make the beast
+faster to grow, so the boundary problem arrives sooner and larger.
+
+So the claim for this room: **decompose into small modules and reuse what
+exists, rather than generating another monolith. Pay for it in scaffolding.
+Let AI carry the scaffolding.** That is the whole talk's argument at the
+scale of a build system, delivered to an audience that has personally had
+the monorepo-versus-many-repos fight.
+
+Placement: this extends two beats already in the deck — slide 2 ("AI tends to
+produce silos") and 18/4 ("AI generates glue. Nobody owns the glue."). The
+new idea is that a *silo* and a *monolith* are the same failure seen from
+outside and inside. One beat, in the 2021–2024 or 2025– era where the AI
+material lives, not in 2009–2012.
+
+**To do:**
+
+- Name the move at the close of 2005–2008, after the nibabel root-commit
+  slide (§1) — first instance, strongest one.
+- Add "and the core is still there" to 17/2 and 16/14; one clause each.
+- Add the causal clause to 19/17 so the harness burden traces to the splits.
+- Write the AI beat above as one or two slides in the late eras.
+- Do **not** add a sixth verb word-slide. REUSE / COMPOSE / EXTEND /
+  STANDARDIZE / AUTOMATE is an anchor phrase the whole talk is built on.
+  (DE)COMPOSE is a reveal inside COMPOSE, not a new word.
+
+### 6. Photo
+
+YOH to look for one from the 2008 workshop. If it turns up it goes at the
+close of 2005–2008; a 2011 Paris one would go in 2009–2012 beside the abstract
+slide. Same treatment as the two DebConf photos: background image with a
+`position:fixed` caption bar — `position:absolute` does **not** work, because
+the section is auto-height and vertically centred, so the caption lands across
+the middle of the photograph.
+
+### Still to verify
+
+- The 2008 workshop itself: date, location, attendees (§3).
+- First NiPy contribution dates for YOH and Hanke, for the records in §2.
+- When NeuroDebian first shipped the IPython notebook. The published
+  `ipython` changelog on metadata.ftp-master only reaches back to 2016 —
+  try snapshot.debian.org or the NeuroDebian repo history instead.
+- Whether Perez, Varoquaux and Brett were all physically present in 2011
+  (committee and author lists are confirmed; attendance is not).
+
+### Assets
+
+- `pics/debian-python-logo.png` — the snake-as-Debian-swirl, YOH's own
+  artwork, from <https://wiki.debian.org/Python>. Only a 300×371 PNG is
+  attached to the wiki page; **replace with the source SVG when YOH finds it**
+  (the other two Debian marks on that slide are SVG).

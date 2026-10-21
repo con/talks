@@ -4,7 +4,7 @@
 Usage (from the repository root): tools/build_preview.py OUTDIR DECK.html [DECK.html ...]
 
 Starting from the decks, follows local references (src/href/data-src/
-data-background*/data-markdown attributes, markdown links and CSS url())
+data (<object>)/data-background*/data-markdown attributes, markdown links and CSS url())
 through HTML, CSS and Markdown files, and copies every referenced file into
 OUTDIR under its repository path. Files whose git-annex content is not
 present are fetched with `git annex get` first (when git-annex is
@@ -31,9 +31,10 @@ SCANNED_SUFFIXES = {".html", ".htm", ".css", ".md"}
 
 # Each pattern captures (kind, quote, reference)
 REF_PATTERNS = [
-    # HTML attributes, e.g. src="..", data-src='..', data-background-image=".."
+    # HTML attributes, e.g. src="..", data-src='..', <object data="..">,
+    # data-background-image=".."
     re.compile(
-        r"""\b(src|href|data-src|poster|data-markdown|data-background(?:-image|-video|-iframe)?)"""
+        r"""\b(src|href|data|data-src|poster|data-markdown|data-background(?:-image|-video|-iframe)?)"""
         r"""\s*=\s*(["'])(.+?)\2""",
         re.I,
     ),

@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-16T19:15:14.116065+00:00",
+  "reviewer": "Codex; independent final visual review by progression_review",
+  "files": {
+    "index.html": "8077fdf31a6ffbd85ae477248bbc89c333b265b0cac9113330608f2e0854b0cb",
+    "poster.css": "c65cc3d163fb871f88354ccb9d140b9d7d1be3e50a2373c546fb6c11d4cbd914",
+    "README.md": "6a0978212376faca536a16715f1938b83086ce55761a034a3cf552e5bd3e3188",
+    "BUILDING.md": "c41afc6f8ad4af03f988b33f53526d44bbcb6b7d98387f17132f1e93a4f071f7",
+    "make-logo-qrs.py": "95016d0958ef4c064dce2548be4ac8f65fa171e5a15f5ee4c41378bc59445bc7",
+    "assets/stamped-qr-poster.svg": "7c48ccc171d37755479ddc42f6c6e32a1c1e2297f9041c30444e53137ce6db40",
+    "assets/stamped-qr-skills.svg": "ff98fa82038696210079f2ca79def36e3ac1bbbdf622f8c7349e341ba94bd502",
+    "exports/stamped-ai-poster.pdf": "e164d299a5d9f853ceb67771edc282b4b22f3967275eb06bd738f6be787d435f",
+    "exports/pdf-preview.png": "dc770c9d3bfda059c34389b9c4e329d8ff42f38c66a8abb29e42e43c1ba0d967",
+    "figures/round-progression.svg": "59e5cb8a3995f4594d15bc757a2054c1d647d35119f5ace42eb07fbb298020b3",
+    "data/benchmark-checklists.json": "685bcfcb152509ce514a57f130eac26fc5a8dc0654b20a84735002e82ed83e38",
+    "data/benchmark-outcomes-source.json": "8684eb7e5083ca56161f992abd5ef2ec5bf496c9bb2cf0a16a2f811d487a58e6"
+  },
+  "observations": [
+    "Inspected the rebuilt PDF after the rebase: the scientific figures, uncertainty bars, linked pooled app scores and principle definitions retain their reviewed layout; no clipping or overlap. Actual PDF text remains at least 24 points.",
+    "Future directions replaces the previous assessment heading and specific research-loop revision narrative. It describes stronger calibrated judges, clear completion rules, common tools and dependencies, coordinator effort, isolation, capture and evaluation on new scientific tasks.",
+    "An independent visual review approved the new section. Its source link opens the future-study priorities in the canonical main-branch lessons.",
+    "All four QR codes decode and every expected PDF hyperlink is present. All 36 public poster destinations passed after rechecking transient GitHub HTTP 503 responses; earlier failed attempts remain recorded in the link audit.",
+    "The final PDF, preview and newly annexed QR assets were anonymously downloaded and matched byte-for-byte. The annex storage repair preserves the original contents and authorship across all 14 poster commits.",
+    "The retained benchmark export is unchanged: science uses Wilson intervals; checklist runs and means use sample SD. Table app means use all 31 items, separately labelled from the evaluated-item plot measure."
+  ],
+  "passed": true
+}

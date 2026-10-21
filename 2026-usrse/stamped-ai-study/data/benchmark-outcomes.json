@@ -1,0 +1,629 @@
+{
+  "conditions": [
+    {
+      "assigned_runs": 18,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 27.0625,
+      "checklist_evaluated_items_min": 26,
+      "checklist_mean_met_percent": 22.573435504469984,
+      "checklist_n": 16,
+      "checklist_sd_met_percent": 5.648676402176335,
+      "checklist_status_counts": {
+        "met": 98,
+        "not-applicable": 36,
+        "not-checked": 27,
+        "partial": 80,
+        "unmet": 255
+      },
+      "checklist_unavailable": 2,
+      "completed_runs": 18,
+      "condition": "baseline",
+      "label": "No supplied research skills",
+      "replay_executed_n": 5,
+      "replay_execution_unobserved_or_unavailable": 13,
+      "replay_matched_n": 5,
+      "replay_partial_selected_output_match_n": 0,
+      "science": {
+        "not supported": 0,
+        "qualified": 2,
+        "supported": 16,
+        "unable to assess": 0
+      },
+      "scientific_n": 18,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 18,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 26.166666666666668,
+      "checklist_evaluated_items_min": 22,
+      "checklist_mean_met_percent": 23.165164446981873,
+      "checklist_n": 18,
+      "checklist_sd_met_percent": 5.901760810742124,
+      "checklist_status_counts": {
+        "met": 109,
+        "not-applicable": 33,
+        "not-checked": 54,
+        "partial": 100,
+        "unmet": 262
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 18,
+      "condition": "discover-general",
+      "label": "Find useful skills",
+      "replay_executed_n": 3,
+      "replay_execution_unobserved_or_unavailable": 15,
+      "replay_matched_n": 2,
+      "replay_partial_selected_output_match_n": 0,
+      "science": {
+        "not supported": 0,
+        "qualified": 5,
+        "supported": 13,
+        "unable to assess": 0
+      },
+      "scientific_n": 18,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 18,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 26.470588235294116,
+      "checklist_evaluated_items_min": 23,
+      "checklist_mean_met_percent": 22.25348015139884,
+      "checklist_n": 17,
+      "checklist_sd_met_percent": 5.7623598963552665,
+      "checklist_status_counts": {
+        "met": 100,
+        "not-applicable": 39,
+        "not-checked": 38,
+        "partial": 91,
+        "unmet": 259
+      },
+      "checklist_unavailable": 1,
+      "completed_runs": 18,
+      "condition": "discover-science",
+      "label": "Find research skills",
+      "replay_executed_n": 7,
+      "replay_execution_unobserved_or_unavailable": 11,
+      "replay_matched_n": 3,
+      "replay_partial_selected_output_match_n": 3,
+      "science": {
+        "not supported": 1,
+        "qualified": 6,
+        "supported": 10,
+        "unable to assess": 0
+      },
+      "scientific_n": 17,
+      "scientific_unavailable": 1
+    },
+    {
+      "assigned_runs": 18,
+      "checklist_evaluated_items_max": 30,
+      "checklist_evaluated_items_mean": 26.705882352941178,
+      "checklist_evaluated_items_min": 23,
+      "checklist_mean_met_percent": 32.28533461847687,
+      "checklist_n": 17,
+      "checklist_sd_met_percent": 13.677710458690237,
+      "checklist_status_counts": {
+        "met": 146,
+        "not-applicable": 40,
+        "not-checked": 33,
+        "partial": 106,
+        "unmet": 202
+      },
+      "checklist_unavailable": 1,
+      "completed_runs": 18,
+      "condition": "stamped-explicit",
+      "label": "Use STAMPED skills",
+      "replay_executed_n": 6,
+      "replay_execution_unobserved_or_unavailable": 12,
+      "replay_matched_n": 3,
+      "replay_partial_selected_output_match_n": 2,
+      "science": {
+        "not supported": 0,
+        "qualified": 7,
+        "supported": 10,
+        "unable to assess": 0
+      },
+      "scientific_n": 17,
+      "scientific_unavailable": 1
+    }
+  ],
+  "config_sha256": "9d45e7e7fe8340f6e9ac1396e3233d896c170d81bdd7ecd0abcd8ad208afb712",
+  "definitions": {
+    "checklist": "For each valid primary response: met/(met+partial+unmet). Average these run fractions equally. Not-checked and not-applicable items do not enter the evaluated-item denominator; their counts remain in the run table.",
+    "pooling": "Each research run has equal weight; duplicate judges do not replace primaries or increase sample size. Round-specific tables retain revision history.",
+    "replay": "Native-bound entrypoint execution and explicit selected-output matches on the assessment host, restricted to admitted primary judgments. No execution claim from prose or launcher exit alone. Unobserved or unavailable replay is not failure.",
+    "science": "Recorded adequacy of the analysis supporting its conclusion, not direction of the neuroscience hypothesis."
+  },
+  "generator_sha256": "4ad7fc4dc34ac4141f8c01a3da06d3f7ad7aebdfdb1e88b08579ed9d38c469e8",
+  "retained_rounds": [
+    1,
+    2,
+    3
+  ],
+  "revisions": [
+    {
+      "assessment_series": "narps-neutral-r1-operational-v4",
+      "research_guidance_commit": "f2e74ea3ed372f966c95692cb0826d56ad5e6a6c",
+      "round": 1
+    },
+    {
+      "assessment_series": "narps-neutral-r2-operational-v4",
+      "research_guidance_commit": "d83d7d66a9060be6afae57336124afdcfc1743e9",
+      "round": 2
+    },
+    {
+      "assessment_series": "narps-neutral-r3-operational-v4",
+      "research_guidance_commit": "326606610af6c261876c92032ca1f89f6d3ad1f1",
+      "round": 3
+    }
+  ],
+  "round_conditions": [
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 27,
+      "checklist_evaluated_items_mean": 26.75,
+      "checklist_evaluated_items_min": 26,
+      "checklist_mean_met_percent": 19.65811965811966,
+      "checklist_n": 4,
+      "checklist_sd_met_percent": 3.7867810137467974,
+      "checklist_status_counts": {
+        "met": 21,
+        "not-applicable": 11,
+        "not-checked": 6,
+        "partial": 13,
+        "unmet": 73
+      },
+      "checklist_unavailable": 2,
+      "completed_runs": 6,
+      "condition": "baseline",
+      "label": "No supplied research skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 2,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 1,
+      "science": {
+        "not supported": 0,
+        "qualified": 0,
+        "supported": 6,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 26.5,
+      "checklist_evaluated_items_min": 23,
+      "checklist_mean_met_percent": 26.772642118094392,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 7.0202173290947005,
+      "checklist_status_counts": {
+        "met": 43,
+        "not-applicable": 10,
+        "not-checked": 17,
+        "partial": 25,
+        "unmet": 91
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "discover-general",
+      "label": "Find useful skills",
+      "replay_executed_n": 0,
+      "replay_execution_unobserved_or_unavailable": 6,
+      "replay_matched_n": 0,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 1,
+      "science": {
+        "not supported": 0,
+        "qualified": 1,
+        "supported": 5,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 28,
+      "checklist_evaluated_items_mean": 26.166666666666668,
+      "checklist_evaluated_items_min": 23,
+      "checklist_mean_met_percent": 21.721139837081864,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 7.363264698522647,
+      "checklist_status_counts": {
+        "met": 34,
+        "not-applicable": 16,
+        "not-checked": 13,
+        "partial": 24,
+        "unmet": 99
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "discover-science",
+      "label": "Find research skills",
+      "replay_executed_n": 3,
+      "replay_execution_unobserved_or_unavailable": 3,
+      "replay_matched_n": 3,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 1,
+      "science": {
+        "not supported": 1,
+        "qualified": 2,
+        "supported": 3,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 30,
+      "checklist_evaluated_items_mean": 27,
+      "checklist_evaluated_items_min": 23,
+      "checklist_mean_met_percent": 22.13030237018243,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 3.1294867482035063,
+      "checklist_status_counts": {
+        "met": 36,
+        "not-applicable": 14,
+        "not-checked": 10,
+        "partial": 36,
+        "unmet": 90
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "stamped-explicit",
+      "label": "Use STAMPED skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 2,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 1,
+      "science": {
+        "not supported": 0,
+        "qualified": 2,
+        "supported": 4,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 27,
+      "checklist_evaluated_items_min": 26,
+      "checklist_mean_met_percent": 22.09041490650686,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 7.767052492475633,
+      "checklist_status_counts": {
+        "met": 36,
+        "not-applicable": 12,
+        "not-checked": 12,
+        "partial": 36,
+        "unmet": 90
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "baseline",
+      "label": "No supplied research skills",
+      "replay_executed_n": 1,
+      "replay_execution_unobserved_or_unavailable": 5,
+      "replay_matched_n": 1,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 2,
+      "science": {
+        "not supported": 0,
+        "qualified": 1,
+        "supported": 5,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 28,
+      "checklist_evaluated_items_mean": 26.833333333333332,
+      "checklist_evaluated_items_min": 24,
+      "checklist_mean_met_percent": 19.287579704246372,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 1.5271006207749773,
+      "checklist_status_counts": {
+        "met": 31,
+        "not-applicable": 9,
+        "not-checked": 16,
+        "partial": 43,
+        "unmet": 87
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "discover-general",
+      "label": "Find useful skills",
+      "replay_executed_n": 1,
+      "replay_execution_unobserved_or_unavailable": 5,
+      "replay_matched_n": 1,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 2,
+      "science": {
+        "not supported": 0,
+        "qualified": 1,
+        "supported": 5,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 28,
+      "checklist_evaluated_items_mean": 27,
+      "checklist_evaluated_items_min": 26,
+      "checklist_mean_met_percent": 22.18152218152218,
+      "checklist_n": 5,
+      "checklist_sd_met_percent": 7.170141313935277,
+      "checklist_status_counts": {
+        "met": 30,
+        "not-applicable": 9,
+        "not-checked": 11,
+        "partial": 34,
+        "unmet": 71
+      },
+      "checklist_unavailable": 1,
+      "completed_runs": 6,
+      "condition": "discover-science",
+      "label": "Find research skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 0,
+      "replay_partial_selected_output_match_n": 2,
+      "round": 2,
+      "science": {
+        "not supported": 0,
+        "qualified": 3,
+        "supported": 2,
+        "unable to assess": 0
+      },
+      "scientific_n": 5,
+      "scientific_unavailable": 1
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 27,
+      "checklist_evaluated_items_min": 24,
+      "checklist_mean_met_percent": 28.915800036489692,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 12.746692613907557,
+      "checklist_status_counts": {
+        "met": 47,
+        "not-applicable": 14,
+        "not-checked": 10,
+        "partial": 43,
+        "unmet": 72
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "stamped-explicit",
+      "label": "Use STAMPED skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 0,
+      "replay_partial_selected_output_match_n": 2,
+      "round": 2,
+      "science": {
+        "not supported": 0,
+        "qualified": 2,
+        "supported": 4,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 28,
+      "checklist_evaluated_items_mean": 27.333333333333332,
+      "checklist_evaluated_items_min": 27,
+      "checklist_mean_met_percent": 25.0,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 3.556208997652166,
+      "checklist_status_counts": {
+        "met": 41,
+        "not-applicable": 13,
+        "not-checked": 9,
+        "partial": 31,
+        "unmet": 92
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "baseline",
+      "label": "No supplied research skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 2,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 3,
+      "science": {
+        "not supported": 0,
+        "qualified": 1,
+        "supported": 5,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 27,
+      "checklist_evaluated_items_mean": 25.166666666666668,
+      "checklist_evaluated_items_min": 22,
+      "checklist_mean_met_percent": 23.43527151860485,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 5.749969297053056,
+      "checklist_status_counts": {
+        "met": 35,
+        "not-applicable": 14,
+        "not-checked": 21,
+        "partial": 32,
+        "unmet": 84
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "discover-general",
+      "label": "Find useful skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 1,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 3,
+      "science": {
+        "not supported": 0,
+        "qualified": 3,
+        "supported": 3,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 29,
+      "checklist_evaluated_items_mean": 26.333333333333332,
+      "checklist_evaluated_items_min": 24,
+      "checklist_mean_met_percent": 22.845785440613025,
+      "checklist_n": 6,
+      "checklist_sd_met_percent": 3.1847594543326982,
+      "checklist_status_counts": {
+        "met": 36,
+        "not-applicable": 14,
+        "not-checked": 14,
+        "partial": 33,
+        "unmet": 89
+      },
+      "checklist_unavailable": 0,
+      "completed_runs": 6,
+      "condition": "discover-science",
+      "label": "Find research skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 0,
+      "replay_partial_selected_output_match_n": 1,
+      "round": 3,
+      "science": {
+        "not supported": 0,
+        "qualified": 1,
+        "supported": 5,
+        "unable to assess": 0
+      },
+      "scientific_n": 6,
+      "scientific_unavailable": 0
+    },
+    {
+      "assigned_runs": 6,
+      "checklist_evaluated_items_max": 28,
+      "checklist_evaluated_items_mean": 26,
+      "checklist_evaluated_items_min": 24,
+      "checklist_mean_met_percent": 48.51481481481482,
+      "checklist_n": 5,
+      "checklist_sd_met_percent": 5.65831507539616,
+      "checklist_status_counts": {
+        "met": 63,
+        "not-applicable": 12,
+        "not-checked": 13,
+        "partial": 27,
+        "unmet": 40
+      },
+      "checklist_unavailable": 1,
+      "completed_runs": 6,
+      "condition": "stamped-explicit",
+      "label": "Use STAMPED skills",
+      "replay_executed_n": 2,
+      "replay_execution_unobserved_or_unavailable": 4,
+      "replay_matched_n": 1,
+      "replay_partial_selected_output_match_n": 0,
+      "round": 3,
+      "science": {
+        "not supported": 0,
+        "qualified": 3,
+        "supported": 2,
+        "unable to assess": 0
+      },
+      "scientific_n": 5,
+      "scientific_unavailable": 1
+    }
+  ],
+  "schema_version": 1,
+  "scope": "One selected operational assessment series per round; original primaries only, every assigned run retained.",
+  "sources": [
+    {
+      "path": "round-01/analysis/runs.jsonl",
+      "round": 1,
+      "sha256": "13873f2a0cbc91d4e98aef14887f805d9cb5bcf25bf0203a9338c1487940858a"
+    },
+    {
+      "path": "round-01/analysis/judgments.jsonl",
+      "round": 1,
+      "sha256": "913293575d82499aef62cbd46300c66baff30a568d24f7825dcb521a24466683"
+    },
+    {
+      "path": "round-01/analysis/items.jsonl",
+      "round": 1,
+      "sha256": "bed06782e4b3609d9a5623607ad841a112fbed4aacdaf951a086bd877920c917"
+    },
+    {
+      "path": "round-01/final-replay-audit-01/result.json",
+      "round": 1,
+      "sha256": "a1e0bd99527a7244860ebe7f699840f9425d1d447e9d268f34ba42d1de5e4ae3"
+    },
+    {
+      "path": "round-02/analysis/runs.jsonl",
+      "round": 2,
+      "sha256": "6c4fa1a3daea5a5b43814ceee425c967e2bfbc5968646bb8fa7c4cc582fbdd6c"
+    },
+    {
+      "path": "round-02/analysis/judgments.jsonl",
+      "round": 2,
+      "sha256": "f4b93d3c975e6f2724a262ddc69e5d3d3ecf9a78eeae85c9a31a7550e0e091e8"
+    },
+    {
+      "path": "round-02/analysis/items.jsonl",
+      "round": 2,
+      "sha256": "67d50c7be0acc06ef12f8cd549f079bf26b8c825ee4ffabfb1c807f8ff4eb222"
+    },
+    {
+      "path": "round-02/replay-native-observations.json",
+      "round": 2,
+      "sha256": "8288cc35c2656a4ce2e0dd479445ebb55e3822fe0925fba518540c470205c4c4"
+    },
+    {
+      "path": "round-03/analysis/runs.jsonl",
+      "round": 3,
+      "sha256": "72aca370be7c29639ad0dcc5b88f3c2cd0069415294f5d550c947b3323be1a71"
+    },
+    {
+      "path": "round-03/analysis/judgments.jsonl",
+      "round": 3,
+      "sha256": "cbc32aa4a7330106a485ead03bd6596838305707617d82de0db19b563a59aaa9"
+    },
+    {
+      "path": "round-03/analysis/items.jsonl",
+      "round": 3,
+      "sha256": "ba60de0f1421b2a3317ebe79b90fca15e75e9689597d300b41e43ce92fe5e029"
+    },
+    {
+      "path": "round-03/replay-native-observations.json",
+      "round": 3,
+      "sha256": "abde827b0432750a44f030927a23d23999f3ce5fe5b75ef2054bc36f4594d172"
+    },
+    {
+      "path": "round-03/native-replay-corrections/result.json",
+      "round": 3,
+      "sha256": "7ca81e9478542e1c6a12c5c93b31a332513449ad0b54913a4148c212aeab9ac3"
+    }
+  ]
+}

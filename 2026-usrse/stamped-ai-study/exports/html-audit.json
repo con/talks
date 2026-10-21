@@ -1,0 +1,270 @@
+{
+  "size_css_px": {
+    "width": 4224,
+    "height": 4224
+  },
+  "minimum_text_px": 32,
+  "text_node_count": 164,
+  "small": [],
+  "outside": [],
+  "regionOverflow": [],
+  "internalOverflow": [],
+  "sectionOverlap": [],
+  "unlinkedImages": [],
+  "commitNavigationLinks": [],
+  "images": [
+    {
+      "src": "../orinoco-lite/assets/con-logo-outlined.svg",
+      "loaded": true,
+      "href": "https://dev.centerforopenneuroscience.org/",
+      "rect": {
+        "x": 1914.171875,
+        "y": 139.484375,
+        "width": 690,
+        "height": 213.03125
+      }
+    },
+    {
+      "src": "assets/stamped-qr-poster.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+      "rect": {
+        "x": 3926.984375,
+        "y": 121.59375,
+        "width": 204,
+        "height": 204
+      }
+    },
+    {
+      "src": "figures/narps-group-map.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
+      "rect": {
+        "x": 1270.21875,
+        "y": 1354.8125,
+        "width": 1328.609375,
+        "height": 688.90625
+      }
+    },
+    {
+      "src": "figures/narps-spatial-agreement.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
+      "rect": {
+        "x": 1270.21875,
+        "y": 2517.96875,
+        "width": 1328.609375,
+        "height": 925.09375
+      }
+    },
+    {
+      "src": "figures/round-progression.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures",
+      "rect": {
+        "x": 2690.828125,
+        "y": 2039.28125,
+        "width": 1445.15625,
+        "height": 670.953125
+      }
+    },
+    {
+      "src": "assets/stamped-qr-study.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice",
+      "rect": {
+        "x": 3625,
+        "y": 3658.59375,
+        "width": 180,
+        "height": 180
+      }
+    },
+    {
+      "src": "assets/stamped-qr-skills.svg",
+      "loaded": true,
+      "href": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+      "rect": {
+        "x": 3913,
+        "y": 3658.59375,
+        "width": 180,
+        "height": 180
+      }
+    },
+    {
+      "src": "../orinoco-lite/assets/orinoco-qr-con.svg",
+      "loaded": true,
+      "href": "https://dev.centerforopenneuroscience.org/",
+      "rect": {
+        "x": 2271.203125,
+        "y": 3964.09375,
+        "width": 155,
+        "height": 155
+      }
+    },
+    {
+      "src": "../orinoco-lite/assets/con-ccn-dartmouth-letterhead.svg#svgView(viewBox(13,33,230,246))",
+      "loaded": true,
+      "href": "https://pbs.dartmouth.edu/",
+      "rect": {
+        "x": 2895.078125,
+        "y": 3990.6875,
+        "width": 126,
+        "height": 136
+      }
+    },
+    {
+      "src": "../orinoco-lite/assets/repronim_logo.svg",
+      "loaded": true,
+      "href": "https://www.repronim.org/",
+      "rect": {
+        "x": 3777.640625,
+        "y": 3993.984375,
+        "width": 146,
+        "height": 140
+      }
+    }
+  ],
+  "qrs": [
+    {
+      "name": "poster",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+      "rect": {
+        "x": 3926.984375,
+        "y": 121.59375,
+        "width": 204,
+        "height": 204
+      }
+    },
+    {
+      "name": "study",
+      "url": "https://github.com/leej3/stamped-in-practice",
+      "rect": {
+        "x": 3625,
+        "y": 3658.59375,
+        "width": 180,
+        "height": 180
+      }
+    },
+    {
+      "name": "skills",
+      "url": "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+      "rect": {
+        "x": 3913,
+        "y": 3658.59375,
+        "width": 180,
+        "height": 180
+      }
+    },
+    {
+      "name": "con",
+      "url": "https://dev.centerforopenneuroscience.org/",
+      "rect": {
+        "x": 2271.203125,
+        "y": 3964.09375,
+        "width": 155,
+        "height": 155
+      }
+    }
+  ],
+  "links": [
+    "https://dev.centerforopenneuroscience.org/",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md",
+    "https://github.com/stamped-principles/stamped-paper",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#explore-the-research-skills",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#understand-the-assessor",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/skills.md#what-changed-between-rounds",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#choose-a-destination",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md#read-a-run-in-context",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/repository-map.md",
+    "https://checklist.stamped-principles.org/",
+    "https://pubmed.ncbi.nlm.nih.gov/17255512/",
+    "https://doi.org/10.1038/s41586-020-2314-9",
+    "https://doi.org/10.18112/openneuro.ds001734.v1.0.4",
+    "https://neurovault.org/collections/4932/",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/study-narps/input/study-task.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/poster.md#interpret-the-scientific-figures",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/analysis/run_group.py",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial/sources/narps-neutral-r2-09/workspace/results/summary.json",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_narps_spatial.py",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/map-inputs/spatial",
+    "https://github.com/leej3/stamped-in-practice/blob/main/comparison-plan.md",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#no-supplied-research-skills",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-useful-skills",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#find-research-skills",
+    "https://github.com/leej3/stamped-in-practice/tree/codex/stamped-poster-analysis/experiments/narps-poster/checklists#use-stamped-skills",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/narps-poster/checklists/README.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/docs/results.md#what-the-poster-measures",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/scripts/render_poster_progression.py",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/stamped-poster-analysis/experiments/retained-round-reporting/pooled/round-outcomes.tsv",
+    "https://github.com/leej3/stamped-in-practice/blob/codex/iteration-narps-neutral-v1/registration.md",
+    "https://github.com/leej3/stamped-in-practice/blob/main/LESSONS.md#invest-in-the-next-benchmark-not-only-the-next-skill-revision",
+    "https://github.com/leej3/stamped-in-practice",
+    "https://pbs.dartmouth.edu/",
+    "https://www.repronim.org/"
+  ],
+  "blocks": [
+    {
+      "element": "SECTION",
+      "class": "",
+      "rect": {
+        "x": 2690.828125,
+        "y": 712,
+        "width": 1445.15625,
+        "height": 409.3125
+      }
+    },
+    {
+      "element": "SECTION",
+      "class": "results-matrix",
+      "rect": {
+        "x": 2690.828125,
+        "y": 1131.3125,
+        "width": 1445.15625,
+        "height": 780.375
+      }
+    },
+    {
+      "element": "SECTION",
+      "class": "ruled progression-section",
+      "rect": {
+        "x": 2690.828125,
+        "y": 1937.6875,
+        "width": 1445.15625,
+        "height": 917.25
+      }
+    },
+    {
+      "element": "SECTION",
+      "class": "ruled lessons-section",
+      "rect": {
+        "x": 2690.828125,
+        "y": 2880.9375,
+        "width": 1445.15625,
+        "height": 502.9375
+      }
+    }
+  ],
+  "browser": "151.0.7922.34",
+  "created_utc": "2026-10-16T19:12:22.608Z",
+  "source_sha256": {
+    "index.html": "8077fdf31a6ffbd85ae477248bbc89c333b265b0cac9113330608f2e0854b0cb",
+    "template.css": "e8c4ec782936e242e824c49305dba2add22c54257c652380f95852006d0ea845",
+    "poster.css": "c65cc3d163fb871f88354ccb9d140b9d7d1be3e50a2373c546fb6c11d4cbd914",
+    "build-poster.cjs": "57fabc32b567f34aa31fcaedd4530fab64db44e581dab5eb92a538d2eb98bb8e",
+    "verify-pdf.py": "e0375281137d158da636f5faf8c3eb40d0bfbacdac848400157c181f2e0c479c",
+    "verify-links.py": "d7d8139a9c7bdc95deb2300eb97c9b5cf3ec20434e5a67ace59b09ab8d9c4e4c",
+    "make-logo-qrs.py": "95016d0958ef4c064dce2548be4ac8f65fa171e5a15f5ee4c41378bc59445bc7",
+    "source-manifest.json": "a477044a216b60ccbe1757fe8dc93b7fbce77e2c57e5385ea185a0826ec7f09f",
+    "figures/benchmark-source.json": "88845f81b88b799ba78f5262e77d98d652d28553e377086a297f6dd3ee372100",
+    "scripts/import-benchmark-figures.py": "e56328cfdb7f9b94e45194f4e4d8878ce87dcc8dec697bd9e41e2e8f84e1e500",
+    "scripts/import-benchmark-outcomes.py": "643baa0b70ccaa85fcb8159f9f067249b96e180fd8904f73acd5463dcd82740e",
+    "data/benchmark-outcomes.json": "9cb1b885667ca30947148d021d561641264fc00e3340d4880d9561a5982a440a",
+    "data/benchmark-checklists.json": "685bcfcb152509ce514a57f130eac26fc5a8dc0654b20a84735002e82ed83e38",
+    "data/benchmark-outcomes-source.json": "8684eb7e5083ca56161f992abd5ef2ec5bf496c9bb2cf0a16a2f811d487a58e6",
+    "pixi.toml": "8d593bb8c5e1495e07831d33a21d84bcb94183624749b2861d89875e74258a70",
+    "package-lock.json": "c4a27d1390a90be1fed6dd2c6f713f8b9ecfb49f5721656de4db136af2307cdc"
+  },
+  "errors": []
+}

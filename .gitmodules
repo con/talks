@@ -10,3 +10,17 @@
 	path = reveal.js-mermaid-plugin
 	url = https://github.com/zjffun/reveal.js-mermaid-plugin
 	datalad-url = https://github.com/zjffun/reveal.js-mermaid-plugin
+[submodule "con-site-specific"]
+	path = sourcedata/con-site-specific
+	url = http://github.com/ORINOCO-Lite/con-site-specific
+	branch = main
+[submodule "2024-repronim-reproflow-webinar"]
+	path = 2024-repronim-reproflow-webinar
+	url = https://github.com/ReproNim/webinar-2024-reproflow
+	datalad-id = 5db11bd6-8755-11e9-8596-f0d5bf7b5561
+	datalad-url = https://github.com/ReproNim/webinar-2024-reproflow
+[submodule "2020-repronim-reprocomp-webinar"]
+	path = 2020-repronim-reprocomp-webinar
+	url = https://github.com/ReproNim/webinar-2020-reprocomp
+	datalad-id = 5db11bd6-8755-11e9-8596-f0d5bf7b5561
+	datalad-url = https://github.com/ReproNim/webinar-2020-reprocomp
