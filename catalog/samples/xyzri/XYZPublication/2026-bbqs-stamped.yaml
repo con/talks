@@ -1,0 +1,27 @@
+attributed_to:
+- object: xyzrins:persons/cody-baker
+  roles:
+  - marcrel:aut
+  - obo:CRO_0000100
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+identifiers:
+- notation: https://docs.google.com/presentation/d/1yC412amV-j3BUfZ8Aq0aPEay93mnvmbo833BfNwuI_8/edit?usp=sharing
+  schema_type: dlthings:Identifier
+- notation: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-bbqs-stamped.pdf
+  schema_type: dlthings:Identifier
+- notation: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-bbqs-stamped.pptx
+  schema_type: dlthings:Identifier
+- notation: zotero:group:6197458:item:HUPZV3B5
+  schema_type: dlthings:Identifier
+kind: fabio:Presentation
+pid: xyzrins:talks/2026-bbqs-stamped
+presented_at:
+- at_time: '2026-03-11'
+  object: xyzrins:events/bbqs-2026-workshop
+  schema_type: xyzri:XYZPresentation
+schema_type: xyzri:XYZPublication
+title: Guidelines for Reproducible Research (STAMPED)

@@ -1,0 +1,8 @@
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://repronim.org/about/webinars/
+kind: xyzrins:event-types/webinar-series
+pid: xyzrins:events/repronim-webinars
+schema_type: xyzri:XYZEvent
+title: ReproNim Webinars

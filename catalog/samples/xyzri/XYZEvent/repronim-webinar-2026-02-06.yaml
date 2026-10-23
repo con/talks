@@ -1,0 +1,9 @@
+kind: xyzrins:event-types/webinar
+part_of:
+- xyzrins:events/repronim-webinars
+pid: xyzrins:events/repronim-webinar-2026-02-06
+schema_type: xyzri:XYZEvent
+started:
+  at_time: '2026-02-06'
+  schema_type: dlthings:Start
+title: ReproNim Webinar, 2026-02-06

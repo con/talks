@@ -1,0 +1,15 @@
+derived_from:
+- object: xyzrins:talks/2026-repronim-YODA-BIDS-webinar
+  schema_type: dlthings:Derivation
+generated_by:
+- at_time: '2026-02-06'
+  object: xyzrins:events/repronim-webinar-2026-02-06
+  schema_type: dlthings:Generation
+identifiers:
+- notation: https://www.youtube.com/watch?v=1XbTbJ_P2x0
+  schema_type: dlthings:Identifier
+- notation: https://datasets.datalad.org/repronim/ReproTube/web/#/channel/ReproNim/video/1XbTbJ_P2x0
+  schema_type: dlthings:Identifier
+kind: bibo:AudioVisualDocument
+pid: xyzrins:videos/1XbTbJ_P2x0
+schema_type: xyzri:XYZDocument

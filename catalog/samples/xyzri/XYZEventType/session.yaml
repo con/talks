@@ -1,0 +1,3 @@
+display_label: Session
+pid: xyzrins:event-types/session
+schema_type: xyzri:XYZEventType

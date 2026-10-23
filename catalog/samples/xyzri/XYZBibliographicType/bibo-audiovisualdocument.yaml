@@ -1,0 +1,4 @@
+description: An audio-visual document; film, video, and so forth.
+display_label: Audio-visual document
+pid: bibo:AudioVisualDocument
+schema_type: xyzri:XYZBibliographicType

@@ -1,0 +1,25 @@
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  - obo:CRO_0000100
+  schema_type: dlthings:Attribution
+generated_by:
+- object: xyzrins:projects/yoda
+  schema_type: dlthings:Generation
+- object: xyzrins:projects/datalad
+  schema_type: dlthings:Generation
+- object: xyzrins:projects/con-duct
+  schema_type: dlthings:Generation
+- object: xyzrins:projects/reproman
+  schema_type: dlthings:Generation
+identifiers:
+- notation: https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html
+  schema_type: dlthings:Identifier
+kind: fabio:Presentation
+pid: xyzrins:talks/2025-distribits-YODA
+presented_at:
+- object: xyzrins:events/distribits-2025
+  schema_type: xyzri:XYZPresentation
+schema_type: xyzri:XYZPublication
+title: 'Pragmatic YODA: overview of YODA principles and their wild life encounters'
