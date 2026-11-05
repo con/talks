@@ -1,0 +1,444 @@
+# Sections of the talks shown by pdfdeck.html: PDF page -> section title.
+# A section is a column of the deck; see pdfdeck/README.md.
+2008-nipy-sprint-pymvpa:
+  1: Goal and requirements
+  4: Terminology and workflow
+  6: Analysis examples
+  11: Contact
+2008-cambridge-pymvpa:
+  1: Why machine-learning-based analysis?
+  5: Desired features
+  14: How does it work?
+  29: Examples and strategies
+  39: Conclusion
+2009-bccn-pymvpa:
+  1: Why machine-learning-based analysis?
+  3: Python and desired features
+  12: PyMVPA features and design
+  25: Analysis example
+  34: Analysis strategies
+  44: Conclusion
+  49: Appendix
+2009-tu-berlin-pymvpa:
+  1: Why machine-learning-based analysis?
+  11: The PyMVPA toolbox
+  29: Analysis strategies
+  36: Conclusion
+  41: Appendix
+2009-nipy-decoding:
+  1: Neuroscience = behavior and neural activity
+  23: Neural data modalities
+  38: Analysis strategies
+  47: Multimodal analysis
+  60: Appendix
+2009-nipy-pymvpa:
+  1: Motivation
+  5: Features and design
+  18: Datasets
+  21: Mappers
+  27: Classifiers
+  38: Analysis examples
+  46: Sensitivity analysis
+  55: A journey around fusiform gyrus
+  63: Conclusions
+  65: Appendix
+2009-hawaii-pymvpa:
+  1: Introduction
+  19: From SPM to decoding
+  33: PyMVPA
+  41: Neural data modalities
+  56: Analysis strategies
+  64: Summary
+  66: Appendix
+2009-dartmouth-ecosystem:
+  1: From neuroscience to software
+  32: Multivariate pattern analysis of fMRI
+  55: Python
+  62: PyMVPA
+  69: Ecosystem
+  75: Conclusions
+  77: Appendix
+2009-pymvpa-extravaganza:
+  1: Goals and achievements
+  23: Evolution of the design
+  27: Analysis example
+  48: Applications and limits
+  58: The future
+  85: Contact and references
+2010-pymvpa-course/introduction:
+  title: Introduction
+  1: Welcome
+  8: MVPA
+  30: Python
+  43: PyMVPA
+  66: Analysis example
+  103: Deployment and support
+  106: Are you ready?
+2010-pymvpa-course/rehearsal:
+  title: 'PyMVPA: What we have saw but now in pictures'
+  1: Classifiers
+  9: Data pre-processing
+  12: Data projection
+  16: Evolving categorical information
+  20: References
+2010-debconf-citations:
+  1: Aspects
+  6: Suggested approach
+  8: debian-bibliography
+  11: Summary
+2010-debconf-neurodebian:
+  1: Neuro-imaging research
+  8: 'Neuro-imaging in Debian: 2005'
+  15: 'Case study: FSL'
+  31: 'Neuro-imaging in Debian: 2010'
+  40: NeuroDebian and visibility
+  60: Debian as a community
+  66: Is open source dead?
+  88: Conclusion
+2011-dartmouth-searchlight:
+  1: Introduction
+  18: Searchlighting in PyMVPA
+  26: Searchlighting space and time
+  33: Take home
+  35: Appendix
+2011-psychopy-workshop:
+  1: Shameless propaganda
+  15: Legal aspects
+  17: Software engineering and coding style
+  24: 'Version control: Git'
+  35: Releases
+  37: Additional resources
+  39: Acknowledgements
+2011-euroscipy-debian:
+  1: 'Debian: a history'
+  23: Debian community
+  27: Python in Debian
+  32: π's in Debian
+  44: Debian as a development platform
+  59: Ways to contribute
+  61: Acknowledgements
+  62: Appendix
+2011-euroscipy-neurodebian:
+  1: What is NeuroDebian?
+  6: What it means for Python in neuroscience
+  13: What is in it
+  16: Who it is for
+  19: Acknowledgements
+2011-euroscipy-pymvpa:
+  1: Pie... what?
+  5: MVPA
+  20: History of the design
+  31: Analysis example
+  56: Achievements and users
+  68: Some peculiarities of PyMVPA
+  81: Acknowledgements
+2011-sfn-pymvpa:
+  1: MVPA
+  11: History of the design
+  13: Analysis example
+  43: Optimal platform for PyMVPA
+  45: Acknowledgments
+  46: Appendix
+2012-upenn-environments:
+  1: Opening
+  5: Introduction to MVPA
+  24: PyMVPA and Python
+  28: Analysis example
+  65: New perspectives from HaxbyLab
+  78: Python in neuroimaging
+  86: NeuroDebian
+  118: Acknowledgements
+  119: Appendix
+2012-hdi-debian-med:
+  1: Debian
+  6: Debian Med
+  9: Service providing
+  11: Acknowledgements
+2012-incf-neurodebian:
+  1: Efficient community platform
+  9: Python in neuroimaging
+  24: Acknowledgments
+  25: Appendix
+2012-pymvpa-course:
+  1: Welcome
+  7: Introduction to MVPA
+  26: History of the design
+  30: Analysis example
+  67: Neuroimaging in Python
+  74: Deployment and support
+  86: Acknowledgments
+  87: Appendix
+2013-sea-debian:
+  1: Who we are
+  8: Availability is not accessibility
+  17: Scientists report
+  21: Debian's recipe
+  46: Climate and atmospheric research in Debian
+  55: Additional benefits
+  62: Take home
+  65: Appendix
+2014-sri-neuroimaging:
+  1: Introduction to MVPA
+  13: History of the design
+  18: Analysis example
+  40: New directions
+  53: PyMVPA use-cases
+  58: Efficient community platform
+  78: Appendix
+2014-pycon-fail2ban:
+  1: What is it for?
+  10: How it works
+  16: New in 0.9.0
+  17: Help yourself
+  20: When? Who?
+2014-siemens-pymvpa-neurodebian:
+  1: Introduction to MVPA
+  16: History of the design
+  20: Analysis example
+  42: PyMVPA use-cases
+  46: New directions
+  59: Efficient community platform
+  72: Federated access to scientific data
+  89: Appendix
+2014-giessen-pymvpa-workshop/overview:
+  title: Workshop schedule
+  1: Schedule
+2014-giessen-pymvpa-workshop/python-quiz:
+  title: Quick Python quiz
+  1: Python basics
+  9: Python in depth
+2014-giessen-pymvpa-workshop/mvpa-intro:
+  title: A very short introduction to multivariate pattern analysis (MVPA) for neuroscience
+  1: Encoding models
+  6: Why multivariate methods?
+  8: Decoding visual objects
+  13: Classifiers and models
+  18: Data representation
+  20: References
+2014-giessen-pymvpa-workshop/mvpa-strategies:
+  title: Basic MVPA strategies
+  1: Classification in a VT ROI
+  3: Cross-validation
+  10: 'Classification: pros and cons'
+  13: Searchlight
+  26: References
+2014-giessen-pymvpa-workshop/advanced-methods:
+  title: Recent and upcoming developments
+  1: Modality-agnostic analysis
+  7: Similarity structure analysis
+  15: Localization
+  20: Hyperalignment
+  29: Auditory representational spaces
+  35: Multimodal analysis
+  38: References
+2014-giessen-pymvpa-workshop/pymvpa-ecosystem:
+  title: PyMVPA and the larger scientific software ecosystem
+  1: Python in neuroimaging
+  9: 'Deployment: NeuroDebian'
+  12: Support
+2015-dartmouth-cs-colloquium:
+  1: Acknowledgements
+  4: Moore Hall
+  17: Introduction to neuroscience
+  28: Introduction to MVPA
+  41: History of the design
+  51: Analysis example
+  72: PyMVPA use-cases
+  84: Efficient community platform
+  112: Federated access to scientific data
+  133: Appendix
+2015-york-pymvpa-workshop/overview:
+  title: Workshop schedule
+  1: Schedule
+2015-york-pymvpa-workshop/python-quiz:
+  title: Quick Python quiz
+  1: Python basics
+  9: Python in depth
+2015-york-pymvpa-workshop/mvpa-intro:
+  title: A very short introduction to multivariate pattern analysis (MVPA) for neuroscience
+  1: Encoding models
+  6: Why multivariate methods?
+  9: Decoding visual objects
+  14: Classifiers and models
+  19: Data representation
+  21: References
+2015-york-pymvpa-workshop/mvpa-strategies:
+  title: Basic MVPA strategies
+  1: Classification in a VT ROI
+  3: Cross-validation
+  10: 'Classification: pros and cons'
+  13: Searchlight
+  26: References
+2015-york-pymvpa-workshop/advanced-methods:
+  title: Recent and upcoming developments
+  1: Modality-agnostic analysis
+  7: Similarity structure analysis
+  15: Localization
+  20: Hyperalignment
+  31: Real-life cognition challenge
+  40: More public data
+  46: References
+2015-york-pymvpa-workshop/pymvpa-ecosystem:
+  title: PyMVPA and the larger scientific software ecosystem
+  1: Under the hood
+  3: Python in neuroimaging
+  11: 'Deployment: NeuroDebian'
+  15: Support
+2015-ohbm-signitools:
+  1: Disclaimers
+  8: Why we are special
+  15: Beliefs
+  17: Factors of trust
+  20: Bugs
+  29: Significance estimation
+  31: Summary
+2015-sabanci-open-neuroscience:
+  1: Opening
+  4: Moore Hall
+  16: Introduction to neuroscience
+  27: Introduction to MVPA
+  40: History of the design
+  50: Analysis example
+  71: PyMVPA use-cases
+  83: Efficient community platform
+  111: Federated access to scientific data
+  132: Appendix
+2015-hackathon-neurodebian:
+  1: Acknowledgements
+  4: Efficient community platform
+  14: NeuroDebian in detail
+  25: Inside outs and getting involved
+  28: Closing
+  31: Appendix
+2016-mrn-open-neuroscience:
+  1: Opening
+  14: Introduction to neuroscience
+  21: Introduction to MVPA
+  38: History of the design
+  48: Analysis example
+  69: PyMVPA use-cases
+  81: Efficient community platform
+  109: Federated access to scientific data
+  131: Automated citation of used work
+  146: Appendix
+2016-ohbm-datalad:
+  1: The problem
+  7: DataLad's goal
+  10: How it works
+  21: 'Example: OpenfMRI'
+  23: Work in progress
+  26: Summary
+  31: Appendix
+2016-ohbm-pr4ni-resources:
+  1: Opening
+  5: Human resources
+  15: Knowledge transfer
+  23: 'Reusable artifacts: software'
+  37: 'Reusable artifacts: data'
+  41: A collective PR4NI mind
+  45: Appendix
+2016-data-ecosystem-1slide:
+  1: Title
+  2: Managing data as easy as code/software
+2016-crcns-datalad:
+  1: The problem
+  8: DataLad's goal
+  11: 'Demo: from search to get'
+  18: How it works
+  23: 'Example: OpenfMRI'
+  26: Summary
+  31: Appendix
+2017-dartmouth-datalad:
+  1: The problem
+  8: DataLad's goal
+  11: 'Demo: from search to get'
+  18: How it works
+  23: 'Example: OpenfMRI'
+  26: Summary
+  31: Appendix
+2017-mind-datalad:
+  1: The problem
+  8: DataLad's goal
+  11: How it works
+  25: 'Demo: from search to publish'
+  71: 'Demo: crawl'
+  82: Summary
+  87: Appendix
+2017-nih-datalad:
+  1: The problem
+  8: DataLad's goal
+  11: 'Demo: from search to get'
+  18: How it works
+  32: 'Example: OpenfMRI'
+  35: Summary
+  40: Appendix
+2017-online-intensive-datalad:
+  1: The problem
+  8: DataLad's goal
+  10: How it works
+  31: Demo
+  33: Summary
+  37: Appendix
+2018-mcgill-datalad:
+  1: How it works
+  15: Demo time
+  19: Appendix
+2018-sobp-variability:
+  1: The problem
+  7: A simple re-executable publication
+  14: Results across OS
+  17: Why it happens
+  24: How to improve reproducibility
+  28: BIDS
+  31: ReproIn
+  36: DataLad
+  39: NeuroDebian
+  42: NeuroDocker
+  44: NICEMAN
+  46: Summary
+  47: Acknowledgments
+  49: References
+2018-mind-con-tools:
+  1: Who we are
+  10: Open by Design
+  11: Open Brain Consent
+  19: ReproIn and BIDS
+  28: PyMVPA
+  72: NeuroDebian
+  95: DataLad
+  126: DueCredit
+  138: HOWTO and summary
+  143: References
+2019-mind-con-tools:
+  1: Who we are
+  11: Open by Design
+  18: Open Brain Consent
+  26: ReproIn and BIDS
+  35: PyMVPA
+  81: NeuroDebian
+  101: DataLad
+  131: DueCredit
+  143: HOWTO and summary
+  148: References
+2019-umass-tales:
+  1: Who we are
+  8: Tale of a vanishing dataset
+  26: Tale of an atlas with the holes
+  34: DataLad
+  55: Interim summary
+  61: Tale of a Zebra in MRI
+  73: Tale of 1,000 and one parcellation
+  76: Tale of a tricky localizer
+  79: Tale of rich stimuli
+  93: HOWTO
+  96: References
+2019-brown-open-science:
+  1: Who we are
+  11: Open by Design
+  19: Open Brain Consent
+  27: ReproIn and BIDS
+  38: NeuroDebian
+  57: DataLad
+  87: DueCredit
+  99: Summary
+  104: References

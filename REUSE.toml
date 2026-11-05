@@ -642,3 +642,67 @@ path = ["3rd-party/js-yaml/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Vitaly Puzrin"
 SPDX-License-Identifier = "MIT"
+
+# The talks imported from pymvpa/papers.  They were never given a license, and
+# their slides carry figures and screenshots from others, so this states the
+# holders we know and that the license of the whole cannot be determined.
+[[annotations]]
+path = [
+    "2011-euroscipy-debian.pdf",
+    "2011-psychopy-workshop.pdf",
+    "2012-incf-neurodebian.pdf",
+    "2012-hdi-debian-med.pdf",
+    "2014-pycon-fail2ban.pdf",
+    "2014-siemens-pymvpa-neurodebian.pdf",
+    "2014-sri-neuroimaging.pdf",
+    "2015-dartmouth-cs-colloquium.pdf",
+    "2015-hackathon-neurodebian.pdf",
+    "2015-ohbm-signitools.pdf",
+    "2015-sabanci-open-neuroscience.pdf",
+    "2016-data-ecosystem-1slide.pdf",
+    "2016-mrn-open-neuroscience.pdf",
+    "2016-ohbm-pr4ni-resources.pdf",
+    "2018-mcgill-datalad.pdf",
+    "2018-mind-con-tools.pdf",
+    "2018-sobp-variability.pdf",
+    "2019-brown-open-science.pdf",
+    "2019-mind-con-tools.pdf",
+    "2019-umass-tales.pdf",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Yaroslav O. Halchenko"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+[[annotations]]
+path = [
+    "2008-cambridge-pymvpa.pdf",
+    "2008-nipy-sprint-pymvpa.pdf",
+    "2009-bccn-pymvpa.pdf",
+    "2009-dartmouth-ecosystem.pdf",
+    "2009-hawaii-pymvpa.pdf",
+    "2009-nipy-decoding.pdf",
+    "2009-nipy-pymvpa.pdf",
+    "2009-pymvpa-extravaganza.pdf",
+    "2009-tu-berlin-pymvpa.pdf",
+    "2010-debconf-citations.pdf",
+    "2010-debconf-neurodebian.pdf",
+    "2010-pymvpa-course/*.pdf",
+    "2011-dartmouth-searchlight.pdf",
+    "2011-euroscipy-neurodebian.pdf",
+    "2011-euroscipy-pymvpa.pdf",
+    "2011-sfn-pymvpa.pdf",
+    "2012-pymvpa-course.pdf",
+    "2012-upenn-environments.pdf",
+    "2013-sea-debian.pdf",
+    "2014-giessen-pymvpa-workshop/*.pdf",
+    "2015-york-pymvpa-workshop/*.pdf",
+    "2016-crcns-datalad.pdf",
+    "2016-ohbm-datalad.pdf",
+    "2017-dartmouth-datalad.pdf",
+    "2017-mind-datalad.pdf",
+    "2017-nih-datalad.pdf",
+    "2017-online-intensive-datalad.pdf",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["Yaroslav O. Halchenko", "Michael Hanke"]
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"

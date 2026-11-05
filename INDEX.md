@@ -576,6 +576,64 @@ Cross-references in the per-topic lookup point at the shelved path
 ### `0000-zoom-background.html` — Zoom background slide template
 - Not a talk; layout source for sharing CON banner during Zoom.
 
+## PDF-only talks
+
+Talks from before the reveal.js decks, written in LaTeX beamer and kept here
+as `<TALK-ID>.pdf`, or `<EVENT>/<LECTURE>.pdf` for a workshop. They are shown by
+`pdfdeck.html`, and their sections are in
+`pdfdeck/sections.yaml`; see `pdfdeck/README.md`. The LaTeX sources stay in
+`pymvpa/papers`, mostly under `talk-*`; each record's evidence names its folder.
+
+| Date       | Talk                                                                                                                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2019-11    | [Making science more open and reproducible by design, tools can help](pdfdeck.html?talk=2019-brown-open-science)                                                                    |
+| 2019-09    | [Tales from the CON: A few studies of a curious mind](pdfdeck.html?talk=2019-umass-tales)                                                                                           |
+| 2019-08    | [Open Science Tools from the Center for Open Neuroscience](pdfdeck.html?talk=2019-mind-con-tools)                                                                                   |
+| 2018-08    | [Tools from Center for Open Neuroscience: be Open by Design](pdfdeck.html?talk=2018-mind-con-tools)                                                                                 |
+| 2018-05    | [Variability of the Neuroimaging results across OS, and how to avoid it](pdfdeck.html?talk=2018-sobp-variability)                                                                   |
+| 2018-03    | [Got Something, Commit Something](pdfdeck.html?talk=2018-mcgill-datalad)                                                                                                            |
+| 2017-08    | [DataLad -- decentralized data distribution for consumption and sharing of scientific datasets](pdfdeck.html?talk=2017-mind-datalad)                                                |
+| 2017-08    | [DataLad -- decentralized data distribution for consumption and sharing of scientific datasets](pdfdeck.html?talk=2017-nih-datalad)                                                 |
+| 2017-08    | [DataLad -- Decentralized Distribution and Sharing of Scientific Datasets](pdfdeck.html?talk=2017-online-intensive-datalad)                                                         |
+| 2017-07    | [DataLad -- decentralized data distribution for consumption and sharing of scientific datasets](pdfdeck.html?talk=2017-dartmouth-datalad)                                           |
+| 2016-10    | [DataLad -- decentralized data distribution for consumption and sharing of scientific datasets](pdfdeck.html?talk=2016-crcns-datalad)                                               |
+| 2016-07    | [Managing data should be as easy as managing code and software](pdfdeck.html?talk=2016-data-ecosystem-1slide)                                                                       |
+| 2016-06    | [DataLad -- decentralized data distribution for consumption and sharing of scientific datasets](pdfdeck.html?talk=2016-ohbm-datalad)                                                |
+| 2016-06    | [Resources for practicing PR4NI: pragmatic cursory overview](pdfdeck.html?talk=2016-ohbm-pr4ni-resources)                                                                           |
+| 2016-04    | [The road to open neuroscience: from analysis methods to software platforms](pdfdeck.html?talk=2016-mrn-open-neuroscience)                                                          |
+| 2015-10    | [Virtues of cognitive neuroscience: from brain function to software platforms (NeuroDebian)](pdfdeck.html?talk=2015-hackathon-neurodebian)                                          |
+| 2015-08    | [The road to open neuroscience: from analysis methods to software platforms](pdfdeck.html?talk=2015-sabanci-open-neuroscience)                                                      |
+| 2015-06    | [Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes](pdfdeck.html?talk=2015-ohbm-signitools)                                                |
+| 2015-05    | [PyMVPA Workshop 2015](pdfdeck.html?talk=2015-york-pymvpa-workshop)                                                                                                                 |
+| 2015       | [Virtues of cognitive neuroscience: from brain function to software platforms](pdfdeck.html?talk=2015-dartmouth-cs-colloquium)                                                      |
+| 2014-09    | [PyMVPA Workshop 2014](pdfdeck.html?talk=2014-giessen-pymvpa-workshop)                                                                                                              |
+| 2014-07    | ["To make a world a better place" or PyMVPA / NeuroDebian / ...](pdfdeck.html?talk=2014-siemens-pymvpa-neurodebian)                                                                 |
+| 2014-04    | [Fail2Ban -- keep your boxes skiddie-free](pdfdeck.html?talk=2014-pycon-fail2ban)                                                                                                   |
+| 2014-03    | [From statistical learning to an open-source, turnkey platform for neuroimaging](pdfdeck.html?talk=2014-sri-neuroimaging)                                                           |
+| 2013-04    | [Open is not enough: benefits from Debian as an integrated, community-driven computing platform](pdfdeck.html?talk=2013-sea-debian)                                                 |
+| 2012-09    | [Applied NeuroDebian: Python in Neuroimaging](pdfdeck.html?talk=2012-incf-neurodebian)                                                                                              |
+| 2012-09    | [PyMVPA Course -- Overture](pdfdeck.html?talk=2012-pymvpa-course)                                                                                                                   |
+| 2012-06    | [Debian Med: The ultimate operating system for medicine, pre-clinical research and bio-informatics](pdfdeck.html?talk=2012-hdi-debian-med)                                          |
+| 2012-02    | [Environments for efficient contemporary research in neuroimaging](pdfdeck.html?talk=2012-upenn-environments)                                                                       |
+| 2011-11    | [Multivariate analysis strategies of neuroimaging data in PyMVPA](pdfdeck.html?talk=2011-sfn-pymvpa)                                                                                |
+| 2011-08    | [π's in Debian or Scientific Debian: NumPy, SciPy and beyond](pdfdeck.html?talk=2011-euroscipy-debian)                                                                              |
+| 2011-08    | [More than batteries included: NeuroDebian](pdfdeck.html?talk=2011-euroscipy-neurodebian)                                                                                           |
+| 2011-08    | [The virtues and sins of PyMVPA](pdfdeck.html?talk=2011-euroscipy-pymvpa)                                                                                                           |
+| 2011-07    | [PsychoPy Workshop: Coding, Git, et al.](pdfdeck.html?talk=2011-psychopy-workshop)                                                                                                  |
+| 2011-04    | [Searchlight whereabouts in PyMVPA](pdfdeck.html?talk=2011-dartmouth-searchlight)                                                                                                   |
+| 2010-08    | [Citations infrastructure in Debian](pdfdeck.html?talk=2010-debconf-citations)                                                                                                      |
+| 2010-08    | [Debian: The ultimate platform for neuroimaging research](pdfdeck.html?talk=2010-debconf-neurodebian)                                                                               |
+| 2010-03    | [First PyMVPA Course Ever](pdfdeck.html?talk=2010-pymvpa-course)                                                                                                                    |
+| 2009-11    | [An ecosystem of neuroimaging, statistical learning, and open-source software to make research more efficient, more open, and more fun](pdfdeck.html?talk=2009-dartmouth-ecosystem) |
+| 2009-11    | [PyMVPA: Where we are now, and where we are going](pdfdeck.html?talk=2009-pymvpa-extravaganza)                                                                                      |
+| 2009-04-17 | [PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis](pdfdeck.html?talk=2009-hawaii-pymvpa)                                                                         |
+| 2009-04    | [Reliable Decoding of Neural Data](pdfdeck.html?talk=2009-nipy-decoding)                                                                                                            |
+| 2009-04    | [PyMVPA: Fathom Brain Function with Multivariate Pattern Analysis](pdfdeck.html?talk=2009-nipy-pymvpa)                                                                              |
+| 2009-01    | [Standing on the shoulders of giants: Multivariate pattern analysis in Python](pdfdeck.html?talk=2009-bccn-pymvpa)                                                                  |
+| 2009-01    | [Modality-independent Analysis Of Neuroimaging Data With PyMVPA](pdfdeck.html?talk=2009-tu-berlin-pymvpa)                                                                           |
+| 2008-04    | [PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis](pdfdeck.html?talk=2008-cambridge-pymvpa)                                                                   |
+| 2008-03    | [Classifier-based analysis toolbox for Neuroimaging](pdfdeck.html?talk=2008-nipy-sprint-pymvpa)                                                                                     |
+
 ## Posters
 
 ### `2026-usrse/stamped-ai-study/index.html` — *STAMPED in Practice*
