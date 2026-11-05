@@ -67,6 +67,27 @@ def make_pdf(path, pages, labels=None, width=363, height=272):
     doc.save(path)
 
 
+def make_links_pdf(path):
+    """A slide with every kind of link, and the page one of them goes to."""
+    doc = pymupdf.open()
+    doc.new_page(width=363, height=272)
+    for n in (2, 3):
+        page = doc.new_page(width=363, height=272)
+        page.draw_rect(page.rect, fill=[c / 255 for c in colour(n)], color=None)
+    first = doc[0]
+    first.insert_text((20, 40), "Text http://example.org/text here")
+    first.insert_text((20, 80), "http://example.org/own")
+    first.insert_link({"kind": pymupdf.LINK_URI, "uri": "http://example.org/own",
+                       "from": pymupdf.Rect(15, 65, 200, 90)})
+    first.insert_link({"kind": pymupdf.LINK_GOTO, "page": 2, "to": pymupdf.Point(0, 0),
+                       "from": pymupdf.Rect(20, 120, 120, 150)})
+    first.insert_link({"kind": pymupdf.LINK_LAUNCH, "file": "www.example.org",
+                       "from": pymupdf.Rect(20, 160, 120, 190)})
+    first.insert_link({"kind": pymupdf.LINK_LAUNCH, "file": "demo.avi",
+                       "from": pymupdf.Rect(20, 200, 120, 230)})
+    doc.save(path)
+
+
 def make_big_pdf(path, pages=30):
     """Pages holding about 1MB of incompressible image each."""
     doc = pymupdf.open()
@@ -129,6 +150,7 @@ def site(tmp_path_factory):
     make_pdf(root / "plain.pdf", 3)
     make_pdf(root / "wide.pdf", 2, width=454, height=283)
     make_big_pdf(root / "big.pdf")
+    make_links_pdf(root / "links.pdf")
     (root / "workshop").mkdir()
     make_pdf(root / "workshop/first.pdf", 2)
     make_pdf(root / "workshop/second.pdf", 3)
@@ -278,6 +300,47 @@ def test_pdf_links_are_clickable_and_unsafe_ones_are_gone(page, site):
     box, slide = link.bounding_box(), page.locator("section.frame.present canvas").bounding_box()
     assert box["x"] - slide["x"] == pytest.approx(0.1 * slide["width"], abs=3)
     assert box["width"] == pytest.approx(0.4 * slide["width"], abs=3)
+
+
+def test_addresses_in_text_are_links_and_only_once(page, site):
+    open_talk(page, site, talk="links")
+    links = page.locator("section.frame.present .links a")
+    expect(links).to_have_count(4)
+    hrefs = [a.get_attribute("href") for a in links.all()]
+    assert hrefs.count("http://example.org/own") == 1
+    assert "http://example.org/text" in hrefs
+    assert "demo.avi" not in hrefs
+
+
+def test_a_text_link_sits_on_its_text(page, site):
+    open_talk(page, site, talk="links")
+    link = page.locator('section.frame.present .links a[href="http://example.org/text"]')
+    box, slide = link.bounding_box(), page.locator("section.frame.present canvas").bounding_box()
+    scale = slide["width"] / 363
+    assert slide["y"] + 25 * scale < box["y"] + box["height"] / 2 < slide["y"] + 45 * scale
+    assert box["x"] > slide["x"] + 40 * scale
+
+
+def test_a_link_without_a_scheme_gets_one(page, site):
+    open_talk(page, site, talk="links")
+    expect(page.locator('section.frame.present .links a[href^="http://www.example.org"]')).to_have_count(1)
+
+
+def test_a_link_within_the_pdf_goes_to_that_slide(page, site):
+    open_talk(page, site, talk="links")
+    page.locator('section.frame.present .links a[href^="#/"]').click()
+    wait_for_page(page, 3)
+    assert page.evaluate("Reveal.getIndices().v") == 2
+
+
+def test_a_footer_link_under_the_bar_can_be_clicked(page, site):
+    open_talk(page, site, talk="links")
+    page.evaluate("""() => {
+        const a = document.querySelector('section.frame.present .links a[href^="#/"]');
+        Object.assign(a.style, {left: '10%', top: '93%', width: '20%', height: '5%'});
+    }""")
+    page.locator('section.frame.present .links a[href^="#/"]').click()
+    wait_for_page(page, 3)
 
 
 def test_links_follow_the_overlay_on_screen(page, site):

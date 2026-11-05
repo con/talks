@@ -4,6 +4,8 @@
 const NAME = "[A-Za-z0-9][A-Za-z0-9._-]*";
 const TALK_ID = new RegExp(`^${NAME}(/${NAME})?$`);
 const LINK_SCHEMES = /^(https?:|mailto:)/i;
+const HAS_DOMAIN = /^(?:https?:\/\/)?[^/]+\.[a-z]/i;
+const WEB_ADDRESS = /\b(?:https?:\/\/|www\.)[^\s<>"'()[\]{}]+/gi;
 
 // The talk named in a location.search string, or null.  Only a file stem, or
 // one folder and a stem, is accepted, so ?talk= cannot point the viewer at
@@ -78,10 +80,10 @@ export function canvasSize(pageWidth, pageHeight, width = 1024) {
   return { width, height: Math.round((width * pageHeight) / pageWidth) };
 }
 
-// A link annotation as CSS percentages of the page, or null if it is not an
-// external link.  `rect` is [x1, y1, x2, y2] in viewport pixels.
+// A link as CSS percentages of the page, or null if it goes anywhere other
+// than a slide of this deck (`#/...`) or the web.  `rect` is [x1, y1, x2, y2] in viewport pixels.
 export function linkBox(url, rect, viewWidth, viewHeight) {
-  if (!url || !LINK_SCHEMES.test(url)) return null;
+  if (!url || !(url.startsWith("#/") || LINK_SCHEMES.test(url))) return null;
   const [x1, y1, x2, y2] = rect;
   const pct = (v, total) => `${((100 * v) / total).toFixed(3)}%`;
   return {
@@ -91,6 +93,81 @@ export function linkBox(url, rect, viewWidth, viewHeight) {
     width: pct(Math.abs(x2 - x1), viewWidth),
     height: pct(Math.abs(y2 - y1), viewHeight),
   };
+}
+
+// Where in the deck a PDF page is, as the URL hash reveal.js understands, or
+// null if the deck has no such page.
+export function hashOfPage(deck, page) {
+  for (const [h, part] of deck.entries()) {
+    const v = part.frames.findIndex((f) => page >= f.first && page <= f.last);
+    if (v < 0) continue;
+    const step = page - part.frames[v].first;
+    return step ? `#/${h}/${v}/${step - 1}` : `#/${h}/${v}`;
+  }
+  return null;
+}
+
+// The address of a link written without a scheme, as \url{www.nitrc.org} comes
+// out of pdfTeX as a file to launch.  Anything else is not for a browser.
+export function withScheme(address) {
+  if (/^https?:|^mailto:/i.test(address)) return address;
+  if (/^[^\s@/]+@[^\s@/]+\.[^\s@/]+$/.test(address)) return `mailto:${address}`;
+  return /^www\.[^\s/]+\.[^\s]+$/i.test(address) ? `http://${address}` : null;
+}
+
+// Web addresses are often only text on a slide.  Takes pdf.js text items and
+// returns [{url, rect}], rect being [x1, y1, x2, y2] in PDF points, skipping
+// any that overlaps a rect of `taken`, the links the PDF has itself.  Character
+// positions are interpolated, which is close enough for a click target.
+export function textLinks(items, taken = []) {
+  const found = [];
+  for (const line of textLines(items)) {
+    for (const match of line.text.matchAll(WEB_ADDRESS)) {
+      const address = match[0].replace(/[.,;:!?'"]+$/, "");
+      const last = match.index + address.length - 1;
+      const rect = [line.xs[match.index], line.y, line.xs[last] + line.widths[last], line.y + line.height];
+      if (!HAS_DOMAIN.test(address) || taken.some((other) => overlap(rect, other))) continue;
+      found.push({ url: withScheme(address), rect });
+    }
+  }
+  return found;
+}
+
+// Horizontal items on one baseline as one string, with each character's place.
+function textLines(items) {
+  const lines = [];
+  let line = null;
+  for (const item of items) {
+    const [a, b, , , x, y] = item.transform || [];
+    if (!item.str || b || a <= 0) continue;
+    const height = item.height || a;
+    const width = item.width / item.str.length;
+    const end = line && line.xs[line.xs.length - 1] + line.widths[line.widths.length - 1];
+    if (!line || Math.abs(line.y - y) > height / 4 || x < end - height) {
+      line = { text: "", xs: [], widths: [], y, height };
+      lines.push(line);
+    } else if (x - end > height / 4) {
+      line.text += " ";
+      line.xs.push(end);
+      line.widths.push(x - end);
+    }
+    [...item.str].forEach((char, i) => {
+      for (const unit of char) {  // match indices count UTF-16 units
+        line.text += unit;
+        line.xs.push(x + i * width);
+        line.widths.push(width);
+      }
+    });
+  }
+  return lines;
+}
+
+function overlap(a, b) {
+  const [ax1, ax2] = [Math.min(a[0], a[2]), Math.max(a[0], a[2])];
+  const [ay1, ay2] = [Math.min(a[1], a[3]), Math.max(a[1], a[3])];
+  const [bx1, bx2] = [Math.min(b[0], b[2]), Math.max(b[0], b[2])];
+  const [by1, by2] = [Math.min(b[1], b[3]), Math.max(b[1], b[3])];
+  return ax1 < bx2 && bx1 < ax2 && ay1 < by2 && by1 < ay2;
 }
 
 // The talks.yaml entry of a talk, if it has one.

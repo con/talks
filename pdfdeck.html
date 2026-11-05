@@ -23,9 +23,12 @@
 				padding: .2em .6em; border-radius: 0 .4em 0 0;
 				font: 13px/1.5 sans-serif; color: #fff; background: rgba(56, 67, 76, .75);
 			}
+			/* The bar lies over the slide's footer, whose links must stay clickable. */
+			#bar, .reveal .progress { pointer-events: none; }
 			#bar[hidden], #toc[hidden] { display: none; }
 			#bar a { color: #cfe0f7; }
 			#bar button, #toc button { all: unset; cursor: pointer; }
+			#bar a, #bar button { pointer-events: auto; }
 			#bar button:focus-visible, #toc button:focus-visible { outline: 2px solid #87AADE; }
 			#where { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 			#count { white-space: nowrap; }

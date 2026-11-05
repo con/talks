@@ -13,8 +13,17 @@ parts it needs through HTTP range requests.
 | `o`                 | overview: one column per section                 |
 | `t`                 | the list of sections                             |
 
-Links in the PDF stay clickable, and the URL tracks the position, so a slide
-can be linked to (`...?talk=<TALK-ID>#/3/2`).
+The URL tracks the position, so a slide can be linked to
+(`...?talk=<TALK-ID>#/3/2`). Links work as in a PDF reader:
+
+- web and mail links of the PDF, also those pdfTeX wrote as files to launch;
+- links within the PDF, such as a citation to its reference, which go to that
+  slide;
+- addresses that are only text (`http://...`, `www...`), which get a link too. An
+  address wrapped over two lines is linked up to the end of its first line.
+
+The small navigation icons of old beamer decks that act on the reader itself
+(back, forward, find) do nothing.
 
 ## How a PDF becomes a deck
 

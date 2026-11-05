@@ -4,7 +4,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import {
-  buildDeck, canvasSize, framesOf, lecturesOf, linkBox, pageAtStep, resolveTalk, sectionList, talkEntry, talkId,
+  buildDeck, canvasSize, framesOf, hashOfPage, lecturesOf, linkBox, pageAtStep, resolveTalk, sectionList, talkEntry,
+  talkId, textLinks, withScheme,
 } from "../pdfdeck/model.js";
 
 test("talkId takes a plain file stem", () => {
@@ -129,6 +130,55 @@ test("linkBox keeps external links only", () => {
   for (const url of [undefined, "", "javascript:alert(1)", "file:///etc/passwd", "data:text/html,x"]) {
     assert.equal(linkBox(url, [0, 0, 1, 1], 10, 10), null, url);
   }
+});
+
+test("linkBox keeps links to slides of the deck", () => {
+  assert.equal(linkBox("#/2/1", [0, 0, 1, 1], 10, 10).url, "#/2/1");
+  assert.equal(linkBox("#elsewhere", [0, 0, 1, 1], 10, 10), null);
+});
+
+test("hashOfPage finds a frame, and an overlay within it", () => {
+  const deck = [{ frames: [{ first: 1, last: 1 }] }, { frames: [{ first: 2, last: 2 }, { first: 3, last: 5 }] }];
+  assert.equal(hashOfPage(deck, 1), "#/0/0");
+  assert.equal(hashOfPage(deck, 3), "#/1/1");
+  assert.equal(hashOfPage(deck, 5), "#/1/1/1");
+  assert.equal(hashOfPage(deck, 6), null);
+});
+
+const item = (str, x, y = 100, size = 10) => ({ str, transform: [size, 0, 0, size, x, y], width: str.length * 5, height: size });
+
+test("textLinks finds an address and where it is", () => {
+  assert.deepEqual(textLinks([item("see http://a.org/x now", 10)]),
+    [{ url: "http://a.org/x", rect: [30, 100, 100, 110] }]);
+});
+
+test("textLinks gives www a scheme and leaves sentence punctuation out", () => {
+  assert.deepEqual(textLinks([item("www.pymvpa.org.", 0)]).map((l) => l.url), ["http://www.pymvpa.org"]);
+  assert.deepEqual(textLinks([item("(http://a.org),", 0)]).map((l) => l.url), ["http://a.org"]);
+});
+
+test("textLinks joins the items of a line, but not separate lines", () => {
+  assert.deepEqual(textLinks([item("http://a.", 0), item("org/x", 45)]).map((l) => l.url), ["http://a.org/x"]);
+  assert.deepEqual(textLinks([item("http://a.org", 0), item("/x", 60, 80)]).map((l) => l.url), ["http://a.org"]);
+  assert.deepEqual(textLinks([item("http://a.org", 0), item("next", 100)]).map((l) => l.url), ["http://a.org"]);
+});
+
+test("textLinks leaves what the PDF links itself, and non-addresses", () => {
+  assert.deepEqual(textLinks([item("http://a.org", 0)], [[0, 95, 200, 115]]), []);
+  assert.equal(textLinks([item("http://a.org", 0)], [[500, 95, 600, 115]]).length, 1);
+  assert.deepEqual(textLinks([item("http://g-node", 0), item("www", 0, 50), item("wwwx.org", 0, 20)]), []);
+});
+
+test("textLinks ignores rotated and empty text", () => {
+  assert.deepEqual(textLinks([{ str: "http://a.org", transform: [0, 10, -10, 0, 0, 0], width: 60, height: 10 },
+    { str: "", transform: [10, 0, 0, 10, 0, 0], width: 0, height: 10 }, { str: "x" }]), []);
+});
+
+test("withScheme fixes addresses pdfTeX wrote as files, and nothing else", () => {
+  assert.equal(withScheme("www.nitrc.org"), "http://www.nitrc.org");
+  assert.equal(withScheme("yoh@onerussian.com"), "mailto:yoh@onerussian.com");
+  assert.equal(withScheme("https://a.org"), "https://a.org");
+  for (const other of ["demo.avi", "../x.pdf", "/etc/passwd", "www", "run.sh"]) assert.equal(withScheme(other), null, other);
 });
 
 test("talkEntry finds a talk by its viewer path", () => {

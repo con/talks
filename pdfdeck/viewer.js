@@ -2,7 +2,7 @@
 // slide is a canvas painted from the PDF on demand, which pdf.js fetches with
 // HTTP range requests.  See pdfdeck/README.md.
 import * as pdfjs from "../3rd-party/pdfjs/pdf.min.js";
-import { buildDeck, canvasSize, linkBox, pageAtStep, resolveTalk, sectionList, talkEntry, talkId } from "./model.js";
+import { buildDeck, canvasSize, hashOfPage, linkBox, pageAtStep, resolveTalk, sectionList, talkEntry, talkId, textLinks, withScheme } from "./model.js";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL("../3rd-party/pdfjs/pdf.worker.min.js", import.meta.url).href;
 
@@ -115,26 +115,40 @@ function rendered(pdf, page, width) {
   return job;
 }
 
-async function pageLinks(pdf, page) {
+// The slide a link within the PDF goes to, as a URL hash.
+async function destinationHash(pdf, deck, dest) {
+  const explicit = typeof dest === "string" ? await pdf.getDestination(dest) : dest;
+  if (!explicit) return null;
+  const [target] = explicit;
+  const index = typeof target === "number" ? target : await pdf.getPageIndex(target);
+  return hashOfPage(deck, index + 1);
+}
+
+async function pageLinks(pdf, deck, page) {
   const pdfPage = await pdf.getPage(page);
   const viewport = pdfPage.getViewport({ scale: 1 });
-  const annotations = await pdfPage.getAnnotations({ intent: "display" });
-  return annotations
-    .filter((a) => a.subtype === "Link")
-    .map((a) => {
-      const corners = [...viewport.convertToViewportPoint(a.rect[0], a.rect[1]),
-        ...viewport.convertToViewportPoint(a.rect[2], a.rect[3])];
-      return linkBox(a.url, corners, viewport.width, viewport.height);
+  const annotations = (await pdfPage.getAnnotations({ intent: "display" })).filter((a) => a.subtype === "Link");
+  const own = await Promise.all(annotations.map(async (a) => ({
+    url: a.url || (a.unsafeUrl && withScheme(a.unsafeUrl))
+      || (a.dest && await destinationHash(pdf, deck, a.dest).catch(() => null)),
+    rect: a.rect,
+  })));
+  const { items } = await pdfPage.getTextContent();
+  return [...own, ...textLinks(items, annotations.map((a) => a.rect))]
+    .map(({ url, rect }) => {
+      const corners = [...viewport.convertToViewportPoint(rect[0], rect[1]),
+        ...viewport.convertToViewportPoint(rect[2], rect[3])];
+      return linkBox(url, corners, viewport.width, viewport.height);
     })
     .filter(Boolean);
 }
 
-async function paint(pdf, frame, page, width) {
+async function paint(pdf, deck, frame, page, width) {
   const canvas = frame.section.querySelector("canvas");
   if (canvas.dataset.page === `${page}@${width}`) return;
   frame.wanted = `${page}@${width}`;
   const bitmap = await rendered(pdf, page, width);
-  const boxes = await pageLinks(pdf, page);
+  const boxes = await pageLinks(pdf, deck, page);
   if (frame.wanted !== `${page}@${width}`) return;  // moved on meanwhile
   canvas.width = bitmap.width;
   canvas.height = bitmap.height;
@@ -189,7 +203,7 @@ function start(pdf, deck, numPages, size) {
     const here = current();
     const width = pixelWidth();
     refreshBar(here);
-    await paint(pdf, here.frame, here.page, width);
+    await paint(pdf, deck, here.frame, here.page, width);
     document.documentElement.dataset.pdfdeck = "ready";
     const at = frames.indexOf(here.frame);
     const near = frames.slice(Math.max(0, at - KEEP_FRAMES), at + KEEP_FRAMES + 1);
@@ -201,7 +215,7 @@ function start(pdf, deck, numPages, size) {
     for (const frame of [...near, ...stacks]) {
       if (frame === here.frame) continue;
       const page = frames.indexOf(frame) < at ? frame.last : frame.first;
-      await paint(pdf, frame, page, width);
+      await paint(pdf, deck, frame, page, width);
     }
   }
 
@@ -210,7 +224,7 @@ function start(pdf, deck, numPages, size) {
     for (const frame of frames) {
       if (!Reveal.isOverview()) return;
       const hidden = frame.section.style.display === "none" || frame.section.parentNode.style.display === "none";
-      if (!hidden) await paint(pdf, frame, frame.last, THUMB_WIDTH);
+      if (!hidden) await paint(pdf, deck, frame, frame.last, THUMB_WIDTH);
     }
   }
 
