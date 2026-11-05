@@ -81,3 +81,26 @@ def test_root_deck_without_record_is_warned(store, capsys):
     add(slug="ok", date="2026-01-01", path="ok.html")
     mk_index.check_coverage(mk_index.load_entries())
     assert "2026-new-talk.html has no talk record" in capsys.readouterr().err
+
+
+@pytest.mark.ai_generated
+def test_pdf_shown_through_the_viewer_is_listed_and_covered(store, capsys):
+    repo, add = store
+    (repo / "2011-x.pdf").write_bytes(b"%PDF")
+    add(slug="talk-2011-x", date="2011-08", path="pdfdeck.html?talk=2011-x", pdf="2011-x.pdf")
+    entries = mk_index.load_entries()
+    assert entries[0]["path"] == "pdfdeck.html?talk=2011-x"
+    assert entries[0]["pdf"] == BASE + "2011-x.pdf"
+    mk_index.check_coverage(entries)
+    assert "has no talk record" not in capsys.readouterr().err
+    page = mk_index.render(entries)
+    assert 'href="pdfdeck.html?talk=2011-x"' in page
+    assert 'href="2011-x.pdf"' in page
+
+
+@pytest.mark.ai_generated
+def test_root_pdf_without_a_record_is_still_reported(store, capsys):
+    repo, _ = store
+    (repo / "2011-orphan.pdf").write_bytes(b"%PDF")
+    mk_index.check_coverage(mk_index.load_entries())
+    assert "2011-orphan.pdf has no talk record" in capsys.readouterr().err

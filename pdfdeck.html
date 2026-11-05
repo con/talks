@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>CON talk</title>
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/beige.css">
+		<style>
+			/* A slide is a page of the PDF, edge to edge. */
+			.reveal .slides section.frame { padding: 0; height: 100%; }
+			.reveal .slides section.frame canvas { display: block; width: 100%; height: 100%; background: #fff; }
+			/* Overlay steps swap the page; the spans only drive reveal.js. */
+			.reveal .slides section .fragment { display: none; }
+			.links { position: absolute; inset: 0; }
+			.links a { position: absolute; display: block; }
+			.links a:hover { background: rgba(135, 170, 222, .25); }
+
+			#bar {
+				position: fixed; left: 0; bottom: 0; z-index: 40; max-width: 70%;
+				display: flex; gap: .6em; align-items: center;
+				padding: .2em .6em; border-radius: 0 .4em 0 0;
+				font: 13px/1.5 sans-serif; color: #fff; background: rgba(56, 67, 76, .75);
+			}
+			#bar[hidden], #toc[hidden] { display: none; }
+			#bar a { color: #cfe0f7; }
+			#bar button, #toc button { all: unset; cursor: pointer; }
+			#bar button:focus-visible, #toc button:focus-visible { outline: 2px solid #87AADE; }
+			#where { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+			#count { white-space: nowrap; }
+			#toc {
+				position: fixed; left: 0; bottom: 2em; z-index: 41; margin: 0;
+				max-height: 75vh; max-width: min(32em, 90vw); overflow-y: auto;
+				padding: .5em 1em; font: 15px/1.7 sans-serif;
+				color: #fff; background: rgba(56, 67, 76, .94); border-radius: 0 .4em .4em 0;
+			}
+			#toc ol { margin: 0; padding-left: 1.6em; }
+			#lectures { margin: 0 0 .5em; padding: 0 0 .4em; list-style: none; border-bottom: 1px solid #87AADE; }
+			#lectures a { color: #cfe0f7; }
+			#lectures a.current { font-weight: 700; color: #87AADE; }
+			#heading { margin: 0 0 .3em; font-weight: 600; }
+			#toc button.current { font-weight: 700; color: #87AADE; }
+
+			#message { display: none; padding: 2em; font: 18px/1.5 sans-serif; }
+			.failed #message { display: block; }
+			.failed .reveal, .failed #bar { display: none; }
+		</style>
+	</head>
+	<body>
+		<p id="message" role="alert"></p>
+		<div class="reveal"><div class="slides"></div></div>
+		<div id="toc" hidden><p id="heading"></p><ul id="lectures" hidden></ul><ol></ol></div>
+		<nav id="bar" hidden>
+			<button id="menu" title="Sections (t)" aria-label="Sections">&#9776;</button>
+			<span id="where"></span>
+			<span id="count"></span>
+			<a id="pdf">PDF</a>
+			<a href="index.html">All talks</a>
+		</nav>
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="3rd-party/js-yaml/js-yaml.min.js"></script>
+		<script type="module" src="pdfdeck/viewer.js"></script>
+	</body>
+</html>

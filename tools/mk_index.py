@@ -100,6 +100,8 @@ def load_entries():
 def check_coverage(entries):
     """A root deck without a record would silently drop off the index."""
     listed = {e["path"] for e in entries}
+    # A PDF shown through pdfdeck.html is listed by its viewer path.
+    listed |= {e["pdf"][len(BASE):] for e in entries if "pdf" in e}
     for f in sorted(HERE.glob("20*.html")) + sorted(HERE.glob("20*.pdf")):
         if f.name not in listed and not is_wip(f.name):
             print(f"WARNING: {f.name} has no talk record in {RECORDS}",

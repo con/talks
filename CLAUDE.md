@@ -48,6 +48,10 @@ sourcedata/con-site-specific/ — submodule: the CON record store that
 _backdrawer_/             — shelved talk prototypes / outline-only stubs
                             (see _backdrawer_/README.md for the convention)
 <TALK-ID>.html            — top-level reveal.js decks
+<TALK-ID>.pdf             — talks that exist only as PDF (mostly the LaTeX
+                            beamer era), shown by pdfdeck.html?talk=<TALK-ID>
+pdfdeck/                  — that viewer, and sections.yaml with the sections of
+                            those talks; see pdfdeck/README.md
 ```
 
 `<TALK-ID>` follows `<YYYY>-<venue>-<short-topic>` (or with a trailing
@@ -219,6 +223,7 @@ The PNG itself is binary; commit it via DataLad
 | If you're producing… | Put it in… |
 | --- | --- |
 | New slide deck | `<TALK-ID>.html` at repo root |
+| Talk that exists only as a PDF | `<TALK-ID>.pdf` at repo root, sections in `pdfdeck/sections.yaml` |
 | QR code image for the deck | `pics/<TALK-ID>-qrcode.png` |
 | Per-deck planning notes / screenshots | `<TALK-ID>/` directory |
 | Venue-specific submission docs (PRD, BoF, poster, abstract) | `<venue-dir>/` (e.g. `2026-usrse/`) |
