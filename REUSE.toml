@@ -52,12 +52,12 @@ SPDX-FileCopyrightText = "Hakim El Hattab <hakim.elhattab@gmail.com> and reveal.
 SPDX-License-Identifier = "MIT"
 
 # Our own code.  CC-BY-SA is a content license and Creative Commons advises
-# against using it for software, so the helper scripts and the CI workflows
-# carry Apache-2.0 instead of the repository-wide slide license.  In-file SPDX
+# against using it for software, so the helper scripts, their tests and the CI
+# workflows carry Apache-2.0 instead of the repository-wide slide license.  In-file SPDX
 # headers still win over this (see precedence on the catch-all), which is how
 # 2026-nih-bids2.0/ keeps its MIT headers.
 [[annotations]]
-path = ["tools/**", ".github/**"]
+path = ["tools/**", "tests/**", ".github/**"]
 precedence = "closest"
 SPDX-FileCopyrightText = "2022-2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
 SPDX-License-Identifier = "Apache-2.0"
@@ -644,9 +644,6 @@ path = [
     "pdfdeck.html",
     "pdfdeck/*.js",
     "pdfdeck/README.md",
-    "tests/pdfdeck_model.test.mjs",
-    "tests/test_pdfdeck.py",
-    "tests/test_pdfdeck_e2e.py",
 ]
 precedence = "closest"
 SPDX-FileCopyrightText = "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
