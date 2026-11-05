@@ -245,3 +245,508 @@
   authors:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2020-repronim-reprocomp-webinar
+- date: 2019-11
+  kind: talk
+  title: Making science more open and reproducible by design, tools can help
+  path: pdfdeck.html?talk=2019-brown-open-science
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-brown-open-science
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-brown-open-science.pdf
+  venue: Brown University
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2019-brown-open-science
+- date: 2019-09
+  kind: talk
+  title: 'Tales from the CON: A few studies of a curious mind'
+  path: pdfdeck.html?talk=2019-umass-tales
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-umass-tales
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-umass-tales.pdf
+  venue: UMass
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2019-umass-tales
+- date: 2019-08
+  kind: talk
+  title: Open Science Tools from the Center for Open Neuroscience
+  path: pdfdeck.html?talk=2019-mind-con-tools
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-mind-con-tools
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-mind-con-tools.pdf
+  venue: MIND 2019
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2019-mind-con-tools
+- date: 2018-08
+  kind: talk
+  title: 'Tools from Center for Open Neuroscience: be Open by Design'
+  path: pdfdeck.html?talk=2018-mind-con-tools
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mind-con-tools
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mind-con-tools.pdf
+  venue: MIND 2018
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2018-mind-con-tools
+- date: 2018-05
+  kind: talk
+  title: Variability of the Neuroimaging results across OS, and how to avoid it
+  path: pdfdeck.html?talk=2018-sobp-variability
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-sobp-variability
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-sobp-variability.pdf
+  venue: SOBP 2018
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2018-sobp-variability
+- date: 2018-03
+  kind: talk
+  title: Got Something, Commit Something
+  path: pdfdeck.html?talk=2018-mcgill-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mcgill-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf
+  venue: NIF/NIH online cast, McGill
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2018-mcgill-datalad
+- date: 2017-08
+  kind: talk
+  title: DataLad -- decentralized data distribution for consumption and sharing of scientific
+    datasets
+  path: pdfdeck.html?talk=2017-mind-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-mind-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2017-mind-datalad.pdf
+  venue: MIND 2017, Dartmouth, Hanover
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2017-mind-datalad
+- date: 2017-08
+  kind: talk
+  title: DataLad -- decentralized data distribution for consumption and sharing of scientific
+    datasets
+  path: pdfdeck.html?talk=2017-nih-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-nih-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2017-nih-datalad.pdf
+  venue: NIH, Bethesda
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2017-nih-datalad
+- date: 2017-08
+  kind: talk
+  title: DataLad -- Decentralized Distribution and Sharing of Scientific Datasets
+  path: pdfdeck.html?talk=2017-online-intensive-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-online-intensive-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2017-online-intensive-datalad.pdf
+  venue: Online intensive, from Dartmouth
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2017-online-intensive-datalad
+- date: 2017-07
+  kind: talk
+  title: DataLad -- decentralized data distribution for consumption and sharing of scientific
+    datasets
+  path: pdfdeck.html?talk=2017-dartmouth-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-dartmouth-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2017-dartmouth-datalad.pdf
+  venue: Dartmouth, Hanover
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2017-dartmouth-datalad
+- date: 2016-10
+  kind: talk
+  title: DataLad -- decentralized data distribution for consumption and sharing of scientific
+    datasets
+  path: pdfdeck.html?talk=2016-crcns-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-crcns-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-crcns-datalad.pdf
+  venue: CRCNS 2016, Paris, France
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2016-crcns-datalad
+- date: 2016-07
+  kind: talk
+  title: Managing data should be as easy as managing code and software
+  path: pdfdeck.html?talk=2016-data-ecosystem-1slide
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-data-ecosystem-1slide
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-data-ecosystem-1slide.pdf
+  venue: Open Data Ecosystem for Neuroscience, Washington DC
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2016-data-ecosystem-1slide
+- date: 2016-06
+  kind: talk
+  title: DataLad -- decentralized data distribution for consumption and sharing of scientific
+    datasets
+  path: pdfdeck.html?talk=2016-ohbm-datalad
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-datalad
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-datalad.pdf
+  venue: OHBM 2016, Geneva, Switzerland
+  authors:
+  - Yaroslav O. Halchenko
+  - Benjamin Poldrack
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2016-ohbm-datalad
+- date: 2016-06
+  kind: talk
+  title: 'Resources for practicing PR4NI: pragmatic cursory overview'
+  path: pdfdeck.html?talk=2016-ohbm-pr4ni-resources
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-ohbm-pr4ni-resources
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-pr4ni-resources.pdf
+  venue: OHBM 2016, Geneva, Switzerland
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2016-ohbm-pr4ni-resources
+- date: 2016-04
+  kind: talk
+  title: 'The road to open neuroscience: from analysis methods to software platforms'
+  path: pdfdeck.html?talk=2016-mrn-open-neuroscience
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2016-mrn-open-neuroscience
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-mrn-open-neuroscience.pdf
+  venue: MRN, Albuquerque
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2016-mrn-open-neuroscience
+- date: 2015-10
+  kind: talk
+  title: 'Virtues of cognitive neuroscience: from brain function to software platforms (NeuroDebian)'
+  path: pdfdeck.html?talk=2015-hackathon-neurodebian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-hackathon-neurodebian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-hackathon-neurodebian.pdf
+  venue: Hackathon
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2015-hackathon-neurodebian
+- date: 2015-08
+  kind: talk
+  title: 'The road to open neuroscience: from analysis methods to software platforms'
+  path: pdfdeck.html?talk=2015-sabanci-open-neuroscience
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-sabanci-open-neuroscience
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-sabanci-open-neuroscience.pdf
+  venue: Sabanci University, Turkey
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2015-sabanci-open-neuroscience
+- date: 2015-06
+  kind: talk
+  title: Overview of statistical evaluation techniques adopted by publicly available MVPA
+    toolboxes
+  path: pdfdeck.html?talk=2015-ohbm-signitools
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-ohbm-signitools
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-ohbm-signitools.pdf
+  venue: OHBM 2015, Honolulu HI
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2015-ohbm-signitools
+- date: 2015-05
+  kind: talk
+  title: PyMVPA Workshop 2015
+  path: pdfdeck.html?talk=2015-york-pymvpa-workshop
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-york-pymvpa-workshop
+  venue: PyMVPA Workshop 2015, University of York
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2015-york-pymvpa-workshop
+- date: '2015'
+  kind: talk
+  title: 'Virtues of cognitive neuroscience: from brain function to software platforms'
+  path: pdfdeck.html?talk=2015-dartmouth-cs-colloquium
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-dartmouth-cs-colloquium
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-dartmouth-cs-colloquium.pdf
+  venue: CS Colloquium, Dartmouth
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2015-dartmouth-cs-colloquium
+- date: 2014-09
+  kind: talk
+  title: PyMVPA Workshop 2014
+  path: pdfdeck.html?talk=2014-giessen-pymvpa-workshop
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-giessen-pymvpa-workshop
+  venue: PyMVPA Workshop 2014, Justus-Liebig-Universität Giessen
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2014-giessen-pymvpa-workshop
+- date: 2014-07
+  kind: talk
+  title: '"To make a world a better place" or PyMVPA / NeuroDebian / ...'
+  path: pdfdeck.html?talk=2014-siemens-pymvpa-neurodebian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-siemens-pymvpa-neurodebian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2014-siemens-pymvpa-neurodebian.pdf
+  venue: Siemens, Princeton
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2014-siemens-pymvpa-neurodebian
+- date: 2014-04
+  kind: talk
+  title: Fail2Ban -- keep your boxes skiddie-free
+  path: pdfdeck.html?talk=2014-pycon-fail2ban
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-pycon-fail2ban
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2014-pycon-fail2ban.pdf
+  venue: PyCon 2014, Montreal, Canada
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2014-pycon-fail2ban
+- date: 2014-03
+  kind: talk
+  title: From statistical learning to an open-source, turnkey platform for neuroimaging
+  path: pdfdeck.html?talk=2014-sri-neuroimaging
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-sri-neuroimaging
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2014-sri-neuroimaging.pdf
+  venue: SRI 2014, Menlo Park, CA, USA
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2014-sri-neuroimaging
+- date: 2013-04
+  kind: talk
+  title: 'Open is not enough: benefits from Debian as an integrated, community-driven computing
+    platform'
+  path: pdfdeck.html?talk=2013-sea-debian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2013-sea-debian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2013-sea-debian.pdf
+  venue: SEA 2013, UCAR, Boulder CO
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2013-sea-debian
+- date: 2012-09
+  kind: talk
+  title: 'Applied NeuroDebian: Python in Neuroimaging'
+  path: pdfdeck.html?talk=2012-incf-neurodebian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-incf-neurodebian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2012-incf-neurodebian.pdf
+  venue: INCF 2012, Munich, Germany
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2012-incf-neurodebian
+- date: 2012-09
+  kind: talk
+  title: PyMVPA Course -- Overture
+  path: pdfdeck.html?talk=2012-pymvpa-course
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-pymvpa-course
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2012-pymvpa-course.pdf
+  venue: PyMVPA course, Magdeburg
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2012-pymvpa-course
+- date: 2012-06
+  kind: talk
+  title: 'Debian Med: The ultimate operating system for medicine, pre-clinical research and
+    bio-informatics'
+  path: pdfdeck.html?talk=2012-hdi-debian-med
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-hdi-debian-med
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2012-hdi-debian-med.pdf
+  venue: 'Health Data Initiative Forum III: The Health Datapalooza, Washington DC'
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2012-hdi-debian-med
+- date: 2012-02
+  kind: talk
+  title: Environments for efficient contemporary research in neuroimaging
+  path: pdfdeck.html?talk=2012-upenn-environments
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2012-upenn-environments
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2012-upenn-environments.pdf
+  venue: UPENN 2012, Philadelphia PA, USA
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2012-upenn-environments
+- date: 2011-11
+  kind: talk
+  title: Multivariate analysis strategies of neuroimaging data in PyMVPA
+  path: pdfdeck.html?talk=2011-sfn-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-sfn-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-sfn-pymvpa.pdf
+  venue: SfN 2011, Washington DC, USA
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2011-sfn-pymvpa
+- date: 2011-08
+  kind: talk
+  title: 'π''s in Debian or Scientific Debian: NumPy, SciPy and beyond'
+  path: pdfdeck.html?talk=2011-euroscipy-debian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-debian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-debian.pdf
+  venue: EuroScipy 2011, Paris, France
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2011-euroscipy-debian
+- date: 2011-08
+  kind: talk
+  title: 'More than batteries included: NeuroDebian'
+  path: pdfdeck.html?talk=2011-euroscipy-neurodebian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-neurodebian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-neurodebian.pdf
+  venue: EuroScipy 2011, Python in Neuroscience satellite, Paris
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2011-euroscipy-neurodebian
+- date: 2011-08
+  kind: talk
+  title: The virtues and sins of PyMVPA
+  path: pdfdeck.html?talk=2011-euroscipy-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-euroscipy-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-pymvpa.pdf
+  venue: EuroScipy 2011, Paris, France
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2011-euroscipy-pymvpa
+- date: 2011-07
+  kind: talk
+  title: 'PsychoPy Workshop: Coding, Git, et al.'
+  path: pdfdeck.html?talk=2011-psychopy-workshop
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-psychopy-workshop
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-psychopy-workshop.pdf
+  venue: PsychoPy workshop
+  authors:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2011-psychopy-workshop
+- date: 2011-04
+  kind: talk
+  title: Searchlight whereabouts in PyMVPA
+  path: pdfdeck.html?talk=2011-dartmouth-searchlight
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2011-dartmouth-searchlight
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-dartmouth-searchlight.pdf
+  venue: Brown bag talk, Dartmouth College
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2011-dartmouth-searchlight
+- date: 2010-08
+  kind: talk
+  title: Citations infrastructure in Debian
+  path: pdfdeck.html?talk=2010-debconf-citations
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-debconf-citations
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-citations.pdf
+  venue: DebConf10, New York City
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2010-debconf-citations
+- date: 2010-08
+  kind: talk
+  title: 'Debian: The ultimate platform for neuroimaging research'
+  path: pdfdeck.html?talk=2010-debconf-neurodebian
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-debconf-neurodebian
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2010-debconf-neurodebian.pdf
+  venue: DebConf10, New York City
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2010-debconf-neurodebian
+- date: 2010-03
+  kind: talk
+  title: First PyMVPA Course Ever
+  path: pdfdeck.html?talk=2010-pymvpa-course
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-pymvpa-course
+  venue: First PyMVPA course
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2010-pymvpa-course
+- date: 2009-11
+  kind: talk
+  title: An ecosystem of neuroimaging, statistical learning, and open-source software to make
+    research more efficient, more open, and more fun
+  path: pdfdeck.html?talk=2009-dartmouth-ecosystem
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-dartmouth-ecosystem
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-dartmouth-ecosystem.pdf
+  venue: Dartmouth College
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2009-dartmouth-ecosystem
+- date: 2009-11
+  kind: talk
+  title: 'PyMVPA: Where we are now, and where we are going'
+  path: pdfdeck.html?talk=2009-pymvpa-extravaganza
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-pymvpa-extravaganza
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-pymvpa-extravaganza.pdf
+  venue: PyMVPA Extravaganza 2009, Dartmouth College
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2009-pymvpa-extravaganza
+- date: '2009-04-17'
+  kind: talk
+  title: 'PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis'
+  path: pdfdeck.html?talk=2009-hawaii-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-hawaii-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-hawaii-pymvpa.pdf
+  venue: Seminar Series in Machine Learning and Computational Biology, University of Hawaii
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2009-hawaii-pymvpa
+- date: 2009-04
+  kind: talk
+  title: Reliable Decoding of Neural Data
+  path: pdfdeck.html?talk=2009-nipy-decoding
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-nipy-decoding
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-decoding.pdf
+  venue: NiPy sprint
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/talk-2009-nipy-decoding
+- date: 2009-04
+  kind: talk
+  title: 'PyMVPA: Fathom Brain Function with Multivariate Pattern Analysis'
+  path: pdfdeck.html?talk=2009-nipy-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-nipy-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-nipy-pymvpa.pdf
+  venue: NiPy sprint
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2009-nipy-pymvpa
+- date: 2009-01
+  kind: talk
+  title: 'Standing on the shoulders of giants: Multivariate pattern analysis in Python'
+  path: pdfdeck.html?talk=2009-bccn-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-bccn-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-bccn-pymvpa.pdf
+  venue: Bernstein Center for Computational Neuroscience (BCCN)
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2009-bccn-pymvpa
+- date: 2009-01
+  kind: talk
+  title: Modality-independent Analysis Of Neuroimaging Data With PyMVPA
+  path: pdfdeck.html?talk=2009-tu-berlin-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2009-tu-berlin-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2009-tu-berlin-pymvpa.pdf
+  venue: MKP talk at TU Berlin
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2009-tu-berlin-pymvpa
+- date: 2008-04
+  kind: talk
+  title: 'PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis'
+  path: pdfdeck.html?talk=2008-cambridge-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2008-cambridge-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2008-cambridge-pymvpa.pdf
+  venue: Talk in Cambridge
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  - James V. Haxby
+  pid: xyzrins:publications/talk-2008-cambridge-pymvpa
+- date: 2008-03
+  kind: talk
+  title: Classifier-based analysis toolbox for Neuroimaging
+  path: pdfdeck.html?talk=2008-nipy-sprint-pymvpa
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2008-nipy-sprint-pymvpa
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2008-nipy-sprint-pymvpa.pdf
+  venue: NiPy Code Sprint
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2008-nipy-sprint-pymvpa
