@@ -71,9 +71,29 @@ whose pages are solid colours, so it reads back which page is really on screen.
 `tests/pdfdeck_model.test.mjs` covers `model.js`, and `tests/test_pdfdeck.py`
 runs those and checks `sections.yaml` against `talks.yaml` and the PDFs.
 
-## Vendored
+## License
 
-`3rd-party/pdfjs` is `pdfjs-dist` 6.4.299 and `3rd-party/js-yaml` is `js-yaml`
-4.1.0, from npm. The two pdf.js modules are renamed from `.mjs` to `.js`, as
+The viewer and its tests are Apache-2.0, (c) 2026 Yaroslav O. Halchenko; see
+`REUSE.toml`. It loads the works below at run time and copies none of their
+code, so each keeps its own terms.
+
+| Work                                  | Where                            | Holder                     | License                           |
+| ------------------------------------- | -------------------------------- | -------------------------- | --------------------------------- |
+| reveal.js                             | `reveal.js/` (submodule)         | Hakim El Hattab and others | MIT                               |
+| pdf.js (`pdfjs-dist` 6.4.299)         | `3rd-party/pdfjs`                | Mozilla Foundation         | Apache-2.0                        |
+| Foxit fonts, shipped with pdf.js      | `.../standard_fonts/Foxit*`      | PDFium Authors             | BSD-3-Clause                      |
+| Liberation fonts, shipped with pdf.js | `.../standard_fonts/Liberation*` | Red Hat, Inc. and others   | GPL v2 with exceptions, see below |
+| js-yaml 4.1.0                         | `3rd-party/js-yaml`              | Vitaly Puzrin              | MIT                               |
+
+The Liberation fonts come with Red Hat's agreement, kept as `LICENSE_LIBERATION`
+next to them and as `LICENSES/LicenseRef-LiberationFont.txt`. pdf.js uses these
+fonts only for PDFs that do not embed theirs, fetching them as separate files.
+
+The PDFs of the talks are not covered by any of this; `REUSE.toml` says what is
+known of them.
+
+## Vendoring
+
+Both are from npm. The two pdf.js modules are renamed from `.mjs` to `.js`, as
 module scripts need a JavaScript content type and that is what the published
 mirror is known to send for `.js`.

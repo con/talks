@@ -79,8 +79,9 @@ and does not relicense them. The CC-BY-SA applies to the slides, diagrams
 and text authored here.
 
 Our own *code* is not under the slide license either: the helper scripts
-in `tools/` and the CI workflows under `.github/` are **Apache-2.0**,
-since Creative Commons licenses are not meant for software.
+in `tools/`, the PDF viewer `pdfdeck.html` with `pdfdeck/`, and the CI
+workflows under `.github/` are **Apache-2.0**, since Creative Commons
+licenses are not meant for software.
 
 Which is which is recorded per-file, machine-readably, following the
 [REUSE specification](https://reuse.software/):

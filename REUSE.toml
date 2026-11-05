@@ -629,18 +629,59 @@ SPDX-FileCopyrightText = "2026 Center for Open Neuroscience"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # ---------------------------------------------------------------------------
-# Talks imported as PDF (pdfdeck.html), and what the viewer vendors.
+# pdfdeck: the PDF viewer, what it vendors, and the talks it shows.
 # ---------------------------------------------------------------------------
+
+# Our own code, so Apache-2.0 like tools/ (see the note there), which is also
+# the license of pdf.js, the work it leans on most.  Written in 2026 with AI
+# assistance (Claude Code).  It reuses three works: reveal.js (MIT, a submodule,
+# see above), pdf.js and js-yaml (below).  It only loads them at run time and
+# calls their APIs, none of their code is copied into these files, so each
+# keeps its own terms.  pdfdeck/sections.yaml is not here: its section titles
+# are content, not code, and stay under the catch-all.
+[[annotations]]
+path = [
+    "pdfdeck.html",
+    "pdfdeck/*.js",
+    "pdfdeck/README.md",
+    "tests/pdfdeck_model.test.mjs",
+    "tests/test_pdfdeck.py",
+    "tests/test_pdfdeck_e2e.py",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Yaroslav O. Halchenko <yaroslav.o.halchenko@dartmouth.edu>"
+SPDX-License-Identifier = "Apache-2.0"
+
+# pdfjs-dist 6.4.299, from npm; the notice is that of its pdf.min.js.
 [[annotations]]
 path = ["3rd-party/pdfjs/**"]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "Mozilla Foundation and pdf.js contributors"
+SPDX-FileCopyrightText = "2024 Mozilla Foundation"
 SPDX-License-Identifier = "Apache-2.0"
 
+# The fonts pdf.js ships for PDFs that do not embed theirs are not under its
+# Apache-2.0: each family has its own license, next to the fonts.
+[[annotations]]
+path = ["3rd-party/pdfjs/standard_fonts/Foxit*", "3rd-party/pdfjs/standard_fonts/LICENSE_FOXIT"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014 PDFium Authors"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# Red Hat's agreement: the GPL v2 with a font exception and further terms, as
+# in LICENSES/LicenseRef-LiberationFont.txt, so not plainly GPL-2.0-only.  The
+# fonts are separate files that pdf.js fetches as data; the exception says a
+# document using them is not covered by the GPL by that alone.
+[[annotations]]
+path = ["3rd-party/pdfjs/standard_fonts/Liberation*", "3rd-party/pdfjs/standard_fonts/LICENSE_LIBERATION"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Red Hat, Inc. and others"
+SPDX-License-Identifier = "LicenseRef-LiberationFont"
+
+# js-yaml 4.1.0, from npm.
 [[annotations]]
 path = ["3rd-party/js-yaml/**"]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "Vitaly Puzrin"
+SPDX-FileCopyrightText = "2011-2015 Vitaly Puzrin"
 SPDX-License-Identifier = "MIT"
 
 # The talks imported from pymvpa/papers.  They were never given a license, and
