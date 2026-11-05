@@ -541,6 +541,7 @@
   venue: 'Health Data Initiative Forum III: The Health Datapalooza, Washington DC'
   authors:
   - Yaroslav O. Halchenko
+  - Michael Hanke
   pid: xyzrins:publications/talk-2012-hdi-debian-med
 - date: 2012-02
   kind: talk
@@ -644,7 +645,7 @@
   title: First PyMVPA Course Ever
   path: pdfdeck.html?talk=2010-pymvpa-course
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2010-pymvpa-course
-  venue: First PyMVPA course
+  venue: First PyMVPA course, Department of Psychological and Brain Sciences, Dartmouth College
   authors:
   - Michael Hanke
   - Yaroslav O. Halchenko
