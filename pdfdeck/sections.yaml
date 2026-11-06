@@ -442,3 +442,34 @@
   87: DueCredit
   99: Summary
   104: References
+2019-repronim-reproin-webinar:
+  1: Why bother
+  5: BIDS
+  10: ReproIn
+  18: The recipe
+  30: Conversion
+  42: Summary
+2020-repronim-containers-webinar:
+  1: There is a problem
+  9: Content tracking
+  19: DataLad run
+  24: Containers
+  32: ReproMan
+  37: Contribute
+2021-abcd-repronim-reproman:
+  1: Introduction
+  10: Shell
+  13: DataLad
+  23: Containers
+  31: High performance computing
+  36: Cloud computing
+  42: ReproMan
+  55: Summary
+2021-yale-datalad-intro:
+  1: Introduction
+  10: Datasets
+  14: Version control
+  19: Consuming datasets
+  29: Reproducible execution
+  37: Publishing datasets
+  46: Summary
