@@ -29,6 +29,8 @@
   - Cody Baker
   - John Lee
   - Yaroslav O. Halchenko
+  presenters:
+  - Austin Macdonald
   pid: xyzrins:publications/poster-2026-usrse-duct
 - date: '2026-10-19'
   kind: poster
@@ -40,6 +42,8 @@
   - John Lee
   - Isaac To
   - Yaroslav O. Halchenko
+  presenters:
+  - John Lee
   pid: xyzrins:publications/poster-2026-usrse-orinoco-lite
 - date: '2026-10-16'
   kind: talk
@@ -132,6 +136,8 @@
   authors:
   - Oliver Rübel
   - Yaroslav O. Halchenko
+  presenters:
+  - Oliver Rübel
   pid: xyzrins:publications/poster-2025-sfn-data-standards
 - date: 2025-10
   kind: talk
@@ -258,6 +264,8 @@
   - Michał Szczepanik
   - John Wodder
   - Christian Moench
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/poster-2022-crcns-dataland
 - date: 2022-09
   kind: talk
@@ -609,6 +617,21 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2013-sea-debian
+- date: 2012-10
+  kind: poster
+  title: Investigation of the familiar face recognition model
+  path: posters/sfn-2012-familiar-faces.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/sfn-2012-familiar-faces.pdf
+  venue: Society for Neuroscience Annual Meeting (SfN 2012)
+  authors:
+  - Yaroslav O. Halchenko
+  - Jason Gors
+  - J. Swaroop Guntupalli
+  - James V. Haxby
+  - M. Ida Gobbini
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/poster-2012-sfn-familiar-faces
 - date: 2012-09
   kind: talk
   title: 'Applied NeuroDebian: Python in Neuroimaging'
@@ -722,6 +745,19 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-psychopy-workshop
+- date: 2011-06
+  kind: poster
+  title: 'NeuroDebian: versatile platform for brain imaging research'
+  path: posters/hbm-2011-neurodebian.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/hbm-2011-neurodebian.pdf
+  venue: Organization for Human Brain Mapping Annual Meeting (HBM 2011)
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  - James V. Haxby
+  presenters:
+  - Michael Hanke
+  pid: xyzrins:publications/poster-2011-hbm-neurodebian
 - date: 2011-04
   kind: talk
   title: Searchlight whereabouts in PyMVPA
@@ -735,6 +771,36 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-dartmouth-searchlight
+- date: 2011-04
+  kind: poster
+  title: Unsupervised brain parcellation from functional neuroimaging data
+  path: posters/cns-2011-parcellation.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2011-parcellation.pdf
+  venue: Cognitive Neuroscience Society Annual Meeting (CNS 2011)
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  - J. Swaroop Guntupalli
+  - Andy Connolly
+  - James V. Haxby
+  presenters:
+  - Michael Hanke
+  pid: xyzrins:publications/poster-2011-cns-parcellation
+- date: 2010-11
+  kind: poster
+  title: An integrated community-driven computing platform for neuroscience
+  path: posters/sfn-2010-neurodebian.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/sfn-2010-neurodebian.pdf
+  venue: Society for Neuroscience Annual Meeting (SfN 2010)
+  authors:
+  - Yaroslav O. Halchenko
+  - James V. Haxby
+  - Stefan Pollmann
+  - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  pid: xyzrins:publications/poster-2010-sfn-neurodebian
 - date: 2010-08
   kind: talk
   title: Citations infrastructure in Debian
@@ -769,6 +835,8 @@
   - James V. Haxby
   - Stephen José Hanson
   - Christoph S. Herrmann
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/poster-2010-caos-transmodal
 - date: '2010-05-21'
   kind: poster
@@ -781,6 +849,8 @@
   - Michael Hanke
   - Yaroslav O. Halchenko
   - Emanuele Olivetti
+  presenters:
+  - Michael Hanke
   pid: xyzrins:publications/poster-2010-caos-pymvpa
 - date: 2010-04
   kind: poster
@@ -793,6 +863,8 @@
   - Yaroslav O. Halchenko
   - James V. Haxby
   - Stefan Pollmann
+  presenters:
+  - Michael Hanke
   pid: xyzrins:publications/poster-2010-cns-neurodebian
 - date: 2010-04
   kind: poster
@@ -806,6 +878,8 @@
   - James V. Haxby
   - Stephen José Hanson
   - Christoph S. Herrmann
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/poster-2010-cns-predictive-mapping
 - date: 2010-03
   kind: talk
@@ -832,6 +906,8 @@
   - Stephen José Hanson
   - James V. Haxby
   - Stefan Pollmann
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/poster-2010-dartmouth-pymvpa
 - date: 2009-11
   kind: talk
