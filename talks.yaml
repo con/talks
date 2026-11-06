@@ -114,6 +114,7 @@
   title: Guidelines for Reproducible Research (BBQS, 2026)
   path: 2026-bbqs-stamped.pdf
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-bbqs-stamped.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8NTWKHer5Zo
   venue: BBQS (BRAIN Behavior Quantification and Synchronization) virtual workshop
   authors:
   - Cody Baker
@@ -127,6 +128,7 @@
   title: 'ReproFlow & YODA: Structure your studies, observable and reproducible they become'
   path: 2026-repronim-YODA-BIDS-webinar.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-repronim-YODA-BIDS-webinar.html
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/1XbTbJ_P2x0
   venue: ReproNim webinar
   authors:
   - Yaroslav O. Halchenko
@@ -194,6 +196,7 @@
   title: 'Pragmatic YODA: overview of YODA principles and their wild life encounters'
   path: 2025-distribits-YODA.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2025-distribits-YODA.html
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/EuKVapscUQ4
   venue: distribits 2025
   authors:
   - Yaroslav O. Halchenko
@@ -216,6 +219,7 @@
   title: SciOps from ReproNim
   path: 2024-repronim-reproflow-webinar/index.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-repronim-reproflow-webinar/index.html
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/SZ96Q6pwJzQ
   venue: ReproNim webinar
   authors:
   - Yaroslav O. Halchenko
@@ -238,6 +242,7 @@
   title: '"What''s in the DataLad sandwich" AKA DataLad "ecosystem"'
   path: 2024-distribits-datalad.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Mkb7qpYaL7o
   venue: distribits 2024
   authors:
   - Yaroslav O. Halchenko
@@ -344,6 +349,7 @@
   title: Reproducible Execution of Data Collection/Processing
   path: 2020-repronim-reprocomp-webinar/index.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-reprocomp-webinar/index.html
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/dwBtrpI2iS0
   venue: ReproNim webinar
   authors:
   - Yaroslav O. Halchenko
@@ -380,6 +386,7 @@
   path: pdfdeck.html?talk=2019-mind-con-tools
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-mind-con-tools
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-mind-con-tools.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Ao9ZIce7yn4
   venue: MIND 2019
   authors:
   - Yaroslav O. Halchenko
@@ -392,6 +399,7 @@
   path: pdfdeck.html?talk=2018-mind-con-tools
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mind-con-tools
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mind-con-tools.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/RBaJn2Xtqzg
   venue: MIND 2018
   authors:
   - Yaroslav O. Halchenko
@@ -416,6 +424,7 @@
   path: pdfdeck.html?talk=2018-mcgill-datalad
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mcgill-datalad
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k
   venue: NIF/NIH online cast, McGill
   authors:
   - Yaroslav O. Halchenko
@@ -456,6 +465,7 @@
   path: pdfdeck.html?talk=2017-online-intensive-datalad
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2017-online-intensive-datalad
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2017-online-intensive-datalad.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/5R-lFlFBciE
   venue: Online intensive, from Dartmouth
   authors:
   - Yaroslav O. Halchenko
@@ -548,6 +558,7 @@
   path: pdfdeck.html?talk=2015-hackathon-neurodebian
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-hackathon-neurodebian
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-hackathon-neurodebian.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/Qxtco8tupdo
   venue: Hackathon
   authors:
   - Yaroslav O. Halchenko
