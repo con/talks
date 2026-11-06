@@ -344,6 +344,34 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2022-tx-big-neuroscience
+- date: '2021-03-25'
+  kind: talk
+  title: DataLad - Research Data Management Made Easy
+  path: pdfdeck.html?talk=2021-yale-datalad-intro
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2021-yale-datalad-intro
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2021-yale-datalad-intro.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/pVrjRRrmKbY
+  venue: Yale-ReproNim Training Activities (YRTA)
+  authors:
+  - Adina Wagner
+  - Yaroslav O. Halchenko
+  presenters:
+  - Adina Wagner
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2021-yale-datalad-intro
+- date: 2021-02
+  kind: talk
+  title: ReproMan – Execution and Environment Manager
+  path: pdfdeck.html?talk=2021-abcd-repronim-reproman
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2021-abcd-repronim-reproman
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2021-abcd-repronim-reproman.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/grIVFbYH7YE
+  venue: ABCD-ReproNim course, week 10
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2021-abcd-repronim-reproman
 - date: 2020-12
   kind: talk
   title: Reproducible Execution of Data Collection/Processing
@@ -356,6 +384,35 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2020-repronim-reprocomp-webinar
+- date: '2020-06-05'
+  kind: talk
+  title: Version control your data and computation using containers, DataLad and ReproMan,
+    and reproducible they be!
+  path: pdfdeck.html?talk=2020-repronim-containers-webinar
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2020-repronim-containers-webinar
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-containers-webinar.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/ix3lC6HGo-Q
+  slides: https://docs.google.com/presentation/d/1NvjpsrbDHz_9WivvYICTh2U8Xak8TFk5nyWLiCdrHAU
+  venue: ReproNim webinar
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2020-repronim-containers-webinar
+- date: '2019-12-06'
+  kind: talk
+  title: 'Taking control of your DICOM data: ReproIn/HeuDiConv tools'
+  path: pdfdeck.html?talk=2019-repronim-reproin-webinar
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2019-repronim-reproin-webinar
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-repronim-reproin-webinar.pdf
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/j2SKX37-w4c
+  slides: https://docs.google.com/presentation/d/14UNWQVY49c9Xc-7sj1FkoILXnt-wYjW404oqT-FtCW8
+  venue: ReproNim webinar
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2019-repronim-reproin-webinar
 - date: 2019-11
   kind: talk
   title: Making science more open and reproducible by design, tools can help
@@ -424,7 +481,6 @@
   path: pdfdeck.html?talk=2018-mcgill-datalad
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2018-mcgill-datalad
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf
-  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k
   venue: NIF/NIH online cast, McGill
   authors:
   - Yaroslav O. Halchenko
