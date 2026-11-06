@@ -204,6 +204,37 @@ def test_video_links_after_the_title(store):
 
 
 @pytest.mark.ai_generated
+def test_video_only_talk_links_the_video_and_says_so(store):
+    repo, add = store
+    add(slug="v", date="2026-01-02", path="v.html")
+    add(slug="n", date="2026-01-01", path="n.html")
+    url = "https://example.org/web/#/video/abc"
+    f = repo.parent / "records/XYZPublication/v.yaml"
+    d = yaml.safe_load(f.read_text())
+    d["attributes"] = [a for a in d["attributes"] if a["predicate"] != "foaf:homepage"]
+    d["attributes"].append({"predicate": "schema:video", "value": url})
+    f.write_text(yaml.safe_dump(d))
+    entries = mk_index.load_entries()
+    assert (entries[0]["path"], entries[0]["url"]) == ("", url)
+    out = mk_index.render(entries)
+    assert f'<a href="{url}">v</a>' in out
+    assert f'📺 CONTube</a>) (no slides, video only) <span' in out
+    assert out.count("no slides, video only") == 1
+    assert 'class="alt file" href=""' not in out
+
+
+@pytest.mark.ai_generated
+def test_no_homepage_and_no_video_is_left_out(store):
+    repo, add = store
+    add(slug="x", date="2026-01-01", path="x.html")
+    f = repo.parent / "records/XYZPublication/x.yaml"
+    d = yaml.safe_load(f.read_text())
+    d["attributes"] = [a for a in d["attributes"] if a["predicate"] != "foaf:homepage"]
+    f.write_text(yaml.safe_dump(d))
+    assert mk_index.load_entries() == []
+
+
+@pytest.mark.ai_generated
 def test_google_slides_link_after_the_pdf(store):
     repo, add = store
     add(slug="talk-2020-x", date="2020-01-01", path="pdfdeck.html?talk=2020-x", pdf="2020-x.pdf")

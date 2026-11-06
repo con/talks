@@ -5,8 +5,10 @@ Every talk and poster is an XYZPublication record in the CON record store
 (sourcedata/con-site-specific/metadata/records/XYZPublication/), typed
 `bibo:Slideshow` or `fabio:ConferencePoster`.  A record is listed when its
 `foaf:homepage` points into this repository's published mirror; that URL,
-less the mirror prefix, is the path index.html links.  Records without one
-(e.g. a deck whose annexed content is not published) are left out.
+less the mirror prefix, is the path index.html links.  A record with no
+homepage but a `schema:video` recording is listed too, linked to the video and
+marked as having no slides (path is then empty).  Other records (e.g. a deck
+whose annexed content is not published) are left out.
 
 Authors are the record's attributed_to people, or its `bibo:authorList`
 ("A; B; C") where some authors have no person record.  Presenters, shown in
@@ -114,22 +116,22 @@ def load_entries():
         d = yaml.safe_load(f.read_text())
         kind = KINDS.get(d.get("kind"))
         url = one(d, "foaf:homepage")
-        if kind is None or not url or not url.startswith(BASE):
+        video = one(d, "schema:video")
+        if kind is None or not (url.startswith(BASE) if url else video):
             continue
-        path = url[len(BASE):]
+        path = url[len(BASE):] if url else ""
         if is_wip(path):
             continue
         pdf = one(d, "dcat:downloadURL")
         presenters = presenters_of(d, persons)
         doi = doi_of(d)
-        video = one(d, "schema:video")
         slides = one(d, "dcterms:source")
         entries.append({
             "date": str(d["generated_by"][0]["at_time"]),
             "kind": kind,
             "title": d["title"],
             "path": path,
-            "url": url,
+            "url": url or video,
             **({"pdf": pdf} if pdf else {}),
             **({"doi": doi} if doi else {}),
             **({"video": video} if video else {}),
@@ -199,13 +201,16 @@ def render(entries, links=None):
         if "video" in e:
             extra += (f' (<a class="alt" href="{esc(e["video"])}">'
                       f'📺 CONTube</a>)')
+        if not e["path"]:
+            extra += " (no slides, video only)"
         bold = e.get("presenters") or (e["authors"] if e["kind"] == "talk" else [])
         authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
-        meta = " &middot; ".join(
-            [esc(x) for x in (e["date"], e["venue"]) if x]
-            + [f'<a class="alt file" href="{esc(e["path"])}">{esc(e["path"])}</a>'])
+        meta = [esc(x) for x in (e["date"], e["venue"]) if x]
+        if e["path"]:
+            meta.append(f'<a class="alt file" href="{esc(e["path"])}">{esc(e["path"])}</a>')
+        meta = " &middot; ".join(meta)
         items.append(
-            f'        <li><a href="{esc(e["path"])}">{esc(e["title"])}</a>{extra}'
+            f'        <li><a href="{esc(e["path"] or e["url"])}">{esc(e["title"])}</a>{extra}'
             f' <span class="authors">{authors}</span>'
             f' <span class="meta">{meta}</span></li>')
     if year is not None:
