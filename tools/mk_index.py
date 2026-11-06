@@ -192,7 +192,7 @@ def render(entries, links=None):
         authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
         meta = " &middot; ".join(
             [esc(x) for x in (e["date"], e["venue"]) if x]
-            + [f'<span class="file">{esc(e["path"])}</span>'])
+            + [f'<a class="alt file" href="{esc(e["path"])}">{esc(e["path"])}</a>'])
         items.append(
             f'        <li><a href="{esc(e["path"])}">{esc(e["title"])}</a>{extra}'
             f' <span class="authors">{authors}</span>'
