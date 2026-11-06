@@ -156,7 +156,8 @@ def test_people_on_whoweare_link_to_their_anchor(store):
     out = mk_index.render(mk_index.load_entries(), links)
     assert (f'Some One</strong>, <a href="{mk_index.WHOWEARE}yaroslav_o_halchenko_">'
             'Yaroslav O. Halchenko</a></span>') in out
-    assert 'class="file"' not in out
+    assert ('2026-01-01 &middot; Somewhere &middot; <span class="file">t.html</span>'
+            '</span></li>') in out
 
 
 @pytest.mark.ai_generated

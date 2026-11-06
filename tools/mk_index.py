@@ -179,7 +179,9 @@ def render(entries, links=None):
                       f'PDF</a>)')
         bold = e.get("presenters") or (e["authors"] if e["kind"] == "talk" else [])
         authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
-        meta = " &middot; ".join(esc(x) for x in (e["date"], e["venue"]) if x)
+        meta = " &middot; ".join(
+            [esc(x) for x in (e["date"], e["venue"]) if x]
+            + [f'<span class="file">{esc(e["path"])}</span>'])
         items.append(
             f'        <li><a href="{esc(e["path"])}">{esc(e["title"])}</a>{extra}'
             f' <span class="authors">{authors}</span>'
@@ -280,6 +282,10 @@ TEMPLATE = """\
       display: block;
       font-size: 0.9em;
       color: var(--con-muted);
+    }
+    ul.talks .file {
+      font-family: 'Source Code Pro', monospace;
+      overflow-wrap: anywhere;
     }
     footer {
       background: var(--con-dark);
