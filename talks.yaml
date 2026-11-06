@@ -6,6 +6,7 @@
     at CON'
   path: 2026-usrse-con-talk.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse-con-talk.html
+  doi: 10.5281/zenodo.22783261
   venue: US-RSE'26, the Research Software Engineers Conference
   authors:
   - Yaroslav O. Halchenko
@@ -23,6 +24,7 @@
   path: 2026-usrse/duct-poster.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.html
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/duct-poster.pdf
+  doi: 10.5281/zenodo.22833930
   venue: US-RSE'26, the Research Software Engineers Conference (poster session)
   authors:
   - Austin Macdonald
