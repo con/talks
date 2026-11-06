@@ -14,6 +14,8 @@
   - Isaac To
   - John Lee
   - Vadim Melnik
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-usrse-con-talk
 - date: '2026-10-19'
   kind: poster
@@ -48,6 +50,8 @@
     ReproNim workshop, MIT Building 46, Cambridge MA'
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-reproai-mit-stamped
 - date: '2026-10-09'
   kind: talk
@@ -56,6 +60,9 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-dhmc-ieeg.html
   venue: Dartmouth/DH Human Intracranial Electrophysiology Consortium (monthly meeting, Zoom)
   authors:
+  - Yaroslav O. Halchenko
+  - Cody Baker
+  presenters:
   - Yaroslav O. Halchenko
   - Cody Baker
   pid: xyzrins:publications/talk-2026-dhmc-ieeg
@@ -67,6 +74,8 @@
   venue: NIMH Data Science & Sharing Team, Lunch & Learn
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-nih-bids2-0
 - date: 2026-06
   kind: talk
@@ -75,6 +84,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-brainhack-containers-mashup.html
   venue: BrainHack 2026, containers session
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-brainhack-containers-mashup
 - date: '2026-03-11'
@@ -86,6 +97,9 @@
   authors:
   - Cody Baker
   - Yaroslav O. Halchenko
+  presenters:
+  - Cody Baker
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-bbqs-stamped
 - date: '2026-02-06'
   kind: talk
@@ -95,6 +109,8 @@
   venue: ReproNim webinar
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-repronim-yoda-bids-webinar
 - date: 2026-02
   kind: talk
@@ -103,6 +119,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-ca-origami-retreat-aicoding.html
   venue: CA Origami Retreat 2026
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2026-ca-origami-retreat-aicoding
 - date: 2025-11
@@ -123,6 +141,8 @@
   venue: distribits 2025
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2025-distribits-yoda
 - date: 2025-02
   kind: talk
@@ -131,6 +151,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2025-ca-origami-retreat.html
   venue: CA Origami Retreat 2025
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2025-ca-origami-retreat
 - date: 2024-08
@@ -141,6 +163,8 @@
   venue: distribits 2024 (lightning talk) -- unverified, see the evidence
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-distribits-datalad-name
 - date: 2024-06
   kind: talk
@@ -149,6 +173,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-repronim-reproflow-webinar/index.html
   venue: ReproNim webinar
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-repronim-reproflow-webinar
 - date: 2024-04
@@ -159,6 +185,8 @@
   venue: distribits 2024
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-distribits-datalad
 - date: 2024-04
   kind: talk
@@ -167,6 +195,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/202404xx-NSF-POSE-BIDS.pdf
   venue: NSF POSE (Pathways to Enable Open-Source Ecosystems)
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-nsf-pose-bids
 - date: 2023-06
@@ -177,6 +207,8 @@
   venue: DICOM WG-16 meeting
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2023-bids-dicom
 - date: 2023-06
   kind: talk
@@ -185,6 +217,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2023-brain-dandi-imgdatasrc.html
   venue: BRAIN Initiative Conference 2023 (short version)
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2023-brain-dandi-imgdatasrc
 - date: 2023-06
@@ -195,6 +229,8 @@
   venue: BRAIN Initiative Conference 2023
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2023-brain-dandi
 - date: 2023-04
   kind: talk
@@ -203,6 +239,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2023-lbl-building-dandi.html
   venue: Lawrence Berkeley National Laboratory (LBL)
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2023-lbl-building-dandi
 - date: 2022-10
@@ -216,7 +254,10 @@
   - Michael Hanke
   - Adina Wagner
   - Benjamin Poldrack
+  - Stephan Heunis
+  - Michał Szczepanik
   - John Wodder
+  - Christian Moench
   pid: xyzrins:publications/poster-2022-crcns-dataland
 - date: 2022-09
   kind: talk
@@ -225,6 +266,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2022-nih-compcore.html
   venue: NIH SSCR pitch
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2022-nih-compcore
 - date: 2022-09
@@ -235,6 +278,8 @@
   venue: ACNN Workshop 2022 (Texas), https://neurosciencenetwork.org/ACNN_Workshop_2022.html
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2022-tx-big-neuroscience
 - date: 2020-12
   kind: talk
@@ -243,6 +288,8 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2020-repronim-reprocomp-webinar/index.html
   venue: ReproNim webinar
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2020-repronim-reprocomp-webinar
 - date: 2019-11
@@ -254,6 +301,8 @@
   venue: Brown University
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2019-brown-open-science
 - date: 2019-09
   kind: talk
@@ -263,6 +312,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2019-umass-tales.pdf
   venue: UMass
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2019-umass-tales
 - date: 2019-08
@@ -274,6 +325,8 @@
   venue: MIND 2019
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2019-mind-con-tools
 - date: 2018-08
   kind: talk
@@ -283,6 +336,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mind-con-tools.pdf
   venue: MIND 2018
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2018-mind-con-tools
 - date: 2018-05
@@ -294,6 +349,8 @@
   venue: SOBP 2018
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2018-sobp-variability
 - date: 2018-03
   kind: talk
@@ -303,6 +360,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2018-mcgill-datalad.pdf
   venue: NIF/NIH online cast, McGill
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2018-mcgill-datalad
 - date: 2017-08
@@ -316,6 +375,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2017-mind-datalad
 - date: 2017-08
   kind: talk
@@ -328,6 +389,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2017-nih-datalad
 - date: 2017-08
   kind: talk
@@ -339,6 +402,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2017-online-intensive-datalad
 - date: 2017-07
   kind: talk
@@ -351,6 +416,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2017-dartmouth-datalad
 - date: 2016-10
   kind: talk
@@ -363,6 +430,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2016-crcns-datalad
 - date: 2016-07
   kind: talk
@@ -372,6 +441,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-data-ecosystem-1slide.pdf
   venue: Open Data Ecosystem for Neuroscience, Washington DC
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2016-data-ecosystem-1slide
 - date: 2016-06
@@ -386,6 +457,8 @@
   - Yaroslav O. Halchenko
   - Benjamin Poldrack
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2016-ohbm-datalad
 - date: 2016-06
   kind: talk
@@ -395,6 +468,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2016-ohbm-pr4ni-resources.pdf
   venue: OHBM 2016, Geneva, Switzerland
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2016-ohbm-pr4ni-resources
 - date: 2016-04
@@ -406,6 +481,8 @@
   venue: MRN, Albuquerque
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2016-mrn-open-neuroscience
 - date: 2015-10
   kind: talk
@@ -416,6 +493,8 @@
   venue: Hackathon
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2015-hackathon-neurodebian
 - date: 2015-08
   kind: talk
@@ -425,6 +504,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2015-sabanci-open-neuroscience.pdf
   venue: Sabanci University, Turkey
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2015-sabanci-open-neuroscience
 - date: 2015-06
@@ -437,6 +518,8 @@
   venue: OHBM 2015, Honolulu HI
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2015-ohbm-signitools
 - date: 2015-05
   kind: talk
@@ -445,6 +528,9 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2015-york-pymvpa-workshop
   venue: PyMVPA Workshop 2015, University of York
   authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  presenters:
   - Yaroslav O. Halchenko
   - Michael Hanke
   pid: xyzrins:publications/talk-2015-york-pymvpa-workshop
@@ -457,6 +543,8 @@
   venue: CS Colloquium, Dartmouth
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2015-dartmouth-cs-colloquium
 - date: 2014-09
   kind: talk
@@ -465,6 +553,9 @@
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/pdfdeck.html?talk=2014-giessen-pymvpa-workshop
   venue: PyMVPA Workshop 2014, Justus-Liebig-Universität Giessen
   authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  presenters:
   - Yaroslav O. Halchenko
   - Michael Hanke
   pid: xyzrins:publications/talk-2014-giessen-pymvpa-workshop
@@ -477,6 +568,8 @@
   venue: Siemens, Princeton
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2014-siemens-pymvpa-neurodebian
 - date: 2014-04
   kind: talk
@@ -487,6 +580,8 @@
   venue: PyCon 2014, Montreal, Canada
   authors:
   - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2014-pycon-fail2ban
 - date: 2014-03
   kind: talk
@@ -496,6 +591,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2014-sri-neuroimaging.pdf
   venue: SRI 2014, Menlo Park, CA, USA
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2014-sri-neuroimaging
 - date: 2013-04
@@ -509,6 +606,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2013-sea-debian
 - date: 2012-09
   kind: talk
@@ -518,6 +617,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2012-incf-neurodebian.pdf
   venue: INCF 2012, Munich, Germany
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2012-incf-neurodebian
 - date: 2012-09
@@ -542,6 +643,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2012-hdi-debian-med
 - date: 2012-02
   kind: talk
@@ -553,6 +656,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2012-upenn-environments
 - date: 2011-11
   kind: talk
@@ -564,6 +669,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-sfn-pymvpa
 - date: 2011-08
   kind: talk
@@ -573,6 +680,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-euroscipy-debian.pdf
   venue: EuroScipy 2011, Paris, France
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-euroscipy-debian
 - date: 2011-08
@@ -585,6 +694,8 @@
   authors:
   - Michael Hanke
   - Yaroslav O. Halchenko
+  presenters:
+  - Michael Hanke
   pid: xyzrins:publications/talk-2011-euroscipy-neurodebian
 - date: 2011-08
   kind: talk
@@ -596,6 +707,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-euroscipy-pymvpa
 - date: 2011-07
   kind: talk
@@ -605,6 +718,8 @@
   pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2011-psychopy-workshop.pdf
   venue: PsychoPy workshop
   authors:
+  - Yaroslav O. Halchenko
+  presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-psychopy-workshop
 - date: 2011-04
@@ -617,6 +732,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2011-dartmouth-searchlight
 - date: 2010-08
   kind: talk
@@ -640,6 +757,56 @@
   - Michael Hanke
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2010-debconf-neurodebian
+- date: '2010-05-22'
+  kind: poster
+  title: Transmodal Analysis of Neural Signals
+  path: posters/caos-2010-transmodal.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/caos-2010-transmodal.pdf
+  venue: Fourth Annual Rovereto Workshop on Concepts, Actions and Objects (CAOS 2010)
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  - James V. Haxby
+  - Stephen José Hanson
+  - Christoph S. Herrmann
+  pid: xyzrins:publications/poster-2010-caos-transmodal
+- date: '2010-05-21'
+  kind: poster
+  title: 'PyMVPA 0.5: A Major Update of the Comprehensive Framework for Statistical Learning
+    Analysis of Neural Data'
+  path: posters/caos-2010-pymvpa.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/caos-2010-pymvpa.pdf
+  venue: Fourth Annual Rovereto Workshop on Concepts, Actions and Objects (CAOS 2010)
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  - Emanuele Olivetti
+  pid: xyzrins:publications/poster-2010-caos-pymvpa
+- date: 2010-04
+  kind: poster
+  title: Improving efficiency in cognitive neuroscience research with NeuroDebian
+  path: posters/cns-2010-neurodebian.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2010-neurodebian.pdf
+  venue: Cognitive Neuroscience Society Annual Meeting (CNS 2010), Montréal
+  authors:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
+  - James V. Haxby
+  - Stefan Pollmann
+  pid: xyzrins:publications/poster-2010-cns-neurodebian
+- date: 2010-04
+  kind: poster
+  title: Neural activity localization by predictive mapping between imaging modalities
+  path: posters/cns-2010-predictive-mapping.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/cns-2010-predictive-mapping.pdf
+  venue: Cognitive Neuroscience Society Annual Meeting (CNS 2010), Montréal
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  - James V. Haxby
+  - Stephen José Hanson
+  - Christoph S. Herrmann
+  pid: xyzrins:publications/poster-2010-cns-predictive-mapping
 - date: 2010-03
   kind: talk
   title: First PyMVPA Course Ever
@@ -649,7 +816,23 @@
   authors:
   - Michael Hanke
   - Yaroslav O. Halchenko
+  presenters:
+  - Michael Hanke
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2010-pymvpa-course
+- date: 2010-01
+  kind: poster
+  title: Statistical Learning Analysis in Neuroscience
+  path: posters/dartmouth-2010-pymvpa.pdf
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/posters/dartmouth-2010-pymvpa.pdf
+  venue: Neuroscience Day 2010, Dartmouth College
+  authors:
+  - Yaroslav O. Halchenko
+  - Michael Hanke
+  - Stephen José Hanson
+  - James V. Haxby
+  - Stefan Pollmann
+  pid: xyzrins:publications/poster-2010-dartmouth-pymvpa
 - date: 2009-11
   kind: talk
   title: An ecosystem of neuroimaging, statistical learning, and open-source software to make
@@ -683,6 +866,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2009-hawaii-pymvpa
 - date: 2009-04
   kind: talk
@@ -694,6 +879,8 @@
   authors:
   - Yaroslav O. Halchenko
   - Michael Hanke
+  presenters:
+  - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2009-nipy-decoding
 - date: 2009-04
   kind: talk
@@ -705,6 +892,8 @@
   authors:
   - Michael Hanke
   - Yaroslav O. Halchenko
+  presenters:
+  - Michael Hanke
   pid: xyzrins:publications/talk-2009-nipy-pymvpa
 - date: 2009-01
   kind: talk
