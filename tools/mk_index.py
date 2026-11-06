@@ -13,7 +13,7 @@ Authors are the record's attributed_to people, or its `bibo:authorList`
 bold, are the attributed people with the role marcrel:spk; a talk with none
 recorded has all its authors in bold.  People on the CON "who we are" page,
 those with a dlthings:tier, link to their entry there.  A dlthings:DOI
-identifier is linked after the title.
+identifier and a `schema:video` recording are linked after the title.
 
 The data flows one way: fix a record, never the generated files.
 
@@ -121,6 +121,7 @@ def load_entries():
         pdf = one(d, "dcat:downloadURL")
         presenters = presenters_of(d, persons)
         doi = doi_of(d)
+        video = one(d, "schema:video")
         entries.append({
             "date": str(d["generated_by"][0]["at_time"]),
             "kind": kind,
@@ -129,6 +130,7 @@ def load_entries():
             "url": url,
             **({"pdf": pdf} if pdf else {}),
             **({"doi": doi} if doi else {}),
+            **({"video": video} if video else {}),
             "venue": one(d, "bibo:presentedAt"),
             "authors": authors_of(d, persons),
             **({"presenters": presenters} if presenters else {}),
@@ -188,6 +190,9 @@ def render(entries, links=None):
         if "doi" in e:
             extra += (f' (<a class="alt" href="https://doi.org/{esc(e["doi"])}">'
                       f'DOI</a>)')
+        if "video" in e:
+            extra += (f' (<a class="alt" href="{esc(e["video"])}">'
+                      f'📺 CONTube</a>)')
         bold = e.get("presenters") or (e["authors"] if e["kind"] == "talk" else [])
         authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
         meta = " &middot; ".join(

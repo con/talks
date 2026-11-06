@@ -184,3 +184,20 @@ def test_doi_links_after_the_title(store):
     out = mk_index.render(entries)
     assert out.count('href="https://doi.org/') == 1
     assert '(<a class="alt" href="https://doi.org/10.5281/zenodo.1">DOI</a>)' in out
+
+
+@pytest.mark.ai_generated
+def test_video_links_after_the_title(store):
+    repo, add = store
+    add(slug="v", date="2026-01-02", path="v.html")
+    add(slug="n", date="2026-01-01", path="n.html")
+    f = repo.parent / "records/XYZPublication/v.yaml"
+    d = yaml.safe_load(f.read_text())
+    url = "https://example.org/web/#/video/abc"
+    d["attributes"].append({"predicate": "schema:video", "value": url})
+    f.write_text(yaml.safe_dump(d))
+    entries = mk_index.load_entries()
+    assert entries[0]["video"] == url and "video" not in entries[1]
+    out = mk_index.render(entries)
+    assert out.count("CONTube") == 1
+    assert f'(<a class="alt" href="{url}">📺 CONTube</a>)' in out
