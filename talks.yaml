@@ -226,6 +226,31 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-repronim-reproflow-webinar
+- date: '2024-04-05'
+  kind: talk
+  title: 'DataLad-Registry: Bringing Benefits of Centrality to DataLad'
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ
+  venue: distribits 2024
+  authors:
+  - Isaac To
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2024-distribits-datalad-registry
+- date: 2024-04
+  kind: talk
+  title: BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation International
+    Prize
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU
+  venue: The Neuro – Irv and Helga Cooper Foundation International Prize
+  authors:
+  - Ariel Rokem
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2024-neuro-prize-bids
 - date: 2024-04
   kind: talk
   title: '"What''s in the DataLad name" AKA How come DataLad?'
@@ -260,6 +285,18 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-nsf-pose-bids
+- date: '2023-07-22'
+  kind: talk
+  title: Research Data Management & Data tracking
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/cYQWk8eQLlI
+  venue: 'OHBM 2023 Educational Course: Open and Reproducible Neuroimaging, Montreal'
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2023-ohbm-rdm-data-tracking
 - date: 2023-06
   kind: talk
   title: BIDS 4 DICOM WG-16
@@ -344,6 +381,19 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2022-tx-big-neuroscience
+- date: '2021-08-26'
+  kind: talk
+  title: A guide to DANDI, the BRAIN Initiative archive for publishing and sharing neurophysiology
+    data
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/8OMLmUnc6Cs
+  venue: NWB User Days 2021 (HCK11)
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2021-nwb-dandi-guide
 - date: '2021-03-25'
   kind: talk
   title: DataLad - Research Data Management Made Easy
@@ -463,6 +513,18 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2018-mind-con-tools
+- date: 2018-06
+  kind: talk
+  title: '(Neuro)Debian/Git/GitAnnex/DataLad: Distributions and Version Control'
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM
+  venue: OHBM 2018 training course (ReproNim), Singapore
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2018-ohbm-debian-git-datalad
 - date: 2018-05
   kind: talk
   title: Variability of the Neuroimaging results across OS, and how to avoid it
@@ -475,6 +537,18 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2018-sobp-variability
+- date: '2018-03-02'
+  kind: talk
+  title: DataLad
+  path: ''
+  url: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k
+  video: https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/59CE6iOr45k
+  venue: NIF NeuroTools Webinar
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2018-nif-datalad-webinar
 - date: 2018-03
   kind: talk
   title: Got Something, Commit Something
