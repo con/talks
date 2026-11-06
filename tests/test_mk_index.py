@@ -12,14 +12,17 @@ SPEC.loader.exec_module(mk_index)
 BASE = mk_index.BASE
 
 
-def pub(slug, date, path, kind="bibo:Slideshow", pdf=None, venue="Somewhere"):
+def pub(slug, date, path, kind="bibo:Slideshow", pdf=None, venue="Somewhere",
+        roles=("marcrel:aut",), author_list=None):
     attrs = [{"predicate": "bibo:presentedAt", "value": venue},
              {"predicate": "foaf:homepage", "value": BASE + path}]
     if pdf:
         attrs.append({"predicate": "dcat:downloadURL", "value": BASE + pdf})
+    if author_list:
+        attrs.append({"predicate": "bibo:authorList", "value": author_list})
     return {"pid": f"xyzrins:publications/{slug}", "kind": kind, "title": slug,
             "attributes": attrs,
-            "attributed_to": [{"object": "xyzrins:persons/someone"}],
+            "attributed_to": [{"object": "xyzrins:persons/someone", "roles": list(roles)}],
             "generated_by": [{"at_time": date, "object": "xyzrins:."}]}
 
 
@@ -104,3 +107,33 @@ def test_root_pdf_without_a_record_is_still_reported(store, capsys):
     (repo / "2011-orphan.pdf").write_bytes(b"%PDF")
     mk_index.check_coverage(mk_index.load_entries())
     assert "2011-orphan.pdf has no talk record" in capsys.readouterr().err
+
+
+@pytest.mark.ai_generated
+def test_presenter_is_bold_among_the_authors(store):
+    _, add = store
+    add(slug="t", date="2026-01-01", path="t.html",
+        roles=("marcrel:aut", "marcrel:spk"), author_list="Some One; A & B")
+    [e] = mk_index.load_entries()
+    assert e["authors"] == ["Some One", "A & B"]
+    assert e["presenters"] == ["Some One"]
+    out = mk_index.render([e])
+    assert '<span class="authors"><strong>Some One</strong>, A &amp; B</span>' in out
+
+
+@pytest.mark.ai_generated
+def test_unknown_presenter_leaves_nobody_bold(store):
+    _, add = store
+    add(slug="t", date="2026-01-01", path="t.html")
+    [e] = mk_index.load_entries()
+    assert e["authors"] == ["Some One"] and "presenters" not in e
+    assert '<span class="authors">Some One</span>' in mk_index.render([e])
+
+
+@pytest.mark.ai_generated
+def test_presenter_outside_the_author_list_is_warned(store, capsys):
+    _, add = store
+    add(slug="t", date="2026-01-01", path="t.html",
+        roles=("marcrel:spk",), author_list="Other Person")
+    mk_index.check_presenters(mk_index.load_entries())
+    assert "presenter Some One is not among its authors" in capsys.readouterr().err
