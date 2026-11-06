@@ -167,3 +167,20 @@ def test_presenter_outside_the_author_list_is_warned(store, capsys):
         roles=("marcrel:spk",), author_list="Other Person")
     mk_index.check_presenters(mk_index.load_entries())
     assert "presenter Some One is not among its authors" in capsys.readouterr().err
+
+
+@pytest.mark.ai_generated
+def test_doi_links_after_the_title(store):
+    repo, add = store
+    add(slug="d", date="2026-01-02", path="d.html")
+    add(slug="n", date="2026-01-01", path="n.html")
+    f = repo.parent / "records/XYZPublication/d.yaml"
+    d = yaml.safe_load(f.read_text())
+    d["identifiers"] = [{"notation": "https://example.org/x", "schema_type": "dlthings:Identifier"},
+                        {"notation": "10.5281/zenodo.1", "schema_type": "dlthings:DOI"}]
+    f.write_text(yaml.safe_dump(d))
+    entries = mk_index.load_entries()
+    assert entries[0]["doi"] == "10.5281/zenodo.1" and "doi" not in entries[1]
+    out = mk_index.render(entries)
+    assert out.count('href="https://doi.org/') == 1
+    assert '(<a class="alt" href="https://doi.org/10.5281/zenodo.1">DOI</a>)' in out

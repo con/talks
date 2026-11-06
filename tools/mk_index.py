@@ -12,7 +12,8 @@ Authors are the record's attributed_to people, or its `bibo:authorList`
 ("A; B; C") where some authors have no person record.  Presenters, shown in
 bold, are the attributed people with the role marcrel:spk; a talk with none
 recorded has all its authors in bold.  People on the CON "who we are" page,
-those with a dlthings:tier, link to their entry there.
+those with a dlthings:tier, link to their entry there.  A dlthings:DOI
+identifier is linked after the title.
 
 The data flows one way: fix a record, never the generated files.
 
@@ -89,6 +90,11 @@ def presenters_of(d, persons):
             if "marcrel:spk" in (a.get("roles") or [])]
 
 
+def doi_of(d):
+    return next((i["notation"] for i in d.get("identifiers") or []
+                 if i.get("schema_type") == "dlthings:DOI"), None)
+
+
 def is_wip(path):
     """A deck whose <title> starts with [WiP] is not listed yet -- the same
     convention the hand-kept index followed, so dropping the marker from the
@@ -114,6 +120,7 @@ def load_entries():
             continue
         pdf = one(d, "dcat:downloadURL")
         presenters = presenters_of(d, persons)
+        doi = doi_of(d)
         entries.append({
             "date": str(d["generated_by"][0]["at_time"]),
             "kind": kind,
@@ -121,6 +128,7 @@ def load_entries():
             "path": path,
             "url": url,
             **({"pdf": pdf} if pdf else {}),
+            **({"doi": doi} if doi else {}),
             "venue": one(d, "bibo:presentedAt"),
             "authors": authors_of(d, persons),
             **({"presenters": presenters} if presenters else {}),
@@ -177,6 +185,9 @@ def render(entries, links=None):
         if "pdf" in e:
             extra += (f' (<a class="alt" href="{esc(e["pdf"][len(BASE):])}">'
                       f'PDF</a>)')
+        if "doi" in e:
+            extra += (f' (<a class="alt" href="https://doi.org/{esc(e["doi"])}">'
+                      f'DOI</a>)')
         bold = e.get("presenters") or (e["authors"] if e["kind"] == "talk" else [])
         authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
         meta = " &middot; ".join(
@@ -282,11 +293,9 @@ TEMPLATE = """\
       display: block;
       font-size: 0.9em;
       color: var(--con-muted);
-    }
-    ul.talks .file {
-      font-family: 'Source Code Pro', monospace;
       overflow-wrap: anywhere;
     }
+    ul.talks .file { font-family: 'Source Code Pro', monospace; }
     footer {
       background: var(--con-dark);
       color: #fff;
