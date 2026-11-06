@@ -13,7 +13,8 @@ Authors are the record's attributed_to people, or its `bibo:authorList`
 bold, are the attributed people with the role marcrel:spk; a talk with none
 recorded has all its authors in bold.  People on the CON "who we are" page,
 those with a dlthings:tier, link to their entry there.  A dlthings:DOI
-identifier and a `schema:video` recording are linked after the title.
+identifier, a `schema:video` recording and the `dcterms:source` Google Slides
+of an exported PDF are linked after the title.
 
 The data flows one way: fix a record, never the generated files.
 
@@ -122,6 +123,7 @@ def load_entries():
         presenters = presenters_of(d, persons)
         doi = doi_of(d)
         video = one(d, "schema:video")
+        slides = one(d, "dcterms:source")
         entries.append({
             "date": str(d["generated_by"][0]["at_time"]),
             "kind": kind,
@@ -131,6 +133,7 @@ def load_entries():
             **({"pdf": pdf} if pdf else {}),
             **({"doi": doi} if doi else {}),
             **({"video": video} if video else {}),
+            **({"slides": slides} if slides else {}),
             "venue": one(d, "bibo:presentedAt"),
             "authors": authors_of(d, persons),
             **({"presenters": presenters} if presenters else {}),
@@ -187,6 +190,9 @@ def render(entries, links=None):
         if "pdf" in e:
             extra += (f' (<a class="alt" href="{esc(e["pdf"][len(BASE):])}">'
                       f'PDF</a>)')
+        if "slides" in e:
+            extra += (f' (<a class="alt" href="{esc(e["slides"])}">'
+                      f'Google Slides</a>)')
         if "doi" in e:
             extra += (f' (<a class="alt" href="https://doi.org/{esc(e["doi"])}">'
                       f'DOI</a>)')

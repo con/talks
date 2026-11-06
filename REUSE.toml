@@ -705,9 +705,18 @@ path = [
     "2019-brown-open-science.pdf",
     "2019-mind-con-tools.pdf",
     "2019-umass-tales.pdf",
+    "2019-repronim-reproin-webinar.pdf",
+    "2020-repronim-containers-webinar.pdf",
+    "2021-abcd-repronim-reproman.pdf",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Yaroslav O. Halchenko"
+SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
+
+[[annotations]]
+path = "2021-yale-datalad-intro.pdf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["Adina S. Wagner", "Yaroslav O. Halchenko"]
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 
 [[annotations]]

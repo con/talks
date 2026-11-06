@@ -583,9 +583,15 @@ as `<TALK-ID>.pdf`, or `<EVENT>/<LECTURE>.pdf` for a workshop. They are shown by
 `pdfdeck.html`, and their sections are in
 `pdfdeck/sections.yaml`; see `pdfdeck/README.md`. The LaTeX sources stay in
 `pymvpa/papers`, mostly under `talk-*`; each record's evidence names its folder.
+The 2019-2021 ReproNim, ABCD and Yale decks are PDFs of slides kept elsewhere,
+and their records say where.
 
 | Date       | Talk                                                                                                                                                                                |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2021-03-25 | [DataLad - Research Data Management Made Easy](pdfdeck.html?talk=2021-yale-datalad-intro)                                                                                           |
+| 2021-02    | [ReproMan – Execution and Environment Manager](pdfdeck.html?talk=2021-abcd-repronim-reproman)                                                                                       |
+| 2020-06-05 | [Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!](pdfdeck.html?talk=2020-repronim-containers-webinar)                   |
+| 2019-12-06 | [Taking control of your DICOM data: ReproIn/HeuDiConv tools](pdfdeck.html?talk=2019-repronim-reproin-webinar)                                                                       |
 | 2019-11    | [Making science more open and reproducible by design, tools can help](pdfdeck.html?talk=2019-brown-open-science)                                                                    |
 | 2019-09    | [Tales from the CON: A few studies of a curious mind](pdfdeck.html?talk=2019-umass-tales)                                                                                           |
 | 2019-08    | [Open Science Tools from the Center for Open Neuroscience](pdfdeck.html?talk=2019-mind-con-tools)                                                                                   |
