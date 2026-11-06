@@ -37,6 +37,7 @@
   title: 'Beyond the Lab Website: Reusing Structured Research Metadata Across Lab Operations'
   path: 2026-usrse/orinoco-lite_poster.html
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/orinoco-lite_poster.html
+  doi: 10.5281/zenodo.22834595
   venue: US-RSE'26, the Research Software Engineers Conference (poster session)
   authors:
   - John Lee
@@ -70,6 +71,22 @@
   - Yaroslav O. Halchenko
   - Cody Baker
   pid: xyzrins:publications/talk-2026-dhmc-ieeg
+- date: 2026-10
+  kind: poster
+  title: 'STAMPED in Practice: Improving research skills through reproducible experiments'
+  path: 2026-usrse/stamped-ai-study/index.html
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/index.html
+  pdf: https://datasets.datalad.org/centerforopenneuroscience/talks/2026-usrse/stamped-ai-study/exports/stamped-ai-poster.pdf
+  doi: 10.5281/zenodo.22833915
+  venue: US-RSE'26, the Research Software Engineers Conference (poster session)
+  authors:
+  - John Lee
+  - Austin Macdonald
+  - Cody Baker
+  - Yaroslav O. Halchenko
+  presenters:
+  - John Lee
+  pid: xyzrins:publications/poster-2026-usrse-stamped-in-practice
 - date: '2026-06-02'
   kind: talk
   title: BIDS 2.0
@@ -132,9 +149,42 @@
   title: 'The Ecosystem of Standards in Neuroscience: Which Ones Are For You?'
   path: 2025-sfn-poster-data-standards.pdf
   url: https://datasets.datalad.org/centerforopenneuroscience/talks/2025-sfn-poster-data-standards.pdf
+  doi: 10.5281/zenodo.18333007
   venue: Society for Neuroscience (SfN) 2025
   authors:
   - Oliver Rübel
+  - Cody Baker
+  - Jyl Boline
+  - Kristofer Bouchard
+  - Andrew P. Davison
+  - Saskia de Vries
+  - Ben Dichter
+  - Andrey Fedorov
+  - Satrajit Ghosh
+  - Tom Gillespie
+  - Jeffrey S. Grethe
+  - Nicole Guittari
+  - Sean N. Hatton
+  - Erik Johnson
+  - David Keator
+  - David N. Kennedy
+  - Ryan Ly
+  - Chris Markiewicz
+  - Peyman Najafi
+  - Stephen Nichols
+  - Franco Pestilli
+  - Jean-Baptiste Poline
+  - Samuel Prince
+  - Kay A. Robbins
+  - Chris Rorden
+  - Melissa Kline Struhl
+  - Nile E.S. Tregoning
+  - Adam L. Tyson
+  - Thomas Wachtler
+  - Brock Wester
+  - Helen Yi
+  - Lyuba Zehl
+  - Kaiwen Zhuang
   - Yaroslav O. Halchenko
   presenters:
   - Oliver Rübel
