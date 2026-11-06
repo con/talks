@@ -122,12 +122,41 @@ def test_presenter_is_bold_among_the_authors(store):
 
 
 @pytest.mark.ai_generated
-def test_unknown_presenter_leaves_nobody_bold(store):
+def test_talk_without_presenter_has_all_authors_bold_poster_none(store):
     _, add = store
-    add(slug="t", date="2026-01-01", path="t.html")
-    [e] = mk_index.load_entries()
-    assert e["authors"] == ["Some One"] and "presenters" not in e
-    assert '<span class="authors">Some One</span>' in mk_index.render([e])
+    add(slug="t", date="2026-01-02", path="t.html", author_list="Some One; Other Person")
+    add(slug="p", date="2026-01-01", path="p.pdf", kind="fabio:ConferencePoster")
+    t, p = mk_index.load_entries()
+    assert "presenters" not in t and "presenters" not in p
+    out = mk_index.render([t, p])
+    assert ('<span class="authors"><strong>Some One</strong>, '
+            '<strong>Other Person</strong></span>') in out
+    assert '<span class="authors">Some One</span>' in out
+
+
+@pytest.mark.ai_generated
+def test_people_on_whoweare_link_to_their_anchor(store):
+    _, add = store
+    persons = {
+        "a": {"display_label": "Yaroslav O. Halchenko",
+              "attributes": [{"predicate": "dlthings:tier", "value": "Centroids"}]},
+        "b": {"display_label": "Jean-Baptiste Poline",
+              "attributes": [{"predicate": "dlthings:tier", "value": "Collaborators"}]},
+        "c": {"display_label": "Oliver Rübel",
+              "attributes": [{"predicate": "dlthings:tier", "value": "Collaborators"}]},
+        "d": {"display_label": "Not Listed"},
+    }
+    links = mk_index.whoweare_links(persons)
+    assert links == {
+        "Yaroslav O. Halchenko": mk_index.WHOWEARE + "yaroslav_o_halchenko_",
+        "Jean-Baptiste Poline": mk_index.WHOWEARE + "jeanbaptiste_poline_",
+        "Oliver Rübel": mk_index.WHOWEARE + "oliver_rübel_"}
+    add(slug="t", date="2026-01-01", path="t.html", roles=("marcrel:spk",),
+        author_list="Some One; Yaroslav O. Halchenko")
+    out = mk_index.render(mk_index.load_entries(), links)
+    assert (f'Some One</strong>, <a href="{mk_index.WHOWEARE}yaroslav_o_halchenko_">'
+            'Yaroslav O. Halchenko</a></span>') in out
+    assert 'class="file"' not in out
 
 
 @pytest.mark.ai_generated

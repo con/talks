@@ -10,7 +10,9 @@ less the mirror prefix, is the path index.html links.  Records without one
 
 Authors are the record's attributed_to people, or its `bibo:authorList`
 ("A; B; C") where some authors have no person record.  Presenters, shown in
-bold, are the attributed people with the role marcrel:spk.
+bold, are the attributed people with the role marcrel:spk; a talk with none
+recorded has all its authors in bold.  People on the CON "who we are" page,
+those with a dlthings:tier, link to their entry there.
 
 The data flows one way: fix a record, never the generated files.
 
@@ -33,6 +35,7 @@ STORE = pathlib.Path(os.environ.get(
     "CON_RECORD_STORE", HERE / "sourcedata/con-site-specific"))
 RECORDS = STORE / "metadata/records"
 BASE = "https://datasets.datalad.org/centerforopenneuroscience/talks/"
+WHOWEARE = "https://centerforopenneuroscience.org/whoweare#"
 KINDS = {"bibo:Slideshow": "talk", "fabio:ConferencePoster": "poster"}
 
 
@@ -52,6 +55,26 @@ def person_name(pid, persons):
         return pid
     return (d.get("display_label") or d.get("formatted_name")
             or f"{d.get('given_name', '')} {d.get('family_name', '')}".strip())
+
+
+def load_persons():
+    persons = {}
+    for f in (RECORDS / "XYZPerson").glob("*.yaml"):
+        d = yaml.safe_load(f.read_text())
+        persons[d["pid"]] = d
+    return persons
+
+
+def whoweare_links(persons):
+    """Name -> URL of that person on the page; its anchors are the name, as
+    `yaroslav_o_halchenko_`."""
+    links = {}
+    for pid, d in persons.items():
+        if one(d, "dlthings:tier"):
+            name = person_name(pid, persons)
+            anchor = re.sub(r"[^\w ]", "", name.lower()).replace(" ", "_")
+            links[name] = f"{WHOWEARE}{anchor}_"
+    return links
 
 
 def authors_of(d, persons):
@@ -78,10 +101,7 @@ def is_wip(path):
 
 
 def load_entries():
-    persons = {}
-    for f in (RECORDS / "XYZPerson").glob("*.yaml"):
-        d = yaml.safe_load(f.read_text())
-        persons[d["pid"]] = d
+    persons = load_persons()
     entries = []
     for f in sorted((RECORDS / "XYZPublication").glob("*.yaml")):
         d = yaml.safe_load(f.read_text())
@@ -134,8 +154,16 @@ def check_presenters(entries):
                       file=sys.stderr)
 
 
-def render(entries):
+def author_html(name, bold, links):
+    text = html.escape(name)
+    if name in links:
+        text = f'<a href="{html.escape(links[name])}">{text}</a>'
+    return f"<strong>{text}</strong>" if name in bold else text
+
+
+def render(entries, links=None):
     esc = html.escape
+    links = links or {}
     items, year = [], None
     for e in entries:
         if e["date"][:4] != year:
@@ -149,15 +177,13 @@ def render(entries):
         if "pdf" in e:
             extra += (f' (<a class="alt" href="{esc(e["pdf"][len(BASE):])}">'
                       f'PDF</a>)')
-        authors = ", ".join(
-            f"<strong>{esc(a)}</strong>" if a in e.get("presenters", []) else esc(a)
-            for a in e["authors"])
+        bold = e.get("presenters") or (e["authors"] if e["kind"] == "talk" else [])
+        authors = ", ".join(author_html(a, bold, links) for a in e["authors"])
         meta = " &middot; ".join(esc(x) for x in (e["date"], e["venue"]) if x)
         items.append(
             f'        <li><a href="{esc(e["path"])}">{esc(e["title"])}</a>{extra}'
             f' <span class="authors">{authors}</span>'
-            f' <span class="meta">{meta}</span>'
-            f' <span class="file">{esc(e["path"])}</span></li>')
+            f' <span class="meta">{meta}</span></li>')
     if year is not None:
         items.append("      </ul>")
     return TEMPLATE.replace("@ITEMS@", "\n".join(items))
@@ -248,18 +274,12 @@ TEMPLATE = """\
       display: block;
       font-size: 0.9em;
     }
-    ul.talks .authors strong { font-weight: 700; }
+    ul.talks .authors a { color: inherit; font-weight: 400; }
+    ul.talks .authors strong, ul.talks .authors strong a { font-weight: 700; }
     ul.talks .meta {
       display: block;
       font-size: 0.9em;
       color: var(--con-muted);
-    }
-    ul.talks .file {
-      display: block;
-      font-family: 'Source Code Pro', monospace;
-      font-size: 0.85em;
-      color: var(--con-muted);
-      font-weight: 400;
     }
     footer {
       background: var(--con-dark);
@@ -279,7 +299,7 @@ TEMPLATE = """\
     </div>
   </header>
   <main>
-    <p>Slides and posters from talks and workshops by CON people. This location is also a <a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/talks">DataLad dataset (git/git-annex repository)</a> so you can datalad clone it to get all the sources and materials. Also as data: <a href="talks.yaml">talks.yaml</a>. Presenters are in bold, where known.</p>
+    <p>Slides and posters from talks and workshops by CON people. This location is also a <a href="https://datasets.datalad.org/?dir=/centerforopenneuroscience/talks">DataLad dataset (git/git-annex repository)</a> so you can datalad clone it to get all the sources and materials. Also as data: <a href="talks.yaml">talks.yaml</a>. Presenters are in bold; where it is not recorded who gave a talk, all its authors are.</p>
 @ITEMS@
   </main>
   <footer>
@@ -298,7 +318,7 @@ def main():
         sys.exit(f"No talk records found in {RECORDS}")
     check_coverage(entries)
     check_presenters(entries)
-    (HERE / "index.html").write_text(render(entries))
+    (HERE / "index.html").write_text(render(entries, whoweare_links(load_persons())))
     header = ("# Generated by tools/mk_index.py from the XYZPublication records in\n"
               "# sourcedata/con-site-specific -- do not edit; fix the records.\n")
     (HERE / "talks.yaml").write_text(header + yaml.safe_dump(

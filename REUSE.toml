@@ -749,10 +749,14 @@ SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
 path = [
     "posters/caos-2010-pymvpa.pdf",
     "posters/caos-2010-transmodal.pdf",
+    "posters/cns-2011-parcellation.pdf",
     "posters/cns-2010-neurodebian.pdf",
     "posters/cns-2010-predictive-mapping.pdf",
     "posters/dartmouth-2010-pymvpa.pdf",
+    "posters/hbm-2011-neurodebian.pdf",
+    "posters/sfn-2010-neurodebian.pdf",
+    "posters/sfn-2012-familiar-faces.pdf",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = ["Yaroslav O. Halchenko", "Michael Hanke", "James V. Haxby", "Stephen José Hanson", "Christoph S. Herrmann", "Emanuele Olivetti", "Stefan Pollmann"]
+SPDX-FileCopyrightText = ["Yaroslav O. Halchenko", "Michael Hanke", "James V. Haxby", "Stephen José Hanson", "Christoph S. Herrmann", "Emanuele Olivetti", "Stefan Pollmann", "J. Swaroop Guntupalli", "Andrew C. Connolly", "Jason Gors", "M. Ida Gobbini", "Aigars Mahinovs"]
 SPDX-License-Identifier = "LicenseRef-ThirdPartyMixed"
