@@ -161,17 +161,6 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2025-ca-origami-retreat
-- date: 2024-08
-  kind: talk
-  title: '"What''s in the DataLad name" AKA How come DataLad?'
-  path: 2024-distribits-datalad-name.html
-  url: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad-name.html
-  venue: distribits 2024 (lightning talk) -- unverified, see the evidence
-  authors:
-  - Yaroslav O. Halchenko
-  presenters:
-  - Yaroslav O. Halchenko
-  pid: xyzrins:publications/talk-2024-distribits-datalad-name
 - date: 2024-06
   kind: talk
   title: SciOps from ReproNim
@@ -183,6 +172,17 @@
   presenters:
   - Yaroslav O. Halchenko
   pid: xyzrins:publications/talk-2024-repronim-reproflow-webinar
+- date: 2024-04
+  kind: talk
+  title: '"What''s in the DataLad name" AKA How come DataLad?'
+  path: 2024-distribits-datalad-name.html
+  url: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad-name.html
+  venue: distribits 2024 (lightning talk)
+  authors:
+  - Yaroslav O. Halchenko
+  presenters:
+  - Yaroslav O. Halchenko
+  pid: xyzrins:publications/talk-2024-distribits-datalad-name
 - date: 2024-04
   kind: talk
   title: '"What''s in the DataLad sandwich" AKA DataLad "ecosystem"'
