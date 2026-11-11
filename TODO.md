@@ -19,13 +19,13 @@ goes away by itself.
     Halchenko".
   - `2018-mcgill-datalad` has the venue "NIF/NIH online cast, McGill" and the
     date 2018-03, but this video is not that talk.  Its venue may need fixing.
-- **(Neuro)Debian/Git/GitAnnex/DataLad: Distributions and Version Control**
-  (OHBM 2018 training course, 2018-06; `talk-2018-ohbm-debian-git-datalad`)
+- **Computational basis** (OHBM 2018 Educational Course "Hands on
+  reproducible brain imaging", 2018-06-17; `talk-2018-ohbm-computational-basis`)
   - https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/2Qm4krjaSfM
-  - The video is titled "OHBM 2018: Yaroslav Halchencko".  The title here is
-    inferred from the [course schedule](https://repronim.org/ohbm2018-training/),
-    so confirm it, and the day.
-  - A hands-on lesson, so there may be no slides at all.
+  - The session as the [OHBM 2018 program](https://www.humanbrainmapping.org/files/2018/2018%20Singapore%20Program_FINAL.pdf)
+    names it, which also lists Michael Hanke for it; the lessons are on
+    https://repronim.org/ohbm2018-training/.
+  - Largely hands-on, so there may be no slides at all.
 - **A guide to DANDI, the BRAIN Initiative archive for publishing and sharing
   neurophysiology data** (NWB User Days 2021, 2021-08-26;
   `talk-2021-nwb-dandi-guide`)
@@ -41,10 +41,13 @@ goes away by itself.
   `talk-2024-distribits-datalad-registry`)
   - https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/_McJ1BtLsiQ
   - The [talk page](https://www.distribits.live/talks/2024/to-registry/) has no
-    slides, so ask Isaac.  Who presented is not recorded, so both are bold.
+    slides, so ask Isaac, who presented it.
 - **BIDS Talk & Q&A for 2024 The Neuro – Irv and Helga Cooper Foundation
-  International Prize** (2024-04; `talk-2024-neuro-prize-bids`)
+  International Prize** (Open Science in Action Symposium, 2023-11-30;
+  `talk-2024-neuro-prize-bids`)
   - https://datasets.datalad.org/centerforopenneuroscience/contube/web/#/video/6QoFWqfIZDU
   - The speaker says the slides were prepared by Ariel.  Check whether they
     are `202404xx-NSF-POSE-BIDS.pdf`, which credits Ariel Rokem and Rémi Gau.
-  - The date is the month the recording was published, so find the real one.
+  - The date is that of the prize ceremony on
+    [The Neuro's page](https://www.mcgill.ca/neuro/article/rewarding-excellence-open-science),
+    but the video says "2024" and was published 2024-04-29, so confirm it.
